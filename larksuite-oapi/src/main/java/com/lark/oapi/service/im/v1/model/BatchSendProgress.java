@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchSendProgress {
-    /**
-     * 发送成功的消息条数
-     * <p> 示例值：
-     */
+     /**
+      * 发送成功的消息条数
+      * <p> 示例值：
+      */
     @SerializedName("send_count")
     private String sendCount;
-    /**
-     * 总的计划发送的消息条数
-     * <p> 示例值：
-     */
+     /**
+      * 总的计划发送的消息条数
+      * <p> 示例值：
+      */
     @SerializedName("total_send_count")
     private String totalSendCount;
-
-    // builder 开始
-    public BatchSendProgress() {
-    }
-
-    public BatchSendProgress(Builder builder) {
-        /**
-         * 发送成功的消息条数
-         * <p> 示例值：
-         */
-        this.sendCount = builder.sendCount;
-        /**
-         * 总的计划发送的消息条数
-         * <p> 示例值：
-         */
-        this.totalSendCount = builder.totalSendCount;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSendCount() {
         return this.sendCount;
     }
@@ -79,46 +53,67 @@ public class BatchSendProgress {
         this.totalSendCount = totalSendCount;
     }
 
+
+// builder 开始
+  public BatchSendProgress(){}
+
+  public BatchSendProgress(Builder builder){
+         /**
+          * 发送成功的消息条数
+          * <p> 示例值：
+          */
+      this.sendCount = builder.sendCount;
+         /**
+          * 总的计划发送的消息条数
+          * <p> 示例值：
+          */
+      this.totalSendCount = builder.totalSendCount;
+  }
+
     public static class Builder {
-        /**
-         * 发送成功的消息条数
-         * <p> 示例值：
-         */
+     /**
+      * 发送成功的消息条数
+      * <p> 示例值：
+      */
         private String sendCount;
-        /**
-         * 总的计划发送的消息条数
-         * <p> 示例值：
-         */
+     /**
+      * 总的计划发送的消息条数
+      * <p> 示例值：
+      */
         private String totalSendCount;
 
         /**
          * 发送成功的消息条数
          * <p> 示例值：
-         *
          * @param sendCount
          * @return
          */
         public Builder sendCount(String sendCount) {
-            this.sendCount = sendCount;
-            return this;
+             this.sendCount = sendCount;
+             return this;
         }
 
+    
 
         /**
          * 总的计划发送的消息条数
          * <p> 示例值：
-         *
          * @param totalSendCount
          * @return
          */
         public Builder totalSendCount(String totalSendCount) {
-            this.totalSendCount = totalSendCount;
-            return this;
+             this.totalSendCount = totalSendCount;
+             return this;
         }
 
+    
+    
+    public BatchSendProgress build(){
+        return new BatchSendProgress(this);
+      }
+    }
 
-        public BatchSendProgress build() {
-            return new BatchSendProgress(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

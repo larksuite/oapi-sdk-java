@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListNotifyStatus {
-    /**
-     * 用户id
-     * <p> 示例值：
-     */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private UserId userId;
-    /**
-     * 加急状态类型
-     * <p> 示例值：
-     */
+     /**
+      * 加急状态类型
+      * <p> 示例值：
+      */
     @SerializedName("notify_status_type")
     private String notifyStatusType;
-
-    // builder 开始
-    public ListNotifyStatus() {
-    }
-
-    public ListNotifyStatus(Builder builder) {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 加急状态类型
-         * <p> 示例值：
-         */
-        this.notifyStatusType = builder.notifyStatusType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public UserId getUserId() {
         return this.userId;
     }
@@ -79,58 +53,77 @@ public class ListNotifyStatus {
         this.notifyStatusType = notifyStatusType;
     }
 
+
+// builder 开始
+  public ListNotifyStatus(){}
+
+  public ListNotifyStatus(Builder builder){
+         /**
+          * 用户id
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * 加急状态类型
+          * <p> 示例值：
+          */
+      this.notifyStatusType = builder.notifyStatusType;
+  }
+
     public static class Builder {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
         private UserId userId;
-        /**
-         * 加急状态类型
-         * <p> 示例值：
-         */
+     /**
+      * 加急状态类型
+      * <p> 示例值：
+      */
         private String notifyStatusType;
 
         /**
          * 用户id
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(UserId userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 加急状态类型
          * <p> 示例值：
-         *
          * @param notifyStatusType
          * @return
          */
         public Builder notifyStatusType(String notifyStatusType) {
-            this.notifyStatusType = notifyStatusType;
-            return this;
+             this.notifyStatusType = notifyStatusType;
+             return this;
         }
-
         /**
          * 加急状态类型
          * <p> 示例值：
-         *
          * @param notifyStatusType {@link com.lark.oapi.service.im.v1.enums.ListNotifyStatusNotifyStatusTypeEnum}
          * @return
          */
         public Builder notifyStatusType(com.lark.oapi.service.im.v1.enums.ListNotifyStatusNotifyStatusTypeEnum notifyStatusType) {
-            this.notifyStatusType = notifyStatusType.getValue();
-            return this;
+             this.notifyStatusType = notifyStatusType.getValue();
+             return this;
         }
 
+    
+    
+    public ListNotifyStatus build(){
+        return new ListNotifyStatus(this);
+      }
+    }
 
-        public ListNotifyStatus build() {
-            return new ListNotifyStatus(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

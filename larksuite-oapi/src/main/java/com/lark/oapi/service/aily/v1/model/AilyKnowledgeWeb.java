@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AilyKnowledgeWeb {
-    /**
-     * 链接
-     * <p> 示例值：xxx
-     */
+     /**
+      * 链接
+      * <p> 示例值：xxx
+      */
     @SerializedName("url")
     private String url;
-    /**
-     * 网页标题
-     * <p> 示例值：title
-     */
+     /**
+      * 网页标题
+      * <p> 示例值：title
+      */
     @SerializedName("title")
     private String title;
-
-    // builder 开始
-    public AilyKnowledgeWeb() {
-    }
-
-    public AilyKnowledgeWeb(Builder builder) {
-        /**
-         * 链接
-         * <p> 示例值：xxx
-         */
-        this.url = builder.url;
-        /**
-         * 网页标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUrl() {
         return this.url;
     }
@@ -79,46 +53,67 @@ public class AilyKnowledgeWeb {
         this.title = title;
     }
 
+
+// builder 开始
+  public AilyKnowledgeWeb(){}
+
+  public AilyKnowledgeWeb(Builder builder){
+         /**
+          * 链接
+          * <p> 示例值：xxx
+          */
+      this.url = builder.url;
+         /**
+          * 网页标题
+          * <p> 示例值：title
+          */
+      this.title = builder.title;
+  }
+
     public static class Builder {
-        /**
-         * 链接
-         * <p> 示例值：xxx
-         */
+     /**
+      * 链接
+      * <p> 示例值：xxx
+      */
         private String url;
-        /**
-         * 网页标题
-         * <p> 示例值：title
-         */
+     /**
+      * 网页标题
+      * <p> 示例值：title
+      */
         private String title;
 
         /**
          * 链接
          * <p> 示例值：xxx
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
 
         /**
          * 网页标题
          * <p> 示例值：title
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
+    
+    public AilyKnowledgeWeb build(){
+        return new AilyKnowledgeWeb(this);
+      }
+    }
 
-        public AilyKnowledgeWeb build() {
-            return new AilyKnowledgeWeb(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

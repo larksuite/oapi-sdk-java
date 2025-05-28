@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EcoExamResult {
-    /**
-     * 笔试结果
-     * <p> 示例值：60.5
-     */
+     /**
+      * 笔试结果
+      * <p> 示例值：60.5
+      */
     @SerializedName("result")
     private String result;
-    /**
-     * 笔试结果时间
-     * <p> 示例值：1658676234053
-     */
+     /**
+      * 笔试结果时间
+      * <p> 示例值：1658676234053
+      */
     @SerializedName("result_time")
     private String resultTime;
-    /**
-     * 报告列表
-     * <p> 示例值：
-     */
+     /**
+      * 报告列表
+      * <p> 示例值：
+      */
     @SerializedName("report_list")
     private EcoExamResultReport[] reportList;
-    /**
-     * 详细评价结果
-     * <p> 示例值：
-     */
+     /**
+      * 详细评价结果
+      * <p> 示例值：
+      */
     @SerializedName("detail_list")
     private EcoExamResultDetail[] detailList;
-
-    // builder 开始
-    public EcoExamResult() {
-    }
-
-    public EcoExamResult(Builder builder) {
-        /**
-         * 笔试结果
-         * <p> 示例值：60.5
-         */
-        this.result = builder.result;
-        /**
-         * 笔试结果时间
-         * <p> 示例值：1658676234053
-         */
-        this.resultTime = builder.resultTime;
-        /**
-         * 报告列表
-         * <p> 示例值：
-         */
-        this.reportList = builder.reportList;
-        /**
-         * 详细评价结果
-         * <p> 示例值：
-         */
-        this.detailList = builder.detailList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getResult() {
         return this.result;
     }
@@ -116,82 +80,113 @@ public class EcoExamResult {
         this.detailList = detailList;
     }
 
+
+// builder 开始
+  public EcoExamResult(){}
+
+  public EcoExamResult(Builder builder){
+         /**
+          * 笔试结果
+          * <p> 示例值：60.5
+          */
+      this.result = builder.result;
+         /**
+          * 笔试结果时间
+          * <p> 示例值：1658676234053
+          */
+      this.resultTime = builder.resultTime;
+         /**
+          * 报告列表
+          * <p> 示例值：
+          */
+      this.reportList = builder.reportList;
+         /**
+          * 详细评价结果
+          * <p> 示例值：
+          */
+      this.detailList = builder.detailList;
+  }
+
     public static class Builder {
-        /**
-         * 笔试结果
-         * <p> 示例值：60.5
-         */
+     /**
+      * 笔试结果
+      * <p> 示例值：60.5
+      */
         private String result;
-        /**
-         * 笔试结果时间
-         * <p> 示例值：1658676234053
-         */
+     /**
+      * 笔试结果时间
+      * <p> 示例值：1658676234053
+      */
         private String resultTime;
-        /**
-         * 报告列表
-         * <p> 示例值：
-         */
+     /**
+      * 报告列表
+      * <p> 示例值：
+      */
         private EcoExamResultReport[] reportList;
-        /**
-         * 详细评价结果
-         * <p> 示例值：
-         */
+     /**
+      * 详细评价结果
+      * <p> 示例值：
+      */
         private EcoExamResultDetail[] detailList;
 
         /**
          * 笔试结果
          * <p> 示例值：60.5
-         *
          * @param result
          * @return
          */
         public Builder result(String result) {
-            this.result = result;
-            return this;
+             this.result = result;
+             return this;
         }
 
+    
 
         /**
          * 笔试结果时间
          * <p> 示例值：1658676234053
-         *
          * @param resultTime
          * @return
          */
         public Builder resultTime(String resultTime) {
-            this.resultTime = resultTime;
-            return this;
+             this.resultTime = resultTime;
+             return this;
         }
 
+    
 
         /**
          * 报告列表
          * <p> 示例值：
-         *
          * @param reportList
          * @return
          */
         public Builder reportList(EcoExamResultReport[] reportList) {
-            this.reportList = reportList;
-            return this;
+             this.reportList = reportList;
+             return this;
         }
 
+    
 
         /**
          * 详细评价结果
          * <p> 示例值：
-         *
          * @param detailList
          * @return
          */
         public Builder detailList(EcoExamResultDetail[] detailList) {
-            this.detailList = detailList;
-            return this;
+             this.detailList = detailList;
+             return this;
         }
 
+    
+    
+    public EcoExamResult build(){
+        return new EcoExamResult(this);
+      }
+    }
 
-        public EcoExamResult build() {
-            return new EcoExamResult(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

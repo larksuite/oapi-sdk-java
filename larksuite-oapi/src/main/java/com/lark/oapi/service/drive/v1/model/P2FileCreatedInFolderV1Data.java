@@ -12,53 +12,48 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2FileCreatedInFolderV1Data {
-    /**
-     * 文档类型
-     * <p> 示例值：docx
-     */
+     /**
+      * 文档类型
+      * <p> 示例值：docx
+      */
     @SerializedName("file_type")
     private String fileType;
-    /**
-     * 文档 Token
-     * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
-     */
+     /**
+      * 文档 Token
+      * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 文件夹 Token
-     * <p> 示例值：QBonfpyHVlhQMedDztWcIbabcef
-     */
+     /**
+      * 文件夹 Token
+      * <p> 示例值：QBonfpyHVlhQMedDztWcIbabcef
+      */
     @SerializedName("folder_token")
     private String folderToken;
-    /**
-     * 操作者 ID
-     * <p> 示例值：
-     */
+     /**
+      * 操作者 ID
+      * <p> 示例值：
+      */
     @SerializedName("operator_id")
     private UserId operatorId;
-    /**
-     * 订阅用户 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 订阅用户 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("subscriber_ids")
     private UserId[] subscriberIds;
-
     public String getFileType() {
         return this.fileType;
     }

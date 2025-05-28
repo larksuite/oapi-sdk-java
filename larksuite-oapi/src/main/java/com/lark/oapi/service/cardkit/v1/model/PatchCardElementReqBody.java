@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchCardElementReqBody {
-    /**
-     * 要更改的组件部分配置内容，传入 id 参数后将对原有组件的 id 进行更新，不支持修改 tag 参数。
-     * <p> 示例值：{\"content\":\"更新后的组件文本\"}
-     */
+     /**
+      * 要更改的组件部分配置内容，传入 id 参数后将对原有组件的 id 进行更新，不支持修改 tag 参数。
+      * <p> 示例值：{\"content\":\"更新后的组件文本\"}
+      */
     @SerializedName("partial_element")
     private String partialElement;
-    /**
-     * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-     * <p> 示例值：191857678434
-     */
+     /**
+      * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
+      * <p> 示例值：191857678434
+      */
     @SerializedName("uuid")
     private String uuid;
-    /**
-     * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-     * <p> 示例值：1712578784
-     */
+     /**
+      * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
+      * <p> 示例值：1712578784
+      */
     @SerializedName("sequence")
     private Integer sequence;
-
-    // builder 开始
-    public PatchCardElementReqBody() {
-    }
-
-    public PatchCardElementReqBody(Builder builder) {
-        /**
-         * 要更改的组件部分配置内容，传入 id 参数后将对原有组件的 id 进行更新，不支持修改 tag 参数。
-         * <p> 示例值：{\"content\":\"更新后的组件文本\"}
-         */
-        this.partialElement = builder.partialElement;
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
-        this.uuid = builder.uuid;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
-        this.sequence = builder.sequence;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPartialElement() {
         return this.partialElement;
     }
@@ -98,64 +67,90 @@ public class PatchCardElementReqBody {
         this.sequence = sequence;
     }
 
+
+// builder 开始
+  public PatchCardElementReqBody(){}
+
+  public PatchCardElementReqBody(Builder builder){
+         /**
+          * 要更改的组件部分配置内容，传入 id 参数后将对原有组件的 id 进行更新，不支持修改 tag 参数。
+          * <p> 示例值：{\"content\":\"更新后的组件文本\"}
+          */
+      this.partialElement = builder.partialElement;
+         /**
+          * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
+          * <p> 示例值：191857678434
+          */
+      this.uuid = builder.uuid;
+         /**
+          * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
+          * <p> 示例值：1712578784
+          */
+      this.sequence = builder.sequence;
+  }
+
     public static class Builder {
-        /**
-         * 要更改的组件部分配置内容，传入 id 参数后将对原有组件的 id 进行更新，不支持修改 tag 参数。
-         * <p> 示例值：{\"content\":\"更新后的组件文本\"}
-         */
+     /**
+      * 要更改的组件部分配置内容，传入 id 参数后将对原有组件的 id 进行更新，不支持修改 tag 参数。
+      * <p> 示例值：{\"content\":\"更新后的组件文本\"}
+      */
         private String partialElement;
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
+     /**
+      * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
+      * <p> 示例值：191857678434
+      */
         private String uuid;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
+     /**
+      * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
+      * <p> 示例值：1712578784
+      */
         private Integer sequence;
 
         /**
          * 要更改的组件部分配置内容，传入 id 参数后将对原有组件的 id 进行更新，不支持修改 tag 参数。
          * <p> 示例值：{\"content\":\"更新后的组件文本\"}
-         *
          * @param partialElement
          * @return
          */
         public Builder partialElement(String partialElement) {
-            this.partialElement = partialElement;
-            return this;
+             this.partialElement = partialElement;
+             return this;
         }
 
+    
 
         /**
          * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
          * <p> 示例值：191857678434
-         *
          * @param uuid
          * @return
          */
         public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
+             this.uuid = uuid;
+             return this;
         }
 
+    
 
         /**
          * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
          * <p> 示例值：1712578784
-         *
          * @param sequence
          * @return
          */
         public Builder sequence(Integer sequence) {
-            this.sequence = sequence;
-            return this;
+             this.sequence = sequence;
+             return this;
         }
 
+    
+    
+    public PatchCardElementReqBody build(){
+        return new PatchCardElementReqBody(this);
+      }
+    }
 
-        public PatchCardElementReqBody build() {
-            return new PatchCardElementReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReferralInfoV2 {
-    /**
-     * 内推基本信息
-     * <p> 示例值：
-     */
+     /**
+      * 内推基本信息
+      * <p> 示例值：
+      */
     @SerializedName("basic_info")
     private ReferralBasicInfo basicInfo;
-    /**
-     * 内推关联推荐信息
-     * <p> 示例值：
-     */
+     /**
+      * 内推关联推荐信息
+      * <p> 示例值：
+      */
     @SerializedName("recommend_info")
     private ReferralRecommendInfo recommendInfo;
-
-    // builder 开始
-    public ReferralInfoV2() {
-    }
-
-    public ReferralInfoV2(Builder builder) {
-        /**
-         * 内推基本信息
-         * <p> 示例值：
-         */
-        this.basicInfo = builder.basicInfo;
-        /**
-         * 内推关联推荐信息
-         * <p> 示例值：
-         */
-        this.recommendInfo = builder.recommendInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ReferralBasicInfo getBasicInfo() {
         return this.basicInfo;
     }
@@ -78,46 +52,67 @@ public class ReferralInfoV2 {
         this.recommendInfo = recommendInfo;
     }
 
+
+// builder 开始
+  public ReferralInfoV2(){}
+
+  public ReferralInfoV2(Builder builder){
+         /**
+          * 内推基本信息
+          * <p> 示例值：
+          */
+      this.basicInfo = builder.basicInfo;
+         /**
+          * 内推关联推荐信息
+          * <p> 示例值：
+          */
+      this.recommendInfo = builder.recommendInfo;
+  }
+
     public static class Builder {
-        /**
-         * 内推基本信息
-         * <p> 示例值：
-         */
+     /**
+      * 内推基本信息
+      * <p> 示例值：
+      */
         private ReferralBasicInfo basicInfo;
-        /**
-         * 内推关联推荐信息
-         * <p> 示例值：
-         */
+     /**
+      * 内推关联推荐信息
+      * <p> 示例值：
+      */
         private ReferralRecommendInfo recommendInfo;
 
         /**
          * 内推基本信息
          * <p> 示例值：
-         *
          * @param basicInfo
          * @return
          */
         public Builder basicInfo(ReferralBasicInfo basicInfo) {
-            this.basicInfo = basicInfo;
-            return this;
+             this.basicInfo = basicInfo;
+             return this;
         }
 
+    
 
         /**
          * 内推关联推荐信息
          * <p> 示例值：
-         *
          * @param recommendInfo
          * @return
          */
         public Builder recommendInfo(ReferralRecommendInfo recommendInfo) {
-            this.recommendInfo = recommendInfo;
-            return this;
+             this.recommendInfo = recommendInfo;
+             return this;
         }
 
+    
+    
+    public ReferralInfoV2 build(){
+        return new ReferralInfoV2(this);
+      }
+    }
 
-        public ReferralInfoV2 build() {
-            return new ReferralInfoV2(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

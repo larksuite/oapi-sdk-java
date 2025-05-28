@@ -17,16 +17,15 @@ package com.lark.oapi.service.task.v2.enums;
  * 依赖类型
  */
 public enum TaskDependencyDependencyTypeEnum {
-    PREV("prev"), // 前置依赖
-    NEXT("next"), // 后置依赖
-    ;
-    private String value;
-
+     PREV("prev"), // 前置依赖
+     NEXT("next"), // 后置依赖
+  ;
+   private String value;
     TaskDependencyDependencyTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

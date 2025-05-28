@@ -17,17 +17,16 @@ package com.lark.oapi.service.drive.v1.enums;
  * 版本文档状态
  */
 public enum VersionStatusEnum {
-    STATUSEXIST("0"), // 正常状态
-    STATUSDELETED("1"), // 删除状态
-    STATUSTRASH("2"), // 回收站状态
-    ;
-    private String value;
-
+     STATUSEXIST("0"), // 正常状态
+     STATUSDELETED("1"), // 删除状态
+     STATUSTRASH("2"), // 回收站状态
+  ;
+   private String value;
     VersionStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

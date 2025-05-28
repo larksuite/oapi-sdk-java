@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchDelUserFlowReqBody {
-    /**
-     * 流水记录ID
-     * <p> 示例值：
-     */
+     /**
+      * 流水记录ID
+      * <p> 示例值：
+      */
     @SerializedName("record_ids")
     private String[] recordIds;
-
-    // builder 开始
-    public BatchDelUserFlowReqBody() {
-    }
-
-    public BatchDelUserFlowReqBody(Builder builder) {
-        /**
-         * 流水记录ID
-         * <p> 示例值：
-         */
-        this.recordIds = builder.recordIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getRecordIds() {
         return this.recordIds;
     }
@@ -60,28 +39,44 @@ public class BatchDelUserFlowReqBody {
         this.recordIds = recordIds;
     }
 
+
+// builder 开始
+  public BatchDelUserFlowReqBody(){}
+
+  public BatchDelUserFlowReqBody(Builder builder){
+         /**
+          * 流水记录ID
+          * <p> 示例值：
+          */
+      this.recordIds = builder.recordIds;
+  }
+
     public static class Builder {
-        /**
-         * 流水记录ID
-         * <p> 示例值：
-         */
+     /**
+      * 流水记录ID
+      * <p> 示例值：
+      */
         private String[] recordIds;
 
         /**
          * 流水记录ID
          * <p> 示例值：
-         *
          * @param recordIds
          * @return
          */
         public Builder recordIds(String[] recordIds) {
-            this.recordIds = recordIds;
-            return this;
+             this.recordIds = recordIds;
+             return this;
         }
 
+    
+    
+    public BatchDelUserFlowReqBody build(){
+        return new BatchDelUserFlowReqBody(this);
+      }
+    }
 
-        public BatchDelUserFlowReqBody build() {
-            return new BatchDelUserFlowReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

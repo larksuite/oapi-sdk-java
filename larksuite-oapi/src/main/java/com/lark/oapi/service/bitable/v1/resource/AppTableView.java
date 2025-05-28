@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.bitable.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class AppTableView {
         this.config = config;
     }
 
-
+    
     /**
      * 新增视图，在数据表中新增一个视图
      * <p> 该接口支持调用频率上限为 10 QPS ;
@@ -64,7 +59,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppTableViewResp.class);
         if (resp == null) {
@@ -72,14 +67,14 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -97,7 +92,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppTableViewResp.class);
         if (resp == null) {
@@ -105,16 +100,15 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除视图，删除数据表中的视图
      * <p> 该接口支持调用频率上限为 10 QPS ;
@@ -132,7 +126,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteAppTableViewResp.class);
         if (resp == null) {
@@ -140,14 +134,14 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -165,7 +159,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteAppTableViewResp.class);
         if (resp == null) {
@@ -173,16 +167,15 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 检索视图，该接口根据 view_id 检索现有视图
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/get</a> ;
@@ -199,7 +192,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         GetAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAppTableViewResp.class);
         if (resp == null) {
@@ -207,14 +200,14 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -231,7 +224,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         GetAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAppTableViewResp.class);
         if (resp == null) {
@@ -239,16 +232,15 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 列出视图，根据 app_token 和 table_id，获取数据表的所有视图
      * <p> 该接口支持调用频率上限为 20 QPS ;
@@ -266,7 +258,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppTableViewResp.class);
         if (resp == null) {
@@ -274,14 +266,14 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -299,7 +291,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppTableViewResp.class);
         if (resp == null) {
@@ -307,16 +299,15 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 更新视图，该接口用于增量修改视图信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/patch</a> ;
@@ -333,7 +324,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         PatchAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchAppTableViewResp.class);
         if (resp == null) {
@@ -341,14 +332,14 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -365,7 +356,7 @@ public class AppTableView {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         PatchAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchAppTableViewResp.class);
         if (resp == null) {
@@ -373,13 +364,13 @@ public class AppTableView {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

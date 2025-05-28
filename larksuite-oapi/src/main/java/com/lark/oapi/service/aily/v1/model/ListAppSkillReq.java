@@ -12,70 +12,32 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListAppSkillReq {
-    /**
-     * 页面大小
-     * <p> 示例值：
-     */
+     /**
+      * 页面大小
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页偏移量
-     * <p> 示例值：
-     */
+     /**
+      * 分页偏移量
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 应用 ID
-     * <p> 示例值：spring_xxx__c
-     */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-
-    // builder 开始
-    public ListAppSkillReq() {
-    }
-
-    public ListAppSkillReq(Builder builder) {
-        /**
-         * 页面大小
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页偏移量
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 应用 ID
-         * <p> 示例值：spring_xxx__c
-         */
-        this.appId = builder.appId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -92,6 +54,13 @@ public class ListAppSkillReq {
         this.pageToken = pageToken;
     }
 
+     /**
+      * 应用 ID
+      * <p> 示例值：spring_xxx__c
+      */
+    @Path
+    @SerializedName("app_id")
+    private String appId;
     public String getAppId() {
         return this.appId;
     }
@@ -100,50 +69,75 @@ public class ListAppSkillReq {
         this.appId = appId;
     }
 
+
+// builder 开始
+  public ListAppSkillReq(){}
+
+  public ListAppSkillReq(Builder builder){
+         /**
+          * 页面大小
+          * <p> 示例值：
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页偏移量
+          * <p> 示例值：
+          */
+       this.pageToken = builder.pageToken;
+     /**
+      * 应用 ID
+      * <p> 示例值：spring_xxx__c
+      */
+       this.appId = builder.appId;
+  }
+
     public static class Builder {
         private Integer pageSize; // 页面大小
         private String pageToken; // 分页偏移量
-        private String appId; // 应用 ID
-
+    
         /**
          * 页面大小
          * <p> 示例值：
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
+    
         /**
          * 分页偏移量
          * <p> 示例值：
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
+        private String appId; // 应用 ID
         /**
          * 应用 ID
          * <p> 示例值：spring_xxx__c
-         *
          * @param appId
          * @return
          */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
 
+    
+    public ListAppSkillReq build(){
+        return new ListAppSkillReq(this);
+      }
+    }
 
-        public ListAppSkillReq build() {
-            return new ListAppSkillReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

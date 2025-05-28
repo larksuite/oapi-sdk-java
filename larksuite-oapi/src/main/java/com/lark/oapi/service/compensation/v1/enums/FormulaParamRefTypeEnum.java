@@ -17,16 +17,15 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 引用类型
  */
 public enum FormulaParamRefTypeEnum {
-    REFTYPEITEM(1), // 引用薪资项
-    REFTYPEINDICATOR(2), // 引用薪资指标
-    ;
-    private Integer value;
-
+     REFTYPEITEM(1), // 引用薪资项
+     REFTYPEINDICATOR(2), // 引用薪资指标
+  ;
+   private Integer value;
     FormulaParamRefTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

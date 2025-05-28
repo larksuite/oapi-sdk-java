@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.okr.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,13 +41,13 @@ public class PeriodRule {
         this.config = config;
     }
 
-
+    
     /**
      * 获取 OKR 周期规则，获取租户的周期规则列表
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/period_rule/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/period_rule/list</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/okrv1/ListPeriodRuleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/okrv1/ListPeriodRuleSample.java</a> ;
      */
-    public ListPeriodRuleResp list(RequestOptions reqOptions) throws Exception {
+    public ListPeriodRuleResp list( RequestOptions reqOptions) throws Exception {
         // 请求参数选项
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
@@ -63,21 +58,21 @@ public class PeriodRule {
                 , "/open-apis/okr/v1/period_rules"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-
+        
         // 反序列化
         ListPeriodRuleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListPeriodRuleResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/okr/v1/period_rules"
-                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-
+                    StandardCharsets.UTF_8)));
+            
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        return resp;
+       resp.setRawResponse(httpResponse);
+       return resp;
     }
 
     /**
@@ -94,18 +89,18 @@ public class PeriodRule {
                 , "/open-apis/okr/v1/period_rules"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , null);
-
+        
         // 反序列化
         ListPeriodRuleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListPeriodRuleResp.class);
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/okr/v1/period_rules"
-                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    ,  Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-
+                    StandardCharsets.UTF_8)));
+            
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         return resp;

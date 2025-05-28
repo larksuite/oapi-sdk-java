@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryMetricLibReqBody {
-    /**
-     * 状态是否为启用
-     * <p> 示例值：
-     */
+     /**
+      * 状态是否为启用
+      * <p> 示例值：
+      */
     @SerializedName("is_active")
     private Boolean isActive;
-    /**
-     * 指标所属的标签 ID
-     * <p> 示例值：
-     */
+     /**
+      * 指标所属的标签 ID
+      * <p> 示例值：
+      */
     @SerializedName("tag_ids")
     private String[] tagIds;
-    /**
-     * 所属的指标类型 ID
-     * <p> 示例值：
-     */
+     /**
+      * 所属的指标类型 ID
+      * <p> 示例值：
+      */
     @SerializedName("type_ids")
     private String[] typeIds;
-    /**
-     * 可用范围
-     * <p> 示例值：admins_and_reviewees
-     */
+     /**
+      * 可用范围
+      * <p> 示例值：admins_and_reviewees
+      */
     @SerializedName("range_of_availability")
     private String rangeOfAvailability;
-    /**
-     * 评分设置类型
-     * <p> 示例值：score_manually
-     */
+     /**
+      * 评分设置类型
+      * <p> 示例值：score_manually
+      */
     @SerializedName("scoring_setting_type")
     private String scoringSettingType;
-
-    // builder 开始
-    public QueryMetricLibReqBody() {
-    }
-
-    public QueryMetricLibReqBody(Builder builder) {
-        /**
-         * 状态是否为启用
-         * <p> 示例值：
-         */
-        this.isActive = builder.isActive;
-        /**
-         * 指标所属的标签 ID
-         * <p> 示例值：
-         */
-        this.tagIds = builder.tagIds;
-        /**
-         * 所属的指标类型 ID
-         * <p> 示例值：
-         */
-        this.typeIds = builder.typeIds;
-        /**
-         * 可用范围
-         * <p> 示例值：admins_and_reviewees
-         */
-        this.rangeOfAvailability = builder.rangeOfAvailability;
-        /**
-         * 评分设置类型
-         * <p> 示例值：score_manually
-         */
-        this.scoringSettingType = builder.scoringSettingType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getIsActive() {
         return this.isActive;
     }
@@ -136,124 +95,156 @@ public class QueryMetricLibReqBody {
         this.scoringSettingType = scoringSettingType;
     }
 
+
+// builder 开始
+  public QueryMetricLibReqBody(){}
+
+  public QueryMetricLibReqBody(Builder builder){
+         /**
+          * 状态是否为启用
+          * <p> 示例值：
+          */
+      this.isActive = builder.isActive;
+         /**
+          * 指标所属的标签 ID
+          * <p> 示例值：
+          */
+      this.tagIds = builder.tagIds;
+         /**
+          * 所属的指标类型 ID
+          * <p> 示例值：
+          */
+      this.typeIds = builder.typeIds;
+         /**
+          * 可用范围
+          * <p> 示例值：admins_and_reviewees
+          */
+      this.rangeOfAvailability = builder.rangeOfAvailability;
+         /**
+          * 评分设置类型
+          * <p> 示例值：score_manually
+          */
+      this.scoringSettingType = builder.scoringSettingType;
+  }
+
     public static class Builder {
-        /**
-         * 状态是否为启用
-         * <p> 示例值：
-         */
+     /**
+      * 状态是否为启用
+      * <p> 示例值：
+      */
         private Boolean isActive;
-        /**
-         * 指标所属的标签 ID
-         * <p> 示例值：
-         */
+     /**
+      * 指标所属的标签 ID
+      * <p> 示例值：
+      */
         private String[] tagIds;
-        /**
-         * 所属的指标类型 ID
-         * <p> 示例值：
-         */
+     /**
+      * 所属的指标类型 ID
+      * <p> 示例值：
+      */
         private String[] typeIds;
-        /**
-         * 可用范围
-         * <p> 示例值：admins_and_reviewees
-         */
+     /**
+      * 可用范围
+      * <p> 示例值：admins_and_reviewees
+      */
         private String rangeOfAvailability;
-        /**
-         * 评分设置类型
-         * <p> 示例值：score_manually
-         */
+     /**
+      * 评分设置类型
+      * <p> 示例值：score_manually
+      */
         private String scoringSettingType;
 
         /**
          * 状态是否为启用
          * <p> 示例值：
-         *
          * @param isActive
          * @return
          */
         public Builder isActive(Boolean isActive) {
-            this.isActive = isActive;
-            return this;
+             this.isActive = isActive;
+             return this;
         }
 
+    
 
         /**
          * 指标所属的标签 ID
          * <p> 示例值：
-         *
          * @param tagIds
          * @return
          */
         public Builder tagIds(String[] tagIds) {
-            this.tagIds = tagIds;
-            return this;
+             this.tagIds = tagIds;
+             return this;
         }
 
+    
 
         /**
          * 所属的指标类型 ID
          * <p> 示例值：
-         *
          * @param typeIds
          * @return
          */
         public Builder typeIds(String[] typeIds) {
-            this.typeIds = typeIds;
-            return this;
+             this.typeIds = typeIds;
+             return this;
         }
 
+    
 
         /**
          * 可用范围
          * <p> 示例值：admins_and_reviewees
-         *
          * @param rangeOfAvailability
          * @return
          */
         public Builder rangeOfAvailability(String rangeOfAvailability) {
-            this.rangeOfAvailability = rangeOfAvailability;
-            return this;
+             this.rangeOfAvailability = rangeOfAvailability;
+             return this;
         }
-
         /**
          * 可用范围
          * <p> 示例值：admins_and_reviewees
-         *
          * @param rangeOfAvailability {@link com.lark.oapi.service.performance.v2.enums.QueryMetricLibRangeOfAvailabilityEnum}
          * @return
          */
         public Builder rangeOfAvailability(com.lark.oapi.service.performance.v2.enums.QueryMetricLibRangeOfAvailabilityEnum rangeOfAvailability) {
-            this.rangeOfAvailability = rangeOfAvailability.getValue();
-            return this;
+             this.rangeOfAvailability = rangeOfAvailability.getValue();
+             return this;
         }
 
+    
 
         /**
          * 评分设置类型
          * <p> 示例值：score_manually
-         *
          * @param scoringSettingType
          * @return
          */
         public Builder scoringSettingType(String scoringSettingType) {
-            this.scoringSettingType = scoringSettingType;
-            return this;
+             this.scoringSettingType = scoringSettingType;
+             return this;
         }
-
         /**
          * 评分设置类型
          * <p> 示例值：score_manually
-         *
          * @param scoringSettingType {@link com.lark.oapi.service.performance.v2.enums.QueryMetricLibScoringSettingTypeEnum}
          * @return
          */
         public Builder scoringSettingType(com.lark.oapi.service.performance.v2.enums.QueryMetricLibScoringSettingTypeEnum scoringSettingType) {
-            this.scoringSettingType = scoringSettingType.getValue();
-            return this;
+             this.scoringSettingType = scoringSettingType.getValue();
+             return this;
         }
 
+    
+    
+    public QueryMetricLibReqBody build(){
+        return new QueryMetricLibReqBody(this);
+      }
+    }
 
-        public QueryMetricLibReqBody build() {
-            return new QueryMetricLibReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.attendance.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class Shift {
         this.config = config;
     }
 
-
+    
     /**
      * 创建班次，班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。
      * <p> - 创建一个考勤组前，必须先创建一个或者多个班次。;- 一个公司内的班次是共享的，你可以直接引用他人创建的班次，但是需要注意的是，若他人修改了班次，会影响到你的考勤组及其考勤结果。 ;
@@ -64,7 +59,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateShiftResp.class);
         if (resp == null) {
@@ -72,14 +67,14 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -97,7 +92,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateShiftResp.class);
         if (resp == null) {
@@ -105,16 +100,15 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除班次，通过班次 ID 删除班次。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/delete</a> ;
@@ -131,7 +125,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts/:shift_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteShiftResp.class);
         if (resp == null) {
@@ -139,14 +133,14 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts/:shift_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -163,7 +157,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts/:shift_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteShiftResp.class);
         if (resp == null) {
@@ -171,16 +165,15 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts/:shift_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取班次详情，通过班次 ID 获取班次详情。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get</a> ;
@@ -197,7 +190,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts/:shift_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetShiftResp.class);
         if (resp == null) {
@@ -205,14 +198,14 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts/:shift_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -229,7 +222,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts/:shift_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetShiftResp.class);
         if (resp == null) {
@@ -237,16 +230,15 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts/:shift_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取班次列表，翻页获取所有班次列表。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list</a> ;
@@ -263,7 +255,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListShiftResp.class);
         if (resp == null) {
@@ -271,14 +263,14 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -295,7 +287,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListShiftResp.class);
         if (resp == null) {
@@ -303,16 +295,15 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 按名称查询班次，通过班次的名称查询班次信息。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query</a> ;
@@ -329,7 +320,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryShiftResp.class);
         if (resp == null) {
@@ -337,14 +328,14 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -361,7 +352,7 @@ public class Shift {
                 , "/open-apis/attendance/v1/shifts/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryShiftResp.class);
         if (resp == null) {
@@ -369,13 +360,13 @@ public class Shift {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/shifts/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

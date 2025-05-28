@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AgentSkillLessInfo {
-    /**
-     * 客服技能 id
-     * <p> 示例值：agent-skill-id
-     */
+     /**
+      * 客服技能 id
+      * <p> 示例值：agent-skill-id
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 客服技能名
-     * <p> 示例值：agent-skill
-     */
+     /**
+      * 客服技能名
+      * <p> 示例值：agent-skill
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 是默认技能
-     * <p> 示例值：false
-     */
+     /**
+      * 是默认技能
+      * <p> 示例值：false
+      */
     @SerializedName("is_default")
     private Boolean isDefault;
-
-    // builder 开始
-    public AgentSkillLessInfo() {
-    }
-
-    public AgentSkillLessInfo(Builder builder) {
-        /**
-         * 客服技能 id
-         * <p> 示例值：agent-skill-id
-         */
-        this.id = builder.id;
-        /**
-         * 客服技能名
-         * <p> 示例值：agent-skill
-         */
-        this.name = builder.name;
-        /**
-         * 是默认技能
-         * <p> 示例值：false
-         */
-        this.isDefault = builder.isDefault;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -98,64 +67,90 @@ public class AgentSkillLessInfo {
         this.isDefault = isDefault;
     }
 
+
+// builder 开始
+  public AgentSkillLessInfo(){}
+
+  public AgentSkillLessInfo(Builder builder){
+         /**
+          * 客服技能 id
+          * <p> 示例值：agent-skill-id
+          */
+      this.id = builder.id;
+         /**
+          * 客服技能名
+          * <p> 示例值：agent-skill
+          */
+      this.name = builder.name;
+         /**
+          * 是默认技能
+          * <p> 示例值：false
+          */
+      this.isDefault = builder.isDefault;
+  }
+
     public static class Builder {
-        /**
-         * 客服技能 id
-         * <p> 示例值：agent-skill-id
-         */
+     /**
+      * 客服技能 id
+      * <p> 示例值：agent-skill-id
+      */
         private String id;
-        /**
-         * 客服技能名
-         * <p> 示例值：agent-skill
-         */
+     /**
+      * 客服技能名
+      * <p> 示例值：agent-skill
+      */
         private String name;
-        /**
-         * 是默认技能
-         * <p> 示例值：false
-         */
+     /**
+      * 是默认技能
+      * <p> 示例值：false
+      */
         private Boolean isDefault;
 
         /**
          * 客服技能 id
          * <p> 示例值：agent-skill-id
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 客服技能名
          * <p> 示例值：agent-skill
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 是默认技能
          * <p> 示例值：false
-         *
          * @param isDefault
          * @return
          */
         public Builder isDefault(Boolean isDefault) {
-            this.isDefault = isDefault;
-            return this;
+             this.isDefault = isDefault;
+             return this;
         }
 
+    
+    
+    public AgentSkillLessInfo build(){
+        return new AgentSkillLessInfo(this);
+      }
+    }
 
-        public AgentSkillLessInfo build() {
-            return new AgentSkillLessInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

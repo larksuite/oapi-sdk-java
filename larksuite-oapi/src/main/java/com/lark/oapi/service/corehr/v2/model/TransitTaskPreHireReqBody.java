@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TransitTaskPreHireReqBody {
-    /**
-     * 系统预置的职位信息和个人信息任务的task_id分别为1和2，自定义任务的task_id是一串UUID
-     * <p> 示例值：1
-     */
+     /**
+      * 系统预置的职位信息和个人信息任务的task_id分别为1和2，自定义任务的task_id是一串UUID
+      * <p> 示例值：1
+      */
     @SerializedName("task_id")
     private String taskId;
-
-    // builder 开始
-    public TransitTaskPreHireReqBody() {
-    }
-
-    public TransitTaskPreHireReqBody(Builder builder) {
-        /**
-         * 系统预置的职位信息和个人信息任务的task_id分别为1和2，自定义任务的task_id是一串UUID
-         * <p> 示例值：1
-         */
-        this.taskId = builder.taskId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTaskId() {
         return this.taskId;
     }
@@ -60,28 +39,44 @@ public class TransitTaskPreHireReqBody {
         this.taskId = taskId;
     }
 
+
+// builder 开始
+  public TransitTaskPreHireReqBody(){}
+
+  public TransitTaskPreHireReqBody(Builder builder){
+         /**
+          * 系统预置的职位信息和个人信息任务的task_id分别为1和2，自定义任务的task_id是一串UUID
+          * <p> 示例值：1
+          */
+      this.taskId = builder.taskId;
+  }
+
     public static class Builder {
-        /**
-         * 系统预置的职位信息和个人信息任务的task_id分别为1和2，自定义任务的task_id是一串UUID
-         * <p> 示例值：1
-         */
+     /**
+      * 系统预置的职位信息和个人信息任务的task_id分别为1和2，自定义任务的task_id是一串UUID
+      * <p> 示例值：1
+      */
         private String taskId;
 
         /**
          * 系统预置的职位信息和个人信息任务的task_id分别为1和2，自定义任务的task_id是一串UUID
          * <p> 示例值：1
-         *
          * @param taskId
          * @return
          */
         public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
+             this.taskId = taskId;
+             return this;
         }
 
+    
+    
+    public TransitTaskPreHireReqBody build(){
+        return new TransitTaskPreHireReqBody(this);
+      }
+    }
 
-        public TransitTaskPreHireReqBody build() {
-            return new TransitTaskPreHireReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

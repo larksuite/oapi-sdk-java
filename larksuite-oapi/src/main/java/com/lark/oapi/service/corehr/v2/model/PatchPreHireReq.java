@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchPreHireReq {
-    /**
-     * 待入职ID
-     * <p> 示例值：7345005664477775411
-     */
+     /**
+      * 待入职ID
+      * <p> 示例值：7345005664477775411
+      */
     @Path
     @SerializedName("pre_hire_id")
     private String preHireId;
-    @Body
-    private PrehireUpdate body;
-
-    // builder 开始
-    public PatchPreHireReq() {
-    }
-
-    public PatchPreHireReq(Builder builder) {
-        /**
-         * 待入职ID
-         * <p> 示例值：7345005664477775411
-         */
-        this.preHireId = builder.preHireId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPreHireId() {
         return this.preHireId;
     }
@@ -62,6 +38,9 @@ public class PatchPreHireReq {
     public void setPreHireId(String preHireId) {
         this.preHireId = preHireId;
     }
+
+    @Body
+    private PrehireUpdate body;
 
     public PrehireUpdate getPrehireUpdate() {
         return this.body;
@@ -71,40 +50,54 @@ public class PatchPreHireReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchPreHireReq(){}
+
+  public PatchPreHireReq(Builder builder){
+     /**
+      * 待入职ID
+      * <p> 示例值：7345005664477775411
+      */
+       this.preHireId = builder.preHireId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String preHireId; // 待入职ID
-        private PrehireUpdate body;
-
         /**
          * 待入职ID
          * <p> 示例值：7345005664477775411
-         *
          * @param preHireId
          * @return
          */
-        public Builder preHireId(String preHireId) {
-            this.preHireId = preHireId;
-            return this;
-        }
+          public Builder preHireId(String preHireId) {
+               this.preHireId = preHireId;
+               return this;
+          }
 
+    
+        private PrehireUpdate body;
+    
         public PrehireUpdate getPrehireUpdate() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder prehireUpdate(PrehireUpdate body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchPreHireReq build(){
+        return new PatchPreHireReq(this);
+      }
+    }
 
-        public PatchPreHireReq build() {
-            return new PatchPreHireReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListAcctItemRespBody {
-    /**
-     * 算薪项列表
-     * <p> 示例值：
-     */
+     /**
+      * 算薪项列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private AcctItem[] items;
-    /**
-     * 下一页开始
-     * <p> 示例值：
-     */
+     /**
+      * 下一页开始
+      * <p> 示例值：
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否还有更多数据
-     * <p> 示例值：
-     */
+     /**
+      * 是否还有更多数据
+      * <p> 示例值：
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public AcctItem[] getItems() {
         return this.items;
     }

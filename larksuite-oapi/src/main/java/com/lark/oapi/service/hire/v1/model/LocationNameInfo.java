@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LocationNameInfo {
-    /**
-     * 地址中文名
-     * <p> 示例值：成都
-     */
+     /**
+      * 地址中文名
+      * <p> 示例值：成都
+      */
     @SerializedName("zh_name")
     private String zhName;
-    /**
-     * 地址英文名
-     * <p> 示例值：ChengDu
-     */
+     /**
+      * 地址英文名
+      * <p> 示例值：ChengDu
+      */
     @SerializedName("en_name")
     private String enName;
-    /**
-     * 地址拼音名
-     * <p> 示例值：chengdu
-     */
+     /**
+      * 地址拼音名
+      * <p> 示例值：chengdu
+      */
     @SerializedName("py_name")
     private String pyName;
-
-    // builder 开始
-    public LocationNameInfo() {
-    }
-
-    public LocationNameInfo(Builder builder) {
-        /**
-         * 地址中文名
-         * <p> 示例值：成都
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 地址英文名
-         * <p> 示例值：ChengDu
-         */
-        this.enName = builder.enName;
-        /**
-         * 地址拼音名
-         * <p> 示例值：chengdu
-         */
-        this.pyName = builder.pyName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getZhName() {
         return this.zhName;
     }
@@ -97,64 +66,90 @@ public class LocationNameInfo {
         this.pyName = pyName;
     }
 
+
+// builder 开始
+  public LocationNameInfo(){}
+
+  public LocationNameInfo(Builder builder){
+         /**
+          * 地址中文名
+          * <p> 示例值：成都
+          */
+      this.zhName = builder.zhName;
+         /**
+          * 地址英文名
+          * <p> 示例值：ChengDu
+          */
+      this.enName = builder.enName;
+         /**
+          * 地址拼音名
+          * <p> 示例值：chengdu
+          */
+      this.pyName = builder.pyName;
+  }
+
     public static class Builder {
-        /**
-         * 地址中文名
-         * <p> 示例值：成都
-         */
+     /**
+      * 地址中文名
+      * <p> 示例值：成都
+      */
         private String zhName;
-        /**
-         * 地址英文名
-         * <p> 示例值：ChengDu
-         */
+     /**
+      * 地址英文名
+      * <p> 示例值：ChengDu
+      */
         private String enName;
-        /**
-         * 地址拼音名
-         * <p> 示例值：chengdu
-         */
+     /**
+      * 地址拼音名
+      * <p> 示例值：chengdu
+      */
         private String pyName;
 
         /**
          * 地址中文名
          * <p> 示例值：成都
-         *
          * @param zhName
          * @return
          */
         public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
+             this.zhName = zhName;
+             return this;
         }
 
+    
 
         /**
          * 地址英文名
          * <p> 示例值：ChengDu
-         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
+             this.enName = enName;
+             return this;
         }
 
+    
 
         /**
          * 地址拼音名
          * <p> 示例值：chengdu
-         *
          * @param pyName
          * @return
          */
         public Builder pyName(String pyName) {
-            this.pyName = pyName;
-            return this;
+             this.pyName = pyName;
+             return this;
         }
 
+    
+    
+    public LocationNameInfo build(){
+        return new LocationNameInfo(this);
+      }
+    }
 
-        public LocationNameInfo build() {
-            return new LocationNameInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

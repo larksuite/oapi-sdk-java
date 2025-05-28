@@ -12,61 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchJobReq {
-    /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
-     */
+     /**
+      * 根据client_token是否一致来判断是否为同一请求
+      * <p> 示例值：12454646
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 职务ID
-     * <p> 示例值：1616161616
-     */
-    @Path
-    @SerializedName("job_id")
-    private String jobId;
-    @Body
-    private Job body;
-
-    // builder 开始
-    public PatchJobReq() {
-    }
-
-    public PatchJobReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 职务ID
-         * <p> 示例值：1616161616
-         */
-        this.jobId = builder.jobId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getClientToken() {
         return this.clientToken;
     }
@@ -75,6 +39,13 @@ public class PatchJobReq {
         this.clientToken = clientToken;
     }
 
+     /**
+      * 职务ID
+      * <p> 示例值：1616161616
+      */
+    @Path
+    @SerializedName("job_id")
+    private String jobId;
     public String getJobId() {
         return this.jobId;
     }
@@ -82,6 +53,9 @@ public class PatchJobReq {
     public void setJobId(String jobId) {
         this.jobId = jobId;
     }
+
+    @Body
+    private Job body;
 
     public Job getJob() {
         return this.body;
@@ -91,52 +65,72 @@ public class PatchJobReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchJobReq(){}
+
+  public PatchJobReq(Builder builder){
+         /**
+          * 根据client_token是否一致来判断是否为同一请求
+          * <p> 示例值：12454646
+          */
+       this.clientToken = builder.clientToken;
+     /**
+      * 职务ID
+      * <p> 示例值：1616161616
+      */
+       this.jobId = builder.jobId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String jobId; // 职务ID
-        private Job body;
-
+    
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：12454646
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
+        private String jobId; // 职务ID
         /**
          * 职务ID
          * <p> 示例值：1616161616
-         *
          * @param jobId
          * @return
          */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
+          public Builder jobId(String jobId) {
+               this.jobId = jobId;
+               return this;
+          }
 
+    
+        private Job body;
+    
         public Job getJob() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder job(Job body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchJobReq build(){
+        return new PatchJobReq(this);
+      }
+    }
 
-        public PatchJobReq build() {
-            return new PatchJobReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

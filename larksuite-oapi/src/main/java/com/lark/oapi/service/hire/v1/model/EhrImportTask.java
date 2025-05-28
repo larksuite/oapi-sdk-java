@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EhrImportTask {
-    /**
-     * 失败原因，仅在导入结果为失败时可用
-     * <p> 示例值：当前 HC 不可用
-     */
+     /**
+      * 失败原因，仅在导入结果为失败时可用
+      * <p> 示例值：当前 HC 不可用
+      */
     @SerializedName("fail_reason")
     private String failReason;
-    /**
-     * 跳转链接，若需返回跳转链接，请前往飞书招聘「设置 - 生态对接 - e-HR / OA 办公系统 - 『导入 e-HR』功能设置」中开启「支持对接的 e-HR / OA 系统返回外部链接」开关
-     * <p> 示例值：https://example.com
-     */
+     /**
+      * 跳转链接，若需返回跳转链接，请前往飞书招聘「设置 - 生态对接 - e-HR / OA 办公系统 - 『导入 e-HR』功能设置」中开启「支持对接的 e-HR / OA 系统返回外部链接」开关
+      * <p> 示例值：https://example.com
+      */
     @SerializedName("redirect_url")
     private String redirectUrl;
-    /**
-     * 导入结果
-     * <p> 示例值：2
-     */
+     /**
+      * 导入结果
+      * <p> 示例值：2
+      */
     @SerializedName("state")
     private Integer state;
-
-    // builder 开始
-    public EhrImportTask() {
-    }
-
-    public EhrImportTask(Builder builder) {
-        /**
-         * 失败原因，仅在导入结果为失败时可用
-         * <p> 示例值：当前 HC 不可用
-         */
-        this.failReason = builder.failReason;
-        /**
-         * 跳转链接，若需返回跳转链接，请前往飞书招聘「设置 - 生态对接 - e-HR / OA 办公系统 - 『导入 e-HR』功能设置」中开启「支持对接的 e-HR / OA 系统返回外部链接」开关
-         * <p> 示例值：https://example.com
-         */
-        this.redirectUrl = builder.redirectUrl;
-        /**
-         * 导入结果
-         * <p> 示例值：2
-         */
-        this.state = builder.state;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFailReason() {
         return this.failReason;
     }
@@ -97,64 +66,90 @@ public class EhrImportTask {
         this.state = state;
     }
 
+
+// builder 开始
+  public EhrImportTask(){}
+
+  public EhrImportTask(Builder builder){
+         /**
+          * 失败原因，仅在导入结果为失败时可用
+          * <p> 示例值：当前 HC 不可用
+          */
+      this.failReason = builder.failReason;
+         /**
+          * 跳转链接，若需返回跳转链接，请前往飞书招聘「设置 - 生态对接 - e-HR / OA 办公系统 - 『导入 e-HR』功能设置」中开启「支持对接的 e-HR / OA 系统返回外部链接」开关
+          * <p> 示例值：https://example.com
+          */
+      this.redirectUrl = builder.redirectUrl;
+         /**
+          * 导入结果
+          * <p> 示例值：2
+          */
+      this.state = builder.state;
+  }
+
     public static class Builder {
-        /**
-         * 失败原因，仅在导入结果为失败时可用
-         * <p> 示例值：当前 HC 不可用
-         */
+     /**
+      * 失败原因，仅在导入结果为失败时可用
+      * <p> 示例值：当前 HC 不可用
+      */
         private String failReason;
-        /**
-         * 跳转链接，若需返回跳转链接，请前往飞书招聘「设置 - 生态对接 - e-HR / OA 办公系统 - 『导入 e-HR』功能设置」中开启「支持对接的 e-HR / OA 系统返回外部链接」开关
-         * <p> 示例值：https://example.com
-         */
+     /**
+      * 跳转链接，若需返回跳转链接，请前往飞书招聘「设置 - 生态对接 - e-HR / OA 办公系统 - 『导入 e-HR』功能设置」中开启「支持对接的 e-HR / OA 系统返回外部链接」开关
+      * <p> 示例值：https://example.com
+      */
         private String redirectUrl;
-        /**
-         * 导入结果
-         * <p> 示例值：2
-         */
+     /**
+      * 导入结果
+      * <p> 示例值：2
+      */
         private Integer state;
 
         /**
          * 失败原因，仅在导入结果为失败时可用
          * <p> 示例值：当前 HC 不可用
-         *
          * @param failReason
          * @return
          */
         public Builder failReason(String failReason) {
-            this.failReason = failReason;
-            return this;
+             this.failReason = failReason;
+             return this;
         }
 
+    
 
         /**
          * 跳转链接，若需返回跳转链接，请前往飞书招聘「设置 - 生态对接 - e-HR / OA 办公系统 - 『导入 e-HR』功能设置」中开启「支持对接的 e-HR / OA 系统返回外部链接」开关
          * <p> 示例值：https://example.com
-         *
          * @param redirectUrl
          * @return
          */
         public Builder redirectUrl(String redirectUrl) {
-            this.redirectUrl = redirectUrl;
-            return this;
+             this.redirectUrl = redirectUrl;
+             return this;
         }
 
+    
 
         /**
          * 导入结果
          * <p> 示例值：2
-         *
          * @param state
          * @return
          */
         public Builder state(Integer state) {
-            this.state = state;
-            return this;
+             this.state = state;
+             return this;
         }
 
+    
+    
+    public EhrImportTask build(){
+        return new EhrImportTask(this);
+      }
+    }
 
-        public EhrImportTask build() {
-            return new EhrImportTask(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

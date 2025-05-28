@@ -47,134 +47,111 @@ public class ApplicationService {
     private final Scope scope; // scope
 
     public ApplicationService(Config config) {
-        this.v6 = new V6(config);
-        this.appBadge = new AppBadge(config);
-        this.appRecommendRule = new AppRecommendRule(config);
-        this.application = new Application(config);
-        this.applicationAppUsage = new ApplicationAppUsage(config);
-        this.applicationAppVersion = new ApplicationAppVersion(config);
-        this.applicationCollaborators = new ApplicationCollaborators(config);
-        this.applicationContactsRange = new ApplicationContactsRange(config);
-        this.applicationFeedback = new ApplicationFeedback(config);
-        this.applicationManagement = new ApplicationManagement(config);
-        this.applicationOwner = new ApplicationOwner(config);
-        this.applicationVisibility = new ApplicationVisibility(config);
-        this.bot = new Bot(config);
-        this.scope = new Scope(config);
+    this.v6 = new V6(config);
+    this.appBadge = new AppBadge(config);
+    this.appRecommendRule = new AppRecommendRule(config);
+    this.application = new Application(config);
+    this.applicationAppUsage = new ApplicationAppUsage(config);
+    this.applicationAppVersion = new ApplicationAppVersion(config);
+    this.applicationCollaborators = new ApplicationCollaborators(config);
+    this.applicationContactsRange = new ApplicationContactsRange(config);
+    this.applicationFeedback = new ApplicationFeedback(config);
+    this.applicationManagement = new ApplicationManagement(config);
+    this.applicationOwner = new ApplicationOwner(config);
+    this.applicationVisibility = new ApplicationVisibility(config);
+    this.bot = new Bot(config);
+    this.scope = new Scope(config);
     }
-
     public V6 v6() {
         return v6;
     }
-
     public AppBadge appBadge() {
         return appBadge;
     }
-
     public AppRecommendRule appRecommendRule() {
         return appRecommendRule;
     }
-
     public Application application() {
         return application;
     }
-
     public ApplicationAppUsage applicationAppUsage() {
         return applicationAppUsage;
     }
-
     public ApplicationAppVersion applicationAppVersion() {
         return applicationAppVersion;
     }
-
     public ApplicationCollaborators applicationCollaborators() {
         return applicationCollaborators;
     }
-
     public ApplicationContactsRange applicationContactsRange() {
         return applicationContactsRange;
     }
-
     public ApplicationFeedback applicationFeedback() {
         return applicationFeedback;
     }
-
     public ApplicationManagement applicationManagement() {
         return applicationManagement;
     }
-
     public ApplicationOwner applicationOwner() {
         return applicationOwner;
     }
-
     public ApplicationVisibility applicationVisibility() {
         return applicationVisibility;
     }
-
     public Bot bot() {
         return bot;
     }
-
     public Scope scope() {
         return scope;
     }
-
     public abstract static class P2ApplicationCreatedV6Handler implements IEventHandler<P2ApplicationCreatedV6> {
         @Override
         public P2ApplicationCreatedV6 getEvent() {
             return new P2ApplicationCreatedV6();
         }
     }
-
     public abstract static class P2ApplicationAppVersionAuditV6Handler implements IEventHandler<P2ApplicationAppVersionAuditV6> {
         @Override
         public P2ApplicationAppVersionAuditV6 getEvent() {
             return new P2ApplicationAppVersionAuditV6();
         }
     }
-
     public abstract static class P2ApplicationAppVersionPublishApplyV6Handler implements IEventHandler<P2ApplicationAppVersionPublishApplyV6> {
         @Override
         public P2ApplicationAppVersionPublishApplyV6 getEvent() {
             return new P2ApplicationAppVersionPublishApplyV6();
         }
     }
-
     public abstract static class P2ApplicationAppVersionPublishRevokeV6Handler implements IEventHandler<P2ApplicationAppVersionPublishRevokeV6> {
         @Override
         public P2ApplicationAppVersionPublishRevokeV6 getEvent() {
             return new P2ApplicationAppVersionPublishRevokeV6();
         }
     }
-
     public abstract static class P2ApplicationFeedbackCreatedV6Handler implements IEventHandler<P2ApplicationFeedbackCreatedV6> {
         @Override
         public P2ApplicationFeedbackCreatedV6 getEvent() {
             return new P2ApplicationFeedbackCreatedV6();
         }
     }
-
     public abstract static class P2ApplicationFeedbackUpdatedV6Handler implements IEventHandler<P2ApplicationFeedbackUpdatedV6> {
         @Override
         public P2ApplicationFeedbackUpdatedV6 getEvent() {
             return new P2ApplicationFeedbackUpdatedV6();
         }
     }
-
     public abstract static class P2ApplicationVisibilityAddedV6Handler implements IEventHandler<P2ApplicationVisibilityAddedV6> {
         @Override
         public P2ApplicationVisibilityAddedV6 getEvent() {
             return new P2ApplicationVisibilityAddedV6();
         }
     }
-
     public abstract static class P2BotMenuV6Handler implements IEventHandler<P2BotMenuV6> {
         @Override
         public P2BotMenuV6 getEvent() {
             return new P2BotMenuV6();
         }
     }
-
     public abstract static class P1AppOpenV6Handler implements IEventHandler<P1AppOpenV6> {
         @Override
         public P1AppOpenV6 getEvent() {

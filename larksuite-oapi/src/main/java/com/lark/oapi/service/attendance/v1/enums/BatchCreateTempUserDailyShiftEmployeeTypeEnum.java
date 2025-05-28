@@ -17,16 +17,15 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 请求体和响应体中的 user_id 的员工工号类型
  */
 public enum BatchCreateTempUserDailyShiftEmployeeTypeEnum {
-    EMPLOYEEID("employee_id"), // employee_id
-    EMPLOYEENO("employee_no"), // employee_no
-    ;
-    private String value;
-
+     EMPLOYEEID("employee_id"), // employee_id
+     EMPLOYEENO("employee_no"), // employee_no
+  ;
+   private String value;
     BatchCreateTempUserDailyShiftEmployeeTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

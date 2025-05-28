@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Device {
-    /**
-     * 门禁设备 ID
-     * <p> 示例值：6939433228970082593
-     */
+     /**
+      * 门禁设备 ID
+      * <p> 示例值：6939433228970082593
+      */
     @SerializedName("device_id")
     private String deviceId;
-    /**
-     * 设备名称
-     * <p> 示例值：东门
-     */
+     /**
+      * 设备名称
+      * <p> 示例值：东门
+      */
     @SerializedName("device_name")
     private String deviceName;
-    /**
-     * 设备 SN 码
-     * <p> 示例值：3X811621174000240
-     */
+     /**
+      * 设备 SN 码
+      * <p> 示例值：3X811621174000240
+      */
     @SerializedName("device_sn")
     private String deviceSn;
-    /**
-     * 设备属性
-     * <p> 示例值：
-     */
+     /**
+      * 设备属性
+      * <p> 示例值：
+      */
     @SerializedName("property")
     private Property property;
-
-    // builder 开始
-    public Device() {
-    }
-
-    public Device(Builder builder) {
-        /**
-         * 门禁设备 ID
-         * <p> 示例值：6939433228970082593
-         */
-        this.deviceId = builder.deviceId;
-        /**
-         * 设备名称
-         * <p> 示例值：东门
-         */
-        this.deviceName = builder.deviceName;
-        /**
-         * 设备 SN 码
-         * <p> 示例值：3X811621174000240
-         */
-        this.deviceSn = builder.deviceSn;
-        /**
-         * 设备属性
-         * <p> 示例值：
-         */
-        this.property = builder.property;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDeviceId() {
         return this.deviceId;
     }
@@ -117,82 +81,113 @@ public class Device {
         this.property = property;
     }
 
+
+// builder 开始
+  public Device(){}
+
+  public Device(Builder builder){
+         /**
+          * 门禁设备 ID
+          * <p> 示例值：6939433228970082593
+          */
+      this.deviceId = builder.deviceId;
+         /**
+          * 设备名称
+          * <p> 示例值：东门
+          */
+      this.deviceName = builder.deviceName;
+         /**
+          * 设备 SN 码
+          * <p> 示例值：3X811621174000240
+          */
+      this.deviceSn = builder.deviceSn;
+         /**
+          * 设备属性
+          * <p> 示例值：
+          */
+      this.property = builder.property;
+  }
+
     public static class Builder {
-        /**
-         * 门禁设备 ID
-         * <p> 示例值：6939433228970082593
-         */
+     /**
+      * 门禁设备 ID
+      * <p> 示例值：6939433228970082593
+      */
         private String deviceId;
-        /**
-         * 设备名称
-         * <p> 示例值：东门
-         */
+     /**
+      * 设备名称
+      * <p> 示例值：东门
+      */
         private String deviceName;
-        /**
-         * 设备 SN 码
-         * <p> 示例值：3X811621174000240
-         */
+     /**
+      * 设备 SN 码
+      * <p> 示例值：3X811621174000240
+      */
         private String deviceSn;
-        /**
-         * 设备属性
-         * <p> 示例值：
-         */
+     /**
+      * 设备属性
+      * <p> 示例值：
+      */
         private Property property;
 
         /**
          * 门禁设备 ID
          * <p> 示例值：6939433228970082593
-         *
          * @param deviceId
          * @return
          */
         public Builder deviceId(String deviceId) {
-            this.deviceId = deviceId;
-            return this;
+             this.deviceId = deviceId;
+             return this;
         }
 
+    
 
         /**
          * 设备名称
          * <p> 示例值：东门
-         *
          * @param deviceName
          * @return
          */
         public Builder deviceName(String deviceName) {
-            this.deviceName = deviceName;
-            return this;
+             this.deviceName = deviceName;
+             return this;
         }
 
+    
 
         /**
          * 设备 SN 码
          * <p> 示例值：3X811621174000240
-         *
          * @param deviceSn
          * @return
          */
         public Builder deviceSn(String deviceSn) {
-            this.deviceSn = deviceSn;
-            return this;
+             this.deviceSn = deviceSn;
+             return this;
         }
 
+    
 
         /**
          * 设备属性
          * <p> 示例值：
-         *
          * @param property
          * @return
          */
         public Builder property(Property property) {
-            this.property = property;
-            return this;
+             this.property = property;
+             return this;
         }
 
+    
+    
+    public Device build(){
+        return new Device(this);
+      }
+    }
 
-        public Device build() {
-            return new Device(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2MessageRecalledV1Data {
-    /**
-     * 消息ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
+     /**
+      * 消息ID
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
     @SerializedName("message_id")
     private String messageId;
-    /**
-     * 群ID
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
-     */
+     /**
+      * 群ID
+      * <p> 示例值：oc_5ad11d72b830411d72b836c20
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * 撤回事件
-     * <p> 示例值：1615380573411
-     */
+     /**
+      * 撤回事件
+      * <p> 示例值：1615380573411
+      */
     @SerializedName("recall_time")
     private String recallTime;
-    /**
-     * 撤回类型
-     * <p> 示例值：message_owner
-     */
+     /**
+      * 撤回类型
+      * <p> 示例值：message_owner
+      */
     @SerializedName("recall_type")
     private String recallType;
-
     public String getMessageId() {
         return this.messageId;
     }

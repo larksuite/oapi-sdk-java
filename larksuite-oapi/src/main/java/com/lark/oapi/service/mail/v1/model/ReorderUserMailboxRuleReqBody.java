@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReorderUserMailboxRuleReqBody {
-    /**
-     * 规则 id 列表
-     * <p> 示例值：111111111
-     */
+     /**
+      * 规则 id 列表
+      * <p> 示例值：111111111
+      */
     @SerializedName("rule_ids")
     private String[] ruleIds;
-
-    // builder 开始
-    public ReorderUserMailboxRuleReqBody() {
-    }
-
-    public ReorderUserMailboxRuleReqBody(Builder builder) {
-        /**
-         * 规则 id 列表
-         * <p> 示例值：111111111
-         */
-        this.ruleIds = builder.ruleIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getRuleIds() {
         return this.ruleIds;
     }
@@ -60,28 +39,44 @@ public class ReorderUserMailboxRuleReqBody {
         this.ruleIds = ruleIds;
     }
 
+
+// builder 开始
+  public ReorderUserMailboxRuleReqBody(){}
+
+  public ReorderUserMailboxRuleReqBody(Builder builder){
+         /**
+          * 规则 id 列表
+          * <p> 示例值：111111111
+          */
+      this.ruleIds = builder.ruleIds;
+  }
+
     public static class Builder {
-        /**
-         * 规则 id 列表
-         * <p> 示例值：111111111
-         */
+     /**
+      * 规则 id 列表
+      * <p> 示例值：111111111
+      */
         private String[] ruleIds;
 
         /**
          * 规则 id 列表
          * <p> 示例值：111111111
-         *
          * @param ruleIds
          * @return
          */
         public Builder ruleIds(String[] ruleIds) {
-            this.ruleIds = ruleIds;
-            return this;
+             this.ruleIds = ruleIds;
+             return this;
         }
 
+    
+    
+    public ReorderUserMailboxRuleReqBody build(){
+        return new ReorderUserMailboxRuleReqBody(this);
+      }
+    }
 
-        public ReorderUserMailboxRuleReqBody build() {
-            return new ReorderUserMailboxRuleReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

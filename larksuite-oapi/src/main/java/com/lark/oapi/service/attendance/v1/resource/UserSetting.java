@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.attendance.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class UserSetting {
         this.config = config;
     }
 
-
+    
     /**
      * 修改用户设置，修改授权内员工的用户设置信息，包括人脸照片文件 ID。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/modify">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/modify</a> ;
@@ -63,7 +58,7 @@ public class UserSetting {
                 , "/open-apis/attendance/v1/user_settings/modify"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ModifyUserSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ModifyUserSettingResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class UserSetting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/user_settings/modify"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class UserSetting {
                 , "/open-apis/attendance/v1/user_settings/modify"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ModifyUserSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ModifyUserSettingResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class UserSetting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/user_settings/modify"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 批量查询用户设置，批量查询授权内员工的用户设置信息，包括人脸照片文件 ID、人脸照片更新时间。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query</a> ;
@@ -129,7 +123,7 @@ public class UserSetting {
                 , "/open-apis/attendance/v1/user_settings/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryUserSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryUserSettingResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class UserSetting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/user_settings/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class UserSetting {
                 , "/open-apis/attendance/v1/user_settings/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryUserSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryUserSettingResp.class);
         if (resp == null) {
@@ -169,13 +163,13 @@ public class UserSetting {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/user_settings/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

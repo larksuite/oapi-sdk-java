@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListFreebusyRespBody {
-    /**
-     * 日历上请求时间区间内的忙碌时间段信息。
-     * <p> 示例值：
-     */
+     /**
+      * 日历上请求时间区间内的忙碌时间段信息。
+      * <p> 示例值：
+      */
     @SerializedName("freebusy_list")
     private Freebusy[] freebusyList;
-
     public Freebusy[] getFreebusyList() {
         return this.freebusyList;
     }

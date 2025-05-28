@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SiteJobPostSearchRequest {
-    /**
-     * 搜索关键字
-     * <p> 示例值：
-     */
+     /**
+      * 搜索关键字
+      * <p> 示例值：
+      */
     @SerializedName("keyword")
     private String keyword;
-    /**
-     * 分页用的偏移量，默认0
-     * <p> 示例值：
-     */
+     /**
+      * 分页用的偏移量，默认0
+      * <p> 示例值：
+      */
     @SerializedName("offset")
     private Integer offset;
-    /**
-     * 分页用的分页条数，最大100
-     * <p> 示例值：
-     */
+     /**
+      * 分页用的分页条数，最大100
+      * <p> 示例值：
+      */
     @SerializedName("limit")
     private Integer limit;
-    /**
-     * 职能列表返回的id
-     * <p> 示例值：
-     */
+     /**
+      * 职能列表返回的id
+      * <p> 示例值：
+      */
     @SerializedName("job_type_id_list")
     private String[] jobTypeIdList;
-    /**
-     * 地址列表返回的code
-     * <p> 示例值：
-     */
+     /**
+      * 地址列表返回的code
+      * <p> 示例值：
+      */
     @SerializedName("city_code_list")
     private String[] cityCodeList;
-    /**
-     * 官网id，不传则查询默认官网
-     * <p> 示例值：
-     */
+     /**
+      * 官网id，不传则查询默认官网
+      * <p> 示例值：
+      */
     @SerializedName("site_id")
     private String siteId;
-
-    // builder 开始
-    public SiteJobPostSearchRequest() {
-    }
-
-    public SiteJobPostSearchRequest(Builder builder) {
-        /**
-         * 搜索关键字
-         * <p> 示例值：
-         */
-        this.keyword = builder.keyword;
-        /**
-         * 分页用的偏移量，默认0
-         * <p> 示例值：
-         */
-        this.offset = builder.offset;
-        /**
-         * 分页用的分页条数，最大100
-         * <p> 示例值：
-         */
-        this.limit = builder.limit;
-        /**
-         * 职能列表返回的id
-         * <p> 示例值：
-         */
-        this.jobTypeIdList = builder.jobTypeIdList;
-        /**
-         * 地址列表返回的code
-         * <p> 示例值：
-         */
-        this.cityCodeList = builder.cityCodeList;
-        /**
-         * 官网id，不传则查询默认官网
-         * <p> 示例值：
-         */
-        this.siteId = builder.siteId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKeyword() {
         return this.keyword;
     }
@@ -154,118 +108,159 @@ public class SiteJobPostSearchRequest {
         this.siteId = siteId;
     }
 
+
+// builder 开始
+  public SiteJobPostSearchRequest(){}
+
+  public SiteJobPostSearchRequest(Builder builder){
+         /**
+          * 搜索关键字
+          * <p> 示例值：
+          */
+      this.keyword = builder.keyword;
+         /**
+          * 分页用的偏移量，默认0
+          * <p> 示例值：
+          */
+      this.offset = builder.offset;
+         /**
+          * 分页用的分页条数，最大100
+          * <p> 示例值：
+          */
+      this.limit = builder.limit;
+         /**
+          * 职能列表返回的id
+          * <p> 示例值：
+          */
+      this.jobTypeIdList = builder.jobTypeIdList;
+         /**
+          * 地址列表返回的code
+          * <p> 示例值：
+          */
+      this.cityCodeList = builder.cityCodeList;
+         /**
+          * 官网id，不传则查询默认官网
+          * <p> 示例值：
+          */
+      this.siteId = builder.siteId;
+  }
+
     public static class Builder {
-        /**
-         * 搜索关键字
-         * <p> 示例值：
-         */
+     /**
+      * 搜索关键字
+      * <p> 示例值：
+      */
         private String keyword;
-        /**
-         * 分页用的偏移量，默认0
-         * <p> 示例值：
-         */
+     /**
+      * 分页用的偏移量，默认0
+      * <p> 示例值：
+      */
         private Integer offset;
-        /**
-         * 分页用的分页条数，最大100
-         * <p> 示例值：
-         */
+     /**
+      * 分页用的分页条数，最大100
+      * <p> 示例值：
+      */
         private Integer limit;
-        /**
-         * 职能列表返回的id
-         * <p> 示例值：
-         */
+     /**
+      * 职能列表返回的id
+      * <p> 示例值：
+      */
         private String[] jobTypeIdList;
-        /**
-         * 地址列表返回的code
-         * <p> 示例值：
-         */
+     /**
+      * 地址列表返回的code
+      * <p> 示例值：
+      */
         private String[] cityCodeList;
-        /**
-         * 官网id，不传则查询默认官网
-         * <p> 示例值：
-         */
+     /**
+      * 官网id，不传则查询默认官网
+      * <p> 示例值：
+      */
         private String siteId;
 
         /**
          * 搜索关键字
          * <p> 示例值：
-         *
          * @param keyword
          * @return
          */
         public Builder keyword(String keyword) {
-            this.keyword = keyword;
-            return this;
+             this.keyword = keyword;
+             return this;
         }
 
+    
 
         /**
          * 分页用的偏移量，默认0
          * <p> 示例值：
-         *
          * @param offset
          * @return
          */
         public Builder offset(Integer offset) {
-            this.offset = offset;
-            return this;
+             this.offset = offset;
+             return this;
         }
 
+    
 
         /**
          * 分页用的分页条数，最大100
          * <p> 示例值：
-         *
          * @param limit
          * @return
          */
         public Builder limit(Integer limit) {
-            this.limit = limit;
-            return this;
+             this.limit = limit;
+             return this;
         }
 
+    
 
         /**
          * 职能列表返回的id
          * <p> 示例值：
-         *
          * @param jobTypeIdList
          * @return
          */
         public Builder jobTypeIdList(String[] jobTypeIdList) {
-            this.jobTypeIdList = jobTypeIdList;
-            return this;
+             this.jobTypeIdList = jobTypeIdList;
+             return this;
         }
 
+    
 
         /**
          * 地址列表返回的code
          * <p> 示例值：
-         *
          * @param cityCodeList
          * @return
          */
         public Builder cityCodeList(String[] cityCodeList) {
-            this.cityCodeList = cityCodeList;
-            return this;
+             this.cityCodeList = cityCodeList;
+             return this;
         }
 
+    
 
         /**
          * 官网id，不传则查询默认官网
          * <p> 示例值：
-         *
          * @param siteId
          * @return
          */
         public Builder siteId(String siteId) {
-            this.siteId = siteId;
-            return this;
+             this.siteId = siteId;
+             return this;
         }
 
+    
+    
+    public SiteJobPostSearchRequest build(){
+        return new SiteJobPostSearchRequest(this);
+      }
+    }
 
-        public SiteJobPostSearchRequest build() {
-            return new SiteJobPostSearchRequest(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

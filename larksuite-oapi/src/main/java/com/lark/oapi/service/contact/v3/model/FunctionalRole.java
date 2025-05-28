@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FunctionalRole {
-    /**
-     * 角色内部ID
-     * <p> 示例值：7vrj3vk70xk7v5r
-     */
+     /**
+      * 角色内部ID
+      * <p> 示例值：7vrj3vk70xk7v5r
+      */
     @SerializedName("role_id")
     private String roleId;
-    /**
-     * 角色名称
-     * <p> 示例值：测试角色
-     */
+     /**
+      * 角色名称
+      * <p> 示例值：测试角色
+      */
     @SerializedName("role_name")
     private String roleName;
-
-    // builder 开始
-    public FunctionalRole() {
-    }
-
-    public FunctionalRole(Builder builder) {
-        /**
-         * 角色内部ID
-         * <p> 示例值：7vrj3vk70xk7v5r
-         */
-        this.roleId = builder.roleId;
-        /**
-         * 角色名称
-         * <p> 示例值：测试角色
-         */
-        this.roleName = builder.roleName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoleId() {
         return this.roleId;
     }
@@ -79,46 +53,67 @@ public class FunctionalRole {
         this.roleName = roleName;
     }
 
+
+// builder 开始
+  public FunctionalRole(){}
+
+  public FunctionalRole(Builder builder){
+         /**
+          * 角色内部ID
+          * <p> 示例值：7vrj3vk70xk7v5r
+          */
+      this.roleId = builder.roleId;
+         /**
+          * 角色名称
+          * <p> 示例值：测试角色
+          */
+      this.roleName = builder.roleName;
+  }
+
     public static class Builder {
-        /**
-         * 角色内部ID
-         * <p> 示例值：7vrj3vk70xk7v5r
-         */
+     /**
+      * 角色内部ID
+      * <p> 示例值：7vrj3vk70xk7v5r
+      */
         private String roleId;
-        /**
-         * 角色名称
-         * <p> 示例值：测试角色
-         */
+     /**
+      * 角色名称
+      * <p> 示例值：测试角色
+      */
         private String roleName;
 
         /**
          * 角色内部ID
          * <p> 示例值：7vrj3vk70xk7v5r
-         *
          * @param roleId
          * @return
          */
         public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
+             this.roleId = roleId;
+             return this;
         }
 
+    
 
         /**
          * 角色名称
          * <p> 示例值：测试角色
-         *
          * @param roleName
          * @return
          */
         public Builder roleName(String roleName) {
-            this.roleName = roleName;
-            return this;
+             this.roleName = roleName;
+             return this;
         }
 
+    
+    
+    public FunctionalRole build(){
+        return new FunctionalRole(this);
+      }
+    }
 
-        public FunctionalRole build() {
-            return new FunctionalRole(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

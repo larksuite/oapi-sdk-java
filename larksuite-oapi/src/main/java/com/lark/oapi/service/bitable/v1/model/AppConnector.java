@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AppConnector {
-    /**
-     * 目标文档token
-     * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
-     */
+     /**
+      * 目标文档token
+      * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * 目标表id
-     * <p> 示例值：tbljrm2jMSJdR9gf
-     */
+     /**
+      * 目标表id
+      * <p> 示例值：tbljrm2jMSJdR9gf
+      */
     @SerializedName("table_id")
     private String tableId;
-    /**
-     * 数据源路径
-     * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
-     */
+     /**
+      * 数据源路径
+      * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
+      */
     @SerializedName("src_table_path")
     private String srcTablePath;
-    /**
-     * 数据源类型
-     * <p> 示例值：1
-     */
+     /**
+      * 数据源类型
+      * <p> 示例值：1
+      */
     @SerializedName("source_type")
     private Integer sourceType;
-    /**
-     * 同步频率
-     * <p> 示例值：2
-     */
+     /**
+      * 同步频率
+      * <p> 示例值：2
+      */
     @SerializedName("sync_type")
     private Integer syncType;
-    /**
-     * 字段同步方式
-     * <p> 示例值：2
-     */
+     /**
+      * 字段同步方式
+      * <p> 示例值：2
+      */
     @SerializedName("field_sync_type")
     private Integer fieldSyncType;
-    /**
-     * 同步字段信息，当 field_sync_type = 2 时才有值
-     * <p> 示例值：["fld9PBu621"]
-     */
+     /**
+      * 同步字段信息，当 field_sync_type = 2 时才有值
+      * <p> 示例值：["fld9PBu621"]
+      */
     @SerializedName("sync_fields")
     private String[] syncFields;
-
-    // builder 开始
-    public AppConnector() {
-    }
-
-    public AppConnector(Builder builder) {
-        /**
-         * 目标文档token
-         * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
-         */
-        this.token = builder.token;
-        /**
-         * 目标表id
-         * <p> 示例值：tbljrm2jMSJdR9gf
-         */
-        this.tableId = builder.tableId;
-        /**
-         * 数据源路径
-         * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
-         */
-        this.srcTablePath = builder.srcTablePath;
-        /**
-         * 数据源类型
-         * <p> 示例值：1
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 同步频率
-         * <p> 示例值：2
-         */
-        this.syncType = builder.syncType;
-        /**
-         * 字段同步方式
-         * <p> 示例值：2
-         */
-        this.fieldSyncType = builder.fieldSyncType;
-        /**
-         * 同步字段信息，当 field_sync_type = 2 时才有值
-         * <p> 示例值：["fld9PBu621"]
-         */
-        this.syncFields = builder.syncFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getToken() {
         return this.token;
     }
@@ -174,172 +123,212 @@ public class AppConnector {
         this.syncFields = syncFields;
     }
 
+
+// builder 开始
+  public AppConnector(){}
+
+  public AppConnector(Builder builder){
+         /**
+          * 目标文档token
+          * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
+          */
+      this.token = builder.token;
+         /**
+          * 目标表id
+          * <p> 示例值：tbljrm2jMSJdR9gf
+          */
+      this.tableId = builder.tableId;
+         /**
+          * 数据源路径
+          * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
+          */
+      this.srcTablePath = builder.srcTablePath;
+         /**
+          * 数据源类型
+          * <p> 示例值：1
+          */
+      this.sourceType = builder.sourceType;
+         /**
+          * 同步频率
+          * <p> 示例值：2
+          */
+      this.syncType = builder.syncType;
+         /**
+          * 字段同步方式
+          * <p> 示例值：2
+          */
+      this.fieldSyncType = builder.fieldSyncType;
+         /**
+          * 同步字段信息，当 field_sync_type = 2 时才有值
+          * <p> 示例值：["fld9PBu621"]
+          */
+      this.syncFields = builder.syncFields;
+  }
+
     public static class Builder {
-        /**
-         * 目标文档token
-         * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
-         */
+     /**
+      * 目标文档token
+      * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
+      */
         private String token;
-        /**
-         * 目标表id
-         * <p> 示例值：tbljrm2jMSJdR9gf
-         */
+     /**
+      * 目标表id
+      * <p> 示例值：tbljrm2jMSJdR9gf
+      */
         private String tableId;
-        /**
-         * 数据源路径
-         * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
-         */
+     /**
+      * 数据源路径
+      * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
+      */
         private String srcTablePath;
-        /**
-         * 数据源类型
-         * <p> 示例值：1
-         */
+     /**
+      * 数据源类型
+      * <p> 示例值：1
+      */
         private Integer sourceType;
-        /**
-         * 同步频率
-         * <p> 示例值：2
-         */
+     /**
+      * 同步频率
+      * <p> 示例值：2
+      */
         private Integer syncType;
-        /**
-         * 字段同步方式
-         * <p> 示例值：2
-         */
+     /**
+      * 字段同步方式
+      * <p> 示例值：2
+      */
         private Integer fieldSyncType;
-        /**
-         * 同步字段信息，当 field_sync_type = 2 时才有值
-         * <p> 示例值：["fld9PBu621"]
-         */
+     /**
+      * 同步字段信息，当 field_sync_type = 2 时才有值
+      * <p> 示例值：["fld9PBu621"]
+      */
         private String[] syncFields;
 
         /**
          * 目标文档token
          * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * 目标表id
          * <p> 示例值：tbljrm2jMSJdR9gf
-         *
          * @param tableId
          * @return
          */
         public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
+             this.tableId = tableId;
+             return this;
         }
 
+    
 
         /**
          * 数据源路径
          * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
-         *
          * @param srcTablePath
          * @return
          */
         public Builder srcTablePath(String srcTablePath) {
-            this.srcTablePath = srcTablePath;
-            return this;
+             this.srcTablePath = srcTablePath;
+             return this;
         }
 
+    
 
         /**
          * 数据源类型
          * <p> 示例值：1
-         *
          * @param sourceType
          * @return
          */
         public Builder sourceType(Integer sourceType) {
-            this.sourceType = sourceType;
-            return this;
+             this.sourceType = sourceType;
+             return this;
         }
-
         /**
          * 数据源类型
          * <p> 示例值：1
-         *
          * @param sourceType {@link com.lark.oapi.service.bitable.v1.enums.AppConnectorSourceTypeEnum}
          * @return
          */
         public Builder sourceType(com.lark.oapi.service.bitable.v1.enums.AppConnectorSourceTypeEnum sourceType) {
-            this.sourceType = sourceType.getValue();
-            return this;
+             this.sourceType = sourceType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 同步频率
          * <p> 示例值：2
-         *
          * @param syncType
          * @return
          */
         public Builder syncType(Integer syncType) {
-            this.syncType = syncType;
-            return this;
+             this.syncType = syncType;
+             return this;
         }
-
         /**
          * 同步频率
          * <p> 示例值：2
-         *
          * @param syncType {@link com.lark.oapi.service.bitable.v1.enums.AppConnectorSyncTypeEnum}
          * @return
          */
         public Builder syncType(com.lark.oapi.service.bitable.v1.enums.AppConnectorSyncTypeEnum syncType) {
-            this.syncType = syncType.getValue();
-            return this;
+             this.syncType = syncType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 字段同步方式
          * <p> 示例值：2
-         *
          * @param fieldSyncType
          * @return
          */
         public Builder fieldSyncType(Integer fieldSyncType) {
-            this.fieldSyncType = fieldSyncType;
-            return this;
+             this.fieldSyncType = fieldSyncType;
+             return this;
         }
-
         /**
          * 字段同步方式
          * <p> 示例值：2
-         *
          * @param fieldSyncType {@link com.lark.oapi.service.bitable.v1.enums.AppConnectorFieldSyncTypeEnum}
          * @return
          */
         public Builder fieldSyncType(com.lark.oapi.service.bitable.v1.enums.AppConnectorFieldSyncTypeEnum fieldSyncType) {
-            this.fieldSyncType = fieldSyncType.getValue();
-            return this;
+             this.fieldSyncType = fieldSyncType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 同步字段信息，当 field_sync_type = 2 时才有值
          * <p> 示例值：["fld9PBu621"]
-         *
          * @param syncFields
          * @return
          */
         public Builder syncFields(String[] syncFields) {
-            this.syncFields = syncFields;
-            return this;
+             this.syncFields = syncFields;
+             return this;
         }
 
+    
+    
+    public AppConnector build(){
+        return new AppConnector(this);
+      }
+    }
 
-        public AppConnector build() {
-            return new AppConnector(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

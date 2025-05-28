@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class KnowledgeSourceRequestExtra {
-    /**
-     * locale
-     * <p> 示例值：zh-CN
-     */
+     /**
+      * locale
+      * <p> 示例值：zh-CN
+      */
     @SerializedName("locale")
     private String locale;
-    /**
-     * timezone
-     * <p> 示例值：Asia/Tokyo
-     */
+     /**
+      * timezone
+      * <p> 示例值：Asia/Tokyo
+      */
     @SerializedName("timezone")
     private String timezone;
-
-    // builder 开始
-    public KnowledgeSourceRequestExtra() {
-    }
-
-    public KnowledgeSourceRequestExtra(Builder builder) {
-        /**
-         * locale
-         * <p> 示例值：zh-CN
-         */
-        this.locale = builder.locale;
-        /**
-         * timezone
-         * <p> 示例值：Asia/Tokyo
-         */
-        this.timezone = builder.timezone;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLocale() {
         return this.locale;
     }
@@ -79,46 +53,67 @@ public class KnowledgeSourceRequestExtra {
         this.timezone = timezone;
     }
 
+
+// builder 开始
+  public KnowledgeSourceRequestExtra(){}
+
+  public KnowledgeSourceRequestExtra(Builder builder){
+         /**
+          * locale
+          * <p> 示例值：zh-CN
+          */
+      this.locale = builder.locale;
+         /**
+          * timezone
+          * <p> 示例值：Asia/Tokyo
+          */
+      this.timezone = builder.timezone;
+  }
+
     public static class Builder {
-        /**
-         * locale
-         * <p> 示例值：zh-CN
-         */
+     /**
+      * locale
+      * <p> 示例值：zh-CN
+      */
         private String locale;
-        /**
-         * timezone
-         * <p> 示例值：Asia/Tokyo
-         */
+     /**
+      * timezone
+      * <p> 示例值：Asia/Tokyo
+      */
         private String timezone;
 
         /**
          * locale
          * <p> 示例值：zh-CN
-         *
          * @param locale
          * @return
          */
         public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
+             this.locale = locale;
+             return this;
         }
 
+    
 
         /**
          * timezone
          * <p> 示例值：Asia/Tokyo
-         *
          * @param timezone
          * @return
          */
         public Builder timezone(String timezone) {
-            this.timezone = timezone;
-            return this;
+             this.timezone = timezone;
+             return this;
         }
 
+    
+    
+    public KnowledgeSourceRequestExtra build(){
+        return new KnowledgeSourceRequestExtra(this);
+      }
+    }
 
-        public KnowledgeSourceRequestExtra build() {
-            return new KnowledgeSourceRequestExtra(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

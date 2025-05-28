@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateEmployeeRespBody {
-    /**
-     * 雇佣信息 ID
-     * <p> 示例值：6862995757234914824
-     */
+     /**
+      * 雇佣信息 ID
+      * <p> 示例值：6862995757234914824
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 合同 ID
-     * <p> 示例值：6862995757234914824
-     */
+     /**
+      * 合同 ID
+      * <p> 示例值：6862995757234914824
+      */
     @SerializedName("contract_id")
     private String contractId;
-    /**
-     * 任职信息 ID
-     * <p> 示例值：6862995757234914824
-     */
+     /**
+      * 任职信息 ID
+      * <p> 示例值：6862995757234914824
+      */
     @SerializedName("job_data_id")
     private String jobDataId;
-
     public String getEmploymentId() {
         return this.employmentId;
     }

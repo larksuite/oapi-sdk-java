@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.passport.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.passport.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Credentials {
-    /**
-     * 邮箱
-     * <p> 示例值：q*****@qq.com
-     */
+     /**
+      * 邮箱
+      * <p> 示例值：q*****@qq.com
+      */
     @SerializedName("email")
     private String email;
-    /**
-     * 手机号
-     * <p> 示例值：186*****01
-     */
+     /**
+      * 手机号
+      * <p> 示例值：186*****01
+      */
     @SerializedName("mobile")
     private String mobile;
-    /**
-     * 用户id
-     * <p> 示例值：
-     */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-
-    // builder 开始
-    public Credentials() {
-    }
-
-    public Credentials(Builder builder) {
-        /**
-         * 邮箱
-         * <p> 示例值：q*****@qq.com
-         */
-        this.email = builder.email;
-        /**
-         * 手机号
-         * <p> 示例值：186*****01
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEmail() {
         return this.email;
     }
@@ -98,64 +67,90 @@ public class Credentials {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public Credentials(){}
+
+  public Credentials(Builder builder){
+         /**
+          * 邮箱
+          * <p> 示例值：q*****@qq.com
+          */
+      this.email = builder.email;
+         /**
+          * 手机号
+          * <p> 示例值：186*****01
+          */
+      this.mobile = builder.mobile;
+         /**
+          * 用户id
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * 邮箱
-         * <p> 示例值：q*****@qq.com
-         */
+     /**
+      * 邮箱
+      * <p> 示例值：q*****@qq.com
+      */
         private String email;
-        /**
-         * 手机号
-         * <p> 示例值：186*****01
-         */
+     /**
+      * 手机号
+      * <p> 示例值：186*****01
+      */
         private String mobile;
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
         private String userId;
 
         /**
          * 邮箱
          * <p> 示例值：q*****@qq.com
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
 
         /**
          * 手机号
          * <p> 示例值：186*****01
-         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
+             this.mobile = mobile;
+             return this;
         }
 
+    
 
         /**
          * 用户id
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public Credentials build(){
+        return new Credentials(this);
+      }
+    }
 
-        public Credentials build() {
-            return new Credentials(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

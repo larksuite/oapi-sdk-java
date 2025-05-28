@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OqlQueryApplicationObjectReq {
-    /**
-     * 应用命名空间
-     * <p> 示例值：package_test__c
-     */
+     /**
+      * 应用命名空间
+      * <p> 示例值：package_test__c
+      */
     @Path
     @SerializedName("namespace")
     private String namespace;
-    @Body
-    private OqlQueryApplicationObjectReqBody body;
-
-    // builder 开始
-    public OqlQueryApplicationObjectReq() {
-    }
-
-    public OqlQueryApplicationObjectReq(Builder builder) {
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNamespace() {
         return this.namespace;
     }
@@ -62,6 +38,9 @@ public class OqlQueryApplicationObjectReq {
     public void setNamespace(String namespace) {
         this.namespace = namespace;
     }
+
+    @Body
+    private OqlQueryApplicationObjectReqBody body;
 
     public OqlQueryApplicationObjectReqBody getOqlQueryApplicationObjectReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class OqlQueryApplicationObjectReq {
         this.body = body;
     }
 
+// builder 开始
+  public OqlQueryApplicationObjectReq(){}
+
+  public OqlQueryApplicationObjectReq(Builder builder){
+     /**
+      * 应用命名空间
+      * <p> 示例值：package_test__c
+      */
+       this.namespace = builder.namespace;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String namespace; // 应用命名空间
-        private OqlQueryApplicationObjectReqBody body;
-
         /**
          * 应用命名空间
          * <p> 示例值：package_test__c
-         *
          * @param namespace
          * @return
          */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
+          public Builder namespace(String namespace) {
+               this.namespace = namespace;
+               return this;
+          }
 
+    
+        private OqlQueryApplicationObjectReqBody body;
+    
         public OqlQueryApplicationObjectReqBody getOqlQueryApplicationObjectReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder oqlQueryApplicationObjectReqBody(OqlQueryApplicationObjectReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public OqlQueryApplicationObjectReq build(){
+        return new OqlQueryApplicationObjectReq(this);
+      }
+    }
 
-        public OqlQueryApplicationObjectReq build() {
-            return new OqlQueryApplicationObjectReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

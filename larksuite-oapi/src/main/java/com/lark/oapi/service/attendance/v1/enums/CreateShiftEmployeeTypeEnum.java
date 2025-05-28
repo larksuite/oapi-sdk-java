@@ -17,16 +17,15 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 用户 ID 的类型 不提供则用户相关字段无效
  */
 public enum CreateShiftEmployeeTypeEnum {
-    EMPLOYEE_ID("employee_id"), // 员工employeeId
-    EMPLOYEE_NO("employee_no"), // 员工工号
-    ;
-    private String value;
-
+     EMPLOYEE_ID("employee_id"), // 员工employeeId
+     EMPLOYEE_NO("employee_no"), // 员工工号
+  ;
+   private String value;
     CreateShiftEmployeeTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

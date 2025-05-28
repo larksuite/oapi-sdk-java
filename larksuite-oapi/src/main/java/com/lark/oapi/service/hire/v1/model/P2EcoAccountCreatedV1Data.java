@@ -12,53 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2EcoAccountCreatedV1Data {
-    /**
-     * 账号类型
-     * <p> 示例值：1
-     */
+     /**
+      * 账号类型
+      * <p> 示例值：1
+      */
     @SerializedName("scope")
     private Integer scope;
-    /**
-     * 账号 ID，招聘系统内唯一
-     * <p> 示例值：6931286400470354183
-     */
+     /**
+      * 账号 ID，招聘系统内唯一
+      * <p> 示例值：6931286400470354183
+      */
     @SerializedName("account_id")
     private String accountId;
-    /**
-     * 账号名称
-     * <p> 示例值：背调账号 001
-     */
+     /**
+      * 账号名称
+      * <p> 示例值：背调账号 001
+      */
     @SerializedName("account_name")
     private String accountName;
-    /**
-     * 账号适用范围，1-社招，2-校招
-     * <p> 示例值：
-     */
+     /**
+      * 账号适用范围，1-社招，2-校招
+      * <p> 示例值：
+      */
     @SerializedName("usage_list")
     private Integer[] usageList;
-    /**
-     * 自定义字段键值对
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段键值对
+      * <p> 示例值：
+      */
     @SerializedName("custom_field_list")
     private EcoAccountCustomFieldEventData[] customFieldList;
-
     public Integer getScope() {
         return this.scope;
     }

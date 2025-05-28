@@ -12,85 +12,32 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchDeleteChatAnnouncementBlockChildrenReq {
-    /**
-     * 要操作的群公告版本。-1 表示群公告最新版本。群公告创建后，版本为 1。你需确保你已拥有群公告的编辑权限
-     * <p> 示例值：-1
-     */
+     /**
+      * 要操作的群公告版本。-1 表示群公告最新版本。群公告创建后，版本为 1。你需确保你已拥有群公告的编辑权限
+      * <p> 示例值：-1
+      */
     @Query
     @SerializedName("revision_id")
     private Integer revisionId;
-    /**
-     * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
-     * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-     */
+     /**
+      * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+      * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 群公告对应的群 ID
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
-     */
-    @Path
-    @SerializedName("chat_id")
-    private String chatId;
-    /**
-     * Block 的唯一标识
-     * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-     */
-    @Path
-    @SerializedName("block_id")
-    private String blockId;
-    @Body
-    private BatchDeleteChatAnnouncementBlockChildrenReqBody body;
-
-    // builder 开始
-    public BatchDeleteChatAnnouncementBlockChildrenReq() {
-    }
-
-    public BatchDeleteChatAnnouncementBlockChildrenReq(Builder builder) {
-        /**
-         * 要操作的群公告版本。-1 表示群公告最新版本。群公告创建后，版本为 1。你需确保你已拥有群公告的编辑权限
-         * <p> 示例值：-1
-         */
-        this.revisionId = builder.revisionId;
-        /**
-         * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
-         * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 群公告对应的群 ID
-         * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         */
-        this.chatId = builder.chatId;
-        /**
-         * Block 的唯一标识
-         * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-         */
-        this.blockId = builder.blockId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getRevisionId() {
         return this.revisionId;
     }
@@ -107,6 +54,20 @@ public class BatchDeleteChatAnnouncementBlockChildrenReq {
         this.clientToken = clientToken;
     }
 
+     /**
+      * 群公告对应的群 ID
+      * <p> 示例值：oc_5ad11d72b830411d72b836c20
+      */
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
+     /**
+      * Block 的唯一标识
+      * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+      */
+    @Path
+    @SerializedName("block_id")
+    private String blockId;
     public String getChatId() {
         return this.chatId;
     }
@@ -123,6 +84,9 @@ public class BatchDeleteChatAnnouncementBlockChildrenReq {
         this.blockId = blockId;
     }
 
+    @Body
+    private BatchDeleteChatAnnouncementBlockChildrenReqBody body;
+
     public BatchDeleteChatAnnouncementBlockChildrenReqBody getBatchDeleteChatAnnouncementBlockChildrenReqBody() {
         return this.body;
     }
@@ -131,78 +95,108 @@ public class BatchDeleteChatAnnouncementBlockChildrenReq {
         this.body = body;
     }
 
+// builder 开始
+  public BatchDeleteChatAnnouncementBlockChildrenReq(){}
+
+  public BatchDeleteChatAnnouncementBlockChildrenReq(Builder builder){
+         /**
+          * 要操作的群公告版本。-1 表示群公告最新版本。群公告创建后，版本为 1。你需确保你已拥有群公告的编辑权限
+          * <p> 示例值：-1
+          */
+       this.revisionId = builder.revisionId;
+         /**
+          * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+          * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+          */
+       this.clientToken = builder.clientToken;
+     /**
+      * 群公告对应的群 ID
+      * <p> 示例值：oc_5ad11d72b830411d72b836c20
+      */
+       this.chatId = builder.chatId;
+     /**
+      * Block 的唯一标识
+      * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+      */
+       this.blockId = builder.blockId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private Integer revisionId; // 要操作的群公告版本。-1 表示群公告最新版本。群公告创建后，版本为 1。你需确保你已拥有群公告的编辑权限
         private String clientToken; // 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
-        private String chatId; // 群公告对应的群 ID
-        private String blockId; // Block 的唯一标识
-        private BatchDeleteChatAnnouncementBlockChildrenReqBody body;
-
+    
         /**
          * 要操作的群公告版本。-1 表示群公告最新版本。群公告创建后，版本为 1。你需确保你已拥有群公告的编辑权限
          * <p> 示例值：-1
-         *
          * @param revisionId
          * @return
          */
-        public Builder revisionId(Integer revisionId) {
-            this.revisionId = revisionId;
-            return this;
-        }
+           public Builder revisionId(Integer revisionId) {
+                this.revisionId = revisionId;
+                return this;
+           }
 
+    
         /**
          * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
          * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
+        private String chatId; // 群公告对应的群 ID
+        private String blockId; // Block 的唯一标识
         /**
          * 群公告对应的群 ID
          * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         *
          * @param chatId
          * @return
          */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
 
+    
         /**
          * Block 的唯一标识
          * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-         *
          * @param blockId
          * @return
          */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
+          public Builder blockId(String blockId) {
+               this.blockId = blockId;
+               return this;
+          }
 
+    
+        private BatchDeleteChatAnnouncementBlockChildrenReqBody body;
+    
         public BatchDeleteChatAnnouncementBlockChildrenReqBody getBatchDeleteChatAnnouncementBlockChildrenReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder batchDeleteChatAnnouncementBlockChildrenReqBody(BatchDeleteChatAnnouncementBlockChildrenReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public BatchDeleteChatAnnouncementBlockChildrenReq build(){
+        return new BatchDeleteChatAnnouncementBlockChildrenReq(this);
+      }
+    }
 
-        public BatchDeleteChatAnnouncementBlockChildrenReq build() {
-            return new BatchDeleteChatAnnouncementBlockChildrenReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

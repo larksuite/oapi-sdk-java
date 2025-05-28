@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InterviewFeedbackForm {
-    /**
-     * 面试评价表ID
-     * <p> 示例值：6969137186734393644
-     */
+     /**
+      * 面试评价表ID
+      * <p> 示例值：6969137186734393644
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 面试评价表版本号
-     * <p> 示例值：1
-     */
+     /**
+      * 面试评价表版本号
+      * <p> 示例值：1
+      */
     @SerializedName("version")
     private Integer version;
-    /**
-     * 面试评价表名称
-     * <p> 示例值：
-     */
+     /**
+      * 面试评价表名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 面试评价表类型
-     * <p> 示例值：1
-     */
+     /**
+      * 面试评价表类型
+      * <p> 示例值：1
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * 面试评价表打分计算配置（适用于打分评价表）
-     * <p> 示例值：
-     */
+     /**
+      * 面试评价表打分计算配置（适用于打分评价表）
+      * <p> 示例值：
+      */
     @SerializedName("score_calculation_config")
     private ScoreCalculationConfig scoreCalculationConfig;
-    /**
-     * 面试评价表模块列表
-     * <p> 示例值：
-     */
+     /**
+      * 面试评价表模块列表
+      * <p> 示例值：
+      */
     @SerializedName("modules")
     private InterviewFeedbackFormModule[] modules;
-
-    // builder 开始
-    public InterviewFeedbackForm() {
-    }
-
-    public InterviewFeedbackForm(Builder builder) {
-        /**
-         * 面试评价表ID
-         * <p> 示例值：6969137186734393644
-         */
-        this.id = builder.id;
-        /**
-         * 面试评价表版本号
-         * <p> 示例值：1
-         */
-        this.version = builder.version;
-        /**
-         * 面试评价表名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 面试评价表类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 面试评价表打分计算配置（适用于打分评价表）
-         * <p> 示例值：
-         */
-        this.scoreCalculationConfig = builder.scoreCalculationConfig;
-        /**
-         * 面试评价表模块列表
-         * <p> 示例值：
-         */
-        this.modules = builder.modules;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -154,118 +108,159 @@ public class InterviewFeedbackForm {
         this.modules = modules;
     }
 
+
+// builder 开始
+  public InterviewFeedbackForm(){}
+
+  public InterviewFeedbackForm(Builder builder){
+         /**
+          * 面试评价表ID
+          * <p> 示例值：6969137186734393644
+          */
+      this.id = builder.id;
+         /**
+          * 面试评价表版本号
+          * <p> 示例值：1
+          */
+      this.version = builder.version;
+         /**
+          * 面试评价表名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 面试评价表类型
+          * <p> 示例值：1
+          */
+      this.type = builder.type;
+         /**
+          * 面试评价表打分计算配置（适用于打分评价表）
+          * <p> 示例值：
+          */
+      this.scoreCalculationConfig = builder.scoreCalculationConfig;
+         /**
+          * 面试评价表模块列表
+          * <p> 示例值：
+          */
+      this.modules = builder.modules;
+  }
+
     public static class Builder {
-        /**
-         * 面试评价表ID
-         * <p> 示例值：6969137186734393644
-         */
+     /**
+      * 面试评价表ID
+      * <p> 示例值：6969137186734393644
+      */
         private String id;
-        /**
-         * 面试评价表版本号
-         * <p> 示例值：1
-         */
+     /**
+      * 面试评价表版本号
+      * <p> 示例值：1
+      */
         private Integer version;
-        /**
-         * 面试评价表名称
-         * <p> 示例值：
-         */
+     /**
+      * 面试评价表名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 面试评价表类型
-         * <p> 示例值：1
-         */
+     /**
+      * 面试评价表类型
+      * <p> 示例值：1
+      */
         private Integer type;
-        /**
-         * 面试评价表打分计算配置（适用于打分评价表）
-         * <p> 示例值：
-         */
+     /**
+      * 面试评价表打分计算配置（适用于打分评价表）
+      * <p> 示例值：
+      */
         private ScoreCalculationConfig scoreCalculationConfig;
-        /**
-         * 面试评价表模块列表
-         * <p> 示例值：
-         */
+     /**
+      * 面试评价表模块列表
+      * <p> 示例值：
+      */
         private InterviewFeedbackFormModule[] modules;
 
         /**
          * 面试评价表ID
          * <p> 示例值：6969137186734393644
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 面试评价表版本号
          * <p> 示例值：1
-         *
          * @param version
          * @return
          */
         public Builder version(Integer version) {
-            this.version = version;
-            return this;
+             this.version = version;
+             return this;
         }
 
+    
 
         /**
          * 面试评价表名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 面试评价表类型
          * <p> 示例值：1
-         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 面试评价表打分计算配置（适用于打分评价表）
          * <p> 示例值：
-         *
          * @param scoreCalculationConfig
          * @return
          */
         public Builder scoreCalculationConfig(ScoreCalculationConfig scoreCalculationConfig) {
-            this.scoreCalculationConfig = scoreCalculationConfig;
-            return this;
+             this.scoreCalculationConfig = scoreCalculationConfig;
+             return this;
         }
 
+    
 
         /**
          * 面试评价表模块列表
          * <p> 示例值：
-         *
          * @param modules
          * @return
          */
         public Builder modules(InterviewFeedbackFormModule[] modules) {
-            this.modules = modules;
-            return this;
+             this.modules = modules;
+             return this;
         }
 
+    
+    
+    public InterviewFeedbackForm build(){
+        return new InterviewFeedbackForm(this);
+      }
+    }
 
-        public InterviewFeedbackForm build() {
-            return new InterviewFeedbackForm(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

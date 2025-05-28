@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.ehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.ehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WorkLocation {
-    /**
-     * 工作地点 ID
-     * <p> 示例值：1695838220091399
-     */
+     /**
+      * 工作地点 ID
+      * <p> 示例值：1695838220091399
+      */
     @SerializedName("id")
     private Long id;
-    /**
-     * 工作地点名称
-     * <p> 示例值：武汉
-     */
+     /**
+      * 工作地点名称
+      * <p> 示例值：武汉
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public WorkLocation() {
-    }
-
-    public WorkLocation(Builder builder) {
-        /**
-         * 工作地点 ID
-         * <p> 示例值：1695838220091399
-         */
-        this.id = builder.id;
-        /**
-         * 工作地点名称
-         * <p> 示例值：武汉
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Long getId() {
         return this.id;
     }
@@ -79,46 +53,67 @@ public class WorkLocation {
         this.name = name;
     }
 
+
+// builder 开始
+  public WorkLocation(){}
+
+  public WorkLocation(Builder builder){
+         /**
+          * 工作地点 ID
+          * <p> 示例值：1695838220091399
+          */
+      this.id = builder.id;
+         /**
+          * 工作地点名称
+          * <p> 示例值：武汉
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 工作地点 ID
-         * <p> 示例值：1695838220091399
-         */
+     /**
+      * 工作地点 ID
+      * <p> 示例值：1695838220091399
+      */
         private Long id;
-        /**
-         * 工作地点名称
-         * <p> 示例值：武汉
-         */
+     /**
+      * 工作地点名称
+      * <p> 示例值：武汉
+      */
         private String name;
 
         /**
          * 工作地点 ID
          * <p> 示例值：1695838220091399
-         *
          * @param id
          * @return
          */
         public Builder id(Long id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 工作地点名称
          * <p> 示例值：武汉
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public WorkLocation build(){
+        return new WorkLocation(this);
+      }
+    }
 
-        public WorkLocation build() {
-            return new WorkLocation(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

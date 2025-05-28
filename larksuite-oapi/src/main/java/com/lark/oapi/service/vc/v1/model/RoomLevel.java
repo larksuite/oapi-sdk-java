@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RoomLevel {
-    /**
-     * 层级ID
-     * <p> 示例值：层级ID
-     */
+     /**
+      * 层级ID
+      * <p> 示例值：层级ID
+      */
     @SerializedName("room_level_id")
     private String roomLevelId;
-    /**
-     * 层级名称
-     * <p> 示例值：测试层级
-     */
+     /**
+      * 层级名称
+      * <p> 示例值：测试层级
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 父层级ID
-     * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-     */
+     /**
+      * 父层级ID
+      * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+      */
     @SerializedName("parent_id")
     private String parentId;
-    /**
-     * 层级路径
-     * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754, omb_8d020b12fe49e82847c2af3c193d5754]
-     */
+     /**
+      * 层级路径
+      * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754, omb_8d020b12fe49e82847c2af3c193d5754]
+      */
     @SerializedName("path")
     private String[] path;
-    /**
-     * 是否有子层级
-     * <p> 示例值：false
-     */
+     /**
+      * 是否有子层级
+      * <p> 示例值：false
+      */
     @SerializedName("has_child")
     private Boolean hasChild;
-    /**
-     * 自定义层级ID
-     * <p> 示例值：10000
-     */
+     /**
+      * 自定义层级ID
+      * <p> 示例值：10000
+      */
     @SerializedName("custom_group_id")
     private String customGroupId;
-
-    // builder 开始
-    public RoomLevel() {
-    }
-
-    public RoomLevel(Builder builder) {
-        /**
-         * 层级ID
-         * <p> 示例值：层级ID
-         */
-        this.roomLevelId = builder.roomLevelId;
-        /**
-         * 层级名称
-         * <p> 示例值：测试层级
-         */
-        this.name = builder.name;
-        /**
-         * 父层级ID
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 层级路径
-         * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754, omb_8d020b12fe49e82847c2af3c193d5754]
-         */
-        this.path = builder.path;
-        /**
-         * 是否有子层级
-         * <p> 示例值：false
-         */
-        this.hasChild = builder.hasChild;
-        /**
-         * 自定义层级ID
-         * <p> 示例值：10000
-         */
-        this.customGroupId = builder.customGroupId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoomLevelId() {
         return this.roomLevelId;
     }
@@ -155,118 +109,159 @@ public class RoomLevel {
         this.customGroupId = customGroupId;
     }
 
+
+// builder 开始
+  public RoomLevel(){}
+
+  public RoomLevel(Builder builder){
+         /**
+          * 层级ID
+          * <p> 示例值：层级ID
+          */
+      this.roomLevelId = builder.roomLevelId;
+         /**
+          * 层级名称
+          * <p> 示例值：测试层级
+          */
+      this.name = builder.name;
+         /**
+          * 父层级ID
+          * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+          */
+      this.parentId = builder.parentId;
+         /**
+          * 层级路径
+          * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754, omb_8d020b12fe49e82847c2af3c193d5754]
+          */
+      this.path = builder.path;
+         /**
+          * 是否有子层级
+          * <p> 示例值：false
+          */
+      this.hasChild = builder.hasChild;
+         /**
+          * 自定义层级ID
+          * <p> 示例值：10000
+          */
+      this.customGroupId = builder.customGroupId;
+  }
+
     public static class Builder {
-        /**
-         * 层级ID
-         * <p> 示例值：层级ID
-         */
+     /**
+      * 层级ID
+      * <p> 示例值：层级ID
+      */
         private String roomLevelId;
-        /**
-         * 层级名称
-         * <p> 示例值：测试层级
-         */
+     /**
+      * 层级名称
+      * <p> 示例值：测试层级
+      */
         private String name;
-        /**
-         * 父层级ID
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
+     /**
+      * 父层级ID
+      * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+      */
         private String parentId;
-        /**
-         * 层级路径
-         * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754, omb_8d020b12fe49e82847c2af3c193d5754]
-         */
+     /**
+      * 层级路径
+      * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754, omb_8d020b12fe49e82847c2af3c193d5754]
+      */
         private String[] path;
-        /**
-         * 是否有子层级
-         * <p> 示例值：false
-         */
+     /**
+      * 是否有子层级
+      * <p> 示例值：false
+      */
         private Boolean hasChild;
-        /**
-         * 自定义层级ID
-         * <p> 示例值：10000
-         */
+     /**
+      * 自定义层级ID
+      * <p> 示例值：10000
+      */
         private String customGroupId;
 
         /**
          * 层级ID
          * <p> 示例值：层级ID
-         *
          * @param roomLevelId
          * @return
          */
         public Builder roomLevelId(String roomLevelId) {
-            this.roomLevelId = roomLevelId;
-            return this;
+             this.roomLevelId = roomLevelId;
+             return this;
         }
 
+    
 
         /**
          * 层级名称
          * <p> 示例值：测试层级
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 父层级ID
          * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         *
          * @param parentId
          * @return
          */
         public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
+             this.parentId = parentId;
+             return this;
         }
 
+    
 
         /**
          * 层级路径
          * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754, omb_8d020b12fe49e82847c2af3c193d5754]
-         *
          * @param path
          * @return
          */
         public Builder path(String[] path) {
-            this.path = path;
-            return this;
+             this.path = path;
+             return this;
         }
 
+    
 
         /**
          * 是否有子层级
          * <p> 示例值：false
-         *
          * @param hasChild
          * @return
          */
         public Builder hasChild(Boolean hasChild) {
-            this.hasChild = hasChild;
-            return this;
+             this.hasChild = hasChild;
+             return this;
         }
 
+    
 
         /**
          * 自定义层级ID
          * <p> 示例值：10000
-         *
          * @param customGroupId
          * @return
          */
         public Builder customGroupId(String customGroupId) {
-            this.customGroupId = customGroupId;
-            return this;
+             this.customGroupId = customGroupId;
+             return this;
         }
 
+    
+    
+    public RoomLevel build(){
+        return new RoomLevel(this);
+      }
+    }
 
-        public RoomLevel build() {
-            return new RoomLevel(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

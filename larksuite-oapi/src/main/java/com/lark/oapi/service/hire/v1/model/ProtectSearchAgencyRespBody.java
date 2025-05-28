@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProtectSearchAgencyRespBody {
-    /**
-     * 是否已入职
-     * <p> 示例值：false
-     */
+     /**
+      * 是否已入职
+      * <p> 示例值：false
+      */
     @SerializedName("is_onboarded")
     private Boolean isOnboarded;
-    /**
-     * 是否在猎头保护期内入职
-     * <p> 示例值：false
-     */
+     /**
+      * 是否在猎头保护期内入职
+      * <p> 示例值：false
+      */
     @SerializedName("onboarded_in_protection")
     private Boolean onboardedInProtection;
-    /**
-     * 入职所在保护期
-     * <p> 示例值：
-     */
+     /**
+      * 入职所在保护期
+      * <p> 示例值：
+      */
     @SerializedName("onboarded_protection")
     private AgencyProtection onboardedProtection;
-    /**
-     * 人才保护信息
-     * <p> 示例值：
-     */
+     /**
+      * 人才保护信息
+      * <p> 示例值：
+      */
     @SerializedName("protection_list")
     private AgencyProtection[] protectionList;
-
     public Boolean getIsOnboarded() {
         return this.isOnboarded;
     }

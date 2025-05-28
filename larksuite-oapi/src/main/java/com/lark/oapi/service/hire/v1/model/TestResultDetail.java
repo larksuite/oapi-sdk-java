@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TestResultDetail {
-    /**
-     * 笔试科目
-     * <p> 示例值：定制化报告测验
-     */
+     /**
+      * 笔试科目
+      * <p> 示例值：定制化报告测验
+      */
     @SerializedName("subject")
     private String subject;
-    /**
-     * 笔试科目结论
-     * <p> 示例值：合格
-     */
+     /**
+      * 笔试科目结论
+      * <p> 示例值：合格
+      */
     @SerializedName("result")
     private String result;
-
-    // builder 开始
-    public TestResultDetail() {
-    }
-
-    public TestResultDetail(Builder builder) {
-        /**
-         * 笔试科目
-         * <p> 示例值：定制化报告测验
-         */
-        this.subject = builder.subject;
-        /**
-         * 笔试科目结论
-         * <p> 示例值：合格
-         */
-        this.result = builder.result;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSubject() {
         return this.subject;
     }
@@ -78,46 +52,67 @@ public class TestResultDetail {
         this.result = result;
     }
 
+
+// builder 开始
+  public TestResultDetail(){}
+
+  public TestResultDetail(Builder builder){
+         /**
+          * 笔试科目
+          * <p> 示例值：定制化报告测验
+          */
+      this.subject = builder.subject;
+         /**
+          * 笔试科目结论
+          * <p> 示例值：合格
+          */
+      this.result = builder.result;
+  }
+
     public static class Builder {
-        /**
-         * 笔试科目
-         * <p> 示例值：定制化报告测验
-         */
+     /**
+      * 笔试科目
+      * <p> 示例值：定制化报告测验
+      */
         private String subject;
-        /**
-         * 笔试科目结论
-         * <p> 示例值：合格
-         */
+     /**
+      * 笔试科目结论
+      * <p> 示例值：合格
+      */
         private String result;
 
         /**
          * 笔试科目
          * <p> 示例值：定制化报告测验
-         *
          * @param subject
          * @return
          */
         public Builder subject(String subject) {
-            this.subject = subject;
-            return this;
+             this.subject = subject;
+             return this;
         }
 
+    
 
         /**
          * 笔试科目结论
          * <p> 示例值：合格
-         *
          * @param result
          * @return
          */
         public Builder result(String result) {
-            this.result = result;
-            return this;
+             this.result = result;
+             return this;
         }
 
+    
+    
+    public TestResultDetail build(){
+        return new TestResultDetail(this);
+      }
+    }
 
-        public TestResultDetail build() {
-            return new TestResultDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

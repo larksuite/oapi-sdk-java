@@ -17,16 +17,15 @@ package com.lark.oapi.service.apaas.v1.enums;
  * -
  */
 public enum ComponentLibBasicLibTypeEnum {
-    INTERNAL("1"), // -
-    ISV("2"), // -
-    ;
-    private String value;
-
+     INTERNAL("1"), // -
+     ISV("2"), // -
+  ;
+   private String value;
     ComponentLibBasicLibTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

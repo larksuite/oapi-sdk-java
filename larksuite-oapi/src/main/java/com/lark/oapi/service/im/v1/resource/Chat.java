@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.im.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class Chat {
         this.config = config;
     }
 
-
+    
     /**
      * 创建群，创建群并设置群头像、群名、群描述等。
      * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 本接口支持在创建群的同时拉用户或机器人进群；如果仅需要拉用户或者机器人入群参考 [将用户或机器人拉入群聊](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口 ;
@@ -64,7 +59,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateChatResp.class);
         if (resp == null) {
@@ -72,14 +67,14 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -97,7 +92,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateChatResp.class);
         if (resp == null) {
@@ -105,16 +100,15 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 解散群，解散群组。
      * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 如果使用tenant_access_token，需要机器人符合以下任一情况才可解散群：;    - 机器人是群主;    - 机器人是群的创建者且具备==更新应用所创建群的群信息==权限;- 如果使用user_access_token，需要对应的用户是群主才可解散群 ;
@@ -132,7 +126,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/:chat_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteChatResp.class);
         if (resp == null) {
@@ -140,14 +134,14 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/:chat_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -165,7 +159,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/:chat_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteChatResp.class);
         if (resp == null) {
@@ -173,16 +167,15 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/:chat_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取群信息，获取群名称、群描述、群头像、群主 ID 等群基本信息。
      * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability); - 机器人或授权用户必须在群里（否则只会返回群名称、群头像等基本信息）;- 获取内部群信息时，操作者须与群组在同一租户下 ;
@@ -200,7 +193,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/:chat_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetChatResp.class);
         if (resp == null) {
@@ -208,14 +201,14 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/:chat_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -233,7 +226,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/:chat_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetChatResp.class);
         if (resp == null) {
@@ -241,16 +234,15 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/:chat_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取群分享链接，获取指定群的分享链接。
      * <p> 注意事项:;- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability); - access_token所对应的 **机器人** 或 **授权用户** 必须在`chat_id`参数指定的群组中;- 单聊、密聊、团队群不支持分享群链接;- 当Bot被停用或Bot退出群组时，Bot生成的群链接也将停用;- 当群聊开启了 ==仅群主和群管理员可添加群成员/分享群== 设置时，仅**群主**和**群管理员**可以获取群分享链接;- 获取内部群分享链接时，操作者须与群组在同一租户下 ;
@@ -268,7 +260,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/:chat_id/link"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         LinkChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, LinkChatResp.class);
         if (resp == null) {
@@ -276,14 +268,14 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/:chat_id/link"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -301,7 +293,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/:chat_id/link"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         LinkChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, LinkChatResp.class);
         if (resp == null) {
@@ -309,16 +301,15 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/:chat_id/link"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取用户或机器人所在的群列表，获取用户或者机器人所在群列表。
      * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 请注意区分本接口和[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)的请求 URL;- 获取的群列表不包含P2P单聊 ;
@@ -336,7 +327,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListChatResp.class);
         if (resp == null) {
@@ -344,14 +335,14 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -369,7 +360,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListChatResp.class);
         if (resp == null) {
@@ -377,16 +368,15 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 搜索对用户或机器人可见的群列表，搜索对用户或机器人可见的群列表，包括：用户或机器人所在的群、对用户或机器人公开的群。;搜索可获得的群信息包括：群ID（chat_id）、群名称、群描述等。
      * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) ;
@@ -404,7 +394,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/search"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         SearchChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchChatResp.class);
         if (resp == null) {
@@ -412,14 +402,14 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/search"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -437,7 +427,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/search"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         SearchChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchChatResp.class);
         if (resp == null) {
@@ -445,16 +435,15 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/search"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 更新群信息，更新群头像、群名称、群描述、群配置、转让群主等。
      * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 对于群主/群管理员 或 创建群组且具备 ==更新应用所创建群的群信息== 权限的机器人，可更新所有信息;- 对于不满足上述权限条件的群成员或机器人：;    - 若未开启 ==仅群主和群管理员可编辑群信息== 配置，仅可更新群头像、群名称、群描述、群国际化名称信息;    - 若开启了 ==仅群主和群管理员可编辑群信息== 配置，任何群信息都不能修改;- 如果同时更新 ==邀请用户或机器人入群权限== 和 ==群分享权限== 这两项设置需要满足以下条件：;    - 若未开启 ==仅群主和管理员可以邀请用户或机器人入群==，需要设置 ==群分享权限== 为 ==允许分享==;    - 若开启了 ==仅群主和管理员可以邀请用户或机器人入群==，需要设置 ==群分享权限== 为 ==不允许分享== ;
@@ -472,7 +461,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/:chat_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         UpdateChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateChatResp.class);
         if (resp == null) {
@@ -480,14 +469,14 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/:chat_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -505,7 +494,7 @@ public class Chat {
                 , "/open-apis/im/v1/chats/:chat_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         UpdateChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateChatResp.class);
         if (resp == null) {
@@ -513,13 +502,13 @@ public class Chat {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/chats/:chat_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

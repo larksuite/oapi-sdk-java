@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TicketUserEvent {
-    /**
-     * id
-     * <p> 示例值：
-     */
+     /**
+      * id
+      * <p> 示例值：
+      */
     @SerializedName("id")
     private UserId id;
-    /**
-     * user avartal url
-     * <p> 示例值：
-     */
+     /**
+      * user avartal url
+      * <p> 示例值：
+      */
     @SerializedName("avatar_url")
     private String avatarUrl;
-    /**
-     * 名称
-     * <p> 示例值：abc
-     */
+     /**
+      * 名称
+      * <p> 示例值：abc
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * user email
-     * <p> 示例值：
-     */
+     /**
+      * user email
+      * <p> 示例值：
+      */
     @SerializedName("email")
     private String email;
-
-    // builder 开始
-    public TicketUserEvent() {
-    }
-
-    public TicketUserEvent(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * user avartal url
-         * <p> 示例值：
-         */
-        this.avatarUrl = builder.avatarUrl;
-        /**
-         * 名称
-         * <p> 示例值：abc
-         */
-        this.name = builder.name;
-        /**
-         * user email
-         * <p> 示例值：
-         */
-        this.email = builder.email;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public UserId getId() {
         return this.id;
     }
@@ -117,82 +81,113 @@ public class TicketUserEvent {
         this.email = email;
     }
 
+
+// builder 开始
+  public TicketUserEvent(){}
+
+  public TicketUserEvent(Builder builder){
+         /**
+          * id
+          * <p> 示例值：
+          */
+      this.id = builder.id;
+         /**
+          * user avartal url
+          * <p> 示例值：
+          */
+      this.avatarUrl = builder.avatarUrl;
+         /**
+          * 名称
+          * <p> 示例值：abc
+          */
+      this.name = builder.name;
+         /**
+          * user email
+          * <p> 示例值：
+          */
+      this.email = builder.email;
+  }
+
     public static class Builder {
-        /**
-         * id
-         * <p> 示例值：
-         */
+     /**
+      * id
+      * <p> 示例值：
+      */
         private UserId id;
-        /**
-         * user avartal url
-         * <p> 示例值：
-         */
+     /**
+      * user avartal url
+      * <p> 示例值：
+      */
         private String avatarUrl;
-        /**
-         * 名称
-         * <p> 示例值：abc
-         */
+     /**
+      * 名称
+      * <p> 示例值：abc
+      */
         private String name;
-        /**
-         * user email
-         * <p> 示例值：
-         */
+     /**
+      * user email
+      * <p> 示例值：
+      */
         private String email;
 
         /**
          * id
          * <p> 示例值：
-         *
          * @param id
          * @return
          */
         public Builder id(UserId id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * user avartal url
          * <p> 示例值：
-         *
          * @param avatarUrl
          * @return
          */
         public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
+             this.avatarUrl = avatarUrl;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：abc
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * user email
          * <p> 示例值：
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
+    
+    public TicketUserEvent build(){
+        return new TicketUserEvent(this);
+      }
+    }
 
-        public TicketUserEvent build() {
-            return new TicketUserEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

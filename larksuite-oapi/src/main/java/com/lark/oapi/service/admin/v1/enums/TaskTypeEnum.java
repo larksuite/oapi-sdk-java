@@ -17,16 +17,15 @@ package com.lark.oapi.service.admin.v1.enums;
  * 任务类型
  */
 public enum TaskTypeEnum {
-    RECOVERTRANSFER(1), // 恢复（并转移）
-    TRANSFER(2), // 转移
-    ;
-    private Integer value;
-
+     RECOVERTRANSFER(1), // 恢复（并转移）
+     TRANSFER(2), // 转移
+  ;
+   private Integer value;
     TaskTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

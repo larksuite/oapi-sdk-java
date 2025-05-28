@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Section {
-    /**
-     * 自定义分组的guid
-     * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-     */
+     /**
+      * 自定义分组的guid
+      * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+      */
     @SerializedName("guid")
     private String guid;
-    /**
-     * 自定义分组的名字
-     * <p> 示例值：已经评审过的任务
-     */
+     /**
+      * 自定义分组的名字
+      * <p> 示例值：已经评审过的任务
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 资源类型
-     * <p> 示例值：tasklist
-     */
+     /**
+      * 资源类型
+      * <p> 示例值：tasklist
+      */
     @SerializedName("resource_type")
     private String resourceType;
-    /**
-     * 分组是否为默认自定义分组
-     * <p> 示例值：true
-     */
+     /**
+      * 分组是否为默认自定义分组
+      * <p> 示例值：true
+      */
     @SerializedName("is_default")
     private Boolean isDefault;
-    /**
-     * 自定义分组的创建者
-     * <p> 示例值：
-     */
+     /**
+      * 自定义分组的创建者
+      * <p> 示例值：
+      */
     @SerializedName("creator")
     private Member creator;
-    /**
-     * 如果该分组归属于清单，展示清单的简要信息
-     * <p> 示例值：
-     */
+     /**
+      * 如果该分组归属于清单，展示清单的简要信息
+      * <p> 示例值：
+      */
     @SerializedName("tasklist")
     private TasklistSummary tasklist;
-    /**
-     * 自定义分组创建时间戳(ms)
-     * <p> 示例值：1675742789470
-     */
+     /**
+      * 自定义分组创建时间戳(ms)
+      * <p> 示例值：1675742789470
+      */
     @SerializedName("created_at")
     private String createdAt;
-    /**
-     * 自定义分组最近一次更新时间戳(ms)
-     * <p> 示例值：1675742789470
-     */
+     /**
+      * 自定义分组最近一次更新时间戳(ms)
+      * <p> 示例值：1675742789470
+      */
     @SerializedName("updated_at")
     private String updatedAt;
-
-    // builder 开始
-    public Section() {
-    }
-
-    public Section(Builder builder) {
-        /**
-         * 自定义分组的guid
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        this.guid = builder.guid;
-        /**
-         * 自定义分组的名字
-         * <p> 示例值：已经评审过的任务
-         */
-        this.name = builder.name;
-        /**
-         * 资源类型
-         * <p> 示例值：tasklist
-         */
-        this.resourceType = builder.resourceType;
-        /**
-         * 分组是否为默认自定义分组
-         * <p> 示例值：true
-         */
-        this.isDefault = builder.isDefault;
-        /**
-         * 自定义分组的创建者
-         * <p> 示例值：
-         */
-        this.creator = builder.creator;
-        /**
-         * 如果该分组归属于清单，展示清单的简要信息
-         * <p> 示例值：
-         */
-        this.tasklist = builder.tasklist;
-        /**
-         * 自定义分组创建时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 自定义分组最近一次更新时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        this.updatedAt = builder.updatedAt;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getGuid() {
         return this.guid;
     }
@@ -193,154 +137,205 @@ public class Section {
         this.updatedAt = updatedAt;
     }
 
+
+// builder 开始
+  public Section(){}
+
+  public Section(Builder builder){
+         /**
+          * 自定义分组的guid
+          * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+          */
+      this.guid = builder.guid;
+         /**
+          * 自定义分组的名字
+          * <p> 示例值：已经评审过的任务
+          */
+      this.name = builder.name;
+         /**
+          * 资源类型
+          * <p> 示例值：tasklist
+          */
+      this.resourceType = builder.resourceType;
+         /**
+          * 分组是否为默认自定义分组
+          * <p> 示例值：true
+          */
+      this.isDefault = builder.isDefault;
+         /**
+          * 自定义分组的创建者
+          * <p> 示例值：
+          */
+      this.creator = builder.creator;
+         /**
+          * 如果该分组归属于清单，展示清单的简要信息
+          * <p> 示例值：
+          */
+      this.tasklist = builder.tasklist;
+         /**
+          * 自定义分组创建时间戳(ms)
+          * <p> 示例值：1675742789470
+          */
+      this.createdAt = builder.createdAt;
+         /**
+          * 自定义分组最近一次更新时间戳(ms)
+          * <p> 示例值：1675742789470
+          */
+      this.updatedAt = builder.updatedAt;
+  }
+
     public static class Builder {
-        /**
-         * 自定义分组的guid
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
+     /**
+      * 自定义分组的guid
+      * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+      */
         private String guid;
-        /**
-         * 自定义分组的名字
-         * <p> 示例值：已经评审过的任务
-         */
+     /**
+      * 自定义分组的名字
+      * <p> 示例值：已经评审过的任务
+      */
         private String name;
-        /**
-         * 资源类型
-         * <p> 示例值：tasklist
-         */
+     /**
+      * 资源类型
+      * <p> 示例值：tasklist
+      */
         private String resourceType;
-        /**
-         * 分组是否为默认自定义分组
-         * <p> 示例值：true
-         */
+     /**
+      * 分组是否为默认自定义分组
+      * <p> 示例值：true
+      */
         private Boolean isDefault;
-        /**
-         * 自定义分组的创建者
-         * <p> 示例值：
-         */
+     /**
+      * 自定义分组的创建者
+      * <p> 示例值：
+      */
         private Member creator;
-        /**
-         * 如果该分组归属于清单，展示清单的简要信息
-         * <p> 示例值：
-         */
+     /**
+      * 如果该分组归属于清单，展示清单的简要信息
+      * <p> 示例值：
+      */
         private TasklistSummary tasklist;
-        /**
-         * 自定义分组创建时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
+     /**
+      * 自定义分组创建时间戳(ms)
+      * <p> 示例值：1675742789470
+      */
         private String createdAt;
-        /**
-         * 自定义分组最近一次更新时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
+     /**
+      * 自定义分组最近一次更新时间戳(ms)
+      * <p> 示例值：1675742789470
+      */
         private String updatedAt;
 
         /**
          * 自定义分组的guid
          * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         *
          * @param guid
          * @return
          */
         public Builder guid(String guid) {
-            this.guid = guid;
-            return this;
+             this.guid = guid;
+             return this;
         }
 
+    
 
         /**
          * 自定义分组的名字
          * <p> 示例值：已经评审过的任务
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 资源类型
          * <p> 示例值：tasklist
-         *
          * @param resourceType
          * @return
          */
         public Builder resourceType(String resourceType) {
-            this.resourceType = resourceType;
-            return this;
+             this.resourceType = resourceType;
+             return this;
         }
 
+    
 
         /**
          * 分组是否为默认自定义分组
          * <p> 示例值：true
-         *
          * @param isDefault
          * @return
          */
         public Builder isDefault(Boolean isDefault) {
-            this.isDefault = isDefault;
-            return this;
+             this.isDefault = isDefault;
+             return this;
         }
 
+    
 
         /**
          * 自定义分组的创建者
          * <p> 示例值：
-         *
          * @param creator
          * @return
          */
         public Builder creator(Member creator) {
-            this.creator = creator;
-            return this;
+             this.creator = creator;
+             return this;
         }
 
+    
 
         /**
          * 如果该分组归属于清单，展示清单的简要信息
          * <p> 示例值：
-         *
          * @param tasklist
          * @return
          */
         public Builder tasklist(TasklistSummary tasklist) {
-            this.tasklist = tasklist;
-            return this;
+             this.tasklist = tasklist;
+             return this;
         }
 
+    
 
         /**
          * 自定义分组创建时间戳(ms)
          * <p> 示例值：1675742789470
-         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
+             this.createdAt = createdAt;
+             return this;
         }
 
+    
 
         /**
          * 自定义分组最近一次更新时间戳(ms)
          * <p> 示例值：1675742789470
-         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
+             this.updatedAt = updatedAt;
+             return this;
         }
 
+    
+    
+    public Section build(){
+        return new Section(this);
+      }
+    }
 
-        public Section build() {
-            return new Section(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

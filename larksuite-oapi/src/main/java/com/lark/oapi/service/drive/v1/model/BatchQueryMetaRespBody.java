@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchQueryMetaRespBody {
-    /**
-     * 文档元数据列表
-     * <p> 示例值：
-     */
+     /**
+      * 文档元数据列表
+      * <p> 示例值：
+      */
     @SerializedName("metas")
     private Meta[] metas;
-    /**
-     * 无法获取元数据的文档列表
-     * <p> 示例值：
-     */
+     /**
+      * 无法获取元数据的文档列表
+      * <p> 示例值：
+      */
     @SerializedName("failed_list")
     private MetaFailed[] failedList;
-
     public Meta[] getMetas() {
         return this.metas;
     }

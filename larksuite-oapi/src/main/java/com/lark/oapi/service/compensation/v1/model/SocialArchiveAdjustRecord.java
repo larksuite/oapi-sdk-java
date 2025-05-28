@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SocialArchiveAdjustRecord {
-    /**
-     * 员工ID
-     * <p> 示例值：
-     */
+     /**
+      * 员工ID
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 类型，increase: 增员; attrition: 减员
-     * <p> 示例值：increase
-     */
+     /**
+      * 类型，increase: 增员; attrition: 减员
+      * <p> 示例值：increase
+      */
     @SerializedName("record_type")
     private String recordType;
-    /**
-     * 员工增减员记录，包括社保、公积金记录
-     * <p> 示例值：
-     */
+     /**
+      * 员工增减员记录，包括社保、公积金记录
+      * <p> 示例值：
+      */
     @SerializedName("details")
     private SocialArchiveDetail[] details;
-
-    // builder 开始
-    public SocialArchiveAdjustRecord() {
-    }
-
-    public SocialArchiveAdjustRecord(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 类型，increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         */
-        this.recordType = builder.recordType;
-        /**
-         * 员工增减员记录，包括社保、公积金记录
-         * <p> 示例值：
-         */
-        this.details = builder.details;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -98,76 +67,100 @@ public class SocialArchiveAdjustRecord {
         this.details = details;
     }
 
+
+// builder 开始
+  public SocialArchiveAdjustRecord(){}
+
+  public SocialArchiveAdjustRecord(Builder builder){
+         /**
+          * 员工ID
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * 类型，increase: 增员; attrition: 减员
+          * <p> 示例值：increase
+          */
+      this.recordType = builder.recordType;
+         /**
+          * 员工增减员记录，包括社保、公积金记录
+          * <p> 示例值：
+          */
+      this.details = builder.details;
+  }
+
     public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：
-         */
+     /**
+      * 员工ID
+      * <p> 示例值：
+      */
         private String userId;
-        /**
-         * 类型，increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         */
+     /**
+      * 类型，increase: 增员; attrition: 减员
+      * <p> 示例值：increase
+      */
         private String recordType;
-        /**
-         * 员工增减员记录，包括社保、公积金记录
-         * <p> 示例值：
-         */
+     /**
+      * 员工增减员记录，包括社保、公积金记录
+      * <p> 示例值：
+      */
         private SocialArchiveDetail[] details;
 
         /**
          * 员工ID
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 类型，increase: 增员; attrition: 减员
          * <p> 示例值：increase
-         *
          * @param recordType
          * @return
          */
         public Builder recordType(String recordType) {
-            this.recordType = recordType;
-            return this;
+             this.recordType = recordType;
+             return this;
         }
-
         /**
          * 类型，increase: 增员; attrition: 减员
          * <p> 示例值：increase
-         *
          * @param recordType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordRecordTypeEnum}
          * @return
          */
         public Builder recordType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordRecordTypeEnum recordType) {
-            this.recordType = recordType.getValue();
-            return this;
+             this.recordType = recordType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 员工增减员记录，包括社保、公积金记录
          * <p> 示例值：
-         *
          * @param details
          * @return
          */
         public Builder details(SocialArchiveDetail[] details) {
-            this.details = details;
-            return this;
+             this.details = details;
+             return this;
         }
 
+    
+    
+    public SocialArchiveAdjustRecord build(){
+        return new SocialArchiveAdjustRecord(this);
+      }
+    }
 
-        public SocialArchiveAdjustRecord build() {
-            return new SocialArchiveAdjustRecord(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

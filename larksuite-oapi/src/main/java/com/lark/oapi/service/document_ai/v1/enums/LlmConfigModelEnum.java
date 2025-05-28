@@ -17,15 +17,14 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 模型名称
  */
 public enum LlmConfigModelEnum {
-    MINICPM("miniCPM"), // 面向图文理解的端侧多模态大模型
-    ;
-    private String value;
-
+     MINICPM("miniCPM"), // 面向图文理解的端侧多模态大模型
+  ;
+   private String value;
     LlmConfigModelEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

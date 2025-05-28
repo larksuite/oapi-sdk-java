@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Question {
-    /**
-     * 填写题 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 填写题 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("question_id")
     private String questionId;
-    /**
-     * 填写题名称
-     * <p> 示例值：
-     */
+     /**
+      * 填写题名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 标签列表
-     * <p> 示例值：
-     */
+     /**
+      * 标签列表
+      * <p> 示例值：
+      */
     @SerializedName("tag_items")
     private TagItem[] tagItems;
-
-    // builder 开始
-    public Question() {
-    }
-
-    public Question(Builder builder) {
-        /**
-         * 填写题 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.questionId = builder.questionId;
-        /**
-         * 填写题名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 标签列表
-         * <p> 示例值：
-         */
-        this.tagItems = builder.tagItems;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getQuestionId() {
         return this.questionId;
     }
@@ -98,64 +67,90 @@ public class Question {
         this.tagItems = tagItems;
     }
 
+
+// builder 开始
+  public Question(){}
+
+  public Question(Builder builder){
+         /**
+          * 填写题 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.questionId = builder.questionId;
+         /**
+          * 填写题名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 标签列表
+          * <p> 示例值：
+          */
+      this.tagItems = builder.tagItems;
+  }
+
     public static class Builder {
-        /**
-         * 填写题 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 填写题 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String questionId;
-        /**
-         * 填写题名称
-         * <p> 示例值：
-         */
+     /**
+      * 填写题名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 标签列表
-         * <p> 示例值：
-         */
+     /**
+      * 标签列表
+      * <p> 示例值：
+      */
         private TagItem[] tagItems;
 
         /**
          * 填写题 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param questionId
          * @return
          */
         public Builder questionId(String questionId) {
-            this.questionId = questionId;
-            return this;
+             this.questionId = questionId;
+             return this;
         }
 
+    
 
         /**
          * 填写题名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 标签列表
          * <p> 示例值：
-         *
          * @param tagItems
          * @return
          */
         public Builder tagItems(TagItem[] tagItems) {
-            this.tagItems = tagItems;
-            return this;
+             this.tagItems = tagItems;
+             return this;
         }
 
+    
+    
+    public Question build(){
+        return new Question(this);
+      }
+    }
 
-        public Question build() {
-            return new Question(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

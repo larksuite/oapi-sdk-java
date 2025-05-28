@@ -17,17 +17,16 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 保护类型
  */
 public enum ProtectedRangeProtectedDimensionEnum {
-    ROWS("ROWS"), // 保护行
-    COLUMNS("COLUMNS"), // 保护列
-    SHEET("SHEET"), // 保护工作表
-    ;
-    private String value;
-
+     ROWS("ROWS"), // 保护行
+     COLUMNS("COLUMNS"), // 保护列
+     SHEET("SHEET"), // 保护工作表
+  ;
+   private String value;
     ProtectedRangeProtectedDimensionEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TalentCityInfo {
-    /**
-     * 城市码
-     * <p> 示例值：CN_183
-     */
+     /**
+      * 城市码
+      * <p> 示例值：CN_183
+      */
     @SerializedName("city_code")
     private String cityCode;
-    /**
-     * 中文名
-     * <p> 示例值：测试
-     */
+     /**
+      * 中文名
+      * <p> 示例值：测试
+      */
     @SerializedName("zh_name")
     private String zhName;
-    /**
-     * 英文名
-     * <p> 示例值：test
-     */
+     /**
+      * 英文名
+      * <p> 示例值：test
+      */
     @SerializedName("en_name")
     private String enName;
-
-    // builder 开始
-    public TalentCityInfo() {
-    }
-
-    public TalentCityInfo(Builder builder) {
-        /**
-         * 城市码
-         * <p> 示例值：CN_183
-         */
-        this.cityCode = builder.cityCode;
-        /**
-         * 中文名
-         * <p> 示例值：测试
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 英文名
-         * <p> 示例值：test
-         */
-        this.enName = builder.enName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCityCode() {
         return this.cityCode;
     }
@@ -97,64 +66,90 @@ public class TalentCityInfo {
         this.enName = enName;
     }
 
+
+// builder 开始
+  public TalentCityInfo(){}
+
+  public TalentCityInfo(Builder builder){
+         /**
+          * 城市码
+          * <p> 示例值：CN_183
+          */
+      this.cityCode = builder.cityCode;
+         /**
+          * 中文名
+          * <p> 示例值：测试
+          */
+      this.zhName = builder.zhName;
+         /**
+          * 英文名
+          * <p> 示例值：test
+          */
+      this.enName = builder.enName;
+  }
+
     public static class Builder {
-        /**
-         * 城市码
-         * <p> 示例值：CN_183
-         */
+     /**
+      * 城市码
+      * <p> 示例值：CN_183
+      */
         private String cityCode;
-        /**
-         * 中文名
-         * <p> 示例值：测试
-         */
+     /**
+      * 中文名
+      * <p> 示例值：测试
+      */
         private String zhName;
-        /**
-         * 英文名
-         * <p> 示例值：test
-         */
+     /**
+      * 英文名
+      * <p> 示例值：test
+      */
         private String enName;
 
         /**
          * 城市码
          * <p> 示例值：CN_183
-         *
          * @param cityCode
          * @return
          */
         public Builder cityCode(String cityCode) {
-            this.cityCode = cityCode;
-            return this;
+             this.cityCode = cityCode;
+             return this;
         }
 
+    
 
         /**
          * 中文名
          * <p> 示例值：测试
-         *
          * @param zhName
          * @return
          */
         public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
+             this.zhName = zhName;
+             return this;
         }
 
+    
 
         /**
          * 英文名
          * <p> 示例值：test
-         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
+             this.enName = enName;
+             return this;
         }
 
+    
+    
+    public TalentCityInfo build(){
+        return new TalentCityInfo(this);
+      }
+    }
 
-        public TalentCityInfo build() {
-            return new TalentCityInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

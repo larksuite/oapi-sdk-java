@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteGridColumnRequest {
-    /**
-     * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
-     * <p> 示例值：0
-     */
+     /**
+      * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+      * <p> 示例值：0
+      */
     @SerializedName("column_index")
     private Integer columnIndex;
-
-    // builder 开始
-    public DeleteGridColumnRequest() {
-    }
-
-    public DeleteGridColumnRequest(Builder builder) {
-        /**
-         * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
-         * <p> 示例值：0
-         */
-        this.columnIndex = builder.columnIndex;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getColumnIndex() {
         return this.columnIndex;
     }
@@ -60,28 +39,44 @@ public class DeleteGridColumnRequest {
         this.columnIndex = columnIndex;
     }
 
+
+// builder 开始
+  public DeleteGridColumnRequest(){}
+
+  public DeleteGridColumnRequest(Builder builder){
+         /**
+          * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+          * <p> 示例值：0
+          */
+      this.columnIndex = builder.columnIndex;
+  }
+
     public static class Builder {
-        /**
-         * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
-         * <p> 示例值：0
-         */
+     /**
+      * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+      * <p> 示例值：0
+      */
         private Integer columnIndex;
 
         /**
          * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
          * <p> 示例值：0
-         *
          * @param columnIndex
          * @return
          */
         public Builder columnIndex(Integer columnIndex) {
-            this.columnIndex = columnIndex;
-            return this;
+             this.columnIndex = columnIndex;
+             return this;
         }
 
+    
+    
+    public DeleteGridColumnRequest build(){
+        return new DeleteGridColumnRequest(this);
+      }
+    }
 
-        public DeleteGridColumnRequest build() {
-            return new DeleteGridColumnRequest(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

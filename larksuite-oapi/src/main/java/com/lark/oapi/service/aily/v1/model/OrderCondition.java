@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OrderCondition {
-    /**
-     * 字段名
-     * <p> 示例值：name
-     */
+     /**
+      * 字段名
+      * <p> 示例值：name
+      */
     @SerializedName("field")
     private String field;
-    /**
-     * 排序方式
-     * <p> 示例值：asc
-     */
+     /**
+      * 排序方式
+      * <p> 示例值：asc
+      */
     @SerializedName("direction")
     private String direction;
-
-    // builder 开始
-    public OrderCondition() {
-    }
-
-    public OrderCondition(Builder builder) {
-        /**
-         * 字段名
-         * <p> 示例值：name
-         */
-        this.field = builder.field;
-        /**
-         * 排序方式
-         * <p> 示例值：asc
-         */
-        this.direction = builder.direction;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getField() {
         return this.field;
     }
@@ -79,58 +53,77 @@ public class OrderCondition {
         this.direction = direction;
     }
 
+
+// builder 开始
+  public OrderCondition(){}
+
+  public OrderCondition(Builder builder){
+         /**
+          * 字段名
+          * <p> 示例值：name
+          */
+      this.field = builder.field;
+         /**
+          * 排序方式
+          * <p> 示例值：asc
+          */
+      this.direction = builder.direction;
+  }
+
     public static class Builder {
-        /**
-         * 字段名
-         * <p> 示例值：name
-         */
+     /**
+      * 字段名
+      * <p> 示例值：name
+      */
         private String field;
-        /**
-         * 排序方式
-         * <p> 示例值：asc
-         */
+     /**
+      * 排序方式
+      * <p> 示例值：asc
+      */
         private String direction;
 
         /**
          * 字段名
          * <p> 示例值：name
-         *
          * @param field
          * @return
          */
         public Builder field(String field) {
-            this.field = field;
-            return this;
+             this.field = field;
+             return this;
         }
 
+    
 
         /**
          * 排序方式
          * <p> 示例值：asc
-         *
          * @param direction
          * @return
          */
         public Builder direction(String direction) {
-            this.direction = direction;
-            return this;
+             this.direction = direction;
+             return this;
         }
-
         /**
          * 排序方式
          * <p> 示例值：asc
-         *
          * @param direction {@link com.lark.oapi.service.aily.v1.enums.OrderConditionOrderTypeEnum}
          * @return
          */
         public Builder direction(com.lark.oapi.service.aily.v1.enums.OrderConditionOrderTypeEnum direction) {
-            this.direction = direction.getValue();
-            return this;
+             this.direction = direction.getValue();
+             return this;
         }
 
+    
+    
+    public OrderCondition build(){
+        return new OrderCondition(this);
+      }
+    }
 
-        public OrderCondition build() {
-            return new OrderCondition(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

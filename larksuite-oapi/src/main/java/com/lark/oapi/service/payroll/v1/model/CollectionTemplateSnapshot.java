@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CollectionTemplateSnapshot {
-    /**
-     * 填报模板ID
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 填报模板ID
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("template_id")
     private String templateId;
-    /**
-     * 填报模板名称
-     * <p> 示例值：
-     */
+     /**
+      * 填报模板名称
+      * <p> 示例值：
+      */
     @SerializedName("template_name")
     private I18n templateName;
-    /**
-     * 填报模板版本ID（主键ID）
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 填报模板版本ID（主键ID）
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("template_version_id")
     private String templateVersionId;
-    /**
-     * 填报项列表
-     * <p> 示例值：
-     */
+     /**
+      * 填报项列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private CollectionItem[] items;
-    /**
-     * 填报活动id
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 填报活动id
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("activity_id")
     private String activityId;
-
-    // builder 开始
-    public CollectionTemplateSnapshot() {
-    }
-
-    public CollectionTemplateSnapshot(Builder builder) {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         */
-        this.templateName = builder.templateName;
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateVersionId = builder.templateVersionId;
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         */
-        this.items = builder.items;
-        /**
-         * 填报活动id
-         * <p> 示例值：7202076988667019308
-         */
-        this.activityId = builder.activityId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTemplateId() {
         return this.templateId;
     }
@@ -136,100 +95,136 @@ public class CollectionTemplateSnapshot {
         this.activityId = activityId;
     }
 
+
+// builder 开始
+  public CollectionTemplateSnapshot(){}
+
+  public CollectionTemplateSnapshot(Builder builder){
+         /**
+          * 填报模板ID
+          * <p> 示例值：7202076988667019308
+          */
+      this.templateId = builder.templateId;
+         /**
+          * 填报模板名称
+          * <p> 示例值：
+          */
+      this.templateName = builder.templateName;
+         /**
+          * 填报模板版本ID（主键ID）
+          * <p> 示例值：7202076988667019308
+          */
+      this.templateVersionId = builder.templateVersionId;
+         /**
+          * 填报项列表
+          * <p> 示例值：
+          */
+      this.items = builder.items;
+         /**
+          * 填报活动id
+          * <p> 示例值：7202076988667019308
+          */
+      this.activityId = builder.activityId;
+  }
+
     public static class Builder {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 填报模板ID
+      * <p> 示例值：7202076988667019308
+      */
         private String templateId;
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         */
+     /**
+      * 填报模板名称
+      * <p> 示例值：
+      */
         private I18n templateName;
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 填报模板版本ID（主键ID）
+      * <p> 示例值：7202076988667019308
+      */
         private String templateVersionId;
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         */
+     /**
+      * 填报项列表
+      * <p> 示例值：
+      */
         private CollectionItem[] items;
-        /**
-         * 填报活动id
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 填报活动id
+      * <p> 示例值：7202076988667019308
+      */
         private String activityId;
 
         /**
          * 填报模板ID
          * <p> 示例值：7202076988667019308
-         *
          * @param templateId
          * @return
          */
         public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
+             this.templateId = templateId;
+             return this;
         }
 
+    
 
         /**
          * 填报模板名称
          * <p> 示例值：
-         *
          * @param templateName
          * @return
          */
         public Builder templateName(I18n templateName) {
-            this.templateName = templateName;
-            return this;
+             this.templateName = templateName;
+             return this;
         }
 
+    
 
         /**
          * 填报模板版本ID（主键ID）
          * <p> 示例值：7202076988667019308
-         *
          * @param templateVersionId
          * @return
          */
         public Builder templateVersionId(String templateVersionId) {
-            this.templateVersionId = templateVersionId;
-            return this;
+             this.templateVersionId = templateVersionId;
+             return this;
         }
 
+    
 
         /**
          * 填报项列表
          * <p> 示例值：
-         *
          * @param items
          * @return
          */
         public Builder items(CollectionItem[] items) {
-            this.items = items;
-            return this;
+             this.items = items;
+             return this;
         }
 
+    
 
         /**
          * 填报活动id
          * <p> 示例值：7202076988667019308
-         *
          * @param activityId
          * @return
          */
         public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
+             this.activityId = activityId;
+             return this;
         }
 
+    
+    
+    public CollectionTemplateSnapshot build(){
+        return new CollectionTemplateSnapshot(this);
+      }
+    }
 
-        public CollectionTemplateSnapshot build() {
-            return new CollectionTemplateSnapshot(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

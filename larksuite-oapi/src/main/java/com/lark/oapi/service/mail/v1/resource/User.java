@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mail.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.mail.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class User {
         this.config = config;
     }
 
-
+    
     /**
      * 邮箱状态查询，使用邮箱状态查询接口，可以输入邮箱地址，查询出该邮箱地址对应的类型以及状态
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user/query</a> ;
@@ -63,7 +58,7 @@ public class User {
                 , "/open-apis/mail/v1/users/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryUserResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class User {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/users/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class User {
                 , "/open-apis/mail/v1/users/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryUserResp.class);
         if (resp == null) {
@@ -103,13 +98,13 @@ public class User {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mail/v1/users/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class I18n {
-    /**
-     * 中文描述
-     * <p> 示例值：答案看不懂
-     */
+     /**
+      * 中文描述
+      * <p> 示例值：答案看不懂
+      */
     @SerializedName("zh_cn")
     private String zhCn;
-    /**
-     * 英文描述
-     * <p> 示例值：I don't understand
-     */
+     /**
+      * 英文描述
+      * <p> 示例值：I don't understand
+      */
     @SerializedName("en_us")
     private String enUs;
-    /**
-     * 日文描述
-     * <p> 示例值：回答が複雑すぎる
-     */
+     /**
+      * 日文描述
+      * <p> 示例值：回答が複雑すぎる
+      */
     @SerializedName("ja_jp")
     private String jaJp;
-
-    // builder 开始
-    public I18n() {
-    }
-
-    public I18n(Builder builder) {
-        /**
-         * 中文描述
-         * <p> 示例值：答案看不懂
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 英文描述
-         * <p> 示例值：I don't understand
-         */
-        this.enUs = builder.enUs;
-        /**
-         * 日文描述
-         * <p> 示例值：回答が複雑すぎる
-         */
-        this.jaJp = builder.jaJp;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getZhCn() {
         return this.zhCn;
     }
@@ -98,64 +67,90 @@ public class I18n {
         this.jaJp = jaJp;
     }
 
+
+// builder 开始
+  public I18n(){}
+
+  public I18n(Builder builder){
+         /**
+          * 中文描述
+          * <p> 示例值：答案看不懂
+          */
+      this.zhCn = builder.zhCn;
+         /**
+          * 英文描述
+          * <p> 示例值：I don't understand
+          */
+      this.enUs = builder.enUs;
+         /**
+          * 日文描述
+          * <p> 示例值：回答が複雑すぎる
+          */
+      this.jaJp = builder.jaJp;
+  }
+
     public static class Builder {
-        /**
-         * 中文描述
-         * <p> 示例值：答案看不懂
-         */
+     /**
+      * 中文描述
+      * <p> 示例值：答案看不懂
+      */
         private String zhCn;
-        /**
-         * 英文描述
-         * <p> 示例值：I don't understand
-         */
+     /**
+      * 英文描述
+      * <p> 示例值：I don't understand
+      */
         private String enUs;
-        /**
-         * 日文描述
-         * <p> 示例值：回答が複雑すぎる
-         */
+     /**
+      * 日文描述
+      * <p> 示例值：回答が複雑すぎる
+      */
         private String jaJp;
 
         /**
          * 中文描述
          * <p> 示例值：答案看不懂
-         *
          * @param zhCn
          * @return
          */
         public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
+             this.zhCn = zhCn;
+             return this;
         }
 
+    
 
         /**
          * 英文描述
          * <p> 示例值：I don't understand
-         *
          * @param enUs
          * @return
          */
         public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
+             this.enUs = enUs;
+             return this;
         }
 
+    
 
         /**
          * 日文描述
          * <p> 示例值：回答が複雑すぎる
-         *
          * @param jaJp
          * @return
          */
         public Builder jaJp(String jaJp) {
-            this.jaJp = jaJp;
-            return this;
+             this.jaJp = jaJp;
+             return this;
         }
 
+    
+    
+    public I18n build(){
+        return new I18n(this);
+      }
+    }
 
-        public I18n build() {
-            return new I18n(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

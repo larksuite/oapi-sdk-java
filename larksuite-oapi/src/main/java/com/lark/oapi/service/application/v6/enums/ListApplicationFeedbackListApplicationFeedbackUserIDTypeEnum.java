@@ -14,20 +14,19 @@
 package com.lark.oapi.service.application.v6.enums;
 
 /**
- *
+ * 
  */
 public enum ListApplicationFeedbackListApplicationFeedbackUserIDTypeEnum {
-    OPENID("open_id"), // 用户的 open id
-    UNIONID("union_id"), // 用户的 union id
-    USERID("user_id"), // 用户的 user id
-    ;
-    private String value;
-
+     OPENID("open_id"), // 用户的 open id
+     UNIONID("union_id"), // 用户的 union id
+     USERID("user_id"), // 用户的 user id
+  ;
+   private String value;
     ListApplicationFeedbackListApplicationFeedbackUserIDTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

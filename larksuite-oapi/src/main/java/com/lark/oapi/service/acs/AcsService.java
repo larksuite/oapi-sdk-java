@@ -35,55 +35,45 @@ public class AcsService {
     private final Visitor visitor; // visitor
 
     public AcsService(Config config) {
-        this.v1 = new V1(config);
-        this.accessRecord = new AccessRecord(config);
-        this.accessRecordAccessPhoto = new AccessRecordAccessPhoto(config);
-        this.device = new Device(config);
-        this.ruleExternal = new RuleExternal(config);
-        this.user = new User(config);
-        this.userFace = new UserFace(config);
-        this.visitor = new Visitor(config);
+    this.v1 = new V1(config);
+    this.accessRecord = new AccessRecord(config);
+    this.accessRecordAccessPhoto = new AccessRecordAccessPhoto(config);
+    this.device = new Device(config);
+    this.ruleExternal = new RuleExternal(config);
+    this.user = new User(config);
+    this.userFace = new UserFace(config);
+    this.visitor = new Visitor(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public AccessRecord accessRecord() {
         return accessRecord;
     }
-
     public AccessRecordAccessPhoto accessRecordAccessPhoto() {
         return accessRecordAccessPhoto;
     }
-
     public Device device() {
         return device;
     }
-
     public RuleExternal ruleExternal() {
         return ruleExternal;
     }
-
     public User user() {
         return user;
     }
-
     public UserFace userFace() {
         return userFace;
     }
-
     public Visitor visitor() {
         return visitor;
     }
-
     public abstract static class P2AccessRecordCreatedV1Handler implements IEventHandler<P2AccessRecordCreatedV1> {
         @Override
         public P2AccessRecordCreatedV1 getEvent() {
             return new P2AccessRecordCreatedV1();
         }
     }
-
     public abstract static class P2UserUpdatedV1Handler implements IEventHandler<P2UserUpdatedV1> {
         @Override
         public P2UserUpdatedV1 getEvent() {

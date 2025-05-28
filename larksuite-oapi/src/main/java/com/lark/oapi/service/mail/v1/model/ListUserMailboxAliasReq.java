@@ -12,70 +12,32 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListUserMailboxAliasReq {
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：xxx
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+      * <p> 示例值：xxx
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 分页大小
-     * <p> 示例值：10
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：10
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 用户邮箱地址
-     * <p> 示例值：user@xxx.xx
-     */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
-
-    // builder 开始
-    public ListUserMailboxAliasReq() {
-    }
-
-    public ListUserMailboxAliasReq(Builder builder) {
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：xxx
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 用户邮箱地址
-         * <p> 示例值：user@xxx.xx
-         */
-        this.userMailboxId = builder.userMailboxId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPageToken() {
         return this.pageToken;
     }
@@ -92,6 +54,13 @@ public class ListUserMailboxAliasReq {
         this.pageSize = pageSize;
     }
 
+     /**
+      * 用户邮箱地址
+      * <p> 示例值：user@xxx.xx
+      */
+    @Path
+    @SerializedName("user_mailbox_id")
+    private String userMailboxId;
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -100,50 +69,75 @@ public class ListUserMailboxAliasReq {
         this.userMailboxId = userMailboxId;
     }
 
+
+// builder 开始
+  public ListUserMailboxAliasReq(){}
+
+  public ListUserMailboxAliasReq(Builder builder){
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+          * <p> 示例值：xxx
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 分页大小
+          * <p> 示例值：10
+          */
+       this.pageSize = builder.pageSize;
+     /**
+      * 用户邮箱地址
+      * <p> 示例值：user@xxx.xx
+      */
+       this.userMailboxId = builder.userMailboxId;
+  }
+
     public static class Builder {
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
-        private String userMailboxId; // 用户邮箱地址
-
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：xxx
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
         /**
          * 分页大小
          * <p> 示例值：10
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
+    
+        private String userMailboxId; // 用户邮箱地址
         /**
          * 用户邮箱地址
          * <p> 示例值：user@xxx.xx
-         *
          * @param userMailboxId
          * @return
          */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
+          public Builder userMailboxId(String userMailboxId) {
+               this.userMailboxId = userMailboxId;
+               return this;
+          }
 
+    
+    public ListUserMailboxAliasReq build(){
+        return new ListUserMailboxAliasReq(this);
+      }
+    }
 
-        public ListUserMailboxAliasReq build() {
-            return new ListUserMailboxAliasReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

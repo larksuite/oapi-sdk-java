@@ -17,16 +17,15 @@ package com.lark.oapi.service.admin.v1.enums;
  * 有效期限。根据入职时间发放类型勋章，需要配置该字段。
  */
 public enum RuleDetailEffectivePeriodEnum {
-    ONE_YEAR(1), // 有效期为一年
-    PERMANENT(2), // 永久有效
-    ;
-    private Integer value;
-
+     ONE_YEAR(1), // 有效期为一年
+     PERMANENT(2), // 永久有效
+  ;
+   private Integer value;
     RuleDetailEffectivePeriodEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

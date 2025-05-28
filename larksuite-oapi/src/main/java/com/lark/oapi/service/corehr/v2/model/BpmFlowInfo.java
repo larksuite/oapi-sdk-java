@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,170 +19,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BpmFlowInfo {
-    /**
-     * 流程定义ID
-     * <p> 示例值：people_7023711013443944467_7415503483711229740
-     */
+     /**
+      * 流程定义ID
+      * <p> 示例值：people_7023711013443944467_7415503483711229740
+      */
     @SerializedName("flow_definition_id")
     private String flowDefinitionId;
-    /**
-     * 流程定义名称
-     * <p> 示例值：
-     */
+     /**
+      * 流程定义名称
+      * <p> 示例值：
+      */
     @SerializedName("flow_definition_name")
     private DataengineI18n flowDefinitionName;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private DataengineI18n description;
-    /**
-     * 业务类型
-     * <p> 示例值：job_change
-     */
+     /**
+      * 业务类型
+      * <p> 示例值：job_change
+      */
     @SerializedName("biz_type")
     private String bizType;
-    /**
-     * 业务类型名称
-     * <p> 示例值：
-     */
+     /**
+      * 业务类型名称
+      * <p> 示例值：
+      */
     @SerializedName("biz_type_name")
     private DataengineI18n bizTypeName;
-    /**
-     * 启用状态
-     * <p> 示例值：1
-     */
-    @SerializedName("active")
-    private Integer active;
-    /**
-     * 创建人id
-     * <p> 示例值：7355397217231831060
-     */
+     /**
+      * 启用状态
+      * <p> 示例值：1
+      */
+    @SerializedName("status")
+    private Integer status;
+     /**
+      * 创建人id
+      * <p> 示例值：7355397217231831060
+      */
     @SerializedName("creator_id")
     private String creatorId;
-    /**
-     * 创建人姓名
-     * <p> 示例值：
-     */
+     /**
+      * 创建人姓名
+      * <p> 示例值：
+      */
     @SerializedName("creator_name")
     private DataengineI18n creatorName;
-    /**
-     * 创建时间，Unix毫秒时间戳
-     * <p> 示例值：1694769814036
-     */
+     /**
+      * 创建时间，Unix毫秒时间戳
+      * <p> 示例值：1694769814036
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 最近更新人ID
-     * <p> 示例值：7355397217231831060
-     */
+     /**
+      * 最近更新人ID
+      * <p> 示例值：7355397217231831060
+      */
     @SerializedName("last_editor_id")
     private String lastEditorId;
-    /**
-     * 最近更新人姓名
-     * <p> 示例值：
-     */
+     /**
+      * 最近更新人姓名
+      * <p> 示例值：
+      */
     @SerializedName("last_editor_name")
     private DataengineI18n lastEditorName;
-    /**
-     * 最近更新时间，Unix毫秒时间戳
-     * <p> 示例值：1694769814036
-     */
+     /**
+      * 最近更新时间，Unix毫秒时间戳
+      * <p> 示例值：1694769814036
+      */
     @SerializedName("last_edit_time")
     private String lastEditTime;
-    /**
-     * 上次启用时间，Unix毫秒时间戳
-     * <p> 示例值：1694769814036
-     */
+     /**
+      * 上次启用时间，Unix毫秒时间戳
+      * <p> 示例值：1694769814036
+      */
     @SerializedName("last_active_time")
     private String lastActiveTime;
-
-    // builder 开始
-    public BpmFlowInfo() {
-    }
-
-    public BpmFlowInfo(Builder builder) {
-        /**
-         * 流程定义ID
-         * <p> 示例值：people_7023711013443944467_7415503483711229740
-         */
-        this.flowDefinitionId = builder.flowDefinitionId;
-        /**
-         * 流程定义名称
-         * <p> 示例值：
-         */
-        this.flowDefinitionName = builder.flowDefinitionName;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 业务类型
-         * <p> 示例值：job_change
-         */
-        this.bizType = builder.bizType;
-        /**
-         * 业务类型名称
-         * <p> 示例值：
-         */
-        this.bizTypeName = builder.bizTypeName;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
-        this.active = builder.active;
-        /**
-         * 创建人id
-         * <p> 示例值：7355397217231831060
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 创建人姓名
-         * <p> 示例值：
-         */
-        this.creatorName = builder.creatorName;
-        /**
-         * 创建时间，Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 最近更新人ID
-         * <p> 示例值：7355397217231831060
-         */
-        this.lastEditorId = builder.lastEditorId;
-        /**
-         * 最近更新人姓名
-         * <p> 示例值：
-         */
-        this.lastEditorName = builder.lastEditorName;
-        /**
-         * 最近更新时间，Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
-        this.lastEditTime = builder.lastEditTime;
-        /**
-         * 上次启用时间，Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
-        this.lastActiveTime = builder.lastActiveTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFlowDefinitionId() {
         return this.flowDefinitionId;
     }
@@ -224,12 +143,12 @@ public class BpmFlowInfo {
         this.bizTypeName = bizTypeName;
     }
 
-    public Integer getActive() {
-        return this.active;
+    public Integer getStatus() {
+        return this.status;
     }
 
-    public void setActive(Integer active) {
-        this.active = active;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String getCreatorId() {
@@ -288,256 +207,330 @@ public class BpmFlowInfo {
         this.lastActiveTime = lastActiveTime;
     }
 
+
+// builder 开始
+  public BpmFlowInfo(){}
+
+  public BpmFlowInfo(Builder builder){
+         /**
+          * 流程定义ID
+          * <p> 示例值：people_7023711013443944467_7415503483711229740
+          */
+      this.flowDefinitionId = builder.flowDefinitionId;
+         /**
+          * 流程定义名称
+          * <p> 示例值：
+          */
+      this.flowDefinitionName = builder.flowDefinitionName;
+         /**
+          * 描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 业务类型
+          * <p> 示例值：job_change
+          */
+      this.bizType = builder.bizType;
+         /**
+          * 业务类型名称
+          * <p> 示例值：
+          */
+      this.bizTypeName = builder.bizTypeName;
+         /**
+          * 启用状态
+          * <p> 示例值：1
+          */
+      this.status = builder.status;
+         /**
+          * 创建人id
+          * <p> 示例值：7355397217231831060
+          */
+      this.creatorId = builder.creatorId;
+         /**
+          * 创建人姓名
+          * <p> 示例值：
+          */
+      this.creatorName = builder.creatorName;
+         /**
+          * 创建时间，Unix毫秒时间戳
+          * <p> 示例值：1694769814036
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 最近更新人ID
+          * <p> 示例值：7355397217231831060
+          */
+      this.lastEditorId = builder.lastEditorId;
+         /**
+          * 最近更新人姓名
+          * <p> 示例值：
+          */
+      this.lastEditorName = builder.lastEditorName;
+         /**
+          * 最近更新时间，Unix毫秒时间戳
+          * <p> 示例值：1694769814036
+          */
+      this.lastEditTime = builder.lastEditTime;
+         /**
+          * 上次启用时间，Unix毫秒时间戳
+          * <p> 示例值：1694769814036
+          */
+      this.lastActiveTime = builder.lastActiveTime;
+  }
+
     public static class Builder {
-        /**
-         * 流程定义ID
-         * <p> 示例值：people_7023711013443944467_7415503483711229740
-         */
+     /**
+      * 流程定义ID
+      * <p> 示例值：people_7023711013443944467_7415503483711229740
+      */
         private String flowDefinitionId;
-        /**
-         * 流程定义名称
-         * <p> 示例值：
-         */
+     /**
+      * 流程定义名称
+      * <p> 示例值：
+      */
         private DataengineI18n flowDefinitionName;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
         private DataengineI18n description;
-        /**
-         * 业务类型
-         * <p> 示例值：job_change
-         */
+     /**
+      * 业务类型
+      * <p> 示例值：job_change
+      */
         private String bizType;
-        /**
-         * 业务类型名称
-         * <p> 示例值：
-         */
+     /**
+      * 业务类型名称
+      * <p> 示例值：
+      */
         private DataengineI18n bizTypeName;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
-        private Integer active;
-        /**
-         * 创建人id
-         * <p> 示例值：7355397217231831060
-         */
+     /**
+      * 启用状态
+      * <p> 示例值：1
+      */
+        private Integer status;
+     /**
+      * 创建人id
+      * <p> 示例值：7355397217231831060
+      */
         private String creatorId;
-        /**
-         * 创建人姓名
-         * <p> 示例值：
-         */
+     /**
+      * 创建人姓名
+      * <p> 示例值：
+      */
         private DataengineI18n creatorName;
-        /**
-         * 创建时间，Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
+     /**
+      * 创建时间，Unix毫秒时间戳
+      * <p> 示例值：1694769814036
+      */
         private String createTime;
-        /**
-         * 最近更新人ID
-         * <p> 示例值：7355397217231831060
-         */
+     /**
+      * 最近更新人ID
+      * <p> 示例值：7355397217231831060
+      */
         private String lastEditorId;
-        /**
-         * 最近更新人姓名
-         * <p> 示例值：
-         */
+     /**
+      * 最近更新人姓名
+      * <p> 示例值：
+      */
         private DataengineI18n lastEditorName;
-        /**
-         * 最近更新时间，Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
+     /**
+      * 最近更新时间，Unix毫秒时间戳
+      * <p> 示例值：1694769814036
+      */
         private String lastEditTime;
-        /**
-         * 上次启用时间，Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
+     /**
+      * 上次启用时间，Unix毫秒时间戳
+      * <p> 示例值：1694769814036
+      */
         private String lastActiveTime;
 
         /**
          * 流程定义ID
          * <p> 示例值：people_7023711013443944467_7415503483711229740
-         *
          * @param flowDefinitionId
          * @return
          */
         public Builder flowDefinitionId(String flowDefinitionId) {
-            this.flowDefinitionId = flowDefinitionId;
-            return this;
+             this.flowDefinitionId = flowDefinitionId;
+             return this;
         }
 
+    
 
         /**
          * 流程定义名称
          * <p> 示例值：
-         *
          * @param flowDefinitionName
          * @return
          */
         public Builder flowDefinitionName(DataengineI18n flowDefinitionName) {
-            this.flowDefinitionName = flowDefinitionName;
-            return this;
+             this.flowDefinitionName = flowDefinitionName;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(DataengineI18n description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 业务类型
          * <p> 示例值：job_change
-         *
          * @param bizType
          * @return
          */
         public Builder bizType(String bizType) {
-            this.bizType = bizType;
-            return this;
+             this.bizType = bizType;
+             return this;
         }
 
+    
 
         /**
          * 业务类型名称
          * <p> 示例值：
-         *
          * @param bizTypeName
          * @return
          */
         public Builder bizTypeName(DataengineI18n bizTypeName) {
-            this.bizTypeName = bizTypeName;
-            return this;
+             this.bizTypeName = bizTypeName;
+             return this;
         }
 
+    
 
         /**
          * 启用状态
          * <p> 示例值：1
-         *
-         * @param active
+         * @param status
          * @return
          */
-        public Builder active(Integer active) {
-            this.active = active;
-            return this;
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
         }
-
         /**
          * 启用状态
          * <p> 示例值：1
-         *
-         * @param active {@link com.lark.oapi.service.corehr.v2.enums.BpmFlowInfoActiveEnum}
+         * @param status {@link com.lark.oapi.service.corehr.v2.enums.BpmFlowInfoStatusEnum}
          * @return
          */
-        public Builder active(com.lark.oapi.service.corehr.v2.enums.BpmFlowInfoActiveEnum active) {
-            this.active = active.getValue();
-            return this;
+        public Builder status(com.lark.oapi.service.corehr.v2.enums.BpmFlowInfoStatusEnum status) {
+             this.status = status.getValue();
+             return this;
         }
 
+    
 
         /**
          * 创建人id
          * <p> 示例值：7355397217231831060
-         *
          * @param creatorId
          * @return
          */
         public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
+             this.creatorId = creatorId;
+             return this;
         }
 
+    
 
         /**
          * 创建人姓名
          * <p> 示例值：
-         *
          * @param creatorName
          * @return
          */
         public Builder creatorName(DataengineI18n creatorName) {
-            this.creatorName = creatorName;
-            return this;
+             this.creatorName = creatorName;
+             return this;
         }
 
+    
 
         /**
          * 创建时间，Unix毫秒时间戳
          * <p> 示例值：1694769814036
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 最近更新人ID
          * <p> 示例值：7355397217231831060
-         *
          * @param lastEditorId
          * @return
          */
         public Builder lastEditorId(String lastEditorId) {
-            this.lastEditorId = lastEditorId;
-            return this;
+             this.lastEditorId = lastEditorId;
+             return this;
         }
 
+    
 
         /**
          * 最近更新人姓名
          * <p> 示例值：
-         *
          * @param lastEditorName
          * @return
          */
         public Builder lastEditorName(DataengineI18n lastEditorName) {
-            this.lastEditorName = lastEditorName;
-            return this;
+             this.lastEditorName = lastEditorName;
+             return this;
         }
 
+    
 
         /**
          * 最近更新时间，Unix毫秒时间戳
          * <p> 示例值：1694769814036
-         *
          * @param lastEditTime
          * @return
          */
         public Builder lastEditTime(String lastEditTime) {
-            this.lastEditTime = lastEditTime;
-            return this;
+             this.lastEditTime = lastEditTime;
+             return this;
         }
 
+    
 
         /**
          * 上次启用时间，Unix毫秒时间戳
          * <p> 示例值：1694769814036
-         *
          * @param lastActiveTime
          * @return
          */
         public Builder lastActiveTime(String lastActiveTime) {
-            this.lastActiveTime = lastActiveTime;
-            return this;
+             this.lastActiveTime = lastActiveTime;
+             return this;
         }
 
+    
+    
+    public BpmFlowInfo build(){
+        return new BpmFlowInfo(this);
+      }
+    }
 
-        public BpmFlowInfo build() {
-            return new BpmFlowInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

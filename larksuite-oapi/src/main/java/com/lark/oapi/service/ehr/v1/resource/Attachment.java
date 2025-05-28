@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.ehr.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.ehr.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class Attachment {
         this.config = config;
     }
 
-
+    
     /**
      * 下载附件，根据文件 token 下载文件。;;调用 「批量获取员工花名册信息」接口的返回值中，「文件」类型的字段 id，即是文件 token
      * <p> ![image.png](//sf1-ttcdn-tos.pstatp.com/obj/open-platform-opendoc/bed391d2a8ce6ed2d5985ea69bf92850_9GY1mnuDXP.png) ;
@@ -65,7 +60,7 @@ public class Attachment {
                 , "/open-apis/ehr/v1/attachments/:token"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         if (httpResponse.getStatusCode() == 200) {
             GetAttachmentResp resp = new GetAttachmentResp();
             resp.setRawResponse(httpResponse);
@@ -73,7 +68,7 @@ public class Attachment {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return resp;
+            return  resp;
         }
         // 反序列化
         GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAttachmentResp.class);
@@ -82,14 +77,14 @@ public class Attachment {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/ehr/v1/attachments/:token"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -108,7 +103,7 @@ public class Attachment {
                 , "/open-apis/ehr/v1/attachments/:token"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 下载请求，返回流
         if (httpResponse.getStatusCode() == 200) {
             GetAttachmentResp resp = new GetAttachmentResp();
@@ -117,7 +112,7 @@ public class Attachment {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return resp;
+            return  resp;
         }
         // 反序列化
         GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAttachmentResp.class);
@@ -126,13 +121,13 @@ public class Attachment {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/ehr/v1/attachments/:token"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

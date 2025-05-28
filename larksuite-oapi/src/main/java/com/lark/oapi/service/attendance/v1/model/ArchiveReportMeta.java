@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ArchiveReportMeta {
-    /**
-     * 引用报表 ID
-     * <p> 示例值：7341290237441605652
-     */
+     /**
+      * 引用报表 ID
+      * <p> 示例值：7341290237441605652
+      */
     @SerializedName("report_id")
     private String reportId;
-    /**
-     * 引用报表name
-     * <p> 示例值：月报汇总
-     */
+     /**
+      * 引用报表name
+      * <p> 示例值：月报汇总
+      */
     @SerializedName("report_name")
     private I18nMap reportName;
-    /**
-     * 归档报表规则id
-     * <p> 示例值：7341290237441605652
-     */
+     /**
+      * 归档报表规则id
+      * <p> 示例值：7341290237441605652
+      */
     @SerializedName("archive_rule_id")
     private String archiveRuleId;
-    /**
-     * 归档报表name
-     * <p> 示例值：归档全员
-     */
+     /**
+      * 归档报表name
+      * <p> 示例值：归档全员
+      */
     @SerializedName("archive_rule_name")
     private I18nMap archiveRuleName;
-
-    // builder 开始
-    public ArchiveReportMeta() {
-    }
-
-    public ArchiveReportMeta(Builder builder) {
-        /**
-         * 引用报表 ID
-         * <p> 示例值：7341290237441605652
-         */
-        this.reportId = builder.reportId;
-        /**
-         * 引用报表name
-         * <p> 示例值：月报汇总
-         */
-        this.reportName = builder.reportName;
-        /**
-         * 归档报表规则id
-         * <p> 示例值：7341290237441605652
-         */
-        this.archiveRuleId = builder.archiveRuleId;
-        /**
-         * 归档报表name
-         * <p> 示例值：归档全员
-         */
-        this.archiveRuleName = builder.archiveRuleName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getReportId() {
         return this.reportId;
     }
@@ -117,82 +81,113 @@ public class ArchiveReportMeta {
         this.archiveRuleName = archiveRuleName;
     }
 
+
+// builder 开始
+  public ArchiveReportMeta(){}
+
+  public ArchiveReportMeta(Builder builder){
+         /**
+          * 引用报表 ID
+          * <p> 示例值：7341290237441605652
+          */
+      this.reportId = builder.reportId;
+         /**
+          * 引用报表name
+          * <p> 示例值：月报汇总
+          */
+      this.reportName = builder.reportName;
+         /**
+          * 归档报表规则id
+          * <p> 示例值：7341290237441605652
+          */
+      this.archiveRuleId = builder.archiveRuleId;
+         /**
+          * 归档报表name
+          * <p> 示例值：归档全员
+          */
+      this.archiveRuleName = builder.archiveRuleName;
+  }
+
     public static class Builder {
-        /**
-         * 引用报表 ID
-         * <p> 示例值：7341290237441605652
-         */
+     /**
+      * 引用报表 ID
+      * <p> 示例值：7341290237441605652
+      */
         private String reportId;
-        /**
-         * 引用报表name
-         * <p> 示例值：月报汇总
-         */
+     /**
+      * 引用报表name
+      * <p> 示例值：月报汇总
+      */
         private I18nMap reportName;
-        /**
-         * 归档报表规则id
-         * <p> 示例值：7341290237441605652
-         */
+     /**
+      * 归档报表规则id
+      * <p> 示例值：7341290237441605652
+      */
         private String archiveRuleId;
-        /**
-         * 归档报表name
-         * <p> 示例值：归档全员
-         */
+     /**
+      * 归档报表name
+      * <p> 示例值：归档全员
+      */
         private I18nMap archiveRuleName;
 
         /**
          * 引用报表 ID
          * <p> 示例值：7341290237441605652
-         *
          * @param reportId
          * @return
          */
         public Builder reportId(String reportId) {
-            this.reportId = reportId;
-            return this;
+             this.reportId = reportId;
+             return this;
         }
 
+    
 
         /**
          * 引用报表name
          * <p> 示例值：月报汇总
-         *
          * @param reportName
          * @return
          */
         public Builder reportName(I18nMap reportName) {
-            this.reportName = reportName;
-            return this;
+             this.reportName = reportName;
+             return this;
         }
 
+    
 
         /**
          * 归档报表规则id
          * <p> 示例值：7341290237441605652
-         *
          * @param archiveRuleId
          * @return
          */
         public Builder archiveRuleId(String archiveRuleId) {
-            this.archiveRuleId = archiveRuleId;
-            return this;
+             this.archiveRuleId = archiveRuleId;
+             return this;
         }
 
+    
 
         /**
          * 归档报表name
          * <p> 示例值：归档全员
-         *
          * @param archiveRuleName
          * @return
          */
         public Builder archiveRuleName(I18nMap archiveRuleName) {
-            this.archiveRuleName = archiveRuleName;
-            return this;
+             this.archiveRuleName = archiveRuleName;
+             return this;
         }
 
+    
+    
+    public ArchiveReportMeta build(){
+        return new ArchiveReportMeta(this);
+      }
+    }
 
-        public ArchiveReportMeta build() {
-            return new ArchiveReportMeta(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

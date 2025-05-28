@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class IdInfo {
-    /**
-     * 传入的 ID
-     * <p> 示例值：7224321696097404460
-     */
+     /**
+      * 传入的 ID
+      * <p> 示例值：7224321696097404460
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 目标 ID 值
-     * <p> 示例值：7224321696097404461
-     */
+     /**
+      * 目标 ID 值
+      * <p> 示例值：7224321696097404461
+      */
     @SerializedName("target_id")
     private String targetId;
-
-    // builder 开始
-    public IdInfo() {
-    }
-
-    public IdInfo(Builder builder) {
-        /**
-         * 传入的 ID
-         * <p> 示例值：7224321696097404460
-         */
-        this.id = builder.id;
-        /**
-         * 目标 ID 值
-         * <p> 示例值：7224321696097404461
-         */
-        this.targetId = builder.targetId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -79,46 +53,67 @@ public class IdInfo {
         this.targetId = targetId;
     }
 
+
+// builder 开始
+  public IdInfo(){}
+
+  public IdInfo(Builder builder){
+         /**
+          * 传入的 ID
+          * <p> 示例值：7224321696097404460
+          */
+      this.id = builder.id;
+         /**
+          * 目标 ID 值
+          * <p> 示例值：7224321696097404461
+          */
+      this.targetId = builder.targetId;
+  }
+
     public static class Builder {
-        /**
-         * 传入的 ID
-         * <p> 示例值：7224321696097404460
-         */
+     /**
+      * 传入的 ID
+      * <p> 示例值：7224321696097404460
+      */
         private String id;
-        /**
-         * 目标 ID 值
-         * <p> 示例值：7224321696097404461
-         */
+     /**
+      * 目标 ID 值
+      * <p> 示例值：7224321696097404461
+      */
         private String targetId;
 
         /**
          * 传入的 ID
          * <p> 示例值：7224321696097404460
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 目标 ID 值
          * <p> 示例值：7224321696097404461
-         *
          * @param targetId
          * @return
          */
         public Builder targetId(String targetId) {
-            this.targetId = targetId;
-            return this;
+             this.targetId = targetId;
+             return this;
         }
 
+    
+    
+    public IdInfo build(){
+        return new IdInfo(this);
+      }
+    }
 
-        public IdInfo build() {
-            return new IdInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

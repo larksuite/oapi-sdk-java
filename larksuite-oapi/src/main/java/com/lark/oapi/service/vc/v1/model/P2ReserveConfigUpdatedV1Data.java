@@ -12,53 +12,48 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2ReserveConfigUpdatedV1Data {
-    /**
-     * 会议室或层级id
-     * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
-     */
+     /**
+      * 会议室或层级id
+      * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+      */
     @SerializedName("scope_id")
     private String scopeId;
-    /**
-     * 1代表层级，2代表会议室
-     * <p> 示例值：2
-     */
+     /**
+      * 1代表层级，2代表会议室
+      * <p> 示例值：2
+      */
     @SerializedName("scope_type")
     private Integer scopeType;
-    /**
-     * 预定审批设置
-     * <p> 示例值：
-     */
+     /**
+      * 预定审批设置
+      * <p> 示例值：
+      */
     @SerializedName("approve_config")
     private ApprovalConfigEvent approveConfig;
-    /**
-     * 预定时间设置
-     * <p> 示例值：
-     */
+     /**
+      * 预定时间设置
+      * <p> 示例值：
+      */
     @SerializedName("time_config")
     private TimeConfig timeConfig;
-    /**
-     * 预定范围设置
-     * <p> 示例值：
-     */
+     /**
+      * 预定范围设置
+      * <p> 示例值：
+      */
     @SerializedName("reserve_scope_config")
     private ReserveScopeConfigEvent reserveScopeConfig;
-
     public String getScopeId() {
         return this.scopeId;
     }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserContact {
-    /**
-     * 手机号对应的在离职员工id列表
-     * <p> 示例值：
-     */
+     /**
+      * 手机号对应的在离职员工id列表
+      * <p> 示例值：
+      */
     @SerializedName("user_ids")
     private String[] userIds;
-    /**
-     * 手机号
-     * <p> 示例值：13011111111
-     */
+     /**
+      * 手机号
+      * <p> 示例值：13011111111
+      */
     @SerializedName("mobile")
     private String mobile;
-
-    // builder 开始
-    public UserContact() {
-    }
-
-    public UserContact(Builder builder) {
-        /**
-         * 手机号对应的在离职员工id列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 手机号
-         * <p> 示例值：13011111111
-         */
-        this.mobile = builder.mobile;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getUserIds() {
         return this.userIds;
     }
@@ -79,46 +53,67 @@ public class UserContact {
         this.mobile = mobile;
     }
 
+
+// builder 开始
+  public UserContact(){}
+
+  public UserContact(Builder builder){
+         /**
+          * 手机号对应的在离职员工id列表
+          * <p> 示例值：
+          */
+      this.userIds = builder.userIds;
+         /**
+          * 手机号
+          * <p> 示例值：13011111111
+          */
+      this.mobile = builder.mobile;
+  }
+
     public static class Builder {
-        /**
-         * 手机号对应的在离职员工id列表
-         * <p> 示例值：
-         */
+     /**
+      * 手机号对应的在离职员工id列表
+      * <p> 示例值：
+      */
         private String[] userIds;
-        /**
-         * 手机号
-         * <p> 示例值：13011111111
-         */
+     /**
+      * 手机号
+      * <p> 示例值：13011111111
+      */
         private String mobile;
 
         /**
          * 手机号对应的在离职员工id列表
          * <p> 示例值：
-         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
+             this.userIds = userIds;
+             return this;
         }
 
+    
 
         /**
          * 手机号
          * <p> 示例值：13011111111
-         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
+             this.mobile = mobile;
+             return this;
         }
 
+    
+    
+    public UserContact build(){
+        return new UserContact(this);
+      }
+    }
 
-        public UserContact build() {
-            return new UserContact(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

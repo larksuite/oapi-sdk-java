@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PreviewAttachmentReq {
-    /**
-     * 附件id
-     * <p> 示例值：11111
-     */
+     /**
+      * 附件id
+      * <p> 示例值：11111
+      */
     @Path
     @SerializedName("attachment_id")
     private String attachmentId;
-
-    // builder 开始
-    public PreviewAttachmentReq() {
-    }
-
-    public PreviewAttachmentReq(Builder builder) {
-        /**
-         * 附件id
-         * <p> 示例值：11111
-         */
-        this.attachmentId = builder.attachmentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAttachmentId() {
         return this.attachmentId;
     }
@@ -59,25 +38,39 @@ public class PreviewAttachmentReq {
         this.attachmentId = attachmentId;
     }
 
+
+// builder 开始
+  public PreviewAttachmentReq(){}
+
+  public PreviewAttachmentReq(Builder builder){
+     /**
+      * 附件id
+      * <p> 示例值：11111
+      */
+       this.attachmentId = builder.attachmentId;
+  }
+
     public static class Builder {
-
+    
         private String attachmentId; // 附件id
-
         /**
          * 附件id
          * <p> 示例值：11111
-         *
          * @param attachmentId
          * @return
          */
-        public Builder attachmentId(String attachmentId) {
-            this.attachmentId = attachmentId;
-            return this;
-        }
+          public Builder attachmentId(String attachmentId) {
+               this.attachmentId = attachmentId;
+               return this;
+          }
 
+    
+    public PreviewAttachmentReq build(){
+        return new PreviewAttachmentReq(this);
+      }
+    }
 
-        public PreviewAttachmentReq build() {
-            return new PreviewAttachmentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

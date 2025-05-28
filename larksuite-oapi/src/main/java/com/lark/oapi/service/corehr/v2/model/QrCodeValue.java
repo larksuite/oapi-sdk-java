@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QrCodeValue {
-    /**
-     * 单选值
-     * <p> 示例值：7147562782945478177
-     */
+     /**
+      * 单选值
+      * <p> 示例值：7147562782945478177
+      */
     @SerializedName("select_value")
     private String selectValue;
-    /**
-     * 多选值
-     * <p> 示例值：
-     */
+     /**
+      * 多选值
+      * <p> 示例值：
+      */
     @SerializedName("multi_select_value")
     private String[] multiSelectValue;
-    /**
-     * 布尔值
-     * <p> 示例值：
-     */
+     /**
+      * 布尔值
+      * <p> 示例值：
+      */
     @SerializedName("bool_value")
     private Boolean boolValue;
-
-    // builder 开始
-    public QrCodeValue() {
-    }
-
-    public QrCodeValue(Builder builder) {
-        /**
-         * 单选值
-         * <p> 示例值：7147562782945478177
-         */
-        this.selectValue = builder.selectValue;
-        /**
-         * 多选值
-         * <p> 示例值：
-         */
-        this.multiSelectValue = builder.multiSelectValue;
-        /**
-         * 布尔值
-         * <p> 示例值：
-         */
-        this.boolValue = builder.boolValue;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSelectValue() {
         return this.selectValue;
     }
@@ -98,64 +67,90 @@ public class QrCodeValue {
         this.boolValue = boolValue;
     }
 
+
+// builder 开始
+  public QrCodeValue(){}
+
+  public QrCodeValue(Builder builder){
+         /**
+          * 单选值
+          * <p> 示例值：7147562782945478177
+          */
+      this.selectValue = builder.selectValue;
+         /**
+          * 多选值
+          * <p> 示例值：
+          */
+      this.multiSelectValue = builder.multiSelectValue;
+         /**
+          * 布尔值
+          * <p> 示例值：
+          */
+      this.boolValue = builder.boolValue;
+  }
+
     public static class Builder {
-        /**
-         * 单选值
-         * <p> 示例值：7147562782945478177
-         */
+     /**
+      * 单选值
+      * <p> 示例值：7147562782945478177
+      */
         private String selectValue;
-        /**
-         * 多选值
-         * <p> 示例值：
-         */
+     /**
+      * 多选值
+      * <p> 示例值：
+      */
         private String[] multiSelectValue;
-        /**
-         * 布尔值
-         * <p> 示例值：
-         */
+     /**
+      * 布尔值
+      * <p> 示例值：
+      */
         private Boolean boolValue;
 
         /**
          * 单选值
          * <p> 示例值：7147562782945478177
-         *
          * @param selectValue
          * @return
          */
         public Builder selectValue(String selectValue) {
-            this.selectValue = selectValue;
-            return this;
+             this.selectValue = selectValue;
+             return this;
         }
 
+    
 
         /**
          * 多选值
          * <p> 示例值：
-         *
          * @param multiSelectValue
          * @return
          */
         public Builder multiSelectValue(String[] multiSelectValue) {
-            this.multiSelectValue = multiSelectValue;
-            return this;
+             this.multiSelectValue = multiSelectValue;
+             return this;
         }
 
+    
 
         /**
          * 布尔值
          * <p> 示例值：
-         *
          * @param boolValue
          * @return
          */
         public Builder boolValue(Boolean boolValue) {
-            this.boolValue = boolValue;
-            return this;
+             this.boolValue = boolValue;
+             return this;
         }
 
+    
+    
+    public QrCodeValue build(){
+        return new QrCodeValue(this);
+      }
+    }
 
-        public QrCodeValue build() {
-            return new QrCodeValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

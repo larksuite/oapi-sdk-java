@@ -17,16 +17,15 @@ package com.lark.oapi.service.base.v2.enums;
  * 规则筛选记录对应的权限
  */
 public enum RecRulePermEnum {
-    READ(1), // 仅可阅读
-    EDIT(2), // 可编辑
-    ;
-    private Integer value;
-
+     READ(1), // 仅可阅读
+     EDIT(2), // 可编辑
+  ;
+   private Integer value;
     RecRulePermEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

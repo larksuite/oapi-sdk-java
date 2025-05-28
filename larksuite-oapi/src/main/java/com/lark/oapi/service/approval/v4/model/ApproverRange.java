@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApproverRange {
-    /**
-     * 审批人类型
-     * <p> 示例值：ALL
-     */
+     /**
+      * 审批人类型
+      * <p> 示例值：ALL
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 审批人id
-     * <p> 示例值：f7cb567e
-     */
+     /**
+      * 审批人id
+      * <p> 示例值：f7cb567e
+      */
     @SerializedName("id_list")
     private String[] idList;
-
-    // builder 开始
-    public ApproverRange() {
-    }
-
-    public ApproverRange(Builder builder) {
-        /**
-         * 审批人类型
-         * <p> 示例值：ALL
-         */
-        this.type = builder.type;
-        /**
-         * 审批人id
-         * <p> 示例值：f7cb567e
-         */
-        this.idList = builder.idList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -79,58 +53,77 @@ public class ApproverRange {
         this.idList = idList;
     }
 
+
+// builder 开始
+  public ApproverRange(){}
+
+  public ApproverRange(Builder builder){
+         /**
+          * 审批人类型
+          * <p> 示例值：ALL
+          */
+      this.type = builder.type;
+         /**
+          * 审批人id
+          * <p> 示例值：f7cb567e
+          */
+      this.idList = builder.idList;
+  }
+
     public static class Builder {
-        /**
-         * 审批人类型
-         * <p> 示例值：ALL
-         */
+     /**
+      * 审批人类型
+      * <p> 示例值：ALL
+      */
         private String type;
-        /**
-         * 审批人id
-         * <p> 示例值：f7cb567e
-         */
+     /**
+      * 审批人id
+      * <p> 示例值：f7cb567e
+      */
         private String[] idList;
 
         /**
          * 审批人类型
          * <p> 示例值：ALL
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 审批人类型
          * <p> 示例值：ALL
-         *
          * @param type {@link com.lark.oapi.service.approval.v4.enums.ApproverRangeTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.approval.v4.enums.ApproverRangeTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 审批人id
          * <p> 示例值：f7cb567e
-         *
          * @param idList
          * @return
          */
         public Builder idList(String[] idList) {
-            this.idList = idList;
-            return this;
+             this.idList = idList;
+             return this;
         }
 
+    
+    
+    public ApproverRange build(){
+        return new ApproverRange(this);
+      }
+    }
 
-        public ApproverRange build() {
-            return new ApproverRange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

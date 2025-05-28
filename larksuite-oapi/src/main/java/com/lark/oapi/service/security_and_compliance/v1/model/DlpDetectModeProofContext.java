@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DlpDetectModeProofContext {
-    /**
-     * 检测类型
-     * <p> 示例值：1
-     */
+     /**
+      * 检测类型
+      * <p> 示例值：1
+      */
     @SerializedName("detect_mode")
     private Integer detectMode;
-    /**
-     * 检测类型名称
-     * <p> 示例值：关键词1
-     */
+     /**
+      * 检测类型名称
+      * <p> 示例值：关键词1
+      */
     @SerializedName("detect_name")
     private String detectName;
-    /**
-     * 命中片段
-     * <p> 示例值：
-     */
+     /**
+      * 命中片段
+      * <p> 示例值：
+      */
     @SerializedName("proof_contexts")
     private DlpProofContext[] proofContexts;
-    /**
-     * 命中次数
-     * <p> 示例值：12
-     */
+     /**
+      * 命中次数
+      * <p> 示例值：12
+      */
     @SerializedName("hit_count")
     private Integer hitCount;
-
-    // builder 开始
-    public DlpDetectModeProofContext() {
-    }
-
-    public DlpDetectModeProofContext(Builder builder) {
-        /**
-         * 检测类型
-         * <p> 示例值：1
-         */
-        this.detectMode = builder.detectMode;
-        /**
-         * 检测类型名称
-         * <p> 示例值：关键词1
-         */
-        this.detectName = builder.detectName;
-        /**
-         * 命中片段
-         * <p> 示例值：
-         */
-        this.proofContexts = builder.proofContexts;
-        /**
-         * 命中次数
-         * <p> 示例值：12
-         */
-        this.hitCount = builder.hitCount;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getDetectMode() {
         return this.detectMode;
     }
@@ -117,82 +81,113 @@ public class DlpDetectModeProofContext {
         this.hitCount = hitCount;
     }
 
+
+// builder 开始
+  public DlpDetectModeProofContext(){}
+
+  public DlpDetectModeProofContext(Builder builder){
+         /**
+          * 检测类型
+          * <p> 示例值：1
+          */
+      this.detectMode = builder.detectMode;
+         /**
+          * 检测类型名称
+          * <p> 示例值：关键词1
+          */
+      this.detectName = builder.detectName;
+         /**
+          * 命中片段
+          * <p> 示例值：
+          */
+      this.proofContexts = builder.proofContexts;
+         /**
+          * 命中次数
+          * <p> 示例值：12
+          */
+      this.hitCount = builder.hitCount;
+  }
+
     public static class Builder {
-        /**
-         * 检测类型
-         * <p> 示例值：1
-         */
+     /**
+      * 检测类型
+      * <p> 示例值：1
+      */
         private Integer detectMode;
-        /**
-         * 检测类型名称
-         * <p> 示例值：关键词1
-         */
+     /**
+      * 检测类型名称
+      * <p> 示例值：关键词1
+      */
         private String detectName;
-        /**
-         * 命中片段
-         * <p> 示例值：
-         */
+     /**
+      * 命中片段
+      * <p> 示例值：
+      */
         private DlpProofContext[] proofContexts;
-        /**
-         * 命中次数
-         * <p> 示例值：12
-         */
+     /**
+      * 命中次数
+      * <p> 示例值：12
+      */
         private Integer hitCount;
 
         /**
          * 检测类型
          * <p> 示例值：1
-         *
          * @param detectMode
          * @return
          */
         public Builder detectMode(Integer detectMode) {
-            this.detectMode = detectMode;
-            return this;
+             this.detectMode = detectMode;
+             return this;
         }
 
+    
 
         /**
          * 检测类型名称
          * <p> 示例值：关键词1
-         *
          * @param detectName
          * @return
          */
         public Builder detectName(String detectName) {
-            this.detectName = detectName;
-            return this;
+             this.detectName = detectName;
+             return this;
         }
 
+    
 
         /**
          * 命中片段
          * <p> 示例值：
-         *
          * @param proofContexts
          * @return
          */
         public Builder proofContexts(DlpProofContext[] proofContexts) {
-            this.proofContexts = proofContexts;
-            return this;
+             this.proofContexts = proofContexts;
+             return this;
         }
 
+    
 
         /**
          * 命中次数
          * <p> 示例值：12
-         *
          * @param hitCount
          * @return
          */
         public Builder hitCount(Integer hitCount) {
-            this.hitCount = hitCount;
-            return this;
+             this.hitCount = hitCount;
+             return this;
         }
 
+    
+    
+    public DlpDetectModeProofContext build(){
+        return new DlpDetectModeProofContext(this);
+      }
+    }
 
-        public DlpDetectModeProofContext build() {
-            return new DlpDetectModeProofContext(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

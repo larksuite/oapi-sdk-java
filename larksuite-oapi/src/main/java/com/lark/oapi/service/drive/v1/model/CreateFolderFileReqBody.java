@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateFolderFileReqBody {
-    /**
-     * 文件夹名称
-     * <p> 示例值：New Folder
-     */
+     /**
+      * 文件夹名称
+      * <p> 示例值：New Folder
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 父文件夹token
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-     */
+     /**
+      * 父文件夹token
+      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+      */
     @SerializedName("folder_token")
     private String folderToken;
-
-    // builder 开始
-    public CreateFolderFileReqBody() {
-    }
-
-    public CreateFolderFileReqBody(Builder builder) {
-        /**
-         * 文件夹名称
-         * <p> 示例值：New Folder
-         */
-        this.name = builder.name;
-        /**
-         * 父文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
-        this.folderToken = builder.folderToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -79,46 +53,67 @@ public class CreateFolderFileReqBody {
         this.folderToken = folderToken;
     }
 
+
+// builder 开始
+  public CreateFolderFileReqBody(){}
+
+  public CreateFolderFileReqBody(Builder builder){
+         /**
+          * 文件夹名称
+          * <p> 示例值：New Folder
+          */
+      this.name = builder.name;
+         /**
+          * 父文件夹token
+          * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+          */
+      this.folderToken = builder.folderToken;
+  }
+
     public static class Builder {
-        /**
-         * 文件夹名称
-         * <p> 示例值：New Folder
-         */
+     /**
+      * 文件夹名称
+      * <p> 示例值：New Folder
+      */
         private String name;
-        /**
-         * 父文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
+     /**
+      * 父文件夹token
+      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+      */
         private String folderToken;
 
         /**
          * 文件夹名称
          * <p> 示例值：New Folder
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 父文件夹token
          * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         *
          * @param folderToken
          * @return
          */
         public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
+             this.folderToken = folderToken;
+             return this;
         }
 
+    
+    
+    public CreateFolderFileReqBody build(){
+        return new CreateFolderFileReqBody(this);
+      }
+    }
 
-        public CreateFolderFileReqBody build() {
-            return new CreateFolderFileReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AgencyBasicInfo {
-    /**
-     * 猎头用户名
-     * <p> 示例值：
-     */
+     /**
+      * 猎头用户名
+      * <p> 示例值：
+      */
     @SerializedName("hunter_user_name")
     private I18n hunterUserName;
-    /**
-     * 猎头公司名
-     * <p> 示例值：明天会更好猎头公司
-     */
+     /**
+      * 猎头公司名
+      * <p> 示例值：明天会更好猎头公司
+      */
     @SerializedName("hunter_company_name")
     private String hunterCompanyName;
-
-    // builder 开始
-    public AgencyBasicInfo() {
-    }
-
-    public AgencyBasicInfo(Builder builder) {
-        /**
-         * 猎头用户名
-         * <p> 示例值：
-         */
-        this.hunterUserName = builder.hunterUserName;
-        /**
-         * 猎头公司名
-         * <p> 示例值：明天会更好猎头公司
-         */
-        this.hunterCompanyName = builder.hunterCompanyName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public I18n getHunterUserName() {
         return this.hunterUserName;
     }
@@ -78,46 +52,67 @@ public class AgencyBasicInfo {
         this.hunterCompanyName = hunterCompanyName;
     }
 
+
+// builder 开始
+  public AgencyBasicInfo(){}
+
+  public AgencyBasicInfo(Builder builder){
+         /**
+          * 猎头用户名
+          * <p> 示例值：
+          */
+      this.hunterUserName = builder.hunterUserName;
+         /**
+          * 猎头公司名
+          * <p> 示例值：明天会更好猎头公司
+          */
+      this.hunterCompanyName = builder.hunterCompanyName;
+  }
+
     public static class Builder {
-        /**
-         * 猎头用户名
-         * <p> 示例值：
-         */
+     /**
+      * 猎头用户名
+      * <p> 示例值：
+      */
         private I18n hunterUserName;
-        /**
-         * 猎头公司名
-         * <p> 示例值：明天会更好猎头公司
-         */
+     /**
+      * 猎头公司名
+      * <p> 示例值：明天会更好猎头公司
+      */
         private String hunterCompanyName;
 
         /**
          * 猎头用户名
          * <p> 示例值：
-         *
          * @param hunterUserName
          * @return
          */
         public Builder hunterUserName(I18n hunterUserName) {
-            this.hunterUserName = hunterUserName;
-            return this;
+             this.hunterUserName = hunterUserName;
+             return this;
         }
 
+    
 
         /**
          * 猎头公司名
          * <p> 示例值：明天会更好猎头公司
-         *
          * @param hunterCompanyName
          * @return
          */
         public Builder hunterCompanyName(String hunterCompanyName) {
-            this.hunterCompanyName = hunterCompanyName;
-            return this;
+             this.hunterCompanyName = hunterCompanyName;
+             return this;
         }
 
+    
+    
+    public AgencyBasicInfo build(){
+        return new AgencyBasicInfo(this);
+      }
+    }
 
-        public AgencyBasicInfo build() {
-            return new AgencyBasicInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

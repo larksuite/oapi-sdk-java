@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReportRow {
-    /**
-     * 用户姓名
-     * <p> 示例值：张三
-     */
+     /**
+      * 用户姓名
+      * <p> 示例值：张三
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 用户ID
-     * <p> 示例值：293719827389172931
-     */
+     /**
+      * 用户ID
+      * <p> 示例值：293719827389172931
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
-     * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
-     */
+     /**
+      * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
+      * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
+      */
     @SerializedName("column_map")
     private String columnMap;
-
-    // builder 开始
-    public ReportRow() {
-    }
-
-    public ReportRow(Builder builder) {
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
-        this.name = builder.name;
-        /**
-         * 用户ID
-         * <p> 示例值：293719827389172931
-         */
-        this.userId = builder.userId;
-        /**
-         * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
-         * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
-         */
-        this.columnMap = builder.columnMap;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -98,64 +67,90 @@ public class ReportRow {
         this.columnMap = columnMap;
     }
 
+
+// builder 开始
+  public ReportRow(){}
+
+  public ReportRow(Builder builder){
+         /**
+          * 用户姓名
+          * <p> 示例值：张三
+          */
+      this.name = builder.name;
+         /**
+          * 用户ID
+          * <p> 示例值：293719827389172931
+          */
+      this.userId = builder.userId;
+         /**
+          * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
+          * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
+          */
+      this.columnMap = builder.columnMap;
+  }
+
     public static class Builder {
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
+     /**
+      * 用户姓名
+      * <p> 示例值：张三
+      */
         private String name;
-        /**
-         * 用户ID
-         * <p> 示例值：293719827389172931
-         */
+     /**
+      * 用户ID
+      * <p> 示例值：293719827389172931
+      */
         private String userId;
-        /**
-         * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
-         * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
-         */
+     /**
+      * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
+      * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
+      */
         private String columnMap;
 
         /**
          * 用户姓名
          * <p> 示例值：张三
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 用户ID
          * <p> 示例值：293719827389172931
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
          * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
-         *
          * @param columnMap
          * @return
          */
         public Builder columnMap(String columnMap) {
-            this.columnMap = columnMap;
-            return this;
+             this.columnMap = columnMap;
+             return this;
         }
 
+    
+    
+    public ReportRow build(){
+        return new ReportRow(this);
+      }
+    }
 
-        public ReportRow build() {
-            return new ReportRow(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

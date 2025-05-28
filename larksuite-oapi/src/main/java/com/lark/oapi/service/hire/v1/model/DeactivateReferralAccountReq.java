@@ -12,57 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeactivateReferralAccountReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 账户ID
-     * <p> 示例值：6942778198054125570
-     */
-    @Path
-    @SerializedName("referral_account_id")
-    private String referralAccountId;
-
-    // builder 开始
-    public DeactivateReferralAccountReq() {
-    }
-
-    public DeactivateReferralAccountReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 账户ID
-         * <p> 示例值：6942778198054125570
-         */
-        this.referralAccountId = builder.referralAccountId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -71,6 +38,13 @@ public class DeactivateReferralAccountReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 账户ID
+      * <p> 示例值：6942778198054125570
+      */
+    @Path
+    @SerializedName("referral_account_id")
+    private String referralAccountId;
     public String getReferralAccountId() {
         return this.referralAccountId;
     }
@@ -79,37 +53,57 @@ public class DeactivateReferralAccountReq {
         this.referralAccountId = referralAccountId;
     }
 
+
+// builder 开始
+  public DeactivateReferralAccountReq(){}
+
+  public DeactivateReferralAccountReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 账户ID
+      * <p> 示例值：6942778198054125570
+      */
+       this.referralAccountId = builder.referralAccountId;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String referralAccountId; // 账户ID
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+        private String referralAccountId; // 账户ID
         /**
          * 账户ID
          * <p> 示例值：6942778198054125570
-         *
          * @param referralAccountId
          * @return
          */
-        public Builder referralAccountId(String referralAccountId) {
-            this.referralAccountId = referralAccountId;
-            return this;
-        }
+          public Builder referralAccountId(String referralAccountId) {
+               this.referralAccountId = referralAccountId;
+               return this;
+          }
 
+    
+    public DeactivateReferralAccountReq build(){
+        return new DeactivateReferralAccountReq(this);
+      }
+    }
 
-        public DeactivateReferralAccountReq build() {
-            return new DeactivateReferralAccountReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

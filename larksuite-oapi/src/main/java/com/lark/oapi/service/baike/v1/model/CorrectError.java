@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,59 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CorrectError {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * 该类型错误在请求时间周期内的累计数量
-     * <p> 示例值：
-     */
+     /**
+      * 该类型错误在请求时间周期内的累计数量
+      * <p> 示例值：
+      */
     @SerializedName("total")
     private Integer total;
-    /**
-     * 该类型错误在周期内具体的纠错对
-     * <p> 示例值：
-     */
+     /**
+      * 该类型错误在周期内具体的纠错对
+      * <p> 示例值：
+      */
     @SerializedName("correct_pairs")
     private CorrectPair[] correctPairs;
-
-    // builder 开始
-    public CorrectError() {
-    }
-
-    public CorrectError(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 该类型错误在请求时间周期内的累计数量
-         * <p> 示例值：
-         */
-        this.total = builder.total;
-        /**
-         * 该类型错误在周期内具体的纠错对
-         * <p> 示例值：
-         */
-        this.correctPairs = builder.correctPairs;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getType() {
         return this.type;
     }
@@ -97,73 +67,100 @@ public class CorrectError {
         this.correctPairs = correctPairs;
     }
 
+
+// builder 开始
+  public CorrectError(){}
+
+  public CorrectError(Builder builder){
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.type = builder.type;
+         /**
+          * 该类型错误在请求时间周期内的累计数量
+          * <p> 示例值：
+          */
+      this.total = builder.total;
+         /**
+          * 该类型错误在周期内具体的纠错对
+          * <p> 示例值：
+          */
+      this.correctPairs = builder.correctPairs;
+  }
+
     public static class Builder {
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private Integer type;
-        /**
-         * 该类型错误在请求时间周期内的累计数量
-         * <p> 示例值：
-         */
+     /**
+      * 该类型错误在请求时间周期内的累计数量
+      * <p> 示例值：
+      */
         private Integer total;
-        /**
-         * 该类型错误在周期内具体的纠错对
-         * <p> 示例值：
-         */
+     /**
+      * 该类型错误在周期内具体的纠错对
+      * <p> 示例值：
+      */
         private CorrectPair[] correctPairs;
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
+         * 
          * <p> 示例值：
-         *
          * @param type {@link com.lark.oapi.service.baike.v1.enums.CorrectErrorCorrectTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.baike.v1.enums.CorrectErrorCorrectTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 该类型错误在请求时间周期内的累计数量
          * <p> 示例值：
-         *
          * @param total
          * @return
          */
         public Builder total(Integer total) {
-            this.total = total;
-            return this;
+             this.total = total;
+             return this;
         }
 
+    
 
         /**
          * 该类型错误在周期内具体的纠错对
          * <p> 示例值：
-         *
          * @param correctPairs
          * @return
          */
         public Builder correctPairs(CorrectPair[] correctPairs) {
-            this.correctPairs = correctPairs;
-            return this;
+             this.correctPairs = correctPairs;
+             return this;
         }
 
+    
+    
+    public CorrectError build(){
+        return new CorrectError(this);
+      }
+    }
 
-        public CorrectError build() {
-            return new CorrectError(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

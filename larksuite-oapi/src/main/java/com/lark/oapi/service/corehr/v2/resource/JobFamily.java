@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.corehr.v2.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class JobFamily {
         this.config = config;
     }
 
-
+    
     /**
      * ，通过序列 ID 批量获取序列信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=corehr&resource=job_family&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=corehr&resource=job_family&version=v2</a> ;
@@ -63,7 +58,7 @@ public class JobFamily {
                 , "/open-apis/corehr/v2/job_families/batch_get"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchGetJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetJobFamilyResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class JobFamily {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/job_families/batch_get"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class JobFamily {
                 , "/open-apis/corehr/v2/job_families/batch_get"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchGetJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetJobFamilyResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class JobFamily {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/job_families/batch_get"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query_recent_change&project=corehr&resource=job_family&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query_recent_change&project=corehr&resource=job_family&version=v2</a> ;
@@ -129,7 +123,7 @@ public class JobFamily {
                 , "/open-apis/corehr/v2/job_families/query_recent_change"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryRecentChangeJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryRecentChangeJobFamilyResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class JobFamily {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/job_families/query_recent_change"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class JobFamily {
                 , "/open-apis/corehr/v2/job_families/query_recent_change"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryRecentChangeJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryRecentChangeJobFamilyResp.class);
         if (resp == null) {
@@ -169,13 +163,13 @@ public class JobFamily {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/job_families/query_recent_change"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

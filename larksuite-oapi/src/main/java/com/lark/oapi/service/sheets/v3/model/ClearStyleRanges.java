@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ClearStyleRanges {
-    /**
-     * 范围
-     * <p> 示例值：["sheet1!A1:A1"]
-     */
+     /**
+      * 范围
+      * <p> 示例值：["sheet1!A1:A1"]
+      */
     @SerializedName("ranges")
     private String[] ranges;
-
-    // builder 开始
-    public ClearStyleRanges() {
-    }
-
-    public ClearStyleRanges(Builder builder) {
-        /**
-         * 范围
-         * <p> 示例值：["sheet1!A1:A1"]
-         */
-        this.ranges = builder.ranges;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getRanges() {
         return this.ranges;
     }
@@ -60,28 +39,44 @@ public class ClearStyleRanges {
         this.ranges = ranges;
     }
 
+
+// builder 开始
+  public ClearStyleRanges(){}
+
+  public ClearStyleRanges(Builder builder){
+         /**
+          * 范围
+          * <p> 示例值：["sheet1!A1:A1"]
+          */
+      this.ranges = builder.ranges;
+  }
+
     public static class Builder {
-        /**
-         * 范围
-         * <p> 示例值：["sheet1!A1:A1"]
-         */
+     /**
+      * 范围
+      * <p> 示例值：["sheet1!A1:A1"]
+      */
         private String[] ranges;
 
         /**
          * 范围
          * <p> 示例值：["sheet1!A1:A1"]
-         *
          * @param ranges
          * @return
          */
         public Builder ranges(String[] ranges) {
-            this.ranges = ranges;
-            return this;
+             this.ranges = ranges;
+             return this;
         }
 
+    
+    
+    public ClearStyleRanges build(){
+        return new ClearStyleRanges(this);
+      }
+    }
 
-        public ClearStyleRanges build() {
-            return new ClearStyleRanges(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

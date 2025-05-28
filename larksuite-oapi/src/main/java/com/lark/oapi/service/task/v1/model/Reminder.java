@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Reminder {
-    /**
-     * 提醒时间设置的 ID（在删除时候需要使用这个）
-     * <p> 示例值：1
-     */
+     /**
+      * 提醒时间设置的 ID（在删除时候需要使用这个）
+      * <p> 示例值：1
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 相对于截止时间的提醒时间（如提前 30 分钟，截止时间后 30 分钟，则为 -30） 任务没有截止时间则为全天任务(截止时间为0)
-     * <p> 示例值：30
-     */
+     /**
+      * 相对于截止时间的提醒时间（如提前 30 分钟，截止时间后 30 分钟，则为 -30） 任务没有截止时间则为全天任务(截止时间为0)
+      * <p> 示例值：30
+      */
     @SerializedName("relative_fire_minute")
     private Integer relativeFireMinute;
-
-    // builder 开始
-    public Reminder() {
-    }
-
-    public Reminder(Builder builder) {
-        /**
-         * 提醒时间设置的 ID（在删除时候需要使用这个）
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 相对于截止时间的提醒时间（如提前 30 分钟，截止时间后 30 分钟，则为 -30） 任务没有截止时间则为全天任务(截止时间为0)
-         * <p> 示例值：30
-         */
-        this.relativeFireMinute = builder.relativeFireMinute;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -79,46 +53,67 @@ public class Reminder {
         this.relativeFireMinute = relativeFireMinute;
     }
 
+
+// builder 开始
+  public Reminder(){}
+
+  public Reminder(Builder builder){
+         /**
+          * 提醒时间设置的 ID（在删除时候需要使用这个）
+          * <p> 示例值：1
+          */
+      this.id = builder.id;
+         /**
+          * 相对于截止时间的提醒时间（如提前 30 分钟，截止时间后 30 分钟，则为 -30） 任务没有截止时间则为全天任务(截止时间为0)
+          * <p> 示例值：30
+          */
+      this.relativeFireMinute = builder.relativeFireMinute;
+  }
+
     public static class Builder {
-        /**
-         * 提醒时间设置的 ID（在删除时候需要使用这个）
-         * <p> 示例值：1
-         */
+     /**
+      * 提醒时间设置的 ID（在删除时候需要使用这个）
+      * <p> 示例值：1
+      */
         private String id;
-        /**
-         * 相对于截止时间的提醒时间（如提前 30 分钟，截止时间后 30 分钟，则为 -30） 任务没有截止时间则为全天任务(截止时间为0)
-         * <p> 示例值：30
-         */
+     /**
+      * 相对于截止时间的提醒时间（如提前 30 分钟，截止时间后 30 分钟，则为 -30） 任务没有截止时间则为全天任务(截止时间为0)
+      * <p> 示例值：30
+      */
         private Integer relativeFireMinute;
 
         /**
          * 提醒时间设置的 ID（在删除时候需要使用这个）
          * <p> 示例值：1
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 相对于截止时间的提醒时间（如提前 30 分钟，截止时间后 30 分钟，则为 -30） 任务没有截止时间则为全天任务(截止时间为0)
          * <p> 示例值：30
-         *
          * @param relativeFireMinute
          * @return
          */
         public Builder relativeFireMinute(Integer relativeFireMinute) {
-            this.relativeFireMinute = relativeFireMinute;
-            return this;
+             this.relativeFireMinute = relativeFireMinute;
+             return this;
         }
 
+    
+    
+    public Reminder build(){
+        return new Reminder(this);
+      }
+    }
 
-        public Reminder build() {
-            return new Reminder(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

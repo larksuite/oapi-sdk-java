@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.apaas.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class ApplicationAuditLog {
         this.config = config;
     }
 
-
+    
     /**
      * ，获取审计日志列表
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1</a> ;
@@ -63,7 +58,7 @@ public class ApplicationAuditLog {
                 , "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         AuditLogListApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AuditLogListApplicationAuditLogResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class ApplicationAuditLog {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class ApplicationAuditLog {
                 , "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         AuditLogListApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AuditLogListApplicationAuditLogResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class ApplicationAuditLog {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，获取数据变更日志详情
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1</a> ;
@@ -129,7 +123,7 @@ public class ApplicationAuditLog {
                 , "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DataChangeLogDetailApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DataChangeLogDetailApplicationAuditLogResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class ApplicationAuditLog {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class ApplicationAuditLog {
                 , "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DataChangeLogDetailApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DataChangeLogDetailApplicationAuditLogResp.class);
         if (resp == null) {
@@ -169,16 +163,15 @@ public class ApplicationAuditLog {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，获取数据变更日志列表
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1</a> ;
@@ -195,7 +188,7 @@ public class ApplicationAuditLog {
                 , "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DataChangeLogsListApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DataChangeLogsListApplicationAuditLogResp.class);
         if (resp == null) {
@@ -203,14 +196,14 @@ public class ApplicationAuditLog {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -227,7 +220,7 @@ public class ApplicationAuditLog {
                 , "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DataChangeLogsListApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DataChangeLogsListApplicationAuditLogResp.class);
         if (resp == null) {
@@ -235,16 +228,15 @@ public class ApplicationAuditLog {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，获取审计日志详情
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1</a> ;
@@ -261,7 +253,7 @@ public class ApplicationAuditLog {
                 , "/open-apis/apaas/v1/applications/:namespace/audit_log"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         GetApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationAuditLogResp.class);
         if (resp == null) {
@@ -269,14 +261,14 @@ public class ApplicationAuditLog {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -293,7 +285,7 @@ public class ApplicationAuditLog {
                 , "/open-apis/apaas/v1/applications/:namespace/audit_log"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         GetApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationAuditLogResp.class);
         if (resp == null) {
@@ -301,13 +293,13 @@ public class ApplicationAuditLog {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

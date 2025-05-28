@@ -17,16 +17,15 @@ package com.lark.oapi.service.aily.v1.enums;
  * 技能选择策略
  */
 public enum ProgressItemSkillSelectStrategyEnum {
-    AUTO("AUTO"), // 智能匹配
-    SLASH("SLASH"), // 指定技能
-    ;
-    private String value;
-
+     AUTO("AUTO"), // 智能匹配
+     SLASH("SLASH"), // 指定技能
+  ;
+   private String value;
     ProgressItemSkillSelectStrategyEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

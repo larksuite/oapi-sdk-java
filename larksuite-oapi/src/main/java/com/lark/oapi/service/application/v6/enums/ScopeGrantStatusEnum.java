@@ -17,16 +17,15 @@ package com.lark.oapi.service.application.v6.enums;
  * 租户应用权限授予状态
  */
 public enum ScopeGrantStatusEnum {
-    GRANTED(1), // 已授权
-    UNDELEGATED(2), // 未授权
-    ;
-    private Integer value;
-
+     GRANTED(1), // 已授权
+     UNDELEGATED(2), // 未授权
+  ;
+   private Integer value;
     ScopeGrantStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

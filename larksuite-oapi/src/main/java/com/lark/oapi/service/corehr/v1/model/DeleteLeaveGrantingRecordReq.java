@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteLeaveGrantingRecordReq {
-    /**
-     * 假期授予记录 ID
-     * <p> 示例值：6893014062142064135
-     */
+     /**
+      * 假期授予记录 ID
+      * <p> 示例值：6893014062142064135
+      */
     @Path
     @SerializedName("leave_granting_record_id")
     private String leaveGrantingRecordId;
-
-    // builder 开始
-    public DeleteLeaveGrantingRecordReq() {
-    }
-
-    public DeleteLeaveGrantingRecordReq(Builder builder) {
-        /**
-         * 假期授予记录 ID
-         * <p> 示例值：6893014062142064135
-         */
-        this.leaveGrantingRecordId = builder.leaveGrantingRecordId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLeaveGrantingRecordId() {
         return this.leaveGrantingRecordId;
     }
@@ -60,25 +39,39 @@ public class DeleteLeaveGrantingRecordReq {
         this.leaveGrantingRecordId = leaveGrantingRecordId;
     }
 
+
+// builder 开始
+  public DeleteLeaveGrantingRecordReq(){}
+
+  public DeleteLeaveGrantingRecordReq(Builder builder){
+     /**
+      * 假期授予记录 ID
+      * <p> 示例值：6893014062142064135
+      */
+       this.leaveGrantingRecordId = builder.leaveGrantingRecordId;
+  }
+
     public static class Builder {
-
+    
         private String leaveGrantingRecordId; // 假期授予记录 ID
-
         /**
          * 假期授予记录 ID
          * <p> 示例值：6893014062142064135
-         *
          * @param leaveGrantingRecordId
          * @return
          */
-        public Builder leaveGrantingRecordId(String leaveGrantingRecordId) {
-            this.leaveGrantingRecordId = leaveGrantingRecordId;
-            return this;
-        }
+          public Builder leaveGrantingRecordId(String leaveGrantingRecordId) {
+               this.leaveGrantingRecordId = leaveGrantingRecordId;
+               return this;
+          }
 
+    
+    public DeleteLeaveGrantingRecordReq build(){
+        return new DeleteLeaveGrantingRecordReq(this);
+      }
+    }
 
-        public DeleteLeaveGrantingRecordReq build() {
-            return new DeleteLeaveGrantingRecordReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

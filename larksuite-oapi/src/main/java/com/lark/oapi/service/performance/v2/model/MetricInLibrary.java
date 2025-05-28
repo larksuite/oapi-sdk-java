@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MetricInLibrary {
-    /**
-     * 指标 ID
-     * <p> 示例值：7272581996315099155
-     */
+     /**
+      * 指标 ID
+      * <p> 示例值：7272581996315099155
+      */
     @SerializedName("metric_id")
     private String metricId;
-    /**
-     * 指标名称
-     * <p> 示例值：销售额
-     */
+     /**
+      * 指标名称
+      * <p> 示例值：销售额
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 指标类型 ID
-     * <p> 示例值：7272578300650717203
-     */
+     /**
+      * 指标类型 ID
+      * <p> 示例值：7272578300650717203
+      */
     @SerializedName("type_id")
     private String typeId;
-    /**
-     * 所属的标签
-     * <p> 示例值：
-     */
+     /**
+      * 所属的标签
+      * <p> 示例值：
+      */
     @SerializedName("tags")
     private MetricTag[] tags;
-    /**
-     * 指标字段信息
-     * <p> 示例值：
-     */
+     /**
+      * 指标字段信息
+      * <p> 示例值：
+      */
     @SerializedName("fields")
     private MetricFieldInLibrary[] fields;
-    /**
-     * 评分设置类型
-     * <p> 示例值：
-     */
+     /**
+      * 评分设置类型
+      * <p> 示例值：
+      */
     @SerializedName("scoring_setting_type")
     private String scoringSettingType;
-    /**
-     * 评分公式
-     * <p> 示例值：
-     */
+     /**
+      * 评分公式
+      * <p> 示例值：
+      */
     @SerializedName("scoring_formula")
     private Formula scoringFormula;
-    /**
-     * 数据源录入人 ID
-     * <p> 示例值：
-     */
+     /**
+      * 数据源录入人 ID
+      * <p> 示例值：
+      */
     @SerializedName("data_source_inputters")
     private User[] dataSourceInputters;
-    /**
-     * 可用范围
-     * <p> 示例值：
-     */
+     /**
+      * 可用范围
+      * <p> 示例值：
+      */
     @SerializedName("range_of_availability")
     private String rangeOfAvailability;
-    /**
-     * 状态是否为启用
-     * <p> 示例值：
-     */
+     /**
+      * 状态是否为启用
+      * <p> 示例值：
+      */
     @SerializedName("is_active")
     private Boolean isActive;
-
-    // builder 开始
-    public MetricInLibrary() {
-    }
-
-    public MetricInLibrary(Builder builder) {
-        /**
-         * 指标 ID
-         * <p> 示例值：7272581996315099155
-         */
-        this.metricId = builder.metricId;
-        /**
-         * 指标名称
-         * <p> 示例值：销售额
-         */
-        this.name = builder.name;
-        /**
-         * 指标类型 ID
-         * <p> 示例值：7272578300650717203
-         */
-        this.typeId = builder.typeId;
-        /**
-         * 所属的标签
-         * <p> 示例值：
-         */
-        this.tags = builder.tags;
-        /**
-         * 指标字段信息
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 评分设置类型
-         * <p> 示例值：
-         */
-        this.scoringSettingType = builder.scoringSettingType;
-        /**
-         * 评分公式
-         * <p> 示例值：
-         */
-        this.scoringFormula = builder.scoringFormula;
-        /**
-         * 数据源录入人 ID
-         * <p> 示例值：
-         */
-        this.dataSourceInputters = builder.dataSourceInputters;
-        /**
-         * 可用范围
-         * <p> 示例值：
-         */
-        this.rangeOfAvailability = builder.rangeOfAvailability;
-        /**
-         * 状态是否为启用
-         * <p> 示例值：
-         */
-        this.isActive = builder.isActive;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMetricId() {
         return this.metricId;
     }
@@ -231,214 +165,271 @@ public class MetricInLibrary {
         this.isActive = isActive;
     }
 
+
+// builder 开始
+  public MetricInLibrary(){}
+
+  public MetricInLibrary(Builder builder){
+         /**
+          * 指标 ID
+          * <p> 示例值：7272581996315099155
+          */
+      this.metricId = builder.metricId;
+         /**
+          * 指标名称
+          * <p> 示例值：销售额
+          */
+      this.name = builder.name;
+         /**
+          * 指标类型 ID
+          * <p> 示例值：7272578300650717203
+          */
+      this.typeId = builder.typeId;
+         /**
+          * 所属的标签
+          * <p> 示例值：
+          */
+      this.tags = builder.tags;
+         /**
+          * 指标字段信息
+          * <p> 示例值：
+          */
+      this.fields = builder.fields;
+         /**
+          * 评分设置类型
+          * <p> 示例值：
+          */
+      this.scoringSettingType = builder.scoringSettingType;
+         /**
+          * 评分公式
+          * <p> 示例值：
+          */
+      this.scoringFormula = builder.scoringFormula;
+         /**
+          * 数据源录入人 ID
+          * <p> 示例值：
+          */
+      this.dataSourceInputters = builder.dataSourceInputters;
+         /**
+          * 可用范围
+          * <p> 示例值：
+          */
+      this.rangeOfAvailability = builder.rangeOfAvailability;
+         /**
+          * 状态是否为启用
+          * <p> 示例值：
+          */
+      this.isActive = builder.isActive;
+  }
+
     public static class Builder {
-        /**
-         * 指标 ID
-         * <p> 示例值：7272581996315099155
-         */
+     /**
+      * 指标 ID
+      * <p> 示例值：7272581996315099155
+      */
         private String metricId;
-        /**
-         * 指标名称
-         * <p> 示例值：销售额
-         */
+     /**
+      * 指标名称
+      * <p> 示例值：销售额
+      */
         private String name;
-        /**
-         * 指标类型 ID
-         * <p> 示例值：7272578300650717203
-         */
+     /**
+      * 指标类型 ID
+      * <p> 示例值：7272578300650717203
+      */
         private String typeId;
-        /**
-         * 所属的标签
-         * <p> 示例值：
-         */
+     /**
+      * 所属的标签
+      * <p> 示例值：
+      */
         private MetricTag[] tags;
-        /**
-         * 指标字段信息
-         * <p> 示例值：
-         */
+     /**
+      * 指标字段信息
+      * <p> 示例值：
+      */
         private MetricFieldInLibrary[] fields;
-        /**
-         * 评分设置类型
-         * <p> 示例值：
-         */
+     /**
+      * 评分设置类型
+      * <p> 示例值：
+      */
         private String scoringSettingType;
-        /**
-         * 评分公式
-         * <p> 示例值：
-         */
+     /**
+      * 评分公式
+      * <p> 示例值：
+      */
         private Formula scoringFormula;
-        /**
-         * 数据源录入人 ID
-         * <p> 示例值：
-         */
+     /**
+      * 数据源录入人 ID
+      * <p> 示例值：
+      */
         private User[] dataSourceInputters;
-        /**
-         * 可用范围
-         * <p> 示例值：
-         */
+     /**
+      * 可用范围
+      * <p> 示例值：
+      */
         private String rangeOfAvailability;
-        /**
-         * 状态是否为启用
-         * <p> 示例值：
-         */
+     /**
+      * 状态是否为启用
+      * <p> 示例值：
+      */
         private Boolean isActive;
 
         /**
          * 指标 ID
          * <p> 示例值：7272581996315099155
-         *
          * @param metricId
          * @return
          */
         public Builder metricId(String metricId) {
-            this.metricId = metricId;
-            return this;
+             this.metricId = metricId;
+             return this;
         }
 
+    
 
         /**
          * 指标名称
          * <p> 示例值：销售额
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 指标类型 ID
          * <p> 示例值：7272578300650717203
-         *
          * @param typeId
          * @return
          */
         public Builder typeId(String typeId) {
-            this.typeId = typeId;
-            return this;
+             this.typeId = typeId;
+             return this;
         }
 
+    
 
         /**
          * 所属的标签
          * <p> 示例值：
-         *
          * @param tags
          * @return
          */
         public Builder tags(MetricTag[] tags) {
-            this.tags = tags;
-            return this;
+             this.tags = tags;
+             return this;
         }
 
+    
 
         /**
          * 指标字段信息
          * <p> 示例值：
-         *
          * @param fields
          * @return
          */
         public Builder fields(MetricFieldInLibrary[] fields) {
-            this.fields = fields;
-            return this;
+             this.fields = fields;
+             return this;
         }
 
+    
 
         /**
          * 评分设置类型
          * <p> 示例值：
-         *
          * @param scoringSettingType
          * @return
          */
         public Builder scoringSettingType(String scoringSettingType) {
-            this.scoringSettingType = scoringSettingType;
-            return this;
+             this.scoringSettingType = scoringSettingType;
+             return this;
         }
-
         /**
          * 评分设置类型
          * <p> 示例值：
-         *
          * @param scoringSettingType {@link com.lark.oapi.service.performance.v2.enums.MetricInLibraryScoringSettingTypeEnum}
          * @return
          */
         public Builder scoringSettingType(com.lark.oapi.service.performance.v2.enums.MetricInLibraryScoringSettingTypeEnum scoringSettingType) {
-            this.scoringSettingType = scoringSettingType.getValue();
-            return this;
+             this.scoringSettingType = scoringSettingType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 评分公式
          * <p> 示例值：
-         *
          * @param scoringFormula
          * @return
          */
         public Builder scoringFormula(Formula scoringFormula) {
-            this.scoringFormula = scoringFormula;
-            return this;
+             this.scoringFormula = scoringFormula;
+             return this;
         }
 
+    
 
         /**
          * 数据源录入人 ID
          * <p> 示例值：
-         *
          * @param dataSourceInputters
          * @return
          */
         public Builder dataSourceInputters(User[] dataSourceInputters) {
-            this.dataSourceInputters = dataSourceInputters;
-            return this;
+             this.dataSourceInputters = dataSourceInputters;
+             return this;
         }
 
+    
 
         /**
          * 可用范围
          * <p> 示例值：
-         *
          * @param rangeOfAvailability
          * @return
          */
         public Builder rangeOfAvailability(String rangeOfAvailability) {
-            this.rangeOfAvailability = rangeOfAvailability;
-            return this;
+             this.rangeOfAvailability = rangeOfAvailability;
+             return this;
         }
-
         /**
          * 可用范围
          * <p> 示例值：
-         *
          * @param rangeOfAvailability {@link com.lark.oapi.service.performance.v2.enums.MetricInLibraryRangeOfAvailabilityEnum}
          * @return
          */
         public Builder rangeOfAvailability(com.lark.oapi.service.performance.v2.enums.MetricInLibraryRangeOfAvailabilityEnum rangeOfAvailability) {
-            this.rangeOfAvailability = rangeOfAvailability.getValue();
-            return this;
+             this.rangeOfAvailability = rangeOfAvailability.getValue();
+             return this;
         }
 
+    
 
         /**
          * 状态是否为启用
          * <p> 示例值：
-         *
          * @param isActive
          * @return
          */
         public Builder isActive(Boolean isActive) {
-            this.isActive = isActive;
-            return this;
+             this.isActive = isActive;
+             return this;
         }
 
+    
+    
+    public MetricInLibrary build(){
+        return new MetricInLibrary(this);
+      }
+    }
 
-        public MetricInLibrary build() {
-            return new MetricInLibrary(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

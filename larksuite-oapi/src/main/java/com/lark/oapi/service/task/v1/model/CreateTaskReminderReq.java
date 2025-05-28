@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateTaskReminderReq {
-    /**
-     * 任务 ID
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-     */
+     /**
+      * 任务 ID
+      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+      */
     @Path
     @SerializedName("task_id")
     private String taskId;
-    @Body
-    private Reminder body;
-
-    // builder 开始
-    public CreateTaskReminderReq() {
-    }
-
-    public CreateTaskReminderReq(Builder builder) {
-        /**
-         * 任务 ID
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         */
-        this.taskId = builder.taskId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTaskId() {
         return this.taskId;
     }
@@ -62,6 +38,9 @@ public class CreateTaskReminderReq {
     public void setTaskId(String taskId) {
         this.taskId = taskId;
     }
+
+    @Body
+    private Reminder body;
 
     public Reminder getReminder() {
         return this.body;
@@ -71,40 +50,54 @@ public class CreateTaskReminderReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateTaskReminderReq(){}
+
+  public CreateTaskReminderReq(Builder builder){
+     /**
+      * 任务 ID
+      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+      */
+       this.taskId = builder.taskId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String taskId; // 任务 ID
-        private Reminder body;
-
         /**
          * 任务 ID
          * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         *
          * @param taskId
          * @return
          */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
 
+    
+        private Reminder body;
+    
         public Reminder getReminder() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder reminder(Reminder body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateTaskReminderReq build(){
+        return new CreateTaskReminderReq(this);
+      }
+    }
 
-        public CreateTaskReminderReq build() {
-            return new CreateTaskReminderReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetOfferSchemaReq {
-    /**
-     * offer申请表的ID *必需属性
-     * <p> 示例值：1231231231231
-     */
+     /**
+      * offer申请表的ID *必需属性
+      * <p> 示例值：1231231231231
+      */
     @Path
     @SerializedName("offer_schema_id")
     private String offerSchemaId;
-
-    // builder 开始
-    public GetOfferSchemaReq() {
-    }
-
-    public GetOfferSchemaReq(Builder builder) {
-        /**
-         * offer申请表的ID *必需属性
-         * <p> 示例值：1231231231231
-         */
-        this.offerSchemaId = builder.offerSchemaId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOfferSchemaId() {
         return this.offerSchemaId;
     }
@@ -59,25 +38,39 @@ public class GetOfferSchemaReq {
         this.offerSchemaId = offerSchemaId;
     }
 
+
+// builder 开始
+  public GetOfferSchemaReq(){}
+
+  public GetOfferSchemaReq(Builder builder){
+     /**
+      * offer申请表的ID *必需属性
+      * <p> 示例值：1231231231231
+      */
+       this.offerSchemaId = builder.offerSchemaId;
+  }
+
     public static class Builder {
-
+    
         private String offerSchemaId; // offer申请表的ID *必需属性
-
         /**
          * offer申请表的ID *必需属性
          * <p> 示例值：1231231231231
-         *
          * @param offerSchemaId
          * @return
          */
-        public Builder offerSchemaId(String offerSchemaId) {
-            this.offerSchemaId = offerSchemaId;
-            return this;
-        }
+          public Builder offerSchemaId(String offerSchemaId) {
+               this.offerSchemaId = offerSchemaId;
+               return this;
+          }
 
+    
+    public GetOfferSchemaReq build(){
+        return new GetOfferSchemaReq(this);
+      }
+    }
 
-        public GetOfferSchemaReq build() {
-            return new GetOfferSchemaReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

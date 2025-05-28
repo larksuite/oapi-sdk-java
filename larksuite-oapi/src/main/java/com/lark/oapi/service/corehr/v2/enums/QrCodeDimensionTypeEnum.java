@@ -17,17 +17,16 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 维度类型
  */
 public enum QrCodeDimensionTypeEnum {
-    SELECT(1), // 单选类型
-    MULTISELECT(2), // 多选类型
-    BOOL(3), // 布尔类型
-    ;
-    private Integer value;
-
+     SELECT(1), // 单选类型
+     MULTISELECT(2), // 多选类型
+     BOOL(3), // 布尔类型
+  ;
+   private Integer value;
     QrCodeDimensionTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CcSearch {
-    /**
-     * 根据x_user_type填写用户 id
-     * <p> 示例值：lwiu098wj
-     */
+     /**
+      * 根据x_user_type填写用户 id
+      * <p> 示例值：lwiu098wj
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 审批定义 code
-     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
-     */
+     /**
+      * 审批定义 code
+      * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+      */
     @SerializedName("approval_code")
     private String approvalCode;
-    /**
-     * 审批实例 code
-     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
-     */
+     /**
+      * 审批实例 code
+      * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+      */
     @SerializedName("instance_code")
     private String instanceCode;
-    /**
-     * 审批实例第三方 id 注：和 approval_code 取并集
-     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
-     */
+     /**
+      * 审批实例第三方 id 注：和 approval_code 取并集
+      * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+      */
     @SerializedName("instance_external_id")
     private String instanceExternalId;
-    /**
-     * 审批定义分组第三方 id 注：和 instance_code 取并集
-     * <p> 示例值：1234567
-     */
+     /**
+      * 审批定义分组第三方 id 注：和 instance_code 取并集
+      * <p> 示例值：1234567
+      */
     @SerializedName("group_external_id")
     private String groupExternalId;
-    /**
-     * 审批抄送标题（只有第三方审批有）
-     * <p> 示例值：test
-     */
+     /**
+      * 审批抄送标题（只有第三方审批有）
+      * <p> 示例值：test
+      */
     @SerializedName("cc_title")
     private String ccTitle;
-    /**
-     * 审批抄送状态，注：若不设置，查询全部状态 若不在集合中，报错
-     * <p> 示例值：read
-     */
+     /**
+      * 审批抄送状态，注：若不设置，查询全部状态 若不在集合中，报错
+      * <p> 示例值：read
+      */
     @SerializedName("read_status")
     private String readStatus;
-    /**
-     * 抄送查询开始时间（unix毫秒时间戳）
-     * <p> 示例值：1547654251506
-     */
+     /**
+      * 抄送查询开始时间（unix毫秒时间戳）
+      * <p> 示例值：1547654251506
+      */
     @SerializedName("cc_create_time_from")
     private String ccCreateTimeFrom;
-    /**
-     * 抄送查询结束时间 (unix毫秒时间戳)
-     * <p> 示例值：1547654251506
-     */
+     /**
+      * 抄送查询结束时间 (unix毫秒时间戳)
+      * <p> 示例值：1547654251506
+      */
     @SerializedName("cc_create_time_to")
     private String ccCreateTimeTo;
-    /**
-     * 地区
-     * <p> 示例值：zh-CN
-     */
+     /**
+      * 地区
+      * <p> 示例值：zh-CN
+      */
     @SerializedName("locale")
     private String locale;
-
-    // builder 开始
-    public CcSearch() {
-    }
-
-    public CcSearch(Builder builder) {
-        /**
-         * 根据x_user_type填写用户 id
-         * <p> 示例值：lwiu098wj
-         */
-        this.userId = builder.userId;
-        /**
-         * 审批定义 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批实例 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 审批实例第三方 id 注：和 approval_code 取并集
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
-         */
-        this.instanceExternalId = builder.instanceExternalId;
-        /**
-         * 审批定义分组第三方 id 注：和 instance_code 取并集
-         * <p> 示例值：1234567
-         */
-        this.groupExternalId = builder.groupExternalId;
-        /**
-         * 审批抄送标题（只有第三方审批有）
-         * <p> 示例值：test
-         */
-        this.ccTitle = builder.ccTitle;
-        /**
-         * 审批抄送状态，注：若不设置，查询全部状态 若不在集合中，报错
-         * <p> 示例值：read
-         */
-        this.readStatus = builder.readStatus;
-        /**
-         * 抄送查询开始时间（unix毫秒时间戳）
-         * <p> 示例值：1547654251506
-         */
-        this.ccCreateTimeFrom = builder.ccCreateTimeFrom;
-        /**
-         * 抄送查询结束时间 (unix毫秒时间戳)
-         * <p> 示例值：1547654251506
-         */
-        this.ccCreateTimeTo = builder.ccCreateTimeTo;
-        /**
-         * 地区
-         * <p> 示例值：zh-CN
-         */
-        this.locale = builder.locale;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -231,214 +165,271 @@ public class CcSearch {
         this.locale = locale;
     }
 
+
+// builder 开始
+  public CcSearch(){}
+
+  public CcSearch(Builder builder){
+         /**
+          * 根据x_user_type填写用户 id
+          * <p> 示例值：lwiu098wj
+          */
+      this.userId = builder.userId;
+         /**
+          * 审批定义 code
+          * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+          */
+      this.approvalCode = builder.approvalCode;
+         /**
+          * 审批实例 code
+          * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+          */
+      this.instanceCode = builder.instanceCode;
+         /**
+          * 审批实例第三方 id 注：和 approval_code 取并集
+          * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+          */
+      this.instanceExternalId = builder.instanceExternalId;
+         /**
+          * 审批定义分组第三方 id 注：和 instance_code 取并集
+          * <p> 示例值：1234567
+          */
+      this.groupExternalId = builder.groupExternalId;
+         /**
+          * 审批抄送标题（只有第三方审批有）
+          * <p> 示例值：test
+          */
+      this.ccTitle = builder.ccTitle;
+         /**
+          * 审批抄送状态，注：若不设置，查询全部状态 若不在集合中，报错
+          * <p> 示例值：read
+          */
+      this.readStatus = builder.readStatus;
+         /**
+          * 抄送查询开始时间（unix毫秒时间戳）
+          * <p> 示例值：1547654251506
+          */
+      this.ccCreateTimeFrom = builder.ccCreateTimeFrom;
+         /**
+          * 抄送查询结束时间 (unix毫秒时间戳)
+          * <p> 示例值：1547654251506
+          */
+      this.ccCreateTimeTo = builder.ccCreateTimeTo;
+         /**
+          * 地区
+          * <p> 示例值：zh-CN
+          */
+      this.locale = builder.locale;
+  }
+
     public static class Builder {
-        /**
-         * 根据x_user_type填写用户 id
-         * <p> 示例值：lwiu098wj
-         */
+     /**
+      * 根据x_user_type填写用户 id
+      * <p> 示例值：lwiu098wj
+      */
         private String userId;
-        /**
-         * 审批定义 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
-         */
+     /**
+      * 审批定义 code
+      * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+      */
         private String approvalCode;
-        /**
-         * 审批实例 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
-         */
+     /**
+      * 审批实例 code
+      * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+      */
         private String instanceCode;
-        /**
-         * 审批实例第三方 id 注：和 approval_code 取并集
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
-         */
+     /**
+      * 审批实例第三方 id 注：和 approval_code 取并集
+      * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+      */
         private String instanceExternalId;
-        /**
-         * 审批定义分组第三方 id 注：和 instance_code 取并集
-         * <p> 示例值：1234567
-         */
+     /**
+      * 审批定义分组第三方 id 注：和 instance_code 取并集
+      * <p> 示例值：1234567
+      */
         private String groupExternalId;
-        /**
-         * 审批抄送标题（只有第三方审批有）
-         * <p> 示例值：test
-         */
+     /**
+      * 审批抄送标题（只有第三方审批有）
+      * <p> 示例值：test
+      */
         private String ccTitle;
-        /**
-         * 审批抄送状态，注：若不设置，查询全部状态 若不在集合中，报错
-         * <p> 示例值：read
-         */
+     /**
+      * 审批抄送状态，注：若不设置，查询全部状态 若不在集合中，报错
+      * <p> 示例值：read
+      */
         private String readStatus;
-        /**
-         * 抄送查询开始时间（unix毫秒时间戳）
-         * <p> 示例值：1547654251506
-         */
+     /**
+      * 抄送查询开始时间（unix毫秒时间戳）
+      * <p> 示例值：1547654251506
+      */
         private String ccCreateTimeFrom;
-        /**
-         * 抄送查询结束时间 (unix毫秒时间戳)
-         * <p> 示例值：1547654251506
-         */
+     /**
+      * 抄送查询结束时间 (unix毫秒时间戳)
+      * <p> 示例值：1547654251506
+      */
         private String ccCreateTimeTo;
-        /**
-         * 地区
-         * <p> 示例值：zh-CN
-         */
+     /**
+      * 地区
+      * <p> 示例值：zh-CN
+      */
         private String locale;
 
         /**
          * 根据x_user_type填写用户 id
          * <p> 示例值：lwiu098wj
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 审批定义 code
          * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
-         *
          * @param approvalCode
          * @return
          */
         public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
+             this.approvalCode = approvalCode;
+             return this;
         }
 
+    
 
         /**
          * 审批实例 code
          * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
-         *
          * @param instanceCode
          * @return
          */
         public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
+             this.instanceCode = instanceCode;
+             return this;
         }
 
+    
 
         /**
          * 审批实例第三方 id 注：和 approval_code 取并集
          * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
-         *
          * @param instanceExternalId
          * @return
          */
         public Builder instanceExternalId(String instanceExternalId) {
-            this.instanceExternalId = instanceExternalId;
-            return this;
+             this.instanceExternalId = instanceExternalId;
+             return this;
         }
 
+    
 
         /**
          * 审批定义分组第三方 id 注：和 instance_code 取并集
          * <p> 示例值：1234567
-         *
          * @param groupExternalId
          * @return
          */
         public Builder groupExternalId(String groupExternalId) {
-            this.groupExternalId = groupExternalId;
-            return this;
+             this.groupExternalId = groupExternalId;
+             return this;
         }
 
+    
 
         /**
          * 审批抄送标题（只有第三方审批有）
          * <p> 示例值：test
-         *
          * @param ccTitle
          * @return
          */
         public Builder ccTitle(String ccTitle) {
-            this.ccTitle = ccTitle;
-            return this;
+             this.ccTitle = ccTitle;
+             return this;
         }
 
+    
 
         /**
          * 审批抄送状态，注：若不设置，查询全部状态 若不在集合中，报错
          * <p> 示例值：read
-         *
          * @param readStatus
          * @return
          */
         public Builder readStatus(String readStatus) {
-            this.readStatus = readStatus;
-            return this;
+             this.readStatus = readStatus;
+             return this;
         }
-
         /**
          * 审批抄送状态，注：若不设置，查询全部状态 若不在集合中，报错
          * <p> 示例值：read
-         *
          * @param readStatus {@link com.lark.oapi.service.approval.v4.enums.CcSearchReadStatusEnum}
          * @return
          */
         public Builder readStatus(com.lark.oapi.service.approval.v4.enums.CcSearchReadStatusEnum readStatus) {
-            this.readStatus = readStatus.getValue();
-            return this;
+             this.readStatus = readStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 抄送查询开始时间（unix毫秒时间戳）
          * <p> 示例值：1547654251506
-         *
          * @param ccCreateTimeFrom
          * @return
          */
         public Builder ccCreateTimeFrom(String ccCreateTimeFrom) {
-            this.ccCreateTimeFrom = ccCreateTimeFrom;
-            return this;
+             this.ccCreateTimeFrom = ccCreateTimeFrom;
+             return this;
         }
 
+    
 
         /**
          * 抄送查询结束时间 (unix毫秒时间戳)
          * <p> 示例值：1547654251506
-         *
          * @param ccCreateTimeTo
          * @return
          */
         public Builder ccCreateTimeTo(String ccCreateTimeTo) {
-            this.ccCreateTimeTo = ccCreateTimeTo;
-            return this;
+             this.ccCreateTimeTo = ccCreateTimeTo;
+             return this;
         }
 
+    
 
         /**
          * 地区
          * <p> 示例值：zh-CN
-         *
          * @param locale
          * @return
          */
         public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
+             this.locale = locale;
+             return this;
         }
-
         /**
          * 地区
          * <p> 示例值：zh-CN
-         *
          * @param locale {@link com.lark.oapi.service.approval.v4.enums.CcSearchLocaleEnum}
          * @return
          */
         public Builder locale(com.lark.oapi.service.approval.v4.enums.CcSearchLocaleEnum locale) {
-            this.locale = locale.getValue();
-            return this;
+             this.locale = locale.getValue();
+             return this;
         }
 
+    
+    
+    public CcSearch build(){
+        return new CcSearch(this);
+      }
+    }
 
-        public CcSearch build() {
-            return new CcSearch(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

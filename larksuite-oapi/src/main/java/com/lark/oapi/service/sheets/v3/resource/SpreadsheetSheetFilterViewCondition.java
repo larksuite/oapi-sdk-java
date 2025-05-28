@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.sheets.v3.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class SpreadsheetSheetFilterViewCondition {
         this.config = config;
     }
 
-
+    
     /**
      * 创建筛选条件，在筛选视图的筛选范围的某一列创建筛选条件。
      * <p> 筛选条件参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
@@ -64,7 +59,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         CreateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -72,14 +67,14 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -97,7 +92,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         CreateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -105,16 +100,15 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除筛选条件，删除筛选视图的筛选范围某一列的筛选条件。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete</a> ;
@@ -131,7 +125,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DeleteSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -139,14 +133,14 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -163,7 +157,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DeleteSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -171,16 +165,15 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取筛选条件，获取筛选视图某列的筛选条件信息。
      * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
@@ -198,7 +191,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         GetSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -206,14 +199,14 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -231,7 +224,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         GetSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -239,16 +232,15 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 查询筛选条件，查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。
      * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
@@ -266,7 +258,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         QuerySpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -274,14 +266,14 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -299,7 +291,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         QuerySpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -307,16 +299,15 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 更新筛选条件，更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。
      * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
@@ -334,7 +325,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         UpdateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateSpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -342,14 +333,14 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -367,7 +358,7 @@ public class SpreadsheetSheetFilterViewCondition {
                 , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         UpdateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateSpreadsheetSheetFilterViewConditionResp.class);
         if (resp == null) {
@@ -375,13 +366,13 @@ public class SpreadsheetSheetFilterViewCondition {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

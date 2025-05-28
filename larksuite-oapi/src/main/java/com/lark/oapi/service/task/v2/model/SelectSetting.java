@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SelectSetting {
-    /**
-     * 选项
-     * <p> 示例值：
-     */
+     /**
+      * 选项
+      * <p> 示例值：
+      */
     @SerializedName("options")
     private Option[] options;
-
-    // builder 开始
-    public SelectSetting() {
-    }
-
-    public SelectSetting(Builder builder) {
-        /**
-         * 选项
-         * <p> 示例值：
-         */
-        this.options = builder.options;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Option[] getOptions() {
         return this.options;
     }
@@ -60,28 +39,44 @@ public class SelectSetting {
         this.options = options;
     }
 
+
+// builder 开始
+  public SelectSetting(){}
+
+  public SelectSetting(Builder builder){
+         /**
+          * 选项
+          * <p> 示例值：
+          */
+      this.options = builder.options;
+  }
+
     public static class Builder {
-        /**
-         * 选项
-         * <p> 示例值：
-         */
+     /**
+      * 选项
+      * <p> 示例值：
+      */
         private Option[] options;
 
         /**
          * 选项
          * <p> 示例值：
-         *
          * @param options
          * @return
          */
         public Builder options(Option[] options) {
-            this.options = options;
-            return this;
+             this.options = options;
+             return this;
         }
 
+    
+    
+    public SelectSetting build(){
+        return new SelectSetting(this);
+      }
+    }
 
-        public SelectSetting build() {
-            return new SelectSetting(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

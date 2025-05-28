@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteExternalInterviewReq {
-    /**
-     * 外部面试 ID
-     * <p> 示例值：6960663240925956660
-     */
+     /**
+      * 外部面试 ID
+      * <p> 示例值：6960663240925956660
+      */
     @Path
     @SerializedName("external_interview_id")
     private String externalInterviewId;
-
-    // builder 开始
-    public DeleteExternalInterviewReq() {
-    }
-
-    public DeleteExternalInterviewReq(Builder builder) {
-        /**
-         * 外部面试 ID
-         * <p> 示例值：6960663240925956660
-         */
-        this.externalInterviewId = builder.externalInterviewId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getExternalInterviewId() {
         return this.externalInterviewId;
     }
@@ -59,25 +38,39 @@ public class DeleteExternalInterviewReq {
         this.externalInterviewId = externalInterviewId;
     }
 
+
+// builder 开始
+  public DeleteExternalInterviewReq(){}
+
+  public DeleteExternalInterviewReq(Builder builder){
+     /**
+      * 外部面试 ID
+      * <p> 示例值：6960663240925956660
+      */
+       this.externalInterviewId = builder.externalInterviewId;
+  }
+
     public static class Builder {
-
+    
         private String externalInterviewId; // 外部面试 ID
-
         /**
          * 外部面试 ID
          * <p> 示例值：6960663240925956660
-         *
          * @param externalInterviewId
          * @return
          */
-        public Builder externalInterviewId(String externalInterviewId) {
-            this.externalInterviewId = externalInterviewId;
-            return this;
-        }
+          public Builder externalInterviewId(String externalInterviewId) {
+               this.externalInterviewId = externalInterviewId;
+               return this;
+          }
 
+    
+    public DeleteExternalInterviewReq build(){
+        return new DeleteExternalInterviewReq(this);
+      }
+    }
 
-        public DeleteExternalInterviewReq build() {
-            return new DeleteExternalInterviewReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MatchEntityReq {
-    /**
-     * 词库ID
-     * <p> 示例值：7202510112396640276
-     */
+     /**
+      * 词库ID
+      * <p> 示例值：7202510112396640276
+      */
     @Query
     @SerializedName("repo_id")
     private String repoId;
-    @Body
-    private MatchEntityReqBody body;
-
-    // builder 开始
-    public MatchEntityReq() {
-    }
-
-    public MatchEntityReq(Builder builder) {
-        /**
-         * 词库ID
-         * <p> 示例值：7202510112396640276
-         */
-        this.repoId = builder.repoId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRepoId() {
         return this.repoId;
     }
@@ -62,6 +38,9 @@ public class MatchEntityReq {
     public void setRepoId(String repoId) {
         this.repoId = repoId;
     }
+
+    @Body
+    private MatchEntityReqBody body;
 
     public MatchEntityReqBody getMatchEntityReqBody() {
         return this.body;
@@ -71,39 +50,54 @@ public class MatchEntityReq {
         this.body = body;
     }
 
+// builder 开始
+  public MatchEntityReq(){}
+
+  public MatchEntityReq(Builder builder){
+         /**
+          * 词库ID
+          * <p> 示例值：7202510112396640276
+          */
+       this.repoId = builder.repoId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String repoId; // 词库ID
-        private MatchEntityReqBody body;
-
+    
         /**
          * 词库ID
          * <p> 示例值：7202510112396640276
-         *
          * @param repoId
          * @return
          */
-        public Builder repoId(String repoId) {
-            this.repoId = repoId;
-            return this;
-        }
+           public Builder repoId(String repoId) {
+                this.repoId = repoId;
+                return this;
+           }
 
+    
+        private MatchEntityReqBody body;
+    
         public MatchEntityReqBody getMatchEntityReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder matchEntityReqBody(MatchEntityReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public MatchEntityReq build(){
+        return new MatchEntityReq(this);
+      }
+    }
 
-        public MatchEntityReq build() {
-            return new MatchEntityReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

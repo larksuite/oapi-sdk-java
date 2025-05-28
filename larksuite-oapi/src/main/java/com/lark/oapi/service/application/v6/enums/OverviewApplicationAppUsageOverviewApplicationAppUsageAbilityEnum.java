@@ -17,18 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * 能力类型，按能力类型进行筛选，返回对应能力的活跃数据
  */
 public enum OverviewApplicationAppUsageOverviewApplicationAppUsageAbilityEnum {
-    APP("app"), // 返回应用整体的数据
-    MP("mp"), // 返回小程序的数据
-    H5("h5"), // 返回网页的数据
-    BOT("bot"), // 返回机器人的数据
-    ;
-    private String value;
-
+     APP("app"), // 返回应用整体的数据
+     MP("mp"), // 返回小程序的数据
+     H5("h5"), // 返回网页的数据
+     BOT("bot"), // 返回机器人的数据
+  ;
+   private String value;
     OverviewApplicationAppUsageOverviewApplicationAppUsageAbilityEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

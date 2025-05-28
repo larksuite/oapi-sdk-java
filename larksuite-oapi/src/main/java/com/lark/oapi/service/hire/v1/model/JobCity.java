@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobCity {
-    /**
-     * 工作地点城市代码
-     * <p> 示例值：C20
-     */
+     /**
+      * 工作地点城市代码
+      * <p> 示例值：C20
+      */
     @SerializedName("city_code")
     private String cityCode;
-    /**
-     * 工作地点中文名称
-     * <p> 示例值：成都
-     */
+     /**
+      * 工作地点中文名称
+      * <p> 示例值：成都
+      */
     @SerializedName("zh_name")
     private String zhName;
-    /**
-     * 工作地点英文名称
-     * <p> 示例值：Chengdu
-     */
+     /**
+      * 工作地点英文名称
+      * <p> 示例值：Chengdu
+      */
     @SerializedName("en_name")
     private String enName;
-
-    // builder 开始
-    public JobCity() {
-    }
-
-    public JobCity(Builder builder) {
-        /**
-         * 工作地点城市代码
-         * <p> 示例值：C20
-         */
-        this.cityCode = builder.cityCode;
-        /**
-         * 工作地点中文名称
-         * <p> 示例值：成都
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 工作地点英文名称
-         * <p> 示例值：Chengdu
-         */
-        this.enName = builder.enName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCityCode() {
         return this.cityCode;
     }
@@ -97,64 +66,90 @@ public class JobCity {
         this.enName = enName;
     }
 
+
+// builder 开始
+  public JobCity(){}
+
+  public JobCity(Builder builder){
+         /**
+          * 工作地点城市代码
+          * <p> 示例值：C20
+          */
+      this.cityCode = builder.cityCode;
+         /**
+          * 工作地点中文名称
+          * <p> 示例值：成都
+          */
+      this.zhName = builder.zhName;
+         /**
+          * 工作地点英文名称
+          * <p> 示例值：Chengdu
+          */
+      this.enName = builder.enName;
+  }
+
     public static class Builder {
-        /**
-         * 工作地点城市代码
-         * <p> 示例值：C20
-         */
+     /**
+      * 工作地点城市代码
+      * <p> 示例值：C20
+      */
         private String cityCode;
-        /**
-         * 工作地点中文名称
-         * <p> 示例值：成都
-         */
+     /**
+      * 工作地点中文名称
+      * <p> 示例值：成都
+      */
         private String zhName;
-        /**
-         * 工作地点英文名称
-         * <p> 示例值：Chengdu
-         */
+     /**
+      * 工作地点英文名称
+      * <p> 示例值：Chengdu
+      */
         private String enName;
 
         /**
          * 工作地点城市代码
          * <p> 示例值：C20
-         *
          * @param cityCode
          * @return
          */
         public Builder cityCode(String cityCode) {
-            this.cityCode = cityCode;
-            return this;
+             this.cityCode = cityCode;
+             return this;
         }
 
+    
 
         /**
          * 工作地点中文名称
          * <p> 示例值：成都
-         *
          * @param zhName
          * @return
          */
         public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
+             this.zhName = zhName;
+             return this;
         }
 
+    
 
         /**
          * 工作地点英文名称
          * <p> 示例值：Chengdu
-         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
+             this.enName = enName;
+             return this;
         }
 
+    
+    
+    public JobCity build(){
+        return new JobCity(this);
+      }
+    }
 
-        public JobCity build() {
-            return new JobCity(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CalculateParam {
-    /**
-     * 部门 ID
-     * <p> 示例值：slnkdnaklsnda
-     */
+     /**
+      * 部门 ID
+      * <p> 示例值：slnkdnaklsnda
+      */
     @SerializedName("department_id")
     private String departmentId;
-    /**
-     * 人员类型 ID
-     * <p> 示例值：kajsdnjasdn
-     */
+     /**
+      * 人员类型 ID
+      * <p> 示例值：kajsdnjasdn
+      */
     @SerializedName("employee_type_id")
     private String employeeTypeId;
-    /**
-     * 工作地点 ID
-     * <p> 示例值：asbjldasnjdlwa
-     */
+     /**
+      * 工作地点 ID
+      * <p> 示例值：asbjldasnjdlwa
+      */
     @SerializedName("work_location_id")
     private String workLocationId;
-    /**
-     * 社保公积金缴纳地 ID
-     * <p> 示例值：dsalndlnasl
-     */
+     /**
+      * 社保公积金缴纳地 ID
+      * <p> 示例值：dsalndlnasl
+      */
     @SerializedName("social_security_city_id")
     private String socialSecurityCityId;
-    /**
-     * 序列 ID
-     * <p> 示例值：bjlsadnas
-     */
+     /**
+      * 序列 ID
+      * <p> 示例值：bjlsadnas
+      */
     @SerializedName("job_family_id")
     private String jobFamilyId;
-    /**
-     * 职级 ID
-     * <p> 示例值：dsadamkdq
-     */
+     /**
+      * 职级 ID
+      * <p> 示例值：dsadamkdq
+      */
     @SerializedName("job_level_id")
     private String jobLevelId;
-    /**
-     * 职务 ID
-     * <p> 示例值：dsandkjanjnda
-     */
+     /**
+      * 职务 ID
+      * <p> 示例值：dsandkjanjnda
+      */
     @SerializedName("job_id")
     private String jobId;
-    /**
-     * 人员自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 人员自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("matching_rule_dimension")
     private DimensionValue[] matchingRuleDimension;
-
-    // builder 开始
-    public CalculateParam() {
-    }
-
-    public CalculateParam(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：slnkdnaklsnda
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 人员类型 ID
-         * <p> 示例值：kajsdnjasdn
-         */
-        this.employeeTypeId = builder.employeeTypeId;
-        /**
-         * 工作地点 ID
-         * <p> 示例值：asbjldasnjdlwa
-         */
-        this.workLocationId = builder.workLocationId;
-        /**
-         * 社保公积金缴纳地 ID
-         * <p> 示例值：dsalndlnasl
-         */
-        this.socialSecurityCityId = builder.socialSecurityCityId;
-        /**
-         * 序列 ID
-         * <p> 示例值：bjlsadnas
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-        /**
-         * 职级 ID
-         * <p> 示例值：dsadamkdq
-         */
-        this.jobLevelId = builder.jobLevelId;
-        /**
-         * 职务 ID
-         * <p> 示例值：dsandkjanjnda
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 人员自定义字段
-         * <p> 示例值：
-         */
-        this.matchingRuleDimension = builder.matchingRuleDimension;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDepartmentId() {
         return this.departmentId;
     }
@@ -193,154 +137,205 @@ public class CalculateParam {
         this.matchingRuleDimension = matchingRuleDimension;
     }
 
+
+// builder 开始
+  public CalculateParam(){}
+
+  public CalculateParam(Builder builder){
+         /**
+          * 部门 ID
+          * <p> 示例值：slnkdnaklsnda
+          */
+      this.departmentId = builder.departmentId;
+         /**
+          * 人员类型 ID
+          * <p> 示例值：kajsdnjasdn
+          */
+      this.employeeTypeId = builder.employeeTypeId;
+         /**
+          * 工作地点 ID
+          * <p> 示例值：asbjldasnjdlwa
+          */
+      this.workLocationId = builder.workLocationId;
+         /**
+          * 社保公积金缴纳地 ID
+          * <p> 示例值：dsalndlnasl
+          */
+      this.socialSecurityCityId = builder.socialSecurityCityId;
+         /**
+          * 序列 ID
+          * <p> 示例值：bjlsadnas
+          */
+      this.jobFamilyId = builder.jobFamilyId;
+         /**
+          * 职级 ID
+          * <p> 示例值：dsadamkdq
+          */
+      this.jobLevelId = builder.jobLevelId;
+         /**
+          * 职务 ID
+          * <p> 示例值：dsandkjanjnda
+          */
+      this.jobId = builder.jobId;
+         /**
+          * 人员自定义字段
+          * <p> 示例值：
+          */
+      this.matchingRuleDimension = builder.matchingRuleDimension;
+  }
+
     public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：slnkdnaklsnda
-         */
+     /**
+      * 部门 ID
+      * <p> 示例值：slnkdnaklsnda
+      */
         private String departmentId;
-        /**
-         * 人员类型 ID
-         * <p> 示例值：kajsdnjasdn
-         */
+     /**
+      * 人员类型 ID
+      * <p> 示例值：kajsdnjasdn
+      */
         private String employeeTypeId;
-        /**
-         * 工作地点 ID
-         * <p> 示例值：asbjldasnjdlwa
-         */
+     /**
+      * 工作地点 ID
+      * <p> 示例值：asbjldasnjdlwa
+      */
         private String workLocationId;
-        /**
-         * 社保公积金缴纳地 ID
-         * <p> 示例值：dsalndlnasl
-         */
+     /**
+      * 社保公积金缴纳地 ID
+      * <p> 示例值：dsalndlnasl
+      */
         private String socialSecurityCityId;
-        /**
-         * 序列 ID
-         * <p> 示例值：bjlsadnas
-         */
+     /**
+      * 序列 ID
+      * <p> 示例值：bjlsadnas
+      */
         private String jobFamilyId;
-        /**
-         * 职级 ID
-         * <p> 示例值：dsadamkdq
-         */
+     /**
+      * 职级 ID
+      * <p> 示例值：dsadamkdq
+      */
         private String jobLevelId;
-        /**
-         * 职务 ID
-         * <p> 示例值：dsandkjanjnda
-         */
+     /**
+      * 职务 ID
+      * <p> 示例值：dsandkjanjnda
+      */
         private String jobId;
-        /**
-         * 人员自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 人员自定义字段
+      * <p> 示例值：
+      */
         private DimensionValue[] matchingRuleDimension;
 
         /**
          * 部门 ID
          * <p> 示例值：slnkdnaklsnda
-         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
+             this.departmentId = departmentId;
+             return this;
         }
 
+    
 
         /**
          * 人员类型 ID
          * <p> 示例值：kajsdnjasdn
-         *
          * @param employeeTypeId
          * @return
          */
         public Builder employeeTypeId(String employeeTypeId) {
-            this.employeeTypeId = employeeTypeId;
-            return this;
+             this.employeeTypeId = employeeTypeId;
+             return this;
         }
 
+    
 
         /**
          * 工作地点 ID
          * <p> 示例值：asbjldasnjdlwa
-         *
          * @param workLocationId
          * @return
          */
         public Builder workLocationId(String workLocationId) {
-            this.workLocationId = workLocationId;
-            return this;
+             this.workLocationId = workLocationId;
+             return this;
         }
 
+    
 
         /**
          * 社保公积金缴纳地 ID
          * <p> 示例值：dsalndlnasl
-         *
          * @param socialSecurityCityId
          * @return
          */
         public Builder socialSecurityCityId(String socialSecurityCityId) {
-            this.socialSecurityCityId = socialSecurityCityId;
-            return this;
+             this.socialSecurityCityId = socialSecurityCityId;
+             return this;
         }
 
+    
 
         /**
          * 序列 ID
          * <p> 示例值：bjlsadnas
-         *
          * @param jobFamilyId
          * @return
          */
         public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
+             this.jobFamilyId = jobFamilyId;
+             return this;
         }
 
+    
 
         /**
          * 职级 ID
          * <p> 示例值：dsadamkdq
-         *
          * @param jobLevelId
          * @return
          */
         public Builder jobLevelId(String jobLevelId) {
-            this.jobLevelId = jobLevelId;
-            return this;
+             this.jobLevelId = jobLevelId;
+             return this;
         }
 
+    
 
         /**
          * 职务 ID
          * <p> 示例值：dsandkjanjnda
-         *
          * @param jobId
          * @return
          */
         public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
+             this.jobId = jobId;
+             return this;
         }
 
+    
 
         /**
          * 人员自定义字段
          * <p> 示例值：
-         *
          * @param matchingRuleDimension
          * @return
          */
         public Builder matchingRuleDimension(DimensionValue[] matchingRuleDimension) {
-            this.matchingRuleDimension = matchingRuleDimension;
-            return this;
+             this.matchingRuleDimension = matchingRuleDimension;
+             return this;
         }
 
+    
+    
+    public CalculateParam build(){
+        return new CalculateParam(this);
+      }
+    }
 
-        public CalculateParam build() {
-            return new CalculateParam(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

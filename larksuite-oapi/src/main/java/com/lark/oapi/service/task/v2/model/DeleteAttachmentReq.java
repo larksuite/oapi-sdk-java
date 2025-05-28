@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteAttachmentReq {
-    /**
-     * 要删除附件的GUID
-     * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
-     */
+     /**
+      * 要删除附件的GUID
+      * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
+      */
     @Path
     @SerializedName("attachment_guid")
     private String attachmentGuid;
-
-    // builder 开始
-    public DeleteAttachmentReq() {
-    }
-
-    public DeleteAttachmentReq(Builder builder) {
-        /**
-         * 要删除附件的GUID
-         * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
-         */
-        this.attachmentGuid = builder.attachmentGuid;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAttachmentGuid() {
         return this.attachmentGuid;
     }
@@ -60,25 +39,39 @@ public class DeleteAttachmentReq {
         this.attachmentGuid = attachmentGuid;
     }
 
+
+// builder 开始
+  public DeleteAttachmentReq(){}
+
+  public DeleteAttachmentReq(Builder builder){
+     /**
+      * 要删除附件的GUID
+      * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
+      */
+       this.attachmentGuid = builder.attachmentGuid;
+  }
+
     public static class Builder {
-
+    
         private String attachmentGuid; // 要删除附件的GUID
-
         /**
          * 要删除附件的GUID
          * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
-         *
          * @param attachmentGuid
          * @return
          */
-        public Builder attachmentGuid(String attachmentGuid) {
-            this.attachmentGuid = attachmentGuid;
-            return this;
-        }
+          public Builder attachmentGuid(String attachmentGuid) {
+               this.attachmentGuid = attachmentGuid;
+               return this;
+          }
 
+    
+    public DeleteAttachmentReq build(){
+        return new DeleteAttachmentReq(this);
+      }
+    }
 
-        public DeleteAttachmentReq build() {
-            return new DeleteAttachmentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,24 +17,23 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 过滤操作的类型
  */
 public enum AppTableViewPropertyFilterInfoConditionOperatorEnum {
-    IS("is"), // 等于
-    ISNOT("isNot"), // 不等于
-    CONTAINS("contains"), // 包含
-    DOESNOTCONTAIN("doesNotContain"), // 不包含
-    ISEMPTY("isEmpty"), // 为空
-    ISNOTEMPTY("isNotEmpty"), // 不为空
-    ISGREATER("isGreater"), // 大于
-    ISGREATEREQUAL("isGreaterEqual"), // 大于等于
-    ISLESS("isLess"), // 小于
-    ISLESSEQUAL("isLessEqual"), // 小于等于
-    ;
-    private String value;
-
+     IS("is"), // 等于
+     ISNOT("isNot"), // 不等于
+     CONTAINS("contains"), // 包含
+     DOESNOTCONTAIN("doesNotContain"), // 不包含
+     ISEMPTY("isEmpty"), // 为空
+     ISNOTEMPTY("isNotEmpty"), // 不为空
+     ISGREATER("isGreater"), // 大于
+     ISGREATEREQUAL("isGreaterEqual"), // 大于等于
+     ISLESS("isLess"), // 小于
+     ISLESSEQUAL("isLessEqual"), // 小于等于
+  ;
+   private String value;
     AppTableViewPropertyFilterInfoConditionOperatorEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

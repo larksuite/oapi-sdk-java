@@ -17,17 +17,16 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 缴纳频率
  */
 public enum SocialArchiveItemPaymentFrequencyEnum {
-    ANNUALLY("annually"), // 每年
-    MONTHLY("monthly"), // 每月
-    QUARTERLY("quarterly"), // 每季度
-    ;
-    private String value;
-
+     ANNUALLY("annually"), // 每年
+     MONTHLY("monthly"), // 每月
+     QUARTERLY("quarterly"), // 每季度
+  ;
+   private String value;
     SocialArchiveItemPaymentFrequencyEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

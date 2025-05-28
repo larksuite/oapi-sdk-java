@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserSetting {
-    /**
-     * 用户 ID
-     * <p> 示例值：abd754f7
-     */
+     /**
+      * 用户 ID
+      * <p> 示例值：abd754f7
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
-     * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
-     */
+     /**
+      * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+      * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+      */
     @SerializedName("face_key")
     private String faceKey;
-    /**
-     * 人脸照片更新时间，精确到秒的时间戳
-     * <p> 示例值：1625681917
-     */
+     /**
+      * 人脸照片更新时间，精确到秒的时间戳
+      * <p> 示例值：1625681917
+      */
     @SerializedName("face_key_update_time")
     private String faceKeyUpdateTime;
-
-    // builder 开始
-    public UserSetting() {
-    }
-
-    public UserSetting(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：abd754f7
-         */
-        this.userId = builder.userId;
-        /**
-         * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
-         * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
-         */
-        this.faceKey = builder.faceKey;
-        /**
-         * 人脸照片更新时间，精确到秒的时间戳
-         * <p> 示例值：1625681917
-         */
-        this.faceKeyUpdateTime = builder.faceKeyUpdateTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -98,64 +67,90 @@ public class UserSetting {
         this.faceKeyUpdateTime = faceKeyUpdateTime;
     }
 
+
+// builder 开始
+  public UserSetting(){}
+
+  public UserSetting(Builder builder){
+         /**
+          * 用户 ID
+          * <p> 示例值：abd754f7
+          */
+      this.userId = builder.userId;
+         /**
+          * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+          * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+          */
+      this.faceKey = builder.faceKey;
+         /**
+          * 人脸照片更新时间，精确到秒的时间戳
+          * <p> 示例值：1625681917
+          */
+      this.faceKeyUpdateTime = builder.faceKeyUpdateTime;
+  }
+
     public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：abd754f7
-         */
+     /**
+      * 用户 ID
+      * <p> 示例值：abd754f7
+      */
         private String userId;
-        /**
-         * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
-         * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
-         */
+     /**
+      * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+      * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+      */
         private String faceKey;
-        /**
-         * 人脸照片更新时间，精确到秒的时间戳
-         * <p> 示例值：1625681917
-         */
+     /**
+      * 人脸照片更新时间，精确到秒的时间戳
+      * <p> 示例值：1625681917
+      */
         private String faceKeyUpdateTime;
 
         /**
          * 用户 ID
          * <p> 示例值：abd754f7
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
          * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
-         *
          * @param faceKey
          * @return
          */
         public Builder faceKey(String faceKey) {
-            this.faceKey = faceKey;
-            return this;
+             this.faceKey = faceKey;
+             return this;
         }
 
+    
 
         /**
          * 人脸照片更新时间，精确到秒的时间戳
          * <p> 示例值：1625681917
-         *
          * @param faceKeyUpdateTime
          * @return
          */
         public Builder faceKeyUpdateTime(String faceKeyUpdateTime) {
-            this.faceKeyUpdateTime = faceKeyUpdateTime;
-            return this;
+             this.faceKeyUpdateTime = faceKeyUpdateTime;
+             return this;
         }
 
+    
+    
+    public UserSetting build(){
+        return new UserSetting(this);
+      }
+    }
 
-        public UserSetting build() {
-            return new UserSetting(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

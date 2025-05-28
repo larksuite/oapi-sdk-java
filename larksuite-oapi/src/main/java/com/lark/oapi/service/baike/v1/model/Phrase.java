@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Phrase {
-    /**
-     * 识别到的关键词
-     * <p> 示例值：企业百科
-     */
+     /**
+      * 识别到的关键词
+      * <p> 示例值：企业百科
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 对应的词条 ID
-     * <p> 示例值：
-     */
+     /**
+      * 对应的词条 ID
+      * <p> 示例值：
+      */
     @SerializedName("entity_ids")
     private String[] entityIds;
-    /**
-     * 词条所在位置
-     * <p> 示例值：
-     */
+     /**
+      * 词条所在位置
+      * <p> 示例值：
+      */
     @SerializedName("span")
     private Span span;
-
-    // builder 开始
-    public Phrase() {
-    }
-
-    public Phrase(Builder builder) {
-        /**
-         * 识别到的关键词
-         * <p> 示例值：企业百科
-         */
-        this.name = builder.name;
-        /**
-         * 对应的词条 ID
-         * <p> 示例值：
-         */
-        this.entityIds = builder.entityIds;
-        /**
-         * 词条所在位置
-         * <p> 示例值：
-         */
-        this.span = builder.span;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -98,64 +67,90 @@ public class Phrase {
         this.span = span;
     }
 
+
+// builder 开始
+  public Phrase(){}
+
+  public Phrase(Builder builder){
+         /**
+          * 识别到的关键词
+          * <p> 示例值：企业百科
+          */
+      this.name = builder.name;
+         /**
+          * 对应的词条 ID
+          * <p> 示例值：
+          */
+      this.entityIds = builder.entityIds;
+         /**
+          * 词条所在位置
+          * <p> 示例值：
+          */
+      this.span = builder.span;
+  }
+
     public static class Builder {
-        /**
-         * 识别到的关键词
-         * <p> 示例值：企业百科
-         */
+     /**
+      * 识别到的关键词
+      * <p> 示例值：企业百科
+      */
         private String name;
-        /**
-         * 对应的词条 ID
-         * <p> 示例值：
-         */
+     /**
+      * 对应的词条 ID
+      * <p> 示例值：
+      */
         private String[] entityIds;
-        /**
-         * 词条所在位置
-         * <p> 示例值：
-         */
+     /**
+      * 词条所在位置
+      * <p> 示例值：
+      */
         private Span span;
 
         /**
          * 识别到的关键词
          * <p> 示例值：企业百科
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 对应的词条 ID
          * <p> 示例值：
-         *
          * @param entityIds
          * @return
          */
         public Builder entityIds(String[] entityIds) {
-            this.entityIds = entityIds;
-            return this;
+             this.entityIds = entityIds;
+             return this;
         }
 
+    
 
         /**
          * 词条所在位置
          * <p> 示例值：
-         *
          * @param span
          * @return
          */
         public Builder span(Span span) {
-            this.span = span;
-            return this;
+             this.span = span;
+             return this;
         }
 
+    
+    
+    public Phrase build(){
+        return new Phrase(this);
+      }
+    }
 
-        public Phrase build() {
-            return new Phrase(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

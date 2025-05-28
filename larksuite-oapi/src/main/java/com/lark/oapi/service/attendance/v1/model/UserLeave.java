@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,159 +19,84 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserLeave {
-    /**
-     * 审批实例 ID
-     * <p> 示例值：6737202939523236113
-     */
+     /**
+      * 审批实例 ID
+      * <p> 示例值：6737202939523236113
+      */
     @SerializedName("approval_id")
     private String approvalId;
-    /**
-     * 假期类型唯一 ID，代表一种假期类型，长度小于 14
-     * <p> 示例值：6852582717813440527
-     */
+     /**
+      * 假期类型唯一 ID，代表一种假期类型，长度小于 14
+      * <p> 示例值：6852582717813440527
+      */
     @SerializedName("uniq_id")
     private String uniqId;
-    /**
-     * 假期时长单位
-     * <p> 示例值：1
-     */
+     /**
+      * 假期时长单位
+      * <p> 示例值：1
+      */
     @SerializedName("unit")
     private Integer unit;
-    /**
-     * 假期时长（单位：秒），暂未开放提供，待后续提供
-     * <p> 示例值：28800
-     */
+     /**
+      * 假期时长（单位：秒），暂未开放提供，待后续提供
+      * <p> 示例值：28800
+      */
     @SerializedName("interval")
     private Integer interval;
-    /**
-     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-04 09:00:00
-     */
+     /**
+      * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+      * <p> 示例值：2021-01-04 09:00:00
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-04 19:00:00
-     */
+     /**
+      * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+      * <p> 示例值：2021-01-04 19:00:00
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 假期多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
-     * <p> 示例值：
-     */
+     /**
+      * 假期多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
+      * <p> 示例值：
+      */
     @SerializedName("i18n_names")
     private I18nNames i18nNames;
-    /**
-     * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
-     * <p> 示例值：ch
-     */
+     /**
+      * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
+      * <p> 示例值：ch
+      */
     @SerializedName("default_locale")
     private String defaultLocale;
-    /**
-     * 请假理由，必选字段
-     * <p> 示例值：家里有事
-     */
+     /**
+      * 请假理由，必选字段
+      * <p> 示例值：家里有事
+      */
     @SerializedName("reason")
     private String reason;
-    /**
-     * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-04 12:00:00
-     */
+     /**
+      * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+      * <p> 示例值：2021-01-04 12:00:00
+      */
     @SerializedName("approve_pass_time")
     private String approvePassTime;
-    /**
-     * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-04 11:00:00
-     */
+     /**
+      * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+      * <p> 示例值：2021-01-04 11:00:00
+      */
     @SerializedName("approve_apply_time")
     private String approveApplyTime;
-    /**
-     * 唯一幂等键
-     * <p> 示例值：1233432312
-     */
+     /**
+      * 唯一幂等键
+      * <p> 示例值：1233432312
+      */
     @SerializedName("idempotent_id")
     private String idempotentId;
-
-    // builder 开始
-    public UserLeave() {
-    }
-
-    public UserLeave(Builder builder) {
-        /**
-         * 审批实例 ID
-         * <p> 示例值：6737202939523236113
-         */
-        this.approvalId = builder.approvalId;
-        /**
-         * 假期类型唯一 ID，代表一种假期类型，长度小于 14
-         * <p> 示例值：6852582717813440527
-         */
-        this.uniqId = builder.uniqId;
-        /**
-         * 假期时长单位
-         * <p> 示例值：1
-         */
-        this.unit = builder.unit;
-        /**
-         * 假期时长（单位：秒），暂未开放提供，待后续提供
-         * <p> 示例值：28800
-         */
-        this.interval = builder.interval;
-        /**
-         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 09:00:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 19:00:00
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 假期多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
-        /**
-         * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
-         * <p> 示例值：ch
-         */
-        this.defaultLocale = builder.defaultLocale;
-        /**
-         * 请假理由，必选字段
-         * <p> 示例值：家里有事
-         */
-        this.reason = builder.reason;
-        /**
-         * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 12:00:00
-         */
-        this.approvePassTime = builder.approvePassTime;
-        /**
-         * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 11:00:00
-         */
-        this.approveApplyTime = builder.approveApplyTime;
-        /**
-         * 唯一幂等键
-         * <p> 示例值：1233432312
-         */
-        this.idempotentId = builder.idempotentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApprovalId() {
         return this.approvalId;
     }
@@ -269,250 +193,317 @@ public class UserLeave {
         this.idempotentId = idempotentId;
     }
 
+
+// builder 开始
+  public UserLeave(){}
+
+  public UserLeave(Builder builder){
+         /**
+          * 审批实例 ID
+          * <p> 示例值：6737202939523236113
+          */
+      this.approvalId = builder.approvalId;
+         /**
+          * 假期类型唯一 ID，代表一种假期类型，长度小于 14
+          * <p> 示例值：6852582717813440527
+          */
+      this.uniqId = builder.uniqId;
+         /**
+          * 假期时长单位
+          * <p> 示例值：1
+          */
+      this.unit = builder.unit;
+         /**
+          * 假期时长（单位：秒），暂未开放提供，待后续提供
+          * <p> 示例值：28800
+          */
+      this.interval = builder.interval;
+         /**
+          * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+          * <p> 示例值：2021-01-04 09:00:00
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+          * <p> 示例值：2021-01-04 19:00:00
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 假期多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
+          * <p> 示例值：
+          */
+      this.i18nNames = builder.i18nNames;
+         /**
+          * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
+          * <p> 示例值：ch
+          */
+      this.defaultLocale = builder.defaultLocale;
+         /**
+          * 请假理由，必选字段
+          * <p> 示例值：家里有事
+          */
+      this.reason = builder.reason;
+         /**
+          * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+          * <p> 示例值：2021-01-04 12:00:00
+          */
+      this.approvePassTime = builder.approvePassTime;
+         /**
+          * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+          * <p> 示例值：2021-01-04 11:00:00
+          */
+      this.approveApplyTime = builder.approveApplyTime;
+         /**
+          * 唯一幂等键
+          * <p> 示例值：1233432312
+          */
+      this.idempotentId = builder.idempotentId;
+  }
+
     public static class Builder {
-        /**
-         * 审批实例 ID
-         * <p> 示例值：6737202939523236113
-         */
+     /**
+      * 审批实例 ID
+      * <p> 示例值：6737202939523236113
+      */
         private String approvalId;
-        /**
-         * 假期类型唯一 ID，代表一种假期类型，长度小于 14
-         * <p> 示例值：6852582717813440527
-         */
+     /**
+      * 假期类型唯一 ID，代表一种假期类型，长度小于 14
+      * <p> 示例值：6852582717813440527
+      */
         private String uniqId;
-        /**
-         * 假期时长单位
-         * <p> 示例值：1
-         */
+     /**
+      * 假期时长单位
+      * <p> 示例值：1
+      */
         private Integer unit;
-        /**
-         * 假期时长（单位：秒），暂未开放提供，待后续提供
-         * <p> 示例值：28800
-         */
+     /**
+      * 假期时长（单位：秒），暂未开放提供，待后续提供
+      * <p> 示例值：28800
+      */
         private Integer interval;
-        /**
-         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 09:00:00
-         */
+     /**
+      * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+      * <p> 示例值：2021-01-04 09:00:00
+      */
         private String startTime;
-        /**
-         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 19:00:00
-         */
+     /**
+      * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+      * <p> 示例值：2021-01-04 19:00:00
+      */
         private String endTime;
-        /**
-         * 假期多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
-         * <p> 示例值：
-         */
+     /**
+      * 假期多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
+      * <p> 示例值：
+      */
         private I18nNames i18nNames;
-        /**
-         * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
-         * <p> 示例值：ch
-         */
+     /**
+      * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
+      * <p> 示例值：ch
+      */
         private String defaultLocale;
-        /**
-         * 请假理由，必选字段
-         * <p> 示例值：家里有事
-         */
+     /**
+      * 请假理由，必选字段
+      * <p> 示例值：家里有事
+      */
         private String reason;
-        /**
-         * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 12:00:00
-         */
+     /**
+      * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+      * <p> 示例值：2021-01-04 12:00:00
+      */
         private String approvePassTime;
-        /**
-         * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 11:00:00
-         */
+     /**
+      * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+      * <p> 示例值：2021-01-04 11:00:00
+      */
         private String approveApplyTime;
-        /**
-         * 唯一幂等键
-         * <p> 示例值：1233432312
-         */
+     /**
+      * 唯一幂等键
+      * <p> 示例值：1233432312
+      */
         private String idempotentId;
 
         /**
          * 审批实例 ID
          * <p> 示例值：6737202939523236113
-         *
          * @param approvalId
          * @return
          */
         public Builder approvalId(String approvalId) {
-            this.approvalId = approvalId;
-            return this;
+             this.approvalId = approvalId;
+             return this;
         }
 
+    
 
         /**
          * 假期类型唯一 ID，代表一种假期类型，长度小于 14
          * <p> 示例值：6852582717813440527
-         *
          * @param uniqId
          * @return
          */
         public Builder uniqId(String uniqId) {
-            this.uniqId = uniqId;
-            return this;
+             this.uniqId = uniqId;
+             return this;
         }
 
+    
 
         /**
          * 假期时长单位
          * <p> 示例值：1
-         *
          * @param unit
          * @return
          */
         public Builder unit(Integer unit) {
-            this.unit = unit;
-            return this;
+             this.unit = unit;
+             return this;
         }
-
         /**
          * 假期时长单位
          * <p> 示例值：1
-         *
          * @param unit {@link com.lark.oapi.service.attendance.v1.enums.UserLeaveUnitEnum}
          * @return
          */
         public Builder unit(com.lark.oapi.service.attendance.v1.enums.UserLeaveUnitEnum unit) {
-            this.unit = unit.getValue();
-            return this;
+             this.unit = unit.getValue();
+             return this;
         }
 
+    
 
         /**
          * 假期时长（单位：秒），暂未开放提供，待后续提供
          * <p> 示例值：28800
-         *
          * @param interval
          * @return
          */
         public Builder interval(Integer interval) {
-            this.interval = interval;
-            return this;
+             this.interval = interval;
+             return this;
         }
 
+    
 
         /**
          * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
          * <p> 示例值：2021-01-04 09:00:00
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
          * <p> 示例值：2021-01-04 19:00:00
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 假期多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
          * <p> 示例值：
-         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(I18nNames i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
+             this.i18nNames = i18nNames;
+             return this;
         }
 
+    
 
         /**
          * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
          * <p> 示例值：ch
-         *
          * @param defaultLocale
          * @return
          */
         public Builder defaultLocale(String defaultLocale) {
-            this.defaultLocale = defaultLocale;
-            return this;
+             this.defaultLocale = defaultLocale;
+             return this;
         }
-
         /**
          * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
          * <p> 示例值：ch
-         *
          * @param defaultLocale {@link com.lark.oapi.service.attendance.v1.enums.UserLeaveDefaultLocaleEnum}
          * @return
          */
         public Builder defaultLocale(com.lark.oapi.service.attendance.v1.enums.UserLeaveDefaultLocaleEnum defaultLocale) {
-            this.defaultLocale = defaultLocale.getValue();
-            return this;
+             this.defaultLocale = defaultLocale.getValue();
+             return this;
         }
 
+    
 
         /**
          * 请假理由，必选字段
          * <p> 示例值：家里有事
-         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
+             this.reason = reason;
+             return this;
         }
 
+    
 
         /**
          * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
          * <p> 示例值：2021-01-04 12:00:00
-         *
          * @param approvePassTime
          * @return
          */
         public Builder approvePassTime(String approvePassTime) {
-            this.approvePassTime = approvePassTime;
-            return this;
+             this.approvePassTime = approvePassTime;
+             return this;
         }
 
+    
 
         /**
          * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
          * <p> 示例值：2021-01-04 11:00:00
-         *
          * @param approveApplyTime
          * @return
          */
         public Builder approveApplyTime(String approveApplyTime) {
-            this.approveApplyTime = approveApplyTime;
-            return this;
+             this.approveApplyTime = approveApplyTime;
+             return this;
         }
 
+    
 
         /**
          * 唯一幂等键
          * <p> 示例值：1233432312
-         *
          * @param idempotentId
          * @return
          */
         public Builder idempotentId(String idempotentId) {
-            this.idempotentId = idempotentId;
-            return this;
+             this.idempotentId = idempotentId;
+             return this;
         }
 
+    
+    
+    public UserLeave build(){
+        return new UserLeave(this);
+      }
+    }
 
-        public UserLeave build() {
-            return new UserLeave(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

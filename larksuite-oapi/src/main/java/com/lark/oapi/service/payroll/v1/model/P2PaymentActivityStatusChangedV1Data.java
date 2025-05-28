@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2PaymentActivityStatusChangedV1Data {
-    /**
-     * 发薪活动ID
-     * <p> 示例值：11111
-     */
+     /**
+      * 发薪活动ID
+      * <p> 示例值：11111
+      */
     @SerializedName("activity_id")
     private String activityId;
-    /**
-     * 发薪活动状态，其中：400-已封存。
-     * <p> 示例值：400
-     */
+     /**
+      * 发薪活动状态，其中：400-已封存。
+      * <p> 示例值：400
+      */
     @SerializedName("status")
     private Integer status;
-
     public String getActivityId() {
         return this.activityId;
     }

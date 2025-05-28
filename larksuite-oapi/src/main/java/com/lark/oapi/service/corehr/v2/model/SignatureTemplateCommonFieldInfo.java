@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SignatureTemplateCommonFieldInfo {
-    /**
-     * 模板字段源类型；枚举值填到enum_name中，如："System" "MainData"
-     * <p> 示例值：
-     */
+     /**
+      * 模板字段源类型；枚举值填到enum_name中，如："System" "MainData"
+      * <p> 示例值：
+      */
     @SerializedName("source")
     private Enum source;
-    /**
-     * 主数据apiname
-     * <p> 示例值：status
-     */
+     /**
+      * 主数据apiname
+      * <p> 示例值：status
+      */
     @SerializedName("apiname")
     private String apiname;
-
-    // builder 开始
-    public SignatureTemplateCommonFieldInfo() {
-    }
-
-    public SignatureTemplateCommonFieldInfo(Builder builder) {
-        /**
-         * 模板字段源类型；枚举值填到enum_name中，如："System" "MainData"
-         * <p> 示例值：
-         */
-        this.source = builder.source;
-        /**
-         * 主数据apiname
-         * <p> 示例值：status
-         */
-        this.apiname = builder.apiname;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Enum getSource() {
         return this.source;
     }
@@ -79,46 +53,67 @@ public class SignatureTemplateCommonFieldInfo {
         this.apiname = apiname;
     }
 
+
+// builder 开始
+  public SignatureTemplateCommonFieldInfo(){}
+
+  public SignatureTemplateCommonFieldInfo(Builder builder){
+         /**
+          * 模板字段源类型；枚举值填到enum_name中，如："System" "MainData"
+          * <p> 示例值：
+          */
+      this.source = builder.source;
+         /**
+          * 主数据apiname
+          * <p> 示例值：status
+          */
+      this.apiname = builder.apiname;
+  }
+
     public static class Builder {
-        /**
-         * 模板字段源类型；枚举值填到enum_name中，如："System" "MainData"
-         * <p> 示例值：
-         */
+     /**
+      * 模板字段源类型；枚举值填到enum_name中，如："System" "MainData"
+      * <p> 示例值：
+      */
         private Enum source;
-        /**
-         * 主数据apiname
-         * <p> 示例值：status
-         */
+     /**
+      * 主数据apiname
+      * <p> 示例值：status
+      */
         private String apiname;
 
         /**
          * 模板字段源类型；枚举值填到enum_name中，如："System" "MainData"
          * <p> 示例值：
-         *
          * @param source
          * @return
          */
         public Builder source(Enum source) {
-            this.source = source;
-            return this;
+             this.source = source;
+             return this;
         }
 
+    
 
         /**
          * 主数据apiname
          * <p> 示例值：status
-         *
          * @param apiname
          * @return
          */
         public Builder apiname(String apiname) {
-            this.apiname = apiname;
-            return this;
+             this.apiname = apiname;
+             return this;
         }
 
+    
+    
+    public SignatureTemplateCommonFieldInfo build(){
+        return new SignatureTemplateCommonFieldInfo(this);
+      }
+    }
 
-        public SignatureTemplateCommonFieldInfo build() {
-            return new SignatureTemplateCommonFieldInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

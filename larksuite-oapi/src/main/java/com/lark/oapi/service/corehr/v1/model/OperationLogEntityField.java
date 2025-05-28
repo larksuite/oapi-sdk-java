@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OperationLogEntityField {
-    /**
-     * 变更字段
-     * <p> 示例值：personal_profile.profile_type_2_201_20101
-     */
+     /**
+      * 变更字段
+      * <p> 示例值：personal_profile.profile_type_2_201_20101
+      */
     @SerializedName("field")
     private String field;
-    /**
-     * 旧值
-     * <p> 示例值：{\"type\":\"text\",\"value\":\"null\"}
-     */
+     /**
+      * 旧值
+      * <p> 示例值：{\"type\":\"text\",\"value\":\"null\"}
+      */
     @SerializedName("before")
     private String before;
-    /**
-     * 新值
-     * <p> 示例值：{\"type\":\"text\",\"value\":\"1\"}
-     */
+     /**
+      * 新值
+      * <p> 示例值：{\"type\":\"text\",\"value\":\"1\"}
+      */
     @SerializedName("after")
     private String after;
-
-    // builder 开始
-    public OperationLogEntityField() {
-    }
-
-    public OperationLogEntityField(Builder builder) {
-        /**
-         * 变更字段
-         * <p> 示例值：personal_profile.profile_type_2_201_20101
-         */
-        this.field = builder.field;
-        /**
-         * 旧值
-         * <p> 示例值：{\"type\":\"text\",\"value\":\"null\"}
-         */
-        this.before = builder.before;
-        /**
-         * 新值
-         * <p> 示例值：{\"type\":\"text\",\"value\":\"1\"}
-         */
-        this.after = builder.after;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getField() {
         return this.field;
     }
@@ -98,64 +67,90 @@ public class OperationLogEntityField {
         this.after = after;
     }
 
+
+// builder 开始
+  public OperationLogEntityField(){}
+
+  public OperationLogEntityField(Builder builder){
+         /**
+          * 变更字段
+          * <p> 示例值：personal_profile.profile_type_2_201_20101
+          */
+      this.field = builder.field;
+         /**
+          * 旧值
+          * <p> 示例值：{\"type\":\"text\",\"value\":\"null\"}
+          */
+      this.before = builder.before;
+         /**
+          * 新值
+          * <p> 示例值：{\"type\":\"text\",\"value\":\"1\"}
+          */
+      this.after = builder.after;
+  }
+
     public static class Builder {
-        /**
-         * 变更字段
-         * <p> 示例值：personal_profile.profile_type_2_201_20101
-         */
+     /**
+      * 变更字段
+      * <p> 示例值：personal_profile.profile_type_2_201_20101
+      */
         private String field;
-        /**
-         * 旧值
-         * <p> 示例值：{\"type\":\"text\",\"value\":\"null\"}
-         */
+     /**
+      * 旧值
+      * <p> 示例值：{\"type\":\"text\",\"value\":\"null\"}
+      */
         private String before;
-        /**
-         * 新值
-         * <p> 示例值：{\"type\":\"text\",\"value\":\"1\"}
-         */
+     /**
+      * 新值
+      * <p> 示例值：{\"type\":\"text\",\"value\":\"1\"}
+      */
         private String after;
 
         /**
          * 变更字段
          * <p> 示例值：personal_profile.profile_type_2_201_20101
-         *
          * @param field
          * @return
          */
         public Builder field(String field) {
-            this.field = field;
-            return this;
+             this.field = field;
+             return this;
         }
 
+    
 
         /**
          * 旧值
          * <p> 示例值：{\"type\":\"text\",\"value\":\"null\"}
-         *
          * @param before
          * @return
          */
         public Builder before(String before) {
-            this.before = before;
-            return this;
+             this.before = before;
+             return this;
         }
 
+    
 
         /**
          * 新值
          * <p> 示例值：{\"type\":\"text\",\"value\":\"1\"}
-         *
          * @param after
          * @return
          */
         public Builder after(String after) {
-            this.after = after;
-            return this;
+             this.after = after;
+             return this;
         }
 
+    
+    
+    public OperationLogEntityField build(){
+        return new OperationLogEntityField(this);
+      }
+    }
 
-        public OperationLogEntityField build() {
-            return new OperationLogEntityField(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

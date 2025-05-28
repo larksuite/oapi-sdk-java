@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MyAiPluginContext {
-    /**
-     * 插件名称
-     * <p> 示例值：Calendar
-     */
+     /**
+      * 插件名称
+      * <p> 示例值：Calendar
+      */
     @SerializedName("key")
     private String key;
-
-    // builder 开始
-    public MyAiPluginContext() {
-    }
-
-    public MyAiPluginContext(Builder builder) {
-        /**
-         * 插件名称
-         * <p> 示例值：Calendar
-         */
-        this.key = builder.key;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKey() {
         return this.key;
     }
@@ -60,28 +39,44 @@ public class MyAiPluginContext {
         this.key = key;
     }
 
+
+// builder 开始
+  public MyAiPluginContext(){}
+
+  public MyAiPluginContext(Builder builder){
+         /**
+          * 插件名称
+          * <p> 示例值：Calendar
+          */
+      this.key = builder.key;
+  }
+
     public static class Builder {
-        /**
-         * 插件名称
-         * <p> 示例值：Calendar
-         */
+     /**
+      * 插件名称
+      * <p> 示例值：Calendar
+      */
         private String key;
 
         /**
          * 插件名称
          * <p> 示例值：Calendar
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
+    
+    public MyAiPluginContext build(){
+        return new MyAiPluginContext(this);
+      }
+    }
 
-        public MyAiPluginContext build() {
-            return new MyAiPluginContext(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

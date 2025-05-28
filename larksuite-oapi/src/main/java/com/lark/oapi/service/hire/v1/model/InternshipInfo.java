@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InternshipInfo {
-    /**
-     * 类型
-     * <p> 示例值：1
-     */
+     /**
+      * 类型
+      * <p> 示例值：1
+      */
     @SerializedName("career_type")
     private Integer careerType;
-    /**
-     * 公司
-     * <p> 示例值：xx公司
-     */
+     /**
+      * 公司
+      * <p> 示例值：xx公司
+      */
     @SerializedName("company")
     private String company;
-    /**
-     * 描述
-     * <p> 示例值：描述
-     */
+     /**
+      * 描述
+      * <p> 示例值：描述
+      */
     @SerializedName("desc")
     private String desc;
-    /**
-     * 结束时间
-     * <p> 示例值：1735664461000
-     */
+     /**
+      * 结束时间
+      * <p> 示例值：1735664461000
+      */
     @SerializedName("end_time")
     private Long endTime;
-    /**
-     * 开始时间
-     * <p> 示例值：1735664461000
-     */
+     /**
+      * 开始时间
+      * <p> 示例值：1735664461000
+      */
     @SerializedName("start_time")
     private Long startTime;
-    /**
-     * 职称
-     * <p> 示例值：xx职称
-     */
+     /**
+      * 职称
+      * <p> 示例值：xx职称
+      */
     @SerializedName("title")
     private String title;
-
-    // builder 开始
-    public InternshipInfo() {
-    }
-
-    public InternshipInfo(Builder builder) {
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        this.careerType = builder.careerType;
-        /**
-         * 公司
-         * <p> 示例值：xx公司
-         */
-        this.company = builder.company;
-        /**
-         * 描述
-         * <p> 示例值：描述
-         */
-        this.desc = builder.desc;
-        /**
-         * 结束时间
-         * <p> 示例值：1735664461000
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 开始时间
-         * <p> 示例值：1735664461000
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 职称
-         * <p> 示例值：xx职称
-         */
-        this.title = builder.title;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getCareerType() {
         return this.careerType;
     }
@@ -154,118 +108,159 @@ public class InternshipInfo {
         this.title = title;
     }
 
+
+// builder 开始
+  public InternshipInfo(){}
+
+  public InternshipInfo(Builder builder){
+         /**
+          * 类型
+          * <p> 示例值：1
+          */
+      this.careerType = builder.careerType;
+         /**
+          * 公司
+          * <p> 示例值：xx公司
+          */
+      this.company = builder.company;
+         /**
+          * 描述
+          * <p> 示例值：描述
+          */
+      this.desc = builder.desc;
+         /**
+          * 结束时间
+          * <p> 示例值：1735664461000
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 开始时间
+          * <p> 示例值：1735664461000
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 职称
+          * <p> 示例值：xx职称
+          */
+      this.title = builder.title;
+  }
+
     public static class Builder {
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
+     /**
+      * 类型
+      * <p> 示例值：1
+      */
         private Integer careerType;
-        /**
-         * 公司
-         * <p> 示例值：xx公司
-         */
+     /**
+      * 公司
+      * <p> 示例值：xx公司
+      */
         private String company;
-        /**
-         * 描述
-         * <p> 示例值：描述
-         */
+     /**
+      * 描述
+      * <p> 示例值：描述
+      */
         private String desc;
-        /**
-         * 结束时间
-         * <p> 示例值：1735664461000
-         */
+     /**
+      * 结束时间
+      * <p> 示例值：1735664461000
+      */
         private Long endTime;
-        /**
-         * 开始时间
-         * <p> 示例值：1735664461000
-         */
+     /**
+      * 开始时间
+      * <p> 示例值：1735664461000
+      */
         private Long startTime;
-        /**
-         * 职称
-         * <p> 示例值：xx职称
-         */
+     /**
+      * 职称
+      * <p> 示例值：xx职称
+      */
         private String title;
 
         /**
          * 类型
          * <p> 示例值：1
-         *
          * @param careerType
          * @return
          */
         public Builder careerType(Integer careerType) {
-            this.careerType = careerType;
-            return this;
+             this.careerType = careerType;
+             return this;
         }
 
+    
 
         /**
          * 公司
          * <p> 示例值：xx公司
-         *
          * @param company
          * @return
          */
         public Builder company(String company) {
-            this.company = company;
-            return this;
+             this.company = company;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：描述
-         *
          * @param desc
          * @return
          */
         public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
+             this.desc = desc;
+             return this;
         }
 
+    
 
         /**
          * 结束时间
          * <p> 示例值：1735664461000
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(Long endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 开始时间
          * <p> 示例值：1735664461000
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(Long startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 职称
          * <p> 示例值：xx职称
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
+    
+    public InternshipInfo build(){
+        return new InternshipInfo(this);
+      }
+    }
 
-        public InternshipInfo build() {
-            return new InternshipInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,17 +17,16 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 设备类型
  */
 public enum DeviceApplyRecordDeviceTerminalTypeEnum {
-    UNKNOWN("Unknown"), // Unknown
-    PC("PC"), // PC
-    MOBILE("Mobile"), // Mobile
-    ;
-    private String value;
-
+     UNKNOWN("Unknown"), // Unknown
+     PC("PC"), // PC
+     MOBILE("Mobile"), // Mobile
+  ;
+   private String value;
     DeviceApplyRecordDeviceTerminalTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

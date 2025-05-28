@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AilySession {
-    /**
-     * 会话 ID
-     * <p> 示例值：session_4dfunz7sp1g8m
-     */
+     /**
+      * 会话 ID
+      * <p> 示例值：session_4dfunz7sp1g8m
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 会话的创建时间，毫秒时间戳
-     * <p> 示例值：1711975665710
-     */
+     /**
+      * 会话的创建时间，毫秒时间戳
+      * <p> 示例值：1711975665710
+      */
     @SerializedName("created_at")
     private String createdAt;
-    /**
-     * 会话的上次更新时间，毫秒时间戳
-     * <p> 示例值：1711975665710
-     */
+     /**
+      * 会话的上次更新时间，毫秒时间戳
+      * <p> 示例值：1711975665710
+      */
     @SerializedName("modified_at")
     private String modifiedAt;
-    /**
-     * 会话的创建人
-     * <p> 示例值：1794840334557292
-     */
+     /**
+      * 会话的创建人
+      * <p> 示例值：1794840334557292
+      */
     @SerializedName("created_by")
     private String createdBy;
-    /**
-     * 渠道上下文
-     * <p> 示例值：{}
-     */
+     /**
+      * 渠道上下文
+      * <p> 示例值：{}
+      */
     @SerializedName("channel_context")
     private String channelContext;
-    /**
-     * 其他透传信息
-     * <p> 示例值：{}
-     */
+     /**
+      * 其他透传信息
+      * <p> 示例值：{}
+      */
     @SerializedName("metadata")
     private String metadata;
-
-    // builder 开始
-    public AilySession() {
-    }
-
-    public AilySession(Builder builder) {
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        this.id = builder.id;
-        /**
-         * 会话的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 会话的上次更新时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        this.modifiedAt = builder.modifiedAt;
-        /**
-         * 会话的创建人
-         * <p> 示例值：1794840334557292
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         */
-        this.channelContext = builder.channelContext;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        this.metadata = builder.metadata;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -155,118 +109,159 @@ public class AilySession {
         this.metadata = metadata;
     }
 
+
+// builder 开始
+  public AilySession(){}
+
+  public AilySession(Builder builder){
+         /**
+          * 会话 ID
+          * <p> 示例值：session_4dfunz7sp1g8m
+          */
+      this.id = builder.id;
+         /**
+          * 会话的创建时间，毫秒时间戳
+          * <p> 示例值：1711975665710
+          */
+      this.createdAt = builder.createdAt;
+         /**
+          * 会话的上次更新时间，毫秒时间戳
+          * <p> 示例值：1711975665710
+          */
+      this.modifiedAt = builder.modifiedAt;
+         /**
+          * 会话的创建人
+          * <p> 示例值：1794840334557292
+          */
+      this.createdBy = builder.createdBy;
+         /**
+          * 渠道上下文
+          * <p> 示例值：{}
+          */
+      this.channelContext = builder.channelContext;
+         /**
+          * 其他透传信息
+          * <p> 示例值：{}
+          */
+      this.metadata = builder.metadata;
+  }
+
     public static class Builder {
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
+     /**
+      * 会话 ID
+      * <p> 示例值：session_4dfunz7sp1g8m
+      */
         private String id;
-        /**
-         * 会话的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
+     /**
+      * 会话的创建时间，毫秒时间戳
+      * <p> 示例值：1711975665710
+      */
         private String createdAt;
-        /**
-         * 会话的上次更新时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
+     /**
+      * 会话的上次更新时间，毫秒时间戳
+      * <p> 示例值：1711975665710
+      */
         private String modifiedAt;
-        /**
-         * 会话的创建人
-         * <p> 示例值：1794840334557292
-         */
+     /**
+      * 会话的创建人
+      * <p> 示例值：1794840334557292
+      */
         private String createdBy;
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         */
+     /**
+      * 渠道上下文
+      * <p> 示例值：{}
+      */
         private String channelContext;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
+     /**
+      * 其他透传信息
+      * <p> 示例值：{}
+      */
         private String metadata;
 
         /**
          * 会话 ID
          * <p> 示例值：session_4dfunz7sp1g8m
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 会话的创建时间，毫秒时间戳
          * <p> 示例值：1711975665710
-         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
+             this.createdAt = createdAt;
+             return this;
         }
 
+    
 
         /**
          * 会话的上次更新时间，毫秒时间戳
          * <p> 示例值：1711975665710
-         *
          * @param modifiedAt
          * @return
          */
         public Builder modifiedAt(String modifiedAt) {
-            this.modifiedAt = modifiedAt;
-            return this;
+             this.modifiedAt = modifiedAt;
+             return this;
         }
 
+    
 
         /**
          * 会话的创建人
          * <p> 示例值：1794840334557292
-         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
+             this.createdBy = createdBy;
+             return this;
         }
 
+    
 
         /**
          * 渠道上下文
          * <p> 示例值：{}
-         *
          * @param channelContext
          * @return
          */
         public Builder channelContext(String channelContext) {
-            this.channelContext = channelContext;
-            return this;
+             this.channelContext = channelContext;
+             return this;
         }
 
+    
 
         /**
          * 其他透传信息
          * <p> 示例值：{}
-         *
          * @param metadata
          * @return
          */
         public Builder metadata(String metadata) {
-            this.metadata = metadata;
-            return this;
+             this.metadata = metadata;
+             return this;
         }
 
+    
+    
+    public AilySession build(){
+        return new AilySession(this);
+      }
+    }
 
-        public AilySession build() {
-            return new AilySession(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

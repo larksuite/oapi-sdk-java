@@ -12,65 +12,60 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2ChatUpdatedV1Data {
-    /**
-     * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
-     */
+     /**
+      * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+      * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * 用户 ID
-     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-     */
+     /**
+      * 用户 ID
+      * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+      */
     @SerializedName("operator_id")
     private UserId operatorId;
-    /**
-     * 是否是外部群
-     * <p> 示例值：false
-     */
+     /**
+      * 是否是外部群
+      * <p> 示例值：false
+      */
     @SerializedName("external")
     private Boolean external;
-    /**
-     * 操作者租户 Key
-     * <p> 示例值：86gwe65
-     */
+     /**
+      * 操作者租户 Key
+      * <p> 示例值：86gwe65
+      */
     @SerializedName("operator_tenant_key")
     private String operatorTenantKey;
-    /**
-     * 更新后的群信息
-     * <p> 示例值：
-     */
+     /**
+      * 更新后的群信息
+      * <p> 示例值：
+      */
     @SerializedName("after_change")
     private ChatChange afterChange;
-    /**
-     * 更新前的群信息
-     * <p> 示例值：
-     */
+     /**
+      * 更新前的群信息
+      * <p> 示例值：
+      */
     @SerializedName("before_change")
     private ChatChange beforeChange;
-    /**
-     * 群可发言成员名单的变更信息
-     * <p> 示例值：
-     */
+     /**
+      * 群可发言成员名单的变更信息
+      * <p> 示例值：
+      */
     @SerializedName("moderator_list")
     private ModeratorList moderatorList;
-
     public String getChatId() {
         return this.chatId;
     }

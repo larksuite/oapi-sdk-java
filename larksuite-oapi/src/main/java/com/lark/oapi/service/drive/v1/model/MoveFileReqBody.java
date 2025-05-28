@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MoveFileReqBody {
-    /**
-     * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-     * <p> 示例值：file
-     */
+     /**
+      * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
+      * <p> 示例值：file
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 目标文件夹token
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-     */
+     /**
+      * 目标文件夹token
+      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+      */
     @SerializedName("folder_token")
     private String folderToken;
-
-    // builder 开始
-    public MoveFileReqBody() {
-    }
-
-    public MoveFileReqBody(Builder builder) {
-        /**
-         * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-         * <p> 示例值：file
-         */
-        this.type = builder.type;
-        /**
-         * 目标文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
-        this.folderToken = builder.folderToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -79,58 +53,77 @@ public class MoveFileReqBody {
         this.folderToken = folderToken;
     }
 
+
+// builder 开始
+  public MoveFileReqBody(){}
+
+  public MoveFileReqBody(Builder builder){
+         /**
+          * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
+          * <p> 示例值：file
+          */
+      this.type = builder.type;
+         /**
+          * 目标文件夹token
+          * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+          */
+      this.folderToken = builder.folderToken;
+  }
+
     public static class Builder {
-        /**
-         * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-         * <p> 示例值：file
-         */
+     /**
+      * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
+      * <p> 示例值：file
+      */
         private String type;
-        /**
-         * 目标文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
+     /**
+      * 目标文件夹token
+      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+      */
         private String folderToken;
 
         /**
          * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
          * <p> 示例值：file
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
          * <p> 示例值：file
-         *
          * @param type {@link com.lark.oapi.service.drive.v1.enums.MoveFileTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.drive.v1.enums.MoveFileTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 目标文件夹token
          * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         *
          * @param folderToken
          * @return
          */
         public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
+             this.folderToken = folderToken;
+             return this;
         }
 
+    
+    
+    public MoveFileReqBody build(){
+        return new MoveFileReqBody(this);
+      }
+    }
 
-        public MoveFileReqBody build() {
-            return new MoveFileReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

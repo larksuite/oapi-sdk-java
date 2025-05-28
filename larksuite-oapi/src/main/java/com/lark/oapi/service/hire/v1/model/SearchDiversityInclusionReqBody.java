@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchDiversityInclusionReqBody {
-    /**
-     * 需要查询DI数据的人才ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 需要查询DI数据的人才ID列表
+      * <p> 示例值：
+      */
     @SerializedName("talent_ids")
     private String[] talentIds;
-    /**
-     * 需要查询DI数据的投递ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 需要查询DI数据的投递ID列表
+      * <p> 示例值：
+      */
     @SerializedName("application_ids")
     private String[] applicationIds;
-
-    // builder 开始
-    public SearchDiversityInclusionReqBody() {
-    }
-
-    public SearchDiversityInclusionReqBody(Builder builder) {
-        /**
-         * 需要查询DI数据的人才ID列表
-         * <p> 示例值：
-         */
-        this.talentIds = builder.talentIds;
-        /**
-         * 需要查询DI数据的投递ID列表
-         * <p> 示例值：
-         */
-        this.applicationIds = builder.applicationIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getTalentIds() {
         return this.talentIds;
     }
@@ -78,46 +52,67 @@ public class SearchDiversityInclusionReqBody {
         this.applicationIds = applicationIds;
     }
 
+
+// builder 开始
+  public SearchDiversityInclusionReqBody(){}
+
+  public SearchDiversityInclusionReqBody(Builder builder){
+         /**
+          * 需要查询DI数据的人才ID列表
+          * <p> 示例值：
+          */
+      this.talentIds = builder.talentIds;
+         /**
+          * 需要查询DI数据的投递ID列表
+          * <p> 示例值：
+          */
+      this.applicationIds = builder.applicationIds;
+  }
+
     public static class Builder {
-        /**
-         * 需要查询DI数据的人才ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 需要查询DI数据的人才ID列表
+      * <p> 示例值：
+      */
         private String[] talentIds;
-        /**
-         * 需要查询DI数据的投递ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 需要查询DI数据的投递ID列表
+      * <p> 示例值：
+      */
         private String[] applicationIds;
 
         /**
          * 需要查询DI数据的人才ID列表
          * <p> 示例值：
-         *
          * @param talentIds
          * @return
          */
         public Builder talentIds(String[] talentIds) {
-            this.talentIds = talentIds;
-            return this;
+             this.talentIds = talentIds;
+             return this;
         }
 
+    
 
         /**
          * 需要查询DI数据的投递ID列表
          * <p> 示例值：
-         *
          * @param applicationIds
          * @return
          */
         public Builder applicationIds(String[] applicationIds) {
-            this.applicationIds = applicationIds;
-            return this;
+             this.applicationIds = applicationIds;
+             return this;
         }
 
+    
+    
+    public SearchDiversityInclusionReqBody build(){
+        return new SearchDiversityInclusionReqBody(this);
+      }
+    }
 
-        public SearchDiversityInclusionReqBody build() {
-            return new SearchDiversityInclusionReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

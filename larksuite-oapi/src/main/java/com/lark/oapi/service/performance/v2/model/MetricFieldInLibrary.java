@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MetricFieldInLibrary {
-    /**
-     * 指标字段 ID。 系统预置的指标字段 ID 分别为：指标 1；权重 2；指标单位 3；目标值 4；完成值 5；完成说明 7。更多指标字段详情可通过【获取指标字段详情】接口获取
-     * <p> 示例值：7296701873237786643
-     */
+     /**
+      * 指标字段 ID。 系统预置的指标字段 ID 分别为：指标 1；权重 2；指标单位 3；目标值 4；完成值 5；完成说明 7。更多指标字段详情可通过【获取指标字段详情】接口获取
+      * <p> 示例值：7296701873237786643
+      */
     @SerializedName("field_id")
     private String fieldId;
-    /**
-     * 字段填写方式设置
-     * <p> 示例值：admin
-     */
+     /**
+      * 字段填写方式设置
+      * <p> 示例值：admin
+      */
     @SerializedName("input_setting")
     private String inputSetting;
-    /**
-     * 字段值
-     * <p> 示例值：90
-     */
+     /**
+      * 字段值
+      * <p> 示例值：90
+      */
     @SerializedName("field_value")
     private String fieldValue;
-    /**
-     * 字段值，当字段为人员信息时有值
-     * <p> 示例值：
-     */
+     /**
+      * 字段值，当字段为人员信息时有值
+      * <p> 示例值：
+      */
     @SerializedName("field_value_person")
     private User fieldValuePerson;
-
-    // builder 开始
-    public MetricFieldInLibrary() {
-    }
-
-    public MetricFieldInLibrary(Builder builder) {
-        /**
-         * 指标字段 ID。 系统预置的指标字段 ID 分别为：指标 1；权重 2；指标单位 3；目标值 4；完成值 5；完成说明 7。更多指标字段详情可通过【获取指标字段详情】接口获取
-         * <p> 示例值：7296701873237786643
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 字段填写方式设置
-         * <p> 示例值：admin
-         */
-        this.inputSetting = builder.inputSetting;
-        /**
-         * 字段值
-         * <p> 示例值：90
-         */
-        this.fieldValue = builder.fieldValue;
-        /**
-         * 字段值，当字段为人员信息时有值
-         * <p> 示例值：
-         */
-        this.fieldValuePerson = builder.fieldValuePerson;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFieldId() {
         return this.fieldId;
     }
@@ -117,94 +81,123 @@ public class MetricFieldInLibrary {
         this.fieldValuePerson = fieldValuePerson;
     }
 
+
+// builder 开始
+  public MetricFieldInLibrary(){}
+
+  public MetricFieldInLibrary(Builder builder){
+         /**
+          * 指标字段 ID。 系统预置的指标字段 ID 分别为：指标 1；权重 2；指标单位 3；目标值 4；完成值 5；完成说明 7。更多指标字段详情可通过【获取指标字段详情】接口获取
+          * <p> 示例值：7296701873237786643
+          */
+      this.fieldId = builder.fieldId;
+         /**
+          * 字段填写方式设置
+          * <p> 示例值：admin
+          */
+      this.inputSetting = builder.inputSetting;
+         /**
+          * 字段值
+          * <p> 示例值：90
+          */
+      this.fieldValue = builder.fieldValue;
+         /**
+          * 字段值，当字段为人员信息时有值
+          * <p> 示例值：
+          */
+      this.fieldValuePerson = builder.fieldValuePerson;
+  }
+
     public static class Builder {
-        /**
-         * 指标字段 ID。 系统预置的指标字段 ID 分别为：指标 1；权重 2；指标单位 3；目标值 4；完成值 5；完成说明 7。更多指标字段详情可通过【获取指标字段详情】接口获取
-         * <p> 示例值：7296701873237786643
-         */
+     /**
+      * 指标字段 ID。 系统预置的指标字段 ID 分别为：指标 1；权重 2；指标单位 3；目标值 4；完成值 5；完成说明 7。更多指标字段详情可通过【获取指标字段详情】接口获取
+      * <p> 示例值：7296701873237786643
+      */
         private String fieldId;
-        /**
-         * 字段填写方式设置
-         * <p> 示例值：admin
-         */
+     /**
+      * 字段填写方式设置
+      * <p> 示例值：admin
+      */
         private String inputSetting;
-        /**
-         * 字段值
-         * <p> 示例值：90
-         */
+     /**
+      * 字段值
+      * <p> 示例值：90
+      */
         private String fieldValue;
-        /**
-         * 字段值，当字段为人员信息时有值
-         * <p> 示例值：
-         */
+     /**
+      * 字段值，当字段为人员信息时有值
+      * <p> 示例值：
+      */
         private User fieldValuePerson;
 
         /**
          * 指标字段 ID。 系统预置的指标字段 ID 分别为：指标 1；权重 2；指标单位 3；目标值 4；完成值 5；完成说明 7。更多指标字段详情可通过【获取指标字段详情】接口获取
          * <p> 示例值：7296701873237786643
-         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
+             this.fieldId = fieldId;
+             return this;
         }
 
+    
 
         /**
          * 字段填写方式设置
          * <p> 示例值：admin
-         *
          * @param inputSetting
          * @return
          */
         public Builder inputSetting(String inputSetting) {
-            this.inputSetting = inputSetting;
-            return this;
+             this.inputSetting = inputSetting;
+             return this;
         }
-
         /**
          * 字段填写方式设置
          * <p> 示例值：admin
-         *
          * @param inputSetting {@link com.lark.oapi.service.performance.v2.enums.MetricFieldInLibraryInputSettingEnum}
          * @return
          */
         public Builder inputSetting(com.lark.oapi.service.performance.v2.enums.MetricFieldInLibraryInputSettingEnum inputSetting) {
-            this.inputSetting = inputSetting.getValue();
-            return this;
+             this.inputSetting = inputSetting.getValue();
+             return this;
         }
 
+    
 
         /**
          * 字段值
          * <p> 示例值：90
-         *
          * @param fieldValue
          * @return
          */
         public Builder fieldValue(String fieldValue) {
-            this.fieldValue = fieldValue;
-            return this;
+             this.fieldValue = fieldValue;
+             return this;
         }
 
+    
 
         /**
          * 字段值，当字段为人员信息时有值
          * <p> 示例值：
-         *
          * @param fieldValuePerson
          * @return
          */
         public Builder fieldValuePerson(User fieldValuePerson) {
-            this.fieldValuePerson = fieldValuePerson;
-            return this;
+             this.fieldValuePerson = fieldValuePerson;
+             return this;
         }
 
+    
+    
+    public MetricFieldInLibrary build(){
+        return new MetricFieldInLibrary(this);
+      }
+    }
 
-        public MetricFieldInLibrary build() {
-            return new MetricFieldInLibrary(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

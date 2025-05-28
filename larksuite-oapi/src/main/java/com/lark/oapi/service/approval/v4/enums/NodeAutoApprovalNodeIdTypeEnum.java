@@ -17,16 +17,15 @@ package com.lark.oapi.service.approval.v4.enums;
  * 节点id的类型
  */
 public enum NodeAutoApprovalNodeIdTypeEnum {
-    CUSTOM("CUSTOM"), // 自定义节点ID
-    NONCUSTOM("NON_CUSTOM"), // 非自定义节点ID
-    ;
-    private String value;
-
+     CUSTOM("CUSTOM"), // 自定义节点ID
+     NONCUSTOM("NON_CUSTOM"), // 非自定义节点ID
+  ;
+   private String value;
     NodeAutoApprovalNodeIdTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

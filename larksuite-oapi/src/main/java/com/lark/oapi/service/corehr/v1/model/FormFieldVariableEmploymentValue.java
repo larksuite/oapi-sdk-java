@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FormFieldVariableEmploymentValue {
-    /**
-     * employmentID
-     * <p> 示例值：
-     */
+     /**
+      * employmentID
+      * <p> 示例值：
+      */
     @SerializedName("value")
     private String value;
-    /**
-     * 员工ID 如3158117
-     * <p> 示例值：
-     */
+     /**
+      * 员工ID 如3158117
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-
-    // builder 开始
-    public FormFieldVariableEmploymentValue() {
-    }
-
-    public FormFieldVariableEmploymentValue(Builder builder) {
-        /**
-         * employmentID
-         * <p> 示例值：
-         */
-        this.value = builder.value;
-        /**
-         * 员工ID 如3158117
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getValue() {
         return this.value;
     }
@@ -79,46 +53,67 @@ public class FormFieldVariableEmploymentValue {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public FormFieldVariableEmploymentValue(){}
+
+  public FormFieldVariableEmploymentValue(Builder builder){
+         /**
+          * employmentID
+          * <p> 示例值：
+          */
+      this.value = builder.value;
+         /**
+          * 员工ID 如3158117
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * employmentID
-         * <p> 示例值：
-         */
+     /**
+      * employmentID
+      * <p> 示例值：
+      */
         private String value;
-        /**
-         * 员工ID 如3158117
-         * <p> 示例值：
-         */
+     /**
+      * 员工ID 如3158117
+      * <p> 示例值：
+      */
         private String userId;
 
         /**
          * employmentID
          * <p> 示例值：
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
 
         /**
          * 员工ID 如3158117
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public FormFieldVariableEmploymentValue build(){
+        return new FormFieldVariableEmploymentValue(this);
+      }
+    }
 
-        public FormFieldVariableEmploymentValue build() {
-            return new FormFieldVariableEmploymentValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

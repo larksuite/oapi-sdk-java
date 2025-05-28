@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SubscribedEvent {
-    /**
-     * 订阅类型
-     * <p> 示例值：webhook
-     */
+     /**
+      * 订阅类型
+      * <p> 示例值：webhook
+      */
     @SerializedName("subscription_type")
     private String subscriptionType;
-    /**
-     * 回调地址
-     * <p> 示例值：https://open.feishu.cn/
-     */
+     /**
+      * 回调地址
+      * <p> 示例值：https://open.feishu.cn/
+      */
     @SerializedName("request_url")
     private String requestUrl;
-    /**
-     * 订阅事件列表
-     * <p> 示例值：
-     */
+     /**
+      * 订阅事件列表
+      * <p> 示例值：
+      */
     @SerializedName("subscribed_events")
     private String[] subscribedEvents;
-
-    // builder 开始
-    public SubscribedEvent() {
-    }
-
-    public SubscribedEvent(Builder builder) {
-        /**
-         * 订阅类型
-         * <p> 示例值：webhook
-         */
-        this.subscriptionType = builder.subscriptionType;
-        /**
-         * 回调地址
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        this.requestUrl = builder.requestUrl;
-        /**
-         * 订阅事件列表
-         * <p> 示例值：
-         */
-        this.subscribedEvents = builder.subscribedEvents;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSubscriptionType() {
         return this.subscriptionType;
     }
@@ -98,64 +67,90 @@ public class SubscribedEvent {
         this.subscribedEvents = subscribedEvents;
     }
 
+
+// builder 开始
+  public SubscribedEvent(){}
+
+  public SubscribedEvent(Builder builder){
+         /**
+          * 订阅类型
+          * <p> 示例值：webhook
+          */
+      this.subscriptionType = builder.subscriptionType;
+         /**
+          * 回调地址
+          * <p> 示例值：https://open.feishu.cn/
+          */
+      this.requestUrl = builder.requestUrl;
+         /**
+          * 订阅事件列表
+          * <p> 示例值：
+          */
+      this.subscribedEvents = builder.subscribedEvents;
+  }
+
     public static class Builder {
-        /**
-         * 订阅类型
-         * <p> 示例值：webhook
-         */
+     /**
+      * 订阅类型
+      * <p> 示例值：webhook
+      */
         private String subscriptionType;
-        /**
-         * 回调地址
-         * <p> 示例值：https://open.feishu.cn/
-         */
+     /**
+      * 回调地址
+      * <p> 示例值：https://open.feishu.cn/
+      */
         private String requestUrl;
-        /**
-         * 订阅事件列表
-         * <p> 示例值：
-         */
+     /**
+      * 订阅事件列表
+      * <p> 示例值：
+      */
         private String[] subscribedEvents;
 
         /**
          * 订阅类型
          * <p> 示例值：webhook
-         *
          * @param subscriptionType
          * @return
          */
         public Builder subscriptionType(String subscriptionType) {
-            this.subscriptionType = subscriptionType;
-            return this;
+             this.subscriptionType = subscriptionType;
+             return this;
         }
 
+    
 
         /**
          * 回调地址
          * <p> 示例值：https://open.feishu.cn/
-         *
          * @param requestUrl
          * @return
          */
         public Builder requestUrl(String requestUrl) {
-            this.requestUrl = requestUrl;
-            return this;
+             this.requestUrl = requestUrl;
+             return this;
         }
 
+    
 
         /**
          * 订阅事件列表
          * <p> 示例值：
-         *
          * @param subscribedEvents
          * @return
          */
         public Builder subscribedEvents(String[] subscribedEvents) {
-            this.subscribedEvents = subscribedEvents;
-            return this;
+             this.subscribedEvents = subscribedEvents;
+             return this;
         }
 
+    
+    
+    public SubscribedEvent build(){
+        return new SubscribedEvent(this);
+      }
+    }
 
-        public SubscribedEvent build() {
-            return new SubscribedEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

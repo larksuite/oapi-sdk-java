@@ -17,16 +17,15 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 是否必填
  */
 public enum ConfigRequiredEnum {
-    NOT_REQUIRED(0), // 非必填
-    REQUIRED(1), // 必填
-    ;
-    private Integer value;
-
+     NOT_REQUIRED(0), // 非必填
+     REQUIRED(1), // 必填
+  ;
+   private Integer value;
     ConfigRequiredEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

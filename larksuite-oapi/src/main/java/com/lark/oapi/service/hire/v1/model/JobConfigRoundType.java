@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobConfigRoundType {
-    /**
-     * 面试轮次类型业务 ID
-     * <p> 示例值：7012129842917837100
-     */
+     /**
+      * 面试轮次类型业务 ID
+      * <p> 示例值：7012129842917837100
+      */
     @SerializedName("round_biz_id")
     private String roundBizId;
-    /**
-     * 面试评价表业务 ID
-     * <p> 示例值：6960663240925956632
-     */
+     /**
+      * 面试评价表业务 ID
+      * <p> 示例值：6960663240925956632
+      */
     @SerializedName("assessment_template_biz_id")
     private String assessmentTemplateBizId;
-
-    // builder 开始
-    public JobConfigRoundType() {
-    }
-
-    public JobConfigRoundType(Builder builder) {
-        /**
-         * 面试轮次类型业务 ID
-         * <p> 示例值：7012129842917837100
-         */
-        this.roundBizId = builder.roundBizId;
-        /**
-         * 面试评价表业务 ID
-         * <p> 示例值：6960663240925956632
-         */
-        this.assessmentTemplateBizId = builder.assessmentTemplateBizId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoundBizId() {
         return this.roundBizId;
     }
@@ -78,46 +52,67 @@ public class JobConfigRoundType {
         this.assessmentTemplateBizId = assessmentTemplateBizId;
     }
 
+
+// builder 开始
+  public JobConfigRoundType(){}
+
+  public JobConfigRoundType(Builder builder){
+         /**
+          * 面试轮次类型业务 ID
+          * <p> 示例值：7012129842917837100
+          */
+      this.roundBizId = builder.roundBizId;
+         /**
+          * 面试评价表业务 ID
+          * <p> 示例值：6960663240925956632
+          */
+      this.assessmentTemplateBizId = builder.assessmentTemplateBizId;
+  }
+
     public static class Builder {
-        /**
-         * 面试轮次类型业务 ID
-         * <p> 示例值：7012129842917837100
-         */
+     /**
+      * 面试轮次类型业务 ID
+      * <p> 示例值：7012129842917837100
+      */
         private String roundBizId;
-        /**
-         * 面试评价表业务 ID
-         * <p> 示例值：6960663240925956632
-         */
+     /**
+      * 面试评价表业务 ID
+      * <p> 示例值：6960663240925956632
+      */
         private String assessmentTemplateBizId;
 
         /**
          * 面试轮次类型业务 ID
          * <p> 示例值：7012129842917837100
-         *
          * @param roundBizId
          * @return
          */
         public Builder roundBizId(String roundBizId) {
-            this.roundBizId = roundBizId;
-            return this;
+             this.roundBizId = roundBizId;
+             return this;
         }
 
+    
 
         /**
          * 面试评价表业务 ID
          * <p> 示例值：6960663240925956632
-         *
          * @param assessmentTemplateBizId
          * @return
          */
         public Builder assessmentTemplateBizId(String assessmentTemplateBizId) {
-            this.assessmentTemplateBizId = assessmentTemplateBizId;
-            return this;
+             this.assessmentTemplateBizId = assessmentTemplateBizId;
+             return this;
         }
 
+    
+    
+    public JobConfigRoundType build(){
+        return new JobConfigRoundType(this);
+      }
+    }
 
-        public JobConfigRoundType build() {
-            return new JobConfigRoundType(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,43 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2ApplicationStageChangedV1Data {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("application_id")
     private String applicationId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("origin_stage_id")
     private String originStageId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("target_stage_id")
     private String targetStageId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("update_time")
     private Integer updateTime;
-
     public String getApplicationId() {
         return this.applicationId;
     }

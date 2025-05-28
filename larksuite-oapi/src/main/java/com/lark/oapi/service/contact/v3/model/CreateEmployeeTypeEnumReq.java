@@ -12,36 +12,20 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateEmployeeTypeEnumReq {
     @Body
     private EmployeeTypeEnum body;
-
-    // builder 开始
-    public CreateEmployeeTypeEnumReq() {
-    }
-
-    public CreateEmployeeTypeEnumReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public EmployeeTypeEnum getEmployeeTypeEnum() {
         return this.body;
@@ -51,27 +35,36 @@ public class CreateEmployeeTypeEnumReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateEmployeeTypeEnumReq(){}
+
+  public CreateEmployeeTypeEnumReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private EmployeeTypeEnum body;
-
+    
         public EmployeeTypeEnum getEmployeeTypeEnum() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder employeeTypeEnum(EmployeeTypeEnum body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateEmployeeTypeEnumReq build(){
+        return new CreateEmployeeTypeEnumReq(this);
+      }
+    }
 
-        public CreateEmployeeTypeEnumReq build() {
-            return new CreateEmployeeTypeEnumReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

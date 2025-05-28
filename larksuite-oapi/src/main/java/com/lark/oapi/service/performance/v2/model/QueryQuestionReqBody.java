@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryQuestionReqBody {
-    /**
-     * 标签填写题 ID 列表，获取指定标签填写题的配置数据。如果不传则返回所有
-     * <p> 示例值：
-     */
+     /**
+      * 标签填写题 ID 列表，获取指定标签填写题的配置数据。如果不传则返回所有
+      * <p> 示例值：
+      */
     @SerializedName("tag_based_question_ids")
     private String[] tagBasedQuestionIds;
-
-    // builder 开始
-    public QueryQuestionReqBody() {
-    }
-
-    public QueryQuestionReqBody(Builder builder) {
-        /**
-         * 标签填写题 ID 列表，获取指定标签填写题的配置数据。如果不传则返回所有
-         * <p> 示例值：
-         */
-        this.tagBasedQuestionIds = builder.tagBasedQuestionIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getTagBasedQuestionIds() {
         return this.tagBasedQuestionIds;
     }
@@ -60,28 +39,44 @@ public class QueryQuestionReqBody {
         this.tagBasedQuestionIds = tagBasedQuestionIds;
     }
 
+
+// builder 开始
+  public QueryQuestionReqBody(){}
+
+  public QueryQuestionReqBody(Builder builder){
+         /**
+          * 标签填写题 ID 列表，获取指定标签填写题的配置数据。如果不传则返回所有
+          * <p> 示例值：
+          */
+      this.tagBasedQuestionIds = builder.tagBasedQuestionIds;
+  }
+
     public static class Builder {
-        /**
-         * 标签填写题 ID 列表，获取指定标签填写题的配置数据。如果不传则返回所有
-         * <p> 示例值：
-         */
+     /**
+      * 标签填写题 ID 列表，获取指定标签填写题的配置数据。如果不传则返回所有
+      * <p> 示例值：
+      */
         private String[] tagBasedQuestionIds;
 
         /**
          * 标签填写题 ID 列表，获取指定标签填写题的配置数据。如果不传则返回所有
          * <p> 示例值：
-         *
          * @param tagBasedQuestionIds
          * @return
          */
         public Builder tagBasedQuestionIds(String[] tagBasedQuestionIds) {
-            this.tagBasedQuestionIds = tagBasedQuestionIds;
-            return this;
+             this.tagBasedQuestionIds = tagBasedQuestionIds;
+             return this;
         }
 
+    
+    
+    public QueryQuestionReqBody build(){
+        return new QueryQuestionReqBody(this);
+      }
+    }
 
-        public QueryQuestionReqBody build() {
-            return new QueryQuestionReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

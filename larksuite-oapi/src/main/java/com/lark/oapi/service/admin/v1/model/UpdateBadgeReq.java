@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateBadgeReq {
-    /**
-     * 勋章ID
-     * <p> 示例值：m_MzfKDM
-     */
+     /**
+      * 勋章ID
+      * <p> 示例值：m_MzfKDM
+      */
     @Path
     @SerializedName("badge_id")
     private String badgeId;
-    @Body
-    private Badge body;
-
-    // builder 开始
-    public UpdateBadgeReq() {
-    }
-
-    public UpdateBadgeReq(Builder builder) {
-        /**
-         * 勋章ID
-         * <p> 示例值：m_MzfKDM
-         */
-        this.badgeId = builder.badgeId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBadgeId() {
         return this.badgeId;
     }
@@ -62,6 +38,9 @@ public class UpdateBadgeReq {
     public void setBadgeId(String badgeId) {
         this.badgeId = badgeId;
     }
+
+    @Body
+    private Badge body;
 
     public Badge getBadge() {
         return this.body;
@@ -71,40 +50,54 @@ public class UpdateBadgeReq {
         this.body = body;
     }
 
+// builder 开始
+  public UpdateBadgeReq(){}
+
+  public UpdateBadgeReq(Builder builder){
+     /**
+      * 勋章ID
+      * <p> 示例值：m_MzfKDM
+      */
+       this.badgeId = builder.badgeId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String badgeId; // 勋章ID
-        private Badge body;
-
         /**
          * 勋章ID
          * <p> 示例值：m_MzfKDM
-         *
          * @param badgeId
          * @return
          */
-        public Builder badgeId(String badgeId) {
-            this.badgeId = badgeId;
-            return this;
-        }
+          public Builder badgeId(String badgeId) {
+               this.badgeId = badgeId;
+               return this;
+          }
 
+    
+        private Badge body;
+    
         public Badge getBadge() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder badge(Badge body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UpdateBadgeReq build(){
+        return new UpdateBadgeReq(this);
+      }
+    }
 
-        public UpdateBadgeReq build() {
-            return new UpdateBadgeReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

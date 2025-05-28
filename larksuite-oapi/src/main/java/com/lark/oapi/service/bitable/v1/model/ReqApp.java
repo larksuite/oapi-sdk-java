@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReqApp {
-    /**
-     * 多维表格App名字
-     * <p> 示例值：一篇新的多维表格
-     */
+     /**
+      * 多维表格App名字
+      * <p> 示例值：一篇新的多维表格
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 多维表格App归属文件夹
-     * <p> 示例值：fldbcoh8O99CIMltVc
-     */
+     /**
+      * 多维表格App归属文件夹
+      * <p> 示例值：fldbcoh8O99CIMltVc
+      */
     @SerializedName("folder_token")
     private String folderToken;
-    /**
-     * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-     * <p> 示例值：Asia/Macau
-     */
+     /**
+      * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+      * <p> 示例值：Asia/Macau
+      */
     @SerializedName("time_zone")
     private String timeZone;
-
-    // builder 开始
-    public ReqApp() {
-    }
-
-    public ReqApp(Builder builder) {
-        /**
-         * 多维表格App名字
-         * <p> 示例值：一篇新的多维表格
-         */
-        this.name = builder.name;
-        /**
-         * 多维表格App归属文件夹
-         * <p> 示例值：fldbcoh8O99CIMltVc
-         */
-        this.folderToken = builder.folderToken;
-        /**
-         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-         * <p> 示例值：Asia/Macau
-         */
-        this.timeZone = builder.timeZone;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -98,64 +67,90 @@ public class ReqApp {
         this.timeZone = timeZone;
     }
 
+
+// builder 开始
+  public ReqApp(){}
+
+  public ReqApp(Builder builder){
+         /**
+          * 多维表格App名字
+          * <p> 示例值：一篇新的多维表格
+          */
+      this.name = builder.name;
+         /**
+          * 多维表格App归属文件夹
+          * <p> 示例值：fldbcoh8O99CIMltVc
+          */
+      this.folderToken = builder.folderToken;
+         /**
+          * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+          * <p> 示例值：Asia/Macau
+          */
+      this.timeZone = builder.timeZone;
+  }
+
     public static class Builder {
-        /**
-         * 多维表格App名字
-         * <p> 示例值：一篇新的多维表格
-         */
+     /**
+      * 多维表格App名字
+      * <p> 示例值：一篇新的多维表格
+      */
         private String name;
-        /**
-         * 多维表格App归属文件夹
-         * <p> 示例值：fldbcoh8O99CIMltVc
-         */
+     /**
+      * 多维表格App归属文件夹
+      * <p> 示例值：fldbcoh8O99CIMltVc
+      */
         private String folderToken;
-        /**
-         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-         * <p> 示例值：Asia/Macau
-         */
+     /**
+      * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+      * <p> 示例值：Asia/Macau
+      */
         private String timeZone;
 
         /**
          * 多维表格App名字
          * <p> 示例值：一篇新的多维表格
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 多维表格App归属文件夹
          * <p> 示例值：fldbcoh8O99CIMltVc
-         *
          * @param folderToken
          * @return
          */
         public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
+             this.folderToken = folderToken;
+             return this;
         }
 
+    
 
         /**
          * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
          * <p> 示例值：Asia/Macau
-         *
          * @param timeZone
          * @return
          */
         public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
+             this.timeZone = timeZone;
+             return this;
         }
 
+    
+    
+    public ReqApp build(){
+        return new ReqApp(this);
+      }
+    }
 
-        public ReqApp build() {
-            return new ReqApp(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

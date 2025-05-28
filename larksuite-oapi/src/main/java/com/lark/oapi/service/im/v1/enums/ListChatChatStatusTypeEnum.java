@@ -17,17 +17,16 @@ package com.lark.oapi.service.im.v1.enums;
  * 群状态
  */
 public enum ListChatChatStatusTypeEnum {
-    NORMAL("normal"), // 正常
-    DISSOLVED("dissolved"), // 解散
-    DISSOLVED_SAVE("dissolved_save"), // 解散并保留
-    ;
-    private String value;
-
+     NORMAL("normal"), // 正常
+     DISSOLVED("dissolved"), // 解散
+     DISSOLVED_SAVE("dissolved_save"), // 解散并保留
+  ;
+   private String value;
     ListChatChatStatusTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

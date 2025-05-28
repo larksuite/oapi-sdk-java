@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LeaveSubtype {
-    /**
-     * 假期子类ID
-     * <p> 示例值：4718803945687580505
-     */
+     /**
+      * 假期子类ID
+      * <p> 示例值：4718803945687580505
+      */
     @SerializedName("leave_type_id")
     private String leaveTypeId;
-    /**
-     * 假期子类名称
-     * <p> 示例值：
-     */
+     /**
+      * 假期子类名称
+      * <p> 示例值：
+      */
     @SerializedName("leave_type_name")
     private I18n[] leaveTypeName;
-
-    // builder 开始
-    public LeaveSubtype() {
-    }
-
-    public LeaveSubtype(Builder builder) {
-        /**
-         * 假期子类ID
-         * <p> 示例值：4718803945687580505
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 假期子类名称
-         * <p> 示例值：
-         */
-        this.leaveTypeName = builder.leaveTypeName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLeaveTypeId() {
         return this.leaveTypeId;
     }
@@ -79,46 +53,67 @@ public class LeaveSubtype {
         this.leaveTypeName = leaveTypeName;
     }
 
+
+// builder 开始
+  public LeaveSubtype(){}
+
+  public LeaveSubtype(Builder builder){
+         /**
+          * 假期子类ID
+          * <p> 示例值：4718803945687580505
+          */
+      this.leaveTypeId = builder.leaveTypeId;
+         /**
+          * 假期子类名称
+          * <p> 示例值：
+          */
+      this.leaveTypeName = builder.leaveTypeName;
+  }
+
     public static class Builder {
-        /**
-         * 假期子类ID
-         * <p> 示例值：4718803945687580505
-         */
+     /**
+      * 假期子类ID
+      * <p> 示例值：4718803945687580505
+      */
         private String leaveTypeId;
-        /**
-         * 假期子类名称
-         * <p> 示例值：
-         */
+     /**
+      * 假期子类名称
+      * <p> 示例值：
+      */
         private I18n[] leaveTypeName;
 
         /**
          * 假期子类ID
          * <p> 示例值：4718803945687580505
-         *
          * @param leaveTypeId
          * @return
          */
         public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
+             this.leaveTypeId = leaveTypeId;
+             return this;
         }
 
+    
 
         /**
          * 假期子类名称
          * <p> 示例值：
-         *
          * @param leaveTypeName
          * @return
          */
         public Builder leaveTypeName(I18n[] leaveTypeName) {
-            this.leaveTypeName = leaveTypeName;
-            return this;
+             this.leaveTypeName = leaveTypeName;
+             return this;
         }
 
+    
+    
+    public LeaveSubtype build(){
+        return new LeaveSubtype(this);
+      }
+    }
 
-        public LeaveSubtype build() {
-            return new LeaveSubtype(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

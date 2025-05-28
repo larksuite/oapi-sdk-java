@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ClearDataValidation {
-    /**
-     * 清除数据检验的范围
-     * <p> 示例值：
-     */
+     /**
+      * 清除数据检验的范围
+      * <p> 示例值：
+      */
     @SerializedName("ranges")
     private String[] ranges;
-
-    // builder 开始
-    public ClearDataValidation() {
-    }
-
-    public ClearDataValidation(Builder builder) {
-        /**
-         * 清除数据检验的范围
-         * <p> 示例值：
-         */
-        this.ranges = builder.ranges;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getRanges() {
         return this.ranges;
     }
@@ -60,28 +39,44 @@ public class ClearDataValidation {
         this.ranges = ranges;
     }
 
+
+// builder 开始
+  public ClearDataValidation(){}
+
+  public ClearDataValidation(Builder builder){
+         /**
+          * 清除数据检验的范围
+          * <p> 示例值：
+          */
+      this.ranges = builder.ranges;
+  }
+
     public static class Builder {
-        /**
-         * 清除数据检验的范围
-         * <p> 示例值：
-         */
+     /**
+      * 清除数据检验的范围
+      * <p> 示例值：
+      */
         private String[] ranges;
 
         /**
          * 清除数据检验的范围
          * <p> 示例值：
-         *
          * @param ranges
          * @return
          */
         public Builder ranges(String[] ranges) {
-            this.ranges = ranges;
-            return this;
+             this.ranges = ranges;
+             return this;
         }
 
+    
+    
+    public ClearDataValidation build(){
+        return new ClearDataValidation(this);
+      }
+    }
 
-        public ClearDataValidation build() {
-            return new ClearDataValidation(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

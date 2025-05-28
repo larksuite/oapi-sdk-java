@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FilterItem {
-    /**
-     * 筛选类型
-     * <p> 示例值：
-     */
+     /**
+      * 筛选类型
+      * <p> 示例值：
+      */
     @SerializedName("filter_type")
     private String filterType;
-    /**
-     * 筛选的ID
-     * <p> 示例值：
-     */
+     /**
+      * 筛选的ID
+      * <p> 示例值：
+      */
     @SerializedName("filter_ids")
     private String[] filterIds;
-
-    // builder 开始
-    public FilterItem() {
-    }
-
-    public FilterItem(Builder builder) {
-        /**
-         * 筛选类型
-         * <p> 示例值：
-         */
-        this.filterType = builder.filterType;
-        /**
-         * 筛选的ID
-         * <p> 示例值：
-         */
-        this.filterIds = builder.filterIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFilterType() {
         return this.filterType;
     }
@@ -79,58 +53,77 @@ public class FilterItem {
         this.filterIds = filterIds;
     }
 
+
+// builder 开始
+  public FilterItem(){}
+
+  public FilterItem(Builder builder){
+         /**
+          * 筛选类型
+          * <p> 示例值：
+          */
+      this.filterType = builder.filterType;
+         /**
+          * 筛选的ID
+          * <p> 示例值：
+          */
+      this.filterIds = builder.filterIds;
+  }
+
     public static class Builder {
-        /**
-         * 筛选类型
-         * <p> 示例值：
-         */
+     /**
+      * 筛选类型
+      * <p> 示例值：
+      */
         private String filterType;
-        /**
-         * 筛选的ID
-         * <p> 示例值：
-         */
+     /**
+      * 筛选的ID
+      * <p> 示例值：
+      */
         private String[] filterIds;
 
         /**
          * 筛选类型
          * <p> 示例值：
-         *
          * @param filterType
          * @return
          */
         public Builder filterType(String filterType) {
-            this.filterType = filterType;
-            return this;
+             this.filterType = filterType;
+             return this;
         }
-
         /**
          * 筛选类型
          * <p> 示例值：
-         *
          * @param filterType {@link com.lark.oapi.service.attendance.v1.enums.FilterItemFilterTypeEnum}
          * @return
          */
         public Builder filterType(com.lark.oapi.service.attendance.v1.enums.FilterItemFilterTypeEnum filterType) {
-            this.filterType = filterType.getValue();
-            return this;
+             this.filterType = filterType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 筛选的ID
          * <p> 示例值：
-         *
          * @param filterIds
          * @return
          */
         public Builder filterIds(String[] filterIds) {
-            this.filterIds = filterIds;
-            return this;
+             this.filterIds = filterIds;
+             return this;
         }
 
+    
+    
+    public FilterItem build(){
+        return new FilterItem(this);
+      }
+    }
 
-        public FilterItem build() {
-            return new FilterItem(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

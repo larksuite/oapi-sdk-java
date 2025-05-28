@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CpstMatchItem {
-    /**
-     * 薪资标准表ID
-     * <p> 示例值：7174758593538295340
-     */
+     /**
+      * 薪资标准表ID
+      * <p> 示例值：7174758593538295340
+      */
     @SerializedName("standard_id")
     private String standardId;
-    /**
-     * 薪资等级
-     * <p> 示例值：
-     */
+     /**
+      * 薪资等级
+      * <p> 示例值：
+      */
     @SerializedName("grade")
     private CpstGrade grade;
-    /**
-     * 生效时间
-     * <p> 示例值：1660924800000
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：1660924800000
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-
-    // builder 开始
-    public CpstMatchItem() {
-    }
-
-    public CpstMatchItem(Builder builder) {
-        /**
-         * 薪资标准表ID
-         * <p> 示例值：7174758593538295340
-         */
-        this.standardId = builder.standardId;
-        /**
-         * 薪资等级
-         * <p> 示例值：
-         */
-        this.grade = builder.grade;
-        /**
-         * 生效时间
-         * <p> 示例值：1660924800000
-         */
-        this.effectiveTime = builder.effectiveTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStandardId() {
         return this.standardId;
     }
@@ -98,64 +67,90 @@ public class CpstMatchItem {
         this.effectiveTime = effectiveTime;
     }
 
+
+// builder 开始
+  public CpstMatchItem(){}
+
+  public CpstMatchItem(Builder builder){
+         /**
+          * 薪资标准表ID
+          * <p> 示例值：7174758593538295340
+          */
+      this.standardId = builder.standardId;
+         /**
+          * 薪资等级
+          * <p> 示例值：
+          */
+      this.grade = builder.grade;
+         /**
+          * 生效时间
+          * <p> 示例值：1660924800000
+          */
+      this.effectiveTime = builder.effectiveTime;
+  }
+
     public static class Builder {
-        /**
-         * 薪资标准表ID
-         * <p> 示例值：7174758593538295340
-         */
+     /**
+      * 薪资标准表ID
+      * <p> 示例值：7174758593538295340
+      */
         private String standardId;
-        /**
-         * 薪资等级
-         * <p> 示例值：
-         */
+     /**
+      * 薪资等级
+      * <p> 示例值：
+      */
         private CpstGrade grade;
-        /**
-         * 生效时间
-         * <p> 示例值：1660924800000
-         */
+     /**
+      * 生效时间
+      * <p> 示例值：1660924800000
+      */
         private String effectiveTime;
 
         /**
          * 薪资标准表ID
          * <p> 示例值：7174758593538295340
-         *
          * @param standardId
          * @return
          */
         public Builder standardId(String standardId) {
-            this.standardId = standardId;
-            return this;
+             this.standardId = standardId;
+             return this;
         }
 
+    
 
         /**
          * 薪资等级
          * <p> 示例值：
-         *
          * @param grade
          * @return
          */
         public Builder grade(CpstGrade grade) {
-            this.grade = grade;
-            return this;
+             this.grade = grade;
+             return this;
         }
 
+    
 
         /**
          * 生效时间
          * <p> 示例值：1660924800000
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
+    
+    public CpstMatchItem build(){
+        return new CpstMatchItem(this);
+      }
+    }
 
-        public CpstMatchItem build() {
-            return new CpstMatchItem(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

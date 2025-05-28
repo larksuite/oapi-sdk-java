@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SignatureTemplateRegionInfo {
-    /**
-     * 是否全球适用
-     * <p> 示例值：global
-     */
+     /**
+      * 是否全球适用
+      * <p> 示例值：global
+      */
     @SerializedName("is_global_scope")
     private String isGlobalScope;
-    /**
-     * 适用区域名称
-     * <p> 示例值：
-     */
+     /**
+      * 适用区域名称
+      * <p> 示例值：
+      */
     @SerializedName("meta_infos")
     private SignatureMetaInfo[] metaInfos;
-
-    // builder 开始
-    public SignatureTemplateRegionInfo() {
-    }
-
-    public SignatureTemplateRegionInfo(Builder builder) {
-        /**
-         * 是否全球适用
-         * <p> 示例值：global
-         */
-        this.isGlobalScope = builder.isGlobalScope;
-        /**
-         * 适用区域名称
-         * <p> 示例值：
-         */
-        this.metaInfos = builder.metaInfos;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getIsGlobalScope() {
         return this.isGlobalScope;
     }
@@ -79,46 +53,67 @@ public class SignatureTemplateRegionInfo {
         this.metaInfos = metaInfos;
     }
 
+
+// builder 开始
+  public SignatureTemplateRegionInfo(){}
+
+  public SignatureTemplateRegionInfo(Builder builder){
+         /**
+          * 是否全球适用
+          * <p> 示例值：global
+          */
+      this.isGlobalScope = builder.isGlobalScope;
+         /**
+          * 适用区域名称
+          * <p> 示例值：
+          */
+      this.metaInfos = builder.metaInfos;
+  }
+
     public static class Builder {
-        /**
-         * 是否全球适用
-         * <p> 示例值：global
-         */
+     /**
+      * 是否全球适用
+      * <p> 示例值：global
+      */
         private String isGlobalScope;
-        /**
-         * 适用区域名称
-         * <p> 示例值：
-         */
+     /**
+      * 适用区域名称
+      * <p> 示例值：
+      */
         private SignatureMetaInfo[] metaInfos;
 
         /**
          * 是否全球适用
          * <p> 示例值：global
-         *
          * @param isGlobalScope
          * @return
          */
         public Builder isGlobalScope(String isGlobalScope) {
-            this.isGlobalScope = isGlobalScope;
-            return this;
+             this.isGlobalScope = isGlobalScope;
+             return this;
         }
 
+    
 
         /**
          * 适用区域名称
          * <p> 示例值：
-         *
          * @param metaInfos
          * @return
          */
         public Builder metaInfos(SignatureMetaInfo[] metaInfos) {
-            this.metaInfos = metaInfos;
-            return this;
+             this.metaInfos = metaInfos;
+             return this;
         }
 
+    
+    
+    public SignatureTemplateRegionInfo build(){
+        return new SignatureTemplateRegionInfo(this);
+      }
+    }
 
-        public SignatureTemplateRegionInfo build() {
-            return new SignatureTemplateRegionInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

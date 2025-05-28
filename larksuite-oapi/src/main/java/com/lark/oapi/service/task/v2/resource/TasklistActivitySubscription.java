@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.task.v2.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class TasklistActivitySubscription {
         this.config = config;
     }
 
-
+    
     /**
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
@@ -63,7 +58,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         CreateTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         CreateTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
@@ -129,7 +123,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DeleteTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DeleteTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -169,16 +163,15 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
@@ -195,7 +188,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         GetTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -203,14 +196,14 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -227,7 +220,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         GetTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -235,16 +228,15 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
@@ -261,7 +253,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         ListTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -269,14 +261,14 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -293,7 +285,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         ListTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -301,16 +293,15 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
@@ -327,7 +318,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         PatchTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -335,14 +326,14 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -359,7 +350,7 @@ public class TasklistActivitySubscription {
                 , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         PatchTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTasklistActivitySubscriptionResp.class);
         if (resp == null) {
@@ -367,13 +358,13 @@ public class TasklistActivitySubscription {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

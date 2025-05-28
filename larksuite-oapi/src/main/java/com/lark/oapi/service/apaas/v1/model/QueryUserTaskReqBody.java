@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryUserTaskReqBody {
-    /**
-     * 类型
-     * <p> 示例值：pending
-     */
+     /**
+      * 类型
+      * <p> 示例值：pending
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 来源
-     * <p> 示例值：assignMe
-     */
+     /**
+      * 来源
+      * <p> 示例值：assignMe
+      */
     @SerializedName("source")
     private String source;
-    /**
-     * 获取条数
-     * <p> 示例值：10
-     */
+     /**
+      * 获取条数
+      * <p> 示例值：10
+      */
     @SerializedName("limit")
     private String limit;
-    /**
-     * 起始位置
-     * <p> 示例值：0
-     */
+     /**
+      * 起始位置
+      * <p> 示例值：0
+      */
     @SerializedName("offset")
     private String offset;
-    /**
-     * 开始时间
-     * <p> 示例值：1730208758000
-     */
+     /**
+      * 开始时间
+      * <p> 示例值：1730208758000
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 结束时间
-     * <p> 示例值：1730208758000
-     */
+     /**
+      * 结束时间
+      * <p> 示例值：1730208758000
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 流程apiid列表
-     * <p> 示例值：
-     */
+     /**
+      * 流程apiid列表
+      * <p> 示例值：
+      */
     @SerializedName("api_ids")
     private String[] apiIds;
-    /**
-     * kunlunUserID;
-     * <p> 示例值：1234
-     */
+     /**
+      * kunlunUserID;
+      * <p> 示例值：1234
+      */
     @SerializedName("kunlun_user_id")
     private String kunlunUserId;
-
-    // builder 开始
-    public QueryUserTaskReqBody() {
-    }
-
-    public QueryUserTaskReqBody(Builder builder) {
-        /**
-         * 类型
-         * <p> 示例值：pending
-         */
-        this.type = builder.type;
-        /**
-         * 来源
-         * <p> 示例值：assignMe
-         */
-        this.source = builder.source;
-        /**
-         * 获取条数
-         * <p> 示例值：10
-         */
-        this.limit = builder.limit;
-        /**
-         * 起始位置
-         * <p> 示例值：0
-         */
-        this.offset = builder.offset;
-        /**
-         * 开始时间
-         * <p> 示例值：1730208758000
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1730208758000
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 流程apiid列表
-         * <p> 示例值：
-         */
-        this.apiIds = builder.apiIds;
-        /**
-         * kunlunUserID;
-         * <p> 示例值：1234
-         */
-        this.kunlunUserId = builder.kunlunUserId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -193,154 +137,205 @@ public class QueryUserTaskReqBody {
         this.kunlunUserId = kunlunUserId;
     }
 
+
+// builder 开始
+  public QueryUserTaskReqBody(){}
+
+  public QueryUserTaskReqBody(Builder builder){
+         /**
+          * 类型
+          * <p> 示例值：pending
+          */
+      this.type = builder.type;
+         /**
+          * 来源
+          * <p> 示例值：assignMe
+          */
+      this.source = builder.source;
+         /**
+          * 获取条数
+          * <p> 示例值：10
+          */
+      this.limit = builder.limit;
+         /**
+          * 起始位置
+          * <p> 示例值：0
+          */
+      this.offset = builder.offset;
+         /**
+          * 开始时间
+          * <p> 示例值：1730208758000
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 结束时间
+          * <p> 示例值：1730208758000
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 流程apiid列表
+          * <p> 示例值：
+          */
+      this.apiIds = builder.apiIds;
+         /**
+          * kunlunUserID;
+          * <p> 示例值：1234
+          */
+      this.kunlunUserId = builder.kunlunUserId;
+  }
+
     public static class Builder {
-        /**
-         * 类型
-         * <p> 示例值：pending
-         */
+     /**
+      * 类型
+      * <p> 示例值：pending
+      */
         private String type;
-        /**
-         * 来源
-         * <p> 示例值：assignMe
-         */
+     /**
+      * 来源
+      * <p> 示例值：assignMe
+      */
         private String source;
-        /**
-         * 获取条数
-         * <p> 示例值：10
-         */
+     /**
+      * 获取条数
+      * <p> 示例值：10
+      */
         private String limit;
-        /**
-         * 起始位置
-         * <p> 示例值：0
-         */
+     /**
+      * 起始位置
+      * <p> 示例值：0
+      */
         private String offset;
-        /**
-         * 开始时间
-         * <p> 示例值：1730208758000
-         */
+     /**
+      * 开始时间
+      * <p> 示例值：1730208758000
+      */
         private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1730208758000
-         */
+     /**
+      * 结束时间
+      * <p> 示例值：1730208758000
+      */
         private String endTime;
-        /**
-         * 流程apiid列表
-         * <p> 示例值：
-         */
+     /**
+      * 流程apiid列表
+      * <p> 示例值：
+      */
         private String[] apiIds;
-        /**
-         * kunlunUserID;
-         * <p> 示例值：1234
-         */
+     /**
+      * kunlunUserID;
+      * <p> 示例值：1234
+      */
         private String kunlunUserId;
 
         /**
          * 类型
          * <p> 示例值：pending
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 来源
          * <p> 示例值：assignMe
-         *
          * @param source
          * @return
          */
         public Builder source(String source) {
-            this.source = source;
-            return this;
+             this.source = source;
+             return this;
         }
 
+    
 
         /**
          * 获取条数
          * <p> 示例值：10
-         *
          * @param limit
          * @return
          */
         public Builder limit(String limit) {
-            this.limit = limit;
-            return this;
+             this.limit = limit;
+             return this;
         }
 
+    
 
         /**
          * 起始位置
          * <p> 示例值：0
-         *
          * @param offset
          * @return
          */
         public Builder offset(String offset) {
-            this.offset = offset;
-            return this;
+             this.offset = offset;
+             return this;
         }
 
+    
 
         /**
          * 开始时间
          * <p> 示例值：1730208758000
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 结束时间
          * <p> 示例值：1730208758000
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 流程apiid列表
          * <p> 示例值：
-         *
          * @param apiIds
          * @return
          */
         public Builder apiIds(String[] apiIds) {
-            this.apiIds = apiIds;
-            return this;
+             this.apiIds = apiIds;
+             return this;
         }
 
+    
 
         /**
          * kunlunUserID;
          * <p> 示例值：1234
-         *
          * @param kunlunUserId
          * @return
          */
         public Builder kunlunUserId(String kunlunUserId) {
-            this.kunlunUserId = kunlunUserId;
-            return this;
+             this.kunlunUserId = kunlunUserId;
+             return this;
         }
 
+    
+    
+    public QueryUserTaskReqBody build(){
+        return new QueryUserTaskReqBody(this);
+      }
+    }
 
-        public QueryUserTaskReqBody build() {
-            return new QueryUserTaskReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

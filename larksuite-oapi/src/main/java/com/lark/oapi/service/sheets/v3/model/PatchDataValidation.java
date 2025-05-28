@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchDataValidation {
-    /**
-     * 数据校验规则
-     * <p> 示例值：
-     */
+     /**
+      * 数据校验规则
+      * <p> 示例值：
+      */
     @SerializedName("data_validation_rule")
     private DataValidationRule dataValidationRule;
-    /**
-     * 校验模式，数据非法时是否拒绝输入
-     * <p> 示例值：true
-     */
+     /**
+      * 校验模式，数据非法时是否拒绝输入
+      * <p> 示例值：true
+      */
     @SerializedName("strict")
     private Boolean strict;
-    /**
-     * 帮助文本
-     * <p> 示例值：
-     */
+     /**
+      * 帮助文本
+      * <p> 示例值：
+      */
     @SerializedName("help_text")
     private String helpText;
-
-    // builder 开始
-    public PatchDataValidation() {
-    }
-
-    public PatchDataValidation(Builder builder) {
-        /**
-         * 数据校验规则
-         * <p> 示例值：
-         */
-        this.dataValidationRule = builder.dataValidationRule;
-        /**
-         * 校验模式，数据非法时是否拒绝输入
-         * <p> 示例值：true
-         */
-        this.strict = builder.strict;
-        /**
-         * 帮助文本
-         * <p> 示例值：
-         */
-        this.helpText = builder.helpText;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public DataValidationRule getDataValidationRule() {
         return this.dataValidationRule;
     }
@@ -98,64 +67,90 @@ public class PatchDataValidation {
         this.helpText = helpText;
     }
 
+
+// builder 开始
+  public PatchDataValidation(){}
+
+  public PatchDataValidation(Builder builder){
+         /**
+          * 数据校验规则
+          * <p> 示例值：
+          */
+      this.dataValidationRule = builder.dataValidationRule;
+         /**
+          * 校验模式，数据非法时是否拒绝输入
+          * <p> 示例值：true
+          */
+      this.strict = builder.strict;
+         /**
+          * 帮助文本
+          * <p> 示例值：
+          */
+      this.helpText = builder.helpText;
+  }
+
     public static class Builder {
-        /**
-         * 数据校验规则
-         * <p> 示例值：
-         */
+     /**
+      * 数据校验规则
+      * <p> 示例值：
+      */
         private DataValidationRule dataValidationRule;
-        /**
-         * 校验模式，数据非法时是否拒绝输入
-         * <p> 示例值：true
-         */
+     /**
+      * 校验模式，数据非法时是否拒绝输入
+      * <p> 示例值：true
+      */
         private Boolean strict;
-        /**
-         * 帮助文本
-         * <p> 示例值：
-         */
+     /**
+      * 帮助文本
+      * <p> 示例值：
+      */
         private String helpText;
 
         /**
          * 数据校验规则
          * <p> 示例值：
-         *
          * @param dataValidationRule
          * @return
          */
         public Builder dataValidationRule(DataValidationRule dataValidationRule) {
-            this.dataValidationRule = dataValidationRule;
-            return this;
+             this.dataValidationRule = dataValidationRule;
+             return this;
         }
 
+    
 
         /**
          * 校验模式，数据非法时是否拒绝输入
          * <p> 示例值：true
-         *
          * @param strict
          * @return
          */
         public Builder strict(Boolean strict) {
-            this.strict = strict;
-            return this;
+             this.strict = strict;
+             return this;
         }
 
+    
 
         /**
          * 帮助文本
          * <p> 示例值：
-         *
          * @param helpText
          * @return
          */
         public Builder helpText(String helpText) {
-            this.helpText = helpText;
-            return this;
+             this.helpText = helpText;
+             return this;
         }
 
+    
+    
+    public PatchDataValidation build(){
+        return new PatchDataValidation(this);
+      }
+    }
 
-        public PatchDataValidation build() {
-            return new PatchDataValidation(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

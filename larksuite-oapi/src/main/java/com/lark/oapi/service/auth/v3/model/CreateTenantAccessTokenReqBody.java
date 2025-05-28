@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.auth.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateTenantAccessTokenReqBody {
-    /**
-     * 应用访问凭证，通过商店应用获取 app_access_token接口获取。
-     * <p> 示例值：a-32bd8551db2f081cbfd26293f27516390b9feb04
-     */
+     /**
+      * 应用访问凭证，通过商店应用获取 app_access_token接口获取。
+      * <p> 示例值：a-32bd8551db2f081cbfd26293f27516390b9feb04
+      */
     @SerializedName("app_access_token")
     private String appAccessToken;
-    /**
-     * 租户在飞书上的唯一标识，也可以理解为企业标识可以通过如下方式获取：  业开通应用时，开放平台推送给应用，具体可参考【首次启用应用】事件； 用户登录到小程序、H5 应用或者浏览器应用时，在用户的身份信息中获取。
-     * <p> 示例值：73658811060f175d
-     */
+     /**
+      * 租户在飞书上的唯一标识，也可以理解为企业标识可以通过如下方式获取：  业开通应用时，开放平台推送给应用，具体可参考【首次启用应用】事件； 用户登录到小程序、H5 应用或者浏览器应用时，在用户的身份信息中获取。
+      * <p> 示例值：73658811060f175d
+      */
     @SerializedName("tenant_key")
     private String tenantKey;
-
-    // builder 开始
-    public CreateTenantAccessTokenReqBody() {
-    }
-
-    public CreateTenantAccessTokenReqBody(Builder builder) {
-        /**
-         * 应用访问凭证，通过商店应用获取 app_access_token接口获取。
-         * <p> 示例值：a-32bd8551db2f081cbfd26293f27516390b9feb04
-         */
-        this.appAccessToken = builder.appAccessToken;
-        /**
-         * 租户在飞书上的唯一标识，也可以理解为企业标识可以通过如下方式获取：  业开通应用时，开放平台推送给应用，具体可参考【首次启用应用】事件； 用户登录到小程序、H5 应用或者浏览器应用时，在用户的身份信息中获取。
-         * <p> 示例值：73658811060f175d
-         */
-        this.tenantKey = builder.tenantKey;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAppAccessToken() {
         return this.appAccessToken;
     }
@@ -78,46 +52,67 @@ public class CreateTenantAccessTokenReqBody {
         this.tenantKey = tenantKey;
     }
 
+
+// builder 开始
+  public CreateTenantAccessTokenReqBody(){}
+
+  public CreateTenantAccessTokenReqBody(Builder builder){
+         /**
+          * 应用访问凭证，通过商店应用获取 app_access_token接口获取。
+          * <p> 示例值：a-32bd8551db2f081cbfd26293f27516390b9feb04
+          */
+      this.appAccessToken = builder.appAccessToken;
+         /**
+          * 租户在飞书上的唯一标识，也可以理解为企业标识可以通过如下方式获取：  业开通应用时，开放平台推送给应用，具体可参考【首次启用应用】事件； 用户登录到小程序、H5 应用或者浏览器应用时，在用户的身份信息中获取。
+          * <p> 示例值：73658811060f175d
+          */
+      this.tenantKey = builder.tenantKey;
+  }
+
     public static class Builder {
-        /**
-         * 应用访问凭证，通过商店应用获取 app_access_token接口获取。
-         * <p> 示例值：a-32bd8551db2f081cbfd26293f27516390b9feb04
-         */
+     /**
+      * 应用访问凭证，通过商店应用获取 app_access_token接口获取。
+      * <p> 示例值：a-32bd8551db2f081cbfd26293f27516390b9feb04
+      */
         private String appAccessToken;
-        /**
-         * 租户在飞书上的唯一标识，也可以理解为企业标识可以通过如下方式获取：  业开通应用时，开放平台推送给应用，具体可参考【首次启用应用】事件； 用户登录到小程序、H5 应用或者浏览器应用时，在用户的身份信息中获取。
-         * <p> 示例值：73658811060f175d
-         */
+     /**
+      * 租户在飞书上的唯一标识，也可以理解为企业标识可以通过如下方式获取：  业开通应用时，开放平台推送给应用，具体可参考【首次启用应用】事件； 用户登录到小程序、H5 应用或者浏览器应用时，在用户的身份信息中获取。
+      * <p> 示例值：73658811060f175d
+      */
         private String tenantKey;
 
         /**
          * 应用访问凭证，通过商店应用获取 app_access_token接口获取。
          * <p> 示例值：a-32bd8551db2f081cbfd26293f27516390b9feb04
-         *
          * @param appAccessToken
          * @return
          */
         public Builder appAccessToken(String appAccessToken) {
-            this.appAccessToken = appAccessToken;
-            return this;
+             this.appAccessToken = appAccessToken;
+             return this;
         }
 
+    
 
         /**
          * 租户在飞书上的唯一标识，也可以理解为企业标识可以通过如下方式获取：  业开通应用时，开放平台推送给应用，具体可参考【首次启用应用】事件； 用户登录到小程序、H5 应用或者浏览器应用时，在用户的身份信息中获取。
          * <p> 示例值：73658811060f175d
-         *
          * @param tenantKey
          * @return
          */
         public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
+             this.tenantKey = tenantKey;
+             return this;
         }
 
+    
+    
+    public CreateTenantAccessTokenReqBody build(){
+        return new CreateTenantAccessTokenReqBody(this);
+      }
+    }
 
-        public CreateTenantAccessTokenReqBody build() {
-            return new CreateTenantAccessTokenReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

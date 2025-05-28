@@ -17,16 +17,15 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文档类型
  */
 public enum CreateFileCommentFileTypeEnum {
-    DOC("doc"), // 文档
-    DOCX("docx"), // 新版文档
-    ;
-    private String value;
-
+     DOC("doc"), // 文档
+     DOCX("docx"), // 新版文档
+  ;
+   private String value;
     CreateFileCommentFileTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

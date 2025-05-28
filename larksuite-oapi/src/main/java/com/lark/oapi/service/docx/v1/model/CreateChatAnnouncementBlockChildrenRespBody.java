@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateChatAnnouncementBlockChildrenRespBody {
-    /**
-     * 所添加的孩子的 Block 信息
-     * <p> 示例值：
-     */
+     /**
+      * 所添加的孩子的 Block 信息
+      * <p> 示例值：
+      */
     @SerializedName("children")
     private Block[] children;
-    /**
-     * 当前 Block Children 创建成功后群公告的版本号
-     * <p> 示例值：2
-     */
+     /**
+      * 当前 Block Children 创建成功后群公告的版本号
+      * <p> 示例值：2
+      */
     @SerializedName("revision_id")
     private Integer revisionId;
-    /**
-     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-     * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-     */
+     /**
+      * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+      * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+      */
     @SerializedName("client_token")
     private String clientToken;
-
     public Block[] getChildren() {
         return this.children;
     }

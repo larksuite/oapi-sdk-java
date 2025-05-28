@@ -12,144 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RoleDetail {
-    /**
-     * 角色ID
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 角色ID
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 角色名称
-     * <p> 示例值：
-     */
+     /**
+      * 角色名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 角色描述
-     * <p> 示例值：
-     */
+     /**
+      * 角色描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private I18n description;
-    /**
-     * 更新时间
-     * <p> 示例值：1716535727510
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：1716535727510
+      */
     @SerializedName("modify_time")
     private String modifyTime;
-    /**
-     * 停启用状态
-     * <p> 示例值：
-     */
+     /**
+      * 停启用状态
+      * <p> 示例值：
+      */
     @SerializedName("role_status")
     private Integer roleStatus;
-    /**
-     * 角色类型
-     * <p> 示例值：
-     */
+     /**
+      * 角色类型
+      * <p> 示例值：
+      */
     @SerializedName("role_type")
     private Integer roleType;
-    /**
-     * 适用范围
-     * <p> 示例值：
-     */
+     /**
+      * 适用范围
+      * <p> 示例值：
+      */
     @SerializedName("scope_of_application")
     private Integer scopeOfApplication;
-    /**
-     * 是否在角色上配置业务管理范围
-     * <p> 示例值：true
-     */
+     /**
+      * 是否在角色上配置业务管理范围
+      * <p> 示例值：true
+      */
     @SerializedName("has_business_management_scope")
     private Boolean hasBusinessManagementScope;
-    /**
-     * 社招权限配置
-     * <p> 示例值：
-     */
+     /**
+      * 社招权限配置
+      * <p> 示例值：
+      */
     @SerializedName("socail_permission_collection")
     private PermissionCollection socailPermissionCollection;
-    /**
-     * 校招权限配置
-     * <p> 示例值：
-     */
+     /**
+      * 校招权限配置
+      * <p> 示例值：
+      */
     @SerializedName("campus_permission_collection")
     private PermissionCollection campusPermissionCollection;
-
-    // builder 开始
-    public RoleDetail() {
-    }
-
-    public RoleDetail(Builder builder) {
-        /**
-         * 角色ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.id = builder.id;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 更新时间
-         * <p> 示例值：1716535727510
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * 停启用状态
-         * <p> 示例值：
-         */
-        this.roleStatus = builder.roleStatus;
-        /**
-         * 角色类型
-         * <p> 示例值：
-         */
-        this.roleType = builder.roleType;
-        /**
-         * 适用范围
-         * <p> 示例值：
-         */
-        this.scopeOfApplication = builder.scopeOfApplication;
-        /**
-         * 是否在角色上配置业务管理范围
-         * <p> 示例值：true
-         */
-        this.hasBusinessManagementScope = builder.hasBusinessManagementScope;
-        /**
-         * 社招权限配置
-         * <p> 示例值：
-         */
-        this.socailPermissionCollection = builder.socailPermissionCollection;
-        /**
-         * 校招权限配置
-         * <p> 示例值：
-         */
-        this.campusPermissionCollection = builder.campusPermissionCollection;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -230,190 +164,251 @@ public class RoleDetail {
         this.campusPermissionCollection = campusPermissionCollection;
     }
 
+
+// builder 开始
+  public RoleDetail(){}
+
+  public RoleDetail(Builder builder){
+         /**
+          * 角色ID
+          * <p> 示例值：6930815272790114324
+          */
+      this.id = builder.id;
+         /**
+          * 角色名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 角色描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 更新时间
+          * <p> 示例值：1716535727510
+          */
+      this.modifyTime = builder.modifyTime;
+         /**
+          * 停启用状态
+          * <p> 示例值：
+          */
+      this.roleStatus = builder.roleStatus;
+         /**
+          * 角色类型
+          * <p> 示例值：
+          */
+      this.roleType = builder.roleType;
+         /**
+          * 适用范围
+          * <p> 示例值：
+          */
+      this.scopeOfApplication = builder.scopeOfApplication;
+         /**
+          * 是否在角色上配置业务管理范围
+          * <p> 示例值：true
+          */
+      this.hasBusinessManagementScope = builder.hasBusinessManagementScope;
+         /**
+          * 社招权限配置
+          * <p> 示例值：
+          */
+      this.socailPermissionCollection = builder.socailPermissionCollection;
+         /**
+          * 校招权限配置
+          * <p> 示例值：
+          */
+      this.campusPermissionCollection = builder.campusPermissionCollection;
+  }
+
     public static class Builder {
-        /**
-         * 角色ID
-         * <p> 示例值：6930815272790114324
-         */
+     /**
+      * 角色ID
+      * <p> 示例值：6930815272790114324
+      */
         private String id;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
+     /**
+      * 角色名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
+     /**
+      * 角色描述
+      * <p> 示例值：
+      */
         private I18n description;
-        /**
-         * 更新时间
-         * <p> 示例值：1716535727510
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：1716535727510
+      */
         private String modifyTime;
-        /**
-         * 停启用状态
-         * <p> 示例值：
-         */
+     /**
+      * 停启用状态
+      * <p> 示例值：
+      */
         private Integer roleStatus;
-        /**
-         * 角色类型
-         * <p> 示例值：
-         */
+     /**
+      * 角色类型
+      * <p> 示例值：
+      */
         private Integer roleType;
-        /**
-         * 适用范围
-         * <p> 示例值：
-         */
+     /**
+      * 适用范围
+      * <p> 示例值：
+      */
         private Integer scopeOfApplication;
-        /**
-         * 是否在角色上配置业务管理范围
-         * <p> 示例值：true
-         */
+     /**
+      * 是否在角色上配置业务管理范围
+      * <p> 示例值：true
+      */
         private Boolean hasBusinessManagementScope;
-        /**
-         * 社招权限配置
-         * <p> 示例值：
-         */
+     /**
+      * 社招权限配置
+      * <p> 示例值：
+      */
         private PermissionCollection socailPermissionCollection;
-        /**
-         * 校招权限配置
-         * <p> 示例值：
-         */
+     /**
+      * 校招权限配置
+      * <p> 示例值：
+      */
         private PermissionCollection campusPermissionCollection;
 
         /**
          * 角色ID
          * <p> 示例值：6930815272790114324
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 角色名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 角色描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(I18n description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：1716535727510
-         *
          * @param modifyTime
          * @return
          */
         public Builder modifyTime(String modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
+             this.modifyTime = modifyTime;
+             return this;
         }
 
+    
 
         /**
          * 停启用状态
          * <p> 示例值：
-         *
          * @param roleStatus
          * @return
          */
         public Builder roleStatus(Integer roleStatus) {
-            this.roleStatus = roleStatus;
-            return this;
+             this.roleStatus = roleStatus;
+             return this;
         }
 
+    
 
         /**
          * 角色类型
          * <p> 示例值：
-         *
          * @param roleType
          * @return
          */
         public Builder roleType(Integer roleType) {
-            this.roleType = roleType;
-            return this;
+             this.roleType = roleType;
+             return this;
         }
 
+    
 
         /**
          * 适用范围
          * <p> 示例值：
-         *
          * @param scopeOfApplication
          * @return
          */
         public Builder scopeOfApplication(Integer scopeOfApplication) {
-            this.scopeOfApplication = scopeOfApplication;
-            return this;
+             this.scopeOfApplication = scopeOfApplication;
+             return this;
         }
 
+    
 
         /**
          * 是否在角色上配置业务管理范围
          * <p> 示例值：true
-         *
          * @param hasBusinessManagementScope
          * @return
          */
         public Builder hasBusinessManagementScope(Boolean hasBusinessManagementScope) {
-            this.hasBusinessManagementScope = hasBusinessManagementScope;
-            return this;
+             this.hasBusinessManagementScope = hasBusinessManagementScope;
+             return this;
         }
 
+    
 
         /**
          * 社招权限配置
          * <p> 示例值：
-         *
          * @param socailPermissionCollection
          * @return
          */
         public Builder socailPermissionCollection(PermissionCollection socailPermissionCollection) {
-            this.socailPermissionCollection = socailPermissionCollection;
-            return this;
+             this.socailPermissionCollection = socailPermissionCollection;
+             return this;
         }
 
+    
 
         /**
          * 校招权限配置
          * <p> 示例值：
-         *
          * @param campusPermissionCollection
          * @return
          */
         public Builder campusPermissionCollection(PermissionCollection campusPermissionCollection) {
-            this.campusPermissionCollection = campusPermissionCollection;
-            return this;
+             this.campusPermissionCollection = campusPermissionCollection;
+             return this;
         }
 
+    
+    
+    public RoleDetail build(){
+        return new RoleDetail(this);
+      }
+    }
 
-        public RoleDetail build() {
-            return new RoleDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

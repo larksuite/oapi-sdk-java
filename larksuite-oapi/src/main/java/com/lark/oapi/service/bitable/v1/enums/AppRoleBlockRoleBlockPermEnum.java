@@ -17,16 +17,15 @@ package com.lark.oapi.service.bitable.v1.enums;
  * Block权限
  */
 public enum AppRoleBlockRoleBlockPermEnum {
-    NOPERM(0), // 无权限
-    READ(1), // 可阅读
-    ;
-    private Integer value;
-
+     NOPERM(0), // 无权限
+     READ(1), // 可阅读
+  ;
+   private Integer value;
     AppRoleBlockRoleBlockPermEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

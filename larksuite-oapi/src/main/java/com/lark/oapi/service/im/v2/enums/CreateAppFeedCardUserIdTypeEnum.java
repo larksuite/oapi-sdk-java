@@ -17,17 +17,16 @@ package com.lark.oapi.service.im.v2.enums;
  * 用户 ID 类型
  */
 public enum CreateAppFeedCardUserIdTypeEnum {
-    OPEN_ID("open_id"), // open_id
-    UNION_ID("union_id"), // union_id
-    USER_ID("user_id"), // user_id
-    ;
-    private String value;
-
+     OPEN_ID("open_id"), // open_id
+     UNION_ID("union_id"), // union_id
+     USER_ID("user_id"), // user_id
+  ;
+   private String value;
     CreateAppFeedCardUserIdTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

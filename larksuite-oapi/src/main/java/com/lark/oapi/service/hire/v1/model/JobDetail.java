@@ -12,133 +12,72 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobDetail {
-    /**
-     * 职位基本信息
-     * <p> 示例值：
-     */
+     /**
+      * 职位基本信息
+      * <p> 示例值：
+      */
     @SerializedName("basic_info")
     private JobDetailBasicInfo basicInfo;
-    /**
-     * 职位负责人
-     * <p> 示例值：
-     */
+     /**
+      * 职位负责人
+      * <p> 示例值：
+      */
     @SerializedName("recruiter")
     private JobUserInfo recruiter;
-    /**
-     * 职位协助人列表
-     * <p> 示例值：
-     */
+     /**
+      * 职位协助人列表
+      * <p> 示例值：
+      */
     @SerializedName("assistant_list")
     private JobUserInfo[] assistantList;
-    /**
-     * 职位用人经理列表
-     * <p> 示例值：
-     */
+     /**
+      * 职位用人经理列表
+      * <p> 示例值：
+      */
     @SerializedName("hiring_manager_list")
     private JobUserInfo[] hiringManagerList;
-    /**
-     * 招聘需求列表
-     * <p> 示例值：
-     */
+     /**
+      * 招聘需求列表
+      * <p> 示例值：
+      */
     @SerializedName("job_requirement_list")
     private JobRequirementSimple[] jobRequirementList;
-    /**
-     * 职位地址列表
-     * <p> 示例值：
-     */
+     /**
+      * 职位地址列表
+      * <p> 示例值：
+      */
     @SerializedName("address_list")
     private CommonAddress[] addressList;
-    /**
-     * 职位设置
-     * <p> 示例值：
-     */
+     /**
+      * 职位设置
+      * <p> 示例值：
+      */
     @SerializedName("job_config")
     private JobConfigDetail jobConfig;
-    /**
-     * 门店列表
-     * <p> 示例值：
-     */
+     /**
+      * 门店列表
+      * <p> 示例值：
+      */
     @SerializedName("storefront_list")
     private JobStorefront[] storefrontList;
-    /**
-     * 职位标签列表
-     * <p> 示例值：
-     */
+     /**
+      * 职位标签列表
+      * <p> 示例值：
+      */
     @SerializedName("tag_list")
     private JobDetailTag[] tagList;
-
-    // builder 开始
-    public JobDetail() {
-    }
-
-    public JobDetail(Builder builder) {
-        /**
-         * 职位基本信息
-         * <p> 示例值：
-         */
-        this.basicInfo = builder.basicInfo;
-        /**
-         * 职位负责人
-         * <p> 示例值：
-         */
-        this.recruiter = builder.recruiter;
-        /**
-         * 职位协助人列表
-         * <p> 示例值：
-         */
-        this.assistantList = builder.assistantList;
-        /**
-         * 职位用人经理列表
-         * <p> 示例值：
-         */
-        this.hiringManagerList = builder.hiringManagerList;
-        /**
-         * 招聘需求列表
-         * <p> 示例值：
-         */
-        this.jobRequirementList = builder.jobRequirementList;
-        /**
-         * 职位地址列表
-         * <p> 示例值：
-         */
-        this.addressList = builder.addressList;
-        /**
-         * 职位设置
-         * <p> 示例值：
-         */
-        this.jobConfig = builder.jobConfig;
-        /**
-         * 门店列表
-         * <p> 示例值：
-         */
-        this.storefrontList = builder.storefrontList;
-        /**
-         * 职位标签列表
-         * <p> 示例值：
-         */
-        this.tagList = builder.tagList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public JobDetailBasicInfo getBasicInfo() {
         return this.basicInfo;
     }
@@ -211,172 +150,228 @@ public class JobDetail {
         this.tagList = tagList;
     }
 
+
+// builder 开始
+  public JobDetail(){}
+
+  public JobDetail(Builder builder){
+         /**
+          * 职位基本信息
+          * <p> 示例值：
+          */
+      this.basicInfo = builder.basicInfo;
+         /**
+          * 职位负责人
+          * <p> 示例值：
+          */
+      this.recruiter = builder.recruiter;
+         /**
+          * 职位协助人列表
+          * <p> 示例值：
+          */
+      this.assistantList = builder.assistantList;
+         /**
+          * 职位用人经理列表
+          * <p> 示例值：
+          */
+      this.hiringManagerList = builder.hiringManagerList;
+         /**
+          * 招聘需求列表
+          * <p> 示例值：
+          */
+      this.jobRequirementList = builder.jobRequirementList;
+         /**
+          * 职位地址列表
+          * <p> 示例值：
+          */
+      this.addressList = builder.addressList;
+         /**
+          * 职位设置
+          * <p> 示例值：
+          */
+      this.jobConfig = builder.jobConfig;
+         /**
+          * 门店列表
+          * <p> 示例值：
+          */
+      this.storefrontList = builder.storefrontList;
+         /**
+          * 职位标签列表
+          * <p> 示例值：
+          */
+      this.tagList = builder.tagList;
+  }
+
     public static class Builder {
-        /**
-         * 职位基本信息
-         * <p> 示例值：
-         */
+     /**
+      * 职位基本信息
+      * <p> 示例值：
+      */
         private JobDetailBasicInfo basicInfo;
-        /**
-         * 职位负责人
-         * <p> 示例值：
-         */
+     /**
+      * 职位负责人
+      * <p> 示例值：
+      */
         private JobUserInfo recruiter;
-        /**
-         * 职位协助人列表
-         * <p> 示例值：
-         */
+     /**
+      * 职位协助人列表
+      * <p> 示例值：
+      */
         private JobUserInfo[] assistantList;
-        /**
-         * 职位用人经理列表
-         * <p> 示例值：
-         */
+     /**
+      * 职位用人经理列表
+      * <p> 示例值：
+      */
         private JobUserInfo[] hiringManagerList;
-        /**
-         * 招聘需求列表
-         * <p> 示例值：
-         */
+     /**
+      * 招聘需求列表
+      * <p> 示例值：
+      */
         private JobRequirementSimple[] jobRequirementList;
-        /**
-         * 职位地址列表
-         * <p> 示例值：
-         */
+     /**
+      * 职位地址列表
+      * <p> 示例值：
+      */
         private CommonAddress[] addressList;
-        /**
-         * 职位设置
-         * <p> 示例值：
-         */
+     /**
+      * 职位设置
+      * <p> 示例值：
+      */
         private JobConfigDetail jobConfig;
-        /**
-         * 门店列表
-         * <p> 示例值：
-         */
+     /**
+      * 门店列表
+      * <p> 示例值：
+      */
         private JobStorefront[] storefrontList;
-        /**
-         * 职位标签列表
-         * <p> 示例值：
-         */
+     /**
+      * 职位标签列表
+      * <p> 示例值：
+      */
         private JobDetailTag[] tagList;
 
         /**
          * 职位基本信息
          * <p> 示例值：
-         *
          * @param basicInfo
          * @return
          */
         public Builder basicInfo(JobDetailBasicInfo basicInfo) {
-            this.basicInfo = basicInfo;
-            return this;
+             this.basicInfo = basicInfo;
+             return this;
         }
 
+    
 
         /**
          * 职位负责人
          * <p> 示例值：
-         *
          * @param recruiter
          * @return
          */
         public Builder recruiter(JobUserInfo recruiter) {
-            this.recruiter = recruiter;
-            return this;
+             this.recruiter = recruiter;
+             return this;
         }
 
+    
 
         /**
          * 职位协助人列表
          * <p> 示例值：
-         *
          * @param assistantList
          * @return
          */
         public Builder assistantList(JobUserInfo[] assistantList) {
-            this.assistantList = assistantList;
-            return this;
+             this.assistantList = assistantList;
+             return this;
         }
 
+    
 
         /**
          * 职位用人经理列表
          * <p> 示例值：
-         *
          * @param hiringManagerList
          * @return
          */
         public Builder hiringManagerList(JobUserInfo[] hiringManagerList) {
-            this.hiringManagerList = hiringManagerList;
-            return this;
+             this.hiringManagerList = hiringManagerList;
+             return this;
         }
 
+    
 
         /**
          * 招聘需求列表
          * <p> 示例值：
-         *
          * @param jobRequirementList
          * @return
          */
         public Builder jobRequirementList(JobRequirementSimple[] jobRequirementList) {
-            this.jobRequirementList = jobRequirementList;
-            return this;
+             this.jobRequirementList = jobRequirementList;
+             return this;
         }
 
+    
 
         /**
          * 职位地址列表
          * <p> 示例值：
-         *
          * @param addressList
          * @return
          */
         public Builder addressList(CommonAddress[] addressList) {
-            this.addressList = addressList;
-            return this;
+             this.addressList = addressList;
+             return this;
         }
 
+    
 
         /**
          * 职位设置
          * <p> 示例值：
-         *
          * @param jobConfig
          * @return
          */
         public Builder jobConfig(JobConfigDetail jobConfig) {
-            this.jobConfig = jobConfig;
-            return this;
+             this.jobConfig = jobConfig;
+             return this;
         }
 
+    
 
         /**
          * 门店列表
          * <p> 示例值：
-         *
          * @param storefrontList
          * @return
          */
         public Builder storefrontList(JobStorefront[] storefrontList) {
-            this.storefrontList = storefrontList;
-            return this;
+             this.storefrontList = storefrontList;
+             return this;
         }
 
+    
 
         /**
          * 职位标签列表
          * <p> 示例值：
-         *
          * @param tagList
          * @return
          */
         public Builder tagList(JobDetailTag[] tagList) {
-            this.tagList = tagList;
-            return this;
+             this.tagList = tagList;
+             return this;
         }
 
+    
+    
+    public JobDetail build(){
+        return new JobDetail(this);
+      }
+    }
 
-        public JobDetail build() {
-            return new JobDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

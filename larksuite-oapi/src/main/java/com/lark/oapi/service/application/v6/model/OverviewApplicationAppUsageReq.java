@@ -12,61 +12,25 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OverviewApplicationAppUsageReq {
-    /**
-     * 调用中使用的部门ID的类型
-     * <p> 示例值：open_department_id
-     */
+     /**
+      * 调用中使用的部门ID的类型
+      * <p> 示例值：open_department_id
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    /**
-     * 目标应用 ID
-     * <p> 示例值：cli_9f115af860f7901b
-     */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
-    private OverviewApplicationAppUsageReqBody body;
-
-    // builder 开始
-    public OverviewApplicationAppUsageReq() {
-    }
-
-    public OverviewApplicationAppUsageReq(Builder builder) {
-        /**
-         * 调用中使用的部门ID的类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 目标应用 ID
-         * <p> 示例值：cli_9f115af860f7901b
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDepartmentIdType() {
         return this.departmentIdType;
     }
@@ -75,6 +39,13 @@ public class OverviewApplicationAppUsageReq {
         this.departmentIdType = departmentIdType;
     }
 
+     /**
+      * 目标应用 ID
+      * <p> 示例值：cli_9f115af860f7901b
+      */
+    @Path
+    @SerializedName("app_id")
+    private String appId;
     public String getAppId() {
         return this.appId;
     }
@@ -82,6 +53,9 @@ public class OverviewApplicationAppUsageReq {
     public void setAppId(String appId) {
         this.appId = appId;
     }
+
+    @Body
+    private OverviewApplicationAppUsageReqBody body;
 
     public OverviewApplicationAppUsageReqBody getOverviewApplicationAppUsageReqBody() {
         return this.body;
@@ -91,64 +65,83 @@ public class OverviewApplicationAppUsageReq {
         this.body = body;
     }
 
+// builder 开始
+  public OverviewApplicationAppUsageReq(){}
+
+  public OverviewApplicationAppUsageReq(Builder builder){
+         /**
+          * 调用中使用的部门ID的类型
+          * <p> 示例值：open_department_id
+          */
+       this.departmentIdType = builder.departmentIdType;
+     /**
+      * 目标应用 ID
+      * <p> 示例值：cli_9f115af860f7901b
+      */
+       this.appId = builder.appId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String departmentIdType; // 调用中使用的部门ID的类型
-        private String appId; // 目标应用 ID
-        private OverviewApplicationAppUsageReqBody body;
-
+    
         /**
          * 调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
         /**
          * 调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
-         *
          * @param departmentIdType {@link com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageDepartmentIdTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
+          public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageDepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
 
+    
+        private String appId; // 目标应用 ID
         /**
          * 目标应用 ID
          * <p> 示例值：cli_9f115af860f7901b
-         *
          * @param appId
          * @return
          */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
 
+    
+        private OverviewApplicationAppUsageReqBody body;
+    
         public OverviewApplicationAppUsageReqBody getOverviewApplicationAppUsageReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder overviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public OverviewApplicationAppUsageReq build(){
+        return new OverviewApplicationAppUsageReq(this);
+      }
+    }
 
-        public OverviewApplicationAppUsageReq build() {
-            return new OverviewApplicationAppUsageReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

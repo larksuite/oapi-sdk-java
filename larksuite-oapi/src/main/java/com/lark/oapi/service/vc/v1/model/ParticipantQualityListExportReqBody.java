@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ParticipantQualityListExportReqBody {
-    /**
-     * 会议开始时间（unix时间，单位sec）
-     * <p> 示例值：1655276858
-     */
+     /**
+      * 会议开始时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
     @SerializedName("meeting_start_time")
     private String meetingStartTime;
-    /**
-     * 会议结束时间（unix时间，单位sec）
-     * <p> 示例值：1655276858
-     */
+     /**
+      * 会议结束时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
     @SerializedName("meeting_end_time")
     private String meetingEndTime;
-    /**
-     * 9位会议号
-     * <p> 示例值：123456789
-     */
+     /**
+      * 9位会议号
+      * <p> 示例值：123456789
+      */
     @SerializedName("meeting_no")
     private String meetingNo;
-    /**
-     * 参会人入会时间（unix时间，单位sec）
-     * <p> 示例值：1655276858
-     */
+     /**
+      * 参会人入会时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
     @SerializedName("join_time")
     private String joinTime;
-    /**
-     * 参会人为Lark用户时填入，room_id和user_id必须只填一个
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-     */
+     /**
+      * 参会人为Lark用户时填入，room_id和user_id必须只填一个
+      * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 参会人为Rooms时填入，room_id和user_id必须只填一个
-     * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-     */
+     /**
+      * 参会人为Rooms时填入，room_id和user_id必须只填一个
+      * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
+      */
     @SerializedName("room_id")
     private String roomId;
-
-    // builder 开始
-    public ParticipantQualityListExportReqBody() {
-    }
-
-    public ParticipantQualityListExportReqBody(Builder builder) {
-        /**
-         * 会议开始时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.meetingStartTime = builder.meetingStartTime;
-        /**
-         * 会议结束时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.meetingEndTime = builder.meetingEndTime;
-        /**
-         * 9位会议号
-         * <p> 示例值：123456789
-         */
-        this.meetingNo = builder.meetingNo;
-        /**
-         * 参会人入会时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.joinTime = builder.joinTime;
-        /**
-         * 参会人为Lark用户时填入，room_id和user_id必须只填一个
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        this.userId = builder.userId;
-        /**
-         * 参会人为Rooms时填入，room_id和user_id必须只填一个
-         * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-         */
-        this.roomId = builder.roomId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMeetingStartTime() {
         return this.meetingStartTime;
     }
@@ -155,118 +109,159 @@ public class ParticipantQualityListExportReqBody {
         this.roomId = roomId;
     }
 
+
+// builder 开始
+  public ParticipantQualityListExportReqBody(){}
+
+  public ParticipantQualityListExportReqBody(Builder builder){
+         /**
+          * 会议开始时间（unix时间，单位sec）
+          * <p> 示例值：1655276858
+          */
+      this.meetingStartTime = builder.meetingStartTime;
+         /**
+          * 会议结束时间（unix时间，单位sec）
+          * <p> 示例值：1655276858
+          */
+      this.meetingEndTime = builder.meetingEndTime;
+         /**
+          * 9位会议号
+          * <p> 示例值：123456789
+          */
+      this.meetingNo = builder.meetingNo;
+         /**
+          * 参会人入会时间（unix时间，单位sec）
+          * <p> 示例值：1655276858
+          */
+      this.joinTime = builder.joinTime;
+         /**
+          * 参会人为Lark用户时填入，room_id和user_id必须只填一个
+          * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+          */
+      this.userId = builder.userId;
+         /**
+          * 参会人为Rooms时填入，room_id和user_id必须只填一个
+          * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
+          */
+      this.roomId = builder.roomId;
+  }
+
     public static class Builder {
-        /**
-         * 会议开始时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
+     /**
+      * 会议开始时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
         private String meetingStartTime;
-        /**
-         * 会议结束时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
+     /**
+      * 会议结束时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
         private String meetingEndTime;
-        /**
-         * 9位会议号
-         * <p> 示例值：123456789
-         */
+     /**
+      * 9位会议号
+      * <p> 示例值：123456789
+      */
         private String meetingNo;
-        /**
-         * 参会人入会时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
+     /**
+      * 参会人入会时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
         private String joinTime;
-        /**
-         * 参会人为Lark用户时填入，room_id和user_id必须只填一个
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
+     /**
+      * 参会人为Lark用户时填入，room_id和user_id必须只填一个
+      * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+      */
         private String userId;
-        /**
-         * 参会人为Rooms时填入，room_id和user_id必须只填一个
-         * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-         */
+     /**
+      * 参会人为Rooms时填入，room_id和user_id必须只填一个
+      * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
+      */
         private String roomId;
 
         /**
          * 会议开始时间（unix时间，单位sec）
          * <p> 示例值：1655276858
-         *
          * @param meetingStartTime
          * @return
          */
         public Builder meetingStartTime(String meetingStartTime) {
-            this.meetingStartTime = meetingStartTime;
-            return this;
+             this.meetingStartTime = meetingStartTime;
+             return this;
         }
 
+    
 
         /**
          * 会议结束时间（unix时间，单位sec）
          * <p> 示例值：1655276858
-         *
          * @param meetingEndTime
          * @return
          */
         public Builder meetingEndTime(String meetingEndTime) {
-            this.meetingEndTime = meetingEndTime;
-            return this;
+             this.meetingEndTime = meetingEndTime;
+             return this;
         }
 
+    
 
         /**
          * 9位会议号
          * <p> 示例值：123456789
-         *
          * @param meetingNo
          * @return
          */
         public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
+             this.meetingNo = meetingNo;
+             return this;
         }
 
+    
 
         /**
          * 参会人入会时间（unix时间，单位sec）
          * <p> 示例值：1655276858
-         *
          * @param joinTime
          * @return
          */
         public Builder joinTime(String joinTime) {
-            this.joinTime = joinTime;
-            return this;
+             this.joinTime = joinTime;
+             return this;
         }
 
+    
 
         /**
          * 参会人为Lark用户时填入，room_id和user_id必须只填一个
          * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 参会人为Rooms时填入，room_id和user_id必须只填一个
          * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-         *
          * @param roomId
          * @return
          */
         public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
+             this.roomId = roomId;
+             return this;
         }
 
+    
+    
+    public ParticipantQualityListExportReqBody build(){
+        return new ParticipantQualityListExportReqBody(this);
+      }
+    }
 
-        public ParticipantQualityListExportReqBody build() {
-            return new ParticipantQualityListExportReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Section {
-    /**
-     * 分区标题
-     * <p> 示例值：分区
-     */
+     /**
+      * 分区标题
+      * <p> 示例值：分区
+      */
     @SerializedName("title")
     private String title;
-
-    // builder 开始
-    public Section() {
-    }
-
-    public Section(Builder builder) {
-        /**
-         * 分区标题
-         * <p> 示例值：分区
-         */
-        this.title = builder.title;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTitle() {
         return this.title;
     }
@@ -60,28 +39,44 @@ public class Section {
         this.title = title;
     }
 
+
+// builder 开始
+  public Section(){}
+
+  public Section(Builder builder){
+         /**
+          * 分区标题
+          * <p> 示例值：分区
+          */
+      this.title = builder.title;
+  }
+
     public static class Builder {
-        /**
-         * 分区标题
-         * <p> 示例值：分区
-         */
+     /**
+      * 分区标题
+      * <p> 示例值：分区
+      */
         private String title;
 
         /**
          * 分区标题
          * <p> 示例值：分区
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
+    
+    public Section build(){
+        return new Section(this);
+      }
+    }
 
-        public Section build() {
-            return new Section(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

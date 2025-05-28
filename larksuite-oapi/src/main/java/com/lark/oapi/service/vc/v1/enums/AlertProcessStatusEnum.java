@@ -17,19 +17,18 @@ package com.lark.oapi.service.vc.v1.enums;
  * 处理状态：待处理/处理中/已恢复
  */
 public enum AlertProcessStatusEnum {
-    WAIT_PROCESS(0), // 待处理（deprecated）
-    WAIT_PROCESS1(1), // 待处理
-    PROCESSING(2), // 处理中
-    RECOVER(3), // 已恢复（deprecated）
-    RECOVER2(4), // 已恢复
-    ;
-    private Integer value;
-
+     WAIT_PROCESS(0), // 待处理（deprecated）
+     WAIT_PROCESS1(1), // 待处理
+     PROCESSING(2), // 处理中
+     RECOVER(3), // 已恢复（deprecated）
+     RECOVER2(4), // 已恢复
+  ;
+   private Integer value;
     AlertProcessStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

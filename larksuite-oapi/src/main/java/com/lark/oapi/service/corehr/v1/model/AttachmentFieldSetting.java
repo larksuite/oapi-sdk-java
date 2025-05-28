@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AttachmentFieldSetting {
-    /**
-     * 是否支持多个文件
-     * <p> 示例值：false
-     */
+     /**
+      * 是否支持多个文件
+      * <p> 示例值：false
+      */
     @SerializedName("is_multiple")
     private Boolean isMultiple;
-    /**
-     * 文件类型枚举，具体如下：;1. jpeg ;2. png ;3. gif ;4. pdf ;5. docx ;6. doc ;7. csv;8. xls ;9. txt ;10. xlsx;11. mp4 ;12. pptx;13. ppt;14. json;15. zip;16. rar
-     * <p> 示例值：1
-     */
+     /**
+      * 文件类型枚举，具体如下：;1. jpeg ;2. png ;3. gif ;4. pdf ;5. docx ;6. doc ;7. csv;8. xls ;9. txt ;10. xlsx;11. mp4 ;12. pptx;13. ppt;14. json;15. zip;16. rar
+      * <p> 示例值：1
+      */
     @SerializedName("file_type")
     private Integer fileType;
-
-    // builder 开始
-    public AttachmentFieldSetting() {
-    }
-
-    public AttachmentFieldSetting(Builder builder) {
-        /**
-         * 是否支持多个文件
-         * <p> 示例值：false
-         */
-        this.isMultiple = builder.isMultiple;
-        /**
-         * 文件类型枚举，具体如下：;1. jpeg ;2. png ;3. gif ;4. pdf ;5. docx ;6. doc ;7. csv;8. xls ;9. txt ;10. xlsx;11. mp4 ;12. pptx;13. ppt;14. json;15. zip;16. rar
-         * <p> 示例值：1
-         */
-        this.fileType = builder.fileType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getIsMultiple() {
         return this.isMultiple;
     }
@@ -79,46 +53,67 @@ public class AttachmentFieldSetting {
         this.fileType = fileType;
     }
 
+
+// builder 开始
+  public AttachmentFieldSetting(){}
+
+  public AttachmentFieldSetting(Builder builder){
+         /**
+          * 是否支持多个文件
+          * <p> 示例值：false
+          */
+      this.isMultiple = builder.isMultiple;
+         /**
+          * 文件类型枚举，具体如下：;1. jpeg ;2. png ;3. gif ;4. pdf ;5. docx ;6. doc ;7. csv;8. xls ;9. txt ;10. xlsx;11. mp4 ;12. pptx;13. ppt;14. json;15. zip;16. rar
+          * <p> 示例值：1
+          */
+      this.fileType = builder.fileType;
+  }
+
     public static class Builder {
-        /**
-         * 是否支持多个文件
-         * <p> 示例值：false
-         */
+     /**
+      * 是否支持多个文件
+      * <p> 示例值：false
+      */
         private Boolean isMultiple;
-        /**
-         * 文件类型枚举，具体如下：;1. jpeg ;2. png ;3. gif ;4. pdf ;5. docx ;6. doc ;7. csv;8. xls ;9. txt ;10. xlsx;11. mp4 ;12. pptx;13. ppt;14. json;15. zip;16. rar
-         * <p> 示例值：1
-         */
+     /**
+      * 文件类型枚举，具体如下：;1. jpeg ;2. png ;3. gif ;4. pdf ;5. docx ;6. doc ;7. csv;8. xls ;9. txt ;10. xlsx;11. mp4 ;12. pptx;13. ppt;14. json;15. zip;16. rar
+      * <p> 示例值：1
+      */
         private Integer fileType;
 
         /**
          * 是否支持多个文件
          * <p> 示例值：false
-         *
          * @param isMultiple
          * @return
          */
         public Builder isMultiple(Boolean isMultiple) {
-            this.isMultiple = isMultiple;
-            return this;
+             this.isMultiple = isMultiple;
+             return this;
         }
 
+    
 
         /**
          * 文件类型枚举，具体如下：;1. jpeg ;2. png ;3. gif ;4. pdf ;5. docx ;6. doc ;7. csv;8. xls ;9. txt ;10. xlsx;11. mp4 ;12. pptx;13. ppt;14. json;15. zip;16. rar
          * <p> 示例值：1
-         *
          * @param fileType
          * @return
          */
         public Builder fileType(Integer fileType) {
-            this.fileType = fileType;
-            return this;
+             this.fileType = fileType;
+             return this;
         }
 
+    
+    
+    public AttachmentFieldSetting build(){
+        return new AttachmentFieldSetting(this);
+      }
+    }
 
-        public AttachmentFieldSetting build() {
-            return new AttachmentFieldSetting(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

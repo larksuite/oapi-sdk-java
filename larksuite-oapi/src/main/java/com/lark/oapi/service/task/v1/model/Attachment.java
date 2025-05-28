@@ -12,38 +12,33 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Attachment {
 
-    // builder 开始
-    public Attachment() {
-    }
+// builder 开始
+  public Attachment(){}
 
-    public Attachment(Builder builder) {
+  public Attachment(Builder builder){
+  }
+
+    public static class Builder {
+    
+    public Attachment build(){
+        return new Attachment(this);
+      }
     }
 
     public static Builder newBuilder() {
         return new Builder();
-    }
-
-    public static class Builder {
-
-        public Attachment build() {
-            return new Attachment(this);
-        }
     }
 }

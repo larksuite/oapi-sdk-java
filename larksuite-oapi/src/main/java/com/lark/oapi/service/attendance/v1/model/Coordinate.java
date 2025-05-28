@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Coordinate {
-    /**
-     * 经度
-     * <p> 示例值：
-     */
+     /**
+      * 经度
+      * <p> 示例值：
+      */
     @SerializedName("longitude")
     private Double longitude;
-    /**
-     * 纬度
-     * <p> 示例值：
-     */
+     /**
+      * 纬度
+      * <p> 示例值：
+      */
     @SerializedName("latitude")
     private Double latitude;
-    /**
-     * 精度
-     * <p> 示例值：
-     */
+     /**
+      * 精度
+      * <p> 示例值：
+      */
     @SerializedName("accuracy")
     private Double accuracy;
-
-    // builder 开始
-    public Coordinate() {
-    }
-
-    public Coordinate(Builder builder) {
-        /**
-         * 经度
-         * <p> 示例值：
-         */
-        this.longitude = builder.longitude;
-        /**
-         * 纬度
-         * <p> 示例值：
-         */
-        this.latitude = builder.latitude;
-        /**
-         * 精度
-         * <p> 示例值：
-         */
-        this.accuracy = builder.accuracy;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Double getLongitude() {
         return this.longitude;
     }
@@ -98,64 +67,90 @@ public class Coordinate {
         this.accuracy = accuracy;
     }
 
+
+// builder 开始
+  public Coordinate(){}
+
+  public Coordinate(Builder builder){
+         /**
+          * 经度
+          * <p> 示例值：
+          */
+      this.longitude = builder.longitude;
+         /**
+          * 纬度
+          * <p> 示例值：
+          */
+      this.latitude = builder.latitude;
+         /**
+          * 精度
+          * <p> 示例值：
+          */
+      this.accuracy = builder.accuracy;
+  }
+
     public static class Builder {
-        /**
-         * 经度
-         * <p> 示例值：
-         */
+     /**
+      * 经度
+      * <p> 示例值：
+      */
         private Double longitude;
-        /**
-         * 纬度
-         * <p> 示例值：
-         */
+     /**
+      * 纬度
+      * <p> 示例值：
+      */
         private Double latitude;
-        /**
-         * 精度
-         * <p> 示例值：
-         */
+     /**
+      * 精度
+      * <p> 示例值：
+      */
         private Double accuracy;
 
         /**
          * 经度
          * <p> 示例值：
-         *
          * @param longitude
          * @return
          */
         public Builder longitude(Double longitude) {
-            this.longitude = longitude;
-            return this;
+             this.longitude = longitude;
+             return this;
         }
 
+    
 
         /**
          * 纬度
          * <p> 示例值：
-         *
          * @param latitude
          * @return
          */
         public Builder latitude(Double latitude) {
-            this.latitude = latitude;
-            return this;
+             this.latitude = latitude;
+             return this;
         }
 
+    
 
         /**
          * 精度
          * <p> 示例值：
-         *
          * @param accuracy
          * @return
          */
         public Builder accuracy(Double accuracy) {
-            this.accuracy = accuracy;
-            return this;
+             this.accuracy = accuracy;
+             return this;
         }
 
+    
+    
+    public Coordinate build(){
+        return new Coordinate(this);
+      }
+    }
 
-        public Coordinate build() {
-            return new Coordinate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

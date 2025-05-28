@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserStatsView {
-    /**
-     * 视图 ID
-     * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
-     */
+     /**
+      * 视图 ID
+      * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
+      */
     @SerializedName("view_id")
     private String viewId;
-    /**
-     * 视图类型
-     * <p> 示例值：month
-     */
+     /**
+      * 视图类型
+      * <p> 示例值：month
+      */
     @SerializedName("stats_type")
     private String statsType;
-    /**
-     * 查询用户id，同【查询统计数据】、【查询统计设置】user_id
-     * <p> 示例值：ec8ddg56
-     */
+     /**
+      * 查询用户id，同【查询统计数据】、【查询统计设置】user_id
+      * <p> 示例值：ec8ddg56
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 用户设置字段
-     * <p> 示例值：
-     */
+     /**
+      * 用户设置字段
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private Item[] items;
-
-    // builder 开始
-    public UserStatsView() {
-    }
-
-    public UserStatsView(Builder builder) {
-        /**
-         * 视图 ID
-         * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
-         */
-        this.viewId = builder.viewId;
-        /**
-         * 视图类型
-         * <p> 示例值：month
-         */
-        this.statsType = builder.statsType;
-        /**
-         * 查询用户id，同【查询统计数据】、【查询统计设置】user_id
-         * <p> 示例值：ec8ddg56
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户设置字段
-         * <p> 示例值：
-         */
-        this.items = builder.items;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getViewId() {
         return this.viewId;
     }
@@ -117,94 +81,123 @@ public class UserStatsView {
         this.items = items;
     }
 
+
+// builder 开始
+  public UserStatsView(){}
+
+  public UserStatsView(Builder builder){
+         /**
+          * 视图 ID
+          * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
+          */
+      this.viewId = builder.viewId;
+         /**
+          * 视图类型
+          * <p> 示例值：month
+          */
+      this.statsType = builder.statsType;
+         /**
+          * 查询用户id，同【查询统计数据】、【查询统计设置】user_id
+          * <p> 示例值：ec8ddg56
+          */
+      this.userId = builder.userId;
+         /**
+          * 用户设置字段
+          * <p> 示例值：
+          */
+      this.items = builder.items;
+  }
+
     public static class Builder {
-        /**
-         * 视图 ID
-         * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
-         */
+     /**
+      * 视图 ID
+      * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
+      */
         private String viewId;
-        /**
-         * 视图类型
-         * <p> 示例值：month
-         */
+     /**
+      * 视图类型
+      * <p> 示例值：month
+      */
         private String statsType;
-        /**
-         * 查询用户id，同【查询统计数据】、【查询统计设置】user_id
-         * <p> 示例值：ec8ddg56
-         */
+     /**
+      * 查询用户id，同【查询统计数据】、【查询统计设置】user_id
+      * <p> 示例值：ec8ddg56
+      */
         private String userId;
-        /**
-         * 用户设置字段
-         * <p> 示例值：
-         */
+     /**
+      * 用户设置字段
+      * <p> 示例值：
+      */
         private Item[] items;
 
         /**
          * 视图 ID
          * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
-         *
          * @param viewId
          * @return
          */
         public Builder viewId(String viewId) {
-            this.viewId = viewId;
-            return this;
+             this.viewId = viewId;
+             return this;
         }
 
+    
 
         /**
          * 视图类型
          * <p> 示例值：month
-         *
          * @param statsType
          * @return
          */
         public Builder statsType(String statsType) {
-            this.statsType = statsType;
-            return this;
+             this.statsType = statsType;
+             return this;
         }
-
         /**
          * 视图类型
          * <p> 示例值：month
-         *
          * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.UserStatsViewStatsTypeEnum}
          * @return
          */
         public Builder statsType(com.lark.oapi.service.attendance.v1.enums.UserStatsViewStatsTypeEnum statsType) {
-            this.statsType = statsType.getValue();
-            return this;
+             this.statsType = statsType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 查询用户id，同【查询统计数据】、【查询统计设置】user_id
          * <p> 示例值：ec8ddg56
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 用户设置字段
          * <p> 示例值：
-         *
          * @param items
          * @return
          */
         public Builder items(Item[] items) {
-            this.items = items;
-            return this;
+             this.items = items;
+             return this;
         }
 
+    
+    
+    public UserStatsView build(){
+        return new UserStatsView(this);
+      }
+    }
 
-        public UserStatsView build() {
-            return new UserStatsView(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

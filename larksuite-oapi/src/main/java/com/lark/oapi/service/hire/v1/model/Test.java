@@ -12,254 +12,138 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Test {
-    /**
-     * 笔试 ID
-     * <p> 示例值：6963784391454918956
-     */
+     /**
+      * 笔试 ID
+      * <p> 示例值：6963784391454918956
+      */
     @SerializedName("test_id")
     private String testId;
-    /**
-     * 投递 ID
-     * <p> 示例值：6920544531948800269
-     */
+     /**
+      * 投递 ID
+      * <p> 示例值：6920544531948800269
+      */
     @SerializedName("application_id")
     private String applicationId;
-    /**
-     * 人才 ID
-     * <p> 示例值：6830437484509675522
-     */
+     /**
+      * 人才 ID
+      * <p> 示例值：6830437484509675522
+      */
     @SerializedName("talent_id")
     private String talentId;
-    /**
-     * 职位 ID
-     * <p> 示例值：6920544531948800269
-     */
+     /**
+      * 职位 ID
+      * <p> 示例值：6920544531948800269
+      */
     @SerializedName("job_id")
     private String jobId;
-    /**
-     * 试卷 ID
-     * <p> 示例值：6963549885526346028
-     */
+     /**
+      * 试卷 ID
+      * <p> 示例值：6963549885526346028
+      */
     @SerializedName("test_paper_id")
     private String testPaperId;
-    /**
-     * 试卷名称
-     * <p> 示例值：数据结构测验
-     */
+     /**
+      * 试卷名称
+      * <p> 示例值：数据结构测验
+      */
     @SerializedName("test_paper_name")
     private String testPaperName;
-    /**
-     * 试卷来源 ID
-     * <p> 示例值：5
-     */
+     /**
+      * 试卷来源 ID
+      * <p> 示例值：5
+      */
     @SerializedName("test_paper_source_id")
     private String testPaperSourceId;
-    /**
-     * 试卷来源名称
-     * <p> 示例值：
-     */
+     /**
+      * 试卷来源名称
+      * <p> 示例值：
+      */
     @SerializedName("test_paper_source_name")
     private I18n testPaperSourceName;
-    /**
-     * 笔试答复状态
-     * <p> 示例值：1
-     */
+     /**
+      * 笔试答复状态
+      * <p> 示例值：1
+      */
     @SerializedName("reply_status")
     private Integer replyStatus;
-    /**
-     * 笔试状态
-     * <p> 示例值：1
-     */
+     /**
+      * 笔试状态
+      * <p> 示例值：1
+      */
     @SerializedName("test_status")
     private Integer testStatus;
-    /**
-     * 笔试时间
-     * <p> 示例值：
-     */
+     /**
+      * 笔试时间
+      * <p> 示例值：
+      */
     @SerializedName("test_schedule")
     private TestSchedule testSchedule;
-    /**
-     * 笔试作答完成时间
-     * <p> 示例值：1608725989000
-     */
+     /**
+      * 笔试作答完成时间
+      * <p> 示例值：1608725989000
+      */
     @SerializedName("test_complete_time")
     private String testCompleteTime;
-    /**
-     * 笔试报告链接列表
-     * <p> 示例值：
-     */
+     /**
+      * 笔试报告链接列表
+      * <p> 示例值：
+      */
     @SerializedName("report_url_list")
     private String[] reportUrlList;
-    /**
-     * 笔试详细成绩
-     * <p> 示例值：
-     */
+     /**
+      * 笔试详细成绩
+      * <p> 示例值：
+      */
     @SerializedName("result_detail_list")
     private TestResultDetail[] resultDetailList;
-    /**
-     * 笔试结果上传时间（手动录入的笔试成绩具有）
-     * <p> 示例值：1608725989000
-     */
+     /**
+      * 笔试结果上传时间（手动录入的笔试成绩具有）
+      * <p> 示例值：1608725989000
+      */
     @SerializedName("result_upload_time")
     private String resultUploadTime;
-    /**
-     * 阅卷得分
-     * <p> 示例值：60
-     */
+     /**
+      * 阅卷得分
+      * <p> 示例值：60
+      */
     @SerializedName("score")
     private String score;
-    /**
-     * 阅卷结果提交时间（若重复提交，则为最新提交时间）
-     * <p> 示例值：1608725989000
-     */
+     /**
+      * 阅卷结果提交时间（若重复提交，则为最新提交时间）
+      * <p> 示例值：1608725989000
+      */
     @SerializedName("score_submit_time")
     private String scoreSubmitTime;
-    /**
-     * 阅卷人，值类型由 user_id_type 查询参数决定
-     * <p> 示例值：ou_266ed047ed37f24554e5a0afdbb15556
-     */
+     /**
+      * 阅卷人，值类型由 user_id_type 查询参数决定
+      * <p> 示例值：ou_266ed047ed37f24554e5a0afdbb15556
+      */
     @SerializedName("reviewer")
     private String reviewer;
-    /**
-     * 阅卷安排时间
-     * <p> 示例值：1608725989000
-     */
+     /**
+      * 阅卷安排时间
+      * <p> 示例值：1608725989000
+      */
     @SerializedName("review_created_at")
     private String reviewCreatedAt;
-    /**
-     * 笔试创建时间
-     * <p> 示例值：1608725989000
-     */
+     /**
+      * 笔试创建时间
+      * <p> 示例值：1608725989000
+      */
     @SerializedName("created_at")
     private String createdAt;
-
-    // builder 开始
-    public Test() {
-    }
-
-    public Test(Builder builder) {
-        /**
-         * 笔试 ID
-         * <p> 示例值：6963784391454918956
-         */
-        this.testId = builder.testId;
-        /**
-         * 投递 ID
-         * <p> 示例值：6920544531948800269
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 人才 ID
-         * <p> 示例值：6830437484509675522
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 职位 ID
-         * <p> 示例值：6920544531948800269
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 试卷 ID
-         * <p> 示例值：6963549885526346028
-         */
-        this.testPaperId = builder.testPaperId;
-        /**
-         * 试卷名称
-         * <p> 示例值：数据结构测验
-         */
-        this.testPaperName = builder.testPaperName;
-        /**
-         * 试卷来源 ID
-         * <p> 示例值：5
-         */
-        this.testPaperSourceId = builder.testPaperSourceId;
-        /**
-         * 试卷来源名称
-         * <p> 示例值：
-         */
-        this.testPaperSourceName = builder.testPaperSourceName;
-        /**
-         * 笔试答复状态
-         * <p> 示例值：1
-         */
-        this.replyStatus = builder.replyStatus;
-        /**
-         * 笔试状态
-         * <p> 示例值：1
-         */
-        this.testStatus = builder.testStatus;
-        /**
-         * 笔试时间
-         * <p> 示例值：
-         */
-        this.testSchedule = builder.testSchedule;
-        /**
-         * 笔试作答完成时间
-         * <p> 示例值：1608725989000
-         */
-        this.testCompleteTime = builder.testCompleteTime;
-        /**
-         * 笔试报告链接列表
-         * <p> 示例值：
-         */
-        this.reportUrlList = builder.reportUrlList;
-        /**
-         * 笔试详细成绩
-         * <p> 示例值：
-         */
-        this.resultDetailList = builder.resultDetailList;
-        /**
-         * 笔试结果上传时间（手动录入的笔试成绩具有）
-         * <p> 示例值：1608725989000
-         */
-        this.resultUploadTime = builder.resultUploadTime;
-        /**
-         * 阅卷得分
-         * <p> 示例值：60
-         */
-        this.score = builder.score;
-        /**
-         * 阅卷结果提交时间（若重复提交，则为最新提交时间）
-         * <p> 示例值：1608725989000
-         */
-        this.scoreSubmitTime = builder.scoreSubmitTime;
-        /**
-         * 阅卷人，值类型由 user_id_type 查询参数决定
-         * <p> 示例值：ou_266ed047ed37f24554e5a0afdbb15556
-         */
-        this.reviewer = builder.reviewer;
-        /**
-         * 阅卷安排时间
-         * <p> 示例值：1608725989000
-         */
-        this.reviewCreatedAt = builder.reviewCreatedAt;
-        /**
-         * 笔试创建时间
-         * <p> 示例值：1608725989000
-         */
-        this.createdAt = builder.createdAt;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTestId() {
         return this.testId;
     }
@@ -420,370 +304,481 @@ public class Test {
         this.createdAt = createdAt;
     }
 
+
+// builder 开始
+  public Test(){}
+
+  public Test(Builder builder){
+         /**
+          * 笔试 ID
+          * <p> 示例值：6963784391454918956
+          */
+      this.testId = builder.testId;
+         /**
+          * 投递 ID
+          * <p> 示例值：6920544531948800269
+          */
+      this.applicationId = builder.applicationId;
+         /**
+          * 人才 ID
+          * <p> 示例值：6830437484509675522
+          */
+      this.talentId = builder.talentId;
+         /**
+          * 职位 ID
+          * <p> 示例值：6920544531948800269
+          */
+      this.jobId = builder.jobId;
+         /**
+          * 试卷 ID
+          * <p> 示例值：6963549885526346028
+          */
+      this.testPaperId = builder.testPaperId;
+         /**
+          * 试卷名称
+          * <p> 示例值：数据结构测验
+          */
+      this.testPaperName = builder.testPaperName;
+         /**
+          * 试卷来源 ID
+          * <p> 示例值：5
+          */
+      this.testPaperSourceId = builder.testPaperSourceId;
+         /**
+          * 试卷来源名称
+          * <p> 示例值：
+          */
+      this.testPaperSourceName = builder.testPaperSourceName;
+         /**
+          * 笔试答复状态
+          * <p> 示例值：1
+          */
+      this.replyStatus = builder.replyStatus;
+         /**
+          * 笔试状态
+          * <p> 示例值：1
+          */
+      this.testStatus = builder.testStatus;
+         /**
+          * 笔试时间
+          * <p> 示例值：
+          */
+      this.testSchedule = builder.testSchedule;
+         /**
+          * 笔试作答完成时间
+          * <p> 示例值：1608725989000
+          */
+      this.testCompleteTime = builder.testCompleteTime;
+         /**
+          * 笔试报告链接列表
+          * <p> 示例值：
+          */
+      this.reportUrlList = builder.reportUrlList;
+         /**
+          * 笔试详细成绩
+          * <p> 示例值：
+          */
+      this.resultDetailList = builder.resultDetailList;
+         /**
+          * 笔试结果上传时间（手动录入的笔试成绩具有）
+          * <p> 示例值：1608725989000
+          */
+      this.resultUploadTime = builder.resultUploadTime;
+         /**
+          * 阅卷得分
+          * <p> 示例值：60
+          */
+      this.score = builder.score;
+         /**
+          * 阅卷结果提交时间（若重复提交，则为最新提交时间）
+          * <p> 示例值：1608725989000
+          */
+      this.scoreSubmitTime = builder.scoreSubmitTime;
+         /**
+          * 阅卷人，值类型由 user_id_type 查询参数决定
+          * <p> 示例值：ou_266ed047ed37f24554e5a0afdbb15556
+          */
+      this.reviewer = builder.reviewer;
+         /**
+          * 阅卷安排时间
+          * <p> 示例值：1608725989000
+          */
+      this.reviewCreatedAt = builder.reviewCreatedAt;
+         /**
+          * 笔试创建时间
+          * <p> 示例值：1608725989000
+          */
+      this.createdAt = builder.createdAt;
+  }
+
     public static class Builder {
-        /**
-         * 笔试 ID
-         * <p> 示例值：6963784391454918956
-         */
+     /**
+      * 笔试 ID
+      * <p> 示例值：6963784391454918956
+      */
         private String testId;
-        /**
-         * 投递 ID
-         * <p> 示例值：6920544531948800269
-         */
+     /**
+      * 投递 ID
+      * <p> 示例值：6920544531948800269
+      */
         private String applicationId;
-        /**
-         * 人才 ID
-         * <p> 示例值：6830437484509675522
-         */
+     /**
+      * 人才 ID
+      * <p> 示例值：6830437484509675522
+      */
         private String talentId;
-        /**
-         * 职位 ID
-         * <p> 示例值：6920544531948800269
-         */
+     /**
+      * 职位 ID
+      * <p> 示例值：6920544531948800269
+      */
         private String jobId;
-        /**
-         * 试卷 ID
-         * <p> 示例值：6963549885526346028
-         */
+     /**
+      * 试卷 ID
+      * <p> 示例值：6963549885526346028
+      */
         private String testPaperId;
-        /**
-         * 试卷名称
-         * <p> 示例值：数据结构测验
-         */
+     /**
+      * 试卷名称
+      * <p> 示例值：数据结构测验
+      */
         private String testPaperName;
-        /**
-         * 试卷来源 ID
-         * <p> 示例值：5
-         */
+     /**
+      * 试卷来源 ID
+      * <p> 示例值：5
+      */
         private String testPaperSourceId;
-        /**
-         * 试卷来源名称
-         * <p> 示例值：
-         */
+     /**
+      * 试卷来源名称
+      * <p> 示例值：
+      */
         private I18n testPaperSourceName;
-        /**
-         * 笔试答复状态
-         * <p> 示例值：1
-         */
+     /**
+      * 笔试答复状态
+      * <p> 示例值：1
+      */
         private Integer replyStatus;
-        /**
-         * 笔试状态
-         * <p> 示例值：1
-         */
+     /**
+      * 笔试状态
+      * <p> 示例值：1
+      */
         private Integer testStatus;
-        /**
-         * 笔试时间
-         * <p> 示例值：
-         */
+     /**
+      * 笔试时间
+      * <p> 示例值：
+      */
         private TestSchedule testSchedule;
-        /**
-         * 笔试作答完成时间
-         * <p> 示例值：1608725989000
-         */
+     /**
+      * 笔试作答完成时间
+      * <p> 示例值：1608725989000
+      */
         private String testCompleteTime;
-        /**
-         * 笔试报告链接列表
-         * <p> 示例值：
-         */
+     /**
+      * 笔试报告链接列表
+      * <p> 示例值：
+      */
         private String[] reportUrlList;
-        /**
-         * 笔试详细成绩
-         * <p> 示例值：
-         */
+     /**
+      * 笔试详细成绩
+      * <p> 示例值：
+      */
         private TestResultDetail[] resultDetailList;
-        /**
-         * 笔试结果上传时间（手动录入的笔试成绩具有）
-         * <p> 示例值：1608725989000
-         */
+     /**
+      * 笔试结果上传时间（手动录入的笔试成绩具有）
+      * <p> 示例值：1608725989000
+      */
         private String resultUploadTime;
-        /**
-         * 阅卷得分
-         * <p> 示例值：60
-         */
+     /**
+      * 阅卷得分
+      * <p> 示例值：60
+      */
         private String score;
-        /**
-         * 阅卷结果提交时间（若重复提交，则为最新提交时间）
-         * <p> 示例值：1608725989000
-         */
+     /**
+      * 阅卷结果提交时间（若重复提交，则为最新提交时间）
+      * <p> 示例值：1608725989000
+      */
         private String scoreSubmitTime;
-        /**
-         * 阅卷人，值类型由 user_id_type 查询参数决定
-         * <p> 示例值：ou_266ed047ed37f24554e5a0afdbb15556
-         */
+     /**
+      * 阅卷人，值类型由 user_id_type 查询参数决定
+      * <p> 示例值：ou_266ed047ed37f24554e5a0afdbb15556
+      */
         private String reviewer;
-        /**
-         * 阅卷安排时间
-         * <p> 示例值：1608725989000
-         */
+     /**
+      * 阅卷安排时间
+      * <p> 示例值：1608725989000
+      */
         private String reviewCreatedAt;
-        /**
-         * 笔试创建时间
-         * <p> 示例值：1608725989000
-         */
+     /**
+      * 笔试创建时间
+      * <p> 示例值：1608725989000
+      */
         private String createdAt;
 
         /**
          * 笔试 ID
          * <p> 示例值：6963784391454918956
-         *
          * @param testId
          * @return
          */
         public Builder testId(String testId) {
-            this.testId = testId;
-            return this;
+             this.testId = testId;
+             return this;
         }
 
+    
 
         /**
          * 投递 ID
          * <p> 示例值：6920544531948800269
-         *
          * @param applicationId
          * @return
          */
         public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
+             this.applicationId = applicationId;
+             return this;
         }
 
+    
 
         /**
          * 人才 ID
          * <p> 示例值：6830437484509675522
-         *
          * @param talentId
          * @return
          */
         public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
+             this.talentId = talentId;
+             return this;
         }
 
+    
 
         /**
          * 职位 ID
          * <p> 示例值：6920544531948800269
-         *
          * @param jobId
          * @return
          */
         public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
+             this.jobId = jobId;
+             return this;
         }
 
+    
 
         /**
          * 试卷 ID
          * <p> 示例值：6963549885526346028
-         *
          * @param testPaperId
          * @return
          */
         public Builder testPaperId(String testPaperId) {
-            this.testPaperId = testPaperId;
-            return this;
+             this.testPaperId = testPaperId;
+             return this;
         }
 
+    
 
         /**
          * 试卷名称
          * <p> 示例值：数据结构测验
-         *
          * @param testPaperName
          * @return
          */
         public Builder testPaperName(String testPaperName) {
-            this.testPaperName = testPaperName;
-            return this;
+             this.testPaperName = testPaperName;
+             return this;
         }
 
+    
 
         /**
          * 试卷来源 ID
          * <p> 示例值：5
-         *
          * @param testPaperSourceId
          * @return
          */
         public Builder testPaperSourceId(String testPaperSourceId) {
-            this.testPaperSourceId = testPaperSourceId;
-            return this;
+             this.testPaperSourceId = testPaperSourceId;
+             return this;
         }
 
+    
 
         /**
          * 试卷来源名称
          * <p> 示例值：
-         *
          * @param testPaperSourceName
          * @return
          */
         public Builder testPaperSourceName(I18n testPaperSourceName) {
-            this.testPaperSourceName = testPaperSourceName;
-            return this;
+             this.testPaperSourceName = testPaperSourceName;
+             return this;
         }
 
+    
 
         /**
          * 笔试答复状态
          * <p> 示例值：1
-         *
          * @param replyStatus
          * @return
          */
         public Builder replyStatus(Integer replyStatus) {
-            this.replyStatus = replyStatus;
-            return this;
+             this.replyStatus = replyStatus;
+             return this;
         }
 
+    
 
         /**
          * 笔试状态
          * <p> 示例值：1
-         *
          * @param testStatus
          * @return
          */
         public Builder testStatus(Integer testStatus) {
-            this.testStatus = testStatus;
-            return this;
+             this.testStatus = testStatus;
+             return this;
         }
 
+    
 
         /**
          * 笔试时间
          * <p> 示例值：
-         *
          * @param testSchedule
          * @return
          */
         public Builder testSchedule(TestSchedule testSchedule) {
-            this.testSchedule = testSchedule;
-            return this;
+             this.testSchedule = testSchedule;
+             return this;
         }
 
+    
 
         /**
          * 笔试作答完成时间
          * <p> 示例值：1608725989000
-         *
          * @param testCompleteTime
          * @return
          */
         public Builder testCompleteTime(String testCompleteTime) {
-            this.testCompleteTime = testCompleteTime;
-            return this;
+             this.testCompleteTime = testCompleteTime;
+             return this;
         }
 
+    
 
         /**
          * 笔试报告链接列表
          * <p> 示例值：
-         *
          * @param reportUrlList
          * @return
          */
         public Builder reportUrlList(String[] reportUrlList) {
-            this.reportUrlList = reportUrlList;
-            return this;
+             this.reportUrlList = reportUrlList;
+             return this;
         }
 
+    
 
         /**
          * 笔试详细成绩
          * <p> 示例值：
-         *
          * @param resultDetailList
          * @return
          */
         public Builder resultDetailList(TestResultDetail[] resultDetailList) {
-            this.resultDetailList = resultDetailList;
-            return this;
+             this.resultDetailList = resultDetailList;
+             return this;
         }
 
+    
 
         /**
          * 笔试结果上传时间（手动录入的笔试成绩具有）
          * <p> 示例值：1608725989000
-         *
          * @param resultUploadTime
          * @return
          */
         public Builder resultUploadTime(String resultUploadTime) {
-            this.resultUploadTime = resultUploadTime;
-            return this;
+             this.resultUploadTime = resultUploadTime;
+             return this;
         }
 
+    
 
         /**
          * 阅卷得分
          * <p> 示例值：60
-         *
          * @param score
          * @return
          */
         public Builder score(String score) {
-            this.score = score;
-            return this;
+             this.score = score;
+             return this;
         }
 
+    
 
         /**
          * 阅卷结果提交时间（若重复提交，则为最新提交时间）
          * <p> 示例值：1608725989000
-         *
          * @param scoreSubmitTime
          * @return
          */
         public Builder scoreSubmitTime(String scoreSubmitTime) {
-            this.scoreSubmitTime = scoreSubmitTime;
-            return this;
+             this.scoreSubmitTime = scoreSubmitTime;
+             return this;
         }
 
+    
 
         /**
          * 阅卷人，值类型由 user_id_type 查询参数决定
          * <p> 示例值：ou_266ed047ed37f24554e5a0afdbb15556
-         *
          * @param reviewer
          * @return
          */
         public Builder reviewer(String reviewer) {
-            this.reviewer = reviewer;
-            return this;
+             this.reviewer = reviewer;
+             return this;
         }
 
+    
 
         /**
          * 阅卷安排时间
          * <p> 示例值：1608725989000
-         *
          * @param reviewCreatedAt
          * @return
          */
         public Builder reviewCreatedAt(String reviewCreatedAt) {
-            this.reviewCreatedAt = reviewCreatedAt;
-            return this;
+             this.reviewCreatedAt = reviewCreatedAt;
+             return this;
         }
 
+    
 
         /**
          * 笔试创建时间
          * <p> 示例值：1608725989000
-         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
+             this.createdAt = createdAt;
+             return this;
         }
 
+    
+    
+    public Test build(){
+        return new Test(this);
+      }
+    }
 
-        public Test build() {
-            return new Test(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

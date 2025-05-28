@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TableProperty {
-    /**
-     * 行数
-     * <p> 示例值：1
-     */
+     /**
+      * 行数
+      * <p> 示例值：1
+      */
     @SerializedName("row_size")
     private Integer rowSize;
-    /**
-     * 列数
-     * <p> 示例值：1
-     */
+     /**
+      * 列数
+      * <p> 示例值：1
+      */
     @SerializedName("column_size")
     private Integer columnSize;
-    /**
-     * 列宽，单位px
-     * <p> 示例值：100
-     */
+     /**
+      * 列宽，单位px
+      * <p> 示例值：100
+      */
     @SerializedName("column_width")
     private Integer[] columnWidth;
-    /**
-     * 单元格合并信息
-     * <p> 示例值：
-     */
+     /**
+      * 单元格合并信息
+      * <p> 示例值：
+      */
     @SerializedName("merge_info")
     private TableMergeInfo[] mergeInfo;
-    /**
-     * 设置首行为标题行
-     * <p> 示例值：false
-     */
+     /**
+      * 设置首行为标题行
+      * <p> 示例值：false
+      */
     @SerializedName("header_row")
     private Boolean headerRow;
-    /**
-     * 设置首列为标题列
-     * <p> 示例值：false
-     */
+     /**
+      * 设置首列为标题列
+      * <p> 示例值：false
+      */
     @SerializedName("header_column")
     private Boolean headerColumn;
-
-    // builder 开始
-    public TableProperty() {
-    }
-
-    public TableProperty(Builder builder) {
-        /**
-         * 行数
-         * <p> 示例值：1
-         */
-        this.rowSize = builder.rowSize;
-        /**
-         * 列数
-         * <p> 示例值：1
-         */
-        this.columnSize = builder.columnSize;
-        /**
-         * 列宽，单位px
-         * <p> 示例值：100
-         */
-        this.columnWidth = builder.columnWidth;
-        /**
-         * 单元格合并信息
-         * <p> 示例值：
-         */
-        this.mergeInfo = builder.mergeInfo;
-        /**
-         * 设置首行为标题行
-         * <p> 示例值：false
-         */
-        this.headerRow = builder.headerRow;
-        /**
-         * 设置首列为标题列
-         * <p> 示例值：false
-         */
-        this.headerColumn = builder.headerColumn;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getRowSize() {
         return this.rowSize;
     }
@@ -155,118 +109,159 @@ public class TableProperty {
         this.headerColumn = headerColumn;
     }
 
+
+// builder 开始
+  public TableProperty(){}
+
+  public TableProperty(Builder builder){
+         /**
+          * 行数
+          * <p> 示例值：1
+          */
+      this.rowSize = builder.rowSize;
+         /**
+          * 列数
+          * <p> 示例值：1
+          */
+      this.columnSize = builder.columnSize;
+         /**
+          * 列宽，单位px
+          * <p> 示例值：100
+          */
+      this.columnWidth = builder.columnWidth;
+         /**
+          * 单元格合并信息
+          * <p> 示例值：
+          */
+      this.mergeInfo = builder.mergeInfo;
+         /**
+          * 设置首行为标题行
+          * <p> 示例值：false
+          */
+      this.headerRow = builder.headerRow;
+         /**
+          * 设置首列为标题列
+          * <p> 示例值：false
+          */
+      this.headerColumn = builder.headerColumn;
+  }
+
     public static class Builder {
-        /**
-         * 行数
-         * <p> 示例值：1
-         */
+     /**
+      * 行数
+      * <p> 示例值：1
+      */
         private Integer rowSize;
-        /**
-         * 列数
-         * <p> 示例值：1
-         */
+     /**
+      * 列数
+      * <p> 示例值：1
+      */
         private Integer columnSize;
-        /**
-         * 列宽，单位px
-         * <p> 示例值：100
-         */
+     /**
+      * 列宽，单位px
+      * <p> 示例值：100
+      */
         private Integer[] columnWidth;
-        /**
-         * 单元格合并信息
-         * <p> 示例值：
-         */
+     /**
+      * 单元格合并信息
+      * <p> 示例值：
+      */
         private TableMergeInfo[] mergeInfo;
-        /**
-         * 设置首行为标题行
-         * <p> 示例值：false
-         */
+     /**
+      * 设置首行为标题行
+      * <p> 示例值：false
+      */
         private Boolean headerRow;
-        /**
-         * 设置首列为标题列
-         * <p> 示例值：false
-         */
+     /**
+      * 设置首列为标题列
+      * <p> 示例值：false
+      */
         private Boolean headerColumn;
 
         /**
          * 行数
          * <p> 示例值：1
-         *
          * @param rowSize
          * @return
          */
         public Builder rowSize(Integer rowSize) {
-            this.rowSize = rowSize;
-            return this;
+             this.rowSize = rowSize;
+             return this;
         }
 
+    
 
         /**
          * 列数
          * <p> 示例值：1
-         *
          * @param columnSize
          * @return
          */
         public Builder columnSize(Integer columnSize) {
-            this.columnSize = columnSize;
-            return this;
+             this.columnSize = columnSize;
+             return this;
         }
 
+    
 
         /**
          * 列宽，单位px
          * <p> 示例值：100
-         *
          * @param columnWidth
          * @return
          */
         public Builder columnWidth(Integer[] columnWidth) {
-            this.columnWidth = columnWidth;
-            return this;
+             this.columnWidth = columnWidth;
+             return this;
         }
 
+    
 
         /**
          * 单元格合并信息
          * <p> 示例值：
-         *
          * @param mergeInfo
          * @return
          */
         public Builder mergeInfo(TableMergeInfo[] mergeInfo) {
-            this.mergeInfo = mergeInfo;
-            return this;
+             this.mergeInfo = mergeInfo;
+             return this;
         }
 
+    
 
         /**
          * 设置首行为标题行
          * <p> 示例值：false
-         *
          * @param headerRow
          * @return
          */
         public Builder headerRow(Boolean headerRow) {
-            this.headerRow = headerRow;
-            return this;
+             this.headerRow = headerRow;
+             return this;
         }
 
+    
 
         /**
          * 设置首列为标题列
          * <p> 示例值：false
-         *
          * @param headerColumn
          * @return
          */
         public Builder headerColumn(Boolean headerColumn) {
-            this.headerColumn = headerColumn;
-            return this;
+             this.headerColumn = headerColumn;
+             return this;
         }
 
+    
+    
+    public TableProperty build(){
+        return new TableProperty(this);
+      }
+    }
 
-        public TableProperty build() {
-            return new TableProperty(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

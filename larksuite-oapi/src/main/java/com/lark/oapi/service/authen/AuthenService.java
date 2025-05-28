@@ -31,34 +31,28 @@ public class AuthenService {
     private final UserInfo userInfo; // user_info
 
     public AuthenService(Config config) {
-        this.v1 = new V1(config);
-        this.accessToken = new AccessToken(config);
-        this.oidcAccessToken = new OidcAccessToken(config);
-        this.oidcRefreshAccessToken = new OidcRefreshAccessToken(config);
-        this.refreshAccessToken = new RefreshAccessToken(config);
-        this.userInfo = new UserInfo(config);
+    this.v1 = new V1(config);
+    this.accessToken = new AccessToken(config);
+    this.oidcAccessToken = new OidcAccessToken(config);
+    this.oidcRefreshAccessToken = new OidcRefreshAccessToken(config);
+    this.refreshAccessToken = new RefreshAccessToken(config);
+    this.userInfo = new UserInfo(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public AccessToken accessToken() {
         return accessToken;
     }
-
     public OidcAccessToken oidcAccessToken() {
         return oidcAccessToken;
     }
-
     public OidcRefreshAccessToken oidcRefreshAccessToken() {
         return oidcRefreshAccessToken;
     }
-
     public RefreshAccessToken refreshAccessToken() {
         return refreshAccessToken;
     }
-
     public UserInfo userInfo() {
         return userInfo;
     }

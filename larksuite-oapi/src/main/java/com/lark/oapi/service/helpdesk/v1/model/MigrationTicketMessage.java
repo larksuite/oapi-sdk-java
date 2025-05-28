@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MigrationTicketMessage {
-    /**
-     * 导入工单消息幂等 ID（当前幂等时间支持 24 小时）
-     * <p> 示例值：9263a772-3849-401b-883b-16e5c3f25127
-     */
+     /**
+      * 导入工单消息幂等 ID（当前幂等时间支持 24 小时）
+      * <p> 示例值：9263a772-3849-401b-883b-16e5c3f25127
+      */
     @SerializedName("uuid")
     private String uuid;
-    /**
-     * 发送消息的用户 ID
-     * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
-     */
+     /**
+      * 发送消息的用户 ID
+      * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 消息类型
-     * <p> 示例值：text
-     */
+     /**
+      * 消息类型
+      * <p> 示例值：text
+      */
     @SerializedName("message_type")
     private String messageType;
-    /**
-     * 消息内容
-     * <p> 示例值：
-     */
+     /**
+      * 消息内容
+      * <p> 示例值：
+      */
     @SerializedName("content")
     private ExportTicketMessageContent content;
-    /**
-     * 消息创建时间，单位毫秒
-     * <p> 示例值：1741856554686
-     */
+     /**
+      * 消息创建时间，单位毫秒
+      * <p> 示例值：1741856554686
+      */
     @SerializedName("created_at_ms")
     private String createdAtMs;
-
-    // builder 开始
-    public MigrationTicketMessage() {
-    }
-
-    public MigrationTicketMessage(Builder builder) {
-        /**
-         * 导入工单消息幂等 ID（当前幂等时间支持 24 小时）
-         * <p> 示例值：9263a772-3849-401b-883b-16e5c3f25127
-         */
-        this.uuid = builder.uuid;
-        /**
-         * 发送消息的用户 ID
-         * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
-         */
-        this.userId = builder.userId;
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         */
-        this.messageType = builder.messageType;
-        /**
-         * 消息内容
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * 消息创建时间，单位毫秒
-         * <p> 示例值：1741856554686
-         */
-        this.createdAtMs = builder.createdAtMs;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUuid() {
         return this.uuid;
     }
@@ -136,100 +95,136 @@ public class MigrationTicketMessage {
         this.createdAtMs = createdAtMs;
     }
 
+
+// builder 开始
+  public MigrationTicketMessage(){}
+
+  public MigrationTicketMessage(Builder builder){
+         /**
+          * 导入工单消息幂等 ID（当前幂等时间支持 24 小时）
+          * <p> 示例值：9263a772-3849-401b-883b-16e5c3f25127
+          */
+      this.uuid = builder.uuid;
+         /**
+          * 发送消息的用户 ID
+          * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
+          */
+      this.userId = builder.userId;
+         /**
+          * 消息类型
+          * <p> 示例值：text
+          */
+      this.messageType = builder.messageType;
+         /**
+          * 消息内容
+          * <p> 示例值：
+          */
+      this.content = builder.content;
+         /**
+          * 消息创建时间，单位毫秒
+          * <p> 示例值：1741856554686
+          */
+      this.createdAtMs = builder.createdAtMs;
+  }
+
     public static class Builder {
-        /**
-         * 导入工单消息幂等 ID（当前幂等时间支持 24 小时）
-         * <p> 示例值：9263a772-3849-401b-883b-16e5c3f25127
-         */
+     /**
+      * 导入工单消息幂等 ID（当前幂等时间支持 24 小时）
+      * <p> 示例值：9263a772-3849-401b-883b-16e5c3f25127
+      */
         private String uuid;
-        /**
-         * 发送消息的用户 ID
-         * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
-         */
+     /**
+      * 发送消息的用户 ID
+      * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
+      */
         private String userId;
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         */
+     /**
+      * 消息类型
+      * <p> 示例值：text
+      */
         private String messageType;
-        /**
-         * 消息内容
-         * <p> 示例值：
-         */
+     /**
+      * 消息内容
+      * <p> 示例值：
+      */
         private ExportTicketMessageContent content;
-        /**
-         * 消息创建时间，单位毫秒
-         * <p> 示例值：1741856554686
-         */
+     /**
+      * 消息创建时间，单位毫秒
+      * <p> 示例值：1741856554686
+      */
         private String createdAtMs;
 
         /**
          * 导入工单消息幂等 ID（当前幂等时间支持 24 小时）
          * <p> 示例值：9263a772-3849-401b-883b-16e5c3f25127
-         *
          * @param uuid
          * @return
          */
         public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
+             this.uuid = uuid;
+             return this;
         }
 
+    
 
         /**
          * 发送消息的用户 ID
          * <p> 示例值：ou_41119b7c830210abb12fdce886e25b98
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 消息类型
          * <p> 示例值：text
-         *
          * @param messageType
          * @return
          */
         public Builder messageType(String messageType) {
-            this.messageType = messageType;
-            return this;
+             this.messageType = messageType;
+             return this;
         }
 
+    
 
         /**
          * 消息内容
          * <p> 示例值：
-         *
          * @param content
          * @return
          */
         public Builder content(ExportTicketMessageContent content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 消息创建时间，单位毫秒
          * <p> 示例值：1741856554686
-         *
          * @param createdAtMs
          * @return
          */
         public Builder createdAtMs(String createdAtMs) {
-            this.createdAtMs = createdAtMs;
-            return this;
+             this.createdAtMs = createdAtMs;
+             return this;
         }
 
+    
+    
+    public MigrationTicketMessage build(){
+        return new MigrationTicketMessage(this);
+      }
+    }
 
-        public MigrationTicketMessage build() {
-            return new MigrationTicketMessage(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

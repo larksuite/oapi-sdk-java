@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchPeriodReqBody {
-    /**
-     * 周期显示状态
-     * <p> 示例值：1
-     */
+     /**
+      * 周期显示状态
+      * <p> 示例值：1
+      */
     @SerializedName("status")
     private Integer status;
-
-    // builder 开始
-    public PatchPeriodReqBody() {
-    }
-
-    public PatchPeriodReqBody(Builder builder) {
-        /**
-         * 周期显示状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getStatus() {
         return this.status;
     }
@@ -60,40 +39,54 @@ public class PatchPeriodReqBody {
         this.status = status;
     }
 
+
+// builder 开始
+  public PatchPeriodReqBody(){}
+
+  public PatchPeriodReqBody(Builder builder){
+         /**
+          * 周期显示状态
+          * <p> 示例值：1
+          */
+      this.status = builder.status;
+  }
+
     public static class Builder {
-        /**
-         * 周期显示状态
-         * <p> 示例值：1
-         */
+     /**
+      * 周期显示状态
+      * <p> 示例值：1
+      */
         private Integer status;
 
         /**
          * 周期显示状态
          * <p> 示例值：1
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 周期显示状态
          * <p> 示例值：1
-         *
          * @param status {@link com.lark.oapi.service.okr.v1.enums.PatchPeriodStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.okr.v1.enums.PatchPeriodStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
+    
+    public PatchPeriodReqBody build(){
+        return new PatchPeriodReqBody(this);
+      }
+    }
 
-        public PatchPeriodReqBody build() {
-            return new PatchPeriodReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

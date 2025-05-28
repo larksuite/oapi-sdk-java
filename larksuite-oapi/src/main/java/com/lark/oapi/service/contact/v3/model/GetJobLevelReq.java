@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetJobLevelReq {
-    /**
-     * 职级ID
-     * <p> 示例值：mga5oa8ayjlp9rb
-     */
+     /**
+      * 职级ID
+      * <p> 示例值：mga5oa8ayjlp9rb
+      */
     @Path
     @SerializedName("job_level_id")
     private String jobLevelId;
-
-    // builder 开始
-    public GetJobLevelReq() {
-    }
-
-    public GetJobLevelReq(Builder builder) {
-        /**
-         * 职级ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        this.jobLevelId = builder.jobLevelId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getJobLevelId() {
         return this.jobLevelId;
     }
@@ -60,25 +39,39 @@ public class GetJobLevelReq {
         this.jobLevelId = jobLevelId;
     }
 
+
+// builder 开始
+  public GetJobLevelReq(){}
+
+  public GetJobLevelReq(Builder builder){
+     /**
+      * 职级ID
+      * <p> 示例值：mga5oa8ayjlp9rb
+      */
+       this.jobLevelId = builder.jobLevelId;
+  }
+
     public static class Builder {
-
+    
         private String jobLevelId; // 职级ID
-
         /**
          * 职级ID
          * <p> 示例值：mga5oa8ayjlp9rb
-         *
          * @param jobLevelId
          * @return
          */
-        public Builder jobLevelId(String jobLevelId) {
-            this.jobLevelId = jobLevelId;
-            return this;
-        }
+          public Builder jobLevelId(String jobLevelId) {
+               this.jobLevelId = jobLevelId;
+               return this;
+          }
 
+    
+    public GetJobLevelReq build(){
+        return new GetJobLevelReq(this);
+      }
+    }
 
-        public GetJobLevelReq build() {
-            return new GetJobLevelReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

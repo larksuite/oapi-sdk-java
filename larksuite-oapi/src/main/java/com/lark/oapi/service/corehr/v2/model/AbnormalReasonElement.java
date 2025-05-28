@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AbnormalReasonElement {
-    /**
-     * 组件类型
-     * <p> 示例值：a,text
-     */
+     /**
+      * 组件类型
+      * <p> 示例值：a,text
+      */
     @SerializedName("tag")
     private String tag;
-    /**
-     * 文本
-     * <p> 示例值：这个是一个文本字段
-     */
+     /**
+      * 文本
+      * <p> 示例值：这个是一个文本字段
+      */
     @SerializedName("text")
     private String text;
-    /**
-     * 超链接
-     * <p> 示例值：https://open.feishu.cn/
-     */
+     /**
+      * 超链接
+      * <p> 示例值：https://open.feishu.cn/
+      */
     @SerializedName("href")
     private String href;
-
-    // builder 开始
-    public AbnormalReasonElement() {
-    }
-
-    public AbnormalReasonElement(Builder builder) {
-        /**
-         * 组件类型
-         * <p> 示例值：a,text
-         */
-        this.tag = builder.tag;
-        /**
-         * 文本
-         * <p> 示例值：这个是一个文本字段
-         */
-        this.text = builder.text;
-        /**
-         * 超链接
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        this.href = builder.href;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTag() {
         return this.tag;
     }
@@ -98,64 +67,90 @@ public class AbnormalReasonElement {
         this.href = href;
     }
 
+
+// builder 开始
+  public AbnormalReasonElement(){}
+
+  public AbnormalReasonElement(Builder builder){
+         /**
+          * 组件类型
+          * <p> 示例值：a,text
+          */
+      this.tag = builder.tag;
+         /**
+          * 文本
+          * <p> 示例值：这个是一个文本字段
+          */
+      this.text = builder.text;
+         /**
+          * 超链接
+          * <p> 示例值：https://open.feishu.cn/
+          */
+      this.href = builder.href;
+  }
+
     public static class Builder {
-        /**
-         * 组件类型
-         * <p> 示例值：a,text
-         */
+     /**
+      * 组件类型
+      * <p> 示例值：a,text
+      */
         private String tag;
-        /**
-         * 文本
-         * <p> 示例值：这个是一个文本字段
-         */
+     /**
+      * 文本
+      * <p> 示例值：这个是一个文本字段
+      */
         private String text;
-        /**
-         * 超链接
-         * <p> 示例值：https://open.feishu.cn/
-         */
+     /**
+      * 超链接
+      * <p> 示例值：https://open.feishu.cn/
+      */
         private String href;
 
         /**
          * 组件类型
          * <p> 示例值：a,text
-         *
          * @param tag
          * @return
          */
         public Builder tag(String tag) {
-            this.tag = tag;
-            return this;
+             this.tag = tag;
+             return this;
         }
 
+    
 
         /**
          * 文本
          * <p> 示例值：这个是一个文本字段
-         *
          * @param text
          * @return
          */
         public Builder text(String text) {
-            this.text = text;
-            return this;
+             this.text = text;
+             return this;
         }
 
+    
 
         /**
          * 超链接
          * <p> 示例值：https://open.feishu.cn/
-         *
          * @param href
          * @return
          */
         public Builder href(String href) {
-            this.href = href;
-            return this;
+             this.href = href;
+             return this;
         }
 
+    
+    
+    public AbnormalReasonElement build(){
+        return new AbnormalReasonElement(this);
+      }
+    }
 
-        public AbnormalReasonElement build() {
-            return new AbnormalReasonElement(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

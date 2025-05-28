@@ -17,19 +17,18 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 此次调用中使用的用户ID的类型
  */
 public enum CreateJobChangeUserIdTypeEnum {
-    USER_ID("user_id"), // 以user_id来识别用户
-    UNION_ID("union_id"), // 以union_id来识别用户
-    OPEN_ID("open_id"), // 以open_id来识别用户
-    PEOPLE_ADMIN_ID("people_admin_id"), // 以people_admin_id来识别用户
-    PEOPLE_COREHR_ID("people_corehr_id"), // 以飞书人事的ID来识别用户
-    ;
-    private String value;
-
+     USER_ID("user_id"), // 以user_id来识别用户
+     UNION_ID("union_id"), // 以union_id来识别用户
+     OPEN_ID("open_id"), // 以open_id来识别用户
+     PEOPLE_ADMIN_ID("people_admin_id"), // 以people_admin_id来识别用户
+     PEOPLE_COREHR_ID("people_corehr_id"), // 以飞书人事的ID来识别用户
+  ;
+   private String value;
     CreateJobChangeUserIdTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

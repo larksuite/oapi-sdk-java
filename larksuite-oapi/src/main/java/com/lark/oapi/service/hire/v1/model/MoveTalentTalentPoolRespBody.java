@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MoveTalentTalentPoolRespBody {
-    /**
-     * 人才库ID
-     * <p> 示例值：6930815272790114325
-     */
+     /**
+      * 人才库ID
+      * <p> 示例值：6930815272790114325
+      */
     @SerializedName("talent_pool_id")
     private String talentPoolId;
-    /**
-     * 人才ID
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 人才ID
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("talent_id")
     private String talentId;
-
     public String getTalentPoolId() {
         return this.talentPoolId;
     }

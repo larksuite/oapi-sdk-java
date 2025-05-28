@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Location {
-    /**
-     * 经纬度
-     * <p> 示例值：113.946927,22.529146
-     */
+     /**
+      * 经纬度
+      * <p> 示例值：113.946927,22.529146
+      */
     @SerializedName("location")
     private String location;
-    /**
-     * 省
-     * <p> 示例值：广东省
-     */
+     /**
+      * 省
+      * <p> 示例值：广东省
+      */
     @SerializedName("pname")
     private String pname;
-    /**
-     * 市
-     * <p> 示例值：深圳市
-     */
+     /**
+      * 市
+      * <p> 示例值：深圳市
+      */
     @SerializedName("cityname")
     private String cityname;
-    /**
-     * 区
-     * <p> 示例值：南山区
-     */
+     /**
+      * 区
+      * <p> 示例值：南山区
+      */
     @SerializedName("adname")
     private String adname;
-    /**
-     * 详细地址
-     * <p> 示例值：深圳湾创新科技中心(科苑地铁站C口步行340米)
-     */
+     /**
+      * 详细地址
+      * <p> 示例值：深圳湾创新科技中心(科苑地铁站C口步行340米)
+      */
     @SerializedName("address")
     private String address;
-    /**
-     * 地名
-     * <p> 示例值：字节跳动
-     */
+     /**
+      * 地名
+      * <p> 示例值：字节跳动
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 完整地址
-     * <p> 示例值：字节跳动，广东省深圳市南山区深圳湾创新科技中心(科苑地铁站C口步行340米)
-     */
+     /**
+      * 完整地址
+      * <p> 示例值：字节跳动，广东省深圳市南山区深圳湾创新科技中心(科苑地铁站C口步行340米)
+      */
     @SerializedName("full_address")
     private String fullAddress;
-
-    // builder 开始
-    public Location() {
-    }
-
-    public Location(Builder builder) {
-        /**
-         * 经纬度
-         * <p> 示例值：113.946927,22.529146
-         */
-        this.location = builder.location;
-        /**
-         * 省
-         * <p> 示例值：广东省
-         */
-        this.pname = builder.pname;
-        /**
-         * 市
-         * <p> 示例值：深圳市
-         */
-        this.cityname = builder.cityname;
-        /**
-         * 区
-         * <p> 示例值：南山区
-         */
-        this.adname = builder.adname;
-        /**
-         * 详细地址
-         * <p> 示例值：深圳湾创新科技中心(科苑地铁站C口步行340米)
-         */
-        this.address = builder.address;
-        /**
-         * 地名
-         * <p> 示例值：字节跳动
-         */
-        this.name = builder.name;
-        /**
-         * 完整地址
-         * <p> 示例值：字节跳动，广东省深圳市南山区深圳湾创新科技中心(科苑地铁站C口步行340米)
-         */
-        this.fullAddress = builder.fullAddress;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLocation() {
         return this.location;
     }
@@ -174,136 +123,182 @@ public class Location {
         this.fullAddress = fullAddress;
     }
 
+
+// builder 开始
+  public Location(){}
+
+  public Location(Builder builder){
+         /**
+          * 经纬度
+          * <p> 示例值：113.946927,22.529146
+          */
+      this.location = builder.location;
+         /**
+          * 省
+          * <p> 示例值：广东省
+          */
+      this.pname = builder.pname;
+         /**
+          * 市
+          * <p> 示例值：深圳市
+          */
+      this.cityname = builder.cityname;
+         /**
+          * 区
+          * <p> 示例值：南山区
+          */
+      this.adname = builder.adname;
+         /**
+          * 详细地址
+          * <p> 示例值：深圳湾创新科技中心(科苑地铁站C口步行340米)
+          */
+      this.address = builder.address;
+         /**
+          * 地名
+          * <p> 示例值：字节跳动
+          */
+      this.name = builder.name;
+         /**
+          * 完整地址
+          * <p> 示例值：字节跳动，广东省深圳市南山区深圳湾创新科技中心(科苑地铁站C口步行340米)
+          */
+      this.fullAddress = builder.fullAddress;
+  }
+
     public static class Builder {
-        /**
-         * 经纬度
-         * <p> 示例值：113.946927,22.529146
-         */
+     /**
+      * 经纬度
+      * <p> 示例值：113.946927,22.529146
+      */
         private String location;
-        /**
-         * 省
-         * <p> 示例值：广东省
-         */
+     /**
+      * 省
+      * <p> 示例值：广东省
+      */
         private String pname;
-        /**
-         * 市
-         * <p> 示例值：深圳市
-         */
+     /**
+      * 市
+      * <p> 示例值：深圳市
+      */
         private String cityname;
-        /**
-         * 区
-         * <p> 示例值：南山区
-         */
+     /**
+      * 区
+      * <p> 示例值：南山区
+      */
         private String adname;
-        /**
-         * 详细地址
-         * <p> 示例值：深圳湾创新科技中心(科苑地铁站C口步行340米)
-         */
+     /**
+      * 详细地址
+      * <p> 示例值：深圳湾创新科技中心(科苑地铁站C口步行340米)
+      */
         private String address;
-        /**
-         * 地名
-         * <p> 示例值：字节跳动
-         */
+     /**
+      * 地名
+      * <p> 示例值：字节跳动
+      */
         private String name;
-        /**
-         * 完整地址
-         * <p> 示例值：字节跳动，广东省深圳市南山区深圳湾创新科技中心(科苑地铁站C口步行340米)
-         */
+     /**
+      * 完整地址
+      * <p> 示例值：字节跳动，广东省深圳市南山区深圳湾创新科技中心(科苑地铁站C口步行340米)
+      */
         private String fullAddress;
 
         /**
          * 经纬度
          * <p> 示例值：113.946927,22.529146
-         *
          * @param location
          * @return
          */
         public Builder location(String location) {
-            this.location = location;
-            return this;
+             this.location = location;
+             return this;
         }
 
+    
 
         /**
          * 省
          * <p> 示例值：广东省
-         *
          * @param pname
          * @return
          */
         public Builder pname(String pname) {
-            this.pname = pname;
-            return this;
+             this.pname = pname;
+             return this;
         }
 
+    
 
         /**
          * 市
          * <p> 示例值：深圳市
-         *
          * @param cityname
          * @return
          */
         public Builder cityname(String cityname) {
-            this.cityname = cityname;
-            return this;
+             this.cityname = cityname;
+             return this;
         }
 
+    
 
         /**
          * 区
          * <p> 示例值：南山区
-         *
          * @param adname
          * @return
          */
         public Builder adname(String adname) {
-            this.adname = adname;
-            return this;
+             this.adname = adname;
+             return this;
         }
 
+    
 
         /**
          * 详细地址
          * <p> 示例值：深圳湾创新科技中心(科苑地铁站C口步行340米)
-         *
          * @param address
          * @return
          */
         public Builder address(String address) {
-            this.address = address;
-            return this;
+             this.address = address;
+             return this;
         }
 
+    
 
         /**
          * 地名
          * <p> 示例值：字节跳动
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 完整地址
          * <p> 示例值：字节跳动，广东省深圳市南山区深圳湾创新科技中心(科苑地铁站C口步行340米)
-         *
          * @param fullAddress
          * @return
          */
         public Builder fullAddress(String fullAddress) {
-            this.fullAddress = fullAddress;
-            return this;
+             this.fullAddress = fullAddress;
+             return this;
         }
 
+    
+    
+    public Location build(){
+        return new Location(this);
+      }
+    }
 
-        public Location build() {
-            return new Location(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

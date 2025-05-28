@@ -17,16 +17,15 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 项目状态
  */
 public enum ProjectStatusEnum {
-    INVALID(0), // 无效
-    VALID(1), // 生效
-    ;
-    private Integer value;
-
+     INVALID(0), // 无效
+     VALID(1), // 生效
+  ;
+   private Integer value;
     ProjectStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

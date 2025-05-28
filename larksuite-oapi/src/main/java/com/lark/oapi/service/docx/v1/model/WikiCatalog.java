@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WikiCatalog {
-    /**
-     * 知识库 token
-     * <p> 示例值：Ub47wVl7AikG9wkgnpSbFy4EcAc
-     */
+     /**
+      * 知识库 token
+      * <p> 示例值：Ub47wVl7AikG9wkgnpSbFy4EcAc
+      */
     @SerializedName("wiki_token")
     private String wikiToken;
-
-    // builder 开始
-    public WikiCatalog() {
-    }
-
-    public WikiCatalog(Builder builder) {
-        /**
-         * 知识库 token
-         * <p> 示例值：Ub47wVl7AikG9wkgnpSbFy4EcAc
-         */
-        this.wikiToken = builder.wikiToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getWikiToken() {
         return this.wikiToken;
     }
@@ -60,28 +39,44 @@ public class WikiCatalog {
         this.wikiToken = wikiToken;
     }
 
+
+// builder 开始
+  public WikiCatalog(){}
+
+  public WikiCatalog(Builder builder){
+         /**
+          * 知识库 token
+          * <p> 示例值：Ub47wVl7AikG9wkgnpSbFy4EcAc
+          */
+      this.wikiToken = builder.wikiToken;
+  }
+
     public static class Builder {
-        /**
-         * 知识库 token
-         * <p> 示例值：Ub47wVl7AikG9wkgnpSbFy4EcAc
-         */
+     /**
+      * 知识库 token
+      * <p> 示例值：Ub47wVl7AikG9wkgnpSbFy4EcAc
+      */
         private String wikiToken;
 
         /**
          * 知识库 token
          * <p> 示例值：Ub47wVl7AikG9wkgnpSbFy4EcAc
-         *
          * @param wikiToken
          * @return
          */
         public Builder wikiToken(String wikiToken) {
-            this.wikiToken = wikiToken;
-            return this;
+             this.wikiToken = wikiToken;
+             return this;
         }
 
+    
+    
+    public WikiCatalog build(){
+        return new WikiCatalog(this);
+      }
+    }
 
-        public WikiCatalog build() {
-            return new WikiCatalog(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

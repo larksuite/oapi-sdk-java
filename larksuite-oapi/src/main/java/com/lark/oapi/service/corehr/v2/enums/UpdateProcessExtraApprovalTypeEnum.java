@@ -17,16 +17,15 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 多人加签时的审批方式
  */
 public enum UpdateProcessExtraApprovalTypeEnum {
-    OR(0), // 或签
-    AND(1), // 会签
-    ;
-    private Integer value;
-
+     OR(0), // 或签
+     AND(1), // 会签
+  ;
+   private Integer value;
     UpdateProcessExtraApprovalTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

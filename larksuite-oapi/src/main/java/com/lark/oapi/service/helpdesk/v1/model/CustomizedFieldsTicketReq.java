@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CustomizedFieldsTicketReq {
-    /**
-     * visible only
-     * <p> 示例值：true
-     */
+     /**
+      * visible only
+      * <p> 示例值：true
+      */
     @Query
     @SerializedName("visible_only")
     private Boolean visibleOnly;
-
-    // builder 开始
-    public CustomizedFieldsTicketReq() {
-    }
-
-    public CustomizedFieldsTicketReq(Builder builder) {
-        /**
-         * visible only
-         * <p> 示例值：true
-         */
-        this.visibleOnly = builder.visibleOnly;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getVisibleOnly() {
         return this.visibleOnly;
     }
@@ -60,24 +39,39 @@ public class CustomizedFieldsTicketReq {
         this.visibleOnly = visibleOnly;
     }
 
+
+// builder 开始
+  public CustomizedFieldsTicketReq(){}
+
+  public CustomizedFieldsTicketReq(Builder builder){
+         /**
+          * visible only
+          * <p> 示例值：true
+          */
+       this.visibleOnly = builder.visibleOnly;
+  }
+
     public static class Builder {
         private Boolean visibleOnly; // visible only
-
+    
         /**
          * visible only
          * <p> 示例值：true
-         *
          * @param visibleOnly
          * @return
          */
-        public Builder visibleOnly(Boolean visibleOnly) {
-            this.visibleOnly = visibleOnly;
-            return this;
-        }
+           public Builder visibleOnly(Boolean visibleOnly) {
+                this.visibleOnly = visibleOnly;
+                return this;
+           }
 
+    
+    public CustomizedFieldsTicketReq build(){
+        return new CustomizedFieldsTicketReq(this);
+      }
+    }
 
-        public CustomizedFieldsTicketReq build() {
-            return new CustomizedFieldsTicketReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

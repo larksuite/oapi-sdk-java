@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.base.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.base.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Icon {
-    /**
-     * 图标类型，目前有 emoji、图片等类型
-     * <p> 示例值：""
-     */
+     /**
+      * 图标类型，目前有 emoji、图片等类型
+      * <p> 示例值：""
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * emoji 字符或图片类型图标的 KEY
-     * <p> 示例值：""
-     */
+     /**
+      * emoji 字符或图片类型图标的 KEY
+      * <p> 示例值：""
+      */
     @SerializedName("key")
     private String key;
-    /**
-     * 图标的资源位置信息
-     * <p> 示例值：""
-     */
+     /**
+      * 图标的资源位置信息
+      * <p> 示例值：""
+      */
     @SerializedName("fs_unit")
     private String fsUnit;
-
-    // builder 开始
-    public Icon() {
-    }
-
-    public Icon(Builder builder) {
-        /**
-         * 图标类型，目前有 emoji、图片等类型
-         * <p> 示例值：""
-         */
-        this.type = builder.type;
-        /**
-         * emoji 字符或图片类型图标的 KEY
-         * <p> 示例值：""
-         */
-        this.key = builder.key;
-        /**
-         * 图标的资源位置信息
-         * <p> 示例值：""
-         */
-        this.fsUnit = builder.fsUnit;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getType() {
         return this.type;
     }
@@ -98,64 +67,90 @@ public class Icon {
         this.fsUnit = fsUnit;
     }
 
+
+// builder 开始
+  public Icon(){}
+
+  public Icon(Builder builder){
+         /**
+          * 图标类型，目前有 emoji、图片等类型
+          * <p> 示例值：""
+          */
+      this.type = builder.type;
+         /**
+          * emoji 字符或图片类型图标的 KEY
+          * <p> 示例值：""
+          */
+      this.key = builder.key;
+         /**
+          * 图标的资源位置信息
+          * <p> 示例值：""
+          */
+      this.fsUnit = builder.fsUnit;
+  }
+
     public static class Builder {
-        /**
-         * 图标类型，目前有 emoji、图片等类型
-         * <p> 示例值：""
-         */
+     /**
+      * 图标类型，目前有 emoji、图片等类型
+      * <p> 示例值：""
+      */
         private Integer type;
-        /**
-         * emoji 字符或图片类型图标的 KEY
-         * <p> 示例值：""
-         */
+     /**
+      * emoji 字符或图片类型图标的 KEY
+      * <p> 示例值：""
+      */
         private String key;
-        /**
-         * 图标的资源位置信息
-         * <p> 示例值：""
-         */
+     /**
+      * 图标的资源位置信息
+      * <p> 示例值：""
+      */
         private String fsUnit;
 
         /**
          * 图标类型，目前有 emoji、图片等类型
          * <p> 示例值：""
-         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * emoji 字符或图片类型图标的 KEY
          * <p> 示例值：""
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
 
         /**
          * 图标的资源位置信息
          * <p> 示例值：""
-         *
          * @param fsUnit
          * @return
          */
         public Builder fsUnit(String fsUnit) {
-            this.fsUnit = fsUnit;
-            return this;
+             this.fsUnit = fsUnit;
+             return this;
         }
 
+    
+    
+    public Icon build(){
+        return new Icon(this);
+      }
+    }
 
-        public Icon build() {
-            return new Icon(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

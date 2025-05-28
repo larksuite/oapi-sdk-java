@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateDocumentBlockDescendantReqBody {
-    /**
-     * 添加的孩子 BlockID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 添加的孩子 BlockID 列表
+      * <p> 示例值：
+      */
     @SerializedName("children_id")
     private String[] childrenId;
-    /**
-     * 当前 Block 在 Children 中的插入位置，起始值为 0，最大值为原 Children 长度
-     * <p> 示例值：0
-     */
+     /**
+      * 当前 Block 在 Children 中的插入位置，起始值为 0，最大值为原 Children 长度
+      * <p> 示例值：0
+      */
     @SerializedName("index")
     private Integer index;
-    /**
-     * 添加的子孙列表，包括孩子
-     * <p> 示例值：
-     */
+     /**
+      * 添加的子孙列表，包括孩子
+      * <p> 示例值：
+      */
     @SerializedName("descendants")
     private Block[] descendants;
-
-    // builder 开始
-    public CreateDocumentBlockDescendantReqBody() {
-    }
-
-    public CreateDocumentBlockDescendantReqBody(Builder builder) {
-        /**
-         * 添加的孩子 BlockID 列表
-         * <p> 示例值：
-         */
-        this.childrenId = builder.childrenId;
-        /**
-         * 当前 Block 在 Children 中的插入位置，起始值为 0，最大值为原 Children 长度
-         * <p> 示例值：0
-         */
-        this.index = builder.index;
-        /**
-         * 添加的子孙列表，包括孩子
-         * <p> 示例值：
-         */
-        this.descendants = builder.descendants;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getChildrenId() {
         return this.childrenId;
     }
@@ -98,64 +67,90 @@ public class CreateDocumentBlockDescendantReqBody {
         this.descendants = descendants;
     }
 
+
+// builder 开始
+  public CreateDocumentBlockDescendantReqBody(){}
+
+  public CreateDocumentBlockDescendantReqBody(Builder builder){
+         /**
+          * 添加的孩子 BlockID 列表
+          * <p> 示例值：
+          */
+      this.childrenId = builder.childrenId;
+         /**
+          * 当前 Block 在 Children 中的插入位置，起始值为 0，最大值为原 Children 长度
+          * <p> 示例值：0
+          */
+      this.index = builder.index;
+         /**
+          * 添加的子孙列表，包括孩子
+          * <p> 示例值：
+          */
+      this.descendants = builder.descendants;
+  }
+
     public static class Builder {
-        /**
-         * 添加的孩子 BlockID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 添加的孩子 BlockID 列表
+      * <p> 示例值：
+      */
         private String[] childrenId;
-        /**
-         * 当前 Block 在 Children 中的插入位置，起始值为 0，最大值为原 Children 长度
-         * <p> 示例值：0
-         */
+     /**
+      * 当前 Block 在 Children 中的插入位置，起始值为 0，最大值为原 Children 长度
+      * <p> 示例值：0
+      */
         private Integer index;
-        /**
-         * 添加的子孙列表，包括孩子
-         * <p> 示例值：
-         */
+     /**
+      * 添加的子孙列表，包括孩子
+      * <p> 示例值：
+      */
         private Block[] descendants;
 
         /**
          * 添加的孩子 BlockID 列表
          * <p> 示例值：
-         *
          * @param childrenId
          * @return
          */
         public Builder childrenId(String[] childrenId) {
-            this.childrenId = childrenId;
-            return this;
+             this.childrenId = childrenId;
+             return this;
         }
 
+    
 
         /**
          * 当前 Block 在 Children 中的插入位置，起始值为 0，最大值为原 Children 长度
          * <p> 示例值：0
-         *
          * @param index
          * @return
          */
         public Builder index(Integer index) {
-            this.index = index;
-            return this;
+             this.index = index;
+             return this;
         }
 
+    
 
         /**
          * 添加的子孙列表，包括孩子
          * <p> 示例值：
-         *
          * @param descendants
          * @return
          */
         public Builder descendants(Block[] descendants) {
-            this.descendants = descendants;
-            return this;
+             this.descendants = descendants;
+             return this;
         }
 
+    
+    
+    public CreateDocumentBlockDescendantReqBody build(){
+        return new CreateDocumentBlockDescendantReqBody(this);
+      }
+    }
 
-        public CreateDocumentBlockDescendantReqBody build() {
-            return new CreateDocumentBlockDescendantReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

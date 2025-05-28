@@ -12,111 +12,60 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SiteResumeEducation {
-    /**
-     * 学位
-     * <p> 示例值：
-     */
+     /**
+      * 学位
+      * <p> 示例值：
+      */
     @SerializedName("degree")
     private String degree;
-    /**
-     * 学校
-     * <p> 示例值：
-     */
+     /**
+      * 学校
+      * <p> 示例值：
+      */
     @SerializedName("school")
     private String school;
-    /**
-     * 专业
-     * <p> 示例值：
-     */
+     /**
+      * 专业
+      * <p> 示例值：
+      */
     @SerializedName("major")
     private String major;
-    /**
-     * 入学时间
-     * <p> 示例值：
-     */
+     /**
+      * 入学时间
+      * <p> 示例值：
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 毕业时间
-     * <p> 示例值：
-     */
+     /**
+      * 毕业时间
+      * <p> 示例值：
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 学位类型
-     * <p> 示例值：
-     */
+     /**
+      * 学位类型
+      * <p> 示例值：
+      */
     @SerializedName("education_type")
     private String educationType;
-    /**
-     * 排名
-     * <p> 示例值：
-     */
+     /**
+      * 排名
+      * <p> 示例值：
+      */
     @SerializedName("academic_ranking")
     private String academicRanking;
-
-    // builder 开始
-    public SiteResumeEducation() {
-    }
-
-    public SiteResumeEducation(Builder builder) {
-        /**
-         * 学位
-         * <p> 示例值：
-         */
-        this.degree = builder.degree;
-        /**
-         * 学校
-         * <p> 示例值：
-         */
-        this.school = builder.school;
-        /**
-         * 专业
-         * <p> 示例值：
-         */
-        this.major = builder.major;
-        /**
-         * 入学时间
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 毕业时间
-         * <p> 示例值：
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 学位类型
-         * <p> 示例值：
-         */
-        this.educationType = builder.educationType;
-        /**
-         * 排名
-         * <p> 示例值：
-         */
-        this.academicRanking = builder.academicRanking;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDegree() {
         return this.degree;
     }
@@ -173,136 +122,182 @@ public class SiteResumeEducation {
         this.academicRanking = academicRanking;
     }
 
+
+// builder 开始
+  public SiteResumeEducation(){}
+
+  public SiteResumeEducation(Builder builder){
+         /**
+          * 学位
+          * <p> 示例值：
+          */
+      this.degree = builder.degree;
+         /**
+          * 学校
+          * <p> 示例值：
+          */
+      this.school = builder.school;
+         /**
+          * 专业
+          * <p> 示例值：
+          */
+      this.major = builder.major;
+         /**
+          * 入学时间
+          * <p> 示例值：
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 毕业时间
+          * <p> 示例值：
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 学位类型
+          * <p> 示例值：
+          */
+      this.educationType = builder.educationType;
+         /**
+          * 排名
+          * <p> 示例值：
+          */
+      this.academicRanking = builder.academicRanking;
+  }
+
     public static class Builder {
-        /**
-         * 学位
-         * <p> 示例值：
-         */
+     /**
+      * 学位
+      * <p> 示例值：
+      */
         private String degree;
-        /**
-         * 学校
-         * <p> 示例值：
-         */
+     /**
+      * 学校
+      * <p> 示例值：
+      */
         private String school;
-        /**
-         * 专业
-         * <p> 示例值：
-         */
+     /**
+      * 专业
+      * <p> 示例值：
+      */
         private String major;
-        /**
-         * 入学时间
-         * <p> 示例值：
-         */
+     /**
+      * 入学时间
+      * <p> 示例值：
+      */
         private String startTime;
-        /**
-         * 毕业时间
-         * <p> 示例值：
-         */
+     /**
+      * 毕业时间
+      * <p> 示例值：
+      */
         private String endTime;
-        /**
-         * 学位类型
-         * <p> 示例值：
-         */
+     /**
+      * 学位类型
+      * <p> 示例值：
+      */
         private String educationType;
-        /**
-         * 排名
-         * <p> 示例值：
-         */
+     /**
+      * 排名
+      * <p> 示例值：
+      */
         private String academicRanking;
 
         /**
          * 学位
          * <p> 示例值：
-         *
          * @param degree
          * @return
          */
         public Builder degree(String degree) {
-            this.degree = degree;
-            return this;
+             this.degree = degree;
+             return this;
         }
 
+    
 
         /**
          * 学校
          * <p> 示例值：
-         *
          * @param school
          * @return
          */
         public Builder school(String school) {
-            this.school = school;
-            return this;
+             this.school = school;
+             return this;
         }
 
+    
 
         /**
          * 专业
          * <p> 示例值：
-         *
          * @param major
          * @return
          */
         public Builder major(String major) {
-            this.major = major;
-            return this;
+             this.major = major;
+             return this;
         }
 
+    
 
         /**
          * 入学时间
          * <p> 示例值：
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 毕业时间
          * <p> 示例值：
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 学位类型
          * <p> 示例值：
-         *
          * @param educationType
          * @return
          */
         public Builder educationType(String educationType) {
-            this.educationType = educationType;
-            return this;
+             this.educationType = educationType;
+             return this;
         }
 
+    
 
         /**
          * 排名
          * <p> 示例值：
-         *
          * @param academicRanking
          * @return
          */
         public Builder academicRanking(String academicRanking) {
-            this.academicRanking = academicRanking;
-            return this;
+             this.academicRanking = academicRanking;
+             return this;
         }
 
+    
+    
+    public SiteResumeEducation build(){
+        return new SiteResumeEducation(this);
+      }
+    }
 
-        public SiteResumeEducation build() {
-            return new SiteResumeEducation(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

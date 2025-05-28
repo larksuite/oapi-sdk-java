@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BonusAmount {
-    /**
-     * 奖励类型
-     * <p> 示例值：1
-     */
+     /**
+      * 奖励类型
+      * <p> 示例值：1
+      */
     @SerializedName("bonus_type")
     private Integer bonusType;
-    /**
-     * 积分奖励
-     * <p> 示例值：100
-     */
+     /**
+      * 积分奖励
+      * <p> 示例值：100
+      */
     @SerializedName("point_bonus")
     private Long pointBonus;
-    /**
-     * 现金奖励
-     * <p> 示例值：
-     */
+     /**
+      * 现金奖励
+      * <p> 示例值：
+      */
     @SerializedName("cash")
     private Cash cash;
-    /**
-     * 现金奖励
-     * <p> 示例值：
-     */
+     /**
+      * 现金奖励
+      * <p> 示例值：
+      */
     @SerializedName("cash_bonus")
     private Cash[] cashBonus;
-
-    // builder 开始
-    public BonusAmount() {
-    }
-
-    public BonusAmount(Builder builder) {
-        /**
-         * 奖励类型
-         * <p> 示例值：1
-         */
-        this.bonusType = builder.bonusType;
-        /**
-         * 积分奖励
-         * <p> 示例值：100
-         */
-        this.pointBonus = builder.pointBonus;
-        /**
-         * 现金奖励
-         * <p> 示例值：
-         */
-        this.cash = builder.cash;
-        /**
-         * 现金奖励
-         * <p> 示例值：
-         */
-        this.cashBonus = builder.cashBonus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getBonusType() {
         return this.bonusType;
     }
@@ -116,82 +80,113 @@ public class BonusAmount {
         this.cashBonus = cashBonus;
     }
 
+
+// builder 开始
+  public BonusAmount(){}
+
+  public BonusAmount(Builder builder){
+         /**
+          * 奖励类型
+          * <p> 示例值：1
+          */
+      this.bonusType = builder.bonusType;
+         /**
+          * 积分奖励
+          * <p> 示例值：100
+          */
+      this.pointBonus = builder.pointBonus;
+         /**
+          * 现金奖励
+          * <p> 示例值：
+          */
+      this.cash = builder.cash;
+         /**
+          * 现金奖励
+          * <p> 示例值：
+          */
+      this.cashBonus = builder.cashBonus;
+  }
+
     public static class Builder {
-        /**
-         * 奖励类型
-         * <p> 示例值：1
-         */
+     /**
+      * 奖励类型
+      * <p> 示例值：1
+      */
         private Integer bonusType;
-        /**
-         * 积分奖励
-         * <p> 示例值：100
-         */
+     /**
+      * 积分奖励
+      * <p> 示例值：100
+      */
         private Long pointBonus;
-        /**
-         * 现金奖励
-         * <p> 示例值：
-         */
+     /**
+      * 现金奖励
+      * <p> 示例值：
+      */
         private Cash cash;
-        /**
-         * 现金奖励
-         * <p> 示例值：
-         */
+     /**
+      * 现金奖励
+      * <p> 示例值：
+      */
         private Cash[] cashBonus;
 
         /**
          * 奖励类型
          * <p> 示例值：1
-         *
          * @param bonusType
          * @return
          */
         public Builder bonusType(Integer bonusType) {
-            this.bonusType = bonusType;
-            return this;
+             this.bonusType = bonusType;
+             return this;
         }
 
+    
 
         /**
          * 积分奖励
          * <p> 示例值：100
-         *
          * @param pointBonus
          * @return
          */
         public Builder pointBonus(Long pointBonus) {
-            this.pointBonus = pointBonus;
-            return this;
+             this.pointBonus = pointBonus;
+             return this;
         }
 
+    
 
         /**
          * 现金奖励
          * <p> 示例值：
-         *
          * @param cash
          * @return
          */
         public Builder cash(Cash cash) {
-            this.cash = cash;
-            return this;
+             this.cash = cash;
+             return this;
         }
 
+    
 
         /**
          * 现金奖励
          * <p> 示例值：
-         *
          * @param cashBonus
          * @return
          */
         public Builder cashBonus(Cash[] cashBonus) {
-            this.cashBonus = cashBonus;
-            return this;
+             this.cashBonus = cashBonus;
+             return this;
         }
 
+    
+    
+    public BonusAmount build(){
+        return new BonusAmount(this);
+      }
+    }
 
-        public BonusAmount build() {
-            return new BonusAmount(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,16 +17,15 @@ package com.lark.oapi.service.contact.v3.enums;
  * 用户组的类型
  */
 public enum GroupGroupTypeEnum {
-    ASSIGN(1), // 普通用户组
-    DYNAMIC(2), // 动态用户组
-    ;
-    private Integer value;
-
+     ASSIGN(1), // 普通用户组
+     DYNAMIC(2), // 动态用户组
+  ;
+   private Integer value;
     GroupGroupTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

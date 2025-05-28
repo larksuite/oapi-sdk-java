@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ModelParam {
-    /**
-     * embedding模型名字
-     * <p> 示例值：lark-encoder
-     */
+     /**
+      * embedding模型名字
+      * <p> 示例值：lark-encoder
+      */
     @SerializedName("encoder_name")
     private String encoderName;
-    /**
-     * 排序模型名字
-     * <p> 示例值：lark-ranker
-     */
+     /**
+      * 排序模型名字
+      * <p> 示例值：lark-ranker
+      */
     @SerializedName("ranker_name")
     private String rankerName;
-    /**
-     * 过滤模型名字
-     * <p> 示例值：lark-filter
-     */
+     /**
+      * 过滤模型名字
+      * <p> 示例值：lark-filter
+      */
     @SerializedName("filter_name")
     private String filterName;
-    /**
-     * 时效权威互动模型名字
-     * <p> 示例值：lark-booster
-     */
+     /**
+      * 时效权威互动模型名字
+      * <p> 示例值：lark-booster
+      */
     @SerializedName("booster_name")
     private String boosterName;
-    /**
-     * 选择返回的语种，可选{zh,en,ja,auto,all}，auto自动检测query的语种并过滤，all保留所有语种不做过滤，默认auto
-     * <p> 示例值：zh
-     */
+     /**
+      * 选择返回的语种，可选{zh,en,ja,auto,all}，auto自动检测query的语种并过滤，all保留所有语种不做过滤，默认auto
+      * <p> 示例值：zh
+      */
     @SerializedName("passage_language")
     private String passageLanguage;
-
-    // builder 开始
-    public ModelParam() {
-    }
-
-    public ModelParam(Builder builder) {
-        /**
-         * embedding模型名字
-         * <p> 示例值：lark-encoder
-         */
-        this.encoderName = builder.encoderName;
-        /**
-         * 排序模型名字
-         * <p> 示例值：lark-ranker
-         */
-        this.rankerName = builder.rankerName;
-        /**
-         * 过滤模型名字
-         * <p> 示例值：lark-filter
-         */
-        this.filterName = builder.filterName;
-        /**
-         * 时效权威互动模型名字
-         * <p> 示例值：lark-booster
-         */
-        this.boosterName = builder.boosterName;
-        /**
-         * 选择返回的语种，可选{zh,en,ja,auto,all}，auto自动检测query的语种并过滤，all保留所有语种不做过滤，默认auto
-         * <p> 示例值：zh
-         */
-        this.passageLanguage = builder.passageLanguage;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEncoderName() {
         return this.encoderName;
     }
@@ -136,100 +95,136 @@ public class ModelParam {
         this.passageLanguage = passageLanguage;
     }
 
+
+// builder 开始
+  public ModelParam(){}
+
+  public ModelParam(Builder builder){
+         /**
+          * embedding模型名字
+          * <p> 示例值：lark-encoder
+          */
+      this.encoderName = builder.encoderName;
+         /**
+          * 排序模型名字
+          * <p> 示例值：lark-ranker
+          */
+      this.rankerName = builder.rankerName;
+         /**
+          * 过滤模型名字
+          * <p> 示例值：lark-filter
+          */
+      this.filterName = builder.filterName;
+         /**
+          * 时效权威互动模型名字
+          * <p> 示例值：lark-booster
+          */
+      this.boosterName = builder.boosterName;
+         /**
+          * 选择返回的语种，可选{zh,en,ja,auto,all}，auto自动检测query的语种并过滤，all保留所有语种不做过滤，默认auto
+          * <p> 示例值：zh
+          */
+      this.passageLanguage = builder.passageLanguage;
+  }
+
     public static class Builder {
-        /**
-         * embedding模型名字
-         * <p> 示例值：lark-encoder
-         */
+     /**
+      * embedding模型名字
+      * <p> 示例值：lark-encoder
+      */
         private String encoderName;
-        /**
-         * 排序模型名字
-         * <p> 示例值：lark-ranker
-         */
+     /**
+      * 排序模型名字
+      * <p> 示例值：lark-ranker
+      */
         private String rankerName;
-        /**
-         * 过滤模型名字
-         * <p> 示例值：lark-filter
-         */
+     /**
+      * 过滤模型名字
+      * <p> 示例值：lark-filter
+      */
         private String filterName;
-        /**
-         * 时效权威互动模型名字
-         * <p> 示例值：lark-booster
-         */
+     /**
+      * 时效权威互动模型名字
+      * <p> 示例值：lark-booster
+      */
         private String boosterName;
-        /**
-         * 选择返回的语种，可选{zh,en,ja,auto,all}，auto自动检测query的语种并过滤，all保留所有语种不做过滤，默认auto
-         * <p> 示例值：zh
-         */
+     /**
+      * 选择返回的语种，可选{zh,en,ja,auto,all}，auto自动检测query的语种并过滤，all保留所有语种不做过滤，默认auto
+      * <p> 示例值：zh
+      */
         private String passageLanguage;
 
         /**
          * embedding模型名字
          * <p> 示例值：lark-encoder
-         *
          * @param encoderName
          * @return
          */
         public Builder encoderName(String encoderName) {
-            this.encoderName = encoderName;
-            return this;
+             this.encoderName = encoderName;
+             return this;
         }
 
+    
 
         /**
          * 排序模型名字
          * <p> 示例值：lark-ranker
-         *
          * @param rankerName
          * @return
          */
         public Builder rankerName(String rankerName) {
-            this.rankerName = rankerName;
-            return this;
+             this.rankerName = rankerName;
+             return this;
         }
 
+    
 
         /**
          * 过滤模型名字
          * <p> 示例值：lark-filter
-         *
          * @param filterName
          * @return
          */
         public Builder filterName(String filterName) {
-            this.filterName = filterName;
-            return this;
+             this.filterName = filterName;
+             return this;
         }
 
+    
 
         /**
          * 时效权威互动模型名字
          * <p> 示例值：lark-booster
-         *
          * @param boosterName
          * @return
          */
         public Builder boosterName(String boosterName) {
-            this.boosterName = boosterName;
-            return this;
+             this.boosterName = boosterName;
+             return this;
         }
 
+    
 
         /**
          * 选择返回的语种，可选{zh,en,ja,auto,all}，auto自动检测query的语种并过滤，all保留所有语种不做过滤，默认auto
          * <p> 示例值：zh
-         *
          * @param passageLanguage
          * @return
          */
         public Builder passageLanguage(String passageLanguage) {
-            this.passageLanguage = passageLanguage;
-            return this;
+             this.passageLanguage = passageLanguage;
+             return this;
         }
 
+    
+    
+    public ModelParam build(){
+        return new ModelParam(this);
+      }
+    }
 
-        public ModelParam build() {
-            return new ModelParam(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

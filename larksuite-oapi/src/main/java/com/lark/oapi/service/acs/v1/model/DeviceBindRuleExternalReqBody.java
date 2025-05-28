@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeviceBindRuleExternalReqBody {
-    /**
-     * 设备id
-     * <p> 示例值：6939433228970082593
-     */
+     /**
+      * 设备id
+      * <p> 示例值：6939433228970082593
+      */
     @SerializedName("device_id")
     private String deviceId;
-    /**
-     * 权限组id列表
-     * <p> 示例值：
-     */
+     /**
+      * 权限组id列表
+      * <p> 示例值：
+      */
     @SerializedName("rule_ids")
     private String[] ruleIds;
-
-    // builder 开始
-    public DeviceBindRuleExternalReqBody() {
-    }
-
-    public DeviceBindRuleExternalReqBody(Builder builder) {
-        /**
-         * 设备id
-         * <p> 示例值：6939433228970082593
-         */
-        this.deviceId = builder.deviceId;
-        /**
-         * 权限组id列表
-         * <p> 示例值：
-         */
-        this.ruleIds = builder.ruleIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDeviceId() {
         return this.deviceId;
     }
@@ -79,46 +53,67 @@ public class DeviceBindRuleExternalReqBody {
         this.ruleIds = ruleIds;
     }
 
+
+// builder 开始
+  public DeviceBindRuleExternalReqBody(){}
+
+  public DeviceBindRuleExternalReqBody(Builder builder){
+         /**
+          * 设备id
+          * <p> 示例值：6939433228970082593
+          */
+      this.deviceId = builder.deviceId;
+         /**
+          * 权限组id列表
+          * <p> 示例值：
+          */
+      this.ruleIds = builder.ruleIds;
+  }
+
     public static class Builder {
-        /**
-         * 设备id
-         * <p> 示例值：6939433228970082593
-         */
+     /**
+      * 设备id
+      * <p> 示例值：6939433228970082593
+      */
         private String deviceId;
-        /**
-         * 权限组id列表
-         * <p> 示例值：
-         */
+     /**
+      * 权限组id列表
+      * <p> 示例值：
+      */
         private String[] ruleIds;
 
         /**
          * 设备id
          * <p> 示例值：6939433228970082593
-         *
          * @param deviceId
          * @return
          */
         public Builder deviceId(String deviceId) {
-            this.deviceId = deviceId;
-            return this;
+             this.deviceId = deviceId;
+             return this;
         }
 
+    
 
         /**
          * 权限组id列表
          * <p> 示例值：
-         *
          * @param ruleIds
          * @return
          */
         public Builder ruleIds(String[] ruleIds) {
-            this.ruleIds = ruleIds;
-            return this;
+             this.ruleIds = ruleIds;
+             return this;
         }
 
+    
+    
+    public DeviceBindRuleExternalReqBody build(){
+        return new DeviceBindRuleExternalReqBody(this);
+      }
+    }
 
-        public DeviceBindRuleExternalReqBody build() {
-            return new DeviceBindRuleExternalReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

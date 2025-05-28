@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ChatMenuTree {
-    /**
-     * 一级菜单列表
-     * <p> 示例值：
-     */
+     /**
+      * 一级菜单列表
+      * <p> 示例值：
+      */
     @SerializedName("chat_menu_top_levels")
     private ChatMenuTopLevel[] chatMenuTopLevels;
-
-    // builder 开始
-    public ChatMenuTree() {
-    }
-
-    public ChatMenuTree(Builder builder) {
-        /**
-         * 一级菜单列表
-         * <p> 示例值：
-         */
-        this.chatMenuTopLevels = builder.chatMenuTopLevels;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ChatMenuTopLevel[] getChatMenuTopLevels() {
         return this.chatMenuTopLevels;
     }
@@ -60,28 +39,44 @@ public class ChatMenuTree {
         this.chatMenuTopLevels = chatMenuTopLevels;
     }
 
+
+// builder 开始
+  public ChatMenuTree(){}
+
+  public ChatMenuTree(Builder builder){
+         /**
+          * 一级菜单列表
+          * <p> 示例值：
+          */
+      this.chatMenuTopLevels = builder.chatMenuTopLevels;
+  }
+
     public static class Builder {
-        /**
-         * 一级菜单列表
-         * <p> 示例值：
-         */
+     /**
+      * 一级菜单列表
+      * <p> 示例值：
+      */
         private ChatMenuTopLevel[] chatMenuTopLevels;
 
         /**
          * 一级菜单列表
          * <p> 示例值：
-         *
          * @param chatMenuTopLevels
          * @return
          */
         public Builder chatMenuTopLevels(ChatMenuTopLevel[] chatMenuTopLevels) {
-            this.chatMenuTopLevels = chatMenuTopLevels;
-            return this;
+             this.chatMenuTopLevels = chatMenuTopLevels;
+             return this;
         }
 
+    
+    
+    public ChatMenuTree build(){
+        return new ChatMenuTree(this);
+      }
+    }
 
-        public ChatMenuTree build() {
-            return new ChatMenuTree(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

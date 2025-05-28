@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OffboardingData {
-    /**
-     * 离职记录 id
-     * <p> 示例值：7095671727698478604
-     */
+     /**
+      * 离职记录 id
+      * <p> 示例值：7095671727698478604
+      */
     @SerializedName("offboarding_id")
     private String offboardingId;
-    /**
-     * 雇员 id
-     * <p> 示例值：6982509313466189342
-     */
+     /**
+      * 雇员 id
+      * <p> 示例值：6982509313466189342
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 离职原因
-     * <p> 示例值：reason_for_offboarding_option8
-     */
+     /**
+      * 离职原因
+      * <p> 示例值：reason_for_offboarding_option8
+      */
     @SerializedName("offboarding_reason_unique_identifier")
     private String offboardingReasonUniqueIdentifier;
-    /**
-     * 离职日期
-     * <p> 示例值：2022-05-18
-     */
+     /**
+      * 离职日期
+      * <p> 示例值：2022-05-18
+      */
     @SerializedName("offboarding_date")
     private String offboardingDate;
-    /**
-     * 离职原因说明
-     * <p> 示例值：离职原因说明
-     */
+     /**
+      * 离职原因说明
+      * <p> 示例值：离职原因说明
+      */
     @SerializedName("offboarding_reason_explanation")
     private String offboardingReasonExplanation;
-    /**
-     * 创建时间
-     * <p> 示例值：2022-05-09 17:50:17
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：2022-05-09 17:50:17
+      */
     @SerializedName("created_time")
     private String createdTime;
-
-    // builder 开始
-    public OffboardingData() {
-    }
-
-    public OffboardingData(Builder builder) {
-        /**
-         * 离职记录 id
-         * <p> 示例值：7095671727698478604
-         */
-        this.offboardingId = builder.offboardingId;
-        /**
-         * 雇员 id
-         * <p> 示例值：6982509313466189342
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 离职原因
-         * <p> 示例值：reason_for_offboarding_option8
-         */
-        this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
-        /**
-         * 离职日期
-         * <p> 示例值：2022-05-18
-         */
-        this.offboardingDate = builder.offboardingDate;
-        /**
-         * 离职原因说明
-         * <p> 示例值：离职原因说明
-         */
-        this.offboardingReasonExplanation = builder.offboardingReasonExplanation;
-        /**
-         * 创建时间
-         * <p> 示例值：2022-05-09 17:50:17
-         */
-        this.createdTime = builder.createdTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOffboardingId() {
         return this.offboardingId;
     }
@@ -155,118 +109,159 @@ public class OffboardingData {
         this.createdTime = createdTime;
     }
 
+
+// builder 开始
+  public OffboardingData(){}
+
+  public OffboardingData(Builder builder){
+         /**
+          * 离职记录 id
+          * <p> 示例值：7095671727698478604
+          */
+      this.offboardingId = builder.offboardingId;
+         /**
+          * 雇员 id
+          * <p> 示例值：6982509313466189342
+          */
+      this.employmentId = builder.employmentId;
+         /**
+          * 离职原因
+          * <p> 示例值：reason_for_offboarding_option8
+          */
+      this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
+         /**
+          * 离职日期
+          * <p> 示例值：2022-05-18
+          */
+      this.offboardingDate = builder.offboardingDate;
+         /**
+          * 离职原因说明
+          * <p> 示例值：离职原因说明
+          */
+      this.offboardingReasonExplanation = builder.offboardingReasonExplanation;
+         /**
+          * 创建时间
+          * <p> 示例值：2022-05-09 17:50:17
+          */
+      this.createdTime = builder.createdTime;
+  }
+
     public static class Builder {
-        /**
-         * 离职记录 id
-         * <p> 示例值：7095671727698478604
-         */
+     /**
+      * 离职记录 id
+      * <p> 示例值：7095671727698478604
+      */
         private String offboardingId;
-        /**
-         * 雇员 id
-         * <p> 示例值：6982509313466189342
-         */
+     /**
+      * 雇员 id
+      * <p> 示例值：6982509313466189342
+      */
         private String employmentId;
-        /**
-         * 离职原因
-         * <p> 示例值：reason_for_offboarding_option8
-         */
+     /**
+      * 离职原因
+      * <p> 示例值：reason_for_offboarding_option8
+      */
         private String offboardingReasonUniqueIdentifier;
-        /**
-         * 离职日期
-         * <p> 示例值：2022-05-18
-         */
+     /**
+      * 离职日期
+      * <p> 示例值：2022-05-18
+      */
         private String offboardingDate;
-        /**
-         * 离职原因说明
-         * <p> 示例值：离职原因说明
-         */
+     /**
+      * 离职原因说明
+      * <p> 示例值：离职原因说明
+      */
         private String offboardingReasonExplanation;
-        /**
-         * 创建时间
-         * <p> 示例值：2022-05-09 17:50:17
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：2022-05-09 17:50:17
+      */
         private String createdTime;
 
         /**
          * 离职记录 id
          * <p> 示例值：7095671727698478604
-         *
          * @param offboardingId
          * @return
          */
         public Builder offboardingId(String offboardingId) {
-            this.offboardingId = offboardingId;
-            return this;
+             this.offboardingId = offboardingId;
+             return this;
         }
 
+    
 
         /**
          * 雇员 id
          * <p> 示例值：6982509313466189342
-         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
+             this.employmentId = employmentId;
+             return this;
         }
 
+    
 
         /**
          * 离职原因
          * <p> 示例值：reason_for_offboarding_option8
-         *
          * @param offboardingReasonUniqueIdentifier
          * @return
          */
         public Builder offboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
-            this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
-            return this;
+             this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+             return this;
         }
 
+    
 
         /**
          * 离职日期
          * <p> 示例值：2022-05-18
-         *
          * @param offboardingDate
          * @return
          */
         public Builder offboardingDate(String offboardingDate) {
-            this.offboardingDate = offboardingDate;
-            return this;
+             this.offboardingDate = offboardingDate;
+             return this;
         }
 
+    
 
         /**
          * 离职原因说明
          * <p> 示例值：离职原因说明
-         *
          * @param offboardingReasonExplanation
          * @return
          */
         public Builder offboardingReasonExplanation(String offboardingReasonExplanation) {
-            this.offboardingReasonExplanation = offboardingReasonExplanation;
-            return this;
+             this.offboardingReasonExplanation = offboardingReasonExplanation;
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：2022-05-09 17:50:17
-         *
          * @param createdTime
          * @return
          */
         public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
+             this.createdTime = createdTime;
+             return this;
         }
 
+    
+    
+    public OffboardingData build(){
+        return new OffboardingData(this);
+      }
+    }
 
-        public OffboardingData build() {
-            return new OffboardingData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

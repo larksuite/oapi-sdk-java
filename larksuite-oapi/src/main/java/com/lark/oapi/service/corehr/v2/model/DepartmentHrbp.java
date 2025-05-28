@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DepartmentHrbp {
-    /**
-     * 部门 ID
-     * <p> 示例值：4719456877659520852
-     */
+     /**
+      * 部门 ID
+      * <p> 示例值：4719456877659520852
+      */
     @SerializedName("department_id")
     private String departmentId;
-    /**
-     * 部门 HRBP 雇佣 ID
-     * <p> 示例值：
-     */
+     /**
+      * 部门 HRBP 雇佣 ID
+      * <p> 示例值：
+      */
     @SerializedName("hrbp_ids")
     private String[] hrbpIds;
-
-    // builder 开始
-    public DepartmentHrbp() {
-    }
-
-    public DepartmentHrbp(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 部门 HRBP 雇佣 ID
-         * <p> 示例值：
-         */
-        this.hrbpIds = builder.hrbpIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDepartmentId() {
         return this.departmentId;
     }
@@ -79,46 +53,67 @@ public class DepartmentHrbp {
         this.hrbpIds = hrbpIds;
     }
 
+
+// builder 开始
+  public DepartmentHrbp(){}
+
+  public DepartmentHrbp(Builder builder){
+         /**
+          * 部门 ID
+          * <p> 示例值：4719456877659520852
+          */
+      this.departmentId = builder.departmentId;
+         /**
+          * 部门 HRBP 雇佣 ID
+          * <p> 示例值：
+          */
+      this.hrbpIds = builder.hrbpIds;
+  }
+
     public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
+     /**
+      * 部门 ID
+      * <p> 示例值：4719456877659520852
+      */
         private String departmentId;
-        /**
-         * 部门 HRBP 雇佣 ID
-         * <p> 示例值：
-         */
+     /**
+      * 部门 HRBP 雇佣 ID
+      * <p> 示例值：
+      */
         private String[] hrbpIds;
 
         /**
          * 部门 ID
          * <p> 示例值：4719456877659520852
-         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
+             this.departmentId = departmentId;
+             return this;
         }
 
+    
 
         /**
          * 部门 HRBP 雇佣 ID
          * <p> 示例值：
-         *
          * @param hrbpIds
          * @return
          */
         public Builder hrbpIds(String[] hrbpIds) {
-            this.hrbpIds = hrbpIds;
-            return this;
+             this.hrbpIds = hrbpIds;
+             return this;
         }
 
+    
+    
+    public DepartmentHrbp build(){
+        return new DepartmentHrbp(this);
+      }
+    }
 
-        public DepartmentHrbp build() {
-            return new DepartmentHrbp(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RevieweeMetric {
-    /**
-     * 被评估人
-     * <p> 示例值：
-     */
+     /**
+      * 被评估人
+      * <p> 示例值：
+      */
     @SerializedName("reviewee_user_id")
     private User revieweeUserId;
-    /**
-     * 被评估人在该周期所属的指标模板 ID
-     * <p> 示例值：7294570803306168339
-     */
+     /**
+      * 被评估人在该周期所属的指标模板 ID
+      * <p> 示例值：7294570803306168339
+      */
     @SerializedName("metric_template_id")
     private String metricTemplateId;
-    /**
-     * 被评估人在周期下的指标明细数据
-     * <p> 示例值：
-     */
+     /**
+      * 被评估人在周期下的指标明细数据
+      * <p> 示例值：
+      */
     @SerializedName("metric_details")
     private MetricDetail metricDetails;
-    /**
-     * 被评估人关键指标环节状态
-     * <p> 示例值：
-     */
+     /**
+      * 被评估人关键指标环节状态
+      * <p> 示例值：
+      */
     @SerializedName("reviewee_stage_statuses")
     private RevieweeStageStatus[] revieweeStageStatuses;
-
-    // builder 开始
-    public RevieweeMetric() {
-    }
-
-    public RevieweeMetric(Builder builder) {
-        /**
-         * 被评估人
-         * <p> 示例值：
-         */
-        this.revieweeUserId = builder.revieweeUserId;
-        /**
-         * 被评估人在该周期所属的指标模板 ID
-         * <p> 示例值：7294570803306168339
-         */
-        this.metricTemplateId = builder.metricTemplateId;
-        /**
-         * 被评估人在周期下的指标明细数据
-         * <p> 示例值：
-         */
-        this.metricDetails = builder.metricDetails;
-        /**
-         * 被评估人关键指标环节状态
-         * <p> 示例值：
-         */
-        this.revieweeStageStatuses = builder.revieweeStageStatuses;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public User getRevieweeUserId() {
         return this.revieweeUserId;
     }
@@ -117,82 +81,113 @@ public class RevieweeMetric {
         this.revieweeStageStatuses = revieweeStageStatuses;
     }
 
+
+// builder 开始
+  public RevieweeMetric(){}
+
+  public RevieweeMetric(Builder builder){
+         /**
+          * 被评估人
+          * <p> 示例值：
+          */
+      this.revieweeUserId = builder.revieweeUserId;
+         /**
+          * 被评估人在该周期所属的指标模板 ID
+          * <p> 示例值：7294570803306168339
+          */
+      this.metricTemplateId = builder.metricTemplateId;
+         /**
+          * 被评估人在周期下的指标明细数据
+          * <p> 示例值：
+          */
+      this.metricDetails = builder.metricDetails;
+         /**
+          * 被评估人关键指标环节状态
+          * <p> 示例值：
+          */
+      this.revieweeStageStatuses = builder.revieweeStageStatuses;
+  }
+
     public static class Builder {
-        /**
-         * 被评估人
-         * <p> 示例值：
-         */
+     /**
+      * 被评估人
+      * <p> 示例值：
+      */
         private User revieweeUserId;
-        /**
-         * 被评估人在该周期所属的指标模板 ID
-         * <p> 示例值：7294570803306168339
-         */
+     /**
+      * 被评估人在该周期所属的指标模板 ID
+      * <p> 示例值：7294570803306168339
+      */
         private String metricTemplateId;
-        /**
-         * 被评估人在周期下的指标明细数据
-         * <p> 示例值：
-         */
+     /**
+      * 被评估人在周期下的指标明细数据
+      * <p> 示例值：
+      */
         private MetricDetail metricDetails;
-        /**
-         * 被评估人关键指标环节状态
-         * <p> 示例值：
-         */
+     /**
+      * 被评估人关键指标环节状态
+      * <p> 示例值：
+      */
         private RevieweeStageStatus[] revieweeStageStatuses;
 
         /**
          * 被评估人
          * <p> 示例值：
-         *
          * @param revieweeUserId
          * @return
          */
         public Builder revieweeUserId(User revieweeUserId) {
-            this.revieweeUserId = revieweeUserId;
-            return this;
+             this.revieweeUserId = revieweeUserId;
+             return this;
         }
 
+    
 
         /**
          * 被评估人在该周期所属的指标模板 ID
          * <p> 示例值：7294570803306168339
-         *
          * @param metricTemplateId
          * @return
          */
         public Builder metricTemplateId(String metricTemplateId) {
-            this.metricTemplateId = metricTemplateId;
-            return this;
+             this.metricTemplateId = metricTemplateId;
+             return this;
         }
 
+    
 
         /**
          * 被评估人在周期下的指标明细数据
          * <p> 示例值：
-         *
          * @param metricDetails
          * @return
          */
         public Builder metricDetails(MetricDetail metricDetails) {
-            this.metricDetails = metricDetails;
-            return this;
+             this.metricDetails = metricDetails;
+             return this;
         }
 
+    
 
         /**
          * 被评估人关键指标环节状态
          * <p> 示例值：
-         *
          * @param revieweeStageStatuses
          * @return
          */
         public Builder revieweeStageStatuses(RevieweeStageStatus[] revieweeStageStatuses) {
-            this.revieweeStageStatuses = revieweeStageStatuses;
-            return this;
+             this.revieweeStageStatuses = revieweeStageStatuses;
+             return this;
         }
 
+    
+    
+    public RevieweeMetric build(){
+        return new RevieweeMetric(this);
+      }
+    }
 
-        public RevieweeMetric build() {
-            return new RevieweeMetric(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

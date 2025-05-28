@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateAilySessionRunReqBody {
-    /**
-     * 应用 ID
-     * <p> 示例值：spring_xxx__c
-     */
+     /**
+      * 应用 ID
+      * <p> 示例值：spring_xxx__c
+      */
     @SerializedName("app_id")
     private String appId;
-    /**
-     * 技能 ID
-     * <p> 示例值：skill_6cc6166178ca
-     */
+     /**
+      * 技能 ID
+      * <p> 示例值：skill_6cc6166178ca
+      */
     @SerializedName("skill_id")
     private String skillId;
-    /**
-     * 指定技能 ID 时可以同时指定技能输入
-     * <p> 示例值：{"key": "value"}
-     */
+     /**
+      * 指定技能 ID 时可以同时指定技能输入
+      * <p> 示例值：{"key": "value"}
+      */
     @SerializedName("skill_input")
     private String skillInput;
-    /**
-     * 其他透传信息
-     * <p> 示例值：{}
-     */
+     /**
+      * 其他透传信息
+      * <p> 示例值：{}
+      */
     @SerializedName("metadata")
     private String metadata;
-
-    // builder 开始
-    public CreateAilySessionRunReqBody() {
-    }
-
-    public CreateAilySessionRunReqBody(Builder builder) {
-        /**
-         * 应用 ID
-         * <p> 示例值：spring_xxx__c
-         */
-        this.appId = builder.appId;
-        /**
-         * 技能 ID
-         * <p> 示例值：skill_6cc6166178ca
-         */
-        this.skillId = builder.skillId;
-        /**
-         * 指定技能 ID 时可以同时指定技能输入
-         * <p> 示例值：{"key": "value"}
-         */
-        this.skillInput = builder.skillInput;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        this.metadata = builder.metadata;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAppId() {
         return this.appId;
     }
@@ -117,82 +81,113 @@ public class CreateAilySessionRunReqBody {
         this.metadata = metadata;
     }
 
+
+// builder 开始
+  public CreateAilySessionRunReqBody(){}
+
+  public CreateAilySessionRunReqBody(Builder builder){
+         /**
+          * 应用 ID
+          * <p> 示例值：spring_xxx__c
+          */
+      this.appId = builder.appId;
+         /**
+          * 技能 ID
+          * <p> 示例值：skill_6cc6166178ca
+          */
+      this.skillId = builder.skillId;
+         /**
+          * 指定技能 ID 时可以同时指定技能输入
+          * <p> 示例值：{"key": "value"}
+          */
+      this.skillInput = builder.skillInput;
+         /**
+          * 其他透传信息
+          * <p> 示例值：{}
+          */
+      this.metadata = builder.metadata;
+  }
+
     public static class Builder {
-        /**
-         * 应用 ID
-         * <p> 示例值：spring_xxx__c
-         */
+     /**
+      * 应用 ID
+      * <p> 示例值：spring_xxx__c
+      */
         private String appId;
-        /**
-         * 技能 ID
-         * <p> 示例值：skill_6cc6166178ca
-         */
+     /**
+      * 技能 ID
+      * <p> 示例值：skill_6cc6166178ca
+      */
         private String skillId;
-        /**
-         * 指定技能 ID 时可以同时指定技能输入
-         * <p> 示例值：{"key": "value"}
-         */
+     /**
+      * 指定技能 ID 时可以同时指定技能输入
+      * <p> 示例值：{"key": "value"}
+      */
         private String skillInput;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
+     /**
+      * 其他透传信息
+      * <p> 示例值：{}
+      */
         private String metadata;
 
         /**
          * 应用 ID
          * <p> 示例值：spring_xxx__c
-         *
          * @param appId
          * @return
          */
         public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
+             this.appId = appId;
+             return this;
         }
 
+    
 
         /**
          * 技能 ID
          * <p> 示例值：skill_6cc6166178ca
-         *
          * @param skillId
          * @return
          */
         public Builder skillId(String skillId) {
-            this.skillId = skillId;
-            return this;
+             this.skillId = skillId;
+             return this;
         }
 
+    
 
         /**
          * 指定技能 ID 时可以同时指定技能输入
          * <p> 示例值：{"key": "value"}
-         *
          * @param skillInput
          * @return
          */
         public Builder skillInput(String skillInput) {
-            this.skillInput = skillInput;
-            return this;
+             this.skillInput = skillInput;
+             return this;
         }
 
+    
 
         /**
          * 其他透传信息
          * <p> 示例值：{}
-         *
          * @param metadata
          * @return
          */
         public Builder metadata(String metadata) {
-            this.metadata = metadata;
-            return this;
+             this.metadata = metadata;
+             return this;
         }
 
+    
+    
+    public CreateAilySessionRunReqBody build(){
+        return new CreateAilySessionRunReqBody(this);
+      }
+    }
 
-        public CreateAilySessionRunReqBody build() {
-            return new CreateAilySessionRunReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

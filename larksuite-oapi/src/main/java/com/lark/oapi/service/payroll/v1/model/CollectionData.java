@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,203 +19,108 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CollectionData {
-    /**
-     * 每一条明细数据的主键id
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 每一条明细数据的主键id
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 1-本期填报，2-往期补填，3-往期更正
-     * <p> 示例值：1
-     */
+     /**
+      * 1-本期填报，2-往期补填，3-往期更正
+      * <p> 示例值：1
+      */
     @SerializedName("collection_type")
     private Integer collectionType;
-    /**
-     * 数据归属期
-     * <p> 示例值：
-     */
+     /**
+      * 数据归属期
+      * <p> 示例值：
+      */
     @SerializedName("data_period")
     private CollectionDataPeriod dataPeriod;
-    /**
-     * 币种ID
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 币种ID
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("currency_id")
     private String currencyId;
-    /**
-     * 币种code
-     * <p> 示例值：CNY
-     */
+     /**
+      * 币种code
+      * <p> 示例值：CNY
+      */
     @SerializedName("currency_code")
     private String currencyCode;
-    /**
-     * 填报项具体值信息
-     * <p> 示例值：
-     */
+     /**
+      * 填报项具体值信息
+      * <p> 示例值：
+      */
     @SerializedName("collection_item_values")
     private CollectionItemValue[] collectionItemValues;
-    /**
-     * 填报模板快照
-     * <p> 示例值：
-     */
+     /**
+      * 填报模板快照
+      * <p> 示例值：
+      */
     @SerializedName("template_snapshot")
     private CollectionTemplateSnapshot templateSnapshot;
-    /**
-     * 创建时间，毫秒时间戳
-     * <p> 示例值：1723797063000
-     */
+     /**
+      * 创建时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
     @SerializedName("created_at")
     private String createdAt;
-    /**
-     * 更新时间，毫秒时间戳
-     * <p> 示例值：1723797063000
-     */
+     /**
+      * 更新时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
     @SerializedName("modified_at")
     private String modifiedAt;
-    /**
-     * 创建人信息
-     * <p> 示例值：
-     */
+     /**
+      * 创建人信息
+      * <p> 示例值：
+      */
     @SerializedName("creator_info")
     private EmployeeInfo creatorInfo;
-    /**
-     * 更新人信息
-     * <p> 示例值：
-     */
+     /**
+      * 更新人信息
+      * <p> 示例值：
+      */
     @SerializedName("modifier_info")
     private EmployeeInfo modifierInfo;
-    /**
-     * 计薪期间
-     * <p> 示例值：
-     */
+     /**
+      * 计薪期间
+      * <p> 示例值：
+      */
     @SerializedName("calendar_period")
     private CalendarPeriod calendarPeriod;
-    /**
-     * 生效时间，毫秒时间戳
-     * <p> 示例值：1723797063000
-     */
+     /**
+      * 生效时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 填写明细记录所在的填报活动id
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 填写明细记录所在的填报活动id
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("source_activity_id")
     private String sourceActivityId;
-    /**
-     * 明细记录状态，1-生效，2-删除（系统内部会过滤数据，正常不会返回），3-撤销
-     * <p> 示例值：1
-     */
+     /**
+      * 明细记录状态，1-生效，2-删除（系统内部会过滤数据，正常不会返回），3-撤销
+      * <p> 示例值：1
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * 关联dataID 如往期更正场景，该ID关联更正前记录
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 关联dataID 如往期更正场景，该ID关联更正前记录
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("related_data_id")
     private String relatedDataId;
-
-    // builder 开始
-    public CollectionData() {
-    }
-
-    public CollectionData(Builder builder) {
-        /**
-         * 每一条明细数据的主键id
-         * <p> 示例值：7202076988667019308
-         */
-        this.id = builder.id;
-        /**
-         * 1-本期填报，2-往期补填，3-往期更正
-         * <p> 示例值：1
-         */
-        this.collectionType = builder.collectionType;
-        /**
-         * 数据归属期
-         * <p> 示例值：
-         */
-        this.dataPeriod = builder.dataPeriod;
-        /**
-         * 币种ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 币种code
-         * <p> 示例值：CNY
-         */
-        this.currencyCode = builder.currencyCode;
-        /**
-         * 填报项具体值信息
-         * <p> 示例值：
-         */
-        this.collectionItemValues = builder.collectionItemValues;
-        /**
-         * 填报模板快照
-         * <p> 示例值：
-         */
-        this.templateSnapshot = builder.templateSnapshot;
-        /**
-         * 创建时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 更新时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        this.modifiedAt = builder.modifiedAt;
-        /**
-         * 创建人信息
-         * <p> 示例值：
-         */
-        this.creatorInfo = builder.creatorInfo;
-        /**
-         * 更新人信息
-         * <p> 示例值：
-         */
-        this.modifierInfo = builder.modifierInfo;
-        /**
-         * 计薪期间
-         * <p> 示例值：
-         */
-        this.calendarPeriod = builder.calendarPeriod;
-        /**
-         * 生效时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 填写明细记录所在的填报活动id
-         * <p> 示例值：7202076988667019308
-         */
-        this.sourceActivityId = builder.sourceActivityId;
-        /**
-         * 明细记录状态，1-生效，2-删除（系统内部会过滤数据，正常不会返回），3-撤销
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 关联dataID 如往期更正场景，该ID关联更正前记录
-         * <p> 示例值：7202076988667019308
-         */
-        this.relatedDataId = builder.relatedDataId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -345,298 +249,389 @@ public class CollectionData {
         this.relatedDataId = relatedDataId;
     }
 
+
+// builder 开始
+  public CollectionData(){}
+
+  public CollectionData(Builder builder){
+         /**
+          * 每一条明细数据的主键id
+          * <p> 示例值：7202076988667019308
+          */
+      this.id = builder.id;
+         /**
+          * 1-本期填报，2-往期补填，3-往期更正
+          * <p> 示例值：1
+          */
+      this.collectionType = builder.collectionType;
+         /**
+          * 数据归属期
+          * <p> 示例值：
+          */
+      this.dataPeriod = builder.dataPeriod;
+         /**
+          * 币种ID
+          * <p> 示例值：7202076988667019308
+          */
+      this.currencyId = builder.currencyId;
+         /**
+          * 币种code
+          * <p> 示例值：CNY
+          */
+      this.currencyCode = builder.currencyCode;
+         /**
+          * 填报项具体值信息
+          * <p> 示例值：
+          */
+      this.collectionItemValues = builder.collectionItemValues;
+         /**
+          * 填报模板快照
+          * <p> 示例值：
+          */
+      this.templateSnapshot = builder.templateSnapshot;
+         /**
+          * 创建时间，毫秒时间戳
+          * <p> 示例值：1723797063000
+          */
+      this.createdAt = builder.createdAt;
+         /**
+          * 更新时间，毫秒时间戳
+          * <p> 示例值：1723797063000
+          */
+      this.modifiedAt = builder.modifiedAt;
+         /**
+          * 创建人信息
+          * <p> 示例值：
+          */
+      this.creatorInfo = builder.creatorInfo;
+         /**
+          * 更新人信息
+          * <p> 示例值：
+          */
+      this.modifierInfo = builder.modifierInfo;
+         /**
+          * 计薪期间
+          * <p> 示例值：
+          */
+      this.calendarPeriod = builder.calendarPeriod;
+         /**
+          * 生效时间，毫秒时间戳
+          * <p> 示例值：1723797063000
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 填写明细记录所在的填报活动id
+          * <p> 示例值：7202076988667019308
+          */
+      this.sourceActivityId = builder.sourceActivityId;
+         /**
+          * 明细记录状态，1-生效，2-删除（系统内部会过滤数据，正常不会返回），3-撤销
+          * <p> 示例值：1
+          */
+      this.status = builder.status;
+         /**
+          * 关联dataID 如往期更正场景，该ID关联更正前记录
+          * <p> 示例值：7202076988667019308
+          */
+      this.relatedDataId = builder.relatedDataId;
+  }
+
     public static class Builder {
-        /**
-         * 每一条明细数据的主键id
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 每一条明细数据的主键id
+      * <p> 示例值：7202076988667019308
+      */
         private String id;
-        /**
-         * 1-本期填报，2-往期补填，3-往期更正
-         * <p> 示例值：1
-         */
+     /**
+      * 1-本期填报，2-往期补填，3-往期更正
+      * <p> 示例值：1
+      */
         private Integer collectionType;
-        /**
-         * 数据归属期
-         * <p> 示例值：
-         */
+     /**
+      * 数据归属期
+      * <p> 示例值：
+      */
         private CollectionDataPeriod dataPeriod;
-        /**
-         * 币种ID
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 币种ID
+      * <p> 示例值：7202076988667019308
+      */
         private String currencyId;
-        /**
-         * 币种code
-         * <p> 示例值：CNY
-         */
+     /**
+      * 币种code
+      * <p> 示例值：CNY
+      */
         private String currencyCode;
-        /**
-         * 填报项具体值信息
-         * <p> 示例值：
-         */
+     /**
+      * 填报项具体值信息
+      * <p> 示例值：
+      */
         private CollectionItemValue[] collectionItemValues;
-        /**
-         * 填报模板快照
-         * <p> 示例值：
-         */
+     /**
+      * 填报模板快照
+      * <p> 示例值：
+      */
         private CollectionTemplateSnapshot templateSnapshot;
-        /**
-         * 创建时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
+     /**
+      * 创建时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
         private String createdAt;
-        /**
-         * 更新时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
+     /**
+      * 更新时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
         private String modifiedAt;
-        /**
-         * 创建人信息
-         * <p> 示例值：
-         */
+     /**
+      * 创建人信息
+      * <p> 示例值：
+      */
         private EmployeeInfo creatorInfo;
-        /**
-         * 更新人信息
-         * <p> 示例值：
-         */
+     /**
+      * 更新人信息
+      * <p> 示例值：
+      */
         private EmployeeInfo modifierInfo;
-        /**
-         * 计薪期间
-         * <p> 示例值：
-         */
+     /**
+      * 计薪期间
+      * <p> 示例值：
+      */
         private CalendarPeriod calendarPeriod;
-        /**
-         * 生效时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
+     /**
+      * 生效时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
         private String effectiveTime;
-        /**
-         * 填写明细记录所在的填报活动id
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 填写明细记录所在的填报活动id
+      * <p> 示例值：7202076988667019308
+      */
         private String sourceActivityId;
-        /**
-         * 明细记录状态，1-生效，2-删除（系统内部会过滤数据，正常不会返回），3-撤销
-         * <p> 示例值：1
-         */
+     /**
+      * 明细记录状态，1-生效，2-删除（系统内部会过滤数据，正常不会返回），3-撤销
+      * <p> 示例值：1
+      */
         private Integer status;
-        /**
-         * 关联dataID 如往期更正场景，该ID关联更正前记录
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 关联dataID 如往期更正场景，该ID关联更正前记录
+      * <p> 示例值：7202076988667019308
+      */
         private String relatedDataId;
 
         /**
          * 每一条明细数据的主键id
          * <p> 示例值：7202076988667019308
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 1-本期填报，2-往期补填，3-往期更正
          * <p> 示例值：1
-         *
          * @param collectionType
          * @return
          */
         public Builder collectionType(Integer collectionType) {
-            this.collectionType = collectionType;
-            return this;
+             this.collectionType = collectionType;
+             return this;
         }
 
+    
 
         /**
          * 数据归属期
          * <p> 示例值：
-         *
          * @param dataPeriod
          * @return
          */
         public Builder dataPeriod(CollectionDataPeriod dataPeriod) {
-            this.dataPeriod = dataPeriod;
-            return this;
+             this.dataPeriod = dataPeriod;
+             return this;
         }
 
+    
 
         /**
          * 币种ID
          * <p> 示例值：7202076988667019308
-         *
          * @param currencyId
          * @return
          */
         public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
+             this.currencyId = currencyId;
+             return this;
         }
 
+    
 
         /**
          * 币种code
          * <p> 示例值：CNY
-         *
          * @param currencyCode
          * @return
          */
         public Builder currencyCode(String currencyCode) {
-            this.currencyCode = currencyCode;
-            return this;
+             this.currencyCode = currencyCode;
+             return this;
         }
 
+    
 
         /**
          * 填报项具体值信息
          * <p> 示例值：
-         *
          * @param collectionItemValues
          * @return
          */
         public Builder collectionItemValues(CollectionItemValue[] collectionItemValues) {
-            this.collectionItemValues = collectionItemValues;
-            return this;
+             this.collectionItemValues = collectionItemValues;
+             return this;
         }
 
+    
 
         /**
          * 填报模板快照
          * <p> 示例值：
-         *
          * @param templateSnapshot
          * @return
          */
         public Builder templateSnapshot(CollectionTemplateSnapshot templateSnapshot) {
-            this.templateSnapshot = templateSnapshot;
-            return this;
+             this.templateSnapshot = templateSnapshot;
+             return this;
         }
 
+    
 
         /**
          * 创建时间，毫秒时间戳
          * <p> 示例值：1723797063000
-         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
+             this.createdAt = createdAt;
+             return this;
         }
 
+    
 
         /**
          * 更新时间，毫秒时间戳
          * <p> 示例值：1723797063000
-         *
          * @param modifiedAt
          * @return
          */
         public Builder modifiedAt(String modifiedAt) {
-            this.modifiedAt = modifiedAt;
-            return this;
+             this.modifiedAt = modifiedAt;
+             return this;
         }
 
+    
 
         /**
          * 创建人信息
          * <p> 示例值：
-         *
          * @param creatorInfo
          * @return
          */
         public Builder creatorInfo(EmployeeInfo creatorInfo) {
-            this.creatorInfo = creatorInfo;
-            return this;
+             this.creatorInfo = creatorInfo;
+             return this;
         }
 
+    
 
         /**
          * 更新人信息
          * <p> 示例值：
-         *
          * @param modifierInfo
          * @return
          */
         public Builder modifierInfo(EmployeeInfo modifierInfo) {
-            this.modifierInfo = modifierInfo;
-            return this;
+             this.modifierInfo = modifierInfo;
+             return this;
         }
 
+    
 
         /**
          * 计薪期间
          * <p> 示例值：
-         *
          * @param calendarPeriod
          * @return
          */
         public Builder calendarPeriod(CalendarPeriod calendarPeriod) {
-            this.calendarPeriod = calendarPeriod;
-            return this;
+             this.calendarPeriod = calendarPeriod;
+             return this;
         }
 
+    
 
         /**
          * 生效时间，毫秒时间戳
          * <p> 示例值：1723797063000
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 填写明细记录所在的填报活动id
          * <p> 示例值：7202076988667019308
-         *
          * @param sourceActivityId
          * @return
          */
         public Builder sourceActivityId(String sourceActivityId) {
-            this.sourceActivityId = sourceActivityId;
-            return this;
+             this.sourceActivityId = sourceActivityId;
+             return this;
         }
 
+    
 
         /**
          * 明细记录状态，1-生效，2-删除（系统内部会过滤数据，正常不会返回），3-撤销
          * <p> 示例值：1
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
 
+    
 
         /**
          * 关联dataID 如往期更正场景，该ID关联更正前记录
          * <p> 示例值：7202076988667019308
-         *
          * @param relatedDataId
          * @return
          */
         public Builder relatedDataId(String relatedDataId) {
-            this.relatedDataId = relatedDataId;
-            return this;
+             this.relatedDataId = relatedDataId;
+             return this;
         }
 
+    
+    
+    public CollectionData build(){
+        return new CollectionData(this);
+      }
+    }
 
-        public CollectionData build() {
-            return new CollectionData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

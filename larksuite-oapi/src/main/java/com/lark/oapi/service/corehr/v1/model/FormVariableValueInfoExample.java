@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FormVariableValueInfoExample {
-    /**
-     * 示例的国家地区变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 示例的国家地区变量对象
+      * <p> 示例值：
+      */
     @SerializedName("object_value")
     private FormFieldVariableObjectValue objectValue;
-
-    // builder 开始
-    public FormVariableValueInfoExample() {
-    }
-
-    public FormVariableValueInfoExample(Builder builder) {
-        /**
-         * 示例的国家地区变量对象
-         * <p> 示例值：
-         */
-        this.objectValue = builder.objectValue;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public FormFieldVariableObjectValue getObjectValue() {
         return this.objectValue;
     }
@@ -60,28 +39,44 @@ public class FormVariableValueInfoExample {
         this.objectValue = objectValue;
     }
 
+
+// builder 开始
+  public FormVariableValueInfoExample(){}
+
+  public FormVariableValueInfoExample(Builder builder){
+         /**
+          * 示例的国家地区变量对象
+          * <p> 示例值：
+          */
+      this.objectValue = builder.objectValue;
+  }
+
     public static class Builder {
-        /**
-         * 示例的国家地区变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 示例的国家地区变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableObjectValue objectValue;
 
         /**
          * 示例的国家地区变量对象
          * <p> 示例值：
-         *
          * @param objectValue
          * @return
          */
         public Builder objectValue(FormFieldVariableObjectValue objectValue) {
-            this.objectValue = objectValue;
-            return this;
+             this.objectValue = objectValue;
+             return this;
         }
 
+    
+    
+    public FormVariableValueInfoExample build(){
+        return new FormVariableValueInfoExample(this);
+      }
+    }
 
-        public FormVariableValueInfoExample build() {
-            return new FormVariableValueInfoExample(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

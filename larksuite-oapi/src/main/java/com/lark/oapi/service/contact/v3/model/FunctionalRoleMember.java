@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FunctionalRoleMember {
-    /**
-     * 成员ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-     */
+     /**
+      * 成员ID
+      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 管理范围的类型
-     * <p> 示例值：All
-     */
+     /**
+      * 管理范围的类型
+      * <p> 示例值：All
+      */
     @SerializedName("scope_type")
     private String scopeType;
-    /**
-     * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
-     * <p> 示例值：
-     */
+     /**
+      * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
+      * <p> 示例值：
+      */
     @SerializedName("department_ids")
     private String[] departmentIds;
-
-    // builder 开始
-    public FunctionalRoleMember() {
-    }
-
-    public FunctionalRoleMember(Builder builder) {
-        /**
-         * 成员ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.userId = builder.userId;
-        /**
-         * 管理范围的类型
-         * <p> 示例值：All
-         */
-        this.scopeType = builder.scopeType;
-        /**
-         * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -98,76 +67,100 @@ public class FunctionalRoleMember {
         this.departmentIds = departmentIds;
     }
 
+
+// builder 开始
+  public FunctionalRoleMember(){}
+
+  public FunctionalRoleMember(Builder builder){
+         /**
+          * 成员ID
+          * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+          */
+      this.userId = builder.userId;
+         /**
+          * 管理范围的类型
+          * <p> 示例值：All
+          */
+      this.scopeType = builder.scopeType;
+         /**
+          * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
+          * <p> 示例值：
+          */
+      this.departmentIds = builder.departmentIds;
+  }
+
     public static class Builder {
-        /**
-         * 成员ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
+     /**
+      * 成员ID
+      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+      */
         private String userId;
-        /**
-         * 管理范围的类型
-         * <p> 示例值：All
-         */
+     /**
+      * 管理范围的类型
+      * <p> 示例值：All
+      */
         private String scopeType;
-        /**
-         * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
-         * <p> 示例值：
-         */
+     /**
+      * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
+      * <p> 示例值：
+      */
         private String[] departmentIds;
 
         /**
          * 成员ID
          * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 管理范围的类型
          * <p> 示例值：All
-         *
          * @param scopeType
          * @return
          */
         public Builder scopeType(String scopeType) {
-            this.scopeType = scopeType;
-            return this;
+             this.scopeType = scopeType;
+             return this;
         }
-
         /**
          * 管理范围的类型
          * <p> 示例值：All
-         *
          * @param scopeType {@link com.lark.oapi.service.contact.v3.enums.FunctionalRoleMemberFunctionalRoleMemberScopeTypeEnum}
          * @return
          */
         public Builder scopeType(com.lark.oapi.service.contact.v3.enums.FunctionalRoleMemberFunctionalRoleMemberScopeTypeEnum scopeType) {
-            this.scopeType = scopeType.getValue();
-            return this;
+             this.scopeType = scopeType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
          * <p> 示例值：
-         *
          * @param departmentIds
          * @return
          */
         public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
+             this.departmentIds = departmentIds;
+             return this;
         }
 
+    
+    
+    public FunctionalRoleMember build(){
+        return new FunctionalRoleMember(this);
+      }
+    }
 
-        public FunctionalRoleMember build() {
-            return new FunctionalRoleMember(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

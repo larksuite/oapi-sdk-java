@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SpecificRelationship {
-    /**
-     * 与候选人的关系
-     * <p> 示例值：1
-     */
+     /**
+      * 与候选人的关系
+      * <p> 示例值：1
+      */
     @SerializedName("relation_with_candidate")
     private Integer relationWithCandidate;
-    /**
-     * 附加信息
-     * <p> 示例值：在前公司合作非常愉快～
-     */
+     /**
+      * 附加信息
+      * <p> 示例值：在前公司合作非常愉快～
+      */
     @SerializedName("extra")
     private String extra;
-
-    // builder 开始
-    public SpecificRelationship() {
-    }
-
-    public SpecificRelationship(Builder builder) {
-        /**
-         * 与候选人的关系
-         * <p> 示例值：1
-         */
-        this.relationWithCandidate = builder.relationWithCandidate;
-        /**
-         * 附加信息
-         * <p> 示例值：在前公司合作非常愉快～
-         */
-        this.extra = builder.extra;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getRelationWithCandidate() {
         return this.relationWithCandidate;
     }
@@ -78,46 +52,67 @@ public class SpecificRelationship {
         this.extra = extra;
     }
 
+
+// builder 开始
+  public SpecificRelationship(){}
+
+  public SpecificRelationship(Builder builder){
+         /**
+          * 与候选人的关系
+          * <p> 示例值：1
+          */
+      this.relationWithCandidate = builder.relationWithCandidate;
+         /**
+          * 附加信息
+          * <p> 示例值：在前公司合作非常愉快～
+          */
+      this.extra = builder.extra;
+  }
+
     public static class Builder {
-        /**
-         * 与候选人的关系
-         * <p> 示例值：1
-         */
+     /**
+      * 与候选人的关系
+      * <p> 示例值：1
+      */
         private Integer relationWithCandidate;
-        /**
-         * 附加信息
-         * <p> 示例值：在前公司合作非常愉快～
-         */
+     /**
+      * 附加信息
+      * <p> 示例值：在前公司合作非常愉快～
+      */
         private String extra;
 
         /**
          * 与候选人的关系
          * <p> 示例值：1
-         *
          * @param relationWithCandidate
          * @return
          */
         public Builder relationWithCandidate(Integer relationWithCandidate) {
-            this.relationWithCandidate = relationWithCandidate;
-            return this;
+             this.relationWithCandidate = relationWithCandidate;
+             return this;
         }
 
+    
 
         /**
          * 附加信息
          * <p> 示例值：在前公司合作非常愉快～
-         *
          * @param extra
          * @return
          */
         public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
+             this.extra = extra;
+             return this;
         }
 
+    
+    
+    public SpecificRelationship build(){
+        return new SpecificRelationship(this);
+      }
+    }
 
-        public SpecificRelationship build() {
-            return new SpecificRelationship(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

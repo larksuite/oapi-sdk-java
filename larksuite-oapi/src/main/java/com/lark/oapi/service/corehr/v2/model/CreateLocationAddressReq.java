@@ -12,61 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateLocationAddressReq {
-    /**
-     * 根据 client_token 是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
-     */
+     /**
+      * 根据 client_token 是否一致来判断是否为同一请求
+      * <p> 示例值：12454646
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 地点 ID
-     * <p> 示例值：1616161616
-     */
-    @Path
-    @SerializedName("location_id")
-    private String locationId;
-    @Body
-    private LocationAddressCreate body;
-
-    // builder 开始
-    public CreateLocationAddressReq() {
-    }
-
-    public CreateLocationAddressReq(Builder builder) {
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 地点 ID
-         * <p> 示例值：1616161616
-         */
-        this.locationId = builder.locationId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getClientToken() {
         return this.clientToken;
     }
@@ -75,6 +39,13 @@ public class CreateLocationAddressReq {
         this.clientToken = clientToken;
     }
 
+     /**
+      * 地点 ID
+      * <p> 示例值：1616161616
+      */
+    @Path
+    @SerializedName("location_id")
+    private String locationId;
     public String getLocationId() {
         return this.locationId;
     }
@@ -82,6 +53,9 @@ public class CreateLocationAddressReq {
     public void setLocationId(String locationId) {
         this.locationId = locationId;
     }
+
+    @Body
+    private LocationAddressCreate body;
 
     public LocationAddressCreate getLocationAddressCreate() {
         return this.body;
@@ -91,52 +65,72 @@ public class CreateLocationAddressReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateLocationAddressReq(){}
+
+  public CreateLocationAddressReq(Builder builder){
+         /**
+          * 根据 client_token 是否一致来判断是否为同一请求
+          * <p> 示例值：12454646
+          */
+       this.clientToken = builder.clientToken;
+     /**
+      * 地点 ID
+      * <p> 示例值：1616161616
+      */
+       this.locationId = builder.locationId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
-        private String locationId; // 地点 ID
-        private LocationAddressCreate body;
-
+    
         /**
          * 根据 client_token 是否一致来判断是否为同一请求
          * <p> 示例值：12454646
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
+        private String locationId; // 地点 ID
         /**
          * 地点 ID
          * <p> 示例值：1616161616
-         *
          * @param locationId
          * @return
          */
-        public Builder locationId(String locationId) {
-            this.locationId = locationId;
-            return this;
-        }
+          public Builder locationId(String locationId) {
+               this.locationId = locationId;
+               return this;
+          }
 
+    
+        private LocationAddressCreate body;
+    
         public LocationAddressCreate getLocationAddressCreate() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder locationAddressCreate(LocationAddressCreate body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateLocationAddressReq build(){
+        return new CreateLocationAddressReq(this);
+      }
+    }
 
-        public CreateLocationAddressReq build() {
-            return new CreateLocationAddressReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

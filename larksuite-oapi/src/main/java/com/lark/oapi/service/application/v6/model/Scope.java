@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Scope {
-    /**
-     * 权限名称，形如 user.phone:readonly
-     * <p> 示例值：user.phone:readonly
-     */
+     /**
+      * 权限名称，形如 user.phone:readonly
+      * <p> 示例值：user.phone:readonly
+      */
     @SerializedName("scope_name")
     private String scopeName;
-    /**
-     * 租户应用权限授予状态
-     * <p> 示例值：
-     */
+     /**
+      * 租户应用权限授予状态
+      * <p> 示例值：
+      */
     @SerializedName("grant_status")
     private Integer grantStatus;
-    /**
-     * 权限的身份类型，形如 user(用户身份)、tenant(应用身份)
-     * <p> 示例值：
-     */
+     /**
+      * 权限的身份类型，形如 user(用户身份)、tenant(应用身份)
+      * <p> 示例值：
+      */
     @SerializedName("scope_type")
     private String scopeType;
-
-    // builder 开始
-    public Scope() {
-    }
-
-    public Scope(Builder builder) {
-        /**
-         * 权限名称，形如 user.phone:readonly
-         * <p> 示例值：user.phone:readonly
-         */
-        this.scopeName = builder.scopeName;
-        /**
-         * 租户应用权限授予状态
-         * <p> 示例值：
-         */
-        this.grantStatus = builder.grantStatus;
-        /**
-         * 权限的身份类型，形如 user(用户身份)、tenant(应用身份)
-         * <p> 示例值：
-         */
-        this.scopeType = builder.scopeType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getScopeName() {
         return this.scopeName;
     }
@@ -98,88 +67,110 @@ public class Scope {
         this.scopeType = scopeType;
     }
 
+
+// builder 开始
+  public Scope(){}
+
+  public Scope(Builder builder){
+         /**
+          * 权限名称，形如 user.phone:readonly
+          * <p> 示例值：user.phone:readonly
+          */
+      this.scopeName = builder.scopeName;
+         /**
+          * 租户应用权限授予状态
+          * <p> 示例值：
+          */
+      this.grantStatus = builder.grantStatus;
+         /**
+          * 权限的身份类型，形如 user(用户身份)、tenant(应用身份)
+          * <p> 示例值：
+          */
+      this.scopeType = builder.scopeType;
+  }
+
     public static class Builder {
-        /**
-         * 权限名称，形如 user.phone:readonly
-         * <p> 示例值：user.phone:readonly
-         */
+     /**
+      * 权限名称，形如 user.phone:readonly
+      * <p> 示例值：user.phone:readonly
+      */
         private String scopeName;
-        /**
-         * 租户应用权限授予状态
-         * <p> 示例值：
-         */
+     /**
+      * 租户应用权限授予状态
+      * <p> 示例值：
+      */
         private Integer grantStatus;
-        /**
-         * 权限的身份类型，形如 user(用户身份)、tenant(应用身份)
-         * <p> 示例值：
-         */
+     /**
+      * 权限的身份类型，形如 user(用户身份)、tenant(应用身份)
+      * <p> 示例值：
+      */
         private String scopeType;
 
         /**
          * 权限名称，形如 user.phone:readonly
          * <p> 示例值：user.phone:readonly
-         *
          * @param scopeName
          * @return
          */
         public Builder scopeName(String scopeName) {
-            this.scopeName = scopeName;
-            return this;
+             this.scopeName = scopeName;
+             return this;
         }
 
+    
 
         /**
          * 租户应用权限授予状态
          * <p> 示例值：
-         *
          * @param grantStatus
          * @return
          */
         public Builder grantStatus(Integer grantStatus) {
-            this.grantStatus = grantStatus;
-            return this;
+             this.grantStatus = grantStatus;
+             return this;
         }
-
         /**
          * 租户应用权限授予状态
          * <p> 示例值：
-         *
          * @param grantStatus {@link com.lark.oapi.service.application.v6.enums.ScopeGrantStatusEnum}
          * @return
          */
         public Builder grantStatus(com.lark.oapi.service.application.v6.enums.ScopeGrantStatusEnum grantStatus) {
-            this.grantStatus = grantStatus.getValue();
-            return this;
+             this.grantStatus = grantStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 权限的身份类型，形如 user(用户身份)、tenant(应用身份)
          * <p> 示例值：
-         *
          * @param scopeType
          * @return
          */
         public Builder scopeType(String scopeType) {
-            this.scopeType = scopeType;
-            return this;
+             this.scopeType = scopeType;
+             return this;
         }
-
         /**
          * 权限的身份类型，形如 user(用户身份)、tenant(应用身份)
          * <p> 示例值：
-         *
          * @param scopeType {@link com.lark.oapi.service.application.v6.enums.ScopeScopeTypeEnum}
          * @return
          */
         public Builder scopeType(com.lark.oapi.service.application.v6.enums.ScopeScopeTypeEnum scopeType) {
-            this.scopeType = scopeType.getValue();
-            return this;
+             this.scopeType = scopeType.getValue();
+             return this;
         }
 
+    
+    
+    public Scope build(){
+        return new Scope(this);
+      }
+    }
 
-        public Scope build() {
-            return new Scope(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

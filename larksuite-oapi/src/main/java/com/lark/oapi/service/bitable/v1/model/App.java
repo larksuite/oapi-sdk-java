@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class App {
-    /**
-     * 多维表格 app token
-     * <p> 示例值：
-     */
+     /**
+      * 多维表格 app token
+      * <p> 示例值：
+      */
     @SerializedName("app_token")
     private String appToken;
-    /**
-     * 多维表格 App 名字
-     * <p> 示例值：
-     */
+     /**
+      * 多维表格 App 名字
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 多维表格 App 版本号
-     * <p> 示例值：
-     */
+     /**
+      * 多维表格 App 版本号
+      * <p> 示例值：
+      */
     @SerializedName("revision")
     private Integer revision;
-    /**
-     * 多维表格 App 归属文件夹
-     * <p> 示例值：
-     */
+     /**
+      * 多维表格 App 归属文件夹
+      * <p> 示例值：
+      */
     @SerializedName("folder_token")
     private String folderToken;
-    /**
-     * 多维表格 App URL
-     * <p> 示例值：
-     */
+     /**
+      * 多维表格 App URL
+      * <p> 示例值：
+      */
     @SerializedName("url")
     private String url;
-    /**
-     * 默认的表格id
-     * <p> 示例值：
-     */
+     /**
+      * 默认的表格id
+      * <p> 示例值：
+      */
     @SerializedName("default_table_id")
     private String defaultTableId;
-    /**
-     * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-     * <p> 示例值：
-     */
+     /**
+      * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+      * <p> 示例值：
+      */
     @SerializedName("time_zone")
     private String timeZone;
-
-    // builder 开始
-    public App() {
-    }
-
-    public App(Builder builder) {
-        /**
-         * 多维表格 app token
-         * <p> 示例值：
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 多维表格 App 名字
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 多维表格 App 版本号
-         * <p> 示例值：
-         */
-        this.revision = builder.revision;
-        /**
-         * 多维表格 App 归属文件夹
-         * <p> 示例值：
-         */
-        this.folderToken = builder.folderToken;
-        /**
-         * 多维表格 App URL
-         * <p> 示例值：
-         */
-        this.url = builder.url;
-        /**
-         * 默认的表格id
-         * <p> 示例值：
-         */
-        this.defaultTableId = builder.defaultTableId;
-        /**
-         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-         * <p> 示例值：
-         */
-        this.timeZone = builder.timeZone;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAppToken() {
         return this.appToken;
     }
@@ -174,136 +123,182 @@ public class App {
         this.timeZone = timeZone;
     }
 
+
+// builder 开始
+  public App(){}
+
+  public App(Builder builder){
+         /**
+          * 多维表格 app token
+          * <p> 示例值：
+          */
+      this.appToken = builder.appToken;
+         /**
+          * 多维表格 App 名字
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 多维表格 App 版本号
+          * <p> 示例值：
+          */
+      this.revision = builder.revision;
+         /**
+          * 多维表格 App 归属文件夹
+          * <p> 示例值：
+          */
+      this.folderToken = builder.folderToken;
+         /**
+          * 多维表格 App URL
+          * <p> 示例值：
+          */
+      this.url = builder.url;
+         /**
+          * 默认的表格id
+          * <p> 示例值：
+          */
+      this.defaultTableId = builder.defaultTableId;
+         /**
+          * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+          * <p> 示例值：
+          */
+      this.timeZone = builder.timeZone;
+  }
+
     public static class Builder {
-        /**
-         * 多维表格 app token
-         * <p> 示例值：
-         */
+     /**
+      * 多维表格 app token
+      * <p> 示例值：
+      */
         private String appToken;
-        /**
-         * 多维表格 App 名字
-         * <p> 示例值：
-         */
+     /**
+      * 多维表格 App 名字
+      * <p> 示例值：
+      */
         private String name;
-        /**
-         * 多维表格 App 版本号
-         * <p> 示例值：
-         */
+     /**
+      * 多维表格 App 版本号
+      * <p> 示例值：
+      */
         private Integer revision;
-        /**
-         * 多维表格 App 归属文件夹
-         * <p> 示例值：
-         */
+     /**
+      * 多维表格 App 归属文件夹
+      * <p> 示例值：
+      */
         private String folderToken;
-        /**
-         * 多维表格 App URL
-         * <p> 示例值：
-         */
+     /**
+      * 多维表格 App URL
+      * <p> 示例值：
+      */
         private String url;
-        /**
-         * 默认的表格id
-         * <p> 示例值：
-         */
+     /**
+      * 默认的表格id
+      * <p> 示例值：
+      */
         private String defaultTableId;
-        /**
-         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-         * <p> 示例值：
-         */
+     /**
+      * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+      * <p> 示例值：
+      */
         private String timeZone;
 
         /**
          * 多维表格 app token
          * <p> 示例值：
-         *
          * @param appToken
          * @return
          */
         public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
+             this.appToken = appToken;
+             return this;
         }
 
+    
 
         /**
          * 多维表格 App 名字
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 多维表格 App 版本号
          * <p> 示例值：
-         *
          * @param revision
          * @return
          */
         public Builder revision(Integer revision) {
-            this.revision = revision;
-            return this;
+             this.revision = revision;
+             return this;
         }
 
+    
 
         /**
          * 多维表格 App 归属文件夹
          * <p> 示例值：
-         *
          * @param folderToken
          * @return
          */
         public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
+             this.folderToken = folderToken;
+             return this;
         }
 
+    
 
         /**
          * 多维表格 App URL
          * <p> 示例值：
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
 
         /**
          * 默认的表格id
          * <p> 示例值：
-         *
          * @param defaultTableId
          * @return
          */
         public Builder defaultTableId(String defaultTableId) {
-            this.defaultTableId = defaultTableId;
-            return this;
+             this.defaultTableId = defaultTableId;
+             return this;
         }
 
+    
 
         /**
          * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
          * <p> 示例值：
-         *
          * @param timeZone
          * @return
          */
         public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
+             this.timeZone = timeZone;
+             return this;
         }
 
+    
+    
+    public App build(){
+        return new App(this);
+      }
+    }
 
-        public App build() {
-            return new App(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

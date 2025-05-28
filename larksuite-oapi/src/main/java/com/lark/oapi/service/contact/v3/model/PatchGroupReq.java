@@ -12,73 +12,32 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchGroupReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：open_id
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 此次调用中使用的部门ID的类型
-     * <p> 示例值：open_department_id
-     */
+     /**
+      * 此次调用中使用的部门ID的类型
+      * <p> 示例值：open_department_id
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    /**
-     * 用户组ID
-     * <p> 示例值：g187131
-     */
-    @Path
-    @SerializedName("group_id")
-    private String groupId;
-    @Body
-    private Group body;
-
-    // builder 开始
-    public PatchGroupReq() {
-    }
-
-    public PatchGroupReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 用户组ID
-         * <p> 示例值：g187131
-         */
-        this.groupId = builder.groupId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -95,6 +54,13 @@ public class PatchGroupReq {
         this.departmentIdType = departmentIdType;
     }
 
+     /**
+      * 用户组ID
+      * <p> 示例值：g187131
+      */
+    @Path
+    @SerializedName("group_id")
+    private String groupId;
     public String getGroupId() {
         return this.groupId;
     }
@@ -102,6 +68,9 @@ public class PatchGroupReq {
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
+
+    @Body
+    private Group body;
 
     public Group getGroup() {
         return this.body;
@@ -111,89 +80,112 @@ public class PatchGroupReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchGroupReq(){}
+
+  public PatchGroupReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 此次调用中使用的部门ID的类型
+          * <p> 示例值：open_department_id
+          */
+       this.departmentIdType = builder.departmentIdType;
+     /**
+      * 用户组ID
+      * <p> 示例值：g187131
+      */
+       this.groupId = builder.groupId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 此次调用中使用的部门ID的类型
-        private String groupId; // 用户组ID
-        private Group body;
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
-         *
          * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.PatchGroupUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.PatchGroupUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.contact.v3.enums.PatchGroupUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
         /**
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
-         *
          * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.PatchGroupDepartmentIdTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.PatchGroupDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
+          public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.PatchGroupDepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
 
+    
+        private String groupId; // 用户组ID
         /**
          * 用户组ID
          * <p> 示例值：g187131
-         *
          * @param groupId
          * @return
          */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
+          public Builder groupId(String groupId) {
+               this.groupId = groupId;
+               return this;
+          }
 
+    
+        private Group body;
+    
         public Group getGroup() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder group(Group body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchGroupReq build(){
+        return new PatchGroupReq(this);
+      }
+    }
 
-        public PatchGroupReq build() {
-            return new PatchGroupReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

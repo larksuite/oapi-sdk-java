@@ -17,17 +17,16 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 交易方性质
  */
 public enum VendorVendorNatureEnum {
-    ENTERPRISE("0"), // 企业
-    PERSON("1"), // 自然人
-    NONPROFITORGANIZATION("2"), // 非营利性组织
-    ;
-    private String value;
-
+     ENTERPRISE("0"), // 企业
+     PERSON("1"), // 自然人
+     NONPROFITORGANIZATION("2"), // 非营利性组织
+  ;
+   private String value;
     VendorVendorNatureEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

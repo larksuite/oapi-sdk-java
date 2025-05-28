@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UploadPartFileReqBody {
-    /**
-     * 分片上传事务ID。
-     * <p> 示例值：7111211691345512356
-     */
+     /**
+      * 分片上传事务ID。
+      * <p> 示例值：7111211691345512356
+      */
     @SerializedName("upload_id")
     private String uploadId;
-    /**
-     * 块号，从0开始计数。
-     * <p> 示例值：0
-     */
+     /**
+      * 块号，从0开始计数。
+      * <p> 示例值：0
+      */
     @SerializedName("seq")
     private Integer seq;
-    /**
-     * 块大小（以字节为单位）。
-     * <p> 示例值：4194304
-     */
+     /**
+      * 块大小（以字节为单位）。
+      * <p> 示例值：4194304
+      */
     @SerializedName("size")
     private Integer size;
-    /**
-     * 文件分块adler32校验和(可选)。
-     * <p> 示例值：12342388237783212356
-     */
+     /**
+      * 文件分块adler32校验和(可选)。
+      * <p> 示例值：12342388237783212356
+      */
     @SerializedName("checksum")
     private String checksum;
-    /**
-     * 文件分片二进制内容。
-     * <p> 示例值：file binary
-     */
+     /**
+      * 文件分片二进制内容。
+      * <p> 示例值：file binary
+      */
     @SerializedName("file")
     private java.io.File file;
-
-    // builder 开始
-    public UploadPartFileReqBody() {
-    }
-
-    public UploadPartFileReqBody(Builder builder) {
-        /**
-         * 分片上传事务ID。
-         * <p> 示例值：7111211691345512356
-         */
-        this.uploadId = builder.uploadId;
-        /**
-         * 块号，从0开始计数。
-         * <p> 示例值：0
-         */
-        this.seq = builder.seq;
-        /**
-         * 块大小（以字节为单位）。
-         * <p> 示例值：4194304
-         */
-        this.size = builder.size;
-        /**
-         * 文件分块adler32校验和(可选)。
-         * <p> 示例值：12342388237783212356
-         */
-        this.checksum = builder.checksum;
-        /**
-         * 文件分片二进制内容。
-         * <p> 示例值：file binary
-         */
-        this.file = builder.file;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUploadId() {
         return this.uploadId;
     }
@@ -136,100 +95,136 @@ public class UploadPartFileReqBody {
         this.file = file;
     }
 
+
+// builder 开始
+  public UploadPartFileReqBody(){}
+
+  public UploadPartFileReqBody(Builder builder){
+         /**
+          * 分片上传事务ID。
+          * <p> 示例值：7111211691345512356
+          */
+      this.uploadId = builder.uploadId;
+         /**
+          * 块号，从0开始计数。
+          * <p> 示例值：0
+          */
+      this.seq = builder.seq;
+         /**
+          * 块大小（以字节为单位）。
+          * <p> 示例值：4194304
+          */
+      this.size = builder.size;
+         /**
+          * 文件分块adler32校验和(可选)。
+          * <p> 示例值：12342388237783212356
+          */
+      this.checksum = builder.checksum;
+         /**
+          * 文件分片二进制内容。
+          * <p> 示例值：file binary
+          */
+      this.file = builder.file;
+  }
+
     public static class Builder {
-        /**
-         * 分片上传事务ID。
-         * <p> 示例值：7111211691345512356
-         */
+     /**
+      * 分片上传事务ID。
+      * <p> 示例值：7111211691345512356
+      */
         private String uploadId;
-        /**
-         * 块号，从0开始计数。
-         * <p> 示例值：0
-         */
+     /**
+      * 块号，从0开始计数。
+      * <p> 示例值：0
+      */
         private Integer seq;
-        /**
-         * 块大小（以字节为单位）。
-         * <p> 示例值：4194304
-         */
+     /**
+      * 块大小（以字节为单位）。
+      * <p> 示例值：4194304
+      */
         private Integer size;
-        /**
-         * 文件分块adler32校验和(可选)。
-         * <p> 示例值：12342388237783212356
-         */
+     /**
+      * 文件分块adler32校验和(可选)。
+      * <p> 示例值：12342388237783212356
+      */
         private String checksum;
-        /**
-         * 文件分片二进制内容。
-         * <p> 示例值：file binary
-         */
+     /**
+      * 文件分片二进制内容。
+      * <p> 示例值：file binary
+      */
         private java.io.File file;
 
         /**
          * 分片上传事务ID。
          * <p> 示例值：7111211691345512356
-         *
          * @param uploadId
          * @return
          */
         public Builder uploadId(String uploadId) {
-            this.uploadId = uploadId;
-            return this;
+             this.uploadId = uploadId;
+             return this;
         }
 
+    
 
         /**
          * 块号，从0开始计数。
          * <p> 示例值：0
-         *
          * @param seq
          * @return
          */
         public Builder seq(Integer seq) {
-            this.seq = seq;
-            return this;
+             this.seq = seq;
+             return this;
         }
 
+    
 
         /**
          * 块大小（以字节为单位）。
          * <p> 示例值：4194304
-         *
          * @param size
          * @return
          */
         public Builder size(Integer size) {
-            this.size = size;
-            return this;
+             this.size = size;
+             return this;
         }
 
+    
 
         /**
          * 文件分块adler32校验和(可选)。
          * <p> 示例值：12342388237783212356
-         *
          * @param checksum
          * @return
          */
         public Builder checksum(String checksum) {
-            this.checksum = checksum;
-            return this;
+             this.checksum = checksum;
+             return this;
         }
 
+    
 
         /**
          * 文件分片二进制内容。
          * <p> 示例值：file binary
-         *
          * @param file
          * @return
          */
         public Builder file(java.io.File file) {
-            this.file = file;
-            return this;
+             this.file = file;
+             return this;
         }
 
+    
+    
+    public UploadPartFileReqBody build(){
+        return new UploadPartFileReqBody(this);
+      }
+    }
 
-        public UploadPartFileReqBody build() {
-            return new UploadPartFileReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

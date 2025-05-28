@@ -17,17 +17,16 @@ package com.lark.oapi.service.vc.v1.enums;
  * 此次调用中使用的用户ID的类型，默认使用open_id可不填
  */
 public enum GetScopeConfigUserIdTypeEnum {
-    USER_ID("user_id"), // 以user_id来识别用户
-    UNION_ID("union_id"), // 以union_id来识别用户
-    OPEN_ID("open_id"), // 以open_id来识别用户（推荐）
-    ;
-    private String value;
-
+     USER_ID("user_id"), // 以user_id来识别用户
+     UNION_ID("union_id"), // 以union_id来识别用户
+     OPEN_ID("open_id"), // 以open_id来识别用户（推荐）
+  ;
+   private String value;
     GetScopeConfigUserIdTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

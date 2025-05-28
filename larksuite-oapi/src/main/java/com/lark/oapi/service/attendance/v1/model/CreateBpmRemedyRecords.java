@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateBpmRemedyRecords {
-    /**
-     * 发起补卡审批的用户ID
-     * <p> 示例值：0000000
-     */
+     /**
+      * 发起补卡审批的用户ID
+      * <p> 示例值：0000000
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 补卡列表-记录上限=10
-     * <p> 示例值：
-     */
+     /**
+      * 补卡列表-记录上限=10
+      * <p> 示例值：
+      */
     @SerializedName("remedy_records")
     private RemedyRecord[] remedyRecords;
-    /**
-     * 补卡事由
-     * <p> 示例值：正常上班，忘记打卡
-     */
+     /**
+      * 补卡事由
+      * <p> 示例值：正常上班，忘记打卡
+      */
     @SerializedName("remedy_reason")
     private String remedyReason;
-    /**
-     * json string，BPM流程中自定义新增控件
-     * <p> 示例值：{"remedy_applies":{"record_value":{"values":{"remedy_records":{"list_value":{"values":[{"record_value":{"values":{"remedy_type":{"text_value":{"value":"补卡类型6"}}}}}]}}}}}}
-     */
+     /**
+      * json string，BPM流程中自定义新增控件
+      * <p> 示例值：{"remedy_applies":{"record_value":{"values":{"remedy_records":{"list_value":{"values":[{"record_value":{"values":{"remedy_type":{"text_value":{"value":"补卡类型6"}}}}}]}}}}}}
+      */
     @SerializedName("custom_form_data")
     private String customFormData;
-
-    // builder 开始
-    public CreateBpmRemedyRecords() {
-    }
-
-    public CreateBpmRemedyRecords(Builder builder) {
-        /**
-         * 发起补卡审批的用户ID
-         * <p> 示例值：0000000
-         */
-        this.userId = builder.userId;
-        /**
-         * 补卡列表-记录上限=10
-         * <p> 示例值：
-         */
-        this.remedyRecords = builder.remedyRecords;
-        /**
-         * 补卡事由
-         * <p> 示例值：正常上班，忘记打卡
-         */
-        this.remedyReason = builder.remedyReason;
-        /**
-         * json string，BPM流程中自定义新增控件
-         * <p> 示例值：{"remedy_applies":{"record_value":{"values":{"remedy_records":{"list_value":{"values":[{"record_value":{"values":{"remedy_type":{"text_value":{"value":"补卡类型6"}}}}}]}}}}}}
-         */
-        this.customFormData = builder.customFormData;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -117,82 +81,113 @@ public class CreateBpmRemedyRecords {
         this.customFormData = customFormData;
     }
 
+
+// builder 开始
+  public CreateBpmRemedyRecords(){}
+
+  public CreateBpmRemedyRecords(Builder builder){
+         /**
+          * 发起补卡审批的用户ID
+          * <p> 示例值：0000000
+          */
+      this.userId = builder.userId;
+         /**
+          * 补卡列表-记录上限=10
+          * <p> 示例值：
+          */
+      this.remedyRecords = builder.remedyRecords;
+         /**
+          * 补卡事由
+          * <p> 示例值：正常上班，忘记打卡
+          */
+      this.remedyReason = builder.remedyReason;
+         /**
+          * json string，BPM流程中自定义新增控件
+          * <p> 示例值：{"remedy_applies":{"record_value":{"values":{"remedy_records":{"list_value":{"values":[{"record_value":{"values":{"remedy_type":{"text_value":{"value":"补卡类型6"}}}}}]}}}}}}
+          */
+      this.customFormData = builder.customFormData;
+  }
+
     public static class Builder {
-        /**
-         * 发起补卡审批的用户ID
-         * <p> 示例值：0000000
-         */
+     /**
+      * 发起补卡审批的用户ID
+      * <p> 示例值：0000000
+      */
         private String userId;
-        /**
-         * 补卡列表-记录上限=10
-         * <p> 示例值：
-         */
+     /**
+      * 补卡列表-记录上限=10
+      * <p> 示例值：
+      */
         private RemedyRecord[] remedyRecords;
-        /**
-         * 补卡事由
-         * <p> 示例值：正常上班，忘记打卡
-         */
+     /**
+      * 补卡事由
+      * <p> 示例值：正常上班，忘记打卡
+      */
         private String remedyReason;
-        /**
-         * json string，BPM流程中自定义新增控件
-         * <p> 示例值：{"remedy_applies":{"record_value":{"values":{"remedy_records":{"list_value":{"values":[{"record_value":{"values":{"remedy_type":{"text_value":{"value":"补卡类型6"}}}}}]}}}}}}
-         */
+     /**
+      * json string，BPM流程中自定义新增控件
+      * <p> 示例值：{"remedy_applies":{"record_value":{"values":{"remedy_records":{"list_value":{"values":[{"record_value":{"values":{"remedy_type":{"text_value":{"value":"补卡类型6"}}}}}]}}}}}}
+      */
         private String customFormData;
 
         /**
          * 发起补卡审批的用户ID
          * <p> 示例值：0000000
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 补卡列表-记录上限=10
          * <p> 示例值：
-         *
          * @param remedyRecords
          * @return
          */
         public Builder remedyRecords(RemedyRecord[] remedyRecords) {
-            this.remedyRecords = remedyRecords;
-            return this;
+             this.remedyRecords = remedyRecords;
+             return this;
         }
 
+    
 
         /**
          * 补卡事由
          * <p> 示例值：正常上班，忘记打卡
-         *
          * @param remedyReason
          * @return
          */
         public Builder remedyReason(String remedyReason) {
-            this.remedyReason = remedyReason;
-            return this;
+             this.remedyReason = remedyReason;
+             return this;
         }
 
+    
 
         /**
          * json string，BPM流程中自定义新增控件
          * <p> 示例值：{"remedy_applies":{"record_value":{"values":{"remedy_records":{"list_value":{"values":[{"record_value":{"values":{"remedy_type":{"text_value":{"value":"补卡类型6"}}}}}]}}}}}}
-         *
          * @param customFormData
          * @return
          */
         public Builder customFormData(String customFormData) {
-            this.customFormData = customFormData;
-            return this;
+             this.customFormData = customFormData;
+             return this;
         }
 
+    
+    
+    public CreateBpmRemedyRecords build(){
+        return new CreateBpmRemedyRecords(this);
+      }
+    }
 
-        public CreateBpmRemedyRecords build() {
-            return new CreateBpmRemedyRecords(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

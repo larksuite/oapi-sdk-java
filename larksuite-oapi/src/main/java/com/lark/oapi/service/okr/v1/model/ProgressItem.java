@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProgressItem {
-    /**
-     * 进度内容
-     * <p> 示例值：
-     */
+     /**
+      * 进度内容
+      * <p> 示例值：
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 更新时间
-     * <p> 示例值：
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：
+      */
     @SerializedName("timestamp")
     private String timestamp;
-    /**
-     * 负责人
-     * <p> 示例值：
-     */
+     /**
+      * 负责人
+      * <p> 示例值：
+      */
     @SerializedName("mention_list")
     private String[] mentionList;
-
-    // builder 开始
-    public ProgressItem() {
-    }
-
-    public ProgressItem(Builder builder) {
-        /**
-         * 进度内容
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * 更新时间
-         * <p> 示例值：
-         */
-        this.timestamp = builder.timestamp;
-        /**
-         * 负责人
-         * <p> 示例值：
-         */
-        this.mentionList = builder.mentionList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContent() {
         return this.content;
     }
@@ -98,64 +67,90 @@ public class ProgressItem {
         this.mentionList = mentionList;
     }
 
+
+// builder 开始
+  public ProgressItem(){}
+
+  public ProgressItem(Builder builder){
+         /**
+          * 进度内容
+          * <p> 示例值：
+          */
+      this.content = builder.content;
+         /**
+          * 更新时间
+          * <p> 示例值：
+          */
+      this.timestamp = builder.timestamp;
+         /**
+          * 负责人
+          * <p> 示例值：
+          */
+      this.mentionList = builder.mentionList;
+  }
+
     public static class Builder {
-        /**
-         * 进度内容
-         * <p> 示例值：
-         */
+     /**
+      * 进度内容
+      * <p> 示例值：
+      */
         private String content;
-        /**
-         * 更新时间
-         * <p> 示例值：
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：
+      */
         private String timestamp;
-        /**
-         * 负责人
-         * <p> 示例值：
-         */
+     /**
+      * 负责人
+      * <p> 示例值：
+      */
         private String[] mentionList;
 
         /**
          * 进度内容
          * <p> 示例值：
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：
-         *
          * @param timestamp
          * @return
          */
         public Builder timestamp(String timestamp) {
-            this.timestamp = timestamp;
-            return this;
+             this.timestamp = timestamp;
+             return this;
         }
 
+    
 
         /**
          * 负责人
          * <p> 示例值：
-         *
          * @param mentionList
          * @return
          */
         public Builder mentionList(String[] mentionList) {
-            this.mentionList = mentionList;
-            return this;
+             this.mentionList = mentionList;
+             return this;
         }
 
+    
+    
+    public ProgressItem build(){
+        return new ProgressItem(this);
+      }
+    }
 
-        public ProgressItem build() {
-            return new ProgressItem(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

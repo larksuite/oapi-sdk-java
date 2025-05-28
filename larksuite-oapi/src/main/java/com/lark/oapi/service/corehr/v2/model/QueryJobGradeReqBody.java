@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryJobGradeReqBody {
-    /**
-     * 职等ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 职等ID列表
+      * <p> 示例值：
+      */
     @SerializedName("ids")
     private String[] ids;
-    /**
-     * 职等code列表
-     * <p> 示例值：
-     */
+     /**
+      * 职等code列表
+      * <p> 示例值：
+      */
     @SerializedName("codes")
     private String[] codes;
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-
-    // builder 开始
-    public QueryJobGradeReqBody() {
-    }
-
-    public QueryJobGradeReqBody(Builder builder) {
-        /**
-         * 职等ID列表
-         * <p> 示例值：
-         */
-        this.ids = builder.ids;
-        /**
-         * 职等code列表
-         * <p> 示例值：
-         */
-        this.codes = builder.codes;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getIds() {
         return this.ids;
     }
@@ -98,64 +67,90 @@ public class QueryJobGradeReqBody {
         this.active = active;
     }
 
+
+// builder 开始
+  public QueryJobGradeReqBody(){}
+
+  public QueryJobGradeReqBody(Builder builder){
+         /**
+          * 职等ID列表
+          * <p> 示例值：
+          */
+      this.ids = builder.ids;
+         /**
+          * 职等code列表
+          * <p> 示例值：
+          */
+      this.codes = builder.codes;
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+  }
+
     public static class Builder {
-        /**
-         * 职等ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 职等ID列表
+      * <p> 示例值：
+      */
         private String[] ids;
-        /**
-         * 职等code列表
-         * <p> 示例值：
-         */
+     /**
+      * 职等code列表
+      * <p> 示例值：
+      */
         private String[] codes;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
 
         /**
          * 职等ID列表
          * <p> 示例值：
-         *
          * @param ids
          * @return
          */
         public Builder ids(String[] ids) {
-            this.ids = ids;
-            return this;
+             this.ids = ids;
+             return this;
         }
 
+    
 
         /**
          * 职等code列表
          * <p> 示例值：
-         *
          * @param codes
          * @return
          */
         public Builder codes(String[] codes) {
-            this.codes = codes;
-            return this;
+             this.codes = codes;
+             return this;
         }
 
+    
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
+    
+    public QueryJobGradeReqBody build(){
+        return new QueryJobGradeReqBody(this);
+      }
+    }
 
-        public QueryJobGradeReqBody build() {
-            return new QueryJobGradeReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

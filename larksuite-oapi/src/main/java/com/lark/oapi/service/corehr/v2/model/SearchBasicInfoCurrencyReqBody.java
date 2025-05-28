@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchBasicInfoCurrencyReqBody {
-    /**
-     * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
-     * <p> 示例值：
-     */
+     /**
+      * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
+      * <p> 示例值：
+      */
     @SerializedName("currency_id_list")
     private String[] currencyIdList;
-    /**
-     * 状态列表
-     * <p> 示例值：
-     */
+     /**
+      * 状态列表
+      * <p> 示例值：
+      */
     @SerializedName("status_list")
     private Integer[] statusList;
-
-    // builder 开始
-    public SearchBasicInfoCurrencyReqBody() {
-    }
-
-    public SearchBasicInfoCurrencyReqBody(Builder builder) {
-        /**
-         * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
-         * <p> 示例值：
-         */
-        this.currencyIdList = builder.currencyIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        this.statusList = builder.statusList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getCurrencyIdList() {
         return this.currencyIdList;
     }
@@ -79,46 +53,67 @@ public class SearchBasicInfoCurrencyReqBody {
         this.statusList = statusList;
     }
 
+
+// builder 开始
+  public SearchBasicInfoCurrencyReqBody(){}
+
+  public SearchBasicInfoCurrencyReqBody(Builder builder){
+         /**
+          * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
+          * <p> 示例值：
+          */
+      this.currencyIdList = builder.currencyIdList;
+         /**
+          * 状态列表
+          * <p> 示例值：
+          */
+      this.statusList = builder.statusList;
+  }
+
     public static class Builder {
-        /**
-         * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
-         * <p> 示例值：
-         */
+     /**
+      * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
+      * <p> 示例值：
+      */
         private String[] currencyIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
+     /**
+      * 状态列表
+      * <p> 示例值：
+      */
         private Integer[] statusList;
 
         /**
          * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
          * <p> 示例值：
-         *
          * @param currencyIdList
          * @return
          */
         public Builder currencyIdList(String[] currencyIdList) {
-            this.currencyIdList = currencyIdList;
-            return this;
+             this.currencyIdList = currencyIdList;
+             return this;
         }
 
+    
 
         /**
          * 状态列表
          * <p> 示例值：
-         *
          * @param statusList
          * @return
          */
         public Builder statusList(Integer[] statusList) {
-            this.statusList = statusList;
-            return this;
+             this.statusList = statusList;
+             return this;
         }
 
+    
+    
+    public SearchBasicInfoCurrencyReqBody build(){
+        return new SearchBasicInfoCurrencyReqBody(this);
+      }
+    }
 
-        public SearchBasicInfoCurrencyReqBody build() {
-            return new SearchBasicInfoCurrencyReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

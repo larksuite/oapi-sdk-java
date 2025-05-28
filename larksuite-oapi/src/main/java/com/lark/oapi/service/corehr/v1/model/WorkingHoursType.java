@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WorkingHoursType {
-    /**
-     * 工时制度 ID
-     * <p> 示例值：6890452208593372679
-     */
+     /**
+      * 工时制度 ID
+      * <p> 示例值：6890452208593372679
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 编码
-     * <p> 示例值：1
-     */
+     /**
+      * 编码
+      * <p> 示例值：1
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n[] name;
-    /**
-     * 国家/地区 ID 列表
-     * <p> 示例值：创建成功的工时制度信息
-     */
+     /**
+      * 国家/地区 ID 列表
+      * <p> 示例值：创建成功的工时制度信息
+      */
     @SerializedName("country_region_id_list")
     private String[] countryRegionIdList;
-    /**
-     * 职务默认值
-     * <p> 示例值：true
-     */
+     /**
+      * 职务默认值
+      * <p> 示例值：true
+      */
     @SerializedName("default_for_job")
     private Boolean defaultForJob;
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-
-    // builder 开始
-    public WorkingHoursType() {
-    }
-
-    public WorkingHoursType(Builder builder) {
-        /**
-         * 工时制度 ID
-         * <p> 示例值：6890452208593372679
-         */
-        this.id = builder.id;
-        /**
-         * 编码
-         * <p> 示例值：1
-         */
-        this.code = builder.code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 国家/地区 ID 列表
-         * <p> 示例值：创建成功的工时制度信息
-         */
-        this.countryRegionIdList = builder.countryRegionIdList;
-        /**
-         * 职务默认值
-         * <p> 示例值：true
-         */
-        this.defaultForJob = builder.defaultForJob;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -174,136 +123,182 @@ public class WorkingHoursType {
         this.customFields = customFields;
     }
 
+
+// builder 开始
+  public WorkingHoursType(){}
+
+  public WorkingHoursType(Builder builder){
+         /**
+          * 工时制度 ID
+          * <p> 示例值：6890452208593372679
+          */
+      this.id = builder.id;
+         /**
+          * 编码
+          * <p> 示例值：1
+          */
+      this.code = builder.code;
+         /**
+          * 名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 国家/地区 ID 列表
+          * <p> 示例值：创建成功的工时制度信息
+          */
+      this.countryRegionIdList = builder.countryRegionIdList;
+         /**
+          * 职务默认值
+          * <p> 示例值：true
+          */
+      this.defaultForJob = builder.defaultForJob;
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+  }
+
     public static class Builder {
-        /**
-         * 工时制度 ID
-         * <p> 示例值：6890452208593372679
-         */
+     /**
+      * 工时制度 ID
+      * <p> 示例值：6890452208593372679
+      */
         private String id;
-        /**
-         * 编码
-         * <p> 示例值：1
-         */
+     /**
+      * 编码
+      * <p> 示例值：1
+      */
         private String code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
         private I18n[] name;
-        /**
-         * 国家/地区 ID 列表
-         * <p> 示例值：创建成功的工时制度信息
-         */
+     /**
+      * 国家/地区 ID 列表
+      * <p> 示例值：创建成功的工时制度信息
+      */
         private String[] countryRegionIdList;
-        /**
-         * 职务默认值
-         * <p> 示例值：true
-         */
+     /**
+      * 职务默认值
+      * <p> 示例值：true
+      */
         private Boolean defaultForJob;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ObjectFieldData[] customFields;
 
         /**
          * 工时制度 ID
          * <p> 示例值：6890452208593372679
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 编码
          * <p> 示例值：1
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 国家/地区 ID 列表
          * <p> 示例值：创建成功的工时制度信息
-         *
          * @param countryRegionIdList
          * @return
          */
         public Builder countryRegionIdList(String[] countryRegionIdList) {
-            this.countryRegionIdList = countryRegionIdList;
-            return this;
+             this.countryRegionIdList = countryRegionIdList;
+             return this;
         }
 
+    
 
         /**
          * 职务默认值
          * <p> 示例值：true
-         *
          * @param defaultForJob
          * @return
          */
         public Builder defaultForJob(Boolean defaultForJob) {
-            this.defaultForJob = defaultForJob;
-            return this;
+             this.defaultForJob = defaultForJob;
+             return this;
         }
 
+    
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
+    
+    public WorkingHoursType build(){
+        return new WorkingHoursType(this);
+      }
+    }
 
-        public WorkingHoursType build() {
-            return new WorkingHoursType(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

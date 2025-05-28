@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FormFieldVariableFileValue {
-    /**
-     * 文件源类型（1BPM; 2主数据）
-     * <p> 示例值：1
-     */
+     /**
+      * 文件源类型（1BPM; 2主数据）
+      * <p> 示例值：1
+      */
     @SerializedName("source_type")
     private Integer sourceType;
-    /**
-     * 文件id
-     * <p> 示例值：abc_file_xyz
-     */
+     /**
+      * 文件id
+      * <p> 示例值：abc_file_xyz
+      */
     @SerializedName("file_id")
     private String fileId;
-    /**
-     * 文件名称
-     * <p> 示例值：a
-     */
+     /**
+      * 文件名称
+      * <p> 示例值：a
+      */
     @SerializedName("file_name")
     private String fileName;
-    /**
-     * 文件长度
-     * <p> 示例值：1024
-     */
+     /**
+      * 文件长度
+      * <p> 示例值：1024
+      */
     @SerializedName("length")
     private Integer length;
-    /**
-     * mime type
-     * <p> 示例值：text/plain
-     */
+     /**
+      * mime type
+      * <p> 示例值：text/plain
+      */
     @SerializedName("mime_type")
     private String mimeType;
-
-    // builder 开始
-    public FormFieldVariableFileValue() {
-    }
-
-    public FormFieldVariableFileValue(Builder builder) {
-        /**
-         * 文件源类型（1BPM; 2主数据）
-         * <p> 示例值：1
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 文件id
-         * <p> 示例值：abc_file_xyz
-         */
-        this.fileId = builder.fileId;
-        /**
-         * 文件名称
-         * <p> 示例值：a
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 文件长度
-         * <p> 示例值：1024
-         */
-        this.length = builder.length;
-        /**
-         * mime type
-         * <p> 示例值：text/plain
-         */
-        this.mimeType = builder.mimeType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getSourceType() {
         return this.sourceType;
     }
@@ -136,100 +95,136 @@ public class FormFieldVariableFileValue {
         this.mimeType = mimeType;
     }
 
+
+// builder 开始
+  public FormFieldVariableFileValue(){}
+
+  public FormFieldVariableFileValue(Builder builder){
+         /**
+          * 文件源类型（1BPM; 2主数据）
+          * <p> 示例值：1
+          */
+      this.sourceType = builder.sourceType;
+         /**
+          * 文件id
+          * <p> 示例值：abc_file_xyz
+          */
+      this.fileId = builder.fileId;
+         /**
+          * 文件名称
+          * <p> 示例值：a
+          */
+      this.fileName = builder.fileName;
+         /**
+          * 文件长度
+          * <p> 示例值：1024
+          */
+      this.length = builder.length;
+         /**
+          * mime type
+          * <p> 示例值：text/plain
+          */
+      this.mimeType = builder.mimeType;
+  }
+
     public static class Builder {
-        /**
-         * 文件源类型（1BPM; 2主数据）
-         * <p> 示例值：1
-         */
+     /**
+      * 文件源类型（1BPM; 2主数据）
+      * <p> 示例值：1
+      */
         private Integer sourceType;
-        /**
-         * 文件id
-         * <p> 示例值：abc_file_xyz
-         */
+     /**
+      * 文件id
+      * <p> 示例值：abc_file_xyz
+      */
         private String fileId;
-        /**
-         * 文件名称
-         * <p> 示例值：a
-         */
+     /**
+      * 文件名称
+      * <p> 示例值：a
+      */
         private String fileName;
-        /**
-         * 文件长度
-         * <p> 示例值：1024
-         */
+     /**
+      * 文件长度
+      * <p> 示例值：1024
+      */
         private Integer length;
-        /**
-         * mime type
-         * <p> 示例值：text/plain
-         */
+     /**
+      * mime type
+      * <p> 示例值：text/plain
+      */
         private String mimeType;
 
         /**
          * 文件源类型（1BPM; 2主数据）
          * <p> 示例值：1
-         *
          * @param sourceType
          * @return
          */
         public Builder sourceType(Integer sourceType) {
-            this.sourceType = sourceType;
-            return this;
+             this.sourceType = sourceType;
+             return this;
         }
 
+    
 
         /**
          * 文件id
          * <p> 示例值：abc_file_xyz
-         *
          * @param fileId
          * @return
          */
         public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
+             this.fileId = fileId;
+             return this;
         }
 
+    
 
         /**
          * 文件名称
          * <p> 示例值：a
-         *
          * @param fileName
          * @return
          */
         public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
+             this.fileName = fileName;
+             return this;
         }
 
+    
 
         /**
          * 文件长度
          * <p> 示例值：1024
-         *
          * @param length
          * @return
          */
         public Builder length(Integer length) {
-            this.length = length;
-            return this;
+             this.length = length;
+             return this;
         }
 
+    
 
         /**
          * mime type
          * <p> 示例值：text/plain
-         *
          * @param mimeType
          * @return
          */
         public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
+             this.mimeType = mimeType;
+             return this;
         }
 
+    
+    
+    public FormFieldVariableFileValue build(){
+        return new FormFieldVariableFileValue(this);
+      }
+    }
 
-        public FormFieldVariableFileValue build() {
-            return new FormFieldVariableFileValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

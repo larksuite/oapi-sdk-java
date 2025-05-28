@@ -17,18 +17,17 @@ package com.lark.oapi.service.search.v2.enums;
  * 筛选器类型
  */
 public enum SchemaFilterOptionsOpensearchFilterTypeEnum {
-    USER("user"), // 用户筛选器
-    TIME("time"), // 时间筛选器
-    SEARCHABLE("searchable"), // 可搜筛选器
-    PREDEFINEENUM("predefine_enum"), // 预定义枚举筛选器
-    ;
-    private String value;
-
+     USER("user"), // 用户筛选器
+     TIME("time"), // 时间筛选器
+     SEARCHABLE("searchable"), // 可搜筛选器
+     PREDEFINEENUM("predefine_enum"), // 预定义枚举筛选器
+  ;
+   private String value;
     SchemaFilterOptionsOpensearchFilterTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

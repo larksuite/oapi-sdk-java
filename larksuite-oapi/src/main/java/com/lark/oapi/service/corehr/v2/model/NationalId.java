@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class NationalId {
-    /**
-     * 国家证件类型
-     * <p> 示例值：6863330041896371725
-     */
+     /**
+      * 国家证件类型
+      * <p> 示例值：6863330041896371725
+      */
     @SerializedName("national_id_type_id")
     private String nationalIdTypeId;
-    /**
-     * 证件号码
-     * <p> 示例值：1231131333
-     */
+     /**
+      * 证件号码
+      * <p> 示例值：1231131333
+      */
     @SerializedName("national_id_number")
     private String nationalIdNumber;
-    /**
-     * 证件签发日期
-     * <p> 示例值：2020-04-01
-     */
+     /**
+      * 证件签发日期
+      * <p> 示例值：2020-04-01
+      */
     @SerializedName("issue_date")
     private String issueDate;
-    /**
-     * 证件到期日期
-     * <p> 示例值：2020-05-21
-     */
+     /**
+      * 证件到期日期
+      * <p> 示例值：2020-05-21
+      */
     @SerializedName("expiration_date")
     private String expirationDate;
-    /**
-     * 国家 / 地区
-     * <p> 示例值：6862995757234914824
-     */
+     /**
+      * 国家 / 地区
+      * <p> 示例值：6862995757234914824
+      */
     @SerializedName("country_region_id")
     private String countryRegionId;
-    /**
-     * 证件签发机构
-     * <p> 示例值：北京市公安局
-     */
+     /**
+      * 证件签发机构
+      * <p> 示例值：北京市公安局
+      */
     @SerializedName("issued_by")
     private String issuedBy;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
-
-    // builder 开始
-    public NationalId() {
-    }
-
-    public NationalId(Builder builder) {
-        /**
-         * 国家证件类型
-         * <p> 示例值：6863330041896371725
-         */
-        this.nationalIdTypeId = builder.nationalIdTypeId;
-        /**
-         * 证件号码
-         * <p> 示例值：1231131333
-         */
-        this.nationalIdNumber = builder.nationalIdNumber;
-        /**
-         * 证件签发日期
-         * <p> 示例值：2020-04-01
-         */
-        this.issueDate = builder.issueDate;
-        /**
-         * 证件到期日期
-         * <p> 示例值：2020-05-21
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 证件签发机构
-         * <p> 示例值：北京市公安局
-         */
-        this.issuedBy = builder.issuedBy;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNationalIdTypeId() {
         return this.nationalIdTypeId;
     }
@@ -174,136 +123,182 @@ public class NationalId {
         this.customFields = customFields;
     }
 
+
+// builder 开始
+  public NationalId(){}
+
+  public NationalId(Builder builder){
+         /**
+          * 国家证件类型
+          * <p> 示例值：6863330041896371725
+          */
+      this.nationalIdTypeId = builder.nationalIdTypeId;
+         /**
+          * 证件号码
+          * <p> 示例值：1231131333
+          */
+      this.nationalIdNumber = builder.nationalIdNumber;
+         /**
+          * 证件签发日期
+          * <p> 示例值：2020-04-01
+          */
+      this.issueDate = builder.issueDate;
+         /**
+          * 证件到期日期
+          * <p> 示例值：2020-05-21
+          */
+      this.expirationDate = builder.expirationDate;
+         /**
+          * 国家 / 地区
+          * <p> 示例值：6862995757234914824
+          */
+      this.countryRegionId = builder.countryRegionId;
+         /**
+          * 证件签发机构
+          * <p> 示例值：北京市公安局
+          */
+      this.issuedBy = builder.issuedBy;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+  }
+
     public static class Builder {
-        /**
-         * 国家证件类型
-         * <p> 示例值：6863330041896371725
-         */
+     /**
+      * 国家证件类型
+      * <p> 示例值：6863330041896371725
+      */
         private String nationalIdTypeId;
-        /**
-         * 证件号码
-         * <p> 示例值：1231131333
-         */
+     /**
+      * 证件号码
+      * <p> 示例值：1231131333
+      */
         private String nationalIdNumber;
-        /**
-         * 证件签发日期
-         * <p> 示例值：2020-04-01
-         */
+     /**
+      * 证件签发日期
+      * <p> 示例值：2020-04-01
+      */
         private String issueDate;
-        /**
-         * 证件到期日期
-         * <p> 示例值：2020-05-21
-         */
+     /**
+      * 证件到期日期
+      * <p> 示例值：2020-05-21
+      */
         private String expirationDate;
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
+     /**
+      * 国家 / 地区
+      * <p> 示例值：6862995757234914824
+      */
         private String countryRegionId;
-        /**
-         * 证件签发机构
-         * <p> 示例值：北京市公安局
-         */
+     /**
+      * 证件签发机构
+      * <p> 示例值：北京市公安局
+      */
         private String issuedBy;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private CustomFieldData[] customFields;
 
         /**
          * 国家证件类型
          * <p> 示例值：6863330041896371725
-         *
          * @param nationalIdTypeId
          * @return
          */
         public Builder nationalIdTypeId(String nationalIdTypeId) {
-            this.nationalIdTypeId = nationalIdTypeId;
-            return this;
+             this.nationalIdTypeId = nationalIdTypeId;
+             return this;
         }
 
+    
 
         /**
          * 证件号码
          * <p> 示例值：1231131333
-         *
          * @param nationalIdNumber
          * @return
          */
         public Builder nationalIdNumber(String nationalIdNumber) {
-            this.nationalIdNumber = nationalIdNumber;
-            return this;
+             this.nationalIdNumber = nationalIdNumber;
+             return this;
         }
 
+    
 
         /**
          * 证件签发日期
          * <p> 示例值：2020-04-01
-         *
          * @param issueDate
          * @return
          */
         public Builder issueDate(String issueDate) {
-            this.issueDate = issueDate;
-            return this;
+             this.issueDate = issueDate;
+             return this;
         }
 
+    
 
         /**
          * 证件到期日期
          * <p> 示例值：2020-05-21
-         *
          * @param expirationDate
          * @return
          */
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
+             this.expirationDate = expirationDate;
+             return this;
         }
 
+    
 
         /**
          * 国家 / 地区
          * <p> 示例值：6862995757234914824
-         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
+             this.countryRegionId = countryRegionId;
+             return this;
         }
 
+    
 
         /**
          * 证件签发机构
          * <p> 示例值：北京市公安局
-         *
          * @param issuedBy
          * @return
          */
         public Builder issuedBy(String issuedBy) {
-            this.issuedBy = issuedBy;
-            return this;
+             this.issuedBy = issuedBy;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
+    
+    public NationalId build(){
+        return new NationalId(this);
+      }
+    }
 
-        public NationalId build() {
-            return new NationalId(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

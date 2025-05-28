@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FieldVariableValueToEnum {
-    /**
-     * 枚举项唯一id
-     * <p> 示例值：home_address
-     */
+     /**
+      * 枚举项唯一id
+      * <p> 示例值：home_address
+      */
     @SerializedName("value")
     private String value;
-    /**
-     * 枚举项名称
-     * <p> 示例值：
-     */
+     /**
+      * 枚举项名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private FieldVariableValueI18n name;
-
-    // builder 开始
-    public FieldVariableValueToEnum() {
-    }
-
-    public FieldVariableValueToEnum(Builder builder) {
-        /**
-         * 枚举项唯一id
-         * <p> 示例值：home_address
-         */
-        this.value = builder.value;
-        /**
-         * 枚举项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getValue() {
         return this.value;
     }
@@ -79,46 +53,67 @@ public class FieldVariableValueToEnum {
         this.name = name;
     }
 
+
+// builder 开始
+  public FieldVariableValueToEnum(){}
+
+  public FieldVariableValueToEnum(Builder builder){
+         /**
+          * 枚举项唯一id
+          * <p> 示例值：home_address
+          */
+      this.value = builder.value;
+         /**
+          * 枚举项名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 枚举项唯一id
-         * <p> 示例值：home_address
-         */
+     /**
+      * 枚举项唯一id
+      * <p> 示例值：home_address
+      */
         private String value;
-        /**
-         * 枚举项名称
-         * <p> 示例值：
-         */
+     /**
+      * 枚举项名称
+      * <p> 示例值：
+      */
         private FieldVariableValueI18n name;
 
         /**
          * 枚举项唯一id
          * <p> 示例值：home_address
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
 
         /**
          * 枚举项名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(FieldVariableValueI18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public FieldVariableValueToEnum build(){
+        return new FieldVariableValueToEnum(this);
+      }
+    }
 
-        public FieldVariableValueToEnum build() {
-            return new FieldVariableValueToEnum(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

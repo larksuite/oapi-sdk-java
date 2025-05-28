@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OvertimeRule {
-    /**
-     * 加班上班时间
-     * <p> 示例值：9：00
-     */
+     /**
+      * 加班上班时间
+      * <p> 示例值：9：00
+      */
     @SerializedName("on_overtime")
     private String onOvertime;
-    /**
-     * 加班下班时间
-     * <p> 示例值：18：00， 第二天凌晨2点， 26：00
-     */
+     /**
+      * 加班下班时间
+      * <p> 示例值：18：00， 第二天凌晨2点， 26：00
+      */
     @SerializedName("off_overtime")
     private String offOvertime;
-
-    // builder 开始
-    public OvertimeRule() {
-    }
-
-    public OvertimeRule(Builder builder) {
-        /**
-         * 加班上班时间
-         * <p> 示例值：9：00
-         */
-        this.onOvertime = builder.onOvertime;
-        /**
-         * 加班下班时间
-         * <p> 示例值：18：00， 第二天凌晨2点， 26：00
-         */
-        this.offOvertime = builder.offOvertime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOnOvertime() {
         return this.onOvertime;
     }
@@ -79,46 +53,67 @@ public class OvertimeRule {
         this.offOvertime = offOvertime;
     }
 
+
+// builder 开始
+  public OvertimeRule(){}
+
+  public OvertimeRule(Builder builder){
+         /**
+          * 加班上班时间
+          * <p> 示例值：9：00
+          */
+      this.onOvertime = builder.onOvertime;
+         /**
+          * 加班下班时间
+          * <p> 示例值：18：00， 第二天凌晨2点， 26：00
+          */
+      this.offOvertime = builder.offOvertime;
+  }
+
     public static class Builder {
-        /**
-         * 加班上班时间
-         * <p> 示例值：9：00
-         */
+     /**
+      * 加班上班时间
+      * <p> 示例值：9：00
+      */
         private String onOvertime;
-        /**
-         * 加班下班时间
-         * <p> 示例值：18：00， 第二天凌晨2点， 26：00
-         */
+     /**
+      * 加班下班时间
+      * <p> 示例值：18：00， 第二天凌晨2点， 26：00
+      */
         private String offOvertime;
 
         /**
          * 加班上班时间
          * <p> 示例值：9：00
-         *
          * @param onOvertime
          * @return
          */
         public Builder onOvertime(String onOvertime) {
-            this.onOvertime = onOvertime;
-            return this;
+             this.onOvertime = onOvertime;
+             return this;
         }
 
+    
 
         /**
          * 加班下班时间
          * <p> 示例值：18：00， 第二天凌晨2点， 26：00
-         *
          * @param offOvertime
          * @return
          */
         public Builder offOvertime(String offOvertime) {
-            this.offOvertime = offOvertime;
-            return this;
+             this.offOvertime = offOvertime;
+             return this;
         }
 
+    
+    
+    public OvertimeRule build(){
+        return new OvertimeRule(this);
+      }
+    }
 
-        public OvertimeRule build() {
-            return new OvertimeRule(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

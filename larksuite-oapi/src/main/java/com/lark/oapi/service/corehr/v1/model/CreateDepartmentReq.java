@@ -12,73 +12,39 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateDepartmentReq {
-    /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
-     */
+     /**
+      * 根据client_token是否一致来判断是否为同一请求
+      * <p> 示例值：12454646
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
-     */
+     /**
+      * 用户 ID 类型
+      * <p> 示例值：people_corehr_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：people_corehr_department_id
-     */
+     /**
+      * 此次调用中使用的部门 ID 类型
+      * <p> 示例值：people_corehr_department_id
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    @Body
-    private DepartmentCreate body;
-
-    // builder 开始
-    public CreateDepartmentReq() {
-    }
-
-    public CreateDepartmentReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：people_corehr_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getClientToken() {
         return this.clientToken;
     }
@@ -103,6 +69,9 @@ public class CreateDepartmentReq {
         this.departmentIdType = departmentIdType;
     }
 
+    @Body
+    private DepartmentCreate body;
+
     public DepartmentCreate getDepartmentCreate() {
         return this.body;
     }
@@ -111,89 +80,112 @@ public class CreateDepartmentReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateDepartmentReq(){}
+
+  public CreateDepartmentReq(Builder builder){
+         /**
+          * 根据client_token是否一致来判断是否为同一请求
+          * <p> 示例值：12454646
+          */
+       this.clientToken = builder.clientToken;
+         /**
+          * 用户 ID 类型
+          * <p> 示例值：people_corehr_id
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 此次调用中使用的部门 ID 类型
+          * <p> 示例值：people_corehr_department_id
+          */
+       this.departmentIdType = builder.departmentIdType;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
         private String userIdType; // 用户 ID 类型
         private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private DepartmentCreate body;
-
+    
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：12454646
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：people_corehr_id
-         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.CreateDepartmentUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.CreateDepartmentUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.CreateDepartmentUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：people_corehr_department_id
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：people_corehr_department_id
-         *
          * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.CreateDepartmentDepartmentIdTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.CreateDepartmentDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
+          public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.CreateDepartmentDepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
 
+    
+        private DepartmentCreate body;
+    
         public DepartmentCreate getDepartmentCreate() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder departmentCreate(DepartmentCreate body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateDepartmentReq build(){
+        return new CreateDepartmentReq(this);
+      }
+    }
 
-        public CreateDepartmentReq build() {
-            return new CreateDepartmentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

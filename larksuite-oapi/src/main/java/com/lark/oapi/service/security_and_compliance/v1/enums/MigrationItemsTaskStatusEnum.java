@@ -17,17 +17,16 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 任务状态
  */
 public enum MigrationItemsTaskStatusEnum {
-    CREATE("create"), // 迁移创建完成
-    COMPLETE("complete"), // 迁移已完成
-    STOP("stop"), // 迁移已停止，当 entity 找不到时，status 应为 stop，并返回 message 信息
-    ;
-    private String value;
-
+     CREATE("create"), // 迁移创建完成
+     COMPLETE("complete"), // 迁移已完成
+     STOP("stop"), // 迁移已停止，当 entity 找不到时，status 应为 stop，并返回 message 信息
+  ;
+   private String value;
     MigrationItemsTaskStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

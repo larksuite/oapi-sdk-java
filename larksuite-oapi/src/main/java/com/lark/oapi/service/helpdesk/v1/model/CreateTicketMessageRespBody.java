@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateTicketMessageRespBody {
-    /**
-     * chat消息open ID
-     * <p> 示例值：om_8baa3656c7b41900d29bf9104bf5310b
-     */
+     /**
+      * chat消息open ID
+      * <p> 示例值：om_8baa3656c7b41900d29bf9104bf5310b
+      */
     @SerializedName("message_id")
     private String messageId;
-
     public String getMessageId() {
         return this.messageId;
     }

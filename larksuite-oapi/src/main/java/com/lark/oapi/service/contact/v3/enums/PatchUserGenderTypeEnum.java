@@ -17,18 +17,17 @@ package com.lark.oapi.service.contact.v3.enums;
  * 性别
  */
 public enum PatchUserGenderTypeEnum {
-    UNKOWN(0), // 保密
-    MALE(1), // 男
-    FEMALE(2), // 女
-    OTHERS(3), // 其他
-    ;
-    private Integer value;
-
+     UNKOWN(0), // 保密
+     MALE(1), // 男
+     FEMALE(2), // 女
+     OTHERS(3), // 其他
+  ;
+   private Integer value;
     PatchUserGenderTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

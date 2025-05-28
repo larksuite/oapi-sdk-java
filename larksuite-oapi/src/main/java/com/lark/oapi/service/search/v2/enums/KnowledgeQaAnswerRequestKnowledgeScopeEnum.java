@@ -17,17 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * 指定答案生成的知识范围
  */
 public enum KnowledgeQaAnswerRequestKnowledgeScopeEnum {
-    ENTERPRISE("enterprise"), // 企业内知识
-    INTERNET("internet"), // 联网搜索
-    LLM("llm"), // 仅大模型
-    ;
-    private String value;
-
+     ENTERPRISE("enterprise"), // 企业内知识
+     INTERNET("internet"), // 联网搜索
+     LLM("llm"), // 仅大模型
+  ;
+   private String value;
     KnowledgeQaAnswerRequestKnowledgeScopeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

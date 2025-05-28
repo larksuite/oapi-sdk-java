@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReplaceImageRequest {
-    /**
-     * 图片 token
-     * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-     */
+     /**
+      * 图片 token
+      * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * 图片宽度，单位 px
-     * <p> 示例值：100
-     */
+     /**
+      * 图片宽度，单位 px
+      * <p> 示例值：100
+      */
     @SerializedName("width")
     private Integer width;
-    /**
-     * 图片高度，单位 px
-     * <p> 示例值：100
-     */
+     /**
+      * 图片高度，单位 px
+      * <p> 示例值：100
+      */
     @SerializedName("height")
     private Integer height;
-    /**
-     * 对齐方式
-     * <p> 示例值：2
-     */
+     /**
+      * 对齐方式
+      * <p> 示例值：2
+      */
     @SerializedName("align")
     private Integer align;
-    /**
-     * 图片描述
-     * <p> 示例值：
-     */
+     /**
+      * 图片描述
+      * <p> 示例值：
+      */
     @SerializedName("caption")
     private Caption caption;
-
-    // builder 开始
-    public ReplaceImageRequest() {
-    }
-
-    public ReplaceImageRequest(Builder builder) {
-        /**
-         * 图片 token
-         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-         */
-        this.token = builder.token;
-        /**
-         * 图片宽度，单位 px
-         * <p> 示例值：100
-         */
-        this.width = builder.width;
-        /**
-         * 图片高度，单位 px
-         * <p> 示例值：100
-         */
-        this.height = builder.height;
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         */
-        this.align = builder.align;
-        /**
-         * 图片描述
-         * <p> 示例值：
-         */
-        this.caption = builder.caption;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getToken() {
         return this.token;
     }
@@ -136,112 +95,146 @@ public class ReplaceImageRequest {
         this.caption = caption;
     }
 
+
+// builder 开始
+  public ReplaceImageRequest(){}
+
+  public ReplaceImageRequest(Builder builder){
+         /**
+          * 图片 token
+          * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+          */
+      this.token = builder.token;
+         /**
+          * 图片宽度，单位 px
+          * <p> 示例值：100
+          */
+      this.width = builder.width;
+         /**
+          * 图片高度，单位 px
+          * <p> 示例值：100
+          */
+      this.height = builder.height;
+         /**
+          * 对齐方式
+          * <p> 示例值：2
+          */
+      this.align = builder.align;
+         /**
+          * 图片描述
+          * <p> 示例值：
+          */
+      this.caption = builder.caption;
+  }
+
     public static class Builder {
-        /**
-         * 图片 token
-         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-         */
+     /**
+      * 图片 token
+      * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+      */
         private String token;
-        /**
-         * 图片宽度，单位 px
-         * <p> 示例值：100
-         */
+     /**
+      * 图片宽度，单位 px
+      * <p> 示例值：100
+      */
         private Integer width;
-        /**
-         * 图片高度，单位 px
-         * <p> 示例值：100
-         */
+     /**
+      * 图片高度，单位 px
+      * <p> 示例值：100
+      */
         private Integer height;
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         */
+     /**
+      * 对齐方式
+      * <p> 示例值：2
+      */
         private Integer align;
-        /**
-         * 图片描述
-         * <p> 示例值：
-         */
+     /**
+      * 图片描述
+      * <p> 示例值：
+      */
         private Caption caption;
 
         /**
          * 图片 token
          * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * 图片宽度，单位 px
          * <p> 示例值：100
-         *
          * @param width
          * @return
          */
         public Builder width(Integer width) {
-            this.width = width;
-            return this;
+             this.width = width;
+             return this;
         }
 
+    
 
         /**
          * 图片高度，单位 px
          * <p> 示例值：100
-         *
          * @param height
          * @return
          */
         public Builder height(Integer height) {
-            this.height = height;
-            return this;
+             this.height = height;
+             return this;
         }
 
+    
 
         /**
          * 对齐方式
          * <p> 示例值：2
-         *
          * @param align
          * @return
          */
         public Builder align(Integer align) {
-            this.align = align;
-            return this;
+             this.align = align;
+             return this;
         }
-
         /**
          * 对齐方式
          * <p> 示例值：2
-         *
          * @param align {@link com.lark.oapi.service.docx.v1.enums.ReplaceImageRequestAlignEnum}
          * @return
          */
         public Builder align(com.lark.oapi.service.docx.v1.enums.ReplaceImageRequestAlignEnum align) {
-            this.align = align.getValue();
-            return this;
+             this.align = align.getValue();
+             return this;
         }
 
+    
 
         /**
          * 图片描述
          * <p> 示例值：
-         *
          * @param caption
          * @return
          */
         public Builder caption(Caption caption) {
-            this.caption = caption;
-            return this;
+             this.caption = caption;
+             return this;
         }
 
+    
+    
+    public ReplaceImageRequest build(){
+        return new ReplaceImageRequest(this);
+      }
+    }
 
-        public ReplaceImageRequest build() {
-            return new ReplaceImageRequest(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

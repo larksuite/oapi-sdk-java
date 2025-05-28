@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataPermission {
-    /**
-     * 权限点ID
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 权限点ID
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 权限点名称
-     * <p> 示例值：
-     */
+     /**
+      * 权限点名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 数据权限状态
-     * <p> 示例值：
-     */
+     /**
+      * 数据权限状态
+      * <p> 示例值：
+      */
     @SerializedName("select_status")
     private Integer selectStatus;
-
-    // builder 开始
-    public DataPermission() {
-    }
-
-    public DataPermission(Builder builder) {
-        /**
-         * 权限点ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.id = builder.id;
-        /**
-         * 权限点名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 数据权限状态
-         * <p> 示例值：
-         */
-        this.selectStatus = builder.selectStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -97,64 +66,90 @@ public class DataPermission {
         this.selectStatus = selectStatus;
     }
 
+
+// builder 开始
+  public DataPermission(){}
+
+  public DataPermission(Builder builder){
+         /**
+          * 权限点ID
+          * <p> 示例值：6930815272790114324
+          */
+      this.id = builder.id;
+         /**
+          * 权限点名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 数据权限状态
+          * <p> 示例值：
+          */
+      this.selectStatus = builder.selectStatus;
+  }
+
     public static class Builder {
-        /**
-         * 权限点ID
-         * <p> 示例值：6930815272790114324
-         */
+     /**
+      * 权限点ID
+      * <p> 示例值：6930815272790114324
+      */
         private String id;
-        /**
-         * 权限点名称
-         * <p> 示例值：
-         */
+     /**
+      * 权限点名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 数据权限状态
-         * <p> 示例值：
-         */
+     /**
+      * 数据权限状态
+      * <p> 示例值：
+      */
         private Integer selectStatus;
 
         /**
          * 权限点ID
          * <p> 示例值：6930815272790114324
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 权限点名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 数据权限状态
          * <p> 示例值：
-         *
          * @param selectStatus
          * @return
          */
         public Builder selectStatus(Integer selectStatus) {
-            this.selectStatus = selectStatus;
-            return this;
+             this.selectStatus = selectStatus;
+             return this;
         }
 
+    
+    
+    public DataPermission build(){
+        return new DataPermission(this);
+      }
+    }
 
-        public DataPermission build() {
-            return new DataPermission(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

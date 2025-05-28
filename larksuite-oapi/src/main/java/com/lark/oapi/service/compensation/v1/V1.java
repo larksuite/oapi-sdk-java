@@ -17,43 +17,37 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.compensation.v1.resource.*;
 
 public class V1 {
-    private final Archive archive; // archive
-    private final ChangeReason changeReason; // change_reason
-    private final Indicator indicator; // indicator
-    private final Item item; // item
-    private final ItemCategory itemCategory; // item_category
-    private final Plan plan; // plan
+	private final Archive archive; // archive
+	private final ChangeReason changeReason; // change_reason
+	private final Indicator indicator; // indicator
+	private final Item item; // item
+	private final ItemCategory itemCategory; // item_category
+	private final Plan plan; // plan
 
-    public V1(Config config) {
-        this.archive = new Archive(config);
-        this.changeReason = new ChangeReason(config);
-        this.indicator = new Indicator(config);
-        this.item = new Item(config);
-        this.itemCategory = new ItemCategory(config);
-        this.plan = new Plan(config);
-    }
-
-    public Archive archive() {
-        return archive;
-    }
-
-    public ChangeReason changeReason() {
-        return changeReason;
-    }
-
-    public Indicator indicator() {
-        return indicator;
-    }
-
-    public Item item() {
-        return item;
-    }
-
-    public ItemCategory itemCategory() {
-        return itemCategory;
-    }
-
-    public Plan plan() {
-        return plan;
-    }
+	public V1(Config config) {
+		this.archive = new Archive(config);
+		this.changeReason = new ChangeReason(config);
+		this.indicator = new Indicator(config);
+		this.item = new Item(config);
+		this.itemCategory = new ItemCategory(config);
+		this.plan = new Plan(config);
+	}
+	public Archive archive() {
+		return archive;
+	}
+	public ChangeReason changeReason() {
+		return changeReason;
+	}
+	public Indicator indicator() {
+		return indicator;
+	}
+	public Item item() {
+		return item;
+	}
+	public ItemCategory itemCategory() {
+		return itemCategory;
+	}
+	public Plan plan() {
+		return plan;
+	}
 }

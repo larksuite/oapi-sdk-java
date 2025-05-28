@@ -17,16 +17,15 @@ package com.lark.oapi.service.wiki.v2.enums;
  * 表示知识空间的分享状态
  */
 public enum SpaceOpenSharingEnum {
-    OPEN("open"), // 打开
-    CLOSED("closed"), // 关闭
-    ;
-    private String value;
-
+     OPEN("open"), // 打开
+     CLOSED("closed"), // 关闭
+  ;
+   private String value;
     SpaceOpenSharingEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

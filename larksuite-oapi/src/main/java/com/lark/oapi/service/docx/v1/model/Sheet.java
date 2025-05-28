@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Sheet {
-    /**
-     * 电子表格 block 的 token
-     * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
-     */
+     /**
+      * 电子表格 block 的 token
+      * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * 电子表格行数量
-     * <p> 示例值：2
-     */
+     /**
+      * 电子表格行数量
+      * <p> 示例值：2
+      */
     @SerializedName("row_size")
     private Integer rowSize;
-    /**
-     * 电子表格列数量
-     * <p> 示例值：2
-     */
+     /**
+      * 电子表格列数量
+      * <p> 示例值：2
+      */
     @SerializedName("column_size")
     private Integer columnSize;
-
-    // builder 开始
-    public Sheet() {
-    }
-
-    public Sheet(Builder builder) {
-        /**
-         * 电子表格 block 的 token
-         * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
-         */
-        this.token = builder.token;
-        /**
-         * 电子表格行数量
-         * <p> 示例值：2
-         */
-        this.rowSize = builder.rowSize;
-        /**
-         * 电子表格列数量
-         * <p> 示例值：2
-         */
-        this.columnSize = builder.columnSize;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getToken() {
         return this.token;
     }
@@ -98,64 +67,90 @@ public class Sheet {
         this.columnSize = columnSize;
     }
 
+
+// builder 开始
+  public Sheet(){}
+
+  public Sheet(Builder builder){
+         /**
+          * 电子表格 block 的 token
+          * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
+          */
+      this.token = builder.token;
+         /**
+          * 电子表格行数量
+          * <p> 示例值：2
+          */
+      this.rowSize = builder.rowSize;
+         /**
+          * 电子表格列数量
+          * <p> 示例值：2
+          */
+      this.columnSize = builder.columnSize;
+  }
+
     public static class Builder {
-        /**
-         * 电子表格 block 的 token
-         * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
-         */
+     /**
+      * 电子表格 block 的 token
+      * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
+      */
         private String token;
-        /**
-         * 电子表格行数量
-         * <p> 示例值：2
-         */
+     /**
+      * 电子表格行数量
+      * <p> 示例值：2
+      */
         private Integer rowSize;
-        /**
-         * 电子表格列数量
-         * <p> 示例值：2
-         */
+     /**
+      * 电子表格列数量
+      * <p> 示例值：2
+      */
         private Integer columnSize;
 
         /**
          * 电子表格 block 的 token
          * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * 电子表格行数量
          * <p> 示例值：2
-         *
          * @param rowSize
          * @return
          */
         public Builder rowSize(Integer rowSize) {
-            this.rowSize = rowSize;
-            return this;
+             this.rowSize = rowSize;
+             return this;
         }
 
+    
 
         /**
          * 电子表格列数量
          * <p> 示例值：2
-         *
          * @param columnSize
          * @return
          */
         public Builder columnSize(Integer columnSize) {
-            this.columnSize = columnSize;
-            return this;
+             this.columnSize = columnSize;
+             return this;
         }
 
+    
+    
+    public Sheet build(){
+        return new Sheet(this);
+      }
+    }
 
-        public Sheet build() {
-            return new Sheet(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

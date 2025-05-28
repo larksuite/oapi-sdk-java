@@ -17,17 +17,16 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 薪酬项数值类型
  */
 public enum ItemValueTypeEnum {
-    MONEY("money"), // 金额
-    NUMBER("number"), // 数值
-    PERCENT("percent"), // 百分比
-    ;
-    private String value;
-
+     MONEY("money"), // 金额
+     NUMBER("number"), // 数值
+     PERCENT("percent"), // 百分比
+  ;
+   private String value;
     ItemValueTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

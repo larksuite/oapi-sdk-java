@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AuditRecipientEntity {
-    /**
-     * 接收者对象类型
-     * <p> 示例值：
-     */
+     /**
+      * 接收者对象类型
+      * <p> 示例值： 
+      */
     @SerializedName("recipient_type")
     private String recipientType;
-    /**
-     * 接收者对象值，可能存在department_id、user_id等，需要进行lark_id的转换
-     * <p> 示例值：3d7d922
-     */
+     /**
+      * 接收者对象值，可能存在department_id、user_id等，需要进行lark_id的转换
+      * <p> 示例值：3d7d922
+      */
     @SerializedName("recipient_value")
     private String recipientValue;
-    /**
-     * recipient 详情
-     * <p> 示例值：
-     */
+     /**
+      * recipient 详情
+      * <p> 示例值：
+      */
     @SerializedName("recipient_detail")
     private AuditRecipientDetail recipientDetail;
-
-    // builder 开始
-    public AuditRecipientEntity() {
-    }
-
-    public AuditRecipientEntity(Builder builder) {
-        /**
-         * 接收者对象类型
-         * <p> 示例值：
-         */
-        this.recipientType = builder.recipientType;
-        /**
-         * 接收者对象值，可能存在department_id、user_id等，需要进行lark_id的转换
-         * <p> 示例值：3d7d922
-         */
-        this.recipientValue = builder.recipientValue;
-        /**
-         * recipient 详情
-         * <p> 示例值：
-         */
-        this.recipientDetail = builder.recipientDetail;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRecipientType() {
         return this.recipientType;
     }
@@ -98,64 +67,90 @@ public class AuditRecipientEntity {
         this.recipientDetail = recipientDetail;
     }
 
+
+// builder 开始
+  public AuditRecipientEntity(){}
+
+  public AuditRecipientEntity(Builder builder){
+         /**
+          * 接收者对象类型
+          * <p> 示例值： 
+          */
+      this.recipientType = builder.recipientType;
+         /**
+          * 接收者对象值，可能存在department_id、user_id等，需要进行lark_id的转换
+          * <p> 示例值：3d7d922
+          */
+      this.recipientValue = builder.recipientValue;
+         /**
+          * recipient 详情
+          * <p> 示例值：
+          */
+      this.recipientDetail = builder.recipientDetail;
+  }
+
     public static class Builder {
-        /**
-         * 接收者对象类型
-         * <p> 示例值：
-         */
+     /**
+      * 接收者对象类型
+      * <p> 示例值： 
+      */
         private String recipientType;
-        /**
-         * 接收者对象值，可能存在department_id、user_id等，需要进行lark_id的转换
-         * <p> 示例值：3d7d922
-         */
+     /**
+      * 接收者对象值，可能存在department_id、user_id等，需要进行lark_id的转换
+      * <p> 示例值：3d7d922
+      */
         private String recipientValue;
-        /**
-         * recipient 详情
-         * <p> 示例值：
-         */
+     /**
+      * recipient 详情
+      * <p> 示例值：
+      */
         private AuditRecipientDetail recipientDetail;
 
         /**
          * 接收者对象类型
-         * <p> 示例值：
-         *
+         * <p> 示例值： 
          * @param recipientType
          * @return
          */
         public Builder recipientType(String recipientType) {
-            this.recipientType = recipientType;
-            return this;
+             this.recipientType = recipientType;
+             return this;
         }
 
+    
 
         /**
          * 接收者对象值，可能存在department_id、user_id等，需要进行lark_id的转换
          * <p> 示例值：3d7d922
-         *
          * @param recipientValue
          * @return
          */
         public Builder recipientValue(String recipientValue) {
-            this.recipientValue = recipientValue;
-            return this;
+             this.recipientValue = recipientValue;
+             return this;
         }
 
+    
 
         /**
          * recipient 详情
          * <p> 示例值：
-         *
          * @param recipientDetail
          * @return
          */
         public Builder recipientDetail(AuditRecipientDetail recipientDetail) {
-            this.recipientDetail = recipientDetail;
-            return this;
+             this.recipientDetail = recipientDetail;
+             return this;
         }
 
+    
+    
+    public AuditRecipientEntity build(){
+        return new AuditRecipientEntity(this);
+      }
+    }
 
-        public AuditRecipientEntity build() {
-            return new AuditRecipientEntity(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

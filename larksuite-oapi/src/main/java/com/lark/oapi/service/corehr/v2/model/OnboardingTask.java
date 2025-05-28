@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OnboardingTask {
-    /**
-     * 任务名称
-     * <p> 示例值：task_1
-     */
+     /**
+      * 任务名称
+      * <p> 示例值：task_1
+      */
     @SerializedName("task_name")
     private String taskName;
-    /**
-     * 任务名称
-     * <p> 示例值：
-     */
+     /**
+      * 任务名称
+      * <p> 示例值：
+      */
     @SerializedName("task_status")
     private String taskStatus;
-    /**
-     * 当前操作人雇佣 ID
-     * <p> 示例值：7032210902531327521
-     */
+     /**
+      * 当前操作人雇佣 ID
+      * <p> 示例值：7032210902531327521
+      */
     @SerializedName("operator_id")
     private String operatorId;
-    /**
-     * 任务code
-     * <p> 示例值：task_11
-     */
+     /**
+      * 任务code
+      * <p> 示例值：task_11
+      */
     @SerializedName("task_code")
     private String taskCode;
-
-    // builder 开始
-    public OnboardingTask() {
-    }
-
-    public OnboardingTask(Builder builder) {
-        /**
-         * 任务名称
-         * <p> 示例值：task_1
-         */
-        this.taskName = builder.taskName;
-        /**
-         * 任务名称
-         * <p> 示例值：
-         */
-        this.taskStatus = builder.taskStatus;
-        /**
-         * 当前操作人雇佣 ID
-         * <p> 示例值：7032210902531327521
-         */
-        this.operatorId = builder.operatorId;
-        /**
-         * 任务code
-         * <p> 示例值：task_11
-         */
-        this.taskCode = builder.taskCode;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTaskName() {
         return this.taskName;
     }
@@ -117,94 +81,123 @@ public class OnboardingTask {
         this.taskCode = taskCode;
     }
 
+
+// builder 开始
+  public OnboardingTask(){}
+
+  public OnboardingTask(Builder builder){
+         /**
+          * 任务名称
+          * <p> 示例值：task_1
+          */
+      this.taskName = builder.taskName;
+         /**
+          * 任务名称
+          * <p> 示例值：
+          */
+      this.taskStatus = builder.taskStatus;
+         /**
+          * 当前操作人雇佣 ID
+          * <p> 示例值：7032210902531327521
+          */
+      this.operatorId = builder.operatorId;
+         /**
+          * 任务code
+          * <p> 示例值：task_11
+          */
+      this.taskCode = builder.taskCode;
+  }
+
     public static class Builder {
-        /**
-         * 任务名称
-         * <p> 示例值：task_1
-         */
+     /**
+      * 任务名称
+      * <p> 示例值：task_1
+      */
         private String taskName;
-        /**
-         * 任务名称
-         * <p> 示例值：
-         */
+     /**
+      * 任务名称
+      * <p> 示例值：
+      */
         private String taskStatus;
-        /**
-         * 当前操作人雇佣 ID
-         * <p> 示例值：7032210902531327521
-         */
+     /**
+      * 当前操作人雇佣 ID
+      * <p> 示例值：7032210902531327521
+      */
         private String operatorId;
-        /**
-         * 任务code
-         * <p> 示例值：task_11
-         */
+     /**
+      * 任务code
+      * <p> 示例值：task_11
+      */
         private String taskCode;
 
         /**
          * 任务名称
          * <p> 示例值：task_1
-         *
          * @param taskName
          * @return
          */
         public Builder taskName(String taskName) {
-            this.taskName = taskName;
-            return this;
+             this.taskName = taskName;
+             return this;
         }
 
+    
 
         /**
          * 任务名称
          * <p> 示例值：
-         *
          * @param taskStatus
          * @return
          */
         public Builder taskStatus(String taskStatus) {
-            this.taskStatus = taskStatus;
-            return this;
+             this.taskStatus = taskStatus;
+             return this;
         }
-
         /**
          * 任务名称
          * <p> 示例值：
-         *
          * @param taskStatus {@link com.lark.oapi.service.corehr.v2.enums.OnboardingTaskTaskStatusEnum}
          * @return
          */
         public Builder taskStatus(com.lark.oapi.service.corehr.v2.enums.OnboardingTaskTaskStatusEnum taskStatus) {
-            this.taskStatus = taskStatus.getValue();
-            return this;
+             this.taskStatus = taskStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 当前操作人雇佣 ID
          * <p> 示例值：7032210902531327521
-         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
+             this.operatorId = operatorId;
+             return this;
         }
 
+    
 
         /**
          * 任务code
          * <p> 示例值：task_11
-         *
          * @param taskCode
          * @return
          */
         public Builder taskCode(String taskCode) {
-            this.taskCode = taskCode;
-            return this;
+             this.taskCode = taskCode;
+             return this;
         }
 
+    
+    
+    public OnboardingTask build(){
+        return new OnboardingTask(this);
+      }
+    }
 
-        public OnboardingTask build() {
-            return new OnboardingTask(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

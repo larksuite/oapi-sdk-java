@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.corehr.v2.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class ReportDetailRow {
         this.config = config;
     }
 
-
+    
     /**
      * ，批量删除填报行
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=report_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=report_detail_row&version=v2</a> ;
@@ -63,7 +58,7 @@ public class ReportDetailRow {
                 , "/open-apis/corehr/v2/report_detail_row/batchDelete"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteReportDetailRowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteReportDetailRowResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class ReportDetailRow {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/report_detail_row/batchDelete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class ReportDetailRow {
                 , "/open-apis/corehr/v2/report_detail_row/batchDelete"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteReportDetailRowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteReportDetailRowResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class ReportDetailRow {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/report_detail_row/batchDelete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，批量创建/更新填报行
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=report_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=report_detail_row&version=v2</a> ;
@@ -129,7 +123,7 @@ public class ReportDetailRow {
                 , "/open-apis/corehr/v2/report_detail_row/batchSave"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchSaveReportDetailRowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchSaveReportDetailRowResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class ReportDetailRow {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/report_detail_row/batchSave"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class ReportDetailRow {
                 , "/open-apis/corehr/v2/report_detail_row/batchSave"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchSaveReportDetailRowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchSaveReportDetailRowResp.class);
         if (resp == null) {
@@ -169,13 +163,13 @@ public class ReportDetailRow {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/report_detail_row/batchSave"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

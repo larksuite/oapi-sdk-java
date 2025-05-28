@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryApplicationEnvironmentVariableReqBody {
-    /**
-     * 过滤条件
-     * <p> 示例值：
-     */
+     /**
+      * 过滤条件
+      * <p> 示例值：
+      */
     @SerializedName("filter")
     private EnvironmentVariableFilter filter;
-    /**
-     * 限制的条数，默认为 500，不可超过 500
-     * <p> 示例值：10
-     */
+     /**
+      * 限制的条数，默认为 500，不可超过 500
+      * <p> 示例值：10
+      */
     @SerializedName("limit")
     private Integer limit;
-    /**
-     * 返回记录的偏移量，默认为 0，即从查询到的第一个记录开始返回
-     * <p> 示例值：0
-     */
+     /**
+      * 返回记录的偏移量，默认为 0，即从查询到的第一个记录开始返回
+      * <p> 示例值：0
+      */
     @SerializedName("offset")
     private Integer offset;
-
-    // builder 开始
-    public QueryApplicationEnvironmentVariableReqBody() {
-    }
-
-    public QueryApplicationEnvironmentVariableReqBody(Builder builder) {
-        /**
-         * 过滤条件
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * 限制的条数，默认为 500，不可超过 500
-         * <p> 示例值：10
-         */
-        this.limit = builder.limit;
-        /**
-         * 返回记录的偏移量，默认为 0，即从查询到的第一个记录开始返回
-         * <p> 示例值：0
-         */
-        this.offset = builder.offset;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public EnvironmentVariableFilter getFilter() {
         return this.filter;
     }
@@ -98,64 +67,90 @@ public class QueryApplicationEnvironmentVariableReqBody {
         this.offset = offset;
     }
 
+
+// builder 开始
+  public QueryApplicationEnvironmentVariableReqBody(){}
+
+  public QueryApplicationEnvironmentVariableReqBody(Builder builder){
+         /**
+          * 过滤条件
+          * <p> 示例值：
+          */
+      this.filter = builder.filter;
+         /**
+          * 限制的条数，默认为 500，不可超过 500
+          * <p> 示例值：10
+          */
+      this.limit = builder.limit;
+         /**
+          * 返回记录的偏移量，默认为 0，即从查询到的第一个记录开始返回
+          * <p> 示例值：0
+          */
+      this.offset = builder.offset;
+  }
+
     public static class Builder {
-        /**
-         * 过滤条件
-         * <p> 示例值：
-         */
+     /**
+      * 过滤条件
+      * <p> 示例值：
+      */
         private EnvironmentVariableFilter filter;
-        /**
-         * 限制的条数，默认为 500，不可超过 500
-         * <p> 示例值：10
-         */
+     /**
+      * 限制的条数，默认为 500，不可超过 500
+      * <p> 示例值：10
+      */
         private Integer limit;
-        /**
-         * 返回记录的偏移量，默认为 0，即从查询到的第一个记录开始返回
-         * <p> 示例值：0
-         */
+     /**
+      * 返回记录的偏移量，默认为 0，即从查询到的第一个记录开始返回
+      * <p> 示例值：0
+      */
         private Integer offset;
 
         /**
          * 过滤条件
          * <p> 示例值：
-         *
          * @param filter
          * @return
          */
         public Builder filter(EnvironmentVariableFilter filter) {
-            this.filter = filter;
-            return this;
+             this.filter = filter;
+             return this;
         }
 
+    
 
         /**
          * 限制的条数，默认为 500，不可超过 500
          * <p> 示例值：10
-         *
          * @param limit
          * @return
          */
         public Builder limit(Integer limit) {
-            this.limit = limit;
-            return this;
+             this.limit = limit;
+             return this;
         }
 
+    
 
         /**
          * 返回记录的偏移量，默认为 0，即从查询到的第一个记录开始返回
          * <p> 示例值：0
-         *
          * @param offset
          * @return
          */
         public Builder offset(Integer offset) {
-            this.offset = offset;
-            return this;
+             this.offset = offset;
+             return this;
         }
 
+    
+    
+    public QueryApplicationEnvironmentVariableReqBody build(){
+        return new QueryApplicationEnvironmentVariableReqBody(this);
+      }
+    }
 
-        public QueryApplicationEnvironmentVariableReqBody build() {
-            return new QueryApplicationEnvironmentVariableReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

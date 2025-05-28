@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AilyKnowledgeMessage {
-    /**
-     * 消息内容
-     * <p> 示例值：推荐一部电影
-     */
+     /**
+      * 消息内容
+      * <p> 示例值：推荐一部电影
+      */
     @SerializedName("content")
     private String content;
-
-    // builder 开始
-    public AilyKnowledgeMessage() {
-    }
-
-    public AilyKnowledgeMessage(Builder builder) {
-        /**
-         * 消息内容
-         * <p> 示例值：推荐一部电影
-         */
-        this.content = builder.content;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContent() {
         return this.content;
     }
@@ -60,28 +39,44 @@ public class AilyKnowledgeMessage {
         this.content = content;
     }
 
+
+// builder 开始
+  public AilyKnowledgeMessage(){}
+
+  public AilyKnowledgeMessage(Builder builder){
+         /**
+          * 消息内容
+          * <p> 示例值：推荐一部电影
+          */
+      this.content = builder.content;
+  }
+
     public static class Builder {
-        /**
-         * 消息内容
-         * <p> 示例值：推荐一部电影
-         */
+     /**
+      * 消息内容
+      * <p> 示例值：推荐一部电影
+      */
         private String content;
 
         /**
          * 消息内容
          * <p> 示例值：推荐一部电影
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
+    
+    public AilyKnowledgeMessage build(){
+        return new AilyKnowledgeMessage(this);
+      }
+    }
 
-        public AilyKnowledgeMessage build() {
-            return new AilyKnowledgeMessage(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

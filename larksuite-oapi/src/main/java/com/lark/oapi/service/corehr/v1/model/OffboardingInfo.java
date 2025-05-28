@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,291 +19,156 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OffboardingInfo {
-    /**
-     * 离职员工的雇佣 ID
-     * <p> 示例值：6893014062142064135
-     */
+     /**
+      * 离职员工的雇佣 ID
+      * <p> 示例值：6893014062142064135
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 员工的 hrbp 列表，所有的 hrbp
-     * <p> 示例值：
-     */
+     /**
+      * 员工的 hrbp 列表，所有的 hrbp
+      * <p> 示例值：
+      */
     @SerializedName("hrbp_id")
     private String[] hrbpId;
-    /**
-     * 期望离职日期
-     * <p> 示例值：2022-02-08
-     */
+     /**
+      * 期望离职日期
+      * <p> 示例值：2022-02-08
+      */
     @SerializedName("expected_offboarding_date")
     private String expectedOffboardingDate;
-    /**
-     * 离职日期
-     * <p> 示例值：2022-02-08
-     */
+     /**
+      * 离职日期
+      * <p> 示例值：2022-02-08
+      */
     @SerializedName("offboarding_date")
     private String offboardingDate;
-    /**
-     * 离职原因
-     * <p> 示例值：
-     */
+     /**
+      * 离职原因
+      * <p> 示例值：
+      */
     @SerializedName("reason")
     private Enum reason;
-    /**
-     * 离职原因说明
-     * <p> 示例值：升学
-     */
+     /**
+      * 离职原因说明
+      * <p> 示例值：升学
+      */
     @SerializedName("reason_explanation")
     private String reasonExplanation;
-    /**
-     * 离职原因（员工）
-     * <p> 示例值：
-     */
+     /**
+      * 离职原因（员工）
+      * <p> 示例值：
+      */
     @SerializedName("employee_reason")
     private Enum employeeReason;
-    /**
-     * 离职原因说明（员工）
-     * <p> 示例值：升学
-     */
+     /**
+      * 离职原因说明（员工）
+      * <p> 示例值：升学
+      */
     @SerializedName("employee_reason_explanation")
     private String employeeReasonExplanation;
-    /**
-     * 是否加入离职屏蔽名单
-     * <p> 示例值：false
-     */
+     /**
+      * 是否加入离职屏蔽名单
+      * <p> 示例值：false
+      */
     @SerializedName("add_block_list")
     private String addBlockList;
-    /**
-     * 屏蔽原因
-     * <p> 示例值：
-     */
+     /**
+      * 屏蔽原因
+      * <p> 示例值：
+      */
     @SerializedName("block_reason")
     private Enum blockReason;
-    /**
-     * 屏蔽原因说明
-     * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
-     */
+     /**
+      * 屏蔽原因说明
+      * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+      */
     @SerializedName("block_reason_explanation")
     private String blockReasonExplanation;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
-    /**
-     * 离职是否保留飞书账号
-     * <p> 示例值：false
-     */
+     /**
+      * 离职是否保留飞书账号
+      * <p> 示例值：false
+      */
     @SerializedName("retain_account")
     private Boolean retainAccount;
-    /**
-     * 社保停保年月
-     * <p> 示例值：2022-02
-     */
+     /**
+      * 社保停保年月
+      * <p> 示例值：2022-02
+      */
     @SerializedName("social_insurance_end_date")
     private String socialInsuranceEndDate;
-    /**
-     * 公积金截止年月
-     * <p> 示例值：2022-02
-     */
+     /**
+      * 公积金截止年月
+      * <p> 示例值：2022-02
+      */
     @SerializedName("provident_fund_end_date")
     private String providentFundEndDate;
-    /**
-     * 是否启动竞业
-     * <p> 示例值：false
-     */
+     /**
+      * 是否启动竞业
+      * <p> 示例值：false
+      */
     @SerializedName("enforce_noncompete_agreement")
     private Boolean enforceNoncompeteAgreement;
-    /**
-     * 竞业合同ID
-     * <p> 示例值：123
-     */
+     /**
+      * 竞业合同ID
+      * <p> 示例值：123
+      */
     @SerializedName("noncompete_agreement_id")
     private String noncompeteAgreementId;
-    /**
-     * 竞业公司ID
-     * <p> 示例值：123
-     */
+     /**
+      * 竞业公司ID
+      * <p> 示例值：123
+      */
     @SerializedName("noncompete_agreement_company")
     private String noncompeteAgreementCompany;
-    /**
-     * 竞业开始日期
-     * <p> 示例值：2022-02-08
-     */
+     /**
+      * 竞业开始日期
+      * <p> 示例值：2022-02-08
+      */
     @SerializedName("noncompete_agreement_start_date")
     private String noncompeteAgreementStartDate;
-    /**
-     * 竞业结束日期
-     * <p> 示例值：2022-02-08
-     */
+     /**
+      * 竞业结束日期
+      * <p> 示例值：2022-02-08
+      */
     @SerializedName("noncompete_agreement_end_date")
     private String noncompeteAgreementEndDate;
-    /**
-     * 签署方式
-     * <p> 示例值：2022-02-08
-     */
+     /**
+      * 签署方式
+      * <p> 示例值：2022-02-08
+      */
     @SerializedName("sign_type")
     private Enum signType;
-    /**
-     * 签署文件ID列表
-     * <p> 示例值：["123","456"]
-     */
+     /**
+      * 签署文件ID列表
+      * <p> 示例值：["123","456"]
+      */
     @SerializedName("signature_file")
     private String signatureFile;
-    /**
-     * 最后出勤日
-     * <p> 示例值：2022-02-08
-     */
+     /**
+      * 最后出勤日
+      * <p> 示例值：2022-02-08
+      */
     @SerializedName("last_attendance_date")
     private String lastAttendanceDate;
-    /**
-     * 是否带编转移
-     * <p> 示例值：false
-     */
+     /**
+      * 是否带编转移
+      * <p> 示例值：false
+      */
     @SerializedName("is_transfer_with_workforce")
     private Boolean isTransferWithWorkforce;
-
-    // builder 开始
-    public OffboardingInfo() {
-    }
-
-    public OffboardingInfo(Builder builder) {
-        /**
-         * 离职员工的雇佣 ID
-         * <p> 示例值：6893014062142064135
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 员工的 hrbp 列表，所有的 hrbp
-         * <p> 示例值：
-         */
-        this.hrbpId = builder.hrbpId;
-        /**
-         * 期望离职日期
-         * <p> 示例值：2022-02-08
-         */
-        this.expectedOffboardingDate = builder.expectedOffboardingDate;
-        /**
-         * 离职日期
-         * <p> 示例值：2022-02-08
-         */
-        this.offboardingDate = builder.offboardingDate;
-        /**
-         * 离职原因
-         * <p> 示例值：
-         */
-        this.reason = builder.reason;
-        /**
-         * 离职原因说明
-         * <p> 示例值：升学
-         */
-        this.reasonExplanation = builder.reasonExplanation;
-        /**
-         * 离职原因（员工）
-         * <p> 示例值：
-         */
-        this.employeeReason = builder.employeeReason;
-        /**
-         * 离职原因说明（员工）
-         * <p> 示例值：升学
-         */
-        this.employeeReasonExplanation = builder.employeeReasonExplanation;
-        /**
-         * 是否加入离职屏蔽名单
-         * <p> 示例值：false
-         */
-        this.addBlockList = builder.addBlockList;
-        /**
-         * 屏蔽原因
-         * <p> 示例值：
-         */
-        this.blockReason = builder.blockReason;
-        /**
-         * 屏蔽原因说明
-         * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
-         */
-        this.blockReasonExplanation = builder.blockReasonExplanation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 离职是否保留飞书账号
-         * <p> 示例值：false
-         */
-        this.retainAccount = builder.retainAccount;
-        /**
-         * 社保停保年月
-         * <p> 示例值：2022-02
-         */
-        this.socialInsuranceEndDate = builder.socialInsuranceEndDate;
-        /**
-         * 公积金截止年月
-         * <p> 示例值：2022-02
-         */
-        this.providentFundEndDate = builder.providentFundEndDate;
-        /**
-         * 是否启动竞业
-         * <p> 示例值：false
-         */
-        this.enforceNoncompeteAgreement = builder.enforceNoncompeteAgreement;
-        /**
-         * 竞业合同ID
-         * <p> 示例值：123
-         */
-        this.noncompeteAgreementId = builder.noncompeteAgreementId;
-        /**
-         * 竞业公司ID
-         * <p> 示例值：123
-         */
-        this.noncompeteAgreementCompany = builder.noncompeteAgreementCompany;
-        /**
-         * 竞业开始日期
-         * <p> 示例值：2022-02-08
-         */
-        this.noncompeteAgreementStartDate = builder.noncompeteAgreementStartDate;
-        /**
-         * 竞业结束日期
-         * <p> 示例值：2022-02-08
-         */
-        this.noncompeteAgreementEndDate = builder.noncompeteAgreementEndDate;
-        /**
-         * 签署方式
-         * <p> 示例值：2022-02-08
-         */
-        this.signType = builder.signType;
-        /**
-         * 签署文件ID列表
-         * <p> 示例值：["123","456"]
-         */
-        this.signatureFile = builder.signatureFile;
-        /**
-         * 最后出勤日
-         * <p> 示例值：2022-02-08
-         */
-        this.lastAttendanceDate = builder.lastAttendanceDate;
-        /**
-         * 是否带编转移
-         * <p> 示例值：false
-         */
-        this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -497,442 +361,573 @@ public class OffboardingInfo {
         this.isTransferWithWorkforce = isTransferWithWorkforce;
     }
 
+
+// builder 开始
+  public OffboardingInfo(){}
+
+  public OffboardingInfo(Builder builder){
+         /**
+          * 离职员工的雇佣 ID
+          * <p> 示例值：6893014062142064135
+          */
+      this.employmentId = builder.employmentId;
+         /**
+          * 员工的 hrbp 列表，所有的 hrbp
+          * <p> 示例值：
+          */
+      this.hrbpId = builder.hrbpId;
+         /**
+          * 期望离职日期
+          * <p> 示例值：2022-02-08
+          */
+      this.expectedOffboardingDate = builder.expectedOffboardingDate;
+         /**
+          * 离职日期
+          * <p> 示例值：2022-02-08
+          */
+      this.offboardingDate = builder.offboardingDate;
+         /**
+          * 离职原因
+          * <p> 示例值：
+          */
+      this.reason = builder.reason;
+         /**
+          * 离职原因说明
+          * <p> 示例值：升学
+          */
+      this.reasonExplanation = builder.reasonExplanation;
+         /**
+          * 离职原因（员工）
+          * <p> 示例值：
+          */
+      this.employeeReason = builder.employeeReason;
+         /**
+          * 离职原因说明（员工）
+          * <p> 示例值：升学
+          */
+      this.employeeReasonExplanation = builder.employeeReasonExplanation;
+         /**
+          * 是否加入离职屏蔽名单
+          * <p> 示例值：false
+          */
+      this.addBlockList = builder.addBlockList;
+         /**
+          * 屏蔽原因
+          * <p> 示例值：
+          */
+      this.blockReason = builder.blockReason;
+         /**
+          * 屏蔽原因说明
+          * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+          */
+      this.blockReasonExplanation = builder.blockReasonExplanation;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 离职是否保留飞书账号
+          * <p> 示例值：false
+          */
+      this.retainAccount = builder.retainAccount;
+         /**
+          * 社保停保年月
+          * <p> 示例值：2022-02
+          */
+      this.socialInsuranceEndDate = builder.socialInsuranceEndDate;
+         /**
+          * 公积金截止年月
+          * <p> 示例值：2022-02
+          */
+      this.providentFundEndDate = builder.providentFundEndDate;
+         /**
+          * 是否启动竞业
+          * <p> 示例值：false
+          */
+      this.enforceNoncompeteAgreement = builder.enforceNoncompeteAgreement;
+         /**
+          * 竞业合同ID
+          * <p> 示例值：123
+          */
+      this.noncompeteAgreementId = builder.noncompeteAgreementId;
+         /**
+          * 竞业公司ID
+          * <p> 示例值：123
+          */
+      this.noncompeteAgreementCompany = builder.noncompeteAgreementCompany;
+         /**
+          * 竞业开始日期
+          * <p> 示例值：2022-02-08
+          */
+      this.noncompeteAgreementStartDate = builder.noncompeteAgreementStartDate;
+         /**
+          * 竞业结束日期
+          * <p> 示例值：2022-02-08
+          */
+      this.noncompeteAgreementEndDate = builder.noncompeteAgreementEndDate;
+         /**
+          * 签署方式
+          * <p> 示例值：2022-02-08
+          */
+      this.signType = builder.signType;
+         /**
+          * 签署文件ID列表
+          * <p> 示例值：["123","456"]
+          */
+      this.signatureFile = builder.signatureFile;
+         /**
+          * 最后出勤日
+          * <p> 示例值：2022-02-08
+          */
+      this.lastAttendanceDate = builder.lastAttendanceDate;
+         /**
+          * 是否带编转移
+          * <p> 示例值：false
+          */
+      this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
+  }
+
     public static class Builder {
-        /**
-         * 离职员工的雇佣 ID
-         * <p> 示例值：6893014062142064135
-         */
+     /**
+      * 离职员工的雇佣 ID
+      * <p> 示例值：6893014062142064135
+      */
         private String employmentId;
-        /**
-         * 员工的 hrbp 列表，所有的 hrbp
-         * <p> 示例值：
-         */
+     /**
+      * 员工的 hrbp 列表，所有的 hrbp
+      * <p> 示例值：
+      */
         private String[] hrbpId;
-        /**
-         * 期望离职日期
-         * <p> 示例值：2022-02-08
-         */
+     /**
+      * 期望离职日期
+      * <p> 示例值：2022-02-08
+      */
         private String expectedOffboardingDate;
-        /**
-         * 离职日期
-         * <p> 示例值：2022-02-08
-         */
+     /**
+      * 离职日期
+      * <p> 示例值：2022-02-08
+      */
         private String offboardingDate;
-        /**
-         * 离职原因
-         * <p> 示例值：
-         */
+     /**
+      * 离职原因
+      * <p> 示例值：
+      */
         private Enum reason;
-        /**
-         * 离职原因说明
-         * <p> 示例值：升学
-         */
+     /**
+      * 离职原因说明
+      * <p> 示例值：升学
+      */
         private String reasonExplanation;
-        /**
-         * 离职原因（员工）
-         * <p> 示例值：
-         */
+     /**
+      * 离职原因（员工）
+      * <p> 示例值：
+      */
         private Enum employeeReason;
-        /**
-         * 离职原因说明（员工）
-         * <p> 示例值：升学
-         */
+     /**
+      * 离职原因说明（员工）
+      * <p> 示例值：升学
+      */
         private String employeeReasonExplanation;
-        /**
-         * 是否加入离职屏蔽名单
-         * <p> 示例值：false
-         */
+     /**
+      * 是否加入离职屏蔽名单
+      * <p> 示例值：false
+      */
         private String addBlockList;
-        /**
-         * 屏蔽原因
-         * <p> 示例值：
-         */
+     /**
+      * 屏蔽原因
+      * <p> 示例值：
+      */
         private Enum blockReason;
-        /**
-         * 屏蔽原因说明
-         * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
-         */
+     /**
+      * 屏蔽原因说明
+      * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+      */
         private String blockReasonExplanation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private CustomFieldData[] customFields;
-        /**
-         * 离职是否保留飞书账号
-         * <p> 示例值：false
-         */
+     /**
+      * 离职是否保留飞书账号
+      * <p> 示例值：false
+      */
         private Boolean retainAccount;
-        /**
-         * 社保停保年月
-         * <p> 示例值：2022-02
-         */
+     /**
+      * 社保停保年月
+      * <p> 示例值：2022-02
+      */
         private String socialInsuranceEndDate;
-        /**
-         * 公积金截止年月
-         * <p> 示例值：2022-02
-         */
+     /**
+      * 公积金截止年月
+      * <p> 示例值：2022-02
+      */
         private String providentFundEndDate;
-        /**
-         * 是否启动竞业
-         * <p> 示例值：false
-         */
+     /**
+      * 是否启动竞业
+      * <p> 示例值：false
+      */
         private Boolean enforceNoncompeteAgreement;
-        /**
-         * 竞业合同ID
-         * <p> 示例值：123
-         */
+     /**
+      * 竞业合同ID
+      * <p> 示例值：123
+      */
         private String noncompeteAgreementId;
-        /**
-         * 竞业公司ID
-         * <p> 示例值：123
-         */
+     /**
+      * 竞业公司ID
+      * <p> 示例值：123
+      */
         private String noncompeteAgreementCompany;
-        /**
-         * 竞业开始日期
-         * <p> 示例值：2022-02-08
-         */
+     /**
+      * 竞业开始日期
+      * <p> 示例值：2022-02-08
+      */
         private String noncompeteAgreementStartDate;
-        /**
-         * 竞业结束日期
-         * <p> 示例值：2022-02-08
-         */
+     /**
+      * 竞业结束日期
+      * <p> 示例值：2022-02-08
+      */
         private String noncompeteAgreementEndDate;
-        /**
-         * 签署方式
-         * <p> 示例值：2022-02-08
-         */
+     /**
+      * 签署方式
+      * <p> 示例值：2022-02-08
+      */
         private Enum signType;
-        /**
-         * 签署文件ID列表
-         * <p> 示例值：["123","456"]
-         */
+     /**
+      * 签署文件ID列表
+      * <p> 示例值：["123","456"]
+      */
         private String signatureFile;
-        /**
-         * 最后出勤日
-         * <p> 示例值：2022-02-08
-         */
+     /**
+      * 最后出勤日
+      * <p> 示例值：2022-02-08
+      */
         private String lastAttendanceDate;
-        /**
-         * 是否带编转移
-         * <p> 示例值：false
-         */
+     /**
+      * 是否带编转移
+      * <p> 示例值：false
+      */
         private Boolean isTransferWithWorkforce;
 
         /**
          * 离职员工的雇佣 ID
          * <p> 示例值：6893014062142064135
-         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
+             this.employmentId = employmentId;
+             return this;
         }
 
+    
 
         /**
          * 员工的 hrbp 列表，所有的 hrbp
          * <p> 示例值：
-         *
          * @param hrbpId
          * @return
          */
         public Builder hrbpId(String[] hrbpId) {
-            this.hrbpId = hrbpId;
-            return this;
+             this.hrbpId = hrbpId;
+             return this;
         }
 
+    
 
         /**
          * 期望离职日期
          * <p> 示例值：2022-02-08
-         *
          * @param expectedOffboardingDate
          * @return
          */
         public Builder expectedOffboardingDate(String expectedOffboardingDate) {
-            this.expectedOffboardingDate = expectedOffboardingDate;
-            return this;
+             this.expectedOffboardingDate = expectedOffboardingDate;
+             return this;
         }
 
+    
 
         /**
          * 离职日期
          * <p> 示例值：2022-02-08
-         *
          * @param offboardingDate
          * @return
          */
         public Builder offboardingDate(String offboardingDate) {
-            this.offboardingDate = offboardingDate;
-            return this;
+             this.offboardingDate = offboardingDate;
+             return this;
         }
 
+    
 
         /**
          * 离职原因
          * <p> 示例值：
-         *
          * @param reason
          * @return
          */
         public Builder reason(Enum reason) {
-            this.reason = reason;
-            return this;
+             this.reason = reason;
+             return this;
         }
 
+    
 
         /**
          * 离职原因说明
          * <p> 示例值：升学
-         *
          * @param reasonExplanation
          * @return
          */
         public Builder reasonExplanation(String reasonExplanation) {
-            this.reasonExplanation = reasonExplanation;
-            return this;
+             this.reasonExplanation = reasonExplanation;
+             return this;
         }
 
+    
 
         /**
          * 离职原因（员工）
          * <p> 示例值：
-         *
          * @param employeeReason
          * @return
          */
         public Builder employeeReason(Enum employeeReason) {
-            this.employeeReason = employeeReason;
-            return this;
+             this.employeeReason = employeeReason;
+             return this;
         }
 
+    
 
         /**
          * 离职原因说明（员工）
          * <p> 示例值：升学
-         *
          * @param employeeReasonExplanation
          * @return
          */
         public Builder employeeReasonExplanation(String employeeReasonExplanation) {
-            this.employeeReasonExplanation = employeeReasonExplanation;
-            return this;
+             this.employeeReasonExplanation = employeeReasonExplanation;
+             return this;
         }
 
+    
 
         /**
          * 是否加入离职屏蔽名单
          * <p> 示例值：false
-         *
          * @param addBlockList
          * @return
          */
         public Builder addBlockList(String addBlockList) {
-            this.addBlockList = addBlockList;
-            return this;
+             this.addBlockList = addBlockList;
+             return this;
         }
 
+    
 
         /**
          * 屏蔽原因
          * <p> 示例值：
-         *
          * @param blockReason
          * @return
          */
         public Builder blockReason(Enum blockReason) {
-            this.blockReason = blockReason;
-            return this;
+             this.blockReason = blockReason;
+             return this;
         }
 
+    
 
         /**
          * 屏蔽原因说明
          * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
-         *
          * @param blockReasonExplanation
          * @return
          */
         public Builder blockReasonExplanation(String blockReasonExplanation) {
-            this.blockReasonExplanation = blockReasonExplanation;
-            return this;
+             this.blockReasonExplanation = blockReasonExplanation;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 离职是否保留飞书账号
          * <p> 示例值：false
-         *
          * @param retainAccount
          * @return
          */
         public Builder retainAccount(Boolean retainAccount) {
-            this.retainAccount = retainAccount;
-            return this;
+             this.retainAccount = retainAccount;
+             return this;
         }
 
+    
 
         /**
          * 社保停保年月
          * <p> 示例值：2022-02
-         *
          * @param socialInsuranceEndDate
          * @return
          */
         public Builder socialInsuranceEndDate(String socialInsuranceEndDate) {
-            this.socialInsuranceEndDate = socialInsuranceEndDate;
-            return this;
+             this.socialInsuranceEndDate = socialInsuranceEndDate;
+             return this;
         }
 
+    
 
         /**
          * 公积金截止年月
          * <p> 示例值：2022-02
-         *
          * @param providentFundEndDate
          * @return
          */
         public Builder providentFundEndDate(String providentFundEndDate) {
-            this.providentFundEndDate = providentFundEndDate;
-            return this;
+             this.providentFundEndDate = providentFundEndDate;
+             return this;
         }
 
+    
 
         /**
          * 是否启动竞业
          * <p> 示例值：false
-         *
          * @param enforceNoncompeteAgreement
          * @return
          */
         public Builder enforceNoncompeteAgreement(Boolean enforceNoncompeteAgreement) {
-            this.enforceNoncompeteAgreement = enforceNoncompeteAgreement;
-            return this;
+             this.enforceNoncompeteAgreement = enforceNoncompeteAgreement;
+             return this;
         }
 
+    
 
         /**
          * 竞业合同ID
          * <p> 示例值：123
-         *
          * @param noncompeteAgreementId
          * @return
          */
         public Builder noncompeteAgreementId(String noncompeteAgreementId) {
-            this.noncompeteAgreementId = noncompeteAgreementId;
-            return this;
+             this.noncompeteAgreementId = noncompeteAgreementId;
+             return this;
         }
 
+    
 
         /**
          * 竞业公司ID
          * <p> 示例值：123
-         *
          * @param noncompeteAgreementCompany
          * @return
          */
         public Builder noncompeteAgreementCompany(String noncompeteAgreementCompany) {
-            this.noncompeteAgreementCompany = noncompeteAgreementCompany;
-            return this;
+             this.noncompeteAgreementCompany = noncompeteAgreementCompany;
+             return this;
         }
 
+    
 
         /**
          * 竞业开始日期
          * <p> 示例值：2022-02-08
-         *
          * @param noncompeteAgreementStartDate
          * @return
          */
         public Builder noncompeteAgreementStartDate(String noncompeteAgreementStartDate) {
-            this.noncompeteAgreementStartDate = noncompeteAgreementStartDate;
-            return this;
+             this.noncompeteAgreementStartDate = noncompeteAgreementStartDate;
+             return this;
         }
 
+    
 
         /**
          * 竞业结束日期
          * <p> 示例值：2022-02-08
-         *
          * @param noncompeteAgreementEndDate
          * @return
          */
         public Builder noncompeteAgreementEndDate(String noncompeteAgreementEndDate) {
-            this.noncompeteAgreementEndDate = noncompeteAgreementEndDate;
-            return this;
+             this.noncompeteAgreementEndDate = noncompeteAgreementEndDate;
+             return this;
         }
 
+    
 
         /**
          * 签署方式
          * <p> 示例值：2022-02-08
-         *
          * @param signType
          * @return
          */
         public Builder signType(Enum signType) {
-            this.signType = signType;
-            return this;
+             this.signType = signType;
+             return this;
         }
 
+    
 
         /**
          * 签署文件ID列表
          * <p> 示例值：["123","456"]
-         *
          * @param signatureFile
          * @return
          */
         public Builder signatureFile(String signatureFile) {
-            this.signatureFile = signatureFile;
-            return this;
+             this.signatureFile = signatureFile;
+             return this;
         }
 
+    
 
         /**
          * 最后出勤日
          * <p> 示例值：2022-02-08
-         *
          * @param lastAttendanceDate
          * @return
          */
         public Builder lastAttendanceDate(String lastAttendanceDate) {
-            this.lastAttendanceDate = lastAttendanceDate;
-            return this;
+             this.lastAttendanceDate = lastAttendanceDate;
+             return this;
         }
 
+    
 
         /**
          * 是否带编转移
          * <p> 示例值：false
-         *
          * @param isTransferWithWorkforce
          * @return
          */
         public Builder isTransferWithWorkforce(Boolean isTransferWithWorkforce) {
-            this.isTransferWithWorkforce = isTransferWithWorkforce;
-            return this;
+             this.isTransferWithWorkforce = isTransferWithWorkforce;
+             return this;
         }
 
+    
+    
+    public OffboardingInfo build(){
+        return new OffboardingInfo(this);
+      }
+    }
 
-        public OffboardingInfo build() {
-            return new OffboardingInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

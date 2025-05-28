@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PreHire {
-    /**
-     * 个人信息
-     * <p> 示例值：
-     */
+     /**
+      * 个人信息
+      * <p> 示例值：
+      */
     @SerializedName("person_info")
     private PersonInfo personInfo;
-    /**
-     * 工作信息
-     * <p> 示例值：
-     */
+     /**
+      * 工作信息
+      * <p> 示例值：
+      */
     @SerializedName("employment_info")
     private PreHireEmploymentInfo employmentInfo;
-    /**
-     * 入职信息
-     * <p> 示例值：
-     */
+     /**
+      * 入职信息
+      * <p> 示例值：
+      */
     @SerializedName("onboarding_info")
     private PreHireOnboardingInfo onboardingInfo;
-    /**
-     * 试用期信息
-     * <p> 示例值：
-     */
+     /**
+      * 试用期信息
+      * <p> 示例值：
+      */
     @SerializedName("probation_info")
     private PreHireProbationInfo probationInfo;
-    /**
-     * 合同信息
-     * <p> 示例值：
-     */
+     /**
+      * 合同信息
+      * <p> 示例值：
+      */
     @SerializedName("contract_info")
     private PreHireContractInfo contractInfo;
-    /**
-     * 待入职 id
-     * <p> 示例值：7032210902531327521
-     */
+     /**
+      * 待入职 id
+      * <p> 示例值：7032210902531327521
+      */
     @SerializedName("pre_hire_id")
     private String preHireId;
-    /**
-     * 部分老people体系字段兼容序列化的值，用于做切换器兼容
-     * <p> 示例值：{"process":1}
-     */
+     /**
+      * 部分老people体系字段兼容序列化的值，用于做切换器兼容
+      * <p> 示例值：{"process":1}
+      */
     @SerializedName("people_fields_json")
     private String peopleFieldsJson;
-
-    // builder 开始
-    public PreHire() {
-    }
-
-    public PreHire(Builder builder) {
-        /**
-         * 个人信息
-         * <p> 示例值：
-         */
-        this.personInfo = builder.personInfo;
-        /**
-         * 工作信息
-         * <p> 示例值：
-         */
-        this.employmentInfo = builder.employmentInfo;
-        /**
-         * 入职信息
-         * <p> 示例值：
-         */
-        this.onboardingInfo = builder.onboardingInfo;
-        /**
-         * 试用期信息
-         * <p> 示例值：
-         */
-        this.probationInfo = builder.probationInfo;
-        /**
-         * 合同信息
-         * <p> 示例值：
-         */
-        this.contractInfo = builder.contractInfo;
-        /**
-         * 待入职 id
-         * <p> 示例值：7032210902531327521
-         */
-        this.preHireId = builder.preHireId;
-        /**
-         * 部分老people体系字段兼容序列化的值，用于做切换器兼容
-         * <p> 示例值：{"process":1}
-         */
-        this.peopleFieldsJson = builder.peopleFieldsJson;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public PersonInfo getPersonInfo() {
         return this.personInfo;
     }
@@ -174,136 +123,182 @@ public class PreHire {
         this.peopleFieldsJson = peopleFieldsJson;
     }
 
+
+// builder 开始
+  public PreHire(){}
+
+  public PreHire(Builder builder){
+         /**
+          * 个人信息
+          * <p> 示例值：
+          */
+      this.personInfo = builder.personInfo;
+         /**
+          * 工作信息
+          * <p> 示例值：
+          */
+      this.employmentInfo = builder.employmentInfo;
+         /**
+          * 入职信息
+          * <p> 示例值：
+          */
+      this.onboardingInfo = builder.onboardingInfo;
+         /**
+          * 试用期信息
+          * <p> 示例值：
+          */
+      this.probationInfo = builder.probationInfo;
+         /**
+          * 合同信息
+          * <p> 示例值：
+          */
+      this.contractInfo = builder.contractInfo;
+         /**
+          * 待入职 id
+          * <p> 示例值：7032210902531327521
+          */
+      this.preHireId = builder.preHireId;
+         /**
+          * 部分老people体系字段兼容序列化的值，用于做切换器兼容
+          * <p> 示例值：{"process":1}
+          */
+      this.peopleFieldsJson = builder.peopleFieldsJson;
+  }
+
     public static class Builder {
-        /**
-         * 个人信息
-         * <p> 示例值：
-         */
+     /**
+      * 个人信息
+      * <p> 示例值：
+      */
         private PersonInfo personInfo;
-        /**
-         * 工作信息
-         * <p> 示例值：
-         */
+     /**
+      * 工作信息
+      * <p> 示例值：
+      */
         private PreHireEmploymentInfo employmentInfo;
-        /**
-         * 入职信息
-         * <p> 示例值：
-         */
+     /**
+      * 入职信息
+      * <p> 示例值：
+      */
         private PreHireOnboardingInfo onboardingInfo;
-        /**
-         * 试用期信息
-         * <p> 示例值：
-         */
+     /**
+      * 试用期信息
+      * <p> 示例值：
+      */
         private PreHireProbationInfo probationInfo;
-        /**
-         * 合同信息
-         * <p> 示例值：
-         */
+     /**
+      * 合同信息
+      * <p> 示例值：
+      */
         private PreHireContractInfo contractInfo;
-        /**
-         * 待入职 id
-         * <p> 示例值：7032210902531327521
-         */
+     /**
+      * 待入职 id
+      * <p> 示例值：7032210902531327521
+      */
         private String preHireId;
-        /**
-         * 部分老people体系字段兼容序列化的值，用于做切换器兼容
-         * <p> 示例值：{"process":1}
-         */
+     /**
+      * 部分老people体系字段兼容序列化的值，用于做切换器兼容
+      * <p> 示例值：{"process":1}
+      */
         private String peopleFieldsJson;
 
         /**
          * 个人信息
          * <p> 示例值：
-         *
          * @param personInfo
          * @return
          */
         public Builder personInfo(PersonInfo personInfo) {
-            this.personInfo = personInfo;
-            return this;
+             this.personInfo = personInfo;
+             return this;
         }
 
+    
 
         /**
          * 工作信息
          * <p> 示例值：
-         *
          * @param employmentInfo
          * @return
          */
         public Builder employmentInfo(PreHireEmploymentInfo employmentInfo) {
-            this.employmentInfo = employmentInfo;
-            return this;
+             this.employmentInfo = employmentInfo;
+             return this;
         }
 
+    
 
         /**
          * 入职信息
          * <p> 示例值：
-         *
          * @param onboardingInfo
          * @return
          */
         public Builder onboardingInfo(PreHireOnboardingInfo onboardingInfo) {
-            this.onboardingInfo = onboardingInfo;
-            return this;
+             this.onboardingInfo = onboardingInfo;
+             return this;
         }
 
+    
 
         /**
          * 试用期信息
          * <p> 示例值：
-         *
          * @param probationInfo
          * @return
          */
         public Builder probationInfo(PreHireProbationInfo probationInfo) {
-            this.probationInfo = probationInfo;
-            return this;
+             this.probationInfo = probationInfo;
+             return this;
         }
 
+    
 
         /**
          * 合同信息
          * <p> 示例值：
-         *
          * @param contractInfo
          * @return
          */
         public Builder contractInfo(PreHireContractInfo contractInfo) {
-            this.contractInfo = contractInfo;
-            return this;
+             this.contractInfo = contractInfo;
+             return this;
         }
 
+    
 
         /**
          * 待入职 id
          * <p> 示例值：7032210902531327521
-         *
          * @param preHireId
          * @return
          */
         public Builder preHireId(String preHireId) {
-            this.preHireId = preHireId;
-            return this;
+             this.preHireId = preHireId;
+             return this;
         }
 
+    
 
         /**
          * 部分老people体系字段兼容序列化的值，用于做切换器兼容
          * <p> 示例值：{"process":1}
-         *
          * @param peopleFieldsJson
          * @return
          */
         public Builder peopleFieldsJson(String peopleFieldsJson) {
-            this.peopleFieldsJson = peopleFieldsJson;
-            return this;
+             this.peopleFieldsJson = peopleFieldsJson;
+             return this;
         }
 
+    
+    
+    public PreHire build(){
+        return new PreHire(this);
+      }
+    }
 
-        public PreHire build() {
-            return new PreHire(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

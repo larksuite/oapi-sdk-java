@@ -17,17 +17,16 @@ package com.lark.oapi.service.personal_settings.v1.enums;
  * 用户id类型 open_id/user_id/union_id
  */
 public enum BatchOpenSystemStatusUserIdTypeEnum {
-    USER_ID("user_id"), // 以user_id来识别用户
-    UNION_ID("union_id"), // 以union_id来识别用户
-    OPEN_ID("open_id"), // 以open_id来识别用户
-    ;
-    private String value;
-
+     USER_ID("user_id"), // 以user_id来识别用户
+     UNION_ID("union_id"), // 以union_id来识别用户
+     OPEN_ID("open_id"), // 以open_id来识别用户
+  ;
+   private String value;
     BatchOpenSystemStatusUserIdTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

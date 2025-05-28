@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TransferApprovalTaskReq {
-    /**
-     * 审批任务id
-     * <p> 示例值：1785996265147395
-     */
+     /**
+      * 审批任务id
+      * <p> 示例值：1785996265147395
+      */
     @Path
     @SerializedName("approval_task_id")
     private String approvalTaskId;
-    @Body
-    private TransferApprovalTaskReqBody body;
-
-    // builder 开始
-    public TransferApprovalTaskReq() {
-    }
-
-    public TransferApprovalTaskReq(Builder builder) {
-        /**
-         * 审批任务id
-         * <p> 示例值：1785996265147395
-         */
-        this.approvalTaskId = builder.approvalTaskId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApprovalTaskId() {
         return this.approvalTaskId;
     }
@@ -62,6 +38,9 @@ public class TransferApprovalTaskReq {
     public void setApprovalTaskId(String approvalTaskId) {
         this.approvalTaskId = approvalTaskId;
     }
+
+    @Body
+    private TransferApprovalTaskReqBody body;
 
     public TransferApprovalTaskReqBody getTransferApprovalTaskReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class TransferApprovalTaskReq {
         this.body = body;
     }
 
+// builder 开始
+  public TransferApprovalTaskReq(){}
+
+  public TransferApprovalTaskReq(Builder builder){
+     /**
+      * 审批任务id
+      * <p> 示例值：1785996265147395
+      */
+       this.approvalTaskId = builder.approvalTaskId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String approvalTaskId; // 审批任务id
-        private TransferApprovalTaskReqBody body;
-
         /**
          * 审批任务id
          * <p> 示例值：1785996265147395
-         *
          * @param approvalTaskId
          * @return
          */
-        public Builder approvalTaskId(String approvalTaskId) {
-            this.approvalTaskId = approvalTaskId;
-            return this;
-        }
+          public Builder approvalTaskId(String approvalTaskId) {
+               this.approvalTaskId = approvalTaskId;
+               return this;
+          }
 
+    
+        private TransferApprovalTaskReqBody body;
+    
         public TransferApprovalTaskReqBody getTransferApprovalTaskReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder transferApprovalTaskReqBody(TransferApprovalTaskReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public TransferApprovalTaskReq build(){
+        return new TransferApprovalTaskReq(this);
+      }
+    }
 
-        public TransferApprovalTaskReq build() {
-            return new TransferApprovalTaskReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

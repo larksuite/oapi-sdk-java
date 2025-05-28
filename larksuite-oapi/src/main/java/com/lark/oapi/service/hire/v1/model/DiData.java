@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DiData {
-    /**
-     * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
-     * <p> 示例值："1"
-     */
+     /**
+      * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
+      * <p> 示例值："1"
+      */
     @SerializedName("value")
     private String value;
-    /**
-     * 字段属性
-     * <p> 示例值：
-     */
+     /**
+      * 字段属性
+      * <p> 示例值：
+      */
     @SerializedName("object_attribute")
     private ObjectAttribute objectAttribute;
-
-    // builder 开始
-    public DiData() {
-    }
-
-    public DiData(Builder builder) {
-        /**
-         * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
-         * <p> 示例值："1"
-         */
-        this.value = builder.value;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
-        this.objectAttribute = builder.objectAttribute;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getValue() {
         return this.value;
     }
@@ -78,46 +52,67 @@ public class DiData {
         this.objectAttribute = objectAttribute;
     }
 
+
+// builder 开始
+  public DiData(){}
+
+  public DiData(Builder builder){
+         /**
+          * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
+          * <p> 示例值："1"
+          */
+      this.value = builder.value;
+         /**
+          * 字段属性
+          * <p> 示例值：
+          */
+      this.objectAttribute = builder.objectAttribute;
+  }
+
     public static class Builder {
-        /**
-         * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
-         * <p> 示例值："1"
-         */
+     /**
+      * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
+      * <p> 示例值："1"
+      */
         private String value;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
+     /**
+      * 字段属性
+      * <p> 示例值：
+      */
         private ObjectAttribute objectAttribute;
 
         /**
          * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
          * <p> 示例值："1"
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
 
         /**
          * 字段属性
          * <p> 示例值：
-         *
          * @param objectAttribute
          * @return
          */
         public Builder objectAttribute(ObjectAttribute objectAttribute) {
-            this.objectAttribute = objectAttribute;
-            return this;
+             this.objectAttribute = objectAttribute;
+             return this;
         }
 
+    
+    
+    public DiData build(){
+        return new DiData(this);
+      }
+    }
 
-        public DiData build() {
-            return new DiData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

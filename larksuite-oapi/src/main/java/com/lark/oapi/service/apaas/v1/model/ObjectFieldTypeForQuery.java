@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ObjectFieldTypeForQuery {
-    /**
-     * 字段类型
-     * <p> 示例值：text
-     */
+     /**
+      * 字段类型
+      * <p> 示例值：text
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 字段配置
-     * <p> 示例值：{}
-     */
+     /**
+      * 字段配置
+      * <p> 示例值：{}
+      */
     @SerializedName("settings")
     private String settings;
-
-    // builder 开始
-    public ObjectFieldTypeForQuery() {
-    }
-
-    public ObjectFieldTypeForQuery(Builder builder) {
-        /**
-         * 字段类型
-         * <p> 示例值：text
-         */
-        this.name = builder.name;
-        /**
-         * 字段配置
-         * <p> 示例值：{}
-         */
-        this.settings = builder.settings;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -79,46 +53,67 @@ public class ObjectFieldTypeForQuery {
         this.settings = settings;
     }
 
+
+// builder 开始
+  public ObjectFieldTypeForQuery(){}
+
+  public ObjectFieldTypeForQuery(Builder builder){
+         /**
+          * 字段类型
+          * <p> 示例值：text
+          */
+      this.name = builder.name;
+         /**
+          * 字段配置
+          * <p> 示例值：{}
+          */
+      this.settings = builder.settings;
+  }
+
     public static class Builder {
-        /**
-         * 字段类型
-         * <p> 示例值：text
-         */
+     /**
+      * 字段类型
+      * <p> 示例值：text
+      */
         private String name;
-        /**
-         * 字段配置
-         * <p> 示例值：{}
-         */
+     /**
+      * 字段配置
+      * <p> 示例值：{}
+      */
         private String settings;
 
         /**
          * 字段类型
          * <p> 示例值：text
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 字段配置
          * <p> 示例值：{}
-         *
          * @param settings
          * @return
          */
         public Builder settings(String settings) {
-            this.settings = settings;
-            return this;
+             this.settings = settings;
+             return this;
         }
 
+    
+    
+    public ObjectFieldTypeForQuery build(){
+        return new ObjectFieldTypeForQuery(this);
+      }
+    }
 
-        public ObjectFieldTypeForQuery build() {
-            return new ObjectFieldTypeForQuery(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

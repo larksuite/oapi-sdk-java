@@ -17,27 +17,26 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 政治面貌
  */
 public enum SystemFieldsPoliticalStatusEnum {
-    CPC(1), // 中共党员
-    CPWDP(2), // 中国农工民主党
-    RCCK(3), // 中国国民党革命委员会
-    CAPD(4), // 中国民主促进会会员
-    CDL(5), // 中国民主同盟成员
-    CDNCA(6), // 中国民主建国会
-    CZGD(7), // 中国致公党党员
-    JSS(8), // 九三学社社员
-    CYL(9), // 共青团员
-    MEMBER_OF_OTHER_PARTY(10), // 其它党派成员
-    DP(11), // 民主人士
-    MASSES(12), // 群众
-    TDSGL(13), // 台湾民主自治同盟盟员
-    ;
-    private Integer value;
-
+     CPC(1), // 中共党员
+     CPWDP(2), // 中国农工民主党
+     RCCK(3), // 中国国民党革命委员会
+     CAPD(4), // 中国民主促进会会员
+     CDL(5), // 中国民主同盟成员
+     CDNCA(6), // 中国民主建国会
+     CZGD(7), // 中国致公党党员
+     JSS(8), // 九三学社社员
+     CYL(9), // 共青团员
+     MEMBER_OF_OTHER_PARTY(10), // 其它党派成员
+     DP(11), // 民主人士
+     MASSES(12), // 群众
+     TDSGL(13), // 台湾民主自治同盟盟员
+  ;
+   private Integer value;
     SystemFieldsPoliticalStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

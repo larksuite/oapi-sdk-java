@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Minutes {
-    /**
-     * 速记语音文本列表
-     * <p> 示例值：
-     */
+     /**
+      * 速记语音文本列表
+      * <p> 示例值：
+      */
     @SerializedName("sentences")
     private Sentence[] sentences;
-
-    // builder 开始
-    public Minutes() {
-    }
-
-    public Minutes(Builder builder) {
-        /**
-         * 速记语音文本列表
-         * <p> 示例值：
-         */
-        this.sentences = builder.sentences;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Sentence[] getSentences() {
         return this.sentences;
     }
@@ -59,28 +38,44 @@ public class Minutes {
         this.sentences = sentences;
     }
 
+
+// builder 开始
+  public Minutes(){}
+
+  public Minutes(Builder builder){
+         /**
+          * 速记语音文本列表
+          * <p> 示例值：
+          */
+      this.sentences = builder.sentences;
+  }
+
     public static class Builder {
-        /**
-         * 速记语音文本列表
-         * <p> 示例值：
-         */
+     /**
+      * 速记语音文本列表
+      * <p> 示例值：
+      */
         private Sentence[] sentences;
 
         /**
          * 速记语音文本列表
          * <p> 示例值：
-         *
          * @param sentences
          * @return
          */
         public Builder sentences(Sentence[] sentences) {
-            this.sentences = sentences;
-            return this;
+             this.sentences = sentences;
+             return this;
         }
 
+    
+    
+    public Minutes build(){
+        return new Minutes(this);
+      }
+    }
 
-        public Minutes build() {
-            return new Minutes(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

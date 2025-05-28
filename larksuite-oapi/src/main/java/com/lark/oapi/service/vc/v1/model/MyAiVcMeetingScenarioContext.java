@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MyAiVcMeetingScenarioContext {
-    /**
-     * 会话选择的插件列表
-     * <p> 示例值：
-     */
+     /**
+      * 会话选择的插件列表
+      * <p> 示例值：
+      */
     @SerializedName("plugins")
     private MyAiPluginContext[] plugins;
-    /**
-     * 会话所在实体的信息
-     * <p> 示例值：
-     */
+     /**
+      * 会话所在实体的信息
+      * <p> 示例值：
+      */
     @SerializedName("object")
     private MyAiObjectContext object;
-    /**
-     * 会话所处的业务模式
-     * <p> 示例值：1
-     */
+     /**
+      * 会话所处的业务模式
+      * <p> 示例值：1
+      */
     @SerializedName("work_mode")
     private Integer workMode;
-    /**
-     * 会话所处的业务场景
-     * <p> 示例值：IM
-     */
+     /**
+      * 会话所处的业务场景
+      * <p> 示例值：IM
+      */
     @SerializedName("scenario")
     private String scenario;
-    /**
-     * 透传数据
-     * <p> 示例值：
-     */
+     /**
+      * 透传数据
+      * <p> 示例值：
+      */
     @SerializedName("extra")
     private MyAiVcMeetingExtra extra;
-    /**
-     * system info
-     * <p> 示例值：
-     */
+     /**
+      * system info
+      * <p> 示例值：
+      */
     @SerializedName("system_info")
     private MyAiAvPluginContextSystemInfo systemInfo;
-
-    // builder 开始
-    public MyAiVcMeetingScenarioContext() {
-    }
-
-    public MyAiVcMeetingScenarioContext(Builder builder) {
-        /**
-         * 会话选择的插件列表
-         * <p> 示例值：
-         */
-        this.plugins = builder.plugins;
-        /**
-         * 会话所在实体的信息
-         * <p> 示例值：
-         */
-        this.object = builder.object;
-        /**
-         * 会话所处的业务模式
-         * <p> 示例值：1
-         */
-        this.workMode = builder.workMode;
-        /**
-         * 会话所处的业务场景
-         * <p> 示例值：IM
-         */
-        this.scenario = builder.scenario;
-        /**
-         * 透传数据
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
-        /**
-         * system info
-         * <p> 示例值：
-         */
-        this.systemInfo = builder.systemInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public MyAiPluginContext[] getPlugins() {
         return this.plugins;
     }
@@ -155,142 +109,179 @@ public class MyAiVcMeetingScenarioContext {
         this.systemInfo = systemInfo;
     }
 
+
+// builder 开始
+  public MyAiVcMeetingScenarioContext(){}
+
+  public MyAiVcMeetingScenarioContext(Builder builder){
+         /**
+          * 会话选择的插件列表
+          * <p> 示例值：
+          */
+      this.plugins = builder.plugins;
+         /**
+          * 会话所在实体的信息
+          * <p> 示例值：
+          */
+      this.object = builder.object;
+         /**
+          * 会话所处的业务模式
+          * <p> 示例值：1
+          */
+      this.workMode = builder.workMode;
+         /**
+          * 会话所处的业务场景
+          * <p> 示例值：IM
+          */
+      this.scenario = builder.scenario;
+         /**
+          * 透传数据
+          * <p> 示例值：
+          */
+      this.extra = builder.extra;
+         /**
+          * system info
+          * <p> 示例值：
+          */
+      this.systemInfo = builder.systemInfo;
+  }
+
     public static class Builder {
-        /**
-         * 会话选择的插件列表
-         * <p> 示例值：
-         */
+     /**
+      * 会话选择的插件列表
+      * <p> 示例值：
+      */
         private MyAiPluginContext[] plugins;
-        /**
-         * 会话所在实体的信息
-         * <p> 示例值：
-         */
+     /**
+      * 会话所在实体的信息
+      * <p> 示例值：
+      */
         private MyAiObjectContext object;
-        /**
-         * 会话所处的业务模式
-         * <p> 示例值：1
-         */
+     /**
+      * 会话所处的业务模式
+      * <p> 示例值：1
+      */
         private Integer workMode;
-        /**
-         * 会话所处的业务场景
-         * <p> 示例值：IM
-         */
+     /**
+      * 会话所处的业务场景
+      * <p> 示例值：IM
+      */
         private String scenario;
-        /**
-         * 透传数据
-         * <p> 示例值：
-         */
+     /**
+      * 透传数据
+      * <p> 示例值：
+      */
         private MyAiVcMeetingExtra extra;
-        /**
-         * system info
-         * <p> 示例值：
-         */
+     /**
+      * system info
+      * <p> 示例值：
+      */
         private MyAiAvPluginContextSystemInfo systemInfo;
 
         /**
          * 会话选择的插件列表
          * <p> 示例值：
-         *
          * @param plugins
          * @return
          */
         public Builder plugins(MyAiPluginContext[] plugins) {
-            this.plugins = plugins;
-            return this;
+             this.plugins = plugins;
+             return this;
         }
 
+    
 
         /**
          * 会话所在实体的信息
          * <p> 示例值：
-         *
          * @param object
          * @return
          */
         public Builder object(MyAiObjectContext object) {
-            this.object = object;
-            return this;
+             this.object = object;
+             return this;
         }
 
+    
 
         /**
          * 会话所处的业务模式
          * <p> 示例值：1
-         *
          * @param workMode
          * @return
          */
         public Builder workMode(Integer workMode) {
-            this.workMode = workMode;
-            return this;
+             this.workMode = workMode;
+             return this;
         }
-
         /**
          * 会话所处的业务模式
          * <p> 示例值：1
-         *
          * @param workMode {@link com.lark.oapi.service.vc.v1.enums.MyAiVcMeetingScenarioContextWorkModeEnum}
          * @return
          */
         public Builder workMode(com.lark.oapi.service.vc.v1.enums.MyAiVcMeetingScenarioContextWorkModeEnum workMode) {
-            this.workMode = workMode.getValue();
-            return this;
+             this.workMode = workMode.getValue();
+             return this;
         }
 
+    
 
         /**
          * 会话所处的业务场景
          * <p> 示例值：IM
-         *
          * @param scenario
          * @return
          */
         public Builder scenario(String scenario) {
-            this.scenario = scenario;
-            return this;
+             this.scenario = scenario;
+             return this;
         }
-
         /**
          * 会话所处的业务场景
          * <p> 示例值：IM
-         *
          * @param scenario {@link com.lark.oapi.service.vc.v1.enums.MyAiVcMeetingScenarioContextScenarioEnum}
          * @return
          */
         public Builder scenario(com.lark.oapi.service.vc.v1.enums.MyAiVcMeetingScenarioContextScenarioEnum scenario) {
-            this.scenario = scenario.getValue();
-            return this;
+             this.scenario = scenario.getValue();
+             return this;
         }
 
+    
 
         /**
          * 透传数据
          * <p> 示例值：
-         *
          * @param extra
          * @return
          */
         public Builder extra(MyAiVcMeetingExtra extra) {
-            this.extra = extra;
-            return this;
+             this.extra = extra;
+             return this;
         }
 
+    
 
         /**
          * system info
          * <p> 示例值：
-         *
          * @param systemInfo
          * @return
          */
         public Builder systemInfo(MyAiAvPluginContextSystemInfo systemInfo) {
-            this.systemInfo = systemInfo;
-            return this;
+             this.systemInfo = systemInfo;
+             return this;
         }
 
+    
+    
+    public MyAiVcMeetingScenarioContext build(){
+        return new MyAiVcMeetingScenarioContext(this);
+      }
+    }
 
-        public MyAiVcMeetingScenarioContext build() {
-            return new MyAiVcMeetingScenarioContext(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

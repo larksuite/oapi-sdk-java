@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UploadReportArchiveRuleReqBody {
-    /**
-     * 月份
-     * <p> 示例值：202409
-     */
+     /**
+      * 月份
+      * <p> 示例值：202409
+      */
     @SerializedName("month")
     private String month;
-    /**
-     * 操作者ID
-     * <p> 示例值：ax11d
-     */
+     /**
+      * 操作者ID
+      * <p> 示例值：ax11d
+      */
     @SerializedName("operator_id")
     private String operatorId;
-    /**
-     * 归档报表内容(不超过50个)
-     * <p> 示例值：
-     */
+     /**
+      * 归档报表内容(不超过50个)
+      * <p> 示例值：
+      */
     @SerializedName("archive_report_datas")
     private ArchiveReportData[] archiveReportDatas;
-    /**
-     * 归档规则id
-     * <p> 示例值：1
-     */
+     /**
+      * 归档规则id
+      * <p> 示例值：1
+      */
     @SerializedName("archive_rule_id")
     private String archiveRuleId;
-
-    // builder 开始
-    public UploadReportArchiveRuleReqBody() {
-    }
-
-    public UploadReportArchiveRuleReqBody(Builder builder) {
-        /**
-         * 月份
-         * <p> 示例值：202409
-         */
-        this.month = builder.month;
-        /**
-         * 操作者ID
-         * <p> 示例值：ax11d
-         */
-        this.operatorId = builder.operatorId;
-        /**
-         * 归档报表内容(不超过50个)
-         * <p> 示例值：
-         */
-        this.archiveReportDatas = builder.archiveReportDatas;
-        /**
-         * 归档规则id
-         * <p> 示例值：1
-         */
-        this.archiveRuleId = builder.archiveRuleId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMonth() {
         return this.month;
     }
@@ -117,82 +81,113 @@ public class UploadReportArchiveRuleReqBody {
         this.archiveRuleId = archiveRuleId;
     }
 
+
+// builder 开始
+  public UploadReportArchiveRuleReqBody(){}
+
+  public UploadReportArchiveRuleReqBody(Builder builder){
+         /**
+          * 月份
+          * <p> 示例值：202409
+          */
+      this.month = builder.month;
+         /**
+          * 操作者ID
+          * <p> 示例值：ax11d
+          */
+      this.operatorId = builder.operatorId;
+         /**
+          * 归档报表内容(不超过50个)
+          * <p> 示例值：
+          */
+      this.archiveReportDatas = builder.archiveReportDatas;
+         /**
+          * 归档规则id
+          * <p> 示例值：1
+          */
+      this.archiveRuleId = builder.archiveRuleId;
+  }
+
     public static class Builder {
-        /**
-         * 月份
-         * <p> 示例值：202409
-         */
+     /**
+      * 月份
+      * <p> 示例值：202409
+      */
         private String month;
-        /**
-         * 操作者ID
-         * <p> 示例值：ax11d
-         */
+     /**
+      * 操作者ID
+      * <p> 示例值：ax11d
+      */
         private String operatorId;
-        /**
-         * 归档报表内容(不超过50个)
-         * <p> 示例值：
-         */
+     /**
+      * 归档报表内容(不超过50个)
+      * <p> 示例值：
+      */
         private ArchiveReportData[] archiveReportDatas;
-        /**
-         * 归档规则id
-         * <p> 示例值：1
-         */
+     /**
+      * 归档规则id
+      * <p> 示例值：1
+      */
         private String archiveRuleId;
 
         /**
          * 月份
          * <p> 示例值：202409
-         *
          * @param month
          * @return
          */
         public Builder month(String month) {
-            this.month = month;
-            return this;
+             this.month = month;
+             return this;
         }
 
+    
 
         /**
          * 操作者ID
          * <p> 示例值：ax11d
-         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
+             this.operatorId = operatorId;
+             return this;
         }
 
+    
 
         /**
          * 归档报表内容(不超过50个)
          * <p> 示例值：
-         *
          * @param archiveReportDatas
          * @return
          */
         public Builder archiveReportDatas(ArchiveReportData[] archiveReportDatas) {
-            this.archiveReportDatas = archiveReportDatas;
-            return this;
+             this.archiveReportDatas = archiveReportDatas;
+             return this;
         }
 
+    
 
         /**
          * 归档规则id
          * <p> 示例值：1
-         *
          * @param archiveRuleId
          * @return
          */
         public Builder archiveRuleId(String archiveRuleId) {
-            this.archiveRuleId = archiveRuleId;
-            return this;
+             this.archiveRuleId = archiveRuleId;
+             return this;
         }
 
+    
+    
+    public UploadReportArchiveRuleReqBody build(){
+        return new UploadReportArchiveRuleReqBody(this);
+      }
+    }
 
-        public UploadReportArchiveRuleReqBody build() {
-            return new UploadReportArchiveRuleReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

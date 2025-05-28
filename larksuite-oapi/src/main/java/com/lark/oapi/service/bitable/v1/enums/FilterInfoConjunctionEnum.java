@@ -17,16 +17,15 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 条件逻辑连接词
  */
 public enum FilterInfoConjunctionEnum {
-    CONJUNCTIONAND("and"), // 满足全部条件
-    CONJUNCTIONOR("or"), // 满足任一条件
-    ;
-    private String value;
-
+     CONJUNCTIONAND("and"), // 满足全部条件
+     CONJUNCTIONOR("or"), // 满足任一条件
+  ;
+   private String value;
     FilterInfoConjunctionEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

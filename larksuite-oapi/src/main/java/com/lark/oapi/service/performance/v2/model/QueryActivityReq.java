@@ -12,48 +12,25 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryActivityReq {
-    /**
-     * <p> 示例值：open_id
-     */
+     /**
+      * 
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    @Body
-    private QueryActivityReqBody body;
-
-    // builder 开始
-    public QueryActivityReq() {
-    }
-
-    public QueryActivityReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -61,6 +38,9 @@ public class QueryActivityReq {
     public void setUserIdType(String userIdType) {
         this.userIdType = userIdType;
     }
+
+    @Body
+    private QueryActivityReqBody body;
 
     public QueryActivityReqBody getQueryActivityReqBody() {
         return this.body;
@@ -70,49 +50,65 @@ public class QueryActivityReq {
         this.body = body;
     }
 
-    public static class Builder {
-        private String userIdType; //
-        private QueryActivityReqBody body;
+// builder 开始
+  public QueryActivityReq(){}
 
+  public QueryActivityReq(Builder builder){
+         /**
+          * 
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+        private String userIdType; // 
+    
         /**
+         * 
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
+         * 
          * <p> 示例值：open_id
-         *
          * @param userIdType {@link com.lark.oapi.service.performance.v2.enums.QueryActivityUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.performance.v2.enums.QueryActivityUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.performance.v2.enums.QueryActivityUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private QueryActivityReqBody body;
+    
         public QueryActivityReqBody getQueryActivityReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder queryActivityReqBody(QueryActivityReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public QueryActivityReq build(){
+        return new QueryActivityReq(this);
+      }
+    }
 
-        public QueryActivityReq build() {
-            return new QueryActivityReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

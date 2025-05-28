@@ -12,61 +12,25 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchLeaveAccrualRecordReq {
-    /**
-     * 用户 ID 类型
-     * <p> 示例值：open_id
-     */
+     /**
+      * 用户 ID 类型
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 假期类型ID
-     * <p> 示例值：1
-     */
-    @Path
-    @SerializedName("leave_id")
-    private String leaveId;
-    @Body
-    private PatchLeaveAccrualRecordReqBody body;
-
-    // builder 开始
-    public PatchLeaveAccrualRecordReq() {
-    }
-
-    public PatchLeaveAccrualRecordReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         */
-        this.leaveId = builder.leaveId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -75,6 +39,13 @@ public class PatchLeaveAccrualRecordReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 假期类型ID
+      * <p> 示例值：1
+      */
+    @Path
+    @SerializedName("leave_id")
+    private String leaveId;
     public String getLeaveId() {
         return this.leaveId;
     }
@@ -82,6 +53,9 @@ public class PatchLeaveAccrualRecordReq {
     public void setLeaveId(String leaveId) {
         this.leaveId = leaveId;
     }
+
+    @Body
+    private PatchLeaveAccrualRecordReqBody body;
 
     public PatchLeaveAccrualRecordReqBody getPatchLeaveAccrualRecordReqBody() {
         return this.body;
@@ -91,64 +65,83 @@ public class PatchLeaveAccrualRecordReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchLeaveAccrualRecordReq(){}
+
+  public PatchLeaveAccrualRecordReq(Builder builder){
+         /**
+          * 用户 ID 类型
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 假期类型ID
+      * <p> 示例值：1
+      */
+       this.leaveId = builder.leaveId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 用户 ID 类型
-        private String leaveId; // 假期类型ID
-        private PatchLeaveAccrualRecordReqBody body;
-
+    
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
-         *
          * @param userIdType {@link com.lark.oapi.service.attendance.v1.enums.PatchLeaveAccrualRecordUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.attendance.v1.enums.PatchLeaveAccrualRecordUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.attendance.v1.enums.PatchLeaveAccrualRecordUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String leaveId; // 假期类型ID
         /**
          * 假期类型ID
          * <p> 示例值：1
-         *
          * @param leaveId
          * @return
          */
-        public Builder leaveId(String leaveId) {
-            this.leaveId = leaveId;
-            return this;
-        }
+          public Builder leaveId(String leaveId) {
+               this.leaveId = leaveId;
+               return this;
+          }
 
+    
+        private PatchLeaveAccrualRecordReqBody body;
+    
         public PatchLeaveAccrualRecordReqBody getPatchLeaveAccrualRecordReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder patchLeaveAccrualRecordReqBody(PatchLeaveAccrualRecordReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchLeaveAccrualRecordReq build(){
+        return new PatchLeaveAccrualRecordReq(this);
+      }
+    }
 
-        public PatchLeaveAccrualRecordReq build() {
-            return new PatchLeaveAccrualRecordReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

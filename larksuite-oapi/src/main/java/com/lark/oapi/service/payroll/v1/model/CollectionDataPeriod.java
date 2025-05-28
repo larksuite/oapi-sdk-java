@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CollectionDataPeriod {
-    /**
-     * 数据归属期开始日期
-     * <p> 示例值：2022-01-01
-     */
+     /**
+      * 数据归属期开始日期
+      * <p> 示例值：2022-01-01
+      */
     @SerializedName("start_date")
     private String startDate;
-    /**
-     * 数据归属期结束日期
-     * <p> 示例值：2022-01-01
-     */
+     /**
+      * 数据归属期结束日期
+      * <p> 示例值：2022-01-01
+      */
     @SerializedName("end_date")
     private String endDate;
-
-    // builder 开始
-    public CollectionDataPeriod() {
-    }
-
-    public CollectionDataPeriod(Builder builder) {
-        /**
-         * 数据归属期开始日期
-         * <p> 示例值：2022-01-01
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 数据归属期结束日期
-         * <p> 示例值：2022-01-01
-         */
-        this.endDate = builder.endDate;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStartDate() {
         return this.startDate;
     }
@@ -79,46 +53,67 @@ public class CollectionDataPeriod {
         this.endDate = endDate;
     }
 
+
+// builder 开始
+  public CollectionDataPeriod(){}
+
+  public CollectionDataPeriod(Builder builder){
+         /**
+          * 数据归属期开始日期
+          * <p> 示例值：2022-01-01
+          */
+      this.startDate = builder.startDate;
+         /**
+          * 数据归属期结束日期
+          * <p> 示例值：2022-01-01
+          */
+      this.endDate = builder.endDate;
+  }
+
     public static class Builder {
-        /**
-         * 数据归属期开始日期
-         * <p> 示例值：2022-01-01
-         */
+     /**
+      * 数据归属期开始日期
+      * <p> 示例值：2022-01-01
+      */
         private String startDate;
-        /**
-         * 数据归属期结束日期
-         * <p> 示例值：2022-01-01
-         */
+     /**
+      * 数据归属期结束日期
+      * <p> 示例值：2022-01-01
+      */
         private String endDate;
 
         /**
          * 数据归属期开始日期
          * <p> 示例值：2022-01-01
-         *
          * @param startDate
          * @return
          */
         public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
+             this.startDate = startDate;
+             return this;
         }
 
+    
 
         /**
          * 数据归属期结束日期
          * <p> 示例值：2022-01-01
-         *
          * @param endDate
          * @return
          */
         public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
+             this.endDate = endDate;
+             return this;
         }
 
+    
+    
+    public CollectionDataPeriod build(){
+        return new CollectionDataPeriod(this);
+      }
+    }
 
-        public CollectionDataPeriod build() {
-            return new CollectionDataPeriod(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

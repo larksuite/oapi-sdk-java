@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,236 +19,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LumpSumPayment {
-    /**
-     * 一次性支付记录id
-     * <p> 示例值：7397033607132351532
-     */
+     /**
+      * 一次性支付记录id
+      * <p> 示例值：7397033607132351532
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 外部幂等id，由上游业务决定
-     * <p> 示例值：7402510801304718380_7309316347007764012_7402523725868058156_1726070400000_10000
-     */
+     /**
+      * 外部幂等id，由上游业务决定
+      * <p> 示例值：7402510801304718380_7309316347007764012_7402523725868058156_1726070400000_10000
+      */
     @SerializedName("unique_id")
     private String uniqueId;
-    /**
-     * 员工id，具体类型由入参中的 user_id_type 指定
-     * <p> 示例值：7337149697626801708
-     */
+     /**
+      * 员工id，具体类型由入参中的 user_id_type 指定
+      * <p> 示例值：7337149697626801708
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 总金额，字符串表达的数字
-     * <p> 示例值：2000.00
-     */
+     /**
+      * 总金额，字符串表达的数字
+      * <p> 示例值：2000.00
+      */
     @SerializedName("total_amount")
     private String totalAmount;
-    /**
-     * 绑定期，单位为月
-     * <p> 示例值：2
-     */
+     /**
+      * 绑定期，单位为月
+      * <p> 示例值：2
+      */
     @SerializedName("binding_period")
     private Integer bindingPeriod;
-    /**
-     * 币种id
-     * <p> 示例值：6863329932261459464
-     */
+     /**
+      * 币种id
+      * <p> 示例值：6863329932261459464
+      */
     @SerializedName("currency_id")
     private String currencyId;
-    /**
-     * 发放次数
-     * <p> 示例值：3
-     */
+     /**
+      * 发放次数
+      * <p> 示例值：3
+      */
     @SerializedName("issuance_frequency")
     private Integer issuanceFrequency;
-    /**
-     * 薪酬项id
-     * <p> 示例值：7411039006180312620
-     */
+     /**
+      * 薪酬项id
+      * <p> 示例值：7411039006180312620
+      */
     @SerializedName("item_id")
     private String itemId;
-    /**
-     * 备注
-     * <p> 示例值：备注
-     */
+     /**
+      * 备注
+      * <p> 示例值：备注
+      */
     @SerializedName("remark")
     private String remark;
-    /**
-     * 发放规则描述文本
-     * <p> 示例值：
-     */
+     /**
+      * 发放规则描述文本
+      * <p> 示例值：
+      */
     @SerializedName("issuance_detail_text")
     private I18n issuanceDetailText;
-    /**
-     * 申请来源
-     * <p> 示例值：1
-     */
+     /**
+      * 申请来源
+      * <p> 示例值：1
+      */
     @SerializedName("apply_source")
     private Integer applySource;
-    /**
-     * 应退回金额（税前）
-     * <p> 示例值：2000.00
-     */
+     /**
+      * 应退回金额（税前）
+      * <p> 示例值：2000.00
+      */
     @SerializedName("return_amount_before_tax")
     private String returnAmountBeforeTax;
-    /**
-     * 应退回金额（税后）
-     * <p> 示例值：2000.00
-     */
+     /**
+      * 应退回金额（税后）
+      * <p> 示例值：2000.00
+      */
     @SerializedName("return_amount_after_tax")
     private String returnAmountAfterTax;
-    /**
-     * 绑定期内离职类型
-     * <p> 示例值：
-     */
+     /**
+      * 绑定期内离职类型
+      * <p> 示例值：
+      */
     @SerializedName("binding_period_offboarding_type")
     private String bindingPeriodOffboardingType;
-    /**
-     * 创建时间
-     * <p> 示例值：2024-08-01 12:34:56
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：2024-08-01 12:34:56
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 更新时间
-     * <p> 示例值：2024-08-01 12:34:56
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：2024-08-01 12:34:56
+      */
     @SerializedName("modify_time")
     private String modifyTime;
-    /**
-     * 所属期开始日期
-     * <p> 示例值：2024-08-01
-     */
+     /**
+      * 所属期开始日期
+      * <p> 示例值：2024-08-01
+      */
     @SerializedName("reference_period_start_date")
     private String referencePeriodStartDate;
-    /**
-     * 所属期结束日期
-     * <p> 示例值：2024-08-01
-     */
+     /**
+      * 所属期结束日期
+      * <p> 示例值：2024-08-01
+      */
     @SerializedName("reference_period_end_date")
     private String referencePeriodEndDate;
-    /**
-     * 发放明细列表
-     * <p> 示例值：
-     */
+     /**
+      * 发放明细列表
+      * <p> 示例值：
+      */
     @SerializedName("details")
     private LumpSumPaymentDetail[] details;
-
-    // builder 开始
-    public LumpSumPayment() {
-    }
-
-    public LumpSumPayment(Builder builder) {
-        /**
-         * 一次性支付记录id
-         * <p> 示例值：7397033607132351532
-         */
-        this.id = builder.id;
-        /**
-         * 外部幂等id，由上游业务决定
-         * <p> 示例值：7402510801304718380_7309316347007764012_7402523725868058156_1726070400000_10000
-         */
-        this.uniqueId = builder.uniqueId;
-        /**
-         * 员工id，具体类型由入参中的 user_id_type 指定
-         * <p> 示例值：7337149697626801708
-         */
-        this.userId = builder.userId;
-        /**
-         * 总金额，字符串表达的数字
-         * <p> 示例值：2000.00
-         */
-        this.totalAmount = builder.totalAmount;
-        /**
-         * 绑定期，单位为月
-         * <p> 示例值：2
-         */
-        this.bindingPeriod = builder.bindingPeriod;
-        /**
-         * 币种id
-         * <p> 示例值：6863329932261459464
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 发放次数
-         * <p> 示例值：3
-         */
-        this.issuanceFrequency = builder.issuanceFrequency;
-        /**
-         * 薪酬项id
-         * <p> 示例值：7411039006180312620
-         */
-        this.itemId = builder.itemId;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        this.remark = builder.remark;
-        /**
-         * 发放规则描述文本
-         * <p> 示例值：
-         */
-        this.issuanceDetailText = builder.issuanceDetailText;
-        /**
-         * 申请来源
-         * <p> 示例值：1
-         */
-        this.applySource = builder.applySource;
-        /**
-         * 应退回金额（税前）
-         * <p> 示例值：2000.00
-         */
-        this.returnAmountBeforeTax = builder.returnAmountBeforeTax;
-        /**
-         * 应退回金额（税后）
-         * <p> 示例值：2000.00
-         */
-        this.returnAmountAfterTax = builder.returnAmountAfterTax;
-        /**
-         * 绑定期内离职类型
-         * <p> 示例值：
-         */
-        this.bindingPeriodOffboardingType = builder.bindingPeriodOffboardingType;
-        /**
-         * 创建时间
-         * <p> 示例值：2024-08-01 12:34:56
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2024-08-01 12:34:56
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * 所属期开始日期
-         * <p> 示例值：2024-08-01
-         */
-        this.referencePeriodStartDate = builder.referencePeriodStartDate;
-        /**
-         * 所属期结束日期
-         * <p> 示例值：2024-08-01
-         */
-        this.referencePeriodEndDate = builder.referencePeriodEndDate;
-        /**
-         * 发放明细列表
-         * <p> 示例值：
-         */
-        this.details = builder.details;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -402,376 +291,478 @@ public class LumpSumPayment {
         this.details = details;
     }
 
+
+// builder 开始
+  public LumpSumPayment(){}
+
+  public LumpSumPayment(Builder builder){
+         /**
+          * 一次性支付记录id
+          * <p> 示例值：7397033607132351532
+          */
+      this.id = builder.id;
+         /**
+          * 外部幂等id，由上游业务决定
+          * <p> 示例值：7402510801304718380_7309316347007764012_7402523725868058156_1726070400000_10000
+          */
+      this.uniqueId = builder.uniqueId;
+         /**
+          * 员工id，具体类型由入参中的 user_id_type 指定
+          * <p> 示例值：7337149697626801708
+          */
+      this.userId = builder.userId;
+         /**
+          * 总金额，字符串表达的数字
+          * <p> 示例值：2000.00
+          */
+      this.totalAmount = builder.totalAmount;
+         /**
+          * 绑定期，单位为月
+          * <p> 示例值：2
+          */
+      this.bindingPeriod = builder.bindingPeriod;
+         /**
+          * 币种id
+          * <p> 示例值：6863329932261459464
+          */
+      this.currencyId = builder.currencyId;
+         /**
+          * 发放次数
+          * <p> 示例值：3
+          */
+      this.issuanceFrequency = builder.issuanceFrequency;
+         /**
+          * 薪酬项id
+          * <p> 示例值：7411039006180312620
+          */
+      this.itemId = builder.itemId;
+         /**
+          * 备注
+          * <p> 示例值：备注
+          */
+      this.remark = builder.remark;
+         /**
+          * 发放规则描述文本
+          * <p> 示例值：
+          */
+      this.issuanceDetailText = builder.issuanceDetailText;
+         /**
+          * 申请来源
+          * <p> 示例值：1
+          */
+      this.applySource = builder.applySource;
+         /**
+          * 应退回金额（税前）
+          * <p> 示例值：2000.00
+          */
+      this.returnAmountBeforeTax = builder.returnAmountBeforeTax;
+         /**
+          * 应退回金额（税后）
+          * <p> 示例值：2000.00
+          */
+      this.returnAmountAfterTax = builder.returnAmountAfterTax;
+         /**
+          * 绑定期内离职类型
+          * <p> 示例值：
+          */
+      this.bindingPeriodOffboardingType = builder.bindingPeriodOffboardingType;
+         /**
+          * 创建时间
+          * <p> 示例值：2024-08-01 12:34:56
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 更新时间
+          * <p> 示例值：2024-08-01 12:34:56
+          */
+      this.modifyTime = builder.modifyTime;
+         /**
+          * 所属期开始日期
+          * <p> 示例值：2024-08-01
+          */
+      this.referencePeriodStartDate = builder.referencePeriodStartDate;
+         /**
+          * 所属期结束日期
+          * <p> 示例值：2024-08-01
+          */
+      this.referencePeriodEndDate = builder.referencePeriodEndDate;
+         /**
+          * 发放明细列表
+          * <p> 示例值：
+          */
+      this.details = builder.details;
+  }
+
     public static class Builder {
-        /**
-         * 一次性支付记录id
-         * <p> 示例值：7397033607132351532
-         */
+     /**
+      * 一次性支付记录id
+      * <p> 示例值：7397033607132351532
+      */
         private String id;
-        /**
-         * 外部幂等id，由上游业务决定
-         * <p> 示例值：7402510801304718380_7309316347007764012_7402523725868058156_1726070400000_10000
-         */
+     /**
+      * 外部幂等id，由上游业务决定
+      * <p> 示例值：7402510801304718380_7309316347007764012_7402523725868058156_1726070400000_10000
+      */
         private String uniqueId;
-        /**
-         * 员工id，具体类型由入参中的 user_id_type 指定
-         * <p> 示例值：7337149697626801708
-         */
+     /**
+      * 员工id，具体类型由入参中的 user_id_type 指定
+      * <p> 示例值：7337149697626801708
+      */
         private String userId;
-        /**
-         * 总金额，字符串表达的数字
-         * <p> 示例值：2000.00
-         */
+     /**
+      * 总金额，字符串表达的数字
+      * <p> 示例值：2000.00
+      */
         private String totalAmount;
-        /**
-         * 绑定期，单位为月
-         * <p> 示例值：2
-         */
+     /**
+      * 绑定期，单位为月
+      * <p> 示例值：2
+      */
         private Integer bindingPeriod;
-        /**
-         * 币种id
-         * <p> 示例值：6863329932261459464
-         */
+     /**
+      * 币种id
+      * <p> 示例值：6863329932261459464
+      */
         private String currencyId;
-        /**
-         * 发放次数
-         * <p> 示例值：3
-         */
+     /**
+      * 发放次数
+      * <p> 示例值：3
+      */
         private Integer issuanceFrequency;
-        /**
-         * 薪酬项id
-         * <p> 示例值：7411039006180312620
-         */
+     /**
+      * 薪酬项id
+      * <p> 示例值：7411039006180312620
+      */
         private String itemId;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
+     /**
+      * 备注
+      * <p> 示例值：备注
+      */
         private String remark;
-        /**
-         * 发放规则描述文本
-         * <p> 示例值：
-         */
+     /**
+      * 发放规则描述文本
+      * <p> 示例值：
+      */
         private I18n issuanceDetailText;
-        /**
-         * 申请来源
-         * <p> 示例值：1
-         */
+     /**
+      * 申请来源
+      * <p> 示例值：1
+      */
         private Integer applySource;
-        /**
-         * 应退回金额（税前）
-         * <p> 示例值：2000.00
-         */
+     /**
+      * 应退回金额（税前）
+      * <p> 示例值：2000.00
+      */
         private String returnAmountBeforeTax;
-        /**
-         * 应退回金额（税后）
-         * <p> 示例值：2000.00
-         */
+     /**
+      * 应退回金额（税后）
+      * <p> 示例值：2000.00
+      */
         private String returnAmountAfterTax;
-        /**
-         * 绑定期内离职类型
-         * <p> 示例值：
-         */
+     /**
+      * 绑定期内离职类型
+      * <p> 示例值：
+      */
         private String bindingPeriodOffboardingType;
-        /**
-         * 创建时间
-         * <p> 示例值：2024-08-01 12:34:56
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：2024-08-01 12:34:56
+      */
         private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2024-08-01 12:34:56
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：2024-08-01 12:34:56
+      */
         private String modifyTime;
-        /**
-         * 所属期开始日期
-         * <p> 示例值：2024-08-01
-         */
+     /**
+      * 所属期开始日期
+      * <p> 示例值：2024-08-01
+      */
         private String referencePeriodStartDate;
-        /**
-         * 所属期结束日期
-         * <p> 示例值：2024-08-01
-         */
+     /**
+      * 所属期结束日期
+      * <p> 示例值：2024-08-01
+      */
         private String referencePeriodEndDate;
-        /**
-         * 发放明细列表
-         * <p> 示例值：
-         */
+     /**
+      * 发放明细列表
+      * <p> 示例值：
+      */
         private LumpSumPaymentDetail[] details;
 
         /**
          * 一次性支付记录id
          * <p> 示例值：7397033607132351532
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 外部幂等id，由上游业务决定
          * <p> 示例值：7402510801304718380_7309316347007764012_7402523725868058156_1726070400000_10000
-         *
          * @param uniqueId
          * @return
          */
         public Builder uniqueId(String uniqueId) {
-            this.uniqueId = uniqueId;
-            return this;
+             this.uniqueId = uniqueId;
+             return this;
         }
 
+    
 
         /**
          * 员工id，具体类型由入参中的 user_id_type 指定
          * <p> 示例值：7337149697626801708
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 总金额，字符串表达的数字
          * <p> 示例值：2000.00
-         *
          * @param totalAmount
          * @return
          */
         public Builder totalAmount(String totalAmount) {
-            this.totalAmount = totalAmount;
-            return this;
+             this.totalAmount = totalAmount;
+             return this;
         }
 
+    
 
         /**
          * 绑定期，单位为月
          * <p> 示例值：2
-         *
          * @param bindingPeriod
          * @return
          */
         public Builder bindingPeriod(Integer bindingPeriod) {
-            this.bindingPeriod = bindingPeriod;
-            return this;
+             this.bindingPeriod = bindingPeriod;
+             return this;
         }
 
+    
 
         /**
          * 币种id
          * <p> 示例值：6863329932261459464
-         *
          * @param currencyId
          * @return
          */
         public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
+             this.currencyId = currencyId;
+             return this;
         }
 
+    
 
         /**
          * 发放次数
          * <p> 示例值：3
-         *
          * @param issuanceFrequency
          * @return
          */
         public Builder issuanceFrequency(Integer issuanceFrequency) {
-            this.issuanceFrequency = issuanceFrequency;
-            return this;
+             this.issuanceFrequency = issuanceFrequency;
+             return this;
         }
 
+    
 
         /**
          * 薪酬项id
          * <p> 示例值：7411039006180312620
-         *
          * @param itemId
          * @return
          */
         public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
+             this.itemId = itemId;
+             return this;
         }
 
+    
 
         /**
          * 备注
          * <p> 示例值：备注
-         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
+             this.remark = remark;
+             return this;
         }
 
+    
 
         /**
          * 发放规则描述文本
          * <p> 示例值：
-         *
          * @param issuanceDetailText
          * @return
          */
         public Builder issuanceDetailText(I18n issuanceDetailText) {
-            this.issuanceDetailText = issuanceDetailText;
-            return this;
+             this.issuanceDetailText = issuanceDetailText;
+             return this;
         }
 
+    
 
         /**
          * 申请来源
          * <p> 示例值：1
-         *
          * @param applySource
          * @return
          */
         public Builder applySource(Integer applySource) {
-            this.applySource = applySource;
-            return this;
+             this.applySource = applySource;
+             return this;
         }
-
         /**
          * 申请来源
          * <p> 示例值：1
-         *
          * @param applySource {@link com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentApplySourceEnum}
          * @return
          */
         public Builder applySource(com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentApplySourceEnum applySource) {
-            this.applySource = applySource.getValue();
-            return this;
+             this.applySource = applySource.getValue();
+             return this;
         }
 
+    
 
         /**
          * 应退回金额（税前）
          * <p> 示例值：2000.00
-         *
          * @param returnAmountBeforeTax
          * @return
          */
         public Builder returnAmountBeforeTax(String returnAmountBeforeTax) {
-            this.returnAmountBeforeTax = returnAmountBeforeTax;
-            return this;
+             this.returnAmountBeforeTax = returnAmountBeforeTax;
+             return this;
         }
 
+    
 
         /**
          * 应退回金额（税后）
          * <p> 示例值：2000.00
-         *
          * @param returnAmountAfterTax
          * @return
          */
         public Builder returnAmountAfterTax(String returnAmountAfterTax) {
-            this.returnAmountAfterTax = returnAmountAfterTax;
-            return this;
+             this.returnAmountAfterTax = returnAmountAfterTax;
+             return this;
         }
 
+    
 
         /**
          * 绑定期内离职类型
          * <p> 示例值：
-         *
          * @param bindingPeriodOffboardingType
          * @return
          */
         public Builder bindingPeriodOffboardingType(String bindingPeriodOffboardingType) {
-            this.bindingPeriodOffboardingType = bindingPeriodOffboardingType;
-            return this;
+             this.bindingPeriodOffboardingType = bindingPeriodOffboardingType;
+             return this;
         }
-
         /**
          * 绑定期内离职类型
          * <p> 示例值：
-         *
          * @param bindingPeriodOffboardingType {@link com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentBindingPeriodOffboardingTypeEnum}
          * @return
          */
         public Builder bindingPeriodOffboardingType(com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentBindingPeriodOffboardingTypeEnum bindingPeriodOffboardingType) {
-            this.bindingPeriodOffboardingType = bindingPeriodOffboardingType.getValue();
-            return this;
+             this.bindingPeriodOffboardingType = bindingPeriodOffboardingType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：2024-08-01 12:34:56
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：2024-08-01 12:34:56
-         *
          * @param modifyTime
          * @return
          */
         public Builder modifyTime(String modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
+             this.modifyTime = modifyTime;
+             return this;
         }
 
+    
 
         /**
          * 所属期开始日期
          * <p> 示例值：2024-08-01
-         *
          * @param referencePeriodStartDate
          * @return
          */
         public Builder referencePeriodStartDate(String referencePeriodStartDate) {
-            this.referencePeriodStartDate = referencePeriodStartDate;
-            return this;
+             this.referencePeriodStartDate = referencePeriodStartDate;
+             return this;
         }
 
+    
 
         /**
          * 所属期结束日期
          * <p> 示例值：2024-08-01
-         *
          * @param referencePeriodEndDate
          * @return
          */
         public Builder referencePeriodEndDate(String referencePeriodEndDate) {
-            this.referencePeriodEndDate = referencePeriodEndDate;
-            return this;
+             this.referencePeriodEndDate = referencePeriodEndDate;
+             return this;
         }
 
+    
 
         /**
          * 发放明细列表
          * <p> 示例值：
-         *
          * @param details
          * @return
          */
         public Builder details(LumpSumPaymentDetail[] details) {
-            this.details = details;
-            return this;
+             this.details = details;
+             return this;
         }
 
+    
+    
+    public LumpSumPayment build(){
+        return new LumpSumPayment(this);
+      }
+    }
 
-        public LumpSumPayment build() {
-            return new LumpSumPayment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

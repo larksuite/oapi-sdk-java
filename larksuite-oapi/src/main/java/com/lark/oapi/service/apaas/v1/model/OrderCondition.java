@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OrderCondition {
-    /**
-     * 字段名
-     * <p> 示例值：_id
-     */
+     /**
+      * 字段名
+      * <p> 示例值：_id
+      */
     @SerializedName("field")
     private String field;
-    /**
-     * 排序方式
-     * <p> 示例值：asc
-     */
+     /**
+      * 排序方式
+      * <p> 示例值：asc
+      */
     @SerializedName("order_type")
     private String orderType;
-
-    // builder 开始
-    public OrderCondition() {
-    }
-
-    public OrderCondition(Builder builder) {
-        /**
-         * 字段名
-         * <p> 示例值：_id
-         */
-        this.field = builder.field;
-        /**
-         * 排序方式
-         * <p> 示例值：asc
-         */
-        this.orderType = builder.orderType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getField() {
         return this.field;
     }
@@ -79,58 +53,77 @@ public class OrderCondition {
         this.orderType = orderType;
     }
 
+
+// builder 开始
+  public OrderCondition(){}
+
+  public OrderCondition(Builder builder){
+         /**
+          * 字段名
+          * <p> 示例值：_id
+          */
+      this.field = builder.field;
+         /**
+          * 排序方式
+          * <p> 示例值：asc
+          */
+      this.orderType = builder.orderType;
+  }
+
     public static class Builder {
-        /**
-         * 字段名
-         * <p> 示例值：_id
-         */
+     /**
+      * 字段名
+      * <p> 示例值：_id
+      */
         private String field;
-        /**
-         * 排序方式
-         * <p> 示例值：asc
-         */
+     /**
+      * 排序方式
+      * <p> 示例值：asc
+      */
         private String orderType;
 
         /**
          * 字段名
          * <p> 示例值：_id
-         *
          * @param field
          * @return
          */
         public Builder field(String field) {
-            this.field = field;
-            return this;
+             this.field = field;
+             return this;
         }
 
+    
 
         /**
          * 排序方式
          * <p> 示例值：asc
-         *
          * @param orderType
          * @return
          */
         public Builder orderType(String orderType) {
-            this.orderType = orderType;
-            return this;
+             this.orderType = orderType;
+             return this;
         }
-
         /**
          * 排序方式
          * <p> 示例值：asc
-         *
          * @param orderType {@link com.lark.oapi.service.apaas.v1.enums.OrderConditionOrderTypeEnum}
          * @return
          */
         public Builder orderType(com.lark.oapi.service.apaas.v1.enums.OrderConditionOrderTypeEnum orderType) {
-            this.orderType = orderType.getValue();
-            return this;
+             this.orderType = orderType.getValue();
+             return this;
         }
 
+    
+    
+    public OrderCondition build(){
+        return new OrderCondition(this);
+      }
+    }
 
-        public OrderCondition build() {
-            return new OrderCondition(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Comment {
-    /**
-     * 评论id
-     * <p> 示例值：7197020628442939411
-     */
+     /**
+      * 评论id
+      * <p> 示例值：7197020628442939411
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 评论内容
-     * <p> 示例值：这是一条评论
-     */
+     /**
+      * 评论内容
+      * <p> 示例值：这是一条评论
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 评论创建人
-     * <p> 示例值：
-     */
+     /**
+      * 评论创建人
+      * <p> 示例值：
+      */
     @SerializedName("creator")
     private Member creator;
-    /**
-     * 被回复评论的id。如果不是回复评论，则为空。
-     * <p> 示例值：7166825117308174356
-     */
+     /**
+      * 被回复评论的id。如果不是回复评论，则为空。
+      * <p> 示例值：7166825117308174356
+      */
     @SerializedName("reply_to_comment_id")
     private String replyToCommentId;
-    /**
-     * 评论创建时间戳（ms)
-     * <p> 示例值：1675742789470
-     */
+     /**
+      * 评论创建时间戳（ms)
+      * <p> 示例值：1675742789470
+      */
     @SerializedName("created_at")
     private String createdAt;
-    /**
-     * 评论更新时间戳（ms）
-     * <p> 示例值：1675742789470
-     */
+     /**
+      * 评论更新时间戳（ms）
+      * <p> 示例值：1675742789470
+      */
     @SerializedName("updated_at")
     private String updatedAt;
-    /**
-     * 任务关联的资源类型
-     * <p> 示例值：task
-     */
+     /**
+      * 任务关联的资源类型
+      * <p> 示例值：task
+      */
     @SerializedName("resource_type")
     private String resourceType;
-    /**
-     * 任务关联的资源ID
-     * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
-     */
+     /**
+      * 任务关联的资源ID
+      * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
+      */
     @SerializedName("resource_id")
     private String resourceId;
-
-    // builder 开始
-    public Comment() {
-    }
-
-    public Comment(Builder builder) {
-        /**
-         * 评论id
-         * <p> 示例值：7197020628442939411
-         */
-        this.id = builder.id;
-        /**
-         * 评论内容
-         * <p> 示例值：这是一条评论
-         */
-        this.content = builder.content;
-        /**
-         * 评论创建人
-         * <p> 示例值：
-         */
-        this.creator = builder.creator;
-        /**
-         * 被回复评论的id。如果不是回复评论，则为空。
-         * <p> 示例值：7166825117308174356
-         */
-        this.replyToCommentId = builder.replyToCommentId;
-        /**
-         * 评论创建时间戳（ms)
-         * <p> 示例值：1675742789470
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 评论更新时间戳（ms）
-         * <p> 示例值：1675742789470
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 任务关联的资源类型
-         * <p> 示例值：task
-         */
-        this.resourceType = builder.resourceType;
-        /**
-         * 任务关联的资源ID
-         * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
-         */
-        this.resourceId = builder.resourceId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -193,154 +137,205 @@ public class Comment {
         this.resourceId = resourceId;
     }
 
+
+// builder 开始
+  public Comment(){}
+
+  public Comment(Builder builder){
+         /**
+          * 评论id
+          * <p> 示例值：7197020628442939411
+          */
+      this.id = builder.id;
+         /**
+          * 评论内容
+          * <p> 示例值：这是一条评论
+          */
+      this.content = builder.content;
+         /**
+          * 评论创建人
+          * <p> 示例值：
+          */
+      this.creator = builder.creator;
+         /**
+          * 被回复评论的id。如果不是回复评论，则为空。
+          * <p> 示例值：7166825117308174356
+          */
+      this.replyToCommentId = builder.replyToCommentId;
+         /**
+          * 评论创建时间戳（ms)
+          * <p> 示例值：1675742789470
+          */
+      this.createdAt = builder.createdAt;
+         /**
+          * 评论更新时间戳（ms）
+          * <p> 示例值：1675742789470
+          */
+      this.updatedAt = builder.updatedAt;
+         /**
+          * 任务关联的资源类型
+          * <p> 示例值：task
+          */
+      this.resourceType = builder.resourceType;
+         /**
+          * 任务关联的资源ID
+          * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
+          */
+      this.resourceId = builder.resourceId;
+  }
+
     public static class Builder {
-        /**
-         * 评论id
-         * <p> 示例值：7197020628442939411
-         */
+     /**
+      * 评论id
+      * <p> 示例值：7197020628442939411
+      */
         private String id;
-        /**
-         * 评论内容
-         * <p> 示例值：这是一条评论
-         */
+     /**
+      * 评论内容
+      * <p> 示例值：这是一条评论
+      */
         private String content;
-        /**
-         * 评论创建人
-         * <p> 示例值：
-         */
+     /**
+      * 评论创建人
+      * <p> 示例值：
+      */
         private Member creator;
-        /**
-         * 被回复评论的id。如果不是回复评论，则为空。
-         * <p> 示例值：7166825117308174356
-         */
+     /**
+      * 被回复评论的id。如果不是回复评论，则为空。
+      * <p> 示例值：7166825117308174356
+      */
         private String replyToCommentId;
-        /**
-         * 评论创建时间戳（ms)
-         * <p> 示例值：1675742789470
-         */
+     /**
+      * 评论创建时间戳（ms)
+      * <p> 示例值：1675742789470
+      */
         private String createdAt;
-        /**
-         * 评论更新时间戳（ms）
-         * <p> 示例值：1675742789470
-         */
+     /**
+      * 评论更新时间戳（ms）
+      * <p> 示例值：1675742789470
+      */
         private String updatedAt;
-        /**
-         * 任务关联的资源类型
-         * <p> 示例值：task
-         */
+     /**
+      * 任务关联的资源类型
+      * <p> 示例值：task
+      */
         private String resourceType;
-        /**
-         * 任务关联的资源ID
-         * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
-         */
+     /**
+      * 任务关联的资源ID
+      * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
+      */
         private String resourceId;
 
         /**
          * 评论id
          * <p> 示例值：7197020628442939411
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 评论内容
          * <p> 示例值：这是一条评论
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 评论创建人
          * <p> 示例值：
-         *
          * @param creator
          * @return
          */
         public Builder creator(Member creator) {
-            this.creator = creator;
-            return this;
+             this.creator = creator;
+             return this;
         }
 
+    
 
         /**
          * 被回复评论的id。如果不是回复评论，则为空。
          * <p> 示例值：7166825117308174356
-         *
          * @param replyToCommentId
          * @return
          */
         public Builder replyToCommentId(String replyToCommentId) {
-            this.replyToCommentId = replyToCommentId;
-            return this;
+             this.replyToCommentId = replyToCommentId;
+             return this;
         }
 
+    
 
         /**
          * 评论创建时间戳（ms)
          * <p> 示例值：1675742789470
-         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
+             this.createdAt = createdAt;
+             return this;
         }
 
+    
 
         /**
          * 评论更新时间戳（ms）
          * <p> 示例值：1675742789470
-         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
+             this.updatedAt = updatedAt;
+             return this;
         }
 
+    
 
         /**
          * 任务关联的资源类型
          * <p> 示例值：task
-         *
          * @param resourceType
          * @return
          */
         public Builder resourceType(String resourceType) {
-            this.resourceType = resourceType;
-            return this;
+             this.resourceType = resourceType;
+             return this;
         }
 
+    
 
         /**
          * 任务关联的资源ID
          * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
-         *
          * @param resourceId
          * @return
          */
         public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
+             this.resourceId = resourceId;
+             return this;
         }
 
+    
+    
+    public Comment build(){
+        return new Comment(this);
+      }
+    }
 
-        public Comment build() {
-            return new Comment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

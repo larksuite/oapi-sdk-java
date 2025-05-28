@@ -17,16 +17,15 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 删除日程是否给日程参与人发送bot通知，默认为true
  */
 public enum DeleteCalendarEventNeedNotificationEnum {
-    TRUE("true"), // 发送通知
-    FALSE("false"), // 不发送通知
-    ;
-    private String value;
-
+     TRUE("true"), // 发送通知
+     FALSE("false"), // 不发送通知
+  ;
+   private String value;
     DeleteCalendarEventNeedNotificationEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

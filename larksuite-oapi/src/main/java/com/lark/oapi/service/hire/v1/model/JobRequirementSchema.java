@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobRequirementSchema {
-    /**
-     * 模板 ID
-     * <p> 示例值：6949805467799537964
-     */
+     /**
+      * 模板 ID
+      * <p> 示例值：6949805467799537964
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 国际化模板名称
-     * <p> 示例值：
-     */
+     /**
+      * 国际化模板名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 模板字段
-     * <p> 示例值：
-     */
+     /**
+      * 模板字段
+      * <p> 示例值：
+      */
     @SerializedName("object_list")
     private CommonSchema[] objectList;
-
-    // builder 开始
-    public JobRequirementSchema() {
-    }
-
-    public JobRequirementSchema(Builder builder) {
-        /**
-         * 模板 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 国际化模板名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 模板字段
-         * <p> 示例值：
-         */
-        this.objectList = builder.objectList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -97,64 +66,90 @@ public class JobRequirementSchema {
         this.objectList = objectList;
     }
 
+
+// builder 开始
+  public JobRequirementSchema(){}
+
+  public JobRequirementSchema(Builder builder){
+         /**
+          * 模板 ID
+          * <p> 示例值：6949805467799537964
+          */
+      this.id = builder.id;
+         /**
+          * 国际化模板名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 模板字段
+          * <p> 示例值：
+          */
+      this.objectList = builder.objectList;
+  }
+
     public static class Builder {
-        /**
-         * 模板 ID
-         * <p> 示例值：6949805467799537964
-         */
+     /**
+      * 模板 ID
+      * <p> 示例值：6949805467799537964
+      */
         private String id;
-        /**
-         * 国际化模板名称
-         * <p> 示例值：
-         */
+     /**
+      * 国际化模板名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 模板字段
-         * <p> 示例值：
-         */
+     /**
+      * 模板字段
+      * <p> 示例值：
+      */
         private CommonSchema[] objectList;
 
         /**
          * 模板 ID
          * <p> 示例值：6949805467799537964
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 国际化模板名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 模板字段
          * <p> 示例值：
-         *
          * @param objectList
          * @return
          */
         public Builder objectList(CommonSchema[] objectList) {
-            this.objectList = objectList;
-            return this;
+             this.objectList = objectList;
+             return this;
         }
 
+    
+    
+    public JobRequirementSchema build(){
+        return new JobRequirementSchema(this);
+      }
+    }
 
-        public JobRequirementSchema build() {
-            return new JobRequirementSchema(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

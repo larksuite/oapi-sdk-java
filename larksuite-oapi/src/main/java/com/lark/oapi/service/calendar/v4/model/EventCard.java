@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,159 +19,84 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EventCard {
-    /**
-     * 日程主题
-     * <p> 示例值：日程主题
-     */
+     /**
+      * 日程主题
+      * <p> 示例值：日程主题
+      */
     @SerializedName("summary")
     private String summary;
-    /**
-     * 日程开始时间，日期+时间格式
-     * <p> 示例值：2023-01-01T00:00
-     */
+     /**
+      * 日程开始时间，日期+时间格式
+      * <p> 示例值：2023-01-01T00:00
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 日程结束时间，日期+时间格式
-     * <p> 示例值：2023-01-01T01:00
-     */
+     /**
+      * 日程结束时间，日期+时间格式
+      * <p> 示例值：2023-01-01T01:00
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 日程开始时间时区
-     * <p> 示例值：Asia/Shanghai
-     */
+     /**
+      * 日程开始时间时区
+      * <p> 示例值：Asia/Shanghai
+      */
     @SerializedName("start_timezone")
     private String startTimezone;
-    /**
-     * 日程参与人open ID
-     * <p> 示例值：ou_xxx;ou_yyy
-     */
+     /**
+      * 日程参与人open ID
+      * <p> 示例值：ou_xxx;ou_yyy
+      */
     @SerializedName("participant_ids")
     private String participantIds;
-    /**
-     * 日程的重复性规则
-     * <p> 示例值：FREQ=DAILY;INTERVAL=1
-     */
+     /**
+      * 日程的重复性规则
+      * <p> 示例值：FREQ=DAILY;INTERVAL=1
+      */
     @SerializedName("recurrence_rule")
     private String recurrenceRule;
-    /**
-     * 需要预定的会议室ID列表
-     * <p> 示例值：omm_xxx;omm_yyy
-     */
+     /**
+      * 需要预定的会议室ID列表
+      * <p> 示例值：omm_xxx;omm_yyy
+      */
     @SerializedName("meeting_room_ids")
     private String meetingRoomIds;
-    /**
-     * 需要预定的日程长度
-     * <p> 示例值：1小时30分钟
-     */
+     /**
+      * 需要预定的日程长度
+      * <p> 示例值：1小时30分钟
+      */
     @SerializedName("duration")
     private String duration;
-    /**
-     * 是否需要生成会议纪要
-     * <p> 示例值：true
-     */
+     /**
+      * 是否需要生成会议纪要
+      * <p> 示例值：true
+      */
     @SerializedName("need_meeting_notes")
     private String needMeetingNotes;
-    /**
-     * 上下文信息 schema 版本
-     * <p> 示例值：v1
-     */
+     /**
+      * 上下文信息 schema 版本
+      * <p> 示例值：v1
+      */
     @SerializedName("scenario_context_schema_version")
     private String scenarioContextSchemaVersion;
-    /**
-     * 上下文信息
-     * <p> 示例值：
-     */
+     /**
+      * 上下文信息
+      * <p> 示例值：
+      */
     @SerializedName("scenario_context")
     private CalendarUnderstandScenarioContext scenarioContext;
-    /**
-     * 日程的uid_originTime
-     * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-     */
+     /**
+      * 日程的uid_originTime
+      * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+      */
     @SerializedName("event_id")
     private String eventId;
-
-    // builder 开始
-    public EventCard() {
-    }
-
-    public EventCard(Builder builder) {
-        /**
-         * 日程主题
-         * <p> 示例值：日程主题
-         */
-        this.summary = builder.summary;
-        /**
-         * 日程开始时间，日期+时间格式
-         * <p> 示例值：2023-01-01T00:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 日程结束时间，日期+时间格式
-         * <p> 示例值：2023-01-01T01:00
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 日程开始时间时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.startTimezone = builder.startTimezone;
-        /**
-         * 日程参与人open ID
-         * <p> 示例值：ou_xxx;ou_yyy
-         */
-        this.participantIds = builder.participantIds;
-        /**
-         * 日程的重复性规则
-         * <p> 示例值：FREQ=DAILY;INTERVAL=1
-         */
-        this.recurrenceRule = builder.recurrenceRule;
-        /**
-         * 需要预定的会议室ID列表
-         * <p> 示例值：omm_xxx;omm_yyy
-         */
-        this.meetingRoomIds = builder.meetingRoomIds;
-        /**
-         * 需要预定的日程长度
-         * <p> 示例值：1小时30分钟
-         */
-        this.duration = builder.duration;
-        /**
-         * 是否需要生成会议纪要
-         * <p> 示例值：true
-         */
-        this.needMeetingNotes = builder.needMeetingNotes;
-        /**
-         * 上下文信息 schema 版本
-         * <p> 示例值：v1
-         */
-        this.scenarioContextSchemaVersion = builder.scenarioContextSchemaVersion;
-        /**
-         * 上下文信息
-         * <p> 示例值：
-         */
-        this.scenarioContext = builder.scenarioContext;
-        /**
-         * 日程的uid_originTime
-         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-         */
-        this.eventId = builder.eventId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSummary() {
         return this.summary;
     }
@@ -269,226 +193,297 @@ public class EventCard {
         this.eventId = eventId;
     }
 
+
+// builder 开始
+  public EventCard(){}
+
+  public EventCard(Builder builder){
+         /**
+          * 日程主题
+          * <p> 示例值：日程主题
+          */
+      this.summary = builder.summary;
+         /**
+          * 日程开始时间，日期+时间格式
+          * <p> 示例值：2023-01-01T00:00
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 日程结束时间，日期+时间格式
+          * <p> 示例值：2023-01-01T01:00
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 日程开始时间时区
+          * <p> 示例值：Asia/Shanghai
+          */
+      this.startTimezone = builder.startTimezone;
+         /**
+          * 日程参与人open ID
+          * <p> 示例值：ou_xxx;ou_yyy
+          */
+      this.participantIds = builder.participantIds;
+         /**
+          * 日程的重复性规则
+          * <p> 示例值：FREQ=DAILY;INTERVAL=1
+          */
+      this.recurrenceRule = builder.recurrenceRule;
+         /**
+          * 需要预定的会议室ID列表
+          * <p> 示例值：omm_xxx;omm_yyy
+          */
+      this.meetingRoomIds = builder.meetingRoomIds;
+         /**
+          * 需要预定的日程长度
+          * <p> 示例值：1小时30分钟
+          */
+      this.duration = builder.duration;
+         /**
+          * 是否需要生成会议纪要
+          * <p> 示例值：true
+          */
+      this.needMeetingNotes = builder.needMeetingNotes;
+         /**
+          * 上下文信息 schema 版本
+          * <p> 示例值：v1
+          */
+      this.scenarioContextSchemaVersion = builder.scenarioContextSchemaVersion;
+         /**
+          * 上下文信息
+          * <p> 示例值：
+          */
+      this.scenarioContext = builder.scenarioContext;
+         /**
+          * 日程的uid_originTime
+          * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+          */
+      this.eventId = builder.eventId;
+  }
+
     public static class Builder {
-        /**
-         * 日程主题
-         * <p> 示例值：日程主题
-         */
+     /**
+      * 日程主题
+      * <p> 示例值：日程主题
+      */
         private String summary;
-        /**
-         * 日程开始时间，日期+时间格式
-         * <p> 示例值：2023-01-01T00:00
-         */
+     /**
+      * 日程开始时间，日期+时间格式
+      * <p> 示例值：2023-01-01T00:00
+      */
         private String startTime;
-        /**
-         * 日程结束时间，日期+时间格式
-         * <p> 示例值：2023-01-01T01:00
-         */
+     /**
+      * 日程结束时间，日期+时间格式
+      * <p> 示例值：2023-01-01T01:00
+      */
         private String endTime;
-        /**
-         * 日程开始时间时区
-         * <p> 示例值：Asia/Shanghai
-         */
+     /**
+      * 日程开始时间时区
+      * <p> 示例值：Asia/Shanghai
+      */
         private String startTimezone;
-        /**
-         * 日程参与人open ID
-         * <p> 示例值：ou_xxx;ou_yyy
-         */
+     /**
+      * 日程参与人open ID
+      * <p> 示例值：ou_xxx;ou_yyy
+      */
         private String participantIds;
-        /**
-         * 日程的重复性规则
-         * <p> 示例值：FREQ=DAILY;INTERVAL=1
-         */
+     /**
+      * 日程的重复性规则
+      * <p> 示例值：FREQ=DAILY;INTERVAL=1
+      */
         private String recurrenceRule;
-        /**
-         * 需要预定的会议室ID列表
-         * <p> 示例值：omm_xxx;omm_yyy
-         */
+     /**
+      * 需要预定的会议室ID列表
+      * <p> 示例值：omm_xxx;omm_yyy
+      */
         private String meetingRoomIds;
-        /**
-         * 需要预定的日程长度
-         * <p> 示例值：1小时30分钟
-         */
+     /**
+      * 需要预定的日程长度
+      * <p> 示例值：1小时30分钟
+      */
         private String duration;
-        /**
-         * 是否需要生成会议纪要
-         * <p> 示例值：true
-         */
+     /**
+      * 是否需要生成会议纪要
+      * <p> 示例值：true
+      */
         private String needMeetingNotes;
-        /**
-         * 上下文信息 schema 版本
-         * <p> 示例值：v1
-         */
+     /**
+      * 上下文信息 schema 版本
+      * <p> 示例值：v1
+      */
         private String scenarioContextSchemaVersion;
-        /**
-         * 上下文信息
-         * <p> 示例值：
-         */
+     /**
+      * 上下文信息
+      * <p> 示例值：
+      */
         private CalendarUnderstandScenarioContext scenarioContext;
-        /**
-         * 日程的uid_originTime
-         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-         */
+     /**
+      * 日程的uid_originTime
+      * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+      */
         private String eventId;
 
         /**
          * 日程主题
          * <p> 示例值：日程主题
-         *
          * @param summary
          * @return
          */
         public Builder summary(String summary) {
-            this.summary = summary;
-            return this;
+             this.summary = summary;
+             return this;
         }
 
+    
 
         /**
          * 日程开始时间，日期+时间格式
          * <p> 示例值：2023-01-01T00:00
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 日程结束时间，日期+时间格式
          * <p> 示例值：2023-01-01T01:00
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 日程开始时间时区
          * <p> 示例值：Asia/Shanghai
-         *
          * @param startTimezone
          * @return
          */
         public Builder startTimezone(String startTimezone) {
-            this.startTimezone = startTimezone;
-            return this;
+             this.startTimezone = startTimezone;
+             return this;
         }
 
+    
 
         /**
          * 日程参与人open ID
          * <p> 示例值：ou_xxx;ou_yyy
-         *
          * @param participantIds
          * @return
          */
         public Builder participantIds(String participantIds) {
-            this.participantIds = participantIds;
-            return this;
+             this.participantIds = participantIds;
+             return this;
         }
 
+    
 
         /**
          * 日程的重复性规则
          * <p> 示例值：FREQ=DAILY;INTERVAL=1
-         *
          * @param recurrenceRule
          * @return
          */
         public Builder recurrenceRule(String recurrenceRule) {
-            this.recurrenceRule = recurrenceRule;
-            return this;
+             this.recurrenceRule = recurrenceRule;
+             return this;
         }
 
+    
 
         /**
          * 需要预定的会议室ID列表
          * <p> 示例值：omm_xxx;omm_yyy
-         *
          * @param meetingRoomIds
          * @return
          */
         public Builder meetingRoomIds(String meetingRoomIds) {
-            this.meetingRoomIds = meetingRoomIds;
-            return this;
+             this.meetingRoomIds = meetingRoomIds;
+             return this;
         }
 
+    
 
         /**
          * 需要预定的日程长度
          * <p> 示例值：1小时30分钟
-         *
          * @param duration
          * @return
          */
         public Builder duration(String duration) {
-            this.duration = duration;
-            return this;
+             this.duration = duration;
+             return this;
         }
 
+    
 
         /**
          * 是否需要生成会议纪要
          * <p> 示例值：true
-         *
          * @param needMeetingNotes
          * @return
          */
         public Builder needMeetingNotes(String needMeetingNotes) {
-            this.needMeetingNotes = needMeetingNotes;
-            return this;
+             this.needMeetingNotes = needMeetingNotes;
+             return this;
         }
 
+    
 
         /**
          * 上下文信息 schema 版本
          * <p> 示例值：v1
-         *
          * @param scenarioContextSchemaVersion
          * @return
          */
         public Builder scenarioContextSchemaVersion(String scenarioContextSchemaVersion) {
-            this.scenarioContextSchemaVersion = scenarioContextSchemaVersion;
-            return this;
+             this.scenarioContextSchemaVersion = scenarioContextSchemaVersion;
+             return this;
         }
 
+    
 
         /**
          * 上下文信息
          * <p> 示例值：
-         *
          * @param scenarioContext
          * @return
          */
         public Builder scenarioContext(CalendarUnderstandScenarioContext scenarioContext) {
-            this.scenarioContext = scenarioContext;
-            return this;
+             this.scenarioContext = scenarioContext;
+             return this;
         }
 
+    
 
         /**
          * 日程的uid_originTime
          * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
-         *
          * @param eventId
          * @return
          */
         public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
+             this.eventId = eventId;
+             return this;
         }
 
+    
+    
+    public EventCard build(){
+        return new EventCard(this);
+      }
+    }
 
-        public EventCard build() {
-            return new EventCard(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

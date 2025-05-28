@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DepartmentPathName {
-    /**
-     * 部门名
-     * <p> 示例值：测试部门名1
-     */
+     /**
+      * 部门名
+      * <p> 示例值：测试部门名1
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 部门国际化名
-     * <p> 示例值：
-     */
+     /**
+      * 部门国际化名
+      * <p> 示例值：
+      */
     @SerializedName("i18n_name")
     private DepartmentI18nName i18nName;
-
-    // builder 开始
-    public DepartmentPathName() {
-    }
-
-    public DepartmentPathName(Builder builder) {
-        /**
-         * 部门名
-         * <p> 示例值：测试部门名1
-         */
-        this.name = builder.name;
-        /**
-         * 部门国际化名
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -79,46 +53,67 @@ public class DepartmentPathName {
         this.i18nName = i18nName;
     }
 
+
+// builder 开始
+  public DepartmentPathName(){}
+
+  public DepartmentPathName(Builder builder){
+         /**
+          * 部门名
+          * <p> 示例值：测试部门名1
+          */
+      this.name = builder.name;
+         /**
+          * 部门国际化名
+          * <p> 示例值：
+          */
+      this.i18nName = builder.i18nName;
+  }
+
     public static class Builder {
-        /**
-         * 部门名
-         * <p> 示例值：测试部门名1
-         */
+     /**
+      * 部门名
+      * <p> 示例值：测试部门名1
+      */
         private String name;
-        /**
-         * 部门国际化名
-         * <p> 示例值：
-         */
+     /**
+      * 部门国际化名
+      * <p> 示例值：
+      */
         private DepartmentI18nName i18nName;
 
         /**
          * 部门名
          * <p> 示例值：测试部门名1
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 部门国际化名
          * <p> 示例值：
-         *
          * @param i18nName
          * @return
          */
         public Builder i18nName(DepartmentI18nName i18nName) {
-            this.i18nName = i18nName;
-            return this;
+             this.i18nName = i18nName;
+             return this;
         }
 
+    
+    
+    public DepartmentPathName build(){
+        return new DepartmentPathName(this);
+      }
+    }
 
-        public DepartmentPathName build() {
-            return new DepartmentPathName(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

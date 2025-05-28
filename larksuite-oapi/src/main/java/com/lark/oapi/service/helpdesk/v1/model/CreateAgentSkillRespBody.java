@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateAgentSkillRespBody {
-    /**
-     * 客服技能id
-     * <p> 示例值：test-skill-id
-     */
+     /**
+      * 客服技能id
+      * <p> 示例值：test-skill-id
+      */
     @SerializedName("agent_skill_id")
     private String agentSkillId;
-
     public String getAgentSkillId() {
         return this.agentSkillId;
     }

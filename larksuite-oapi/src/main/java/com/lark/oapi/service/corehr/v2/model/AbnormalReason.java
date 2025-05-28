@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AbnormalReason {
-    /**
-     * 异常原因ID
-     * <p> 示例值：6893014062142064135
-     */
+     /**
+      * 异常原因ID
+      * <p> 示例值：6893014062142064135
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 异常原因类型，1-系统异常，2-用户自定义异常;
-     * <p> 示例值：1
-     */
+     /**
+      * 异常原因类型，1-系统异常，2-用户自定义异常;
+      * <p> 示例值：1
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * 异常原因列表
-     * <p> 示例值：
-     */
+     /**
+      * 异常原因列表
+      * <p> 示例值：
+      */
     @SerializedName("i18n_elements")
     private AbnormalReasonI18nElement[] i18nElements;
-
-    // builder 开始
-    public AbnormalReason() {
-    }
-
-    public AbnormalReason(Builder builder) {
-        /**
-         * 异常原因ID
-         * <p> 示例值：6893014062142064135
-         */
-        this.id = builder.id;
-        /**
-         * 异常原因类型，1-系统异常，2-用户自定义异常;
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 异常原因列表
-         * <p> 示例值：
-         */
-        this.i18nElements = builder.i18nElements;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -98,64 +67,90 @@ public class AbnormalReason {
         this.i18nElements = i18nElements;
     }
 
+
+// builder 开始
+  public AbnormalReason(){}
+
+  public AbnormalReason(Builder builder){
+         /**
+          * 异常原因ID
+          * <p> 示例值：6893014062142064135
+          */
+      this.id = builder.id;
+         /**
+          * 异常原因类型，1-系统异常，2-用户自定义异常;
+          * <p> 示例值：1
+          */
+      this.type = builder.type;
+         /**
+          * 异常原因列表
+          * <p> 示例值：
+          */
+      this.i18nElements = builder.i18nElements;
+  }
+
     public static class Builder {
-        /**
-         * 异常原因ID
-         * <p> 示例值：6893014062142064135
-         */
+     /**
+      * 异常原因ID
+      * <p> 示例值：6893014062142064135
+      */
         private String id;
-        /**
-         * 异常原因类型，1-系统异常，2-用户自定义异常;
-         * <p> 示例值：1
-         */
+     /**
+      * 异常原因类型，1-系统异常，2-用户自定义异常;
+      * <p> 示例值：1
+      */
         private Integer type;
-        /**
-         * 异常原因列表
-         * <p> 示例值：
-         */
+     /**
+      * 异常原因列表
+      * <p> 示例值：
+      */
         private AbnormalReasonI18nElement[] i18nElements;
 
         /**
          * 异常原因ID
          * <p> 示例值：6893014062142064135
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 异常原因类型，1-系统异常，2-用户自定义异常;
          * <p> 示例值：1
-         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 异常原因列表
          * <p> 示例值：
-         *
          * @param i18nElements
          * @return
          */
         public Builder i18nElements(AbnormalReasonI18nElement[] i18nElements) {
-            this.i18nElements = i18nElements;
-            return this;
+             this.i18nElements = i18nElements;
+             return this;
         }
 
+    
+    
+    public AbnormalReason build(){
+        return new AbnormalReason(this);
+      }
+    }
 
-        public AbnormalReason build() {
-            return new AbnormalReason(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

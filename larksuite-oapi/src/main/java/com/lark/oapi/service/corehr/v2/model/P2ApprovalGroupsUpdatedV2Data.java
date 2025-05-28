@@ -12,83 +12,78 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2ApprovalGroupsUpdatedV2Data {
-    /**
-     * 组织架构调整审批组 ID
-     * <p> 示例值：6991776076699549697
-     */
+     /**
+      * 组织架构调整审批组 ID
+      * <p> 示例值：6991776076699549697
+      */
     @SerializedName("approval_group_id")
     private String approvalGroupId;
-    /**
-     * 组织架构调整流程 ID
-     * <p> 示例值：6991776076699549697
-     */
+     /**
+      * 组织架构调整流程 ID
+      * <p> 示例值：6991776076699549697
+      */
     @SerializedName("process_id")
     private String processId;
-    /**
-     * 组织架构调整流程状态
-     * <p> 示例值：1
-     */
+     /**
+      * 组织架构调整流程状态
+      * <p> 示例值：1
+      */
     @SerializedName("approval_group_status")
     private Integer approvalGroupStatus;
-    /**
-     * 调整主题
-     * <p> 示例值：测试组织架构调整
-     */
+     /**
+      * 调整主题
+      * <p> 示例值：测试组织架构调整
+      */
     @SerializedName("topic")
     private String topic;
-    /**
-     * 调整原因
-     * <p> 示例值：测试
-     */
+     /**
+      * 调整原因
+      * <p> 示例值：测试
+      */
     @SerializedName("adjust_reason")
     private String adjustReason;
-    /**
-     * 生效日期
-     * <p> 示例值：2022-03-01
-     */
+     /**
+      * 生效日期
+      * <p> 示例值：2022-03-01
+      */
     @SerializedName("effective_date")
     private String effectiveDate;
-    /**
-     * 发起人
-     * <p> 示例值：6974641477444060708
-     */
+     /**
+      * 发起人
+      * <p> 示例值：6974641477444060708
+      */
     @SerializedName("created_by")
     private String createdBy;
-    /**
-     * 组织架构调整任务 ID
-     * <p> 示例值：6991776076699549697
-     */
+     /**
+      * 组织架构调整任务 ID
+      * <p> 示例值：6991776076699549697
+      */
     @SerializedName("draft_id")
     private String draftId;
-    /**
-     * 组织架构调整任务状态
-     * <p> 示例值：1
-     */
+     /**
+      * 组织架构调整任务状态
+      * <p> 示例值：1
+      */
     @SerializedName("draft_status")
     private Integer draftStatus;
-    /**
-     * 组织架构调整流程状态V2
-     * <p> 示例值：1
-     */
+     /**
+      * 组织架构调整流程状态V2
+      * <p> 示例值：1
+      */
     @SerializedName("approval_group_status_v2")
     private Integer approvalGroupStatusV2;
-
     public String getApprovalGroupId() {
         return this.approvalGroupId;
     }

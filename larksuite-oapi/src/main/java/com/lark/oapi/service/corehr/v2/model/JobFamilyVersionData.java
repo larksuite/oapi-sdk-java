@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,148 +19,78 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobFamilyVersionData {
-    /**
-     * 序列 ID
-     * <p> 示例值：4719456877659520852
-     */
+     /**
+      * 序列 ID
+      * <p> 示例值：4719456877659520852
+      */
     @SerializedName("job_family_id")
     private String jobFamilyId;
-    /**
-     * 序列版本 ID
-     * <p> 示例值：7238516215202170412
-     */
+     /**
+      * 序列版本 ID
+      * <p> 示例值：7238516215202170412
+      */
     @SerializedName("job_family_version_id")
     private String jobFamilyVersionId;
-    /**
-     * 序列名称
-     * <p> 示例值：
-     */
+     /**
+      * 序列名称
+      * <p> 示例值：
+      */
     @SerializedName("job_family_names")
     private I18n[] jobFamilyNames;
-    /**
-     * 生效日期
-     * <p> 示例值：2020-05-01
-     */
+     /**
+      * 生效日期
+      * <p> 示例值：2020-05-01
+      */
     @SerializedName("effective_date")
     private String effectiveDate;
-    /**
-     * 失效时间
-     * <p> 示例值：2020-05-02
-     */
+     /**
+      * 失效时间
+      * <p> 示例值：2020-05-02
+      */
     @SerializedName("expiration_date")
     private String expirationDate;
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
     @SerializedName("descriptions")
     private I18n[] descriptions;
-    /**
-     * 可选
-     * <p> 示例值：true
-     */
+     /**
+      * 可选
+      * <p> 示例值：true
+      */
     @SerializedName("selectable")
     private Boolean selectable;
-    /**
-     * 上级序列
-     * <p> 示例值：4698020757495316313
-     */
+     /**
+      * 上级序列
+      * <p> 示例值：4698020757495316313
+      */
     @SerializedName("parent_job_family_id")
     private String parentJobFamilyId;
-    /**
-     * 通道 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 通道 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("pathway_ids")
     private String[] pathwayIds;
-    /**
-     * 编码
-     * <p> 示例值：123456
-     */
+     /**
+      * 编码
+      * <p> 示例值：123456
+      */
     @SerializedName("code")
     private String code;
-
-    // builder 开始
-    public JobFamilyVersionData() {
-    }
-
-    public JobFamilyVersionData(Builder builder) {
-        /**
-         * 序列 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-        /**
-         * 序列版本 ID
-         * <p> 示例值：7238516215202170412
-         */
-        this.jobFamilyVersionId = builder.jobFamilyVersionId;
-        /**
-         * 序列名称
-         * <p> 示例值：
-         */
-        this.jobFamilyNames = builder.jobFamilyNames;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-        /**
-         * 可选
-         * <p> 示例值：true
-         */
-        this.selectable = builder.selectable;
-        /**
-         * 上级序列
-         * <p> 示例值：4698020757495316313
-         */
-        this.parentJobFamilyId = builder.parentJobFamilyId;
-        /**
-         * 通道 ID 列表
-         * <p> 示例值：
-         */
-        this.pathwayIds = builder.pathwayIds;
-        /**
-         * 编码
-         * <p> 示例值：123456
-         */
-        this.code = builder.code;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getJobFamilyId() {
         return this.jobFamilyId;
     }
@@ -250,208 +179,274 @@ public class JobFamilyVersionData {
         this.code = code;
     }
 
+
+// builder 开始
+  public JobFamilyVersionData(){}
+
+  public JobFamilyVersionData(Builder builder){
+         /**
+          * 序列 ID
+          * <p> 示例值：4719456877659520852
+          */
+      this.jobFamilyId = builder.jobFamilyId;
+         /**
+          * 序列版本 ID
+          * <p> 示例值：7238516215202170412
+          */
+      this.jobFamilyVersionId = builder.jobFamilyVersionId;
+         /**
+          * 序列名称
+          * <p> 示例值：
+          */
+      this.jobFamilyNames = builder.jobFamilyNames;
+         /**
+          * 生效日期
+          * <p> 示例值：2020-05-01
+          */
+      this.effectiveDate = builder.effectiveDate;
+         /**
+          * 失效时间
+          * <p> 示例值：2020-05-02
+          */
+      this.expirationDate = builder.expirationDate;
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 描述
+          * <p> 示例值：
+          */
+      this.descriptions = builder.descriptions;
+         /**
+          * 可选
+          * <p> 示例值：true
+          */
+      this.selectable = builder.selectable;
+         /**
+          * 上级序列
+          * <p> 示例值：4698020757495316313
+          */
+      this.parentJobFamilyId = builder.parentJobFamilyId;
+         /**
+          * 通道 ID 列表
+          * <p> 示例值：
+          */
+      this.pathwayIds = builder.pathwayIds;
+         /**
+          * 编码
+          * <p> 示例值：123456
+          */
+      this.code = builder.code;
+  }
+
     public static class Builder {
-        /**
-         * 序列 ID
-         * <p> 示例值：4719456877659520852
-         */
+     /**
+      * 序列 ID
+      * <p> 示例值：4719456877659520852
+      */
         private String jobFamilyId;
-        /**
-         * 序列版本 ID
-         * <p> 示例值：7238516215202170412
-         */
+     /**
+      * 序列版本 ID
+      * <p> 示例值：7238516215202170412
+      */
         private String jobFamilyVersionId;
-        /**
-         * 序列名称
-         * <p> 示例值：
-         */
+     /**
+      * 序列名称
+      * <p> 示例值：
+      */
         private I18n[] jobFamilyNames;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
+     /**
+      * 生效日期
+      * <p> 示例值：2020-05-01
+      */
         private String effectiveDate;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02
-         */
+     /**
+      * 失效时间
+      * <p> 示例值：2020-05-02
+      */
         private String expirationDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
         private I18n[] descriptions;
-        /**
-         * 可选
-         * <p> 示例值：true
-         */
+     /**
+      * 可选
+      * <p> 示例值：true
+      */
         private Boolean selectable;
-        /**
-         * 上级序列
-         * <p> 示例值：4698020757495316313
-         */
+     /**
+      * 上级序列
+      * <p> 示例值：4698020757495316313
+      */
         private String parentJobFamilyId;
-        /**
-         * 通道 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 通道 ID 列表
+      * <p> 示例值：
+      */
         private String[] pathwayIds;
-        /**
-         * 编码
-         * <p> 示例值：123456
-         */
+     /**
+      * 编码
+      * <p> 示例值：123456
+      */
         private String code;
 
         /**
          * 序列 ID
          * <p> 示例值：4719456877659520852
-         *
          * @param jobFamilyId
          * @return
          */
         public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
+             this.jobFamilyId = jobFamilyId;
+             return this;
         }
 
+    
 
         /**
          * 序列版本 ID
          * <p> 示例值：7238516215202170412
-         *
          * @param jobFamilyVersionId
          * @return
          */
         public Builder jobFamilyVersionId(String jobFamilyVersionId) {
-            this.jobFamilyVersionId = jobFamilyVersionId;
-            return this;
+             this.jobFamilyVersionId = jobFamilyVersionId;
+             return this;
         }
 
+    
 
         /**
          * 序列名称
          * <p> 示例值：
-         *
          * @param jobFamilyNames
          * @return
          */
         public Builder jobFamilyNames(I18n[] jobFamilyNames) {
-            this.jobFamilyNames = jobFamilyNames;
-            return this;
+             this.jobFamilyNames = jobFamilyNames;
+             return this;
         }
 
+    
 
         /**
          * 生效日期
          * <p> 示例值：2020-05-01
-         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
+             this.effectiveDate = effectiveDate;
+             return this;
         }
 
+    
 
         /**
          * 失效时间
          * <p> 示例值：2020-05-02
-         *
          * @param expirationDate
          * @return
          */
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
+             this.expirationDate = expirationDate;
+             return this;
         }
 
+    
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：
-         *
          * @param descriptions
          * @return
          */
         public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
+             this.descriptions = descriptions;
+             return this;
         }
 
+    
 
         /**
          * 可选
          * <p> 示例值：true
-         *
          * @param selectable
          * @return
          */
         public Builder selectable(Boolean selectable) {
-            this.selectable = selectable;
-            return this;
+             this.selectable = selectable;
+             return this;
         }
 
+    
 
         /**
          * 上级序列
          * <p> 示例值：4698020757495316313
-         *
          * @param parentJobFamilyId
          * @return
          */
         public Builder parentJobFamilyId(String parentJobFamilyId) {
-            this.parentJobFamilyId = parentJobFamilyId;
-            return this;
+             this.parentJobFamilyId = parentJobFamilyId;
+             return this;
         }
 
+    
 
         /**
          * 通道 ID 列表
          * <p> 示例值：
-         *
          * @param pathwayIds
          * @return
          */
         public Builder pathwayIds(String[] pathwayIds) {
-            this.pathwayIds = pathwayIds;
-            return this;
+             this.pathwayIds = pathwayIds;
+             return this;
         }
 
+    
 
         /**
          * 编码
          * <p> 示例值：123456
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
+    
+    public JobFamilyVersionData build(){
+        return new JobFamilyVersionData(this);
+      }
+    }
 
-        public JobFamilyVersionData build() {
-            return new JobFamilyVersionData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

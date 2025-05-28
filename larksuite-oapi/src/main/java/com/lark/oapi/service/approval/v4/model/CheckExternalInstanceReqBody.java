@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CheckExternalInstanceReqBody {
-    /**
-     * 校验的实例信息
-     * <p> 示例值：
-     */
+     /**
+      * 校验的实例信息
+      * <p> 示例值：
+      */
     @SerializedName("instances")
     private ExteranlInstanceCheck[] instances;
-
-    // builder 开始
-    public CheckExternalInstanceReqBody() {
-    }
-
-    public CheckExternalInstanceReqBody(Builder builder) {
-        /**
-         * 校验的实例信息
-         * <p> 示例值：
-         */
-        this.instances = builder.instances;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ExteranlInstanceCheck[] getInstances() {
         return this.instances;
     }
@@ -60,28 +39,44 @@ public class CheckExternalInstanceReqBody {
         this.instances = instances;
     }
 
+
+// builder 开始
+  public CheckExternalInstanceReqBody(){}
+
+  public CheckExternalInstanceReqBody(Builder builder){
+         /**
+          * 校验的实例信息
+          * <p> 示例值：
+          */
+      this.instances = builder.instances;
+  }
+
     public static class Builder {
-        /**
-         * 校验的实例信息
-         * <p> 示例值：
-         */
+     /**
+      * 校验的实例信息
+      * <p> 示例值：
+      */
         private ExteranlInstanceCheck[] instances;
 
         /**
          * 校验的实例信息
          * <p> 示例值：
-         *
          * @param instances
          * @return
          */
         public Builder instances(ExteranlInstanceCheck[] instances) {
-            this.instances = instances;
-            return this;
+             this.instances = instances;
+             return this;
         }
 
+    
+    
+    public CheckExternalInstanceReqBody build(){
+        return new CheckExternalInstanceReqBody(this);
+      }
+    }
 
-        public CheckExternalInstanceReqBody build() {
-            return new CheckExternalInstanceReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

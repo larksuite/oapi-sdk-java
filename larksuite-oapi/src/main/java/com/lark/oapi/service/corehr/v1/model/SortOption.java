@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SortOption {
-    /**
-     * 排序字段
-     * <p> 示例值：wk_id
-     */
+     /**
+      * 排序字段
+      * <p> 示例值：wk_id
+      */
     @SerializedName("sort_field")
     private String sortField;
-    /**
-     * 排序顺序
-     * <p> 示例值：0
-     */
+     /**
+      * 排序顺序
+      * <p> 示例值：0
+      */
     @SerializedName("sort_order")
     private Integer sortOrder;
-    /**
-     * 0=中文关键字;1=英文关键字;2=拼音
-     * <p> 示例值：1
-     */
+     /**
+      * 0=中文关键字;1=英文关键字;2=拼音
+      * <p> 示例值：1
+      */
     @SerializedName("sort_i18n")
     private Integer sortI18n;
-    /**
-     * 按某个字段的层级深度排序
-     * <p> 示例值：false
-     */
+     /**
+      * 按某个字段的层级深度排序
+      * <p> 示例值：false
+      */
     @SerializedName("sort_by_strand_length")
     private Boolean sortByStrandLength;
-    /**
-     * 是否按照拼音排序
-     * <p> 示例值：false
-     */
+     /**
+      * 是否按照拼音排序
+      * <p> 示例值：false
+      */
     @SerializedName("sort_by_pinyin")
     private Boolean sortByPinyin;
-    /**
-     * 是否按照枚举类型 value_order 排序
-     * <p> 示例值：false
-     */
+     /**
+      * 是否按照枚举类型 value_order 排序
+      * <p> 示例值：false
+      */
     @SerializedName("sort_by_enum_value_order")
     private Boolean sortByEnumValueOrder;
-
-    // builder 开始
-    public SortOption() {
-    }
-
-    public SortOption(Builder builder) {
-        /**
-         * 排序字段
-         * <p> 示例值：wk_id
-         */
-        this.sortField = builder.sortField;
-        /**
-         * 排序顺序
-         * <p> 示例值：0
-         */
-        this.sortOrder = builder.sortOrder;
-        /**
-         * 0=中文关键字;1=英文关键字;2=拼音
-         * <p> 示例值：1
-         */
-        this.sortI18n = builder.sortI18n;
-        /**
-         * 按某个字段的层级深度排序
-         * <p> 示例值：false
-         */
-        this.sortByStrandLength = builder.sortByStrandLength;
-        /**
-         * 是否按照拼音排序
-         * <p> 示例值：false
-         */
-        this.sortByPinyin = builder.sortByPinyin;
-        /**
-         * 是否按照枚举类型 value_order 排序
-         * <p> 示例值：false
-         */
-        this.sortByEnumValueOrder = builder.sortByEnumValueOrder;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSortField() {
         return this.sortField;
     }
@@ -155,142 +109,179 @@ public class SortOption {
         this.sortByEnumValueOrder = sortByEnumValueOrder;
     }
 
+
+// builder 开始
+  public SortOption(){}
+
+  public SortOption(Builder builder){
+         /**
+          * 排序字段
+          * <p> 示例值：wk_id
+          */
+      this.sortField = builder.sortField;
+         /**
+          * 排序顺序
+          * <p> 示例值：0
+          */
+      this.sortOrder = builder.sortOrder;
+         /**
+          * 0=中文关键字;1=英文关键字;2=拼音
+          * <p> 示例值：1
+          */
+      this.sortI18n = builder.sortI18n;
+         /**
+          * 按某个字段的层级深度排序
+          * <p> 示例值：false
+          */
+      this.sortByStrandLength = builder.sortByStrandLength;
+         /**
+          * 是否按照拼音排序
+          * <p> 示例值：false
+          */
+      this.sortByPinyin = builder.sortByPinyin;
+         /**
+          * 是否按照枚举类型 value_order 排序
+          * <p> 示例值：false
+          */
+      this.sortByEnumValueOrder = builder.sortByEnumValueOrder;
+  }
+
     public static class Builder {
-        /**
-         * 排序字段
-         * <p> 示例值：wk_id
-         */
+     /**
+      * 排序字段
+      * <p> 示例值：wk_id
+      */
         private String sortField;
-        /**
-         * 排序顺序
-         * <p> 示例值：0
-         */
+     /**
+      * 排序顺序
+      * <p> 示例值：0
+      */
         private Integer sortOrder;
-        /**
-         * 0=中文关键字;1=英文关键字;2=拼音
-         * <p> 示例值：1
-         */
+     /**
+      * 0=中文关键字;1=英文关键字;2=拼音
+      * <p> 示例值：1
+      */
         private Integer sortI18n;
-        /**
-         * 按某个字段的层级深度排序
-         * <p> 示例值：false
-         */
+     /**
+      * 按某个字段的层级深度排序
+      * <p> 示例值：false
+      */
         private Boolean sortByStrandLength;
-        /**
-         * 是否按照拼音排序
-         * <p> 示例值：false
-         */
+     /**
+      * 是否按照拼音排序
+      * <p> 示例值：false
+      */
         private Boolean sortByPinyin;
-        /**
-         * 是否按照枚举类型 value_order 排序
-         * <p> 示例值：false
-         */
+     /**
+      * 是否按照枚举类型 value_order 排序
+      * <p> 示例值：false
+      */
         private Boolean sortByEnumValueOrder;
 
         /**
          * 排序字段
          * <p> 示例值：wk_id
-         *
          * @param sortField
          * @return
          */
         public Builder sortField(String sortField) {
-            this.sortField = sortField;
-            return this;
+             this.sortField = sortField;
+             return this;
         }
 
+    
 
         /**
          * 排序顺序
          * <p> 示例值：0
-         *
          * @param sortOrder
          * @return
          */
         public Builder sortOrder(Integer sortOrder) {
-            this.sortOrder = sortOrder;
-            return this;
+             this.sortOrder = sortOrder;
+             return this;
         }
-
         /**
          * 排序顺序
          * <p> 示例值：0
-         *
          * @param sortOrder {@link com.lark.oapi.service.corehr.v1.enums.SortOptionSortOrderEnum}
          * @return
          */
         public Builder sortOrder(com.lark.oapi.service.corehr.v1.enums.SortOptionSortOrderEnum sortOrder) {
-            this.sortOrder = sortOrder.getValue();
-            return this;
+             this.sortOrder = sortOrder.getValue();
+             return this;
         }
 
+    
 
         /**
          * 0=中文关键字;1=英文关键字;2=拼音
          * <p> 示例值：1
-         *
          * @param sortI18n
          * @return
          */
         public Builder sortI18n(Integer sortI18n) {
-            this.sortI18n = sortI18n;
-            return this;
+             this.sortI18n = sortI18n;
+             return this;
         }
-
         /**
          * 0=中文关键字;1=英文关键字;2=拼音
          * <p> 示例值：1
-         *
          * @param sortI18n {@link com.lark.oapi.service.corehr.v1.enums.SortOptionSortI18NEnum}
          * @return
          */
         public Builder sortI18n(com.lark.oapi.service.corehr.v1.enums.SortOptionSortI18NEnum sortI18n) {
-            this.sortI18n = sortI18n.getValue();
-            return this;
+             this.sortI18n = sortI18n.getValue();
+             return this;
         }
 
+    
 
         /**
          * 按某个字段的层级深度排序
          * <p> 示例值：false
-         *
          * @param sortByStrandLength
          * @return
          */
         public Builder sortByStrandLength(Boolean sortByStrandLength) {
-            this.sortByStrandLength = sortByStrandLength;
-            return this;
+             this.sortByStrandLength = sortByStrandLength;
+             return this;
         }
 
+    
 
         /**
          * 是否按照拼音排序
          * <p> 示例值：false
-         *
          * @param sortByPinyin
          * @return
          */
         public Builder sortByPinyin(Boolean sortByPinyin) {
-            this.sortByPinyin = sortByPinyin;
-            return this;
+             this.sortByPinyin = sortByPinyin;
+             return this;
         }
 
+    
 
         /**
          * 是否按照枚举类型 value_order 排序
          * <p> 示例值：false
-         *
          * @param sortByEnumValueOrder
          * @return
          */
         public Builder sortByEnumValueOrder(Boolean sortByEnumValueOrder) {
-            this.sortByEnumValueOrder = sortByEnumValueOrder;
-            return this;
+             this.sortByEnumValueOrder = sortByEnumValueOrder;
+             return this;
         }
 
+    
+    
+    public SortOption build(){
+        return new SortOption(this);
+      }
+    }
 
-        public SortOption build() {
-            return new SortOption(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

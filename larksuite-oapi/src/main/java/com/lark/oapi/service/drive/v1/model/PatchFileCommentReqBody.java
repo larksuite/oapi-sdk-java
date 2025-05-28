@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchFileCommentReqBody {
-    /**
-     * 评论解决标志
-     * <p> 示例值：true
-     */
+     /**
+      * 评论解决标志
+      * <p> 示例值：true
+      */
     @SerializedName("is_solved")
     private Boolean isSolved;
-
-    // builder 开始
-    public PatchFileCommentReqBody() {
-    }
-
-    public PatchFileCommentReqBody(Builder builder) {
-        /**
-         * 评论解决标志
-         * <p> 示例值：true
-         */
-        this.isSolved = builder.isSolved;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getIsSolved() {
         return this.isSolved;
     }
@@ -60,28 +39,44 @@ public class PatchFileCommentReqBody {
         this.isSolved = isSolved;
     }
 
+
+// builder 开始
+  public PatchFileCommentReqBody(){}
+
+  public PatchFileCommentReqBody(Builder builder){
+         /**
+          * 评论解决标志
+          * <p> 示例值：true
+          */
+      this.isSolved = builder.isSolved;
+  }
+
     public static class Builder {
-        /**
-         * 评论解决标志
-         * <p> 示例值：true
-         */
+     /**
+      * 评论解决标志
+      * <p> 示例值：true
+      */
         private Boolean isSolved;
 
         /**
          * 评论解决标志
          * <p> 示例值：true
-         *
          * @param isSolved
          * @return
          */
         public Builder isSolved(Boolean isSolved) {
-            this.isSolved = isSolved;
-            return this;
+             this.isSolved = isSolved;
+             return this;
         }
 
+    
+    
+    public PatchFileCommentReqBody build(){
+        return new PatchFileCommentReqBody(this);
+      }
+    }
 
-        public PatchFileCommentReqBody build() {
-            return new PatchFileCommentReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

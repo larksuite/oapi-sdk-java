@@ -12,48 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateOfferCustomFieldReq {
-    /**
-     * Offer 申请表自定义字段 ID，可通过接口「获取 Offer 申请表模板信息」获取
-     * <p> 示例值：6906755946257615112
-     */
+     /**
+      * Offer 申请表自定义字段 ID，可通过接口「获取 Offer 申请表模板信息」获取
+      * <p> 示例值：6906755946257615112
+      */
     @Path
     @SerializedName("offer_custom_field_id")
     private String offerCustomFieldId;
-    @Body
-    private OfferCustomField body;
-
-    // builder 开始
-    public UpdateOfferCustomFieldReq() {
-    }
-
-    public UpdateOfferCustomFieldReq(Builder builder) {
-        /**
-         * Offer 申请表自定义字段 ID，可通过接口「获取 Offer 申请表模板信息」获取
-         * <p> 示例值：6906755946257615112
-         */
-        this.offerCustomFieldId = builder.offerCustomFieldId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOfferCustomFieldId() {
         return this.offerCustomFieldId;
     }
@@ -61,6 +37,9 @@ public class UpdateOfferCustomFieldReq {
     public void setOfferCustomFieldId(String offerCustomFieldId) {
         this.offerCustomFieldId = offerCustomFieldId;
     }
+
+    @Body
+    private OfferCustomField body;
 
     public OfferCustomField getOfferCustomField() {
         return this.body;
@@ -70,40 +49,54 @@ public class UpdateOfferCustomFieldReq {
         this.body = body;
     }
 
+// builder 开始
+  public UpdateOfferCustomFieldReq(){}
+
+  public UpdateOfferCustomFieldReq(Builder builder){
+     /**
+      * Offer 申请表自定义字段 ID，可通过接口「获取 Offer 申请表模板信息」获取
+      * <p> 示例值：6906755946257615112
+      */
+       this.offerCustomFieldId = builder.offerCustomFieldId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String offerCustomFieldId; // Offer 申请表自定义字段 ID，可通过接口「获取 Offer 申请表模板信息」获取
-        private OfferCustomField body;
-
         /**
          * Offer 申请表自定义字段 ID，可通过接口「获取 Offer 申请表模板信息」获取
          * <p> 示例值：6906755946257615112
-         *
          * @param offerCustomFieldId
          * @return
          */
-        public Builder offerCustomFieldId(String offerCustomFieldId) {
-            this.offerCustomFieldId = offerCustomFieldId;
-            return this;
-        }
+          public Builder offerCustomFieldId(String offerCustomFieldId) {
+               this.offerCustomFieldId = offerCustomFieldId;
+               return this;
+          }
 
+    
+        private OfferCustomField body;
+    
         public OfferCustomField getOfferCustomField() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder offerCustomField(OfferCustomField body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UpdateOfferCustomFieldReq build(){
+        return new UpdateOfferCustomFieldReq(this);
+      }
+    }
 
-        public UpdateOfferCustomFieldReq build() {
-            return new UpdateOfferCustomFieldReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

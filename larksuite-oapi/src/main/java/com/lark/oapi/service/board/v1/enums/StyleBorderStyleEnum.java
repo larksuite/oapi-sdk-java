@@ -17,18 +17,17 @@ package com.lark.oapi.service.board.v1.enums;
  * 边框样式
  */
 public enum StyleBorderStyleEnum {
-    SOLID("solid"), // 实线
-    NONE("none"), // 无边框
-    DASH("dash"), // 虚线
-    DOT("dot"), // 点状虚线
-    ;
-    private String value;
-
+     SOLID("solid"), // 实线
+     NONE("none"), // 无边框
+     DASH("dash"), // 虚线
+     DOT("dot"), // 点状虚线
+  ;
+   private String value;
     StyleBorderStyleEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

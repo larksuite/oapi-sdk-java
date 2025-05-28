@@ -21,55 +21,47 @@ public class MomentsService {
     private final V1 v1;
 
     public MomentsService(Config config) {
-        this.v1 = new V1(config);
+    this.v1 = new V1(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public abstract static class P2CommentCreatedV1Handler implements IEventHandler<P2CommentCreatedV1> {
         @Override
         public P2CommentCreatedV1 getEvent() {
             return new P2CommentCreatedV1();
         }
     }
-
     public abstract static class P2CommentDeletedV1Handler implements IEventHandler<P2CommentDeletedV1> {
         @Override
         public P2CommentDeletedV1 getEvent() {
             return new P2CommentDeletedV1();
         }
     }
-
     public abstract static class P2PostCreatedV1Handler implements IEventHandler<P2PostCreatedV1> {
         @Override
         public P2PostCreatedV1 getEvent() {
             return new P2PostCreatedV1();
         }
     }
-
     public abstract static class P2PostDeletedV1Handler implements IEventHandler<P2PostDeletedV1> {
         @Override
         public P2PostDeletedV1 getEvent() {
             return new P2PostDeletedV1();
         }
     }
-
     public abstract static class P2PostStatisticsUpdatedV1Handler implements IEventHandler<P2PostStatisticsUpdatedV1> {
         @Override
         public P2PostStatisticsUpdatedV1 getEvent() {
             return new P2PostStatisticsUpdatedV1();
         }
     }
-
     public abstract static class P2ReactionCreatedV1Handler implements IEventHandler<P2ReactionCreatedV1> {
         @Override
         public P2ReactionCreatedV1 getEvent() {
             return new P2ReactionCreatedV1();
         }
     }
-
     public abstract static class P2ReactionDeletedV1Handler implements IEventHandler<P2ReactionDeletedV1> {
         @Override
         public P2ReactionDeletedV1 getEvent() {

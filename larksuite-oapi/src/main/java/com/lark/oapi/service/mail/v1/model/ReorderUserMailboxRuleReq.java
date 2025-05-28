@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReorderUserMailboxRuleReq {
-    /**
-     * 用户邮箱地址，使用 user_access_token 时可使用 me
-     * <p> 示例值：user@xxx.xx 或 me
-     */
+     /**
+      * 用户邮箱地址，使用 user_access_token 时可使用 me
+      * <p> 示例值：user@xxx.xx 或 me
+      */
     @Path
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
-    @Body
-    private ReorderUserMailboxRuleReqBody body;
-
-    // builder 开始
-    public ReorderUserMailboxRuleReq() {
-    }
-
-    public ReorderUserMailboxRuleReq(Builder builder) {
-        /**
-         * 用户邮箱地址，使用 user_access_token 时可使用 me
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -62,6 +38,9 @@ public class ReorderUserMailboxRuleReq {
     public void setUserMailboxId(String userMailboxId) {
         this.userMailboxId = userMailboxId;
     }
+
+    @Body
+    private ReorderUserMailboxRuleReqBody body;
 
     public ReorderUserMailboxRuleReqBody getReorderUserMailboxRuleReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class ReorderUserMailboxRuleReq {
         this.body = body;
     }
 
+// builder 开始
+  public ReorderUserMailboxRuleReq(){}
+
+  public ReorderUserMailboxRuleReq(Builder builder){
+     /**
+      * 用户邮箱地址，使用 user_access_token 时可使用 me
+      * <p> 示例值：user@xxx.xx 或 me
+      */
+       this.userMailboxId = builder.userMailboxId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String userMailboxId; // 用户邮箱地址，使用 user_access_token 时可使用 me
-        private ReorderUserMailboxRuleReqBody body;
-
         /**
          * 用户邮箱地址，使用 user_access_token 时可使用 me
          * <p> 示例值：user@xxx.xx 或 me
-         *
          * @param userMailboxId
          * @return
          */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
+          public Builder userMailboxId(String userMailboxId) {
+               this.userMailboxId = userMailboxId;
+               return this;
+          }
 
+    
+        private ReorderUserMailboxRuleReqBody body;
+    
         public ReorderUserMailboxRuleReqBody getReorderUserMailboxRuleReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder reorderUserMailboxRuleReqBody(ReorderUserMailboxRuleReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public ReorderUserMailboxRuleReq build(){
+        return new ReorderUserMailboxRuleReq(this);
+      }
+    }
 
-        public ReorderUserMailboxRuleReq build() {
-            return new ReorderUserMailboxRuleReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

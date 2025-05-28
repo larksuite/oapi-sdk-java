@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EnterpriseKnowledgeSourceParam {
-    /**
-     * 云空间文档
-     * <p> 示例值：
-     */
+     /**
+      * 云空间文档
+      * <p> 示例值：
+      */
     @SerializedName("space")
     private EnterpriseKnowledgeSourceSpaceParam space;
-    /**
-     * 知识库文档
-     * <p> 示例值：
-     */
+     /**
+      * 知识库文档
+      * <p> 示例值：
+      */
     @SerializedName("wiki")
     private EnterpriseKnowledgeSourceWikiParam wiki;
-    /**
-     * 消息
-     * <p> 示例值：
-     */
+     /**
+      * 消息
+      * <p> 示例值：
+      */
     @SerializedName("message")
     private EnterpriseKnowledgeSourceMessageParam message;
-    /**
-     * 服务台 FAQ
-     * <p> 示例值：
-     */
+     /**
+      * 服务台 FAQ
+      * <p> 示例值：
+      */
     @SerializedName("helpdesk_faq")
     private EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq;
-    /**
-     * Lingo企业词典
-     * <p> 示例值：
-     */
+     /**
+      * Lingo企业词典
+      * <p> 示例值：
+      */
     @SerializedName("lingo")
     private EnterpriseKnowledgeSourceLingoParam lingo;
-
-    // builder 开始
-    public EnterpriseKnowledgeSourceParam() {
-    }
-
-    public EnterpriseKnowledgeSourceParam(Builder builder) {
-        /**
-         * 云空间文档
-         * <p> 示例值：
-         */
-        this.space = builder.space;
-        /**
-         * 知识库文档
-         * <p> 示例值：
-         */
-        this.wiki = builder.wiki;
-        /**
-         * 消息
-         * <p> 示例值：
-         */
-        this.message = builder.message;
-        /**
-         * 服务台 FAQ
-         * <p> 示例值：
-         */
-        this.helpdeskFaq = builder.helpdeskFaq;
-        /**
-         * Lingo企业词典
-         * <p> 示例值：
-         */
-        this.lingo = builder.lingo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public EnterpriseKnowledgeSourceSpaceParam getSpace() {
         return this.space;
     }
@@ -136,100 +95,136 @@ public class EnterpriseKnowledgeSourceParam {
         this.lingo = lingo;
     }
 
+
+// builder 开始
+  public EnterpriseKnowledgeSourceParam(){}
+
+  public EnterpriseKnowledgeSourceParam(Builder builder){
+         /**
+          * 云空间文档
+          * <p> 示例值：
+          */
+      this.space = builder.space;
+         /**
+          * 知识库文档
+          * <p> 示例值：
+          */
+      this.wiki = builder.wiki;
+         /**
+          * 消息
+          * <p> 示例值：
+          */
+      this.message = builder.message;
+         /**
+          * 服务台 FAQ
+          * <p> 示例值：
+          */
+      this.helpdeskFaq = builder.helpdeskFaq;
+         /**
+          * Lingo企业词典
+          * <p> 示例值：
+          */
+      this.lingo = builder.lingo;
+  }
+
     public static class Builder {
-        /**
-         * 云空间文档
-         * <p> 示例值：
-         */
+     /**
+      * 云空间文档
+      * <p> 示例值：
+      */
         private EnterpriseKnowledgeSourceSpaceParam space;
-        /**
-         * 知识库文档
-         * <p> 示例值：
-         */
+     /**
+      * 知识库文档
+      * <p> 示例值：
+      */
         private EnterpriseKnowledgeSourceWikiParam wiki;
-        /**
-         * 消息
-         * <p> 示例值：
-         */
+     /**
+      * 消息
+      * <p> 示例值：
+      */
         private EnterpriseKnowledgeSourceMessageParam message;
-        /**
-         * 服务台 FAQ
-         * <p> 示例值：
-         */
+     /**
+      * 服务台 FAQ
+      * <p> 示例值：
+      */
         private EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq;
-        /**
-         * Lingo企业词典
-         * <p> 示例值：
-         */
+     /**
+      * Lingo企业词典
+      * <p> 示例值：
+      */
         private EnterpriseKnowledgeSourceLingoParam lingo;
 
         /**
          * 云空间文档
          * <p> 示例值：
-         *
          * @param space
          * @return
          */
         public Builder space(EnterpriseKnowledgeSourceSpaceParam space) {
-            this.space = space;
-            return this;
+             this.space = space;
+             return this;
         }
 
+    
 
         /**
          * 知识库文档
          * <p> 示例值：
-         *
          * @param wiki
          * @return
          */
         public Builder wiki(EnterpriseKnowledgeSourceWikiParam wiki) {
-            this.wiki = wiki;
-            return this;
+             this.wiki = wiki;
+             return this;
         }
 
+    
 
         /**
          * 消息
          * <p> 示例值：
-         *
          * @param message
          * @return
          */
         public Builder message(EnterpriseKnowledgeSourceMessageParam message) {
-            this.message = message;
-            return this;
+             this.message = message;
+             return this;
         }
 
+    
 
         /**
          * 服务台 FAQ
          * <p> 示例值：
-         *
          * @param helpdeskFaq
          * @return
          */
         public Builder helpdeskFaq(EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq) {
-            this.helpdeskFaq = helpdeskFaq;
-            return this;
+             this.helpdeskFaq = helpdeskFaq;
+             return this;
         }
 
+    
 
         /**
          * Lingo企业词典
          * <p> 示例值：
-         *
          * @param lingo
          * @return
          */
         public Builder lingo(EnterpriseKnowledgeSourceLingoParam lingo) {
-            this.lingo = lingo;
-            return this;
+             this.lingo = lingo;
+             return this;
         }
 
+    
+    
+    public EnterpriseKnowledgeSourceParam build(){
+        return new EnterpriseKnowledgeSourceParam(this);
+      }
+    }
 
-        public EnterpriseKnowledgeSourceParam build() {
-            return new EnterpriseKnowledgeSourceParam(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

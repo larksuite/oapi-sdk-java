@@ -17,26 +17,25 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 条件运算符
  */
 public enum ConditionOperatorEnum {
-    OPERATORIS("is"), // is
-    OPERATORISNOT("isNot"), // isNot
-    OPERATORCONTAINS("contains"), // contains
-    OPERATORDOESNOTCONTAIN("doesNotContain"), // doesNotContain
-    OPERATORISEMPTY("isEmpty"), // isEmpty
-    OPERATORISNOTEMPTY("isNotEmpty"), // isNotEmpty
-    OPERATORISGREATER("isGreater"), // isGreater
-    OPERATORISGREATEREQUAL("isGreaterEqual"), // isGreaterEqual
-    OPERATORISLESS("isLess"), // isLess
-    OPERATORISLESSEQUAL("isLessEqual"), // isLessEqual
-    OPERATORLIKE("like"), // like
-    OPERATORIN("in"), // in
-    ;
-    private String value;
-
+     OPERATORIS("is"), // is
+     OPERATORISNOT("isNot"), // isNot
+     OPERATORCONTAINS("contains"), // contains
+     OPERATORDOESNOTCONTAIN("doesNotContain"), // doesNotContain
+     OPERATORISEMPTY("isEmpty"), // isEmpty
+     OPERATORISNOTEMPTY("isNotEmpty"), // isNotEmpty
+     OPERATORISGREATER("isGreater"), // isGreater
+     OPERATORISGREATEREQUAL("isGreaterEqual"), // isGreaterEqual
+     OPERATORISLESS("isLess"), // isLess
+     OPERATORISLESSEQUAL("isLessEqual"), // isLessEqual
+     OPERATORLIKE("like"), // like
+     OPERATORIN("in"), // in
+  ;
+   private String value;
     ConditionOperatorEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

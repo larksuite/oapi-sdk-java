@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Department {
-    /**
-     * 部门 ID
-     * <p> 示例值：6969828847121885087
-     */
+     /**
+      * 部门 ID
+      * <p> 示例值：6969828847121885087
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 部门子类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)部门子类型（department_sub_type）枚举定义部分获得
-     * <p> 示例值：
-     */
+     /**
+      * 部门子类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)部门子类型（department_sub_type）枚举定义部分获得
+      * <p> 示例值：
+      */
     @SerializedName("sub_type")
     private Enum subType;
-    /**
-     * 部门负责人 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
-     * <p> 示例值：6893013238632416776
-     */
+     /**
+      * 部门负责人 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
+      * <p> 示例值：6893013238632416776
+      */
     @SerializedName("manager")
     private String manager;
-    /**
-     * 是否保密
-     * <p> 示例值：true
-     */
+     /**
+      * 是否保密
+      * <p> 示例值：true
+      */
     @SerializedName("is_confidential")
     private Boolean isConfidential;
-    /**
-     * 层级关系，内层字段见实体
-     * <p> 示例值：
-     */
+     /**
+      * 层级关系，内层字段见实体
+      * <p> 示例值：
+      */
     @SerializedName("hiberarchy_common")
     private HiberarchyCommon hiberarchyCommon;
-    /**
-     * 生效时间
-     * <p> 示例值：2020-05-01 00:00:00
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 失效时间
-     * <p> 示例值：2020-05-02 00:00:00
-     */
+     /**
+      * 失效时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
     @SerializedName("expiration_time")
     private String expirationTime;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-    /**
-     * 成本中心id
-     * <p> 示例值：7142384817131652652
-     */
+     /**
+      * 成本中心id
+      * <p> 示例值：7142384817131652652
+      */
     @SerializedName("cost_center_id")
     private String costCenterId;
-    /**
-     * 是否使用职务
-     * <p> 示例值：
-     */
+     /**
+      * 是否使用职务
+      * <p> 示例值：
+      */
     @SerializedName("staffing_model")
     private Enum staffingModel;
-
-    // builder 开始
-    public Department() {
-    }
-
-    public Department(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：6969828847121885087
-         */
-        this.id = builder.id;
-        /**
-         * 部门子类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)部门子类型（department_sub_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.subType = builder.subType;
-        /**
-         * 部门负责人 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
-         * <p> 示例值：6893013238632416776
-         */
-        this.manager = builder.manager;
-        /**
-         * 是否保密
-         * <p> 示例值：true
-         */
-        this.isConfidential = builder.isConfidential;
-        /**
-         * 层级关系，内层字段见实体
-         * <p> 示例值：
-         */
-        this.hiberarchyCommon = builder.hiberarchyCommon;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         */
-        this.staffingModel = builder.staffingModel;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -231,190 +165,251 @@ public class Department {
         this.staffingModel = staffingModel;
     }
 
+
+// builder 开始
+  public Department(){}
+
+  public Department(Builder builder){
+         /**
+          * 部门 ID
+          * <p> 示例值：6969828847121885087
+          */
+      this.id = builder.id;
+         /**
+          * 部门子类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)部门子类型（department_sub_type）枚举定义部分获得
+          * <p> 示例值：
+          */
+      this.subType = builder.subType;
+         /**
+          * 部门负责人 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
+          * <p> 示例值：6893013238632416776
+          */
+      this.manager = builder.manager;
+         /**
+          * 是否保密
+          * <p> 示例值：true
+          */
+      this.isConfidential = builder.isConfidential;
+         /**
+          * 层级关系，内层字段见实体
+          * <p> 示例值：
+          */
+      this.hiberarchyCommon = builder.hiberarchyCommon;
+         /**
+          * 生效时间
+          * <p> 示例值：2020-05-01 00:00:00
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 失效时间
+          * <p> 示例值：2020-05-02 00:00:00
+          */
+      this.expirationTime = builder.expirationTime;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 成本中心id
+          * <p> 示例值：7142384817131652652
+          */
+      this.costCenterId = builder.costCenterId;
+         /**
+          * 是否使用职务
+          * <p> 示例值：
+          */
+      this.staffingModel = builder.staffingModel;
+  }
+
     public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：6969828847121885087
-         */
+     /**
+      * 部门 ID
+      * <p> 示例值：6969828847121885087
+      */
         private String id;
-        /**
-         * 部门子类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)部门子类型（department_sub_type）枚举定义部分获得
-         * <p> 示例值：
-         */
+     /**
+      * 部门子类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)部门子类型（department_sub_type）枚举定义部分获得
+      * <p> 示例值：
+      */
         private Enum subType;
-        /**
-         * 部门负责人 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
-         * <p> 示例值：6893013238632416776
-         */
+     /**
+      * 部门负责人 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
+      * <p> 示例值：6893013238632416776
+      */
         private String manager;
-        /**
-         * 是否保密
-         * <p> 示例值：true
-         */
+     /**
+      * 是否保密
+      * <p> 示例值：true
+      */
         private Boolean isConfidential;
-        /**
-         * 层级关系，内层字段见实体
-         * <p> 示例值：
-         */
+     /**
+      * 层级关系，内层字段见实体
+      * <p> 示例值：
+      */
         private HiberarchyCommon hiberarchyCommon;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
         private String effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
+     /**
+      * 失效时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
         private String expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ObjectFieldData[] customFields;
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         */
+     /**
+      * 成本中心id
+      * <p> 示例值：7142384817131652652
+      */
         private String costCenterId;
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         */
+     /**
+      * 是否使用职务
+      * <p> 示例值：
+      */
         private Enum staffingModel;
 
         /**
          * 部门 ID
          * <p> 示例值：6969828847121885087
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 部门子类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)部门子类型（department_sub_type）枚举定义部分获得
          * <p> 示例值：
-         *
          * @param subType
          * @return
          */
         public Builder subType(Enum subType) {
-            this.subType = subType;
-            return this;
+             this.subType = subType;
+             return this;
         }
 
+    
 
         /**
          * 部门负责人 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
          * <p> 示例值：6893013238632416776
-         *
          * @param manager
          * @return
          */
         public Builder manager(String manager) {
-            this.manager = manager;
-            return this;
+             this.manager = manager;
+             return this;
         }
 
+    
 
         /**
          * 是否保密
          * <p> 示例值：true
-         *
          * @param isConfidential
          * @return
          */
         public Builder isConfidential(Boolean isConfidential) {
-            this.isConfidential = isConfidential;
-            return this;
+             this.isConfidential = isConfidential;
+             return this;
         }
 
+    
 
         /**
          * 层级关系，内层字段见实体
          * <p> 示例值：
-         *
          * @param hiberarchyCommon
          * @return
          */
         public Builder hiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
-            this.hiberarchyCommon = hiberarchyCommon;
-            return this;
+             this.hiberarchyCommon = hiberarchyCommon;
+             return this;
         }
 
+    
 
         /**
          * 生效时间
          * <p> 示例值：2020-05-01 00:00:00
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 失效时间
          * <p> 示例值：2020-05-02 00:00:00
-         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
+             this.expirationTime = expirationTime;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 成本中心id
          * <p> 示例值：7142384817131652652
-         *
          * @param costCenterId
          * @return
          */
         public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
+             this.costCenterId = costCenterId;
+             return this;
         }
 
+    
 
         /**
          * 是否使用职务
          * <p> 示例值：
-         *
          * @param staffingModel
          * @return
          */
         public Builder staffingModel(Enum staffingModel) {
-            this.staffingModel = staffingModel;
-            return this;
+             this.staffingModel = staffingModel;
+             return this;
         }
 
+    
+    
+    public Department build(){
+        return new Department(this);
+      }
+    }
 
-        public Department build() {
-            return new Department(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,17 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 此次请求传参中的user_id的类型
  */
 public enum CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityUserIDTypeEnum {
-    USER_ID("user_id"), // 以user_id来标识用户
-    UNION_ID("union_id"), // 以union_id来标识用户
-    OPEN_ID("open_id"), // 以open_id来标识用户
-    ;
-    private String value;
-
+     USER_ID("user_id"), // 以user_id来标识用户
+     UNION_ID("union_id"), // 以union_id来标识用户
+     OPEN_ID("open_id"), // 以open_id来标识用户
+  ;
+   private String value;
     CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityUserIDTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

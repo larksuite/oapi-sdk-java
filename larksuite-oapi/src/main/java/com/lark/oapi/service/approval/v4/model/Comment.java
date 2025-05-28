@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,126 +19,66 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Comment {
-    /**
-     * 评论ID
-     * <p> 示例值：7081516627711524883
-     */
+     /**
+      * 评论ID
+      * <p> 示例值：7081516627711524883
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 评论内容
-     * <p> 示例值：{\"text\":\"x@王某自小程序的评论111我带了附件，而且我艾特了人 \",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
-     */
+     /**
+      * 评论内容
+      * <p> 示例值：{\"text\":\"x@王某自小程序的评论111我带了附件，而且我艾特了人 \",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 评论创建时间
-     * <p> 示例值：1648801211000
-     */
+     /**
+      * 评论创建时间
+      * <p> 示例值：1648801211000
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 评论更新时间
-     * <p> 示例值：1648801211000
-     */
+     /**
+      * 评论更新时间
+      * <p> 示例值：1648801211000
+      */
     @SerializedName("update_time")
     private String updateTime;
-    /**
-     * 是否删除，0:未删除，1:已删除
-     * <p> 示例值：1
-     */
+     /**
+      * 是否删除，0:未删除，1:已删除
+      * <p> 示例值：1
+      */
     @SerializedName("is_delete")
     private Integer isDelete;
-    /**
-     * 评论的回复
-     * <p> 示例值：
-     */
+     /**
+      * 评论的回复
+      * <p> 示例值：
+      */
     @SerializedName("replies")
     private CommentReply[] replies;
-    /**
-     * 评论中艾特人信息
-     * <p> 示例值：
-     */
+     /**
+      * 评论中艾特人信息
+      * <p> 示例值：
+      */
     @SerializedName("at_info_list")
     private CommentAtInfo[] atInfoList;
-    /**
-     * 评论创建人
-     * <p> 示例值：893g4c45
-     */
+     /**
+      * 评论创建人
+      * <p> 示例值：893g4c45
+      */
     @SerializedName("commentator")
     private String commentator;
-    /**
-     * 附加字段
-     * <p> 示例值：{\"a\":\"a\"}
-     */
+     /**
+      * 附加字段
+      * <p> 示例值：{\"a\":\"a\"}
+      */
     @SerializedName("extra")
     private String extra;
-
-    // builder 开始
-    public Comment() {
-    }
-
-    public Comment(Builder builder) {
-        /**
-         * 评论ID
-         * <p> 示例值：7081516627711524883
-         */
-        this.id = builder.id;
-        /**
-         * 评论内容
-         * <p> 示例值：{\"text\":\"x@王某自小程序的评论111我带了附件，而且我艾特了人 \",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
-         */
-        this.content = builder.content;
-        /**
-         * 评论创建时间
-         * <p> 示例值：1648801211000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 评论更新时间
-         * <p> 示例值：1648801211000
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 是否删除，0:未删除，1:已删除
-         * <p> 示例值：1
-         */
-        this.isDelete = builder.isDelete;
-        /**
-         * 评论的回复
-         * <p> 示例值：
-         */
-        this.replies = builder.replies;
-        /**
-         * 评论中艾特人信息
-         * <p> 示例值：
-         */
-        this.atInfoList = builder.atInfoList;
-        /**
-         * 评论创建人
-         * <p> 示例值：893g4c45
-         */
-        this.commentator = builder.commentator;
-        /**
-         * 附加字段
-         * <p> 示例值：{\"a\":\"a\"}
-         */
-        this.extra = builder.extra;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -212,172 +151,228 @@ public class Comment {
         this.extra = extra;
     }
 
+
+// builder 开始
+  public Comment(){}
+
+  public Comment(Builder builder){
+         /**
+          * 评论ID
+          * <p> 示例值：7081516627711524883
+          */
+      this.id = builder.id;
+         /**
+          * 评论内容
+          * <p> 示例值：{\"text\":\"x@王某自小程序的评论111我带了附件，而且我艾特了人 \",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
+          */
+      this.content = builder.content;
+         /**
+          * 评论创建时间
+          * <p> 示例值：1648801211000
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 评论更新时间
+          * <p> 示例值：1648801211000
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 是否删除，0:未删除，1:已删除
+          * <p> 示例值：1
+          */
+      this.isDelete = builder.isDelete;
+         /**
+          * 评论的回复
+          * <p> 示例值：
+          */
+      this.replies = builder.replies;
+         /**
+          * 评论中艾特人信息
+          * <p> 示例值：
+          */
+      this.atInfoList = builder.atInfoList;
+         /**
+          * 评论创建人
+          * <p> 示例值：893g4c45
+          */
+      this.commentator = builder.commentator;
+         /**
+          * 附加字段
+          * <p> 示例值：{\"a\":\"a\"}
+          */
+      this.extra = builder.extra;
+  }
+
     public static class Builder {
-        /**
-         * 评论ID
-         * <p> 示例值：7081516627711524883
-         */
+     /**
+      * 评论ID
+      * <p> 示例值：7081516627711524883
+      */
         private String id;
-        /**
-         * 评论内容
-         * <p> 示例值：{\"text\":\"x@王某自小程序的评论111我带了附件，而且我艾特了人 \",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
-         */
+     /**
+      * 评论内容
+      * <p> 示例值：{\"text\":\"x@王某自小程序的评论111我带了附件，而且我艾特了人 \",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
+      */
         private String content;
-        /**
-         * 评论创建时间
-         * <p> 示例值：1648801211000
-         */
+     /**
+      * 评论创建时间
+      * <p> 示例值：1648801211000
+      */
         private String createTime;
-        /**
-         * 评论更新时间
-         * <p> 示例值：1648801211000
-         */
+     /**
+      * 评论更新时间
+      * <p> 示例值：1648801211000
+      */
         private String updateTime;
-        /**
-         * 是否删除，0:未删除，1:已删除
-         * <p> 示例值：1
-         */
+     /**
+      * 是否删除，0:未删除，1:已删除
+      * <p> 示例值：1
+      */
         private Integer isDelete;
-        /**
-         * 评论的回复
-         * <p> 示例值：
-         */
+     /**
+      * 评论的回复
+      * <p> 示例值：
+      */
         private CommentReply[] replies;
-        /**
-         * 评论中艾特人信息
-         * <p> 示例值：
-         */
+     /**
+      * 评论中艾特人信息
+      * <p> 示例值：
+      */
         private CommentAtInfo[] atInfoList;
-        /**
-         * 评论创建人
-         * <p> 示例值：893g4c45
-         */
+     /**
+      * 评论创建人
+      * <p> 示例值：893g4c45
+      */
         private String commentator;
-        /**
-         * 附加字段
-         * <p> 示例值：{\"a\":\"a\"}
-         */
+     /**
+      * 附加字段
+      * <p> 示例值：{\"a\":\"a\"}
+      */
         private String extra;
 
         /**
          * 评论ID
          * <p> 示例值：7081516627711524883
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 评论内容
          * <p> 示例值：{\"text\":\"x@王某自小程序的评论111我带了附件，而且我艾特了人 \",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 评论创建时间
          * <p> 示例值：1648801211000
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 评论更新时间
          * <p> 示例值：1648801211000
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 是否删除，0:未删除，1:已删除
          * <p> 示例值：1
-         *
          * @param isDelete
          * @return
          */
         public Builder isDelete(Integer isDelete) {
-            this.isDelete = isDelete;
-            return this;
+             this.isDelete = isDelete;
+             return this;
         }
 
+    
 
         /**
          * 评论的回复
          * <p> 示例值：
-         *
          * @param replies
          * @return
          */
         public Builder replies(CommentReply[] replies) {
-            this.replies = replies;
-            return this;
+             this.replies = replies;
+             return this;
         }
 
+    
 
         /**
          * 评论中艾特人信息
          * <p> 示例值：
-         *
          * @param atInfoList
          * @return
          */
         public Builder atInfoList(CommentAtInfo[] atInfoList) {
-            this.atInfoList = atInfoList;
-            return this;
+             this.atInfoList = atInfoList;
+             return this;
         }
 
+    
 
         /**
          * 评论创建人
          * <p> 示例值：893g4c45
-         *
          * @param commentator
          * @return
          */
         public Builder commentator(String commentator) {
-            this.commentator = commentator;
-            return this;
+             this.commentator = commentator;
+             return this;
         }
 
+    
 
         /**
          * 附加字段
          * <p> 示例值：{\"a\":\"a\"}
-         *
          * @param extra
          * @return
          */
         public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
+             this.extra = extra;
+             return this;
         }
 
+    
+    
+    public Comment build(){
+        return new Comment(this);
+      }
+    }
 
-        public Comment build() {
-            return new Comment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

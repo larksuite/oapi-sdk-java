@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AuditRecipientDetail {
-    /**
-     * 修改权限协作者
-     * <p> 示例值：1
-     */
+     /**
+      * 修改权限协作者
+      * <p> 示例值：1
+      */
     @SerializedName("permission_action_type")
     private String permissionActionType;
-    /**
-     * 会话 id
-     * <p> 示例值：oc_xxxx
-     */
+     /**
+      * 会话 id
+      * <p> 示例值：oc_xxxx
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * 会话名称
-     * <p> 示例值：test
-     */
+     /**
+      * 会话名称
+      * <p> 示例值：test
+      */
     @SerializedName("chat_name")
     private String chatName;
-    /**
-     * 聊天类型，1 单聊，2 群聊，3 话题群
-     * <p> 示例值：1
-     */
+     /**
+      * 聊天类型，1 单聊，2 群聊，3 话题群
+      * <p> 示例值：1
+      */
     @SerializedName("chat_type")
     private Integer chatType;
-    /**
-     * 外部用户标识，false 内部、true 外部
-     * <p> 示例值：false
-     */
+     /**
+      * 外部用户标识，false 内部、true 外部
+      * <p> 示例值：false
+      */
     @SerializedName("external_flag")
     private Boolean externalFlag;
-
-    // builder 开始
-    public AuditRecipientDetail() {
-    }
-
-    public AuditRecipientDetail(Builder builder) {
-        /**
-         * 修改权限协作者
-         * <p> 示例值：1
-         */
-        this.permissionActionType = builder.permissionActionType;
-        /**
-         * 会话 id
-         * <p> 示例值：oc_xxxx
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 会话名称
-         * <p> 示例值：test
-         */
-        this.chatName = builder.chatName;
-        /**
-         * 聊天类型，1 单聊，2 群聊，3 话题群
-         * <p> 示例值：1
-         */
-        this.chatType = builder.chatType;
-        /**
-         * 外部用户标识，false 内部、true 外部
-         * <p> 示例值：false
-         */
-        this.externalFlag = builder.externalFlag;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPermissionActionType() {
         return this.permissionActionType;
     }
@@ -136,100 +95,136 @@ public class AuditRecipientDetail {
         this.externalFlag = externalFlag;
     }
 
+
+// builder 开始
+  public AuditRecipientDetail(){}
+
+  public AuditRecipientDetail(Builder builder){
+         /**
+          * 修改权限协作者
+          * <p> 示例值：1
+          */
+      this.permissionActionType = builder.permissionActionType;
+         /**
+          * 会话 id
+          * <p> 示例值：oc_xxxx
+          */
+      this.chatId = builder.chatId;
+         /**
+          * 会话名称
+          * <p> 示例值：test
+          */
+      this.chatName = builder.chatName;
+         /**
+          * 聊天类型，1 单聊，2 群聊，3 话题群
+          * <p> 示例值：1
+          */
+      this.chatType = builder.chatType;
+         /**
+          * 外部用户标识，false 内部、true 外部
+          * <p> 示例值：false
+          */
+      this.externalFlag = builder.externalFlag;
+  }
+
     public static class Builder {
-        /**
-         * 修改权限协作者
-         * <p> 示例值：1
-         */
+     /**
+      * 修改权限协作者
+      * <p> 示例值：1
+      */
         private String permissionActionType;
-        /**
-         * 会话 id
-         * <p> 示例值：oc_xxxx
-         */
+     /**
+      * 会话 id
+      * <p> 示例值：oc_xxxx
+      */
         private String chatId;
-        /**
-         * 会话名称
-         * <p> 示例值：test
-         */
+     /**
+      * 会话名称
+      * <p> 示例值：test
+      */
         private String chatName;
-        /**
-         * 聊天类型，1 单聊，2 群聊，3 话题群
-         * <p> 示例值：1
-         */
+     /**
+      * 聊天类型，1 单聊，2 群聊，3 话题群
+      * <p> 示例值：1
+      */
         private Integer chatType;
-        /**
-         * 外部用户标识，false 内部、true 外部
-         * <p> 示例值：false
-         */
+     /**
+      * 外部用户标识，false 内部、true 外部
+      * <p> 示例值：false
+      */
         private Boolean externalFlag;
 
         /**
          * 修改权限协作者
          * <p> 示例值：1
-         *
          * @param permissionActionType
          * @return
          */
         public Builder permissionActionType(String permissionActionType) {
-            this.permissionActionType = permissionActionType;
-            return this;
+             this.permissionActionType = permissionActionType;
+             return this;
         }
 
+    
 
         /**
          * 会话 id
          * <p> 示例值：oc_xxxx
-         *
          * @param chatId
          * @return
          */
         public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
+             this.chatId = chatId;
+             return this;
         }
 
+    
 
         /**
          * 会话名称
          * <p> 示例值：test
-         *
          * @param chatName
          * @return
          */
         public Builder chatName(String chatName) {
-            this.chatName = chatName;
-            return this;
+             this.chatName = chatName;
+             return this;
         }
 
+    
 
         /**
          * 聊天类型，1 单聊，2 群聊，3 话题群
          * <p> 示例值：1
-         *
          * @param chatType
          * @return
          */
         public Builder chatType(Integer chatType) {
-            this.chatType = chatType;
-            return this;
+             this.chatType = chatType;
+             return this;
         }
 
+    
 
         /**
          * 外部用户标识，false 内部、true 外部
          * <p> 示例值：false
-         *
          * @param externalFlag
          * @return
          */
         public Builder externalFlag(Boolean externalFlag) {
-            this.externalFlag = externalFlag;
-            return this;
+             this.externalFlag = externalFlag;
+             return this;
         }
 
+    
+    
+    public AuditRecipientDetail build(){
+        return new AuditRecipientDetail(this);
+      }
+    }
 
-        public AuditRecipientDetail build() {
-            return new AuditRecipientDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

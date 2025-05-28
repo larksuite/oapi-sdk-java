@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CardPresent {
-    /**
-     * 卡片json内容
-     * <p> 示例值：无
-     */
+     /**
+      * 卡片json内容
+      * <p> 示例值：无
+      */
     @SerializedName("body")
     private String body;
-    /**
-     * 是否为交互卡片
-     * <p> 示例值：true
-     */
+     /**
+      * 是否为交互卡片
+      * <p> 示例值：true
+      */
     @SerializedName("interactable")
     private Boolean interactable;
-    /**
-     * 卡片类型
-     * <p> 示例值：14
-     */
+     /**
+      * 卡片类型
+      * <p> 示例值：14
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 操作类型
-     * <p> 示例值：UPDATE
-     */
+     /**
+      * 操作类型
+      * <p> 示例值：UPDATE
+      */
     @SerializedName("operation_type")
     private String operationType;
-    /**
-     * 业务定义的卡片回调信息
-     * <p> 示例值：无
-     */
+     /**
+      * 业务定义的卡片回调信息
+      * <p> 示例值：无
+      */
     @SerializedName("callback_info")
     private String callbackInfo;
-
-    // builder 开始
-    public CardPresent() {
-    }
-
-    public CardPresent(Builder builder) {
-        /**
-         * 卡片json内容
-         * <p> 示例值：无
-         */
-        this.body = builder.body;
-        /**
-         * 是否为交互卡片
-         * <p> 示例值：true
-         */
-        this.interactable = builder.interactable;
-        /**
-         * 卡片类型
-         * <p> 示例值：14
-         */
-        this.type = builder.type;
-        /**
-         * 操作类型
-         * <p> 示例值：UPDATE
-         */
-        this.operationType = builder.operationType;
-        /**
-         * 业务定义的卡片回调信息
-         * <p> 示例值：无
-         */
-        this.callbackInfo = builder.callbackInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBody() {
         return this.body;
     }
@@ -136,100 +95,136 @@ public class CardPresent {
         this.callbackInfo = callbackInfo;
     }
 
+
+// builder 开始
+  public CardPresent(){}
+
+  public CardPresent(Builder builder){
+         /**
+          * 卡片json内容
+          * <p> 示例值：无
+          */
+      this.body = builder.body;
+         /**
+          * 是否为交互卡片
+          * <p> 示例值：true
+          */
+      this.interactable = builder.interactable;
+         /**
+          * 卡片类型
+          * <p> 示例值：14
+          */
+      this.type = builder.type;
+         /**
+          * 操作类型
+          * <p> 示例值：UPDATE
+          */
+      this.operationType = builder.operationType;
+         /**
+          * 业务定义的卡片回调信息
+          * <p> 示例值：无
+          */
+      this.callbackInfo = builder.callbackInfo;
+  }
+
     public static class Builder {
-        /**
-         * 卡片json内容
-         * <p> 示例值：无
-         */
+     /**
+      * 卡片json内容
+      * <p> 示例值：无
+      */
         private String body;
-        /**
-         * 是否为交互卡片
-         * <p> 示例值：true
-         */
+     /**
+      * 是否为交互卡片
+      * <p> 示例值：true
+      */
         private Boolean interactable;
-        /**
-         * 卡片类型
-         * <p> 示例值：14
-         */
+     /**
+      * 卡片类型
+      * <p> 示例值：14
+      */
         private String type;
-        /**
-         * 操作类型
-         * <p> 示例值：UPDATE
-         */
+     /**
+      * 操作类型
+      * <p> 示例值：UPDATE
+      */
         private String operationType;
-        /**
-         * 业务定义的卡片回调信息
-         * <p> 示例值：无
-         */
+     /**
+      * 业务定义的卡片回调信息
+      * <p> 示例值：无
+      */
         private String callbackInfo;
 
         /**
          * 卡片json内容
          * <p> 示例值：无
-         *
          * @param body
          * @return
          */
         public Builder body(String body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
 
+    
 
         /**
          * 是否为交互卡片
          * <p> 示例值：true
-         *
          * @param interactable
          * @return
          */
         public Builder interactable(Boolean interactable) {
-            this.interactable = interactable;
-            return this;
+             this.interactable = interactable;
+             return this;
         }
 
+    
 
         /**
          * 卡片类型
          * <p> 示例值：14
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 操作类型
          * <p> 示例值：UPDATE
-         *
          * @param operationType
          * @return
          */
         public Builder operationType(String operationType) {
-            this.operationType = operationType;
-            return this;
+             this.operationType = operationType;
+             return this;
         }
 
+    
 
         /**
          * 业务定义的卡片回调信息
          * <p> 示例值：无
-         *
          * @param callbackInfo
          * @return
          */
         public Builder callbackInfo(String callbackInfo) {
-            this.callbackInfo = callbackInfo;
-            return this;
+             this.callbackInfo = callbackInfo;
+             return this;
         }
 
+    
+    
+    public CardPresent build(){
+        return new CardPresent(this);
+      }
+    }
 
-        public CardPresent build() {
-            return new CardPresent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

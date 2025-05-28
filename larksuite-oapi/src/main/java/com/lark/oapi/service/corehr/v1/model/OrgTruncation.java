@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OrgTruncation {
-    /**
-     * 组织名称
-     * <p> 示例值：department
-     */
+     /**
+      * 组织名称
+      * <p> 示例值：department
+      */
     @SerializedName("org_key")
     private String orgKey;
-    /**
-     * 下钻类型
-     * <p> 示例值：0
-     */
+     /**
+      * 下钻类型
+      * <p> 示例值：0
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * 下钻深度
-     * <p> 示例值：0
-     */
+     /**
+      * 下钻深度
+      * <p> 示例值：0
+      */
     @SerializedName("depth")
     private Integer depth;
-
-    // builder 开始
-    public OrgTruncation() {
-    }
-
-    public OrgTruncation(Builder builder) {
-        /**
-         * 组织名称
-         * <p> 示例值：department
-         */
-        this.orgKey = builder.orgKey;
-        /**
-         * 下钻类型
-         * <p> 示例值：0
-         */
-        this.type = builder.type;
-        /**
-         * 下钻深度
-         * <p> 示例值：0
-         */
-        this.depth = builder.depth;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOrgKey() {
         return this.orgKey;
     }
@@ -98,64 +67,90 @@ public class OrgTruncation {
         this.depth = depth;
     }
 
+
+// builder 开始
+  public OrgTruncation(){}
+
+  public OrgTruncation(Builder builder){
+         /**
+          * 组织名称
+          * <p> 示例值：department
+          */
+      this.orgKey = builder.orgKey;
+         /**
+          * 下钻类型
+          * <p> 示例值：0
+          */
+      this.type = builder.type;
+         /**
+          * 下钻深度
+          * <p> 示例值：0
+          */
+      this.depth = builder.depth;
+  }
+
     public static class Builder {
-        /**
-         * 组织名称
-         * <p> 示例值：department
-         */
+     /**
+      * 组织名称
+      * <p> 示例值：department
+      */
         private String orgKey;
-        /**
-         * 下钻类型
-         * <p> 示例值：0
-         */
+     /**
+      * 下钻类型
+      * <p> 示例值：0
+      */
         private Integer type;
-        /**
-         * 下钻深度
-         * <p> 示例值：0
-         */
+     /**
+      * 下钻深度
+      * <p> 示例值：0
+      */
         private Integer depth;
 
         /**
          * 组织名称
          * <p> 示例值：department
-         *
          * @param orgKey
          * @return
          */
         public Builder orgKey(String orgKey) {
-            this.orgKey = orgKey;
-            return this;
+             this.orgKey = orgKey;
+             return this;
         }
 
+    
 
         /**
          * 下钻类型
          * <p> 示例值：0
-         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 下钻深度
          * <p> 示例值：0
-         *
          * @param depth
          * @return
          */
         public Builder depth(Integer depth) {
-            this.depth = depth;
-            return this;
+             this.depth = depth;
+             return this;
         }
 
+    
+    
+    public OrgTruncation build(){
+        return new OrgTruncation(this);
+      }
+    }
 
-        public OrgTruncation build() {
-            return new OrgTruncation(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,57 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetAttachmentReq {
-    /**
-     * 附件类型
-     * <p> 示例值：1
-     */
+     /**
+      * 附件类型
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("type")
     private Integer type;
-    /**
-     * 附件id
-     * <p> 示例值：6435242341238
-     */
-    @Path
-    @SerializedName("attachment_id")
-    private String attachmentId;
-
-    // builder 开始
-    public GetAttachmentReq() {
-    }
-
-    public GetAttachmentReq(Builder builder) {
-        /**
-         * 附件类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 附件id
-         * <p> 示例值：6435242341238
-         */
-        this.attachmentId = builder.attachmentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getType() {
         return this.type;
     }
@@ -71,6 +38,13 @@ public class GetAttachmentReq {
         this.type = type;
     }
 
+     /**
+      * 附件id
+      * <p> 示例值：6435242341238
+      */
+    @Path
+    @SerializedName("attachment_id")
+    private String attachmentId;
     public String getAttachmentId() {
         return this.attachmentId;
     }
@@ -79,37 +53,57 @@ public class GetAttachmentReq {
         this.attachmentId = attachmentId;
     }
 
+
+// builder 开始
+  public GetAttachmentReq(){}
+
+  public GetAttachmentReq(Builder builder){
+         /**
+          * 附件类型
+          * <p> 示例值：1
+          */
+       this.type = builder.type;
+     /**
+      * 附件id
+      * <p> 示例值：6435242341238
+      */
+       this.attachmentId = builder.attachmentId;
+  }
+
     public static class Builder {
         private Integer type; // 附件类型
-        private String attachmentId; // 附件id
-
+    
         /**
          * 附件类型
          * <p> 示例值：1
-         *
          * @param type
          * @return
          */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
+           public Builder type(Integer type) {
+                this.type = type;
+                return this;
+           }
 
+    
+        private String attachmentId; // 附件id
         /**
          * 附件id
          * <p> 示例值：6435242341238
-         *
          * @param attachmentId
          * @return
          */
-        public Builder attachmentId(String attachmentId) {
-            this.attachmentId = attachmentId;
-            return this;
-        }
+          public Builder attachmentId(String attachmentId) {
+               this.attachmentId = attachmentId;
+               return this;
+          }
 
+    
+    public GetAttachmentReq build(){
+        return new GetAttachmentReq(this);
+      }
+    }
 
-        public GetAttachmentReq build() {
-            return new GetAttachmentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

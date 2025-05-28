@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RecoverApplicationReq {
-    /**
-     * 投递ID
-     * <p> 示例值：12312312312
-     */
+     /**
+      * 投递ID
+      * <p> 示例值：12312312312
+      */
     @Path
     @SerializedName("application_id")
     private String applicationId;
-
-    // builder 开始
-    public RecoverApplicationReq() {
-    }
-
-    public RecoverApplicationReq(Builder builder) {
-        /**
-         * 投递ID
-         * <p> 示例值：12312312312
-         */
-        this.applicationId = builder.applicationId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApplicationId() {
         return this.applicationId;
     }
@@ -59,25 +38,39 @@ public class RecoverApplicationReq {
         this.applicationId = applicationId;
     }
 
+
+// builder 开始
+  public RecoverApplicationReq(){}
+
+  public RecoverApplicationReq(Builder builder){
+     /**
+      * 投递ID
+      * <p> 示例值：12312312312
+      */
+       this.applicationId = builder.applicationId;
+  }
+
     public static class Builder {
-
+    
         private String applicationId; // 投递ID
-
         /**
          * 投递ID
          * <p> 示例值：12312312312
-         *
          * @param applicationId
          * @return
          */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
+          public Builder applicationId(String applicationId) {
+               this.applicationId = applicationId;
+               return this;
+          }
 
+    
+    public RecoverApplicationReq build(){
+        return new RecoverApplicationReq(this);
+      }
+    }
 
-        public RecoverApplicationReq build() {
-            return new RecoverApplicationReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

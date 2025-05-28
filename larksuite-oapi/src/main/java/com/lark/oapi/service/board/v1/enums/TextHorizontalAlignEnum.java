@@ -17,17 +17,16 @@ package com.lark.oapi.service.board.v1.enums;
  * 水平对齐
  */
 public enum TextHorizontalAlignEnum {
-    LEFT("left"), // 向左对齐
-    CENTER("center"), // 居中对齐
-    RIGHT("right"), // 向右对齐
-    ;
-    private String value;
-
+     LEFT("left"), // 向左对齐
+     CENTER("center"), // 居中对齐
+     RIGHT("right"), // 向右对齐
+  ;
+   private String value;
     TextHorizontalAlignEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

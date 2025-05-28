@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,59 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Administrator {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 用户是否是超级管理员
-     * <p> 示例值：
-     */
+     /**
+      * 用户是否是超级管理员
+      * <p> 示例值：
+      */
     @SerializedName("is_super_administrator")
     private Boolean isSuperAdministrator;
-    /**
-     * 用户是否是管理员
-     * <p> 示例值：
-     */
+     /**
+      * 用户是否是管理员
+      * <p> 示例值：
+      */
     @SerializedName("is_administrator")
     private Boolean isAdministrator;
-
-    // builder 开始
-    public Administrator() {
-    }
-
-    public Administrator(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户是否是超级管理员
-         * <p> 示例值：
-         */
-        this.isSuperAdministrator = builder.isSuperAdministrator;
-        /**
-         * 用户是否是管理员
-         * <p> 示例值：
-         */
-        this.isAdministrator = builder.isAdministrator;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -97,62 +67,90 @@ public class Administrator {
         this.isAdministrator = isAdministrator;
     }
 
+
+// builder 开始
+  public Administrator(){}
+
+  public Administrator(Builder builder){
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * 用户是否是超级管理员
+          * <p> 示例值：
+          */
+      this.isSuperAdministrator = builder.isSuperAdministrator;
+         /**
+          * 用户是否是管理员
+          * <p> 示例值：
+          */
+      this.isAdministrator = builder.isAdministrator;
+  }
+
     public static class Builder {
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String userId;
-        /**
-         * 用户是否是超级管理员
-         * <p> 示例值：
-         */
+     /**
+      * 用户是否是超级管理员
+      * <p> 示例值：
+      */
         private Boolean isSuperAdministrator;
-        /**
-         * 用户是否是管理员
-         * <p> 示例值：
-         */
+     /**
+      * 用户是否是管理员
+      * <p> 示例值：
+      */
         private Boolean isAdministrator;
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 用户是否是超级管理员
          * <p> 示例值：
-         *
          * @param isSuperAdministrator
          * @return
          */
         public Builder isSuperAdministrator(Boolean isSuperAdministrator) {
-            this.isSuperAdministrator = isSuperAdministrator;
-            return this;
+             this.isSuperAdministrator = isSuperAdministrator;
+             return this;
         }
 
+    
 
         /**
          * 用户是否是管理员
          * <p> 示例值：
-         *
          * @param isAdministrator
          * @return
          */
         public Builder isAdministrator(Boolean isAdministrator) {
-            this.isAdministrator = isAdministrator;
-            return this;
+             this.isAdministrator = isAdministrator;
+             return this;
         }
 
+    
+    
+    public Administrator build(){
+        return new Administrator(this);
+      }
+    }
 
-        public Administrator build() {
-            return new Administrator(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReserveScopeReserveConfigRespBody {
-    /**
-     * 预定审批设置
-     * <p> 示例值：
-     */
+     /**
+      * 预定审批设置
+      * <p> 示例值：
+      */
     @SerializedName("approve_config")
     private ApprovalConfig approveConfig;
-    /**
-     * 预定时间设置
-     * <p> 示例值：
-     */
+     /**
+      * 预定时间设置
+      * <p> 示例值：
+      */
     @SerializedName("time_config")
     private TimeConfig timeConfig;
-    /**
-     * 预定范围设置
-     * <p> 示例值：
-     */
+     /**
+      * 预定范围设置
+      * <p> 示例值：
+      */
     @SerializedName("reserve_scope_config")
     private ReserveScopeConfig reserveScopeConfig;
-
     public ApprovalConfig getApproveConfig() {
         return this.approveConfig;
     }

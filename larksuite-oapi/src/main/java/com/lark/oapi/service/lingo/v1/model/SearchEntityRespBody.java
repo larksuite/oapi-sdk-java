@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchEntityRespBody {
-    /**
-     * 数据数组
-     * <p> 示例值：
-     */
+     /**
+      * 数据数组
+      * <p> 示例值：
+      */
     @SerializedName("entities")
     private Entity[] entities;
-    /**
-     * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
-     * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
-     */
+     /**
+      * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
+      * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：false
-     */
+     /**
+      * 是否有下一页
+      * <p> 示例值：false
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public Entity[] getEntities() {
         return this.entities;
     }

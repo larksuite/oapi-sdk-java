@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,37 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LocationInfoEvent {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("coord")
     private Coordinate coord;
-
-    // builder 开始
-    public LocationInfoEvent() {
-    }
-
-    public LocationInfoEvent(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.coord = builder.coord;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Coordinate getCoord() {
         return this.coord;
     }
@@ -59,26 +39,44 @@ public class LocationInfoEvent {
         this.coord = coord;
     }
 
+
+// builder 开始
+  public LocationInfoEvent(){}
+
+  public LocationInfoEvent(Builder builder){
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.coord = builder.coord;
+  }
+
     public static class Builder {
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private Coordinate coord;
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param coord
          * @return
          */
         public Builder coord(Coordinate coord) {
-            this.coord = coord;
-            return this;
+             this.coord = coord;
+             return this;
         }
 
+    
+    
+    public LocationInfoEvent build(){
+        return new LocationInfoEvent(this);
+      }
+    }
 
-        public LocationInfoEvent build() {
-            return new LocationInfoEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

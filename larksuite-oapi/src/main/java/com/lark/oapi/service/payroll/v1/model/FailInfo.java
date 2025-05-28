@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FailInfo {
-    /**
-     * 写入失败的数据行索引
-     * <p> 示例值：0
-     */
+     /**
+      * 写入失败的数据行索引
+      * <p> 示例值：0
+      */
     @SerializedName("idx")
     private Integer idx;
-    /**
-     * 写入失败的原因错误码
-     * <p> 示例值：0
-     */
+     /**
+      * 写入失败的原因错误码
+      * <p> 示例值：0
+      */
     @SerializedName("error_code")
     private Integer errorCode;
-
-    // builder 开始
-    public FailInfo() {
-    }
-
-    public FailInfo(Builder builder) {
-        /**
-         * 写入失败的数据行索引
-         * <p> 示例值：0
-         */
-        this.idx = builder.idx;
-        /**
-         * 写入失败的原因错误码
-         * <p> 示例值：0
-         */
-        this.errorCode = builder.errorCode;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getIdx() {
         return this.idx;
     }
@@ -79,46 +53,67 @@ public class FailInfo {
         this.errorCode = errorCode;
     }
 
+
+// builder 开始
+  public FailInfo(){}
+
+  public FailInfo(Builder builder){
+         /**
+          * 写入失败的数据行索引
+          * <p> 示例值：0
+          */
+      this.idx = builder.idx;
+         /**
+          * 写入失败的原因错误码
+          * <p> 示例值：0
+          */
+      this.errorCode = builder.errorCode;
+  }
+
     public static class Builder {
-        /**
-         * 写入失败的数据行索引
-         * <p> 示例值：0
-         */
+     /**
+      * 写入失败的数据行索引
+      * <p> 示例值：0
+      */
         private Integer idx;
-        /**
-         * 写入失败的原因错误码
-         * <p> 示例值：0
-         */
+     /**
+      * 写入失败的原因错误码
+      * <p> 示例值：0
+      */
         private Integer errorCode;
 
         /**
          * 写入失败的数据行索引
          * <p> 示例值：0
-         *
          * @param idx
          * @return
          */
         public Builder idx(Integer idx) {
-            this.idx = idx;
-            return this;
+             this.idx = idx;
+             return this;
         }
 
+    
 
         /**
          * 写入失败的原因错误码
          * <p> 示例值：0
-         *
          * @param errorCode
          * @return
          */
         public Builder errorCode(Integer errorCode) {
-            this.errorCode = errorCode;
-            return this;
+             this.errorCode = errorCode;
+             return this;
         }
 
+    
+    
+    public FailInfo build(){
+        return new FailInfo(this);
+      }
+    }
 
-        public FailInfo build() {
-            return new FailInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

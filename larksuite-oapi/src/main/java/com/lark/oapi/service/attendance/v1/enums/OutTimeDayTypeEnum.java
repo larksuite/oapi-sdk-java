@@ -17,16 +17,15 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 外出半天类型，枚举值：morning，afternoon，当外出时间单位为half_day时生效
  */
 public enum OutTimeDayTypeEnum {
-    MORNING("morning"), // 上午
-    AFTERNOON("afternoon"), // 下午
-    ;
-    private String value;
-
+     MORNING("morning"), // 上午
+     AFTERNOON("afternoon"), // 下午
+  ;
+   private String value;
     OutTimeDayTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

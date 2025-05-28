@@ -17,17 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * response_type
  */
 public enum CallbackActionValueResponseTypeEnum {
-    UNKNOWN(0), // 默认值
-    CARD(1), // 消息卡片的形式
-    RICHTEXT(2), // 原始数据的形式
-    ;
-    private Integer value;
-
+     UNKNOWN(0), // 默认值
+     CARD(1), // 消息卡片的形式
+     RICHTEXT(2), // 原始数据的形式
+  ;
+   private Integer value;
     CallbackActionValueResponseTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OpenQueryJobChangeListByIdsApprovalGroupsReqBody {
-    /**
-     * 人员异动记录 ID List
-     * <p> 示例值：
-     */
+     /**
+      * 人员异动记录 ID List
+      * <p> 示例值：
+      */
     @SerializedName("job_change_ids")
     private String[] jobChangeIds;
-    /**
-     * 是否返回部门全路径
-     * <p> 示例值：false
-     */
+     /**
+      * 是否返回部门全路径
+      * <p> 示例值：false
+      */
     @SerializedName("need_department_path")
     private Boolean needDepartmentPath;
-
-    // builder 开始
-    public OpenQueryJobChangeListByIdsApprovalGroupsReqBody() {
-    }
-
-    public OpenQueryJobChangeListByIdsApprovalGroupsReqBody(Builder builder) {
-        /**
-         * 人员异动记录 ID List
-         * <p> 示例值：
-         */
-        this.jobChangeIds = builder.jobChangeIds;
-        /**
-         * 是否返回部门全路径
-         * <p> 示例值：false
-         */
-        this.needDepartmentPath = builder.needDepartmentPath;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getJobChangeIds() {
         return this.jobChangeIds;
     }
@@ -79,46 +53,67 @@ public class OpenQueryJobChangeListByIdsApprovalGroupsReqBody {
         this.needDepartmentPath = needDepartmentPath;
     }
 
+
+// builder 开始
+  public OpenQueryJobChangeListByIdsApprovalGroupsReqBody(){}
+
+  public OpenQueryJobChangeListByIdsApprovalGroupsReqBody(Builder builder){
+         /**
+          * 人员异动记录 ID List
+          * <p> 示例值：
+          */
+      this.jobChangeIds = builder.jobChangeIds;
+         /**
+          * 是否返回部门全路径
+          * <p> 示例值：false
+          */
+      this.needDepartmentPath = builder.needDepartmentPath;
+  }
+
     public static class Builder {
-        /**
-         * 人员异动记录 ID List
-         * <p> 示例值：
-         */
+     /**
+      * 人员异动记录 ID List
+      * <p> 示例值：
+      */
         private String[] jobChangeIds;
-        /**
-         * 是否返回部门全路径
-         * <p> 示例值：false
-         */
+     /**
+      * 是否返回部门全路径
+      * <p> 示例值：false
+      */
         private Boolean needDepartmentPath;
 
         /**
          * 人员异动记录 ID List
          * <p> 示例值：
-         *
          * @param jobChangeIds
          * @return
          */
         public Builder jobChangeIds(String[] jobChangeIds) {
-            this.jobChangeIds = jobChangeIds;
-            return this;
+             this.jobChangeIds = jobChangeIds;
+             return this;
         }
 
+    
 
         /**
          * 是否返回部门全路径
          * <p> 示例值：false
-         *
          * @param needDepartmentPath
          * @return
          */
         public Builder needDepartmentPath(Boolean needDepartmentPath) {
-            this.needDepartmentPath = needDepartmentPath;
-            return this;
+             this.needDepartmentPath = needDepartmentPath;
+             return this;
         }
 
+    
+    
+    public OpenQueryJobChangeListByIdsApprovalGroupsReqBody build(){
+        return new OpenQueryJobChangeListByIdsApprovalGroupsReqBody(this);
+      }
+    }
 
-        public OpenQueryJobChangeListByIdsApprovalGroupsReqBody build() {
-            return new OpenQueryJobChangeListByIdsApprovalGroupsReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

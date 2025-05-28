@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RecognizedEntities {
-    /**
-     * 识别的实体列表
-     * <p> 示例值：
-     */
+     /**
+      * 识别的实体列表
+      * <p> 示例值：
+      */
     @SerializedName("entities")
     private RecognizedEntity[] entities;
-
-    // builder 开始
-    public RecognizedEntities() {
-    }
-
-    public RecognizedEntities(Builder builder) {
-        /**
-         * 识别的实体列表
-         * <p> 示例值：
-         */
-        this.entities = builder.entities;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public RecognizedEntity[] getEntities() {
         return this.entities;
     }
@@ -60,28 +39,44 @@ public class RecognizedEntities {
         this.entities = entities;
     }
 
+
+// builder 开始
+  public RecognizedEntities(){}
+
+  public RecognizedEntities(Builder builder){
+         /**
+          * 识别的实体列表
+          * <p> 示例值：
+          */
+      this.entities = builder.entities;
+  }
+
     public static class Builder {
-        /**
-         * 识别的实体列表
-         * <p> 示例值：
-         */
+     /**
+      * 识别的实体列表
+      * <p> 示例值：
+      */
         private RecognizedEntity[] entities;
 
         /**
          * 识别的实体列表
          * <p> 示例值：
-         *
          * @param entities
          * @return
          */
         public Builder entities(RecognizedEntity[] entities) {
-            this.entities = entities;
-            return this;
+             this.entities = entities;
+             return this;
         }
 
+    
+    
+    public RecognizedEntities build(){
+        return new RecognizedEntities(this);
+      }
+    }
 
-        public RecognizedEntities build() {
-            return new RecognizedEntities(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

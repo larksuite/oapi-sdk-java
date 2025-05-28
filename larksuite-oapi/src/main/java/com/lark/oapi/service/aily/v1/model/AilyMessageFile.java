@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AilyMessageFile {
-    /**
-     * 文件 ID
-     * <p> 示例值：file_4d9nu1ev3a2rq
-     */
+     /**
+      * 文件 ID
+      * <p> 示例值：file_4d9nu1ev3a2rq
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 文件类型，参见 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-     * <p> 示例值：image/png
-     */
+     /**
+      * 文件类型，参见 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+      * <p> 示例值：image/png
+      */
     @SerializedName("mime_type")
     private String mimeType;
-    /**
-     * 文件名
-     * <p> 示例值：发票.png
-     */
+     /**
+      * 文件名
+      * <p> 示例值：发票.png
+      */
     @SerializedName("file_name")
     private String fileName;
-    /**
-     * 其他透传信息
-     * <p> 示例值：{}
-     */
+     /**
+      * 其他透传信息
+      * <p> 示例值：{}
+      */
     @SerializedName("metadata")
     private String metadata;
-    /**
-     * 文件的创建时间，毫秒时间戳
-     * <p> 示例值：1711975665710
-     */
+     /**
+      * 文件的创建时间，毫秒时间戳
+      * <p> 示例值：1711975665710
+      */
     @SerializedName("created_at")
     private String createdAt;
-    /**
-     * 文件预览链接
-     * <p> 示例值：
-     */
+     /**
+      * 文件预览链接
+      * <p> 示例值：
+      */
     @SerializedName("preview_url")
     private AilyMessageFilePreview previewUrl;
-
-    // builder 开始
-    public AilyMessageFile() {
-    }
-
-    public AilyMessageFile(Builder builder) {
-        /**
-         * 文件 ID
-         * <p> 示例值：file_4d9nu1ev3a2rq
-         */
-        this.id = builder.id;
-        /**
-         * 文件类型，参见 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-         * <p> 示例值：image/png
-         */
-        this.mimeType = builder.mimeType;
-        /**
-         * 文件名
-         * <p> 示例值：发票.png
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        this.metadata = builder.metadata;
-        /**
-         * 文件的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 文件预览链接
-         * <p> 示例值：
-         */
-        this.previewUrl = builder.previewUrl;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -155,118 +109,159 @@ public class AilyMessageFile {
         this.previewUrl = previewUrl;
     }
 
+
+// builder 开始
+  public AilyMessageFile(){}
+
+  public AilyMessageFile(Builder builder){
+         /**
+          * 文件 ID
+          * <p> 示例值：file_4d9nu1ev3a2rq
+          */
+      this.id = builder.id;
+         /**
+          * 文件类型，参见 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+          * <p> 示例值：image/png
+          */
+      this.mimeType = builder.mimeType;
+         /**
+          * 文件名
+          * <p> 示例值：发票.png
+          */
+      this.fileName = builder.fileName;
+         /**
+          * 其他透传信息
+          * <p> 示例值：{}
+          */
+      this.metadata = builder.metadata;
+         /**
+          * 文件的创建时间，毫秒时间戳
+          * <p> 示例值：1711975665710
+          */
+      this.createdAt = builder.createdAt;
+         /**
+          * 文件预览链接
+          * <p> 示例值：
+          */
+      this.previewUrl = builder.previewUrl;
+  }
+
     public static class Builder {
-        /**
-         * 文件 ID
-         * <p> 示例值：file_4d9nu1ev3a2rq
-         */
+     /**
+      * 文件 ID
+      * <p> 示例值：file_4d9nu1ev3a2rq
+      */
         private String id;
-        /**
-         * 文件类型，参见 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-         * <p> 示例值：image/png
-         */
+     /**
+      * 文件类型，参见 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+      * <p> 示例值：image/png
+      */
         private String mimeType;
-        /**
-         * 文件名
-         * <p> 示例值：发票.png
-         */
+     /**
+      * 文件名
+      * <p> 示例值：发票.png
+      */
         private String fileName;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
+     /**
+      * 其他透传信息
+      * <p> 示例值：{}
+      */
         private String metadata;
-        /**
-         * 文件的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
+     /**
+      * 文件的创建时间，毫秒时间戳
+      * <p> 示例值：1711975665710
+      */
         private String createdAt;
-        /**
-         * 文件预览链接
-         * <p> 示例值：
-         */
+     /**
+      * 文件预览链接
+      * <p> 示例值：
+      */
         private AilyMessageFilePreview previewUrl;
 
         /**
          * 文件 ID
          * <p> 示例值：file_4d9nu1ev3a2rq
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 文件类型，参见 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
          * <p> 示例值：image/png
-         *
          * @param mimeType
          * @return
          */
         public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
+             this.mimeType = mimeType;
+             return this;
         }
 
+    
 
         /**
          * 文件名
          * <p> 示例值：发票.png
-         *
          * @param fileName
          * @return
          */
         public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
+             this.fileName = fileName;
+             return this;
         }
 
+    
 
         /**
          * 其他透传信息
          * <p> 示例值：{}
-         *
          * @param metadata
          * @return
          */
         public Builder metadata(String metadata) {
-            this.metadata = metadata;
-            return this;
+             this.metadata = metadata;
+             return this;
         }
 
+    
 
         /**
          * 文件的创建时间，毫秒时间戳
          * <p> 示例值：1711975665710
-         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
+             this.createdAt = createdAt;
+             return this;
         }
 
+    
 
         /**
          * 文件预览链接
          * <p> 示例值：
-         *
          * @param previewUrl
          * @return
          */
         public Builder previewUrl(AilyMessageFilePreview previewUrl) {
-            this.previewUrl = previewUrl;
-            return this;
+             this.previewUrl = previewUrl;
+             return this;
         }
 
+    
+    
+    public AilyMessageFile build(){
+        return new AilyMessageFile(this);
+      }
+    }
 
-        public AilyMessageFile build() {
-            return new AilyMessageFile(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

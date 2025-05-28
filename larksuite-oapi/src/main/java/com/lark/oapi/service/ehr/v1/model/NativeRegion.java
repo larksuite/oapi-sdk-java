@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.ehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.ehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class NativeRegion {
-    /**
-     * ISO 编码
-     * <p> 示例值：CHN-11
-     */
+     /**
+      * ISO 编码
+      * <p> 示例值：CHN-11
+      */
     @SerializedName("iso_code")
     private String isoCode;
-    /**
-     * 名称
-     * <p> 示例值：北京
-     */
+     /**
+      * 名称
+      * <p> 示例值：北京
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public NativeRegion() {
-    }
-
-    public NativeRegion(Builder builder) {
-        /**
-         * ISO 编码
-         * <p> 示例值：CHN-11
-         */
-        this.isoCode = builder.isoCode;
-        /**
-         * 名称
-         * <p> 示例值：北京
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getIsoCode() {
         return this.isoCode;
     }
@@ -79,46 +53,67 @@ public class NativeRegion {
         this.name = name;
     }
 
+
+// builder 开始
+  public NativeRegion(){}
+
+  public NativeRegion(Builder builder){
+         /**
+          * ISO 编码
+          * <p> 示例值：CHN-11
+          */
+      this.isoCode = builder.isoCode;
+         /**
+          * 名称
+          * <p> 示例值：北京
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * ISO 编码
-         * <p> 示例值：CHN-11
-         */
+     /**
+      * ISO 编码
+      * <p> 示例值：CHN-11
+      */
         private String isoCode;
-        /**
-         * 名称
-         * <p> 示例值：北京
-         */
+     /**
+      * 名称
+      * <p> 示例值：北京
+      */
         private String name;
 
         /**
          * ISO 编码
          * <p> 示例值：CHN-11
-         *
          * @param isoCode
          * @return
          */
         public Builder isoCode(String isoCode) {
-            this.isoCode = isoCode;
-            return this;
+             this.isoCode = isoCode;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：北京
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public NativeRegion build(){
+        return new NativeRegion(this);
+      }
+    }
 
-        public NativeRegion build() {
-            return new NativeRegion(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

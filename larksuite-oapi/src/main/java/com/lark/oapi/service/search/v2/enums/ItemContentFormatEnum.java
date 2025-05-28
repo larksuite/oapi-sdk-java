@@ -17,16 +17,15 @@ package com.lark.oapi.service.search.v2.enums;
  * 内容的格式
  */
 public enum ItemContentFormatEnum {
-    HTML("html"), //
-    PLAINTEXT("plaintext"), //
-    ;
-    private String value;
-
+     HTML("html"), // 
+     PLAINTEXT("plaintext"), // 
+  ;
+   private String value;
     ItemContentFormatEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

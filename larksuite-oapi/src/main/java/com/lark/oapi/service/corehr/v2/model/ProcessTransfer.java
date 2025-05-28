@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProcessTransfer {
-    /**
-     * 操作人，当system_user为true，可不传值
-     * <p> 示例值：7184703091806602796
-     */
+     /**
+      * 操作人，当system_user为true，可不传值
+      * <p> 示例值：7184703091806602796
+      */
     @SerializedName("operator")
     private String operator;
-    /**
-     * 被转交人id
-     * <p> 示例值：7184703091806602796
-     */
+     /**
+      * 被转交人id
+      * <p> 示例值：7184703091806602796
+      */
     @SerializedName("to_user_id")
     private String toUserId;
-    /**
-     * 待转交审批任务id列表
-     * <p> 示例值：
-     */
+     /**
+      * 待转交审批任务id列表
+      * <p> 示例值：
+      */
     @SerializedName("approver_ids")
     private String[] approverIds;
-    /**
-     * 备注
-     * <p> 示例值：备注
-     */
+     /**
+      * 备注
+      * <p> 示例值：备注
+      */
     @SerializedName("remark")
     private String remark;
-    /**
-     * true-以系统身份操作
-     * <p> 示例值：true
-     */
+     /**
+      * true-以系统身份操作
+      * <p> 示例值：true
+      */
     @SerializedName("system_user")
     private Boolean systemUser;
-
-    // builder 开始
-    public ProcessTransfer() {
-    }
-
-    public ProcessTransfer(Builder builder) {
-        /**
-         * 操作人，当system_user为true，可不传值
-         * <p> 示例值：7184703091806602796
-         */
-        this.operator = builder.operator;
-        /**
-         * 被转交人id
-         * <p> 示例值：7184703091806602796
-         */
-        this.toUserId = builder.toUserId;
-        /**
-         * 待转交审批任务id列表
-         * <p> 示例值：
-         */
-        this.approverIds = builder.approverIds;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        this.remark = builder.remark;
-        /**
-         * true-以系统身份操作
-         * <p> 示例值：true
-         */
-        this.systemUser = builder.systemUser;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOperator() {
         return this.operator;
     }
@@ -136,100 +95,136 @@ public class ProcessTransfer {
         this.systemUser = systemUser;
     }
 
+
+// builder 开始
+  public ProcessTransfer(){}
+
+  public ProcessTransfer(Builder builder){
+         /**
+          * 操作人，当system_user为true，可不传值
+          * <p> 示例值：7184703091806602796
+          */
+      this.operator = builder.operator;
+         /**
+          * 被转交人id
+          * <p> 示例值：7184703091806602796
+          */
+      this.toUserId = builder.toUserId;
+         /**
+          * 待转交审批任务id列表
+          * <p> 示例值：
+          */
+      this.approverIds = builder.approverIds;
+         /**
+          * 备注
+          * <p> 示例值：备注
+          */
+      this.remark = builder.remark;
+         /**
+          * true-以系统身份操作
+          * <p> 示例值：true
+          */
+      this.systemUser = builder.systemUser;
+  }
+
     public static class Builder {
-        /**
-         * 操作人，当system_user为true，可不传值
-         * <p> 示例值：7184703091806602796
-         */
+     /**
+      * 操作人，当system_user为true，可不传值
+      * <p> 示例值：7184703091806602796
+      */
         private String operator;
-        /**
-         * 被转交人id
-         * <p> 示例值：7184703091806602796
-         */
+     /**
+      * 被转交人id
+      * <p> 示例值：7184703091806602796
+      */
         private String toUserId;
-        /**
-         * 待转交审批任务id列表
-         * <p> 示例值：
-         */
+     /**
+      * 待转交审批任务id列表
+      * <p> 示例值：
+      */
         private String[] approverIds;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
+     /**
+      * 备注
+      * <p> 示例值：备注
+      */
         private String remark;
-        /**
-         * true-以系统身份操作
-         * <p> 示例值：true
-         */
+     /**
+      * true-以系统身份操作
+      * <p> 示例值：true
+      */
         private Boolean systemUser;
 
         /**
          * 操作人，当system_user为true，可不传值
          * <p> 示例值：7184703091806602796
-         *
          * @param operator
          * @return
          */
         public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
+             this.operator = operator;
+             return this;
         }
 
+    
 
         /**
          * 被转交人id
          * <p> 示例值：7184703091806602796
-         *
          * @param toUserId
          * @return
          */
         public Builder toUserId(String toUserId) {
-            this.toUserId = toUserId;
-            return this;
+             this.toUserId = toUserId;
+             return this;
         }
 
+    
 
         /**
          * 待转交审批任务id列表
          * <p> 示例值：
-         *
          * @param approverIds
          * @return
          */
         public Builder approverIds(String[] approverIds) {
-            this.approverIds = approverIds;
-            return this;
+             this.approverIds = approverIds;
+             return this;
         }
 
+    
 
         /**
          * 备注
          * <p> 示例值：备注
-         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
+             this.remark = remark;
+             return this;
         }
 
+    
 
         /**
          * true-以系统身份操作
          * <p> 示例值：true
-         *
          * @param systemUser
          * @return
          */
         public Builder systemUser(Boolean systemUser) {
-            this.systemUser = systemUser;
-            return this;
+             this.systemUser = systemUser;
+             return this;
         }
 
+    
+    
+    public ProcessTransfer build(){
+        return new ProcessTransfer(this);
+      }
+    }
 
-        public ProcessTransfer build() {
-            return new ProcessTransfer(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

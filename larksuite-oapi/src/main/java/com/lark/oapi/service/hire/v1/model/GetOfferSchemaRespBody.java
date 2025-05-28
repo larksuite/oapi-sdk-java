@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetOfferSchemaRespBody {
-    /**
-     * offer申请表ID
-     * <p> 示例值：1213213123123
-     */
+     /**
+      * offer申请表ID
+      * <p> 示例值：1213213123123
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * offer申请表使用场景
-     * <p> 示例值：1
-     */
+     /**
+      * offer申请表使用场景
+      * <p> 示例值：1
+      */
     @SerializedName("scenario")
     private Integer scenario;
-    /**
-     * 申请表版本
-     * <p> 示例值：121
-     */
+     /**
+      * 申请表版本
+      * <p> 示例值：121
+      */
     @SerializedName("version")
     private Integer version;
-    /**
-     * 字段对象信息
-     * <p> 示例值：
-     */
+     /**
+      * 字段对象信息
+      * <p> 示例值：
+      */
     @SerializedName("object_list")
     private OfferSchemaDetail[] objectList;
-
     public String getId() {
         return this.id;
     }

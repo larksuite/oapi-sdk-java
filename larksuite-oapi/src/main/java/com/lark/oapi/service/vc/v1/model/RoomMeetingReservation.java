@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,225 +19,120 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RoomMeetingReservation {
-    /**
-     * 会议室ID
-     * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-     */
+     /**
+      * 会议室ID
+      * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+      */
     @SerializedName("room_id")
     private String roomId;
-    /**
-     * 会议室名称
-     * <p> 示例值：VIP Meeting Room
-     */
+     /**
+      * 会议室名称
+      * <p> 示例值：VIP Meeting Room
+      */
     @SerializedName("room_name")
     private String roomName;
-    /**
-     * 会议标题
-     * <p> 示例值：飞书邀请的日程
-     */
+     /**
+      * 会议标题
+      * <p> 示例值：飞书邀请的日程
+      */
     @SerializedName("event_title")
     private String eventTitle;
-    /**
-     * 预定人
-     * <p> 示例值：kehan
-     */
+     /**
+      * 预定人
+      * <p> 示例值：kehan
+      */
     @SerializedName("reserver")
     private String reserver;
-    /**
-     * 预定人ID
-     * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
-     */
+     /**
+      * 预定人ID
+      * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
+      */
     @SerializedName("reserver_user_id")
     private String reserverUserId;
-    /**
-     * 预定人所属部门
-     * <p> 示例值：development
-     */
+     /**
+      * 预定人所属部门
+      * <p> 示例值：development
+      */
     @SerializedName("department_of_reserver")
     private String departmentOfReserver;
-    /**
-     * 邀约人数
-     * <p> 示例值：5
-     */
+     /**
+      * 邀约人数
+      * <p> 示例值：5
+      */
     @SerializedName("guests_number")
     private String guestsNumber;
-    /**
-     * 接受人数
-     * <p> 示例值：2
-     */
+     /**
+      * 接受人数
+      * <p> 示例值：2
+      */
     @SerializedName("accepted_number")
     private String acceptedNumber;
-    /**
-     * 会议开始时间
-     * <p> 示例值：2022.12.17 21:00:00 (GMT+08:00)
-     */
+     /**
+      * 会议开始时间
+      * <p> 示例值：2022.12.17 21:00:00 (GMT+08:00)
+      */
     @SerializedName("event_start_time")
     private String eventStartTime;
-    /**
-     * 会议结束时间
-     * <p> 示例值：2022.12.17 22:00:00 (GMT+08:00)
-     */
+     /**
+      * 会议结束时间
+      * <p> 示例值：2022.12.17 22:00:00 (GMT+08:00)
+      */
     @SerializedName("event_end_time")
     private String eventEndTime;
-    /**
-     * 会议时长
-     * <p> 示例值：1:00:00
-     */
+     /**
+      * 会议时长
+      * <p> 示例值：1:00:00
+      */
     @SerializedName("event_duration")
     private String eventDuration;
-    /**
-     * 会议室预定状态
-     * <p> 示例值：预定成功
-     */
+     /**
+      * 会议室预定状态
+      * <p> 示例值：预定成功
+      */
     @SerializedName("reservation_status")
     private String reservationStatus;
-    /**
-     * 签到设备
-     * <p> 示例值：签到板
-     */
+     /**
+      * 签到设备
+      * <p> 示例值：签到板
+      */
     @SerializedName("check_in_device")
     private String checkInDevice;
-    /**
-     * 会议室签到状态
-     * <p> 示例值：已签到
-     */
+     /**
+      * 会议室签到状态
+      * <p> 示例值：已签到
+      */
     @SerializedName("room_check_in_status")
     private String roomCheckInStatus;
-    /**
-     * 会议室签到时间
-     * <p> 示例值：2022.12.09 13:35:30 (GMT+08:00)
-     */
+     /**
+      * 会议室签到时间
+      * <p> 示例值：2022.12.09 13:35:30 (GMT+08:00)
+      */
     @SerializedName("check_in_time")
     private String checkInTime;
-    /**
-     * 是否提前释放
-     * <p> 示例值：已释放（手动释放）
-     */
+     /**
+      * 是否提前释放
+      * <p> 示例值：已释放（手动释放）
+      */
     @SerializedName("is_release_early")
     private String isReleaseEarly;
-    /**
-     * 释放人
-     * <p> 示例值：kehan
-     */
+     /**
+      * 释放人
+      * <p> 示例值：kehan
+      */
     @SerializedName("releasing_person")
     private String releasingPerson;
-    /**
-     * 释放时间
-     * <p> 示例值：2022.12.20 11:25:15 (GMT+08:00)
-     */
+     /**
+      * 释放时间
+      * <p> 示例值：2022.12.20 11:25:15 (GMT+08:00)
+      */
     @SerializedName("releasing_time")
     private String releasingTime;
-
-    // builder 开始
-    public RoomMeetingReservation() {
-    }
-
-    public RoomMeetingReservation(Builder builder) {
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         */
-        this.roomId = builder.roomId;
-        /**
-         * 会议室名称
-         * <p> 示例值：VIP Meeting Room
-         */
-        this.roomName = builder.roomName;
-        /**
-         * 会议标题
-         * <p> 示例值：飞书邀请的日程
-         */
-        this.eventTitle = builder.eventTitle;
-        /**
-         * 预定人
-         * <p> 示例值：kehan
-         */
-        this.reserver = builder.reserver;
-        /**
-         * 预定人ID
-         * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
-         */
-        this.reserverUserId = builder.reserverUserId;
-        /**
-         * 预定人所属部门
-         * <p> 示例值：development
-         */
-        this.departmentOfReserver = builder.departmentOfReserver;
-        /**
-         * 邀约人数
-         * <p> 示例值：5
-         */
-        this.guestsNumber = builder.guestsNumber;
-        /**
-         * 接受人数
-         * <p> 示例值：2
-         */
-        this.acceptedNumber = builder.acceptedNumber;
-        /**
-         * 会议开始时间
-         * <p> 示例值：2022.12.17 21:00:00 (GMT+08:00)
-         */
-        this.eventStartTime = builder.eventStartTime;
-        /**
-         * 会议结束时间
-         * <p> 示例值：2022.12.17 22:00:00 (GMT+08:00)
-         */
-        this.eventEndTime = builder.eventEndTime;
-        /**
-         * 会议时长
-         * <p> 示例值：1:00:00
-         */
-        this.eventDuration = builder.eventDuration;
-        /**
-         * 会议室预定状态
-         * <p> 示例值：预定成功
-         */
-        this.reservationStatus = builder.reservationStatus;
-        /**
-         * 签到设备
-         * <p> 示例值：签到板
-         */
-        this.checkInDevice = builder.checkInDevice;
-        /**
-         * 会议室签到状态
-         * <p> 示例值：已签到
-         */
-        this.roomCheckInStatus = builder.roomCheckInStatus;
-        /**
-         * 会议室签到时间
-         * <p> 示例值：2022.12.09 13:35:30 (GMT+08:00)
-         */
-        this.checkInTime = builder.checkInTime;
-        /**
-         * 是否提前释放
-         * <p> 示例值：已释放（手动释放）
-         */
-        this.isReleaseEarly = builder.isReleaseEarly;
-        /**
-         * 释放人
-         * <p> 示例值：kehan
-         */
-        this.releasingPerson = builder.releasingPerson;
-        /**
-         * 释放时间
-         * <p> 示例值：2022.12.20 11:25:15 (GMT+08:00)
-         */
-        this.releasingTime = builder.releasingTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoomId() {
         return this.roomId;
     }
@@ -383,334 +277,435 @@ public class RoomMeetingReservation {
         this.releasingTime = releasingTime;
     }
 
+
+// builder 开始
+  public RoomMeetingReservation(){}
+
+  public RoomMeetingReservation(Builder builder){
+         /**
+          * 会议室ID
+          * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+          */
+      this.roomId = builder.roomId;
+         /**
+          * 会议室名称
+          * <p> 示例值：VIP Meeting Room
+          */
+      this.roomName = builder.roomName;
+         /**
+          * 会议标题
+          * <p> 示例值：飞书邀请的日程
+          */
+      this.eventTitle = builder.eventTitle;
+         /**
+          * 预定人
+          * <p> 示例值：kehan
+          */
+      this.reserver = builder.reserver;
+         /**
+          * 预定人ID
+          * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
+          */
+      this.reserverUserId = builder.reserverUserId;
+         /**
+          * 预定人所属部门
+          * <p> 示例值：development
+          */
+      this.departmentOfReserver = builder.departmentOfReserver;
+         /**
+          * 邀约人数
+          * <p> 示例值：5
+          */
+      this.guestsNumber = builder.guestsNumber;
+         /**
+          * 接受人数
+          * <p> 示例值：2
+          */
+      this.acceptedNumber = builder.acceptedNumber;
+         /**
+          * 会议开始时间
+          * <p> 示例值：2022.12.17 21:00:00 (GMT+08:00)
+          */
+      this.eventStartTime = builder.eventStartTime;
+         /**
+          * 会议结束时间
+          * <p> 示例值：2022.12.17 22:00:00 (GMT+08:00)
+          */
+      this.eventEndTime = builder.eventEndTime;
+         /**
+          * 会议时长
+          * <p> 示例值：1:00:00
+          */
+      this.eventDuration = builder.eventDuration;
+         /**
+          * 会议室预定状态
+          * <p> 示例值：预定成功
+          */
+      this.reservationStatus = builder.reservationStatus;
+         /**
+          * 签到设备
+          * <p> 示例值：签到板
+          */
+      this.checkInDevice = builder.checkInDevice;
+         /**
+          * 会议室签到状态
+          * <p> 示例值：已签到
+          */
+      this.roomCheckInStatus = builder.roomCheckInStatus;
+         /**
+          * 会议室签到时间
+          * <p> 示例值：2022.12.09 13:35:30 (GMT+08:00)
+          */
+      this.checkInTime = builder.checkInTime;
+         /**
+          * 是否提前释放
+          * <p> 示例值：已释放（手动释放）
+          */
+      this.isReleaseEarly = builder.isReleaseEarly;
+         /**
+          * 释放人
+          * <p> 示例值：kehan
+          */
+      this.releasingPerson = builder.releasingPerson;
+         /**
+          * 释放时间
+          * <p> 示例值：2022.12.20 11:25:15 (GMT+08:00)
+          */
+      this.releasingTime = builder.releasingTime;
+  }
+
     public static class Builder {
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         */
+     /**
+      * 会议室ID
+      * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+      */
         private String roomId;
-        /**
-         * 会议室名称
-         * <p> 示例值：VIP Meeting Room
-         */
+     /**
+      * 会议室名称
+      * <p> 示例值：VIP Meeting Room
+      */
         private String roomName;
-        /**
-         * 会议标题
-         * <p> 示例值：飞书邀请的日程
-         */
+     /**
+      * 会议标题
+      * <p> 示例值：飞书邀请的日程
+      */
         private String eventTitle;
-        /**
-         * 预定人
-         * <p> 示例值：kehan
-         */
+     /**
+      * 预定人
+      * <p> 示例值：kehan
+      */
         private String reserver;
-        /**
-         * 预定人ID
-         * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
-         */
+     /**
+      * 预定人ID
+      * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
+      */
         private String reserverUserId;
-        /**
-         * 预定人所属部门
-         * <p> 示例值：development
-         */
+     /**
+      * 预定人所属部门
+      * <p> 示例值：development
+      */
         private String departmentOfReserver;
-        /**
-         * 邀约人数
-         * <p> 示例值：5
-         */
+     /**
+      * 邀约人数
+      * <p> 示例值：5
+      */
         private String guestsNumber;
-        /**
-         * 接受人数
-         * <p> 示例值：2
-         */
+     /**
+      * 接受人数
+      * <p> 示例值：2
+      */
         private String acceptedNumber;
-        /**
-         * 会议开始时间
-         * <p> 示例值：2022.12.17 21:00:00 (GMT+08:00)
-         */
+     /**
+      * 会议开始时间
+      * <p> 示例值：2022.12.17 21:00:00 (GMT+08:00)
+      */
         private String eventStartTime;
-        /**
-         * 会议结束时间
-         * <p> 示例值：2022.12.17 22:00:00 (GMT+08:00)
-         */
+     /**
+      * 会议结束时间
+      * <p> 示例值：2022.12.17 22:00:00 (GMT+08:00)
+      */
         private String eventEndTime;
-        /**
-         * 会议时长
-         * <p> 示例值：1:00:00
-         */
+     /**
+      * 会议时长
+      * <p> 示例值：1:00:00
+      */
         private String eventDuration;
-        /**
-         * 会议室预定状态
-         * <p> 示例值：预定成功
-         */
+     /**
+      * 会议室预定状态
+      * <p> 示例值：预定成功
+      */
         private String reservationStatus;
-        /**
-         * 签到设备
-         * <p> 示例值：签到板
-         */
+     /**
+      * 签到设备
+      * <p> 示例值：签到板
+      */
         private String checkInDevice;
-        /**
-         * 会议室签到状态
-         * <p> 示例值：已签到
-         */
+     /**
+      * 会议室签到状态
+      * <p> 示例值：已签到
+      */
         private String roomCheckInStatus;
-        /**
-         * 会议室签到时间
-         * <p> 示例值：2022.12.09 13:35:30 (GMT+08:00)
-         */
+     /**
+      * 会议室签到时间
+      * <p> 示例值：2022.12.09 13:35:30 (GMT+08:00)
+      */
         private String checkInTime;
-        /**
-         * 是否提前释放
-         * <p> 示例值：已释放（手动释放）
-         */
+     /**
+      * 是否提前释放
+      * <p> 示例值：已释放（手动释放）
+      */
         private String isReleaseEarly;
-        /**
-         * 释放人
-         * <p> 示例值：kehan
-         */
+     /**
+      * 释放人
+      * <p> 示例值：kehan
+      */
         private String releasingPerson;
-        /**
-         * 释放时间
-         * <p> 示例值：2022.12.20 11:25:15 (GMT+08:00)
-         */
+     /**
+      * 释放时间
+      * <p> 示例值：2022.12.20 11:25:15 (GMT+08:00)
+      */
         private String releasingTime;
 
         /**
          * 会议室ID
          * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         *
          * @param roomId
          * @return
          */
         public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
+             this.roomId = roomId;
+             return this;
         }
 
+    
 
         /**
          * 会议室名称
          * <p> 示例值：VIP Meeting Room
-         *
          * @param roomName
          * @return
          */
         public Builder roomName(String roomName) {
-            this.roomName = roomName;
-            return this;
+             this.roomName = roomName;
+             return this;
         }
 
+    
 
         /**
          * 会议标题
          * <p> 示例值：飞书邀请的日程
-         *
          * @param eventTitle
          * @return
          */
         public Builder eventTitle(String eventTitle) {
-            this.eventTitle = eventTitle;
-            return this;
+             this.eventTitle = eventTitle;
+             return this;
         }
 
+    
 
         /**
          * 预定人
          * <p> 示例值：kehan
-         *
          * @param reserver
          * @return
          */
         public Builder reserver(String reserver) {
-            this.reserver = reserver;
-            return this;
+             this.reserver = reserver;
+             return this;
         }
 
+    
 
         /**
          * 预定人ID
          * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
-         *
          * @param reserverUserId
          * @return
          */
         public Builder reserverUserId(String reserverUserId) {
-            this.reserverUserId = reserverUserId;
-            return this;
+             this.reserverUserId = reserverUserId;
+             return this;
         }
 
+    
 
         /**
          * 预定人所属部门
          * <p> 示例值：development
-         *
          * @param departmentOfReserver
          * @return
          */
         public Builder departmentOfReserver(String departmentOfReserver) {
-            this.departmentOfReserver = departmentOfReserver;
-            return this;
+             this.departmentOfReserver = departmentOfReserver;
+             return this;
         }
 
+    
 
         /**
          * 邀约人数
          * <p> 示例值：5
-         *
          * @param guestsNumber
          * @return
          */
         public Builder guestsNumber(String guestsNumber) {
-            this.guestsNumber = guestsNumber;
-            return this;
+             this.guestsNumber = guestsNumber;
+             return this;
         }
 
+    
 
         /**
          * 接受人数
          * <p> 示例值：2
-         *
          * @param acceptedNumber
          * @return
          */
         public Builder acceptedNumber(String acceptedNumber) {
-            this.acceptedNumber = acceptedNumber;
-            return this;
+             this.acceptedNumber = acceptedNumber;
+             return this;
         }
 
+    
 
         /**
          * 会议开始时间
          * <p> 示例值：2022.12.17 21:00:00 (GMT+08:00)
-         *
          * @param eventStartTime
          * @return
          */
         public Builder eventStartTime(String eventStartTime) {
-            this.eventStartTime = eventStartTime;
-            return this;
+             this.eventStartTime = eventStartTime;
+             return this;
         }
 
+    
 
         /**
          * 会议结束时间
          * <p> 示例值：2022.12.17 22:00:00 (GMT+08:00)
-         *
          * @param eventEndTime
          * @return
          */
         public Builder eventEndTime(String eventEndTime) {
-            this.eventEndTime = eventEndTime;
-            return this;
+             this.eventEndTime = eventEndTime;
+             return this;
         }
 
+    
 
         /**
          * 会议时长
          * <p> 示例值：1:00:00
-         *
          * @param eventDuration
          * @return
          */
         public Builder eventDuration(String eventDuration) {
-            this.eventDuration = eventDuration;
-            return this;
+             this.eventDuration = eventDuration;
+             return this;
         }
 
+    
 
         /**
          * 会议室预定状态
          * <p> 示例值：预定成功
-         *
          * @param reservationStatus
          * @return
          */
         public Builder reservationStatus(String reservationStatus) {
-            this.reservationStatus = reservationStatus;
-            return this;
+             this.reservationStatus = reservationStatus;
+             return this;
         }
 
+    
 
         /**
          * 签到设备
          * <p> 示例值：签到板
-         *
          * @param checkInDevice
          * @return
          */
         public Builder checkInDevice(String checkInDevice) {
-            this.checkInDevice = checkInDevice;
-            return this;
+             this.checkInDevice = checkInDevice;
+             return this;
         }
 
+    
 
         /**
          * 会议室签到状态
          * <p> 示例值：已签到
-         *
          * @param roomCheckInStatus
          * @return
          */
         public Builder roomCheckInStatus(String roomCheckInStatus) {
-            this.roomCheckInStatus = roomCheckInStatus;
-            return this;
+             this.roomCheckInStatus = roomCheckInStatus;
+             return this;
         }
 
+    
 
         /**
          * 会议室签到时间
          * <p> 示例值：2022.12.09 13:35:30 (GMT+08:00)
-         *
          * @param checkInTime
          * @return
          */
         public Builder checkInTime(String checkInTime) {
-            this.checkInTime = checkInTime;
-            return this;
+             this.checkInTime = checkInTime;
+             return this;
         }
 
+    
 
         /**
          * 是否提前释放
          * <p> 示例值：已释放（手动释放）
-         *
          * @param isReleaseEarly
          * @return
          */
         public Builder isReleaseEarly(String isReleaseEarly) {
-            this.isReleaseEarly = isReleaseEarly;
-            return this;
+             this.isReleaseEarly = isReleaseEarly;
+             return this;
         }
 
+    
 
         /**
          * 释放人
          * <p> 示例值：kehan
-         *
          * @param releasingPerson
          * @return
          */
         public Builder releasingPerson(String releasingPerson) {
-            this.releasingPerson = releasingPerson;
-            return this;
+             this.releasingPerson = releasingPerson;
+             return this;
         }
 
+    
 
         /**
          * 释放时间
          * <p> 示例值：2022.12.20 11:25:15 (GMT+08:00)
-         *
          * @param releasingTime
          * @return
          */
         public Builder releasingTime(String releasingTime) {
-            this.releasingTime = releasingTime;
-            return this;
+             this.releasingTime = releasingTime;
+             return this;
         }
 
+    
+    
+    public RoomMeetingReservation build(){
+        return new RoomMeetingReservation(this);
+      }
+    }
 
-        public RoomMeetingReservation build() {
-            return new RoomMeetingReservation(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateMessageRespBody {
-    /**
-     * 消息id列表
-     * <p> 示例值：
-     */
+     /**
+      * 消息id列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private String[] items;
-    /**
-     * 翻页 token，传入返回下一页，首页不需要传入
-     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-     */
+     /**
+      * 翻页 token，传入返回下一页，首页不需要传入
+      * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否还有下一页
-     * <p> 示例值：true
-     */
+     /**
+      * 是否还有下一页
+      * <p> 示例值：true
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public String[] getItems() {
         return this.items;
     }

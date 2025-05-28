@@ -12,96 +12,52 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateOfferReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：open_id
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 此次调用中使用的部门 ID 的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的部门 ID 的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    /**
-     * 此次调用中使用的「职级 ID」的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的「职级 ID」的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("job_level_id_type")
     private String jobLevelIdType;
-    /**
-     * 此次调用中使用的「序列 ID」的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的「序列 ID」的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("job_family_id_type")
     private String jobFamilyIdType;
-    /**
-     * 此次调用中使用的「人员类型 ID」的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的「人员类型 ID」的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("employee_type_id_type")
     private String employeeTypeIdType;
-    @Body
-    private OfferInfo body;
-
-    // builder 开始
-    public CreateOfferReq() {
-    }
-
-    public CreateOfferReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         */
-        this.jobLevelIdType = builder.jobLevelIdType;
-        /**
-         * 此次调用中使用的「序列 ID」的类型
-         * <p> 示例值：
-         */
-        this.jobFamilyIdType = builder.jobFamilyIdType;
-        /**
-         * 此次调用中使用的「人员类型 ID」的类型
-         * <p> 示例值：
-         */
-        this.employeeTypeIdType = builder.employeeTypeIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -142,6 +98,9 @@ public class CreateOfferReq {
         this.employeeTypeIdType = employeeTypeIdType;
     }
 
+    @Body
+    private OfferInfo body;
+
     public OfferInfo getOfferInfo() {
         return this.body;
     }
@@ -150,91 +109,126 @@ public class CreateOfferReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateOfferReq(){}
+
+  public CreateOfferReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 此次调用中使用的部门 ID 的类型
+          * <p> 示例值：
+          */
+       this.departmentIdType = builder.departmentIdType;
+         /**
+          * 此次调用中使用的「职级 ID」的类型
+          * <p> 示例值：
+          */
+       this.jobLevelIdType = builder.jobLevelIdType;
+         /**
+          * 此次调用中使用的「序列 ID」的类型
+          * <p> 示例值：
+          */
+       this.jobFamilyIdType = builder.jobFamilyIdType;
+         /**
+          * 此次调用中使用的「人员类型 ID」的类型
+          * <p> 示例值：
+          */
+       this.employeeTypeIdType = builder.employeeTypeIdType;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 此次调用中使用的部门 ID 的类型
         private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
         private String jobFamilyIdType; // 此次调用中使用的「序列 ID」的类型
         private String employeeTypeIdType; // 此次调用中使用的「人员类型 ID」的类型
-        private OfferInfo body;
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
         /**
          * 此次调用中使用的部门 ID 的类型
          * <p> 示例值：
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
+    
         /**
          * 此次调用中使用的「职级 ID」的类型
          * <p> 示例值：
-         *
          * @param jobLevelIdType
          * @return
          */
-        public Builder jobLevelIdType(String jobLevelIdType) {
-            this.jobLevelIdType = jobLevelIdType;
-            return this;
-        }
+           public Builder jobLevelIdType(String jobLevelIdType) {
+                this.jobLevelIdType = jobLevelIdType;
+                return this;
+           }
 
+    
         /**
          * 此次调用中使用的「序列 ID」的类型
          * <p> 示例值：
-         *
          * @param jobFamilyIdType
          * @return
          */
-        public Builder jobFamilyIdType(String jobFamilyIdType) {
-            this.jobFamilyIdType = jobFamilyIdType;
-            return this;
-        }
+           public Builder jobFamilyIdType(String jobFamilyIdType) {
+                this.jobFamilyIdType = jobFamilyIdType;
+                return this;
+           }
 
+    
         /**
          * 此次调用中使用的「人员类型 ID」的类型
          * <p> 示例值：
-         *
          * @param employeeTypeIdType
          * @return
          */
-        public Builder employeeTypeIdType(String employeeTypeIdType) {
-            this.employeeTypeIdType = employeeTypeIdType;
-            return this;
-        }
+           public Builder employeeTypeIdType(String employeeTypeIdType) {
+                this.employeeTypeIdType = employeeTypeIdType;
+                return this;
+           }
 
+    
+        private OfferInfo body;
+    
         public OfferInfo getOfferInfo() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder offerInfo(OfferInfo body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateOfferReq build(){
+        return new CreateOfferReq(this);
+      }
+    }
 
-        public CreateOfferReq build() {
-            return new CreateOfferReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

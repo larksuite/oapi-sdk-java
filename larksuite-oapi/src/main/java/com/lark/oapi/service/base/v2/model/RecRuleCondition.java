@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.base.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.base.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RecRuleCondition {
-    /**
-     * 字段名
-     * <p> 示例值：单选
-     */
+     /**
+      * 字段名
+      * <p> 示例值：单选
+      */
     @SerializedName("field_name")
     private String fieldName;
-    /**
-     * 运算符
-     * <p> 示例值：is
-     */
+     /**
+      * 运算符
+      * <p> 示例值：is
+      */
     @SerializedName("operator")
     private String operator;
-    /**
-     * 单选或多选字段的选项id
-     * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-     */
+     /**
+      * 单选或多选字段的选项id
+      * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
+      */
     @SerializedName("values")
     private String[] values;
-    /**
-     * 字段类型
-     * <p> 示例值：3
-     */
+     /**
+      * 字段类型
+      * <p> 示例值：3
+      */
     @SerializedName("field_type")
     private Integer fieldType;
-
-    // builder 开始
-    public RecRuleCondition() {
-    }
-
-    public RecRuleCondition(Builder builder) {
-        /**
-         * 字段名
-         * <p> 示例值：单选
-         */
-        this.fieldName = builder.fieldName;
-        /**
-         * 运算符
-         * <p> 示例值：is
-         */
-        this.operator = builder.operator;
-        /**
-         * 单选或多选字段的选项id
-         * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-         */
-        this.values = builder.values;
-        /**
-         * 字段类型
-         * <p> 示例值：3
-         */
-        this.fieldType = builder.fieldType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFieldName() {
         return this.fieldName;
     }
@@ -117,94 +81,123 @@ public class RecRuleCondition {
         this.fieldType = fieldType;
     }
 
+
+// builder 开始
+  public RecRuleCondition(){}
+
+  public RecRuleCondition(Builder builder){
+         /**
+          * 字段名
+          * <p> 示例值：单选
+          */
+      this.fieldName = builder.fieldName;
+         /**
+          * 运算符
+          * <p> 示例值：is
+          */
+      this.operator = builder.operator;
+         /**
+          * 单选或多选字段的选项id
+          * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
+          */
+      this.values = builder.values;
+         /**
+          * 字段类型
+          * <p> 示例值：3
+          */
+      this.fieldType = builder.fieldType;
+  }
+
     public static class Builder {
-        /**
-         * 字段名
-         * <p> 示例值：单选
-         */
+     /**
+      * 字段名
+      * <p> 示例值：单选
+      */
         private String fieldName;
-        /**
-         * 运算符
-         * <p> 示例值：is
-         */
+     /**
+      * 运算符
+      * <p> 示例值：is
+      */
         private String operator;
-        /**
-         * 单选或多选字段的选项id
-         * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-         */
+     /**
+      * 单选或多选字段的选项id
+      * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
+      */
         private String[] values;
-        /**
-         * 字段类型
-         * <p> 示例值：3
-         */
+     /**
+      * 字段类型
+      * <p> 示例值：3
+      */
         private Integer fieldType;
 
         /**
          * 字段名
          * <p> 示例值：单选
-         *
          * @param fieldName
          * @return
          */
         public Builder fieldName(String fieldName) {
-            this.fieldName = fieldName;
-            return this;
+             this.fieldName = fieldName;
+             return this;
         }
 
+    
 
         /**
          * 运算符
          * <p> 示例值：is
-         *
          * @param operator
          * @return
          */
         public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
+             this.operator = operator;
+             return this;
         }
-
         /**
          * 运算符
          * <p> 示例值：is
-         *
          * @param operator {@link com.lark.oapi.service.base.v2.enums.RecRuleConditionOperatorEnum}
          * @return
          */
         public Builder operator(com.lark.oapi.service.base.v2.enums.RecRuleConditionOperatorEnum operator) {
-            this.operator = operator.getValue();
-            return this;
+             this.operator = operator.getValue();
+             return this;
         }
 
+    
 
         /**
          * 单选或多选字段的选项id
          * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-         *
          * @param values
          * @return
          */
         public Builder values(String[] values) {
-            this.values = values;
-            return this;
+             this.values = values;
+             return this;
         }
 
+    
 
         /**
          * 字段类型
          * <p> 示例值：3
-         *
          * @param fieldType
          * @return
          */
         public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
+             this.fieldType = fieldType;
+             return this;
         }
 
+    
+    
+    public RecRuleCondition build(){
+        return new RecRuleCondition(this);
+      }
+    }
 
-        public RecRuleCondition build() {
-            return new RecRuleCondition(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

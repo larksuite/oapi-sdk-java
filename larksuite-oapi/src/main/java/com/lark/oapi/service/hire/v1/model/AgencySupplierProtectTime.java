@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AgencySupplierProtectTime {
-    /**
-     * 保护时长，单位（天）
-     * <p> 示例值：180
-     */
+     /**
+      * 保护时长，单位（天）
+      * <p> 示例值：180
+      */
     @SerializedName("day")
     private Long day;
-    /**
-     * 是否使用统一设置
-     * <p> 示例值：true
-     */
+     /**
+      * 是否使用统一设置
+      * <p> 示例值：true
+      */
     @SerializedName("use_default")
     private Boolean useDefault;
-
-    // builder 开始
-    public AgencySupplierProtectTime() {
-    }
-
-    public AgencySupplierProtectTime(Builder builder) {
-        /**
-         * 保护时长，单位（天）
-         * <p> 示例值：180
-         */
-        this.day = builder.day;
-        /**
-         * 是否使用统一设置
-         * <p> 示例值：true
-         */
-        this.useDefault = builder.useDefault;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Long getDay() {
         return this.day;
     }
@@ -78,46 +52,67 @@ public class AgencySupplierProtectTime {
         this.useDefault = useDefault;
     }
 
+
+// builder 开始
+  public AgencySupplierProtectTime(){}
+
+  public AgencySupplierProtectTime(Builder builder){
+         /**
+          * 保护时长，单位（天）
+          * <p> 示例值：180
+          */
+      this.day = builder.day;
+         /**
+          * 是否使用统一设置
+          * <p> 示例值：true
+          */
+      this.useDefault = builder.useDefault;
+  }
+
     public static class Builder {
-        /**
-         * 保护时长，单位（天）
-         * <p> 示例值：180
-         */
+     /**
+      * 保护时长，单位（天）
+      * <p> 示例值：180
+      */
         private Long day;
-        /**
-         * 是否使用统一设置
-         * <p> 示例值：true
-         */
+     /**
+      * 是否使用统一设置
+      * <p> 示例值：true
+      */
         private Boolean useDefault;
 
         /**
          * 保护时长，单位（天）
          * <p> 示例值：180
-         *
          * @param day
          * @return
          */
         public Builder day(Long day) {
-            this.day = day;
-            return this;
+             this.day = day;
+             return this;
         }
 
+    
 
         /**
          * 是否使用统一设置
          * <p> 示例值：true
-         *
          * @param useDefault
          * @return
          */
         public Builder useDefault(Boolean useDefault) {
-            this.useDefault = useDefault;
-            return this;
+             this.useDefault = useDefault;
+             return this;
         }
 
+    
+    
+    public AgencySupplierProtectTime build(){
+        return new AgencySupplierProtectTime(this);
+      }
+    }
 
-        public AgencySupplierProtectTime build() {
-            return new AgencySupplierProtectTime(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

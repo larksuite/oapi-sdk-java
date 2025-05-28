@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Element {
-    /**
-     * 标识
-     * <p> 示例值：button
-     */
+     /**
+      * 标识
+      * <p> 示例值：button
+      */
     @SerializedName("tag")
     private String tag;
-    /**
-     * 组件id
-     * <p> 示例值：elem_1
-     */
+     /**
+      * 组件id
+      * <p> 示例值：elem_1
+      */
     @SerializedName("element_id")
     private String elementId;
-
-    // builder 开始
-    public Element() {
-    }
-
-    public Element(Builder builder) {
-        /**
-         * 标识
-         * <p> 示例值：button
-         */
-        this.tag = builder.tag;
-        /**
-         * 组件id
-         * <p> 示例值：elem_1
-         */
-        this.elementId = builder.elementId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTag() {
         return this.tag;
     }
@@ -79,46 +53,67 @@ public class Element {
         this.elementId = elementId;
     }
 
+
+// builder 开始
+  public Element(){}
+
+  public Element(Builder builder){
+         /**
+          * 标识
+          * <p> 示例值：button
+          */
+      this.tag = builder.tag;
+         /**
+          * 组件id
+          * <p> 示例值：elem_1
+          */
+      this.elementId = builder.elementId;
+  }
+
     public static class Builder {
-        /**
-         * 标识
-         * <p> 示例值：button
-         */
+     /**
+      * 标识
+      * <p> 示例值：button
+      */
         private String tag;
-        /**
-         * 组件id
-         * <p> 示例值：elem_1
-         */
+     /**
+      * 组件id
+      * <p> 示例值：elem_1
+      */
         private String elementId;
 
         /**
          * 标识
          * <p> 示例值：button
-         *
          * @param tag
          * @return
          */
         public Builder tag(String tag) {
-            this.tag = tag;
-            return this;
+             this.tag = tag;
+             return this;
         }
 
+    
 
         /**
          * 组件id
          * <p> 示例值：elem_1
-         *
          * @param elementId
          * @return
          */
         public Builder elementId(String elementId) {
-            this.elementId = elementId;
-            return this;
+             this.elementId = elementId;
+             return this;
         }
 
+    
+    
+    public Element build(){
+        return new Element(this);
+      }
+    }
 
-        public Element build() {
-            return new Element(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

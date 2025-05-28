@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataAssetImportKnowledgeSetting {
-    /**
-     * 知识切片配置
-     * <p> 示例值：
-     */
+     /**
+      * 知识切片配置
+      * <p> 示例值：
+      */
     @SerializedName("chunk_setting")
     private DataAssetKnowledgeChunkSetting chunkSetting;
-    /**
-     * 知识导入-文件
-     * <p> 示例值：
-     */
+     /**
+      * 知识导入-文件
+      * <p> 示例值：
+      */
     @SerializedName("file")
     private DataAssetImportKnowledgeFile file;
-    /**
-     * 知识导入-飞书云文档
-     * <p> 示例值：
-     */
+     /**
+      * 知识导入-飞书云文档
+      * <p> 示例值：
+      */
     @SerializedName("lark_doc")
     private DataAssetImportKnowledgeLarkDoc larkDoc;
-    /**
-     * 知识导入-飞书知识空间
-     * <p> 示例值：
-     */
+     /**
+      * 知识导入-飞书知识空间
+      * <p> 示例值：
+      */
     @SerializedName("lark_wiki_space")
     private DataAssetImportKnowledgeWiki larkWikiSpace;
-    /**
-     * 知识导入-飞书服务台
-     * <p> 示例值：
-     */
+     /**
+      * 知识导入-飞书服务台
+      * <p> 示例值：
+      */
     @SerializedName("lark_helpdesk")
     private DataAssetImportKnowledgeHelpdesk larkHelpdesk;
-
-    // builder 开始
-    public DataAssetImportKnowledgeSetting() {
-    }
-
-    public DataAssetImportKnowledgeSetting(Builder builder) {
-        /**
-         * 知识切片配置
-         * <p> 示例值：
-         */
-        this.chunkSetting = builder.chunkSetting;
-        /**
-         * 知识导入-文件
-         * <p> 示例值：
-         */
-        this.file = builder.file;
-        /**
-         * 知识导入-飞书云文档
-         * <p> 示例值：
-         */
-        this.larkDoc = builder.larkDoc;
-        /**
-         * 知识导入-飞书知识空间
-         * <p> 示例值：
-         */
-        this.larkWikiSpace = builder.larkWikiSpace;
-        /**
-         * 知识导入-飞书服务台
-         * <p> 示例值：
-         */
-        this.larkHelpdesk = builder.larkHelpdesk;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public DataAssetKnowledgeChunkSetting getChunkSetting() {
         return this.chunkSetting;
     }
@@ -136,100 +95,136 @@ public class DataAssetImportKnowledgeSetting {
         this.larkHelpdesk = larkHelpdesk;
     }
 
+
+// builder 开始
+  public DataAssetImportKnowledgeSetting(){}
+
+  public DataAssetImportKnowledgeSetting(Builder builder){
+         /**
+          * 知识切片配置
+          * <p> 示例值：
+          */
+      this.chunkSetting = builder.chunkSetting;
+         /**
+          * 知识导入-文件
+          * <p> 示例值：
+          */
+      this.file = builder.file;
+         /**
+          * 知识导入-飞书云文档
+          * <p> 示例值：
+          */
+      this.larkDoc = builder.larkDoc;
+         /**
+          * 知识导入-飞书知识空间
+          * <p> 示例值：
+          */
+      this.larkWikiSpace = builder.larkWikiSpace;
+         /**
+          * 知识导入-飞书服务台
+          * <p> 示例值：
+          */
+      this.larkHelpdesk = builder.larkHelpdesk;
+  }
+
     public static class Builder {
-        /**
-         * 知识切片配置
-         * <p> 示例值：
-         */
+     /**
+      * 知识切片配置
+      * <p> 示例值：
+      */
         private DataAssetKnowledgeChunkSetting chunkSetting;
-        /**
-         * 知识导入-文件
-         * <p> 示例值：
-         */
+     /**
+      * 知识导入-文件
+      * <p> 示例值：
+      */
         private DataAssetImportKnowledgeFile file;
-        /**
-         * 知识导入-飞书云文档
-         * <p> 示例值：
-         */
+     /**
+      * 知识导入-飞书云文档
+      * <p> 示例值：
+      */
         private DataAssetImportKnowledgeLarkDoc larkDoc;
-        /**
-         * 知识导入-飞书知识空间
-         * <p> 示例值：
-         */
+     /**
+      * 知识导入-飞书知识空间
+      * <p> 示例值：
+      */
         private DataAssetImportKnowledgeWiki larkWikiSpace;
-        /**
-         * 知识导入-飞书服务台
-         * <p> 示例值：
-         */
+     /**
+      * 知识导入-飞书服务台
+      * <p> 示例值：
+      */
         private DataAssetImportKnowledgeHelpdesk larkHelpdesk;
 
         /**
          * 知识切片配置
          * <p> 示例值：
-         *
          * @param chunkSetting
          * @return
          */
         public Builder chunkSetting(DataAssetKnowledgeChunkSetting chunkSetting) {
-            this.chunkSetting = chunkSetting;
-            return this;
+             this.chunkSetting = chunkSetting;
+             return this;
         }
 
+    
 
         /**
          * 知识导入-文件
          * <p> 示例值：
-         *
          * @param file
          * @return
          */
         public Builder file(DataAssetImportKnowledgeFile file) {
-            this.file = file;
-            return this;
+             this.file = file;
+             return this;
         }
 
+    
 
         /**
          * 知识导入-飞书云文档
          * <p> 示例值：
-         *
          * @param larkDoc
          * @return
          */
         public Builder larkDoc(DataAssetImportKnowledgeLarkDoc larkDoc) {
-            this.larkDoc = larkDoc;
-            return this;
+             this.larkDoc = larkDoc;
+             return this;
         }
 
+    
 
         /**
          * 知识导入-飞书知识空间
          * <p> 示例值：
-         *
          * @param larkWikiSpace
          * @return
          */
         public Builder larkWikiSpace(DataAssetImportKnowledgeWiki larkWikiSpace) {
-            this.larkWikiSpace = larkWikiSpace;
-            return this;
+             this.larkWikiSpace = larkWikiSpace;
+             return this;
         }
 
+    
 
         /**
          * 知识导入-飞书服务台
          * <p> 示例值：
-         *
          * @param larkHelpdesk
          * @return
          */
         public Builder larkHelpdesk(DataAssetImportKnowledgeHelpdesk larkHelpdesk) {
-            this.larkHelpdesk = larkHelpdesk;
-            return this;
+             this.larkHelpdesk = larkHelpdesk;
+             return this;
         }
 
+    
+    
+    public DataAssetImportKnowledgeSetting build(){
+        return new DataAssetImportKnowledgeSetting(this);
+      }
+    }
 
-        public DataAssetImportKnowledgeSetting build() {
-            return new DataAssetImportKnowledgeSetting(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FilterInfo {
-    /**
-     * 设置了筛选条件的列
-     * <p> 示例值：E
-     */
+     /**
+      * 设置了筛选条件的列
+      * <p> 示例值：E
+      */
     @SerializedName("col")
     private String col;
-    /**
-     * 筛选条件
-     * <p> 示例值：
-     */
+     /**
+      * 筛选条件
+      * <p> 示例值：
+      */
     @SerializedName("conditions")
     private Condition[] conditions;
-
-    // builder 开始
-    public FilterInfo() {
-    }
-
-    public FilterInfo(Builder builder) {
-        /**
-         * 设置了筛选条件的列
-         * <p> 示例值：E
-         */
-        this.col = builder.col;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCol() {
         return this.col;
     }
@@ -79,46 +53,67 @@ public class FilterInfo {
         this.conditions = conditions;
     }
 
+
+// builder 开始
+  public FilterInfo(){}
+
+  public FilterInfo(Builder builder){
+         /**
+          * 设置了筛选条件的列
+          * <p> 示例值：E
+          */
+      this.col = builder.col;
+         /**
+          * 筛选条件
+          * <p> 示例值：
+          */
+      this.conditions = builder.conditions;
+  }
+
     public static class Builder {
-        /**
-         * 设置了筛选条件的列
-         * <p> 示例值：E
-         */
+     /**
+      * 设置了筛选条件的列
+      * <p> 示例值：E
+      */
         private String col;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
+     /**
+      * 筛选条件
+      * <p> 示例值：
+      */
         private Condition[] conditions;
 
         /**
          * 设置了筛选条件的列
          * <p> 示例值：E
-         *
          * @param col
          * @return
          */
         public Builder col(String col) {
-            this.col = col;
-            return this;
+             this.col = col;
+             return this;
         }
 
+    
 
         /**
          * 筛选条件
          * <p> 示例值：
-         *
          * @param conditions
          * @return
          */
         public Builder conditions(Condition[] conditions) {
-            this.conditions = conditions;
-            return this;
+             this.conditions = conditions;
+             return this;
         }
 
+    
+    
+    public FilterInfo build(){
+        return new FilterInfo(this);
+      }
+    }
 
-        public FilterInfo build() {
-            return new FilterInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

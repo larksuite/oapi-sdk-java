@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataSummaryDimension {
-    /**
-     * 层级
-     * <p> 示例值：1
-     */
+     /**
+      * 层级
+      * <p> 示例值：1
+      */
     @SerializedName("dimension_level")
     private Integer dimensionLevel;
-    /**
-     * 类型
-     * <p> 示例值：1
-     */
+     /**
+      * 类型
+      * <p> 示例值：1
+      */
     @SerializedName("dimension_type")
     private Integer dimensionType;
-    /**
-     * 维度ID，需要再次转换
-     * <p> 示例值：6823630319749580306
-     */
+     /**
+      * 维度ID，需要再次转换
+      * <p> 示例值：6823630319749580306
+      */
     @SerializedName("dimension_value_id")
     private String dimensionValueId;
-    /**
-     * 算薪项汇总维度时，当算薪项是特定枚举值，会使用该字段返回枚举值ID以及枚举值Key
-     * <p> 示例值：
-     */
+     /**
+      * 算薪项汇总维度时，当算薪项是特定枚举值，会使用该字段返回枚举值ID以及枚举值Key
+      * <p> 示例值：
+      */
     @SerializedName("enum_dimension")
     private EnumObject enumDimension;
-    /**
-     * 维度引用对象的基础信息，当维度为引用类型字段才会有值，目前支持的引用对象类型见type
-     * <p> 示例值：
-     */
+     /**
+      * 维度引用对象的基础信息，当维度为引用类型字段才会有值，目前支持的引用对象类型见type
+      * <p> 示例值：
+      */
     @SerializedName("dimension_value_lookup_info")
     private DimensionValueLookupInfo dimensionValueLookupInfo;
-    /**
-     * 维度名称，自定义维度使用
-     * <p> 示例值：
-     */
+     /**
+      * 维度名称，自定义维度使用
+      * <p> 示例值：
+      */
     @SerializedName("dimension_names")
     private I18nContent[] dimensionNames;
-    /**
-     * 数据维度表头，自定义维度使用
-     * <p> 示例值：
-     */
+     /**
+      * 数据维度表头，自定义维度使用
+      * <p> 示例值：
+      */
     @SerializedName("dimension_titles")
     private I18nContent[] dimensionTitles;
-
-    // builder 开始
-    public DataSummaryDimension() {
-    }
-
-    public DataSummaryDimension(Builder builder) {
-        /**
-         * 层级
-         * <p> 示例值：1
-         */
-        this.dimensionLevel = builder.dimensionLevel;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        this.dimensionType = builder.dimensionType;
-        /**
-         * 维度ID，需要再次转换
-         * <p> 示例值：6823630319749580306
-         */
-        this.dimensionValueId = builder.dimensionValueId;
-        /**
-         * 算薪项汇总维度时，当算薪项是特定枚举值，会使用该字段返回枚举值ID以及枚举值Key
-         * <p> 示例值：
-         */
-        this.enumDimension = builder.enumDimension;
-        /**
-         * 维度引用对象的基础信息，当维度为引用类型字段才会有值，目前支持的引用对象类型见type
-         * <p> 示例值：
-         */
-        this.dimensionValueLookupInfo = builder.dimensionValueLookupInfo;
-        /**
-         * 维度名称，自定义维度使用
-         * <p> 示例值：
-         */
-        this.dimensionNames = builder.dimensionNames;
-        /**
-         * 数据维度表头，自定义维度使用
-         * <p> 示例值：
-         */
-        this.dimensionTitles = builder.dimensionTitles;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getDimensionLevel() {
         return this.dimensionLevel;
     }
@@ -174,136 +123,182 @@ public class DataSummaryDimension {
         this.dimensionTitles = dimensionTitles;
     }
 
+
+// builder 开始
+  public DataSummaryDimension(){}
+
+  public DataSummaryDimension(Builder builder){
+         /**
+          * 层级
+          * <p> 示例值：1
+          */
+      this.dimensionLevel = builder.dimensionLevel;
+         /**
+          * 类型
+          * <p> 示例值：1
+          */
+      this.dimensionType = builder.dimensionType;
+         /**
+          * 维度ID，需要再次转换
+          * <p> 示例值：6823630319749580306
+          */
+      this.dimensionValueId = builder.dimensionValueId;
+         /**
+          * 算薪项汇总维度时，当算薪项是特定枚举值，会使用该字段返回枚举值ID以及枚举值Key
+          * <p> 示例值：
+          */
+      this.enumDimension = builder.enumDimension;
+         /**
+          * 维度引用对象的基础信息，当维度为引用类型字段才会有值，目前支持的引用对象类型见type
+          * <p> 示例值：
+          */
+      this.dimensionValueLookupInfo = builder.dimensionValueLookupInfo;
+         /**
+          * 维度名称，自定义维度使用
+          * <p> 示例值：
+          */
+      this.dimensionNames = builder.dimensionNames;
+         /**
+          * 数据维度表头，自定义维度使用
+          * <p> 示例值：
+          */
+      this.dimensionTitles = builder.dimensionTitles;
+  }
+
     public static class Builder {
-        /**
-         * 层级
-         * <p> 示例值：1
-         */
+     /**
+      * 层级
+      * <p> 示例值：1
+      */
         private Integer dimensionLevel;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
+     /**
+      * 类型
+      * <p> 示例值：1
+      */
         private Integer dimensionType;
-        /**
-         * 维度ID，需要再次转换
-         * <p> 示例值：6823630319749580306
-         */
+     /**
+      * 维度ID，需要再次转换
+      * <p> 示例值：6823630319749580306
+      */
         private String dimensionValueId;
-        /**
-         * 算薪项汇总维度时，当算薪项是特定枚举值，会使用该字段返回枚举值ID以及枚举值Key
-         * <p> 示例值：
-         */
+     /**
+      * 算薪项汇总维度时，当算薪项是特定枚举值，会使用该字段返回枚举值ID以及枚举值Key
+      * <p> 示例值：
+      */
         private EnumObject enumDimension;
-        /**
-         * 维度引用对象的基础信息，当维度为引用类型字段才会有值，目前支持的引用对象类型见type
-         * <p> 示例值：
-         */
+     /**
+      * 维度引用对象的基础信息，当维度为引用类型字段才会有值，目前支持的引用对象类型见type
+      * <p> 示例值：
+      */
         private DimensionValueLookupInfo dimensionValueLookupInfo;
-        /**
-         * 维度名称，自定义维度使用
-         * <p> 示例值：
-         */
+     /**
+      * 维度名称，自定义维度使用
+      * <p> 示例值：
+      */
         private I18nContent[] dimensionNames;
-        /**
-         * 数据维度表头，自定义维度使用
-         * <p> 示例值：
-         */
+     /**
+      * 数据维度表头，自定义维度使用
+      * <p> 示例值：
+      */
         private I18nContent[] dimensionTitles;
 
         /**
          * 层级
          * <p> 示例值：1
-         *
          * @param dimensionLevel
          * @return
          */
         public Builder dimensionLevel(Integer dimensionLevel) {
-            this.dimensionLevel = dimensionLevel;
-            return this;
+             this.dimensionLevel = dimensionLevel;
+             return this;
         }
 
+    
 
         /**
          * 类型
          * <p> 示例值：1
-         *
          * @param dimensionType
          * @return
          */
         public Builder dimensionType(Integer dimensionType) {
-            this.dimensionType = dimensionType;
-            return this;
+             this.dimensionType = dimensionType;
+             return this;
         }
 
+    
 
         /**
          * 维度ID，需要再次转换
          * <p> 示例值：6823630319749580306
-         *
          * @param dimensionValueId
          * @return
          */
         public Builder dimensionValueId(String dimensionValueId) {
-            this.dimensionValueId = dimensionValueId;
-            return this;
+             this.dimensionValueId = dimensionValueId;
+             return this;
         }
 
+    
 
         /**
          * 算薪项汇总维度时，当算薪项是特定枚举值，会使用该字段返回枚举值ID以及枚举值Key
          * <p> 示例值：
-         *
          * @param enumDimension
          * @return
          */
         public Builder enumDimension(EnumObject enumDimension) {
-            this.enumDimension = enumDimension;
-            return this;
+             this.enumDimension = enumDimension;
+             return this;
         }
 
+    
 
         /**
          * 维度引用对象的基础信息，当维度为引用类型字段才会有值，目前支持的引用对象类型见type
          * <p> 示例值：
-         *
          * @param dimensionValueLookupInfo
          * @return
          */
         public Builder dimensionValueLookupInfo(DimensionValueLookupInfo dimensionValueLookupInfo) {
-            this.dimensionValueLookupInfo = dimensionValueLookupInfo;
-            return this;
+             this.dimensionValueLookupInfo = dimensionValueLookupInfo;
+             return this;
         }
 
+    
 
         /**
          * 维度名称，自定义维度使用
          * <p> 示例值：
-         *
          * @param dimensionNames
          * @return
          */
         public Builder dimensionNames(I18nContent[] dimensionNames) {
-            this.dimensionNames = dimensionNames;
-            return this;
+             this.dimensionNames = dimensionNames;
+             return this;
         }
 
+    
 
         /**
          * 数据维度表头，自定义维度使用
          * <p> 示例值：
-         *
          * @param dimensionTitles
          * @return
          */
         public Builder dimensionTitles(I18nContent[] dimensionTitles) {
-            this.dimensionTitles = dimensionTitles;
-            return this;
+             this.dimensionTitles = dimensionTitles;
+             return this;
         }
 
+    
+    
+    public DataSummaryDimension build(){
+        return new DataSummaryDimension(this);
+      }
+    }
 
-        public DataSummaryDimension build() {
-            return new DataSummaryDimension(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

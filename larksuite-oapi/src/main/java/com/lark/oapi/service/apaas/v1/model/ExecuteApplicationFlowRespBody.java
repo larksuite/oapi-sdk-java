@@ -12,53 +12,48 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ExecuteApplicationFlowRespBody {
-    /**
-     * 状态
-     * <p> 示例值：123
-     */
+     /**
+      * 状态
+      * <p> 示例值：123
+      */
     @SerializedName("status")
     private String status;
-    /**
-     * 输出参数
-     * <p> 示例值：123
-     */
+     /**
+      * 输出参数
+      * <p> 示例值：123
+      */
     @SerializedName("out_params")
     private String outParams;
-    /**
-     * 执行id
-     * <p> 示例值：123
-     */
+     /**
+      * 执行id
+      * <p> 示例值：123
+      */
     @SerializedName("execution_id")
     private String executionId;
-    /**
-     * 错误信息
-     * <p> 示例值：123
-     */
+     /**
+      * 错误信息
+      * <p> 示例值：123
+      */
     @SerializedName("error_msg")
     private String errorMsg;
-    /**
-     * code
-     * <p> 示例值：123
-     */
+     /**
+      * code
+      * <p> 示例值：123
+      */
     @SerializedName("code")
     private String code;
-
     public String getStatus() {
         return this.status;
     }

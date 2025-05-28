@@ -12,58 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteJobDataReq {
-    /**
-     * 需要删除的任职记录版本 ID
-     * <p> 示例值：1616161616
-     */
+     /**
+      * 需要删除的任职记录版本 ID
+      * <p> 示例值：1616161616
+      */
     @Query
     @SerializedName("version_id")
     private String versionId;
-    /**
-     * 需要删除的任职信息 ID
-     * <p> 示例值：467642764726472
-     */
-    @Path
-    @SerializedName("job_data_id")
-    private String jobDataId;
-
-    // builder 开始
-    public DeleteJobDataReq() {
-    }
-
-    public DeleteJobDataReq(Builder builder) {
-        /**
-         * 需要删除的任职记录版本 ID
-         * <p> 示例值：1616161616
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 需要删除的任职信息 ID
-         * <p> 示例值：467642764726472
-         */
-        this.jobDataId = builder.jobDataId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getVersionId() {
         return this.versionId;
     }
@@ -72,6 +39,13 @@ public class DeleteJobDataReq {
         this.versionId = versionId;
     }
 
+     /**
+      * 需要删除的任职信息 ID
+      * <p> 示例值：467642764726472
+      */
+    @Path
+    @SerializedName("job_data_id")
+    private String jobDataId;
     public String getJobDataId() {
         return this.jobDataId;
     }
@@ -80,37 +54,57 @@ public class DeleteJobDataReq {
         this.jobDataId = jobDataId;
     }
 
+
+// builder 开始
+  public DeleteJobDataReq(){}
+
+  public DeleteJobDataReq(Builder builder){
+         /**
+          * 需要删除的任职记录版本 ID
+          * <p> 示例值：1616161616
+          */
+       this.versionId = builder.versionId;
+     /**
+      * 需要删除的任职信息 ID
+      * <p> 示例值：467642764726472
+      */
+       this.jobDataId = builder.jobDataId;
+  }
+
     public static class Builder {
         private String versionId; // 需要删除的任职记录版本 ID
-        private String jobDataId; // 需要删除的任职信息 ID
-
+    
         /**
          * 需要删除的任职记录版本 ID
          * <p> 示例值：1616161616
-         *
          * @param versionId
          * @return
          */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
+           public Builder versionId(String versionId) {
+                this.versionId = versionId;
+                return this;
+           }
 
+    
+        private String jobDataId; // 需要删除的任职信息 ID
         /**
          * 需要删除的任职信息 ID
          * <p> 示例值：467642764726472
-         *
          * @param jobDataId
          * @return
          */
-        public Builder jobDataId(String jobDataId) {
-            this.jobDataId = jobDataId;
-            return this;
-        }
+          public Builder jobDataId(String jobDataId) {
+               this.jobDataId = jobDataId;
+               return this;
+          }
 
+    
+    public DeleteJobDataReq build(){
+        return new DeleteJobDataReq(this);
+      }
+    }
 
-        public DeleteJobDataReq build() {
-            return new DeleteJobDataReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

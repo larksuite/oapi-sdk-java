@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateApprovalReq {
-    /**
-     * 此次调用中使用的部门ID的类型
-     * <p> 示例值：open_department_id
-     */
+     /**
+      * 此次调用中使用的部门ID的类型
+      * <p> 示例值：open_department_id
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    @Body
-    private ApprovalCreate body;
-
-    // builder 开始
-    public CreateApprovalReq() {
-    }
-
-    public CreateApprovalReq(Builder builder) {
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDepartmentIdType() {
         return this.departmentIdType;
     }
@@ -83,6 +54,9 @@ public class CreateApprovalReq {
         this.userIdType = userIdType;
     }
 
+    @Body
+    private ApprovalCreate body;
+
     public ApprovalCreate getApprovalCreate() {
         return this.body;
     }
@@ -91,76 +65,94 @@ public class CreateApprovalReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateApprovalReq(){}
+
+  public CreateApprovalReq(Builder builder){
+         /**
+          * 此次调用中使用的部门ID的类型
+          * <p> 示例值：open_department_id
+          */
+       this.departmentIdType = builder.departmentIdType;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String departmentIdType; // 此次调用中使用的部门ID的类型
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private ApprovalCreate body;
-
+    
         /**
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
-         *
          * @param departmentIdType {@link com.lark.oapi.service.approval.v4.enums.CreateApprovalDepartmentIdTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.approval.v4.enums.CreateApprovalDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
+          public Builder departmentIdType(com.lark.oapi.service.approval.v4.enums.CreateApprovalDepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
 
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.CreateApprovalUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.CreateApprovalUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.CreateApprovalUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private ApprovalCreate body;
+    
         public ApprovalCreate getApprovalCreate() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder approvalCreate(ApprovalCreate body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateApprovalReq build(){
+        return new CreateApprovalReq(this);
+      }
+    }
 
-        public CreateApprovalReq build() {
-            return new CreateApprovalReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

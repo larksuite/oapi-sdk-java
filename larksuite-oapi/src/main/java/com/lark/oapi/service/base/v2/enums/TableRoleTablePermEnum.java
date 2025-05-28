@@ -17,18 +17,17 @@ package com.lark.oapi.service.base.v2.enums;
  * 数据表权限
  */
 public enum TableRoleTablePermEnum {
-    NOPERM(0), // 无权限
-    READ(1), // 可阅读
-    EDIT(2), // 可编辑记录
-    ADMIN(4), // 可编辑字段和记录
-    ;
-    private Integer value;
-
+     NOPERM(0), // 无权限
+     READ(1), // 可阅读
+     EDIT(2), // 可编辑记录
+     ADMIN(4), // 可编辑字段和记录
+  ;
+   private Integer value;
     TableRoleTablePermEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

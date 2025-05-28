@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SecurityLogError {
-    /**
-     * 请求体
-     * <p> 示例值：
-     */
+     /**
+      * 请求体
+      * <p> 示例值：
+      */
     @SerializedName("request")
     private GwRequest request;
-    /**
-     * 响应体
-     * <p> 示例值：
-     */
+     /**
+      * 响应体
+      * <p> 示例值：
+      */
     @SerializedName("response")
     private GwResponse response;
-    /**
-     * 通用参数
-     * <p> 示例值：
-     */
+     /**
+      * 通用参数
+      * <p> 示例值：
+      */
     @SerializedName("common")
     private GwCommon common;
-
-    // builder 开始
-    public SecurityLogError() {
-    }
-
-    public SecurityLogError(Builder builder) {
-        /**
-         * 请求体
-         * <p> 示例值：
-         */
-        this.request = builder.request;
-        /**
-         * 响应体
-         * <p> 示例值：
-         */
-        this.response = builder.response;
-        /**
-         * 通用参数
-         * <p> 示例值：
-         */
-        this.common = builder.common;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public GwRequest getRequest() {
         return this.request;
     }
@@ -98,64 +67,90 @@ public class SecurityLogError {
         this.common = common;
     }
 
+
+// builder 开始
+  public SecurityLogError(){}
+
+  public SecurityLogError(Builder builder){
+         /**
+          * 请求体
+          * <p> 示例值：
+          */
+      this.request = builder.request;
+         /**
+          * 响应体
+          * <p> 示例值：
+          */
+      this.response = builder.response;
+         /**
+          * 通用参数
+          * <p> 示例值：
+          */
+      this.common = builder.common;
+  }
+
     public static class Builder {
-        /**
-         * 请求体
-         * <p> 示例值：
-         */
+     /**
+      * 请求体
+      * <p> 示例值：
+      */
         private GwRequest request;
-        /**
-         * 响应体
-         * <p> 示例值：
-         */
+     /**
+      * 响应体
+      * <p> 示例值：
+      */
         private GwResponse response;
-        /**
-         * 通用参数
-         * <p> 示例值：
-         */
+     /**
+      * 通用参数
+      * <p> 示例值：
+      */
         private GwCommon common;
 
         /**
          * 请求体
          * <p> 示例值：
-         *
          * @param request
          * @return
          */
         public Builder request(GwRequest request) {
-            this.request = request;
-            return this;
+             this.request = request;
+             return this;
         }
 
+    
 
         /**
          * 响应体
          * <p> 示例值：
-         *
          * @param response
          * @return
          */
         public Builder response(GwResponse response) {
-            this.response = response;
-            return this;
+             this.response = response;
+             return this;
         }
 
+    
 
         /**
          * 通用参数
          * <p> 示例值：
-         *
          * @param common
          * @return
          */
         public Builder common(GwCommon common) {
-            this.common = common;
-            return this;
+             this.common = common;
+             return this;
         }
 
+    
+    
+    public SecurityLogError build(){
+        return new SecurityLogError(this);
+      }
+    }
 
-        public SecurityLogError build() {
-            return new SecurityLogError(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

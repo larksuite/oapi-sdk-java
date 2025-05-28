@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2StageTaskOpenResultV2Data {
-    /**
-     * 新开通绩效结果的被评估人列表
-     * <p> 示例值：
-     */
+     /**
+      * 新开通绩效结果的被评估人列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private OpenResult[] items;
-
     public OpenResult[] getItems() {
         return this.items;
     }

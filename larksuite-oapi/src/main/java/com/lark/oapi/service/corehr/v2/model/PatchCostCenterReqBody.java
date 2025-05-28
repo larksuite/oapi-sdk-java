@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchCostCenterReqBody {
-    /**
-     * 生效时间
-     * <p> 示例值：2020-01-01
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-01-01
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 启用停用状态
-     * <p> 示例值：true
-     */
+     /**
+      * 启用停用状态
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 操作原因
-     * <p> 示例值：强行操作
-     */
+     /**
+      * 操作原因
+      * <p> 示例值：强行操作
+      */
     @SerializedName("operation_reason")
     private String operationReason;
-
-    // builder 开始
-    public PatchCostCenterReqBody() {
-    }
-
-    public PatchCostCenterReqBody(Builder builder) {
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         */
-        this.operationReason = builder.operationReason;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEffectiveTime() {
         return this.effectiveTime;
     }
@@ -98,64 +67,90 @@ public class PatchCostCenterReqBody {
         this.operationReason = operationReason;
     }
 
+
+// builder 开始
+  public PatchCostCenterReqBody(){}
+
+  public PatchCostCenterReqBody(Builder builder){
+         /**
+          * 生效时间
+          * <p> 示例值：2020-01-01
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 启用停用状态
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 操作原因
+          * <p> 示例值：强行操作
+          */
+      this.operationReason = builder.operationReason;
+  }
+
     public static class Builder {
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-01-01
+      */
         private String effectiveTime;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
+     /**
+      * 启用停用状态
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         */
+     /**
+      * 操作原因
+      * <p> 示例值：强行操作
+      */
         private String operationReason;
 
         /**
          * 生效时间
          * <p> 示例值：2020-01-01
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 启用停用状态
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 操作原因
          * <p> 示例值：强行操作
-         *
          * @param operationReason
          * @return
          */
         public Builder operationReason(String operationReason) {
-            this.operationReason = operationReason;
-            return this;
+             this.operationReason = operationReason;
+             return this;
         }
 
+    
+    
+    public PatchCostCenterReqBody build(){
+        return new PatchCostCenterReqBody(this);
+      }
+    }
 
-        public PatchCostCenterReqBody build() {
-            return new PatchCostCenterReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

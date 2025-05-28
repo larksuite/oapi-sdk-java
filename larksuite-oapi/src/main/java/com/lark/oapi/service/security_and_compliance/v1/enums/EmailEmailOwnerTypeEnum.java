@@ -17,16 +17,15 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * email owner类型
  */
 public enum EmailEmailOwnerTypeEnum {
-    USER(1), // 企业用户
-    PUBLICMAILBOX(2), // 公共邮箱
-    ;
-    private Integer value;
-
+     USER(1), // 企业用户
+     PUBLICMAILBOX(2), // 公共邮箱
+  ;
+   private Integer value;
     EmailEmailOwnerTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

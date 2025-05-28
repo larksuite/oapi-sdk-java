@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,214 +19,114 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SignatureTemplateBriefInfo {
-    /**
-     * id
-     * <p> 示例值：1
-     */
+     /**
+      * id
+      * <p> 示例值：1
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 名称 支持多语
-     * <p> 示例值：
-     */
+     /**
+      * 名称 支持多语
+      * <p> 示例值：
+      */
     @SerializedName("label")
     private I18n[] label;
-    /**
-     * 模版类别
-     * <p> 示例值：
-     */
+     /**
+      * 模版类别
+      * <p> 示例值：
+      */
     @SerializedName("category")
     private Enum category;
-    /**
-     * 模版用法
-     * <p> 示例值：
-     */
+     /**
+      * 模版用法
+      * <p> 示例值：
+      */
     @SerializedName("usage")
     private Enum usage;
-    /**
-     * 模版签署人标签
-     * <p> 示例值：
-     */
+     /**
+      * 模版签署人标签
+      * <p> 示例值：
+      */
     @SerializedName("signatory_labels")
     private SignatureSignatoryLabel[] signatoryLabels;
-    /**
-     * 是否激活
-     * <p> 示例值：true
-     */
+     /**
+      * 是否激活
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 创建人
-     * <p> 示例值：123123123123123123
-     */
+     /**
+      * 创建人
+      * <p> 示例值：123123123123123123
+      */
     @SerializedName("create_by")
     private String createBy;
-    /**
-     * 修改人
-     * <p> 示例值：123123123123123123
-     */
+     /**
+      * 修改人
+      * <p> 示例值：123123123123123123
+      */
     @SerializedName("modify_by")
     private String modifyBy;
-    /**
-     * 适用范围
-     * <p> 示例值：
-     */
+     /**
+      * 适用范围
+      * <p> 示例值：
+      */
     @SerializedName("applicability")
     private Enum applicability;
-    /**
-     * 创建方法
-     * <p> 示例值：online_edit
-     */
+     /**
+      * 创建方法
+      * <p> 示例值：online_edit
+      */
     @SerializedName("creation_method")
     private String creationMethod;
-    /**
-     * 版本
-     * <p> 示例值：v1
-     */
+     /**
+      * 版本
+      * <p> 示例值：v1
+      */
     @SerializedName("version")
     private String version;
-    /**
-     * 更新时间
-     * <p> 示例值：31231232123
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：31231232123
+      */
     @SerializedName("update_time")
     private String updateTime;
-    /**
-     * 创建时间
-     * <p> 示例值：3123123211
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：3123123211
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 模板设置，包含开启骑缝章的类型等
-     * <p> 示例值：
-     */
+     /**
+      * 模板设置，包含开启骑缝章的类型等
+      * <p> 示例值：
+      */
     @SerializedName("template_setting")
     private SignatureTemplateSetting templateSetting;
-    /**
-     * 模板适用区域
-     * <p> 示例值：
-     */
+     /**
+      * 模板适用区域
+      * <p> 示例值：
+      */
     @SerializedName("template_region_info")
     private SignatureTemplateRegionInfo templateRegionInfo;
-    /**
-     * 模板编码
-     * <p> 示例值：1234
-     */
+     /**
+      * 模板编码
+      * <p> 示例值：1234
+      */
     @SerializedName("template_code")
     private String templateCode;
-    /**
-     * 模板描述 支持多语
-     * <p> 示例值：
-     */
+     /**
+      * 模板描述 支持多语
+      * <p> 示例值：
+      */
     @SerializedName("template_desc")
     private I18n[] templateDesc;
-
-    // builder 开始
-    public SignatureTemplateBriefInfo() {
-    }
-
-    public SignatureTemplateBriefInfo(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 名称 支持多语
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 模版类别
-         * <p> 示例值：
-         */
-        this.category = builder.category;
-        /**
-         * 模版用法
-         * <p> 示例值：
-         */
-        this.usage = builder.usage;
-        /**
-         * 模版签署人标签
-         * <p> 示例值：
-         */
-        this.signatoryLabels = builder.signatoryLabels;
-        /**
-         * 是否激活
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 创建人
-         * <p> 示例值：123123123123123123
-         */
-        this.createBy = builder.createBy;
-        /**
-         * 修改人
-         * <p> 示例值：123123123123123123
-         */
-        this.modifyBy = builder.modifyBy;
-        /**
-         * 适用范围
-         * <p> 示例值：
-         */
-        this.applicability = builder.applicability;
-        /**
-         * 创建方法
-         * <p> 示例值：online_edit
-         */
-        this.creationMethod = builder.creationMethod;
-        /**
-         * 版本
-         * <p> 示例值：v1
-         */
-        this.version = builder.version;
-        /**
-         * 更新时间
-         * <p> 示例值：31231232123
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 创建时间
-         * <p> 示例值：3123123211
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 模板设置，包含开启骑缝章的类型等
-         * <p> 示例值：
-         */
-        this.templateSetting = builder.templateSetting;
-        /**
-         * 模板适用区域
-         * <p> 示例值：
-         */
-        this.templateRegionInfo = builder.templateRegionInfo;
-        /**
-         * 模板编码
-         * <p> 示例值：1234
-         */
-        this.templateCode = builder.templateCode;
-        /**
-         * 模板描述 支持多语
-         * <p> 示例值：
-         */
-        this.templateDesc = builder.templateDesc;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -364,316 +263,412 @@ public class SignatureTemplateBriefInfo {
         this.templateDesc = templateDesc;
     }
 
+
+// builder 开始
+  public SignatureTemplateBriefInfo(){}
+
+  public SignatureTemplateBriefInfo(Builder builder){
+         /**
+          * id
+          * <p> 示例值：1
+          */
+      this.id = builder.id;
+         /**
+          * 名称 支持多语
+          * <p> 示例值：
+          */
+      this.label = builder.label;
+         /**
+          * 模版类别
+          * <p> 示例值：
+          */
+      this.category = builder.category;
+         /**
+          * 模版用法
+          * <p> 示例值：
+          */
+      this.usage = builder.usage;
+         /**
+          * 模版签署人标签
+          * <p> 示例值：
+          */
+      this.signatoryLabels = builder.signatoryLabels;
+         /**
+          * 是否激活
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 创建人
+          * <p> 示例值：123123123123123123
+          */
+      this.createBy = builder.createBy;
+         /**
+          * 修改人
+          * <p> 示例值：123123123123123123
+          */
+      this.modifyBy = builder.modifyBy;
+         /**
+          * 适用范围
+          * <p> 示例值：
+          */
+      this.applicability = builder.applicability;
+         /**
+          * 创建方法
+          * <p> 示例值：online_edit
+          */
+      this.creationMethod = builder.creationMethod;
+         /**
+          * 版本
+          * <p> 示例值：v1
+          */
+      this.version = builder.version;
+         /**
+          * 更新时间
+          * <p> 示例值：31231232123
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 创建时间
+          * <p> 示例值：3123123211
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 模板设置，包含开启骑缝章的类型等
+          * <p> 示例值：
+          */
+      this.templateSetting = builder.templateSetting;
+         /**
+          * 模板适用区域
+          * <p> 示例值：
+          */
+      this.templateRegionInfo = builder.templateRegionInfo;
+         /**
+          * 模板编码
+          * <p> 示例值：1234
+          */
+      this.templateCode = builder.templateCode;
+         /**
+          * 模板描述 支持多语
+          * <p> 示例值：
+          */
+      this.templateDesc = builder.templateDesc;
+  }
+
     public static class Builder {
-        /**
-         * id
-         * <p> 示例值：1
-         */
+     /**
+      * id
+      * <p> 示例值：1
+      */
         private String id;
-        /**
-         * 名称 支持多语
-         * <p> 示例值：
-         */
+     /**
+      * 名称 支持多语
+      * <p> 示例值：
+      */
         private I18n[] label;
-        /**
-         * 模版类别
-         * <p> 示例值：
-         */
+     /**
+      * 模版类别
+      * <p> 示例值：
+      */
         private Enum category;
-        /**
-         * 模版用法
-         * <p> 示例值：
-         */
+     /**
+      * 模版用法
+      * <p> 示例值：
+      */
         private Enum usage;
-        /**
-         * 模版签署人标签
-         * <p> 示例值：
-         */
+     /**
+      * 模版签署人标签
+      * <p> 示例值：
+      */
         private SignatureSignatoryLabel[] signatoryLabels;
-        /**
-         * 是否激活
-         * <p> 示例值：true
-         */
+     /**
+      * 是否激活
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 创建人
-         * <p> 示例值：123123123123123123
-         */
+     /**
+      * 创建人
+      * <p> 示例值：123123123123123123
+      */
         private String createBy;
-        /**
-         * 修改人
-         * <p> 示例值：123123123123123123
-         */
+     /**
+      * 修改人
+      * <p> 示例值：123123123123123123
+      */
         private String modifyBy;
-        /**
-         * 适用范围
-         * <p> 示例值：
-         */
+     /**
+      * 适用范围
+      * <p> 示例值：
+      */
         private Enum applicability;
-        /**
-         * 创建方法
-         * <p> 示例值：online_edit
-         */
+     /**
+      * 创建方法
+      * <p> 示例值：online_edit
+      */
         private String creationMethod;
-        /**
-         * 版本
-         * <p> 示例值：v1
-         */
+     /**
+      * 版本
+      * <p> 示例值：v1
+      */
         private String version;
-        /**
-         * 更新时间
-         * <p> 示例值：31231232123
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：31231232123
+      */
         private String updateTime;
-        /**
-         * 创建时间
-         * <p> 示例值：3123123211
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：3123123211
+      */
         private String createTime;
-        /**
-         * 模板设置，包含开启骑缝章的类型等
-         * <p> 示例值：
-         */
+     /**
+      * 模板设置，包含开启骑缝章的类型等
+      * <p> 示例值：
+      */
         private SignatureTemplateSetting templateSetting;
-        /**
-         * 模板适用区域
-         * <p> 示例值：
-         */
+     /**
+      * 模板适用区域
+      * <p> 示例值：
+      */
         private SignatureTemplateRegionInfo templateRegionInfo;
-        /**
-         * 模板编码
-         * <p> 示例值：1234
-         */
+     /**
+      * 模板编码
+      * <p> 示例值：1234
+      */
         private String templateCode;
-        /**
-         * 模板描述 支持多语
-         * <p> 示例值：
-         */
+     /**
+      * 模板描述 支持多语
+      * <p> 示例值：
+      */
         private I18n[] templateDesc;
 
         /**
          * id
          * <p> 示例值：1
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 名称 支持多语
          * <p> 示例值：
-         *
          * @param label
          * @return
          */
         public Builder label(I18n[] label) {
-            this.label = label;
-            return this;
+             this.label = label;
+             return this;
         }
 
+    
 
         /**
          * 模版类别
          * <p> 示例值：
-         *
          * @param category
          * @return
          */
         public Builder category(Enum category) {
-            this.category = category;
-            return this;
+             this.category = category;
+             return this;
         }
 
+    
 
         /**
          * 模版用法
          * <p> 示例值：
-         *
          * @param usage
          * @return
          */
         public Builder usage(Enum usage) {
-            this.usage = usage;
-            return this;
+             this.usage = usage;
+             return this;
         }
 
+    
 
         /**
          * 模版签署人标签
          * <p> 示例值：
-         *
          * @param signatoryLabels
          * @return
          */
         public Builder signatoryLabels(SignatureSignatoryLabel[] signatoryLabels) {
-            this.signatoryLabels = signatoryLabels;
-            return this;
+             this.signatoryLabels = signatoryLabels;
+             return this;
         }
 
+    
 
         /**
          * 是否激活
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 创建人
          * <p> 示例值：123123123123123123
-         *
          * @param createBy
          * @return
          */
         public Builder createBy(String createBy) {
-            this.createBy = createBy;
-            return this;
+             this.createBy = createBy;
+             return this;
         }
 
+    
 
         /**
          * 修改人
          * <p> 示例值：123123123123123123
-         *
          * @param modifyBy
          * @return
          */
         public Builder modifyBy(String modifyBy) {
-            this.modifyBy = modifyBy;
-            return this;
+             this.modifyBy = modifyBy;
+             return this;
         }
 
+    
 
         /**
          * 适用范围
          * <p> 示例值：
-         *
          * @param applicability
          * @return
          */
         public Builder applicability(Enum applicability) {
-            this.applicability = applicability;
-            return this;
+             this.applicability = applicability;
+             return this;
         }
 
+    
 
         /**
          * 创建方法
          * <p> 示例值：online_edit
-         *
          * @param creationMethod
          * @return
          */
         public Builder creationMethod(String creationMethod) {
-            this.creationMethod = creationMethod;
-            return this;
+             this.creationMethod = creationMethod;
+             return this;
         }
 
+    
 
         /**
          * 版本
          * <p> 示例值：v1
-         *
          * @param version
          * @return
          */
         public Builder version(String version) {
-            this.version = version;
-            return this;
+             this.version = version;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：31231232123
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：3123123211
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 模板设置，包含开启骑缝章的类型等
          * <p> 示例值：
-         *
          * @param templateSetting
          * @return
          */
         public Builder templateSetting(SignatureTemplateSetting templateSetting) {
-            this.templateSetting = templateSetting;
-            return this;
+             this.templateSetting = templateSetting;
+             return this;
         }
 
+    
 
         /**
          * 模板适用区域
          * <p> 示例值：
-         *
          * @param templateRegionInfo
          * @return
          */
         public Builder templateRegionInfo(SignatureTemplateRegionInfo templateRegionInfo) {
-            this.templateRegionInfo = templateRegionInfo;
-            return this;
+             this.templateRegionInfo = templateRegionInfo;
+             return this;
         }
 
+    
 
         /**
          * 模板编码
          * <p> 示例值：1234
-         *
          * @param templateCode
          * @return
          */
         public Builder templateCode(String templateCode) {
-            this.templateCode = templateCode;
-            return this;
+             this.templateCode = templateCode;
+             return this;
         }
 
+    
 
         /**
          * 模板描述 支持多语
          * <p> 示例值：
-         *
          * @param templateDesc
          * @return
          */
         public Builder templateDesc(I18n[] templateDesc) {
-            this.templateDesc = templateDesc;
-            return this;
+             this.templateDesc = templateDesc;
+             return this;
         }
 
+    
+    
+    public SignatureTemplateBriefInfo build(){
+        return new SignatureTemplateBriefInfo(this);
+      }
+    }
 
-        public SignatureTemplateBriefInfo build() {
-            return new SignatureTemplateBriefInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

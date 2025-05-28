@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,170 +19,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Job {
-    /**
-     * 职务 ID
-     * <p> 示例值：4698040628992333549
-     */
+     /**
+      * 职务 ID
+      * <p> 示例值：4698040628992333549
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 编码
-     * <p> 示例值：JP422119
-     */
+     /**
+      * 编码
+      * <p> 示例值：JP422119
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n[] name;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private I18n[] description;
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 职务头衔
-     * <p> 示例值：
-     */
+     /**
+      * 职务头衔
+      * <p> 示例值：
+      */
     @SerializedName("job_title")
     private I18n[] jobTitle;
-    /**
-     * 通道ID
-     * <p> 示例值：4719519211875096301
-     */
+     /**
+      * 通道ID
+      * <p> 示例值：4719519211875096301
+      */
     @SerializedName("pathway_id")
     private String pathwayId;
-    /**
-     * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
-     * <p> 示例值：7373183781
-     */
+     /**
+      * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
+      * <p> 示例值：7373183781
+      */
     @SerializedName("job_family_id_list")
     private String[] jobFamilyIdList;
-    /**
-     * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
-     * <p> 示例值：316316317
-     */
+     /**
+      * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
+      * <p> 示例值：316316317
+      */
     @SerializedName("job_level_id_list")
     private String[] jobLevelIdList;
-    /**
-     * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
-     * <p> 示例值：6890452208593372679
-     */
+     /**
+      * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
+      * <p> 示例值：6890452208593372679
+      */
     @SerializedName("working_hours_type_id")
     private String workingHoursTypeId;
-    /**
-     * 生效时间
-     * <p> 示例值：2020-01-01 00:00:00
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-01-01 00:00:00
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 失效时间
-     * <p> 示例值：2021-01-01 00:00:00
-     */
+     /**
+      * 失效时间
+      * <p> 示例值：2021-01-01 00:00:00
+      */
     @SerializedName("expiration_time")
     private String expirationTime;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-
-    // builder 开始
-    public Job() {
-    }
-
-    public Job(Builder builder) {
-        /**
-         * 职务 ID
-         * <p> 示例值：4698040628992333549
-         */
-        this.id = builder.id;
-        /**
-         * 编码
-         * <p> 示例值：JP422119
-         */
-        this.code = builder.code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 职务头衔
-         * <p> 示例值：
-         */
-        this.jobTitle = builder.jobTitle;
-        /**
-         * 通道ID
-         * <p> 示例值：4719519211875096301
-         */
-        this.pathwayId = builder.pathwayId;
-        /**
-         * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
-         * <p> 示例值：7373183781
-         */
-        this.jobFamilyIdList = builder.jobFamilyIdList;
-        /**
-         * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
-         * <p> 示例值：316316317
-         */
-        this.jobLevelIdList = builder.jobLevelIdList;
-        /**
-         * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
-         * <p> 示例值：6890452208593372679
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2021-01-01 00:00:00
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -288,244 +207,320 @@ public class Job {
         this.customFields = customFields;
     }
 
+
+// builder 开始
+  public Job(){}
+
+  public Job(Builder builder){
+         /**
+          * 职务 ID
+          * <p> 示例值：4698040628992333549
+          */
+      this.id = builder.id;
+         /**
+          * 编码
+          * <p> 示例值：JP422119
+          */
+      this.code = builder.code;
+         /**
+          * 名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 职务头衔
+          * <p> 示例值：
+          */
+      this.jobTitle = builder.jobTitle;
+         /**
+          * 通道ID
+          * <p> 示例值：4719519211875096301
+          */
+      this.pathwayId = builder.pathwayId;
+         /**
+          * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
+          * <p> 示例值：7373183781
+          */
+      this.jobFamilyIdList = builder.jobFamilyIdList;
+         /**
+          * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
+          * <p> 示例值：316316317
+          */
+      this.jobLevelIdList = builder.jobLevelIdList;
+         /**
+          * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
+          * <p> 示例值：6890452208593372679
+          */
+      this.workingHoursTypeId = builder.workingHoursTypeId;
+         /**
+          * 生效时间
+          * <p> 示例值：2020-01-01 00:00:00
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 失效时间
+          * <p> 示例值：2021-01-01 00:00:00
+          */
+      this.expirationTime = builder.expirationTime;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+  }
+
     public static class Builder {
-        /**
-         * 职务 ID
-         * <p> 示例值：4698040628992333549
-         */
+     /**
+      * 职务 ID
+      * <p> 示例值：4698040628992333549
+      */
         private String id;
-        /**
-         * 编码
-         * <p> 示例值：JP422119
-         */
+     /**
+      * 编码
+      * <p> 示例值：JP422119
+      */
         private String code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
         private I18n[] name;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
         private I18n[] description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 职务头衔
-         * <p> 示例值：
-         */
+     /**
+      * 职务头衔
+      * <p> 示例值：
+      */
         private I18n[] jobTitle;
-        /**
-         * 通道ID
-         * <p> 示例值：4719519211875096301
-         */
+     /**
+      * 通道ID
+      * <p> 示例值：4719519211875096301
+      */
         private String pathwayId;
-        /**
-         * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
-         * <p> 示例值：7373183781
-         */
+     /**
+      * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
+      * <p> 示例值：7373183781
+      */
         private String[] jobFamilyIdList;
-        /**
-         * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
-         * <p> 示例值：316316317
-         */
+     /**
+      * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
+      * <p> 示例值：316316317
+      */
         private String[] jobLevelIdList;
-        /**
-         * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
-         * <p> 示例值：6890452208593372679
-         */
+     /**
+      * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
+      * <p> 示例值：6890452208593372679
+      */
         private String workingHoursTypeId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-01-01 00:00:00
+      */
         private String effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2021-01-01 00:00:00
-         */
+     /**
+      * 失效时间
+      * <p> 示例值：2021-01-01 00:00:00
+      */
         private String expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ObjectFieldData[] customFields;
 
         /**
          * 职务 ID
          * <p> 示例值：4698040628992333549
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 编码
          * <p> 示例值：JP422119
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 职务头衔
          * <p> 示例值：
-         *
          * @param jobTitle
          * @return
          */
         public Builder jobTitle(I18n[] jobTitle) {
-            this.jobTitle = jobTitle;
-            return this;
+             this.jobTitle = jobTitle;
+             return this;
         }
 
+    
 
         /**
          * 通道ID
          * <p> 示例值：4719519211875096301
-         *
          * @param pathwayId
          * @return
          */
         public Builder pathwayId(String pathwayId) {
-            this.pathwayId = pathwayId;
-            return this;
+             this.pathwayId = pathwayId;
+             return this;
         }
 
+    
 
         /**
          * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
          * <p> 示例值：7373183781
-         *
          * @param jobFamilyIdList
          * @return
          */
         public Builder jobFamilyIdList(String[] jobFamilyIdList) {
-            this.jobFamilyIdList = jobFamilyIdList;
-            return this;
+             this.jobFamilyIdList = jobFamilyIdList;
+             return this;
         }
 
+    
 
         /**
          * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
          * <p> 示例值：316316317
-         *
          * @param jobLevelIdList
          * @return
          */
         public Builder jobLevelIdList(String[] jobLevelIdList) {
-            this.jobLevelIdList = jobLevelIdList;
-            return this;
+             this.jobLevelIdList = jobLevelIdList;
+             return this;
         }
 
+    
 
         /**
          * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
          * <p> 示例值：6890452208593372679
-         *
          * @param workingHoursTypeId
          * @return
          */
         public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
+             this.workingHoursTypeId = workingHoursTypeId;
+             return this;
         }
 
+    
 
         /**
          * 生效时间
          * <p> 示例值：2020-01-01 00:00:00
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 失效时间
          * <p> 示例值：2021-01-01 00:00:00
-         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
+             this.expirationTime = expirationTime;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
+    
+    public Job build(){
+        return new Job(this);
+      }
+    }
 
-        public Job build() {
-            return new Job(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

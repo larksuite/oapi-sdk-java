@@ -17,109 +17,92 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.mail.v1.resource.*;
 
 public class V1 {
-    private final Mailgroup mailgroup; // 邮件组
-    private final MailgroupAlias mailgroupAlias; // 邮件组别名
-    private final MailgroupManager mailgroupManager; // 邮件组管理员
-    private final MailgroupMember mailgroupMember; // 邮件组成员
-    private final MailgroupPermissionMember mailgroupPermissionMember; // 邮件组权限成员
-    private final PublicMailbox publicMailbox; // 公共邮箱
-    private final PublicMailboxAlias publicMailboxAlias; // 公共邮箱别名
-    private final PublicMailboxMember publicMailboxMember; // 公共邮箱成员
-    private final User user; // 邮箱地址
-    private final UserMailbox userMailbox; // 用户邮箱
-    private final UserMailboxAlias userMailboxAlias; // 用户邮箱别名
-    private final UserMailboxEvent userMailboxEvent; // user_mailbox.event
-    private final UserMailboxFolder userMailboxFolder; // user_mailbox.folder
-    private final UserMailboxMailContact userMailboxMailContact; // user_mailbox.mail_contact
-    private final UserMailboxMessage userMailboxMessage; // user_mailbox.message
-    private final UserMailboxMessageAttachment userMailboxMessageAttachment; // user_mailbox.message.attachment
-    private final UserMailboxRule userMailboxRule; // user_mailbox.rule
+	private final Mailgroup mailgroup; // 邮件组
+	private final MailgroupAlias mailgroupAlias; // 邮件组别名
+	private final MailgroupManager mailgroupManager; // 邮件组管理员
+	private final MailgroupMember mailgroupMember; // 邮件组成员
+	private final MailgroupPermissionMember mailgroupPermissionMember; // 邮件组权限成员
+	private final PublicMailbox publicMailbox; // 公共邮箱
+	private final PublicMailboxAlias publicMailboxAlias; // 公共邮箱别名
+	private final PublicMailboxMember publicMailboxMember; // 公共邮箱成员
+	private final User user; // 邮箱地址
+	private final UserMailbox userMailbox; // 用户邮箱
+	private final UserMailboxAlias userMailboxAlias; // 用户邮箱别名
+	private final UserMailboxEvent userMailboxEvent; // user_mailbox.event
+	private final UserMailboxFolder userMailboxFolder; // user_mailbox.folder
+	private final UserMailboxMailContact userMailboxMailContact; // user_mailbox.mail_contact
+	private final UserMailboxMessage userMailboxMessage; // user_mailbox.message
+	private final UserMailboxMessageAttachment userMailboxMessageAttachment; // user_mailbox.message.attachment
+	private final UserMailboxRule userMailboxRule; // user_mailbox.rule
 
-    public V1(Config config) {
-        this.mailgroup = new Mailgroup(config);
-        this.mailgroupAlias = new MailgroupAlias(config);
-        this.mailgroupManager = new MailgroupManager(config);
-        this.mailgroupMember = new MailgroupMember(config);
-        this.mailgroupPermissionMember = new MailgroupPermissionMember(config);
-        this.publicMailbox = new PublicMailbox(config);
-        this.publicMailboxAlias = new PublicMailboxAlias(config);
-        this.publicMailboxMember = new PublicMailboxMember(config);
-        this.user = new User(config);
-        this.userMailbox = new UserMailbox(config);
-        this.userMailboxAlias = new UserMailboxAlias(config);
-        this.userMailboxEvent = new UserMailboxEvent(config);
-        this.userMailboxFolder = new UserMailboxFolder(config);
-        this.userMailboxMailContact = new UserMailboxMailContact(config);
-        this.userMailboxMessage = new UserMailboxMessage(config);
-        this.userMailboxMessageAttachment = new UserMailboxMessageAttachment(config);
-        this.userMailboxRule = new UserMailboxRule(config);
-    }
-
-    public Mailgroup mailgroup() {
-        return mailgroup;
-    }
-
-    public MailgroupAlias mailgroupAlias() {
-        return mailgroupAlias;
-    }
-
-    public MailgroupManager mailgroupManager() {
-        return mailgroupManager;
-    }
-
-    public MailgroupMember mailgroupMember() {
-        return mailgroupMember;
-    }
-
-    public MailgroupPermissionMember mailgroupPermissionMember() {
-        return mailgroupPermissionMember;
-    }
-
-    public PublicMailbox publicMailbox() {
-        return publicMailbox;
-    }
-
-    public PublicMailboxAlias publicMailboxAlias() {
-        return publicMailboxAlias;
-    }
-
-    public PublicMailboxMember publicMailboxMember() {
-        return publicMailboxMember;
-    }
-
-    public User user() {
-        return user;
-    }
-
-    public UserMailbox userMailbox() {
-        return userMailbox;
-    }
-
-    public UserMailboxAlias userMailboxAlias() {
-        return userMailboxAlias;
-    }
-
-    public UserMailboxEvent userMailboxEvent() {
-        return userMailboxEvent;
-    }
-
-    public UserMailboxFolder userMailboxFolder() {
-        return userMailboxFolder;
-    }
-
-    public UserMailboxMailContact userMailboxMailContact() {
-        return userMailboxMailContact;
-    }
-
-    public UserMailboxMessage userMailboxMessage() {
-        return userMailboxMessage;
-    }
-
-    public UserMailboxMessageAttachment userMailboxMessageAttachment() {
-        return userMailboxMessageAttachment;
-    }
-
-    public UserMailboxRule userMailboxRule() {
-        return userMailboxRule;
-    }
+	public V1(Config config) {
+		this.mailgroup = new Mailgroup(config);
+		this.mailgroupAlias = new MailgroupAlias(config);
+		this.mailgroupManager = new MailgroupManager(config);
+		this.mailgroupMember = new MailgroupMember(config);
+		this.mailgroupPermissionMember = new MailgroupPermissionMember(config);
+		this.publicMailbox = new PublicMailbox(config);
+		this.publicMailboxAlias = new PublicMailboxAlias(config);
+		this.publicMailboxMember = new PublicMailboxMember(config);
+		this.user = new User(config);
+		this.userMailbox = new UserMailbox(config);
+		this.userMailboxAlias = new UserMailboxAlias(config);
+		this.userMailboxEvent = new UserMailboxEvent(config);
+		this.userMailboxFolder = new UserMailboxFolder(config);
+		this.userMailboxMailContact = new UserMailboxMailContact(config);
+		this.userMailboxMessage = new UserMailboxMessage(config);
+		this.userMailboxMessageAttachment = new UserMailboxMessageAttachment(config);
+		this.userMailboxRule = new UserMailboxRule(config);
+	}
+	public Mailgroup mailgroup() {
+		return mailgroup;
+	}
+	public MailgroupAlias mailgroupAlias() {
+		return mailgroupAlias;
+	}
+	public MailgroupManager mailgroupManager() {
+		return mailgroupManager;
+	}
+	public MailgroupMember mailgroupMember() {
+		return mailgroupMember;
+	}
+	public MailgroupPermissionMember mailgroupPermissionMember() {
+		return mailgroupPermissionMember;
+	}
+	public PublicMailbox publicMailbox() {
+		return publicMailbox;
+	}
+	public PublicMailboxAlias publicMailboxAlias() {
+		return publicMailboxAlias;
+	}
+	public PublicMailboxMember publicMailboxMember() {
+		return publicMailboxMember;
+	}
+	public User user() {
+		return user;
+	}
+	public UserMailbox userMailbox() {
+		return userMailbox;
+	}
+	public UserMailboxAlias userMailboxAlias() {
+		return userMailboxAlias;
+	}
+	public UserMailboxEvent userMailboxEvent() {
+		return userMailboxEvent;
+	}
+	public UserMailboxFolder userMailboxFolder() {
+		return userMailboxFolder;
+	}
+	public UserMailboxMailContact userMailboxMailContact() {
+		return userMailboxMailContact;
+	}
+	public UserMailboxMessage userMailboxMessage() {
+		return userMailboxMessage;
+	}
+	public UserMailboxMessageAttachment userMailboxMessageAttachment() {
+		return userMailboxMessageAttachment;
+	}
+	public UserMailboxRule userMailboxRule() {
+		return userMailboxRule;
+	}
 }

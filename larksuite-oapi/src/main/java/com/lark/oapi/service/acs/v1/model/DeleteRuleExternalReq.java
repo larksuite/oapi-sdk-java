@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteRuleExternalReq {
-    /**
-     * 权限组id
-     * <p> 示例值：7298933941867135276
-     */
+     /**
+      * 权限组id
+      * <p> 示例值：7298933941867135276
+      */
     @Query
     @SerializedName("rule_id")
     private String ruleId;
-
-    // builder 开始
-    public DeleteRuleExternalReq() {
-    }
-
-    public DeleteRuleExternalReq(Builder builder) {
-        /**
-         * 权限组id
-         * <p> 示例值：7298933941867135276
-         */
-        this.ruleId = builder.ruleId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRuleId() {
         return this.ruleId;
     }
@@ -60,24 +39,39 @@ public class DeleteRuleExternalReq {
         this.ruleId = ruleId;
     }
 
+
+// builder 开始
+  public DeleteRuleExternalReq(){}
+
+  public DeleteRuleExternalReq(Builder builder){
+         /**
+          * 权限组id
+          * <p> 示例值：7298933941867135276
+          */
+       this.ruleId = builder.ruleId;
+  }
+
     public static class Builder {
         private String ruleId; // 权限组id
-
+    
         /**
          * 权限组id
          * <p> 示例值：7298933941867135276
-         *
          * @param ruleId
          * @return
          */
-        public Builder ruleId(String ruleId) {
-            this.ruleId = ruleId;
-            return this;
-        }
+           public Builder ruleId(String ruleId) {
+                this.ruleId = ruleId;
+                return this;
+           }
 
+    
+    public DeleteRuleExternalReq build(){
+        return new DeleteRuleExternalReq(this);
+      }
+    }
 
-        public DeleteRuleExternalReq build() {
-            return new DeleteRuleExternalReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

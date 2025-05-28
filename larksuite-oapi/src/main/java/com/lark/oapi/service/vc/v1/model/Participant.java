@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,313 +19,168 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Participant {
-    /**
-     * 参会者
-     * <p> 示例值：kehan
-     */
+     /**
+      * 参会者
+      * <p> 示例值：kehan
+      */
     @SerializedName("participant_name")
     private String participantName;
-    /**
-     * 部门
-     * <p> 示例值：development
-     */
+     /**
+      * 部门
+      * <p> 示例值：development
+      */
     @SerializedName("department")
     private String department;
-    /**
-     * 用户ID
-     * <p> 示例值：8efq90
-     */
+     /**
+      * 用户ID
+      * <p> 示例值：8efq90
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 会议室ID
-     * <p> 示例值：omm_8efq90
-     */
+     /**
+      * 会议室ID
+      * <p> 示例值：omm_8efq90
+      */
     @SerializedName("meeting_room_id")
     private String meetingRoomId;
-    /**
-     * 工号
-     * <p> 示例值：202205789
-     */
+     /**
+      * 工号
+      * <p> 示例值：202205789
+      */
     @SerializedName("employee_id")
     private String employeeId;
-    /**
-     * 电话
-     * <p> 示例值：021-883889
-     */
+     /**
+      * 电话
+      * <p> 示例值：021-883889
+      */
     @SerializedName("phone")
     private String phone;
-    /**
-     * 邮箱
-     * <p> 示例值：xxxx@163.com
-     */
+     /**
+      * 邮箱
+      * <p> 示例值：xxxx@163.com
+      */
     @SerializedName("email")
     private String email;
-    /**
-     * 设备
-     * <p> 示例值：windows
-     */
+     /**
+      * 设备
+      * <p> 示例值：windows
+      */
     @SerializedName("device")
     private String device;
-    /**
-     * 客户端版本
-     * <p> 示例值：5.26.0-alpha.38
-     */
+     /**
+      * 客户端版本
+      * <p> 示例值：5.26.0-alpha.38
+      */
     @SerializedName("app_version")
     private String appVersion;
-    /**
-     * 公网IP
-     * <p> 示例值：27.xx.xx.183
-     */
+     /**
+      * 公网IP
+      * <p> 示例值：27.xx.xx.183
+      */
     @SerializedName("public_ip")
     private String publicIp;
-    /**
-     * 内网IP
-     * <p> 示例值：192.xx.xx.13
-     */
+     /**
+      * 内网IP
+      * <p> 示例值：192.xx.xx.13
+      */
     @SerializedName("internal_ip")
     private String internalIp;
-    /**
-     * 代理服务
-     * <p> 示例值：false
-     */
+     /**
+      * 代理服务
+      * <p> 示例值：false
+      */
     @SerializedName("use_rtc_proxy")
     private Boolean useRtcProxy;
-    /**
-     * 位置
-     * <p> 示例值：东莞
-     */
+     /**
+      * 位置
+      * <p> 示例值：东莞
+      */
     @SerializedName("location")
     private String location;
-    /**
-     * 网络类型
-     * <p> 示例值：wifi
-     */
+     /**
+      * 网络类型
+      * <p> 示例值：wifi
+      */
     @SerializedName("network_type")
     private String networkType;
-    /**
-     * 连接类型
-     * <p> 示例值：udp
-     */
+     /**
+      * 连接类型
+      * <p> 示例值：udp
+      */
     @SerializedName("protocol")
     private String protocol;
-    /**
-     * 麦克风
-     * <p> 示例值：麦克风阵列 (Realtek(R) Audio)
-     */
+     /**
+      * 麦克风
+      * <p> 示例值：麦克风阵列 (Realtek(R) Audio)
+      */
     @SerializedName("microphone")
     private String microphone;
-    /**
-     * 扬声器
-     * <p> 示例值：扬声器 (Realtek(R) Audio)
-     */
+     /**
+      * 扬声器
+      * <p> 示例值：扬声器 (Realtek(R) Audio)
+      */
     @SerializedName("speaker")
     private String speaker;
-    /**
-     * 摄像头
-     * <p> 示例值：HD Camera
-     */
+     /**
+      * 摄像头
+      * <p> 示例值：HD Camera
+      */
     @SerializedName("camera")
     private String camera;
-    /**
-     * 音频
-     * <p> 示例值：true
-     */
+     /**
+      * 音频
+      * <p> 示例值：true
+      */
     @SerializedName("audio")
     private Boolean audio;
-    /**
-     * 视频
-     * <p> 示例值：true
-     */
+     /**
+      * 视频
+      * <p> 示例值：true
+      */
     @SerializedName("video")
     private Boolean video;
-    /**
-     * 共享
-     * <p> 示例值：false
-     */
+     /**
+      * 共享
+      * <p> 示例值：false
+      */
     @SerializedName("sharing")
     private Boolean sharing;
-    /**
-     * 入会时间
-     * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
-     */
+     /**
+      * 入会时间
+      * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
+      */
     @SerializedName("join_time")
     private String joinTime;
-    /**
-     * 离会时间
-     * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
-     */
+     /**
+      * 离会时间
+      * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
+      */
     @SerializedName("leave_time")
     private String leaveTime;
-    /**
-     * 参会时长
-     * <p> 示例值：00:01:52
-     */
+     /**
+      * 参会时长
+      * <p> 示例值：00:01:52
+      */
     @SerializedName("time_in_meeting")
     private String timeInMeeting;
-    /**
-     * 离会原因
-     * <p> 示例值：主持人结束会议
-     */
+     /**
+      * 离会原因
+      * <p> 示例值：主持人结束会议
+      */
     @SerializedName("leave_reason")
     private String leaveReason;
-    /**
-     * 日程响应状态
-     * <p> 示例值：
-     */
+     /**
+      * 日程响应状态
+      * <p> 示例值：
+      */
     @SerializedName("accept_status")
     private Integer acceptStatus;
-
-    // builder 开始
-    public Participant() {
-    }
-
-    public Participant(Builder builder) {
-        /**
-         * 参会者
-         * <p> 示例值：kehan
-         */
-        this.participantName = builder.participantName;
-        /**
-         * 部门
-         * <p> 示例值：development
-         */
-        this.department = builder.department;
-        /**
-         * 用户ID
-         * <p> 示例值：8efq90
-         */
-        this.userId = builder.userId;
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_8efq90
-         */
-        this.meetingRoomId = builder.meetingRoomId;
-        /**
-         * 工号
-         * <p> 示例值：202205789
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 电话
-         * <p> 示例值：021-883889
-         */
-        this.phone = builder.phone;
-        /**
-         * 邮箱
-         * <p> 示例值：xxxx@163.com
-         */
-        this.email = builder.email;
-        /**
-         * 设备
-         * <p> 示例值：windows
-         */
-        this.device = builder.device;
-        /**
-         * 客户端版本
-         * <p> 示例值：5.26.0-alpha.38
-         */
-        this.appVersion = builder.appVersion;
-        /**
-         * 公网IP
-         * <p> 示例值：27.xx.xx.183
-         */
-        this.publicIp = builder.publicIp;
-        /**
-         * 内网IP
-         * <p> 示例值：192.xx.xx.13
-         */
-        this.internalIp = builder.internalIp;
-        /**
-         * 代理服务
-         * <p> 示例值：false
-         */
-        this.useRtcProxy = builder.useRtcProxy;
-        /**
-         * 位置
-         * <p> 示例值：东莞
-         */
-        this.location = builder.location;
-        /**
-         * 网络类型
-         * <p> 示例值：wifi
-         */
-        this.networkType = builder.networkType;
-        /**
-         * 连接类型
-         * <p> 示例值：udp
-         */
-        this.protocol = builder.protocol;
-        /**
-         * 麦克风
-         * <p> 示例值：麦克风阵列 (Realtek(R) Audio)
-         */
-        this.microphone = builder.microphone;
-        /**
-         * 扬声器
-         * <p> 示例值：扬声器 (Realtek(R) Audio)
-         */
-        this.speaker = builder.speaker;
-        /**
-         * 摄像头
-         * <p> 示例值：HD Camera
-         */
-        this.camera = builder.camera;
-        /**
-         * 音频
-         * <p> 示例值：true
-         */
-        this.audio = builder.audio;
-        /**
-         * 视频
-         * <p> 示例值：true
-         */
-        this.video = builder.video;
-        /**
-         * 共享
-         * <p> 示例值：false
-         */
-        this.sharing = builder.sharing;
-        /**
-         * 入会时间
-         * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
-         */
-        this.joinTime = builder.joinTime;
-        /**
-         * 离会时间
-         * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
-         */
-        this.leaveTime = builder.leaveTime;
-        /**
-         * 参会时长
-         * <p> 示例值：00:01:52
-         */
-        this.timeInMeeting = builder.timeInMeeting;
-        /**
-         * 离会原因
-         * <p> 示例值：主持人结束会议
-         */
-        this.leaveReason = builder.leaveReason;
-        /**
-         * 日程响应状态
-         * <p> 示例值：
-         */
-        this.acceptStatus = builder.acceptStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getParticipantName() {
         return this.participantName;
     }
@@ -535,490 +389,629 @@ public class Participant {
         this.acceptStatus = acceptStatus;
     }
 
+
+// builder 开始
+  public Participant(){}
+
+  public Participant(Builder builder){
+         /**
+          * 参会者
+          * <p> 示例值：kehan
+          */
+      this.participantName = builder.participantName;
+         /**
+          * 部门
+          * <p> 示例值：development
+          */
+      this.department = builder.department;
+         /**
+          * 用户ID
+          * <p> 示例值：8efq90
+          */
+      this.userId = builder.userId;
+         /**
+          * 会议室ID
+          * <p> 示例值：omm_8efq90
+          */
+      this.meetingRoomId = builder.meetingRoomId;
+         /**
+          * 工号
+          * <p> 示例值：202205789
+          */
+      this.employeeId = builder.employeeId;
+         /**
+          * 电话
+          * <p> 示例值：021-883889
+          */
+      this.phone = builder.phone;
+         /**
+          * 邮箱
+          * <p> 示例值：xxxx@163.com
+          */
+      this.email = builder.email;
+         /**
+          * 设备
+          * <p> 示例值：windows
+          */
+      this.device = builder.device;
+         /**
+          * 客户端版本
+          * <p> 示例值：5.26.0-alpha.38
+          */
+      this.appVersion = builder.appVersion;
+         /**
+          * 公网IP
+          * <p> 示例值：27.xx.xx.183
+          */
+      this.publicIp = builder.publicIp;
+         /**
+          * 内网IP
+          * <p> 示例值：192.xx.xx.13
+          */
+      this.internalIp = builder.internalIp;
+         /**
+          * 代理服务
+          * <p> 示例值：false
+          */
+      this.useRtcProxy = builder.useRtcProxy;
+         /**
+          * 位置
+          * <p> 示例值：东莞
+          */
+      this.location = builder.location;
+         /**
+          * 网络类型
+          * <p> 示例值：wifi
+          */
+      this.networkType = builder.networkType;
+         /**
+          * 连接类型
+          * <p> 示例值：udp
+          */
+      this.protocol = builder.protocol;
+         /**
+          * 麦克风
+          * <p> 示例值：麦克风阵列 (Realtek(R) Audio)
+          */
+      this.microphone = builder.microphone;
+         /**
+          * 扬声器
+          * <p> 示例值：扬声器 (Realtek(R) Audio)
+          */
+      this.speaker = builder.speaker;
+         /**
+          * 摄像头
+          * <p> 示例值：HD Camera
+          */
+      this.camera = builder.camera;
+         /**
+          * 音频
+          * <p> 示例值：true
+          */
+      this.audio = builder.audio;
+         /**
+          * 视频
+          * <p> 示例值：true
+          */
+      this.video = builder.video;
+         /**
+          * 共享
+          * <p> 示例值：false
+          */
+      this.sharing = builder.sharing;
+         /**
+          * 入会时间
+          * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
+          */
+      this.joinTime = builder.joinTime;
+         /**
+          * 离会时间
+          * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
+          */
+      this.leaveTime = builder.leaveTime;
+         /**
+          * 参会时长
+          * <p> 示例值：00:01:52
+          */
+      this.timeInMeeting = builder.timeInMeeting;
+         /**
+          * 离会原因
+          * <p> 示例值：主持人结束会议
+          */
+      this.leaveReason = builder.leaveReason;
+         /**
+          * 日程响应状态
+          * <p> 示例值：
+          */
+      this.acceptStatus = builder.acceptStatus;
+  }
+
     public static class Builder {
-        /**
-         * 参会者
-         * <p> 示例值：kehan
-         */
+     /**
+      * 参会者
+      * <p> 示例值：kehan
+      */
         private String participantName;
-        /**
-         * 部门
-         * <p> 示例值：development
-         */
+     /**
+      * 部门
+      * <p> 示例值：development
+      */
         private String department;
-        /**
-         * 用户ID
-         * <p> 示例值：8efq90
-         */
+     /**
+      * 用户ID
+      * <p> 示例值：8efq90
+      */
         private String userId;
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_8efq90
-         */
+     /**
+      * 会议室ID
+      * <p> 示例值：omm_8efq90
+      */
         private String meetingRoomId;
-        /**
-         * 工号
-         * <p> 示例值：202205789
-         */
+     /**
+      * 工号
+      * <p> 示例值：202205789
+      */
         private String employeeId;
-        /**
-         * 电话
-         * <p> 示例值：021-883889
-         */
+     /**
+      * 电话
+      * <p> 示例值：021-883889
+      */
         private String phone;
-        /**
-         * 邮箱
-         * <p> 示例值：xxxx@163.com
-         */
+     /**
+      * 邮箱
+      * <p> 示例值：xxxx@163.com
+      */
         private String email;
-        /**
-         * 设备
-         * <p> 示例值：windows
-         */
+     /**
+      * 设备
+      * <p> 示例值：windows
+      */
         private String device;
-        /**
-         * 客户端版本
-         * <p> 示例值：5.26.0-alpha.38
-         */
+     /**
+      * 客户端版本
+      * <p> 示例值：5.26.0-alpha.38
+      */
         private String appVersion;
-        /**
-         * 公网IP
-         * <p> 示例值：27.xx.xx.183
-         */
+     /**
+      * 公网IP
+      * <p> 示例值：27.xx.xx.183
+      */
         private String publicIp;
-        /**
-         * 内网IP
-         * <p> 示例值：192.xx.xx.13
-         */
+     /**
+      * 内网IP
+      * <p> 示例值：192.xx.xx.13
+      */
         private String internalIp;
-        /**
-         * 代理服务
-         * <p> 示例值：false
-         */
+     /**
+      * 代理服务
+      * <p> 示例值：false
+      */
         private Boolean useRtcProxy;
-        /**
-         * 位置
-         * <p> 示例值：东莞
-         */
+     /**
+      * 位置
+      * <p> 示例值：东莞
+      */
         private String location;
-        /**
-         * 网络类型
-         * <p> 示例值：wifi
-         */
+     /**
+      * 网络类型
+      * <p> 示例值：wifi
+      */
         private String networkType;
-        /**
-         * 连接类型
-         * <p> 示例值：udp
-         */
+     /**
+      * 连接类型
+      * <p> 示例值：udp
+      */
         private String protocol;
-        /**
-         * 麦克风
-         * <p> 示例值：麦克风阵列 (Realtek(R) Audio)
-         */
+     /**
+      * 麦克风
+      * <p> 示例值：麦克风阵列 (Realtek(R) Audio)
+      */
         private String microphone;
-        /**
-         * 扬声器
-         * <p> 示例值：扬声器 (Realtek(R) Audio)
-         */
+     /**
+      * 扬声器
+      * <p> 示例值：扬声器 (Realtek(R) Audio)
+      */
         private String speaker;
-        /**
-         * 摄像头
-         * <p> 示例值：HD Camera
-         */
+     /**
+      * 摄像头
+      * <p> 示例值：HD Camera
+      */
         private String camera;
-        /**
-         * 音频
-         * <p> 示例值：true
-         */
+     /**
+      * 音频
+      * <p> 示例值：true
+      */
         private Boolean audio;
-        /**
-         * 视频
-         * <p> 示例值：true
-         */
+     /**
+      * 视频
+      * <p> 示例值：true
+      */
         private Boolean video;
-        /**
-         * 共享
-         * <p> 示例值：false
-         */
+     /**
+      * 共享
+      * <p> 示例值：false
+      */
         private Boolean sharing;
-        /**
-         * 入会时间
-         * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
-         */
+     /**
+      * 入会时间
+      * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
+      */
         private String joinTime;
-        /**
-         * 离会时间
-         * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
-         */
+     /**
+      * 离会时间
+      * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
+      */
         private String leaveTime;
-        /**
-         * 参会时长
-         * <p> 示例值：00:01:52
-         */
+     /**
+      * 参会时长
+      * <p> 示例值：00:01:52
+      */
         private String timeInMeeting;
-        /**
-         * 离会原因
-         * <p> 示例值：主持人结束会议
-         */
+     /**
+      * 离会原因
+      * <p> 示例值：主持人结束会议
+      */
         private String leaveReason;
-        /**
-         * 日程响应状态
-         * <p> 示例值：
-         */
+     /**
+      * 日程响应状态
+      * <p> 示例值：
+      */
         private Integer acceptStatus;
 
         /**
          * 参会者
          * <p> 示例值：kehan
-         *
          * @param participantName
          * @return
          */
         public Builder participantName(String participantName) {
-            this.participantName = participantName;
-            return this;
+             this.participantName = participantName;
+             return this;
         }
 
+    
 
         /**
          * 部门
          * <p> 示例值：development
-         *
          * @param department
          * @return
          */
         public Builder department(String department) {
-            this.department = department;
-            return this;
+             this.department = department;
+             return this;
         }
 
+    
 
         /**
          * 用户ID
          * <p> 示例值：8efq90
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 会议室ID
          * <p> 示例值：omm_8efq90
-         *
          * @param meetingRoomId
          * @return
          */
         public Builder meetingRoomId(String meetingRoomId) {
-            this.meetingRoomId = meetingRoomId;
-            return this;
+             this.meetingRoomId = meetingRoomId;
+             return this;
         }
 
+    
 
         /**
          * 工号
          * <p> 示例值：202205789
-         *
          * @param employeeId
          * @return
          */
         public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
+             this.employeeId = employeeId;
+             return this;
         }
 
+    
 
         /**
          * 电话
          * <p> 示例值：021-883889
-         *
          * @param phone
          * @return
          */
         public Builder phone(String phone) {
-            this.phone = phone;
-            return this;
+             this.phone = phone;
+             return this;
         }
 
+    
 
         /**
          * 邮箱
          * <p> 示例值：xxxx@163.com
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
 
         /**
          * 设备
          * <p> 示例值：windows
-         *
          * @param device
          * @return
          */
         public Builder device(String device) {
-            this.device = device;
-            return this;
+             this.device = device;
+             return this;
         }
 
+    
 
         /**
          * 客户端版本
          * <p> 示例值：5.26.0-alpha.38
-         *
          * @param appVersion
          * @return
          */
         public Builder appVersion(String appVersion) {
-            this.appVersion = appVersion;
-            return this;
+             this.appVersion = appVersion;
+             return this;
         }
 
+    
 
         /**
          * 公网IP
          * <p> 示例值：27.xx.xx.183
-         *
          * @param publicIp
          * @return
          */
         public Builder publicIp(String publicIp) {
-            this.publicIp = publicIp;
-            return this;
+             this.publicIp = publicIp;
+             return this;
         }
 
+    
 
         /**
          * 内网IP
          * <p> 示例值：192.xx.xx.13
-         *
          * @param internalIp
          * @return
          */
         public Builder internalIp(String internalIp) {
-            this.internalIp = internalIp;
-            return this;
+             this.internalIp = internalIp;
+             return this;
         }
 
+    
 
         /**
          * 代理服务
          * <p> 示例值：false
-         *
          * @param useRtcProxy
          * @return
          */
         public Builder useRtcProxy(Boolean useRtcProxy) {
-            this.useRtcProxy = useRtcProxy;
-            return this;
+             this.useRtcProxy = useRtcProxy;
+             return this;
         }
 
+    
 
         /**
          * 位置
          * <p> 示例值：东莞
-         *
          * @param location
          * @return
          */
         public Builder location(String location) {
-            this.location = location;
-            return this;
+             this.location = location;
+             return this;
         }
 
+    
 
         /**
          * 网络类型
          * <p> 示例值：wifi
-         *
          * @param networkType
          * @return
          */
         public Builder networkType(String networkType) {
-            this.networkType = networkType;
-            return this;
+             this.networkType = networkType;
+             return this;
         }
 
+    
 
         /**
          * 连接类型
          * <p> 示例值：udp
-         *
          * @param protocol
          * @return
          */
         public Builder protocol(String protocol) {
-            this.protocol = protocol;
-            return this;
+             this.protocol = protocol;
+             return this;
         }
 
+    
 
         /**
          * 麦克风
          * <p> 示例值：麦克风阵列 (Realtek(R) Audio)
-         *
          * @param microphone
          * @return
          */
         public Builder microphone(String microphone) {
-            this.microphone = microphone;
-            return this;
+             this.microphone = microphone;
+             return this;
         }
 
+    
 
         /**
          * 扬声器
          * <p> 示例值：扬声器 (Realtek(R) Audio)
-         *
          * @param speaker
          * @return
          */
         public Builder speaker(String speaker) {
-            this.speaker = speaker;
-            return this;
+             this.speaker = speaker;
+             return this;
         }
 
+    
 
         /**
          * 摄像头
          * <p> 示例值：HD Camera
-         *
          * @param camera
          * @return
          */
         public Builder camera(String camera) {
-            this.camera = camera;
-            return this;
+             this.camera = camera;
+             return this;
         }
 
+    
 
         /**
          * 音频
          * <p> 示例值：true
-         *
          * @param audio
          * @return
          */
         public Builder audio(Boolean audio) {
-            this.audio = audio;
-            return this;
+             this.audio = audio;
+             return this;
         }
 
+    
 
         /**
          * 视频
          * <p> 示例值：true
-         *
          * @param video
          * @return
          */
         public Builder video(Boolean video) {
-            this.video = video;
-            return this;
+             this.video = video;
+             return this;
         }
 
+    
 
         /**
          * 共享
          * <p> 示例值：false
-         *
          * @param sharing
          * @return
          */
         public Builder sharing(Boolean sharing) {
-            this.sharing = sharing;
-            return this;
+             this.sharing = sharing;
+             return this;
         }
 
+    
 
         /**
          * 入会时间
          * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
-         *
          * @param joinTime
          * @return
          */
         public Builder joinTime(String joinTime) {
-            this.joinTime = joinTime;
-            return this;
+             this.joinTime = joinTime;
+             return this;
         }
 
+    
 
         /**
          * 离会时间
          * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
-         *
          * @param leaveTime
          * @return
          */
         public Builder leaveTime(String leaveTime) {
-            this.leaveTime = leaveTime;
-            return this;
+             this.leaveTime = leaveTime;
+             return this;
         }
 
+    
 
         /**
          * 参会时长
          * <p> 示例值：00:01:52
-         *
          * @param timeInMeeting
          * @return
          */
         public Builder timeInMeeting(String timeInMeeting) {
-            this.timeInMeeting = timeInMeeting;
-            return this;
+             this.timeInMeeting = timeInMeeting;
+             return this;
         }
 
+    
 
         /**
          * 离会原因
          * <p> 示例值：主持人结束会议
-         *
          * @param leaveReason
          * @return
          */
         public Builder leaveReason(String leaveReason) {
-            this.leaveReason = leaveReason;
-            return this;
+             this.leaveReason = leaveReason;
+             return this;
         }
 
+    
 
         /**
          * 日程响应状态
          * <p> 示例值：
-         *
          * @param acceptStatus
          * @return
          */
         public Builder acceptStatus(Integer acceptStatus) {
-            this.acceptStatus = acceptStatus;
-            return this;
+             this.acceptStatus = acceptStatus;
+             return this;
         }
-
         /**
          * 日程响应状态
          * <p> 示例值：
-         *
          * @param acceptStatus {@link com.lark.oapi.service.vc.v1.enums.ParticipantAcceptStatusEnum}
          * @return
          */
         public Builder acceptStatus(com.lark.oapi.service.vc.v1.enums.ParticipantAcceptStatusEnum acceptStatus) {
-            this.acceptStatus = acceptStatus.getValue();
-            return this;
+             this.acceptStatus = acceptStatus.getValue();
+             return this;
         }
 
+    
+    
+    public Participant build(){
+        return new Participant(this);
+      }
+    }
 
-        public Participant build() {
-            return new Participant(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

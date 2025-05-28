@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateApprovalRespBody {
-    /**
-     * 审批定义 Code
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     */
+     /**
+      * 审批定义 Code
+      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+      */
     @SerializedName("approval_code")
     private String approvalCode;
-    /**
-     * 审批定义 id
-     * <p> 示例值：7090754740375519252
-     */
+     /**
+      * 审批定义 id
+      * <p> 示例值：7090754740375519252
+      */
     @SerializedName("approval_id")
     private String approvalId;
-
     public String getApprovalCode() {
         return this.approvalCode;
     }

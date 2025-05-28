@@ -26,69 +26,59 @@ import com.lark.oapi.service.approval.v4.resource.Task;
 
 public class ApprovalService {
     private final V4 v4;
-    private final Approval approval; // 事件
+    private final Approval approval; // 原生审批定义
     private final ExternalApproval externalApproval; // 三方审批定义
     private final ExternalInstance externalInstance; // 三方审批实例
     private final ExternalTask externalTask; // 三方审批任务
     private final Instance instance; // 原生审批实例
     private final InstanceComment instanceComment; // 原生审批评论
-    private final Task task; // 审批查询
+    private final Task task; // 原生审批任务
 
     public ApprovalService(Config config) {
-        this.v4 = new V4(config);
-        this.approval = new Approval(config);
-        this.externalApproval = new ExternalApproval(config);
-        this.externalInstance = new ExternalInstance(config);
-        this.externalTask = new ExternalTask(config);
-        this.instance = new Instance(config);
-        this.instanceComment = new InstanceComment(config);
-        this.task = new Task(config);
+    this.v4 = new V4(config);
+    this.approval = new Approval(config);
+    this.externalApproval = new ExternalApproval(config);
+    this.externalInstance = new ExternalInstance(config);
+    this.externalTask = new ExternalTask(config);
+    this.instance = new Instance(config);
+    this.instanceComment = new InstanceComment(config);
+    this.task = new Task(config);
     }
-
     public V4 v4() {
         return v4;
     }
-
     public Approval approval() {
         return approval;
     }
-
     public ExternalApproval externalApproval() {
         return externalApproval;
     }
-
     public ExternalInstance externalInstance() {
         return externalInstance;
     }
-
     public ExternalTask externalTask() {
         return externalTask;
     }
-
     public Instance instance() {
         return instance;
     }
-
     public InstanceComment instanceComment() {
         return instanceComment;
     }
-
     public Task task() {
         return task;
     }
-
     public abstract static class P2ApprovalUpdatedV4Handler implements IEventHandler<P2ApprovalUpdatedV4> {
         @Override
         public P2ApprovalUpdatedV4 getEvent() {
             return new P2ApprovalUpdatedV4();
         }
     }
-
     public abstract static class P1LeaveApprovalV4Handler implements IEventHandler<P1LeaveApprovalV4> {
-        @Override
-        public P1LeaveApprovalV4 getEvent() {
-            return new P1LeaveApprovalV4();
-        }
+    @Override
+    public P1LeaveApprovalV4 getEvent() {
+        return new P1LeaveApprovalV4();
+    }
     }
 
     public abstract static class P1WorkApprovalV4Handler implements IEventHandler<P1WorkApprovalV4> {

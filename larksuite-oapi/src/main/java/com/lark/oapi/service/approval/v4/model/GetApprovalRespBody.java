@@ -12,65 +12,60 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetApprovalRespBody {
-    /**
-     * 审批名称
-     * <p> 示例值：Payment
-     */
+     /**
+      * 审批名称
+      * <p> 示例值：Payment
+      */
     @SerializedName("approval_name")
     private String approvalName;
-    /**
-     * 审批定义状态
-     * <p> 示例值：ACTIVE
-     */
+     /**
+      * 审批定义状态
+      * <p> 示例值：ACTIVE
+      */
     @SerializedName("status")
     private String status;
-    /**
-     * 控件信息，见下方form字段说明
-     * <p> 示例值：[{\"id\": \"widget1\", \"custom_id\": \"user_name\",\"name\": \"Item application\",\"type\": \"textarea\",\"printable\": true,\"required\": true}\"]
-     */
+     /**
+      * 控件信息，见下方form字段说明
+      * <p> 示例值：[{\"id\": \"widget1\", \"custom_id\": \"user_name\",\"name\": \"Item application\",\"type\": \"textarea\",\"printable\": true,\"required\": true}\"]
+      */
     @SerializedName("form")
     private String form;
-    /**
-     * 节点信息
-     * <p> 示例值：
-     */
+     /**
+      * 节点信息
+      * <p> 示例值：
+      */
     @SerializedName("node_list")
     private ApprovalNodeInfo[] nodeList;
-    /**
-     * 可见人列表
-     * <p> 示例值：
-     */
+     /**
+      * 可见人列表
+      * <p> 示例值：
+      */
     @SerializedName("viewers")
     private ApprovalViewerInfo[] viewers;
-    /**
-     * 有数据管理权限的审批流程管理员ID
-     * <p> 示例值：
-     */
+     /**
+      * 有数据管理权限的审批流程管理员ID
+      * <p> 示例值：
+      */
     @SerializedName("approval_admin_ids")
     private String[] approvalAdminIds;
-    /**
-     * 组件之间值关联关系
-     * <p> 示例值：{\"groups\":[{\"id\":\"1\",\"parent_widgets_ids\":[\"widget1\",\"widget4\"],\"children_widget_ids\":[\"widget2.widget3\"],\"conditions\":[{\"parents_expr\":{\"type\":\"Multi\",\"expr\":{\"type\":\"and\",\"exprs\":[{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget1\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_0\"},{\"value\":\"value_1\"}]}}},{\"type\":\"Const\",\"expr\":{\"value\":true,\"widget_ids\":[\"widget4\"]}}]}},\"children_rule\":{\"expr\":{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget2.widget3\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_5\"}]}}},\"actions\":[{\"type\":\"SetOptions\",\"widget_id\":\"widget2.widget3\",\"value\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_4\"}]}}]}}]}]}
-     */
+     /**
+      * 组件之间值关联关系
+      * <p> 示例值：{\"groups\":[{\"id\":\"1\",\"parent_widgets_ids\":[\"widget1\",\"widget4\"],\"children_widget_ids\":[\"widget2.widget3\"],\"conditions\":[{\"parents_expr\":{\"type\":\"Multi\",\"expr\":{\"type\":\"and\",\"exprs\":[{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget1\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_0\"},{\"value\":\"value_1\"}]}}},{\"type\":\"Const\",\"expr\":{\"value\":true,\"widget_ids\":[\"widget4\"]}}]}},\"children_rule\":{\"expr\":{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget2.widget3\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_5\"}]}}},\"actions\":[{\"type\":\"SetOptions\",\"widget_id\":\"widget2.widget3\",\"value\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_4\"}]}}]}}]}]}
+      */
     @SerializedName("form_widget_relation")
     private String formWidgetRelation;
-
     public String getApprovalName() {
         return this.approvalName;
     }

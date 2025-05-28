@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ObjectiveCheckParam {
-    /**
-     * 主观分析参数
-     * <p> 示例值：
-     */
+     /**
+      * 主观分析参数
+      * <p> 示例值：
+      */
     @SerializedName("params")
     private Integer[] params;
-
-    // builder 开始
-    public ObjectiveCheckParam() {
-    }
-
-    public ObjectiveCheckParam(Builder builder) {
-        /**
-         * 主观分析参数
-         * <p> 示例值：
-         */
-        this.params = builder.params;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer[] getParams() {
         return this.params;
     }
@@ -60,28 +39,44 @@ public class ObjectiveCheckParam {
         this.params = params;
     }
 
+
+// builder 开始
+  public ObjectiveCheckParam(){}
+
+  public ObjectiveCheckParam(Builder builder){
+         /**
+          * 主观分析参数
+          * <p> 示例值：
+          */
+      this.params = builder.params;
+  }
+
     public static class Builder {
-        /**
-         * 主观分析参数
-         * <p> 示例值：
-         */
+     /**
+      * 主观分析参数
+      * <p> 示例值：
+      */
         private Integer[] params;
 
         /**
          * 主观分析参数
          * <p> 示例值：
-         *
          * @param params
          * @return
          */
         public Builder params(Integer[] params) {
-            this.params = params;
-            return this;
+             this.params = params;
+             return this;
         }
 
+    
+    
+    public ObjectiveCheckParam build(){
+        return new ObjectiveCheckParam(this);
+      }
+    }
 
-        public ObjectiveCheckParam build() {
-            return new ObjectiveCheckParam(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

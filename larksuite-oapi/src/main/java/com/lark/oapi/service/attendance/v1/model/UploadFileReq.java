@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UploadFileReq {
-    /**
-     * 带后缀的文件名
-     * <p> 示例值：人脸照片.jpg
-     */
+     /**
+      * 带后缀的文件名
+      * <p> 示例值：人脸照片.jpg
+      */
     @Query
     @SerializedName("file_name")
     private String fileName;
-    @Body
-    private UploadFileReqBody body;
-
-    // builder 开始
-    public UploadFileReq() {
-    }
-
-    public UploadFileReq(Builder builder) {
-        /**
-         * 带后缀的文件名
-         * <p> 示例值：人脸照片.jpg
-         */
-        this.fileName = builder.fileName;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFileName() {
         return this.fileName;
     }
@@ -62,6 +38,9 @@ public class UploadFileReq {
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
+
+    @Body
+    private UploadFileReqBody body;
 
     public UploadFileReqBody getUploadFileReqBody() {
         return this.body;
@@ -71,39 +50,54 @@ public class UploadFileReq {
         this.body = body;
     }
 
+// builder 开始
+  public UploadFileReq(){}
+
+  public UploadFileReq(Builder builder){
+         /**
+          * 带后缀的文件名
+          * <p> 示例值：人脸照片.jpg
+          */
+       this.fileName = builder.fileName;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String fileName; // 带后缀的文件名
-        private UploadFileReqBody body;
-
+    
         /**
          * 带后缀的文件名
          * <p> 示例值：人脸照片.jpg
-         *
          * @param fileName
          * @return
          */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
+           public Builder fileName(String fileName) {
+                this.fileName = fileName;
+                return this;
+           }
 
+    
+        private UploadFileReqBody body;
+    
         public UploadFileReqBody getUploadFileReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder uploadFileReqBody(UploadFileReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UploadFileReq build(){
+        return new UploadFileReq(this);
+      }
+    }
 
-        public UploadFileReq build() {
-            return new UploadFileReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

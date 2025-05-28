@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UploadReportArchiveRuleReq {
-    /**
-     * 用户 ID 的类型
-     * <p> 示例值：employee_id
-     */
+     /**
+      * 用户 ID 的类型
+      * <p> 示例值：employee_id
+      */
     @Query
     @SerializedName("employee_type")
     private String employeeType;
-    @Body
-    private UploadReportArchiveRuleReqBody body;
-
-    // builder 开始
-    public UploadReportArchiveRuleReq() {
-    }
-
-    public UploadReportArchiveRuleReq(Builder builder) {
-        /**
-         * 用户 ID 的类型
-         * <p> 示例值：employee_id
-         */
-        this.employeeType = builder.employeeType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEmployeeType() {
         return this.employeeType;
     }
@@ -62,6 +38,9 @@ public class UploadReportArchiveRuleReq {
     public void setEmployeeType(String employeeType) {
         this.employeeType = employeeType;
     }
+
+    @Body
+    private UploadReportArchiveRuleReqBody body;
 
     public UploadReportArchiveRuleReqBody getUploadReportArchiveRuleReqBody() {
         return this.body;
@@ -71,39 +50,54 @@ public class UploadReportArchiveRuleReq {
         this.body = body;
     }
 
+// builder 开始
+  public UploadReportArchiveRuleReq(){}
+
+  public UploadReportArchiveRuleReq(Builder builder){
+         /**
+          * 用户 ID 的类型
+          * <p> 示例值：employee_id
+          */
+       this.employeeType = builder.employeeType;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String employeeType; // 用户 ID 的类型
-        private UploadReportArchiveRuleReqBody body;
-
+    
         /**
          * 用户 ID 的类型
          * <p> 示例值：employee_id
-         *
          * @param employeeType
          * @return
          */
-        public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
+           public Builder employeeType(String employeeType) {
+                this.employeeType = employeeType;
+                return this;
+           }
 
+    
+        private UploadReportArchiveRuleReqBody body;
+    
         public UploadReportArchiveRuleReqBody getUploadReportArchiveRuleReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder uploadReportArchiveRuleReqBody(UploadReportArchiveRuleReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UploadReportArchiveRuleReq build(){
+        return new UploadReportArchiveRuleReq(this);
+      }
+    }
 
-        public UploadReportArchiveRuleReq build() {
-            return new UploadReportArchiveRuleReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

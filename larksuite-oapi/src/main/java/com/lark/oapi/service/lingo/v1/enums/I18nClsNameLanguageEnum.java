@@ -17,17 +17,16 @@ package com.lark.oapi.service.lingo.v1.enums;
  * 语言类型
  */
 public enum I18nClsNameLanguageEnum {
-    ZH_CN(1), // 中文
-    EN_US(2), // 英文
-    JA_JP(3), // 日文
-    ;
-    private Integer value;
-
+     ZH_CN(1), // 中文
+     EN_US(2), // 英文
+     JA_JP(3), // 日文
+  ;
+   private Integer value;
     I18nClsNameLanguageEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

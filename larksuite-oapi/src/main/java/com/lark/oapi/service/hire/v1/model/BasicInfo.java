@@ -12,221 +12,120 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BasicInfo {
-    /**
-     * 名字
-     * <p> 示例值：1
-     */
+     /**
+      * 名字
+      * <p> 示例值：1
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 手机
-     * <p> 示例值：1
-     */
+     /**
+      * 手机
+      * <p> 示例值：1
+      */
     @SerializedName("mobile")
     private String mobile;
-    /**
-     * 手机国家代码
-     * <p> 示例值：1
-     */
+     /**
+      * 手机国家代码
+      * <p> 示例值：1
+      */
     @SerializedName("mobile_country_code")
     private String mobileCountryCode;
-    /**
-     * 邮箱
-     * <p> 示例值：1
-     */
+     /**
+      * 邮箱
+      * <p> 示例值：1
+      */
     @SerializedName("email")
     private String email;
-    /**
-     * 生日
-     * <p> 示例值：1
-     */
+     /**
+      * 生日
+      * <p> 示例值：1
+      */
     @SerializedName("birthday")
     private Long birthday;
-    /**
-     * 保密
-     * <p> 示例值：1
-     */
+     /**
+      * 保密
+      * <p> 示例值：1
+      */
     @SerializedName("confidentiality")
     private Long confidentiality;
-    /**
-     * 创建者账户类型
-     * <p> 示例值：1
-     */
+     /**
+      * 创建者账户类型
+      * <p> 示例值：1
+      */
     @SerializedName("creator_account_type")
     private Long creatorAccountType;
-    /**
-     * 创建者ID
-     * <p> 示例值：1
-     */
+     /**
+      * 创建者ID
+      * <p> 示例值：1
+      */
     @SerializedName("creator_id")
     private String creatorId;
-    /**
-     * 现居住城市
-     * <p> 示例值：1
-     */
+     /**
+      * 现居住城市
+      * <p> 示例值：1
+      */
     @SerializedName("current_city_code")
     private String currentCityCode;
-    /**
-     * 性别
-     * <p> 示例值：1
-     */
+     /**
+      * 性别
+      * <p> 示例值：1
+      */
     @SerializedName("gender")
     private Long gender;
-    /**
-     * 家乡所在城市
-     * <p> 示例值：1
-     */
+     /**
+      * 家乡所在城市
+      * <p> 示例值：1
+      */
     @SerializedName("hometown_city_code")
     private String hometownCityCode;
-    /**
-     * 证件
-     * <p> 示例值：1
-     */
+     /**
+      * 证件
+      * <p> 示例值：1
+      */
     @SerializedName("identification")
     private Identification identification;
-    /**
-     * 来源
-     * <p> 示例值：1
-     */
+     /**
+      * 来源
+      * <p> 示例值：1
+      */
     @SerializedName("init_source_id")
     private String initSourceId;
-    /**
-     * 国籍编号
-     * <p> 示例值：1
-     */
+     /**
+      * 国籍编号
+      * <p> 示例值：1
+      */
     @SerializedName("nationality_id")
     private String nationalityId;
-    /**
-     * 附件简历ID
-     * <p> 示例值：1
-     */
+     /**
+      * 附件简历ID
+      * <p> 示例值：1
+      */
     @SerializedName("resume_attachment_id")
     private String resumeAttachmentId;
-    /**
-     * 自我评价
-     * <p> 示例值：1
-     */
+     /**
+      * 自我评价
+      * <p> 示例值：1
+      */
     @SerializedName("self_evaluation")
     private String selfEvaluation;
-    /**
-     * 开始工作时间
-     * <p> 示例值：1
-     */
+     /**
+      * 开始工作时间
+      * <p> 示例值：1
+      */
     @SerializedName("start_work_time")
     private Long startWorkTime;
-
-    // builder 开始
-    public BasicInfo() {
-    }
-
-    public BasicInfo(Builder builder) {
-        /**
-         * 名字
-         * <p> 示例值：1
-         */
-        this.name = builder.name;
-        /**
-         * 手机
-         * <p> 示例值：1
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 手机国家代码
-         * <p> 示例值：1
-         */
-        this.mobileCountryCode = builder.mobileCountryCode;
-        /**
-         * 邮箱
-         * <p> 示例值：1
-         */
-        this.email = builder.email;
-        /**
-         * 生日
-         * <p> 示例值：1
-         */
-        this.birthday = builder.birthday;
-        /**
-         * 保密
-         * <p> 示例值：1
-         */
-        this.confidentiality = builder.confidentiality;
-        /**
-         * 创建者账户类型
-         * <p> 示例值：1
-         */
-        this.creatorAccountType = builder.creatorAccountType;
-        /**
-         * 创建者ID
-         * <p> 示例值：1
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 现居住城市
-         * <p> 示例值：1
-         */
-        this.currentCityCode = builder.currentCityCode;
-        /**
-         * 性别
-         * <p> 示例值：1
-         */
-        this.gender = builder.gender;
-        /**
-         * 家乡所在城市
-         * <p> 示例值：1
-         */
-        this.hometownCityCode = builder.hometownCityCode;
-        /**
-         * 证件
-         * <p> 示例值：1
-         */
-        this.identification = builder.identification;
-        /**
-         * 来源
-         * <p> 示例值：1
-         */
-        this.initSourceId = builder.initSourceId;
-        /**
-         * 国籍编号
-         * <p> 示例值：1
-         */
-        this.nationalityId = builder.nationalityId;
-        /**
-         * 附件简历ID
-         * <p> 示例值：1
-         */
-        this.resumeAttachmentId = builder.resumeAttachmentId;
-        /**
-         * 自我评价
-         * <p> 示例值：1
-         */
-        this.selfEvaluation = builder.selfEvaluation;
-        /**
-         * 开始工作时间
-         * <p> 示例值：1
-         */
-        this.startWorkTime = builder.startWorkTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -363,316 +262,412 @@ public class BasicInfo {
         this.startWorkTime = startWorkTime;
     }
 
+
+// builder 开始
+  public BasicInfo(){}
+
+  public BasicInfo(Builder builder){
+         /**
+          * 名字
+          * <p> 示例值：1
+          */
+      this.name = builder.name;
+         /**
+          * 手机
+          * <p> 示例值：1
+          */
+      this.mobile = builder.mobile;
+         /**
+          * 手机国家代码
+          * <p> 示例值：1
+          */
+      this.mobileCountryCode = builder.mobileCountryCode;
+         /**
+          * 邮箱
+          * <p> 示例值：1
+          */
+      this.email = builder.email;
+         /**
+          * 生日
+          * <p> 示例值：1
+          */
+      this.birthday = builder.birthday;
+         /**
+          * 保密
+          * <p> 示例值：1
+          */
+      this.confidentiality = builder.confidentiality;
+         /**
+          * 创建者账户类型
+          * <p> 示例值：1
+          */
+      this.creatorAccountType = builder.creatorAccountType;
+         /**
+          * 创建者ID
+          * <p> 示例值：1
+          */
+      this.creatorId = builder.creatorId;
+         /**
+          * 现居住城市
+          * <p> 示例值：1
+          */
+      this.currentCityCode = builder.currentCityCode;
+         /**
+          * 性别
+          * <p> 示例值：1
+          */
+      this.gender = builder.gender;
+         /**
+          * 家乡所在城市
+          * <p> 示例值：1
+          */
+      this.hometownCityCode = builder.hometownCityCode;
+         /**
+          * 证件
+          * <p> 示例值：1
+          */
+      this.identification = builder.identification;
+         /**
+          * 来源
+          * <p> 示例值：1
+          */
+      this.initSourceId = builder.initSourceId;
+         /**
+          * 国籍编号
+          * <p> 示例值：1
+          */
+      this.nationalityId = builder.nationalityId;
+         /**
+          * 附件简历ID
+          * <p> 示例值：1
+          */
+      this.resumeAttachmentId = builder.resumeAttachmentId;
+         /**
+          * 自我评价
+          * <p> 示例值：1
+          */
+      this.selfEvaluation = builder.selfEvaluation;
+         /**
+          * 开始工作时间
+          * <p> 示例值：1
+          */
+      this.startWorkTime = builder.startWorkTime;
+  }
+
     public static class Builder {
-        /**
-         * 名字
-         * <p> 示例值：1
-         */
+     /**
+      * 名字
+      * <p> 示例值：1
+      */
         private String name;
-        /**
-         * 手机
-         * <p> 示例值：1
-         */
+     /**
+      * 手机
+      * <p> 示例值：1
+      */
         private String mobile;
-        /**
-         * 手机国家代码
-         * <p> 示例值：1
-         */
+     /**
+      * 手机国家代码
+      * <p> 示例值：1
+      */
         private String mobileCountryCode;
-        /**
-         * 邮箱
-         * <p> 示例值：1
-         */
+     /**
+      * 邮箱
+      * <p> 示例值：1
+      */
         private String email;
-        /**
-         * 生日
-         * <p> 示例值：1
-         */
+     /**
+      * 生日
+      * <p> 示例值：1
+      */
         private Long birthday;
-        /**
-         * 保密
-         * <p> 示例值：1
-         */
+     /**
+      * 保密
+      * <p> 示例值：1
+      */
         private Long confidentiality;
-        /**
-         * 创建者账户类型
-         * <p> 示例值：1
-         */
+     /**
+      * 创建者账户类型
+      * <p> 示例值：1
+      */
         private Long creatorAccountType;
-        /**
-         * 创建者ID
-         * <p> 示例值：1
-         */
+     /**
+      * 创建者ID
+      * <p> 示例值：1
+      */
         private String creatorId;
-        /**
-         * 现居住城市
-         * <p> 示例值：1
-         */
+     /**
+      * 现居住城市
+      * <p> 示例值：1
+      */
         private String currentCityCode;
-        /**
-         * 性别
-         * <p> 示例值：1
-         */
+     /**
+      * 性别
+      * <p> 示例值：1
+      */
         private Long gender;
-        /**
-         * 家乡所在城市
-         * <p> 示例值：1
-         */
+     /**
+      * 家乡所在城市
+      * <p> 示例值：1
+      */
         private String hometownCityCode;
-        /**
-         * 证件
-         * <p> 示例值：1
-         */
+     /**
+      * 证件
+      * <p> 示例值：1
+      */
         private Identification identification;
-        /**
-         * 来源
-         * <p> 示例值：1
-         */
+     /**
+      * 来源
+      * <p> 示例值：1
+      */
         private String initSourceId;
-        /**
-         * 国籍编号
-         * <p> 示例值：1
-         */
+     /**
+      * 国籍编号
+      * <p> 示例值：1
+      */
         private String nationalityId;
-        /**
-         * 附件简历ID
-         * <p> 示例值：1
-         */
+     /**
+      * 附件简历ID
+      * <p> 示例值：1
+      */
         private String resumeAttachmentId;
-        /**
-         * 自我评价
-         * <p> 示例值：1
-         */
+     /**
+      * 自我评价
+      * <p> 示例值：1
+      */
         private String selfEvaluation;
-        /**
-         * 开始工作时间
-         * <p> 示例值：1
-         */
+     /**
+      * 开始工作时间
+      * <p> 示例值：1
+      */
         private Long startWorkTime;
 
         /**
          * 名字
          * <p> 示例值：1
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 手机
          * <p> 示例值：1
-         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
+             this.mobile = mobile;
+             return this;
         }
 
+    
 
         /**
          * 手机国家代码
          * <p> 示例值：1
-         *
          * @param mobileCountryCode
          * @return
          */
         public Builder mobileCountryCode(String mobileCountryCode) {
-            this.mobileCountryCode = mobileCountryCode;
-            return this;
+             this.mobileCountryCode = mobileCountryCode;
+             return this;
         }
 
+    
 
         /**
          * 邮箱
          * <p> 示例值：1
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
 
         /**
          * 生日
          * <p> 示例值：1
-         *
          * @param birthday
          * @return
          */
         public Builder birthday(Long birthday) {
-            this.birthday = birthday;
-            return this;
+             this.birthday = birthday;
+             return this;
         }
 
+    
 
         /**
          * 保密
          * <p> 示例值：1
-         *
          * @param confidentiality
          * @return
          */
         public Builder confidentiality(Long confidentiality) {
-            this.confidentiality = confidentiality;
-            return this;
+             this.confidentiality = confidentiality;
+             return this;
         }
 
+    
 
         /**
          * 创建者账户类型
          * <p> 示例值：1
-         *
          * @param creatorAccountType
          * @return
          */
         public Builder creatorAccountType(Long creatorAccountType) {
-            this.creatorAccountType = creatorAccountType;
-            return this;
+             this.creatorAccountType = creatorAccountType;
+             return this;
         }
 
+    
 
         /**
          * 创建者ID
          * <p> 示例值：1
-         *
          * @param creatorId
          * @return
          */
         public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
+             this.creatorId = creatorId;
+             return this;
         }
 
+    
 
         /**
          * 现居住城市
          * <p> 示例值：1
-         *
          * @param currentCityCode
          * @return
          */
         public Builder currentCityCode(String currentCityCode) {
-            this.currentCityCode = currentCityCode;
-            return this;
+             this.currentCityCode = currentCityCode;
+             return this;
         }
 
+    
 
         /**
          * 性别
          * <p> 示例值：1
-         *
          * @param gender
          * @return
          */
         public Builder gender(Long gender) {
-            this.gender = gender;
-            return this;
+             this.gender = gender;
+             return this;
         }
 
+    
 
         /**
          * 家乡所在城市
          * <p> 示例值：1
-         *
          * @param hometownCityCode
          * @return
          */
         public Builder hometownCityCode(String hometownCityCode) {
-            this.hometownCityCode = hometownCityCode;
-            return this;
+             this.hometownCityCode = hometownCityCode;
+             return this;
         }
 
+    
 
         /**
          * 证件
          * <p> 示例值：1
-         *
          * @param identification
          * @return
          */
         public Builder identification(Identification identification) {
-            this.identification = identification;
-            return this;
+             this.identification = identification;
+             return this;
         }
 
+    
 
         /**
          * 来源
          * <p> 示例值：1
-         *
          * @param initSourceId
          * @return
          */
         public Builder initSourceId(String initSourceId) {
-            this.initSourceId = initSourceId;
-            return this;
+             this.initSourceId = initSourceId;
+             return this;
         }
 
+    
 
         /**
          * 国籍编号
          * <p> 示例值：1
-         *
          * @param nationalityId
          * @return
          */
         public Builder nationalityId(String nationalityId) {
-            this.nationalityId = nationalityId;
-            return this;
+             this.nationalityId = nationalityId;
+             return this;
         }
 
+    
 
         /**
          * 附件简历ID
          * <p> 示例值：1
-         *
          * @param resumeAttachmentId
          * @return
          */
         public Builder resumeAttachmentId(String resumeAttachmentId) {
-            this.resumeAttachmentId = resumeAttachmentId;
-            return this;
+             this.resumeAttachmentId = resumeAttachmentId;
+             return this;
         }
 
+    
 
         /**
          * 自我评价
          * <p> 示例值：1
-         *
          * @param selfEvaluation
          * @return
          */
         public Builder selfEvaluation(String selfEvaluation) {
-            this.selfEvaluation = selfEvaluation;
-            return this;
+             this.selfEvaluation = selfEvaluation;
+             return this;
         }
 
+    
 
         /**
          * 开始工作时间
          * <p> 示例值：1
-         *
          * @param startWorkTime
          * @return
          */
         public Builder startWorkTime(Long startWorkTime) {
-            this.startWorkTime = startWorkTime;
-            return this;
+             this.startWorkTime = startWorkTime;
+             return this;
         }
 
+    
+    
+    public BasicInfo build(){
+        return new BasicInfo(this);
+      }
+    }
 
-        public BasicInfo build() {
-            return new BasicInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

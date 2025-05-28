@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RoleMember {
-    /**
-     * 角色唯一 ID，系统自动生成
-     * <p> 示例值：role_api_id
-     */
+     /**
+      * 角色唯一 ID，系统自动生成
+      * <p> 示例值：role_api_id
+      */
     @SerializedName("role_api_id")
     private String roleApiId;
-    /**
-     * 角色 API 名称
-     * <p> 示例值：adminRole
-     */
+     /**
+      * 角色 API 名称
+      * <p> 示例值：adminRole
+      */
     @SerializedName("role_api_name")
     private String roleApiName;
-    /**
-     * 授权用户 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 授权用户 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("users")
     private String[] users;
-    /**
-     * 授权部门 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 授权部门 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("departments")
     private String[] departments;
-    /**
-     * 自定义授权用户规则
-     * <p> 示例值：
-     */
+     /**
+      * 自定义授权用户规则
+      * <p> 示例值：
+      */
     @SerializedName("user_filter")
     private Criterion userFilter;
-    /**
-     * 授权用户姓名列表，入参 need_display_name = true时返回
-     * <p> 示例值：
-     */
+     /**
+      * 授权用户姓名列表，入参 need_display_name = true时返回
+      * <p> 示例值：
+      */
     @SerializedName("user_display_infos")
     private PermissionNameInfo[] userDisplayInfos;
-    /**
-     * 授权部门名称列表，入参 need_display_name = true时返回
-     * <p> 示例值：
-     */
+     /**
+      * 授权部门名称列表，入参 need_display_name = true时返回
+      * <p> 示例值：
+      */
     @SerializedName("department_display_infos")
     private PermissionNameInfo[] departmentDisplayInfos;
-    /**
-     * 角色成员模式
-     * <p> 示例值：custom
-     */
+     /**
+      * 角色成员模式
+      * <p> 示例值：custom
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 更新人 ID
-     * <p> 示例值：1802412778084426
-     */
+     /**
+      * 更新人 ID
+      * <p> 示例值：1802412778084426
+      */
     @SerializedName("updated_by")
     private String updatedBy;
-    /**
-     * 更新时间
-     * <p> 示例值：1702546522477
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：1702546522477
+      */
     @SerializedName("updated_at")
     private Integer updatedAt;
-
-    // builder 开始
-    public RoleMember() {
-    }
-
-    public RoleMember(Builder builder) {
-        /**
-         * 角色唯一 ID，系统自动生成
-         * <p> 示例值：role_api_id
-         */
-        this.roleApiId = builder.roleApiId;
-        /**
-         * 角色 API 名称
-         * <p> 示例值：adminRole
-         */
-        this.roleApiName = builder.roleApiName;
-        /**
-         * 授权用户 ID 列表
-         * <p> 示例值：
-         */
-        this.users = builder.users;
-        /**
-         * 授权部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departments = builder.departments;
-        /**
-         * 自定义授权用户规则
-         * <p> 示例值：
-         */
-        this.userFilter = builder.userFilter;
-        /**
-         * 授权用户姓名列表，入参 need_display_name = true时返回
-         * <p> 示例值：
-         */
-        this.userDisplayInfos = builder.userDisplayInfos;
-        /**
-         * 授权部门名称列表，入参 need_display_name = true时返回
-         * <p> 示例值：
-         */
-        this.departmentDisplayInfos = builder.departmentDisplayInfos;
-        /**
-         * 角色成员模式
-         * <p> 示例值：custom
-         */
-        this.type = builder.type;
-        /**
-         * 更新人 ID
-         * <p> 示例值：1802412778084426
-         */
-        this.updatedBy = builder.updatedBy;
-        /**
-         * 更新时间
-         * <p> 示例值：1702546522477
-         */
-        this.updatedAt = builder.updatedAt;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoleApiId() {
         return this.roleApiId;
     }
@@ -231,202 +165,261 @@ public class RoleMember {
         this.updatedAt = updatedAt;
     }
 
+
+// builder 开始
+  public RoleMember(){}
+
+  public RoleMember(Builder builder){
+         /**
+          * 角色唯一 ID，系统自动生成
+          * <p> 示例值：role_api_id
+          */
+      this.roleApiId = builder.roleApiId;
+         /**
+          * 角色 API 名称
+          * <p> 示例值：adminRole
+          */
+      this.roleApiName = builder.roleApiName;
+         /**
+          * 授权用户 ID 列表
+          * <p> 示例值：
+          */
+      this.users = builder.users;
+         /**
+          * 授权部门 ID 列表
+          * <p> 示例值：
+          */
+      this.departments = builder.departments;
+         /**
+          * 自定义授权用户规则
+          * <p> 示例值：
+          */
+      this.userFilter = builder.userFilter;
+         /**
+          * 授权用户姓名列表，入参 need_display_name = true时返回
+          * <p> 示例值：
+          */
+      this.userDisplayInfos = builder.userDisplayInfos;
+         /**
+          * 授权部门名称列表，入参 need_display_name = true时返回
+          * <p> 示例值：
+          */
+      this.departmentDisplayInfos = builder.departmentDisplayInfos;
+         /**
+          * 角色成员模式
+          * <p> 示例值：custom
+          */
+      this.type = builder.type;
+         /**
+          * 更新人 ID
+          * <p> 示例值：1802412778084426
+          */
+      this.updatedBy = builder.updatedBy;
+         /**
+          * 更新时间
+          * <p> 示例值：1702546522477
+          */
+      this.updatedAt = builder.updatedAt;
+  }
+
     public static class Builder {
-        /**
-         * 角色唯一 ID，系统自动生成
-         * <p> 示例值：role_api_id
-         */
+     /**
+      * 角色唯一 ID，系统自动生成
+      * <p> 示例值：role_api_id
+      */
         private String roleApiId;
-        /**
-         * 角色 API 名称
-         * <p> 示例值：adminRole
-         */
+     /**
+      * 角色 API 名称
+      * <p> 示例值：adminRole
+      */
         private String roleApiName;
-        /**
-         * 授权用户 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 授权用户 ID 列表
+      * <p> 示例值：
+      */
         private String[] users;
-        /**
-         * 授权部门 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 授权部门 ID 列表
+      * <p> 示例值：
+      */
         private String[] departments;
-        /**
-         * 自定义授权用户规则
-         * <p> 示例值：
-         */
+     /**
+      * 自定义授权用户规则
+      * <p> 示例值：
+      */
         private Criterion userFilter;
-        /**
-         * 授权用户姓名列表，入参 need_display_name = true时返回
-         * <p> 示例值：
-         */
+     /**
+      * 授权用户姓名列表，入参 need_display_name = true时返回
+      * <p> 示例值：
+      */
         private PermissionNameInfo[] userDisplayInfos;
-        /**
-         * 授权部门名称列表，入参 need_display_name = true时返回
-         * <p> 示例值：
-         */
+     /**
+      * 授权部门名称列表，入参 need_display_name = true时返回
+      * <p> 示例值：
+      */
         private PermissionNameInfo[] departmentDisplayInfos;
-        /**
-         * 角色成员模式
-         * <p> 示例值：custom
-         */
+     /**
+      * 角色成员模式
+      * <p> 示例值：custom
+      */
         private String type;
-        /**
-         * 更新人 ID
-         * <p> 示例值：1802412778084426
-         */
+     /**
+      * 更新人 ID
+      * <p> 示例值：1802412778084426
+      */
         private String updatedBy;
-        /**
-         * 更新时间
-         * <p> 示例值：1702546522477
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：1702546522477
+      */
         private Integer updatedAt;
 
         /**
          * 角色唯一 ID，系统自动生成
          * <p> 示例值：role_api_id
-         *
          * @param roleApiId
          * @return
          */
         public Builder roleApiId(String roleApiId) {
-            this.roleApiId = roleApiId;
-            return this;
+             this.roleApiId = roleApiId;
+             return this;
         }
 
+    
 
         /**
          * 角色 API 名称
          * <p> 示例值：adminRole
-         *
          * @param roleApiName
          * @return
          */
         public Builder roleApiName(String roleApiName) {
-            this.roleApiName = roleApiName;
-            return this;
+             this.roleApiName = roleApiName;
+             return this;
         }
 
+    
 
         /**
          * 授权用户 ID 列表
          * <p> 示例值：
-         *
          * @param users
          * @return
          */
         public Builder users(String[] users) {
-            this.users = users;
-            return this;
+             this.users = users;
+             return this;
         }
 
+    
 
         /**
          * 授权部门 ID 列表
          * <p> 示例值：
-         *
          * @param departments
          * @return
          */
         public Builder departments(String[] departments) {
-            this.departments = departments;
-            return this;
+             this.departments = departments;
+             return this;
         }
 
+    
 
         /**
          * 自定义授权用户规则
          * <p> 示例值：
-         *
          * @param userFilter
          * @return
          */
         public Builder userFilter(Criterion userFilter) {
-            this.userFilter = userFilter;
-            return this;
+             this.userFilter = userFilter;
+             return this;
         }
 
+    
 
         /**
          * 授权用户姓名列表，入参 need_display_name = true时返回
          * <p> 示例值：
-         *
          * @param userDisplayInfos
          * @return
          */
         public Builder userDisplayInfos(PermissionNameInfo[] userDisplayInfos) {
-            this.userDisplayInfos = userDisplayInfos;
-            return this;
+             this.userDisplayInfos = userDisplayInfos;
+             return this;
         }
 
+    
 
         /**
          * 授权部门名称列表，入参 need_display_name = true时返回
          * <p> 示例值：
-         *
          * @param departmentDisplayInfos
          * @return
          */
         public Builder departmentDisplayInfos(PermissionNameInfo[] departmentDisplayInfos) {
-            this.departmentDisplayInfos = departmentDisplayInfos;
-            return this;
+             this.departmentDisplayInfos = departmentDisplayInfos;
+             return this;
         }
 
+    
 
         /**
          * 角色成员模式
          * <p> 示例值：custom
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 角色成员模式
          * <p> 示例值：custom
-         *
          * @param type {@link com.lark.oapi.service.apaas.v1.enums.RoleMemberTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.apaas.v1.enums.RoleMemberTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 更新人 ID
          * <p> 示例值：1802412778084426
-         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(String updatedBy) {
-            this.updatedBy = updatedBy;
-            return this;
+             this.updatedBy = updatedBy;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：1702546522477
-         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(Integer updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
+             this.updatedAt = updatedAt;
+             return this;
         }
 
+    
+    
+    public RoleMember build(){
+        return new RoleMember(this);
+      }
+    }
 
-        public RoleMember build() {
-            return new RoleMember(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

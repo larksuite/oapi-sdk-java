@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Flow {
-    /**
-     * api id
-     * <p> 示例值：123
-     */
+     /**
+      * api id
+      * <p> 示例值：123
+      */
     @SerializedName("api_id")
     private String apiId;
-    /**
-     * api name
-     * <p> 示例值：123
-     */
+     /**
+      * api name
+      * <p> 示例值：123
+      */
     @SerializedName("api_name")
     private String apiName;
-
-    // builder 开始
-    public Flow() {
-    }
-
-    public Flow(Builder builder) {
-        /**
-         * api id
-         * <p> 示例值：123
-         */
-        this.apiId = builder.apiId;
-        /**
-         * api name
-         * <p> 示例值：123
-         */
-        this.apiName = builder.apiName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApiId() {
         return this.apiId;
     }
@@ -79,46 +53,67 @@ public class Flow {
         this.apiName = apiName;
     }
 
+
+// builder 开始
+  public Flow(){}
+
+  public Flow(Builder builder){
+         /**
+          * api id
+          * <p> 示例值：123
+          */
+      this.apiId = builder.apiId;
+         /**
+          * api name
+          * <p> 示例值：123
+          */
+      this.apiName = builder.apiName;
+  }
+
     public static class Builder {
-        /**
-         * api id
-         * <p> 示例值：123
-         */
+     /**
+      * api id
+      * <p> 示例值：123
+      */
         private String apiId;
-        /**
-         * api name
-         * <p> 示例值：123
-         */
+     /**
+      * api name
+      * <p> 示例值：123
+      */
         private String apiName;
 
         /**
          * api id
          * <p> 示例值：123
-         *
          * @param apiId
          * @return
          */
         public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
+             this.apiId = apiId;
+             return this;
         }
 
+    
 
         /**
          * api name
          * <p> 示例值：123
-         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
+             this.apiName = apiName;
+             return this;
         }
 
+    
+    
+    public Flow build(){
+        return new Flow(this);
+      }
+    }
 
-        public Flow build() {
-            return new Flow(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

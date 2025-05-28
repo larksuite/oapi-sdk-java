@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CustomValue {
-    /**
-     * 布尔类型的字段值
-     * <p> 示例值：false
-     */
+     /**
+      * 布尔类型的字段值
+      * <p> 示例值：false
+      */
     @SerializedName("value_boolean")
     private Boolean valueBoolean;
-    /**
-     * 枚举类型的字段的枚举值 ID
-     * <p> 示例值：sadasdas
-     */
+     /**
+      * 枚举类型的字段的枚举值 ID
+      * <p> 示例值：sadasdas
+      */
     @SerializedName("value_enum_id")
     private String valueEnumId;
-
-    // builder 开始
-    public CustomValue() {
-    }
-
-    public CustomValue(Builder builder) {
-        /**
-         * 布尔类型的字段值
-         * <p> 示例值：false
-         */
-        this.valueBoolean = builder.valueBoolean;
-        /**
-         * 枚举类型的字段的枚举值 ID
-         * <p> 示例值：sadasdas
-         */
-        this.valueEnumId = builder.valueEnumId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getValueBoolean() {
         return this.valueBoolean;
     }
@@ -79,46 +53,67 @@ public class CustomValue {
         this.valueEnumId = valueEnumId;
     }
 
+
+// builder 开始
+  public CustomValue(){}
+
+  public CustomValue(Builder builder){
+         /**
+          * 布尔类型的字段值
+          * <p> 示例值：false
+          */
+      this.valueBoolean = builder.valueBoolean;
+         /**
+          * 枚举类型的字段的枚举值 ID
+          * <p> 示例值：sadasdas
+          */
+      this.valueEnumId = builder.valueEnumId;
+  }
+
     public static class Builder {
-        /**
-         * 布尔类型的字段值
-         * <p> 示例值：false
-         */
+     /**
+      * 布尔类型的字段值
+      * <p> 示例值：false
+      */
         private Boolean valueBoolean;
-        /**
-         * 枚举类型的字段的枚举值 ID
-         * <p> 示例值：sadasdas
-         */
+     /**
+      * 枚举类型的字段的枚举值 ID
+      * <p> 示例值：sadasdas
+      */
         private String valueEnumId;
 
         /**
          * 布尔类型的字段值
          * <p> 示例值：false
-         *
          * @param valueBoolean
          * @return
          */
         public Builder valueBoolean(Boolean valueBoolean) {
-            this.valueBoolean = valueBoolean;
-            return this;
+             this.valueBoolean = valueBoolean;
+             return this;
         }
 
+    
 
         /**
          * 枚举类型的字段的枚举值 ID
          * <p> 示例值：sadasdas
-         *
          * @param valueEnumId
          * @return
          */
         public Builder valueEnumId(String valueEnumId) {
-            this.valueEnumId = valueEnumId;
-            return this;
+             this.valueEnumId = valueEnumId;
+             return this;
         }
 
+    
+    
+    public CustomValue build(){
+        return new CustomValue(this);
+      }
+    }
 
-        public CustomValue build() {
-            return new CustomValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

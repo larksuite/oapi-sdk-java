@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RecognizeVatInvoiceRespBody {
-    /**
-     * 增值税发票信息
-     * <p> 示例值：
-     */
+     /**
+      * 增值税发票信息
+      * <p> 示例值：
+      */
     @SerializedName("vat_invoices")
     private VatInvoice[] vatInvoices;
-
     public VatInvoice[] getVatInvoices() {
         return this.vatInvoices;
     }

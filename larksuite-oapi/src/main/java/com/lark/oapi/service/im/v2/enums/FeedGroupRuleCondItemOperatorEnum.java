@@ -17,18 +17,17 @@ package com.lark.oapi.service.im.v2.enums;
  * 操作符
  */
 public enum FeedGroupRuleCondItemOperatorEnum {
-    CONTAIN("contain"), // 包含
-    NOT_CONTAIN("not_contain"), // 不包含
-    IS("is"), // 是
-    IS_NOT("is_not"), // 不是
-    ;
-    private String value;
-
+     CONTAIN("contain"), // 包含
+     NOT_CONTAIN("not_contain"), // 不包含
+     IS("is"), // 是
+     IS_NOT("is_not"), // 不是
+  ;
+   private String value;
     FeedGroupRuleCondItemOperatorEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

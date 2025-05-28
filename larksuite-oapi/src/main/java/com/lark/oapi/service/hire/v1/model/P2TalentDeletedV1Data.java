@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2TalentDeletedV1Data {
-    /**
-     * 人才 ID
-     * <p> 示例值：6890840517010000141
-     */
+     /**
+      * 人才 ID
+      * <p> 示例值：6890840517010000141
+      */
     @SerializedName("talent_id")
     private String talentId;
-
     public String getTalentId() {
         return this.talentId;
     }

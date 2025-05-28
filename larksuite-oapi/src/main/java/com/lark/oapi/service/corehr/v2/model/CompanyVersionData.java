@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,126 +19,66 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CompanyVersionData {
-    /**
-     * 公司 ID
-     * <p> 示例值：4719456877659520852
-     */
+     /**
+      * 公司 ID
+      * <p> 示例值：4719456877659520852
+      */
     @SerializedName("company_id")
     private String companyId;
-    /**
-     * 公司版本 ID
-     * <p> 示例值：7238516215202170412
-     */
+     /**
+      * 公司版本 ID
+      * <p> 示例值：7238516215202170412
+      */
     @SerializedName("company_version_id")
     private String companyVersionId;
-    /**
-     * 公司名称
-     * <p> 示例值：
-     */
+     /**
+      * 公司名称
+      * <p> 示例值：
+      */
     @SerializedName("company_names")
     private I18n[] companyNames;
-    /**
-     * 上级公司 ID
-     * <p> 示例值：4719456877659520852
-     */
+     /**
+      * 上级公司 ID
+      * <p> 示例值：4719456877659520852
+      */
     @SerializedName("parent_company_id")
     private String parentCompanyId;
-    /**
-     * 生效日期
-     * <p> 示例值：2020-05-01
-     */
+     /**
+      * 生效日期
+      * <p> 示例值：2020-05-01
+      */
     @SerializedName("effective_date")
     private String effectiveDate;
-    /**
-     * 失效日期
-     * <p> 示例值：2020-05-02
-     */
+     /**
+      * 失效日期
+      * <p> 示例值：2020-05-02
+      */
     @SerializedName("expiration_date")
     private String expirationDate;
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
     @SerializedName("descriptions")
     private I18n[] descriptions;
-    /**
-     * 编码
-     * <p> 示例值：FJK387
-     */
+     /**
+      * 编码
+      * <p> 示例值：FJK387
+      */
     @SerializedName("code")
     private String code;
-
-    // builder 开始
-    public CompanyVersionData() {
-    }
-
-    public CompanyVersionData(Builder builder) {
-        /**
-         * 公司 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.companyId = builder.companyId;
-        /**
-         * 公司版本 ID
-         * <p> 示例值：7238516215202170412
-         */
-        this.companyVersionId = builder.companyVersionId;
-        /**
-         * 公司名称
-         * <p> 示例值：
-         */
-        this.companyNames = builder.companyNames;
-        /**
-         * 上级公司 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.parentCompanyId = builder.parentCompanyId;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 失效日期
-         * <p> 示例值：2020-05-02
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-        /**
-         * 编码
-         * <p> 示例值：FJK387
-         */
-        this.code = builder.code;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCompanyId() {
         return this.companyId;
     }
@@ -212,172 +151,228 @@ public class CompanyVersionData {
         this.code = code;
     }
 
+
+// builder 开始
+  public CompanyVersionData(){}
+
+  public CompanyVersionData(Builder builder){
+         /**
+          * 公司 ID
+          * <p> 示例值：4719456877659520852
+          */
+      this.companyId = builder.companyId;
+         /**
+          * 公司版本 ID
+          * <p> 示例值：7238516215202170412
+          */
+      this.companyVersionId = builder.companyVersionId;
+         /**
+          * 公司名称
+          * <p> 示例值：
+          */
+      this.companyNames = builder.companyNames;
+         /**
+          * 上级公司 ID
+          * <p> 示例值：4719456877659520852
+          */
+      this.parentCompanyId = builder.parentCompanyId;
+         /**
+          * 生效日期
+          * <p> 示例值：2020-05-01
+          */
+      this.effectiveDate = builder.effectiveDate;
+         /**
+          * 失效日期
+          * <p> 示例值：2020-05-02
+          */
+      this.expirationDate = builder.expirationDate;
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 描述
+          * <p> 示例值：
+          */
+      this.descriptions = builder.descriptions;
+         /**
+          * 编码
+          * <p> 示例值：FJK387
+          */
+      this.code = builder.code;
+  }
+
     public static class Builder {
-        /**
-         * 公司 ID
-         * <p> 示例值：4719456877659520852
-         */
+     /**
+      * 公司 ID
+      * <p> 示例值：4719456877659520852
+      */
         private String companyId;
-        /**
-         * 公司版本 ID
-         * <p> 示例值：7238516215202170412
-         */
+     /**
+      * 公司版本 ID
+      * <p> 示例值：7238516215202170412
+      */
         private String companyVersionId;
-        /**
-         * 公司名称
-         * <p> 示例值：
-         */
+     /**
+      * 公司名称
+      * <p> 示例值：
+      */
         private I18n[] companyNames;
-        /**
-         * 上级公司 ID
-         * <p> 示例值：4719456877659520852
-         */
+     /**
+      * 上级公司 ID
+      * <p> 示例值：4719456877659520852
+      */
         private String parentCompanyId;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
+     /**
+      * 生效日期
+      * <p> 示例值：2020-05-01
+      */
         private String effectiveDate;
-        /**
-         * 失效日期
-         * <p> 示例值：2020-05-02
-         */
+     /**
+      * 失效日期
+      * <p> 示例值：2020-05-02
+      */
         private String expirationDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
         private I18n[] descriptions;
-        /**
-         * 编码
-         * <p> 示例值：FJK387
-         */
+     /**
+      * 编码
+      * <p> 示例值：FJK387
+      */
         private String code;
 
         /**
          * 公司 ID
          * <p> 示例值：4719456877659520852
-         *
          * @param companyId
          * @return
          */
         public Builder companyId(String companyId) {
-            this.companyId = companyId;
-            return this;
+             this.companyId = companyId;
+             return this;
         }
 
+    
 
         /**
          * 公司版本 ID
          * <p> 示例值：7238516215202170412
-         *
          * @param companyVersionId
          * @return
          */
         public Builder companyVersionId(String companyVersionId) {
-            this.companyVersionId = companyVersionId;
-            return this;
+             this.companyVersionId = companyVersionId;
+             return this;
         }
 
+    
 
         /**
          * 公司名称
          * <p> 示例值：
-         *
          * @param companyNames
          * @return
          */
         public Builder companyNames(I18n[] companyNames) {
-            this.companyNames = companyNames;
-            return this;
+             this.companyNames = companyNames;
+             return this;
         }
 
+    
 
         /**
          * 上级公司 ID
          * <p> 示例值：4719456877659520852
-         *
          * @param parentCompanyId
          * @return
          */
         public Builder parentCompanyId(String parentCompanyId) {
-            this.parentCompanyId = parentCompanyId;
-            return this;
+             this.parentCompanyId = parentCompanyId;
+             return this;
         }
 
+    
 
         /**
          * 生效日期
          * <p> 示例值：2020-05-01
-         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
+             this.effectiveDate = effectiveDate;
+             return this;
         }
 
+    
 
         /**
          * 失效日期
          * <p> 示例值：2020-05-02
-         *
          * @param expirationDate
          * @return
          */
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
+             this.expirationDate = expirationDate;
+             return this;
         }
 
+    
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：
-         *
          * @param descriptions
          * @return
          */
         public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
+             this.descriptions = descriptions;
+             return this;
         }
 
+    
 
         /**
          * 编码
          * <p> 示例值：FJK387
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
+    
+    public CompanyVersionData build(){
+        return new CompanyVersionData(this);
+      }
+    }
 
-        public CompanyVersionData build() {
-            return new CompanyVersionData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

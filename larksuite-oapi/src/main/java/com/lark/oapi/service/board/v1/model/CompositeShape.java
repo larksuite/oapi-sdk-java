@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CompositeShape {
-    /**
-     * 基础图形的具体类型
-     * <p> 示例值：
-     */
+     /**
+      * 基础图形的具体类型
+      * <p> 示例值：
+      */
     @SerializedName("type")
     private String type;
-
-    // builder 开始
-    public CompositeShape() {
-    }
-
-    public CompositeShape(Builder builder) {
-        /**
-         * 基础图形的具体类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -60,40 +39,54 @@ public class CompositeShape {
         this.type = type;
     }
 
+
+// builder 开始
+  public CompositeShape(){}
+
+  public CompositeShape(Builder builder){
+         /**
+          * 基础图形的具体类型
+          * <p> 示例值：
+          */
+      this.type = builder.type;
+  }
+
     public static class Builder {
-        /**
-         * 基础图形的具体类型
-         * <p> 示例值：
-         */
+     /**
+      * 基础图形的具体类型
+      * <p> 示例值：
+      */
         private String type;
 
         /**
          * 基础图形的具体类型
          * <p> 示例值：
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 基础图形的具体类型
          * <p> 示例值：
-         *
          * @param type {@link com.lark.oapi.service.board.v1.enums.CompositeShapeCompositeShapeTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.board.v1.enums.CompositeShapeCompositeShapeTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
+    
+    public CompositeShape build(){
+        return new CompositeShape(this);
+      }
+    }
 
-        public CompositeShape build() {
-            return new CompositeShape(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

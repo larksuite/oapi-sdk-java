@@ -17,17 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * 操作类型
  */
 public enum MessageWithOperationOperationTypeEnum {
-    APPEND("APPEND"), // 发送消息
-    UPDATE("UPDATE"), // 更新消息
-    WITHDRAW("WITHDRAW"), // 撤回消息
-    ;
-    private String value;
-
+     APPEND("APPEND"), // 发送消息
+     UPDATE("UPDATE"), // 更新消息
+     WITHDRAW("WITHDRAW"), // 撤回消息
+  ;
+   private String value;
     MessageWithOperationOperationTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

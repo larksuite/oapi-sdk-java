@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FormulaParam {
-    /**
-     * 引用类型
-     * <p> 示例值：1
-     */
+     /**
+      * 引用类型
+      * <p> 示例值：1
+      */
     @SerializedName("ref_type")
     private Integer refType;
-    /**
-     * 引用类型ID
-     * <p> 示例值：23143242
-     */
+     /**
+      * 引用类型ID
+      * <p> 示例值：23143242
+      */
     @SerializedName("id")
     private String id;
-
-    // builder 开始
-    public FormulaParam() {
-    }
-
-    public FormulaParam(Builder builder) {
-        /**
-         * 引用类型
-         * <p> 示例值：1
-         */
-        this.refType = builder.refType;
-        /**
-         * 引用类型ID
-         * <p> 示例值：23143242
-         */
-        this.id = builder.id;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getRefType() {
         return this.refType;
     }
@@ -79,58 +53,77 @@ public class FormulaParam {
         this.id = id;
     }
 
+
+// builder 开始
+  public FormulaParam(){}
+
+  public FormulaParam(Builder builder){
+         /**
+          * 引用类型
+          * <p> 示例值：1
+          */
+      this.refType = builder.refType;
+         /**
+          * 引用类型ID
+          * <p> 示例值：23143242
+          */
+      this.id = builder.id;
+  }
+
     public static class Builder {
-        /**
-         * 引用类型
-         * <p> 示例值：1
-         */
+     /**
+      * 引用类型
+      * <p> 示例值：1
+      */
         private Integer refType;
-        /**
-         * 引用类型ID
-         * <p> 示例值：23143242
-         */
+     /**
+      * 引用类型ID
+      * <p> 示例值：23143242
+      */
         private String id;
 
         /**
          * 引用类型
          * <p> 示例值：1
-         *
          * @param refType
          * @return
          */
         public Builder refType(Integer refType) {
-            this.refType = refType;
-            return this;
+             this.refType = refType;
+             return this;
         }
-
         /**
          * 引用类型
          * <p> 示例值：1
-         *
          * @param refType {@link com.lark.oapi.service.compensation.v1.enums.FormulaParamRefTypeEnum}
          * @return
          */
         public Builder refType(com.lark.oapi.service.compensation.v1.enums.FormulaParamRefTypeEnum refType) {
-            this.refType = refType.getValue();
-            return this;
+             this.refType = refType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 引用类型ID
          * <p> 示例值：23143242
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
+    
+    public FormulaParam build(){
+        return new FormulaParam(this);
+      }
+    }
 
-        public FormulaParam build() {
-            return new FormulaParam(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

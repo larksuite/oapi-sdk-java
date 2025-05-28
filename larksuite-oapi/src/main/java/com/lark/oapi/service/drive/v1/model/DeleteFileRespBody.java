@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteFileRespBody {
-    /**
-     * 异步任务id，删除文件夹时返回
-     * <p> 示例值：12345
-     */
+     /**
+      * 异步任务id，删除文件夹时返回
+      * <p> 示例值：12345
+      */
     @SerializedName("task_id")
     private String taskId;
-
     public String getTaskId() {
         return this.taskId;
     }

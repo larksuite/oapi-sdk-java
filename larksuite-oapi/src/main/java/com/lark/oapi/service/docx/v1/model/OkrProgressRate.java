@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OkrProgressRate {
-    /**
-     * 状态模式
-     * <p> 示例值："simple"
-     */
+     /**
+      * 状态模式
+      * <p> 示例值："simple"
+      */
     @SerializedName("mode")
     private String mode;
-    /**
-     * 当前进度, advanced 模式使用
-     * <p> 示例值：0
-     */
+     /**
+      * 当前进度, advanced 模式使用
+      * <p> 示例值：0
+      */
     @SerializedName("current")
     private Double current;
-    /**
-     * 当前进度百分比，simple 模式使用
-     * <p> 示例值：100
-     */
+     /**
+      * 当前进度百分比，simple 模式使用
+      * <p> 示例值：100
+      */
     @SerializedName("percent")
     private Double percent;
-    /**
-     * 进展状态
-     * <p> 示例值："normal"
-     */
+     /**
+      * 进展状态
+      * <p> 示例值："normal"
+      */
     @SerializedName("progress_status")
     private String progressStatus;
-    /**
-     * 进度起始值，advanced 模式使用
-     * <p> 示例值：0
-     */
+     /**
+      * 进度起始值，advanced 模式使用
+      * <p> 示例值：0
+      */
     @SerializedName("start")
     private Double start;
-    /**
-     * 状态计算类型
-     * <p> 示例值："default"
-     */
+     /**
+      * 状态计算类型
+      * <p> 示例值："default"
+      */
     @SerializedName("status_type")
     private String statusType;
-    /**
-     * 进度目标值，advanced 模式使用
-     * <p> 示例值：
-     */
+     /**
+      * 进度目标值，advanced 模式使用
+      * <p> 示例值：
+      */
     @SerializedName("target")
     private Double target;
-
-    // builder 开始
-    public OkrProgressRate() {
-    }
-
-    public OkrProgressRate(Builder builder) {
-        /**
-         * 状态模式
-         * <p> 示例值："simple"
-         */
-        this.mode = builder.mode;
-        /**
-         * 当前进度, advanced 模式使用
-         * <p> 示例值：0
-         */
-        this.current = builder.current;
-        /**
-         * 当前进度百分比，simple 模式使用
-         * <p> 示例值：100
-         */
-        this.percent = builder.percent;
-        /**
-         * 进展状态
-         * <p> 示例值："normal"
-         */
-        this.progressStatus = builder.progressStatus;
-        /**
-         * 进度起始值，advanced 模式使用
-         * <p> 示例值：0
-         */
-        this.start = builder.start;
-        /**
-         * 状态计算类型
-         * <p> 示例值："default"
-         */
-        this.statusType = builder.statusType;
-        /**
-         * 进度目标值，advanced 模式使用
-         * <p> 示例值：
-         */
-        this.target = builder.target;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMode() {
         return this.mode;
     }
@@ -174,172 +123,212 @@ public class OkrProgressRate {
         this.target = target;
     }
 
+
+// builder 开始
+  public OkrProgressRate(){}
+
+  public OkrProgressRate(Builder builder){
+         /**
+          * 状态模式
+          * <p> 示例值："simple"
+          */
+      this.mode = builder.mode;
+         /**
+          * 当前进度, advanced 模式使用
+          * <p> 示例值：0
+          */
+      this.current = builder.current;
+         /**
+          * 当前进度百分比，simple 模式使用
+          * <p> 示例值：100
+          */
+      this.percent = builder.percent;
+         /**
+          * 进展状态
+          * <p> 示例值："normal"
+          */
+      this.progressStatus = builder.progressStatus;
+         /**
+          * 进度起始值，advanced 模式使用
+          * <p> 示例值：0
+          */
+      this.start = builder.start;
+         /**
+          * 状态计算类型
+          * <p> 示例值："default"
+          */
+      this.statusType = builder.statusType;
+         /**
+          * 进度目标值，advanced 模式使用
+          * <p> 示例值：
+          */
+      this.target = builder.target;
+  }
+
     public static class Builder {
-        /**
-         * 状态模式
-         * <p> 示例值："simple"
-         */
+     /**
+      * 状态模式
+      * <p> 示例值："simple"
+      */
         private String mode;
-        /**
-         * 当前进度, advanced 模式使用
-         * <p> 示例值：0
-         */
+     /**
+      * 当前进度, advanced 模式使用
+      * <p> 示例值：0
+      */
         private Double current;
-        /**
-         * 当前进度百分比，simple 模式使用
-         * <p> 示例值：100
-         */
+     /**
+      * 当前进度百分比，simple 模式使用
+      * <p> 示例值：100
+      */
         private Double percent;
-        /**
-         * 进展状态
-         * <p> 示例值："normal"
-         */
+     /**
+      * 进展状态
+      * <p> 示例值："normal"
+      */
         private String progressStatus;
-        /**
-         * 进度起始值，advanced 模式使用
-         * <p> 示例值：0
-         */
+     /**
+      * 进度起始值，advanced 模式使用
+      * <p> 示例值：0
+      */
         private Double start;
-        /**
-         * 状态计算类型
-         * <p> 示例值："default"
-         */
+     /**
+      * 状态计算类型
+      * <p> 示例值："default"
+      */
         private String statusType;
-        /**
-         * 进度目标值，advanced 模式使用
-         * <p> 示例值：
-         */
+     /**
+      * 进度目标值，advanced 模式使用
+      * <p> 示例值：
+      */
         private Double target;
 
         /**
          * 状态模式
          * <p> 示例值："simple"
-         *
          * @param mode
          * @return
          */
         public Builder mode(String mode) {
-            this.mode = mode;
-            return this;
+             this.mode = mode;
+             return this;
         }
-
         /**
          * 状态模式
          * <p> 示例值："simple"
-         *
          * @param mode {@link com.lark.oapi.service.docx.v1.enums.OkrProgressRateOkrProgressRateModeEnum}
          * @return
          */
         public Builder mode(com.lark.oapi.service.docx.v1.enums.OkrProgressRateOkrProgressRateModeEnum mode) {
-            this.mode = mode.getValue();
-            return this;
+             this.mode = mode.getValue();
+             return this;
         }
 
+    
 
         /**
          * 当前进度, advanced 模式使用
          * <p> 示例值：0
-         *
          * @param current
          * @return
          */
         public Builder current(Double current) {
-            this.current = current;
-            return this;
+             this.current = current;
+             return this;
         }
 
+    
 
         /**
          * 当前进度百分比，simple 模式使用
          * <p> 示例值：100
-         *
          * @param percent
          * @return
          */
         public Builder percent(Double percent) {
-            this.percent = percent;
-            return this;
+             this.percent = percent;
+             return this;
         }
 
+    
 
         /**
          * 进展状态
          * <p> 示例值："normal"
-         *
          * @param progressStatus
          * @return
          */
         public Builder progressStatus(String progressStatus) {
-            this.progressStatus = progressStatus;
-            return this;
+             this.progressStatus = progressStatus;
+             return this;
         }
-
         /**
          * 进展状态
          * <p> 示例值："normal"
-         *
          * @param progressStatus {@link com.lark.oapi.service.docx.v1.enums.OkrProgressRateOkrProgressStatusEnum}
          * @return
          */
         public Builder progressStatus(com.lark.oapi.service.docx.v1.enums.OkrProgressRateOkrProgressStatusEnum progressStatus) {
-            this.progressStatus = progressStatus.getValue();
-            return this;
+             this.progressStatus = progressStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 进度起始值，advanced 模式使用
          * <p> 示例值：0
-         *
          * @param start
          * @return
          */
         public Builder start(Double start) {
-            this.start = start;
-            return this;
+             this.start = start;
+             return this;
         }
 
+    
 
         /**
          * 状态计算类型
          * <p> 示例值："default"
-         *
          * @param statusType
          * @return
          */
         public Builder statusType(String statusType) {
-            this.statusType = statusType;
-            return this;
+             this.statusType = statusType;
+             return this;
         }
-
         /**
          * 状态计算类型
          * <p> 示例值："default"
-         *
          * @param statusType {@link com.lark.oapi.service.docx.v1.enums.OkrProgressRateOkrProgressStatusTypeEnum}
          * @return
          */
         public Builder statusType(com.lark.oapi.service.docx.v1.enums.OkrProgressRateOkrProgressStatusTypeEnum statusType) {
-            this.statusType = statusType.getValue();
-            return this;
+             this.statusType = statusType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 进度目标值，advanced 模式使用
          * <p> 示例值：
-         *
          * @param target
          * @return
          */
         public Builder target(Double target) {
-            this.target = target;
-            return this;
+             this.target = target;
+             return this;
         }
 
+    
+    
+    public OkrProgressRate build(){
+        return new OkrProgressRate(this);
+      }
+    }
 
-        public OkrProgressRate build() {
-            return new OkrProgressRate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

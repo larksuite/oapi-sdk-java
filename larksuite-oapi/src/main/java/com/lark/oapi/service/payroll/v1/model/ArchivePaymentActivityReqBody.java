@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ArchivePaymentActivityReqBody {
-    /**
-     * 发薪活动ID
-     * <p> 示例值：111111
-     */
+     /**
+      * 发薪活动ID
+      * <p> 示例值：111111
+      */
     @SerializedName("activity_id")
     private String activityId;
-
-    // builder 开始
-    public ArchivePaymentActivityReqBody() {
-    }
-
-    public ArchivePaymentActivityReqBody(Builder builder) {
-        /**
-         * 发薪活动ID
-         * <p> 示例值：111111
-         */
-        this.activityId = builder.activityId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getActivityId() {
         return this.activityId;
     }
@@ -60,28 +39,44 @@ public class ArchivePaymentActivityReqBody {
         this.activityId = activityId;
     }
 
+
+// builder 开始
+  public ArchivePaymentActivityReqBody(){}
+
+  public ArchivePaymentActivityReqBody(Builder builder){
+         /**
+          * 发薪活动ID
+          * <p> 示例值：111111
+          */
+      this.activityId = builder.activityId;
+  }
+
     public static class Builder {
-        /**
-         * 发薪活动ID
-         * <p> 示例值：111111
-         */
+     /**
+      * 发薪活动ID
+      * <p> 示例值：111111
+      */
         private String activityId;
 
         /**
          * 发薪活动ID
          * <p> 示例值：111111
-         *
          * @param activityId
          * @return
          */
         public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
+             this.activityId = activityId;
+             return this;
         }
 
+    
+    
+    public ArchivePaymentActivityReqBody build(){
+        return new ArchivePaymentActivityReqBody(this);
+      }
+    }
 
-        public ArchivePaymentActivityReqBody build() {
-            return new ArchivePaymentActivityReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

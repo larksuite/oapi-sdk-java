@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BitableTableFieldActionValue {
-    /**
-     * 字段 ID
-     * <p> 示例值：fldmj5qNii
-     */
+     /**
+      * 字段 ID
+      * <p> 示例值：fldmj5qNii
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 字段名字
-     * <p> 示例值：field name
-     */
+     /**
+      * 字段名字
+      * <p> 示例值：field name
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 字段类型
-     * <p> 示例值：20
-     */
+     /**
+      * 字段类型
+      * <p> 示例值：20
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * 字段描述
-     * <p> 示例值：description
-     */
+     /**
+      * 字段描述
+      * <p> 示例值：description
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 字段属性
-     * <p> 示例值：
-     */
+     /**
+      * 字段属性
+      * <p> 示例值：
+      */
     @SerializedName("property")
     private BitableTableFieldActionValueProperty property;
-
-    // builder 开始
-    public BitableTableFieldActionValue() {
-    }
-
-    public BitableTableFieldActionValue(Builder builder) {
-        /**
-         * 字段 ID
-         * <p> 示例值：fldmj5qNii
-         */
-        this.id = builder.id;
-        /**
-         * 字段名字
-         * <p> 示例值：field name
-         */
-        this.name = builder.name;
-        /**
-         * 字段类型
-         * <p> 示例值：20
-         */
-        this.type = builder.type;
-        /**
-         * 字段描述
-         * <p> 示例值：description
-         */
-        this.description = builder.description;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
-        this.property = builder.property;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -136,100 +95,136 @@ public class BitableTableFieldActionValue {
         this.property = property;
     }
 
+
+// builder 开始
+  public BitableTableFieldActionValue(){}
+
+  public BitableTableFieldActionValue(Builder builder){
+         /**
+          * 字段 ID
+          * <p> 示例值：fldmj5qNii
+          */
+      this.id = builder.id;
+         /**
+          * 字段名字
+          * <p> 示例值：field name
+          */
+      this.name = builder.name;
+         /**
+          * 字段类型
+          * <p> 示例值：20
+          */
+      this.type = builder.type;
+         /**
+          * 字段描述
+          * <p> 示例值：description
+          */
+      this.description = builder.description;
+         /**
+          * 字段属性
+          * <p> 示例值：
+          */
+      this.property = builder.property;
+  }
+
     public static class Builder {
-        /**
-         * 字段 ID
-         * <p> 示例值：fldmj5qNii
-         */
+     /**
+      * 字段 ID
+      * <p> 示例值：fldmj5qNii
+      */
         private String id;
-        /**
-         * 字段名字
-         * <p> 示例值：field name
-         */
+     /**
+      * 字段名字
+      * <p> 示例值：field name
+      */
         private String name;
-        /**
-         * 字段类型
-         * <p> 示例值：20
-         */
+     /**
+      * 字段类型
+      * <p> 示例值：20
+      */
         private Integer type;
-        /**
-         * 字段描述
-         * <p> 示例值：description
-         */
+     /**
+      * 字段描述
+      * <p> 示例值：description
+      */
         private String description;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
+     /**
+      * 字段属性
+      * <p> 示例值：
+      */
         private BitableTableFieldActionValueProperty property;
 
         /**
          * 字段 ID
          * <p> 示例值：fldmj5qNii
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 字段名字
          * <p> 示例值：field name
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 字段类型
          * <p> 示例值：20
-         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 字段描述
          * <p> 示例值：description
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 字段属性
          * <p> 示例值：
-         *
          * @param property
          * @return
          */
         public Builder property(BitableTableFieldActionValueProperty property) {
-            this.property = property;
-            return this;
+             this.property = property;
+             return this;
         }
 
+    
+    
+    public BitableTableFieldActionValue build(){
+        return new BitableTableFieldActionValue(this);
+      }
+    }
 
-        public BitableTableFieldActionValue build() {
-            return new BitableTableFieldActionValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

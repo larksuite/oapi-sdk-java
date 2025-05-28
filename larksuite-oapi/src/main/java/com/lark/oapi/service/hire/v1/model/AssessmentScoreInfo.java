@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AssessmentScoreInfo {
-    /**
-     * 计分方式
-     * <p> 示例值：1
-     */
+     /**
+      * 计分方式
+      * <p> 示例值：1
+      */
     @SerializedName("calculate_type")
     private Integer calculateType;
-    /**
-     * 分数(精确到小数点后两位)
-     * <p> 示例值：3.21
-     */
+     /**
+      * 分数(精确到小数点后两位)
+      * <p> 示例值：3.21
+      */
     @SerializedName("score")
     private Double score;
-    /**
-     * 满分
-     * <p> 示例值：100
-     */
+     /**
+      * 满分
+      * <p> 示例值：100
+      */
     @SerializedName("full_score")
     private Long fullScore;
-
-    // builder 开始
-    public AssessmentScoreInfo() {
-    }
-
-    public AssessmentScoreInfo(Builder builder) {
-        /**
-         * 计分方式
-         * <p> 示例值：1
-         */
-        this.calculateType = builder.calculateType;
-        /**
-         * 分数(精确到小数点后两位)
-         * <p> 示例值：3.21
-         */
-        this.score = builder.score;
-        /**
-         * 满分
-         * <p> 示例值：100
-         */
-        this.fullScore = builder.fullScore;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getCalculateType() {
         return this.calculateType;
     }
@@ -97,64 +66,90 @@ public class AssessmentScoreInfo {
         this.fullScore = fullScore;
     }
 
+
+// builder 开始
+  public AssessmentScoreInfo(){}
+
+  public AssessmentScoreInfo(Builder builder){
+         /**
+          * 计分方式
+          * <p> 示例值：1
+          */
+      this.calculateType = builder.calculateType;
+         /**
+          * 分数(精确到小数点后两位)
+          * <p> 示例值：3.21
+          */
+      this.score = builder.score;
+         /**
+          * 满分
+          * <p> 示例值：100
+          */
+      this.fullScore = builder.fullScore;
+  }
+
     public static class Builder {
-        /**
-         * 计分方式
-         * <p> 示例值：1
-         */
+     /**
+      * 计分方式
+      * <p> 示例值：1
+      */
         private Integer calculateType;
-        /**
-         * 分数(精确到小数点后两位)
-         * <p> 示例值：3.21
-         */
+     /**
+      * 分数(精确到小数点后两位)
+      * <p> 示例值：3.21
+      */
         private Double score;
-        /**
-         * 满分
-         * <p> 示例值：100
-         */
+     /**
+      * 满分
+      * <p> 示例值：100
+      */
         private Long fullScore;
 
         /**
          * 计分方式
          * <p> 示例值：1
-         *
          * @param calculateType
          * @return
          */
         public Builder calculateType(Integer calculateType) {
-            this.calculateType = calculateType;
-            return this;
+             this.calculateType = calculateType;
+             return this;
         }
 
+    
 
         /**
          * 分数(精确到小数点后两位)
          * <p> 示例值：3.21
-         *
          * @param score
          * @return
          */
         public Builder score(Double score) {
-            this.score = score;
-            return this;
+             this.score = score;
+             return this;
         }
 
+    
 
         /**
          * 满分
          * <p> 示例值：100
-         *
          * @param fullScore
          * @return
          */
         public Builder fullScore(Long fullScore) {
-            this.fullScore = fullScore;
-            return this;
+             this.fullScore = fullScore;
+             return this;
         }
 
+    
+    
+    public AssessmentScoreInfo build(){
+        return new AssessmentScoreInfo(this);
+      }
+    }
 
-        public AssessmentScoreInfo build() {
-            return new AssessmentScoreInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CardLink {
-    /**
-     * 默认的链接地址
-     * <p> 示例值：https://www.baidu.com
-     */
+     /**
+      * 默认的链接地址
+      * <p> 示例值：https://www.baidu.com
+      */
     @SerializedName("url")
     private String url;
-    /**
-     * PC端的链接地址
-     * <p> 示例值：https://developer.windows.com/
-     */
+     /**
+      * PC端的链接地址
+      * <p> 示例值：https://developer.windows.com/
+      */
     @SerializedName("pc_url")
     private String pcUrl;
-    /**
-     * iOS端的链接地址
-     * <p> 示例值：https://developer.apple.com/
-     */
+     /**
+      * iOS端的链接地址
+      * <p> 示例值：https://developer.apple.com/
+      */
     @SerializedName("ios_url")
     private String iosUrl;
-    /**
-     * Android 端的链接地址
-     * <p> 示例值：https://developer.android.com/
-     */
+     /**
+      * Android 端的链接地址
+      * <p> 示例值：https://developer.android.com/
+      */
     @SerializedName("android_url")
     private String androidUrl;
-
-    // builder 开始
-    public CardLink() {
-    }
-
-    public CardLink(Builder builder) {
-        /**
-         * 默认的链接地址
-         * <p> 示例值：https://www.baidu.com
-         */
-        this.url = builder.url;
-        /**
-         * PC端的链接地址
-         * <p> 示例值：https://developer.windows.com/
-         */
-        this.pcUrl = builder.pcUrl;
-        /**
-         * iOS端的链接地址
-         * <p> 示例值：https://developer.apple.com/
-         */
-        this.iosUrl = builder.iosUrl;
-        /**
-         * Android 端的链接地址
-         * <p> 示例值：https://developer.android.com/
-         */
-        this.androidUrl = builder.androidUrl;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUrl() {
         return this.url;
     }
@@ -117,82 +81,113 @@ public class CardLink {
         this.androidUrl = androidUrl;
     }
 
+
+// builder 开始
+  public CardLink(){}
+
+  public CardLink(Builder builder){
+         /**
+          * 默认的链接地址
+          * <p> 示例值：https://www.baidu.com
+          */
+      this.url = builder.url;
+         /**
+          * PC端的链接地址
+          * <p> 示例值：https://developer.windows.com/
+          */
+      this.pcUrl = builder.pcUrl;
+         /**
+          * iOS端的链接地址
+          * <p> 示例值：https://developer.apple.com/
+          */
+      this.iosUrl = builder.iosUrl;
+         /**
+          * Android 端的链接地址
+          * <p> 示例值：https://developer.android.com/
+          */
+      this.androidUrl = builder.androidUrl;
+  }
+
     public static class Builder {
-        /**
-         * 默认的链接地址
-         * <p> 示例值：https://www.baidu.com
-         */
+     /**
+      * 默认的链接地址
+      * <p> 示例值：https://www.baidu.com
+      */
         private String url;
-        /**
-         * PC端的链接地址
-         * <p> 示例值：https://developer.windows.com/
-         */
+     /**
+      * PC端的链接地址
+      * <p> 示例值：https://developer.windows.com/
+      */
         private String pcUrl;
-        /**
-         * iOS端的链接地址
-         * <p> 示例值：https://developer.apple.com/
-         */
+     /**
+      * iOS端的链接地址
+      * <p> 示例值：https://developer.apple.com/
+      */
         private String iosUrl;
-        /**
-         * Android 端的链接地址
-         * <p> 示例值：https://developer.android.com/
-         */
+     /**
+      * Android 端的链接地址
+      * <p> 示例值：https://developer.android.com/
+      */
         private String androidUrl;
 
         /**
          * 默认的链接地址
          * <p> 示例值：https://www.baidu.com
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
 
         /**
          * PC端的链接地址
          * <p> 示例值：https://developer.windows.com/
-         *
          * @param pcUrl
          * @return
          */
         public Builder pcUrl(String pcUrl) {
-            this.pcUrl = pcUrl;
-            return this;
+             this.pcUrl = pcUrl;
+             return this;
         }
 
+    
 
         /**
          * iOS端的链接地址
          * <p> 示例值：https://developer.apple.com/
-         *
          * @param iosUrl
          * @return
          */
         public Builder iosUrl(String iosUrl) {
-            this.iosUrl = iosUrl;
-            return this;
+             this.iosUrl = iosUrl;
+             return this;
         }
 
+    
 
         /**
          * Android 端的链接地址
          * <p> 示例值：https://developer.android.com/
-         *
          * @param androidUrl
          * @return
          */
         public Builder androidUrl(String androidUrl) {
-            this.androidUrl = androidUrl;
-            return this;
+             this.androidUrl = androidUrl;
+             return this;
         }
 
+    
+    
+    public CardLink build(){
+        return new CardLink(this);
+      }
+    }
 
-        public CardLink build() {
-            return new CardLink(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AddTasklistTaskReqBody {
-    /**
-     * 要添加到的清单的全局唯一ID
-     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-     */
+     /**
+      * 要添加到的清单的全局唯一ID
+      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+      */
     @SerializedName("tasklist_guid")
     private String tasklistGuid;
-    /**
-     * 要添加到清单的自定义分组全局唯一ID，如不填写表示添加到默认分组
-     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-     */
+     /**
+      * 要添加到清单的自定义分组全局唯一ID，如不填写表示添加到默认分组
+      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+      */
     @SerializedName("section_guid")
     private String sectionGuid;
-
-    // builder 开始
-    public AddTasklistTaskReqBody() {
-    }
-
-    public AddTasklistTaskReqBody(Builder builder) {
-        /**
-         * 要添加到的清单的全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
-        this.tasklistGuid = builder.tasklistGuid;
-        /**
-         * 要添加到清单的自定义分组全局唯一ID，如不填写表示添加到默认分组
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
-        this.sectionGuid = builder.sectionGuid;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTasklistGuid() {
         return this.tasklistGuid;
     }
@@ -79,46 +53,67 @@ public class AddTasklistTaskReqBody {
         this.sectionGuid = sectionGuid;
     }
 
+
+// builder 开始
+  public AddTasklistTaskReqBody(){}
+
+  public AddTasklistTaskReqBody(Builder builder){
+         /**
+          * 要添加到的清单的全局唯一ID
+          * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+          */
+      this.tasklistGuid = builder.tasklistGuid;
+         /**
+          * 要添加到清单的自定义分组全局唯一ID，如不填写表示添加到默认分组
+          * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+          */
+      this.sectionGuid = builder.sectionGuid;
+  }
+
     public static class Builder {
-        /**
-         * 要添加到的清单的全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
+     /**
+      * 要添加到的清单的全局唯一ID
+      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+      */
         private String tasklistGuid;
-        /**
-         * 要添加到清单的自定义分组全局唯一ID，如不填写表示添加到默认分组
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
+     /**
+      * 要添加到清单的自定义分组全局唯一ID，如不填写表示添加到默认分组
+      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+      */
         private String sectionGuid;
 
         /**
          * 要添加到的清单的全局唯一ID
          * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         *
          * @param tasklistGuid
          * @return
          */
         public Builder tasklistGuid(String tasklistGuid) {
-            this.tasklistGuid = tasklistGuid;
-            return this;
+             this.tasklistGuid = tasklistGuid;
+             return this;
         }
 
+    
 
         /**
          * 要添加到清单的自定义分组全局唯一ID，如不填写表示添加到默认分组
          * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         *
          * @param sectionGuid
          * @return
          */
         public Builder sectionGuid(String sectionGuid) {
-            this.sectionGuid = sectionGuid;
-            return this;
+             this.sectionGuid = sectionGuid;
+             return this;
         }
 
+    
+    
+    public AddTasklistTaskReqBody build(){
+        return new AddTasklistTaskReqBody(this);
+      }
+    }
 
-        public AddTasklistTaskReqBody build() {
-            return new AddTasklistTaskReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

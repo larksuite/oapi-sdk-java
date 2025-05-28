@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OfferSchemaDetail {
-    /**
-     * 字段ID
-     * <p> 示例值：1213213123123
-     */
+     /**
+      * 字段ID
+      * <p> 示例值：1213213123123
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 字段名称
-     * <p> 示例值：
-     */
+     /**
+      * 字段名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private OfferSchemaName name;
-    /**
-     * 字段类型, text=单行文本, long_text=多行文本, select=单选, multi_select=多选, date_select=日期, number=数字
-     * <p> 示例值：number
-     */
+     /**
+      * 字段类型, text=单行文本, long_text=多行文本, select=单选, multi_select=多选, date_select=日期, number=数字
+      * <p> 示例值：number
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 字段是否为自定义
-     * <p> 示例值：true
-     */
+     /**
+      * 字段是否为自定义
+      * <p> 示例值：true
+      */
     @SerializedName("is_customized")
     private Boolean isCustomized;
-    /**
-     * 单选/多选可选择字段的选项值
-     * <p> 示例值：
-     */
+     /**
+      * 单选/多选可选择字段的选项值
+      * <p> 示例值：
+      */
     @SerializedName("option_list")
     private OfferSchemaDetailOption[] optionList;
-
-    // builder 开始
-    public OfferSchemaDetail() {
-    }
-
-    public OfferSchemaDetail(Builder builder) {
-        /**
-         * 字段ID
-         * <p> 示例值：1213213123123
-         */
-        this.id = builder.id;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 字段类型, text=单行文本, long_text=多行文本, select=单选, multi_select=多选, date_select=日期, number=数字
-         * <p> 示例值：number
-         */
-        this.type = builder.type;
-        /**
-         * 字段是否为自定义
-         * <p> 示例值：true
-         */
-        this.isCustomized = builder.isCustomized;
-        /**
-         * 单选/多选可选择字段的选项值
-         * <p> 示例值：
-         */
-        this.optionList = builder.optionList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -135,100 +94,136 @@ public class OfferSchemaDetail {
         this.optionList = optionList;
     }
 
+
+// builder 开始
+  public OfferSchemaDetail(){}
+
+  public OfferSchemaDetail(Builder builder){
+         /**
+          * 字段ID
+          * <p> 示例值：1213213123123
+          */
+      this.id = builder.id;
+         /**
+          * 字段名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 字段类型, text=单行文本, long_text=多行文本, select=单选, multi_select=多选, date_select=日期, number=数字
+          * <p> 示例值：number
+          */
+      this.type = builder.type;
+         /**
+          * 字段是否为自定义
+          * <p> 示例值：true
+          */
+      this.isCustomized = builder.isCustomized;
+         /**
+          * 单选/多选可选择字段的选项值
+          * <p> 示例值：
+          */
+      this.optionList = builder.optionList;
+  }
+
     public static class Builder {
-        /**
-         * 字段ID
-         * <p> 示例值：1213213123123
-         */
+     /**
+      * 字段ID
+      * <p> 示例值：1213213123123
+      */
         private String id;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
+     /**
+      * 字段名称
+      * <p> 示例值：
+      */
         private OfferSchemaName name;
-        /**
-         * 字段类型, text=单行文本, long_text=多行文本, select=单选, multi_select=多选, date_select=日期, number=数字
-         * <p> 示例值：number
-         */
+     /**
+      * 字段类型, text=单行文本, long_text=多行文本, select=单选, multi_select=多选, date_select=日期, number=数字
+      * <p> 示例值：number
+      */
         private String type;
-        /**
-         * 字段是否为自定义
-         * <p> 示例值：true
-         */
+     /**
+      * 字段是否为自定义
+      * <p> 示例值：true
+      */
         private Boolean isCustomized;
-        /**
-         * 单选/多选可选择字段的选项值
-         * <p> 示例值：
-         */
+     /**
+      * 单选/多选可选择字段的选项值
+      * <p> 示例值：
+      */
         private OfferSchemaDetailOption[] optionList;
 
         /**
          * 字段ID
          * <p> 示例值：1213213123123
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 字段名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(OfferSchemaName name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 字段类型, text=单行文本, long_text=多行文本, select=单选, multi_select=多选, date_select=日期, number=数字
          * <p> 示例值：number
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 字段是否为自定义
          * <p> 示例值：true
-         *
          * @param isCustomized
          * @return
          */
         public Builder isCustomized(Boolean isCustomized) {
-            this.isCustomized = isCustomized;
-            return this;
+             this.isCustomized = isCustomized;
+             return this;
         }
 
+    
 
         /**
          * 单选/多选可选择字段的选项值
          * <p> 示例值：
-         *
          * @param optionList
          * @return
          */
         public Builder optionList(OfferSchemaDetailOption[] optionList) {
-            this.optionList = optionList;
-            return this;
+             this.optionList = optionList;
+             return this;
         }
 
+    
+    
+    public OfferSchemaDetail build(){
+        return new OfferSchemaDetail(this);
+      }
+    }
 
-        public OfferSchemaDetail build() {
-            return new OfferSchemaDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

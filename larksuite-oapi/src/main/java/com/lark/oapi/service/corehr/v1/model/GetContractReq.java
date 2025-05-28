@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetContractReq {
-    /**
-     * 合同ID
-     * <p> 示例值：151515
-     */
+     /**
+      * 合同ID
+      * <p> 示例值：151515
+      */
     @Path
     @SerializedName("contract_id")
     private String contractId;
-
-    // builder 开始
-    public GetContractReq() {
-    }
-
-    public GetContractReq(Builder builder) {
-        /**
-         * 合同ID
-         * <p> 示例值：151515
-         */
-        this.contractId = builder.contractId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContractId() {
         return this.contractId;
     }
@@ -60,25 +39,39 @@ public class GetContractReq {
         this.contractId = contractId;
     }
 
+
+// builder 开始
+  public GetContractReq(){}
+
+  public GetContractReq(Builder builder){
+     /**
+      * 合同ID
+      * <p> 示例值：151515
+      */
+       this.contractId = builder.contractId;
+  }
+
     public static class Builder {
-
+    
         private String contractId; // 合同ID
-
         /**
          * 合同ID
          * <p> 示例值：151515
-         *
          * @param contractId
          * @return
          */
-        public Builder contractId(String contractId) {
-            this.contractId = contractId;
-            return this;
-        }
+          public Builder contractId(String contractId) {
+               this.contractId = contractId;
+               return this;
+          }
 
+    
+    public GetContractReq build(){
+        return new GetContractReq(this);
+      }
+    }
 
-        public GetContractReq build() {
-            return new GetContractReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

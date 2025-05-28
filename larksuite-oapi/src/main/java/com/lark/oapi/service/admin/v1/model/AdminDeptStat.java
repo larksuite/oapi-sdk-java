@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,500 +19,270 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AdminDeptStat {
-    /**
-     * 日期
-     * <p> 示例值：2020-02-15
-     */
+     /**
+      * 日期
+      * <p> 示例值：2020-02-15
+      */
     @SerializedName("date")
     private String date;
-    /**
-     * 部门的department_id 或者open_department_id
-     * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
-     */
+     /**
+      * 部门的department_id 或者open_department_id
+      * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
+      */
     @SerializedName("department_id")
     private String departmentId;
-    /**
-     * 部门名字
-     * <p> 示例值：subtestkkk
-     */
+     /**
+      * 部门名字
+      * <p> 示例值：subtestkkk
+      */
     @SerializedName("department_name")
     private String departmentName;
-    /**
-     * 部门路径
-     * <p> 示例值：testkkk/subtestkkk
-     */
+     /**
+      * 部门路径
+      * <p> 示例值：testkkk/subtestkkk
+      */
     @SerializedName("department_path")
     private String departmentPath;
-    /**
-     * 部门总人数
-     * <p> 示例值：2
-     */
+     /**
+      * 部门总人数
+      * <p> 示例值：2
+      */
     @SerializedName("total_user_num")
     private Integer totalUserNum;
-    /**
-     * 激活人数
-     * <p> 示例值：0
-     */
+     /**
+      * 激活人数
+      * <p> 示例值：0
+      */
     @SerializedName("active_user_num")
     private Integer activeUserNum;
-    /**
-     * 激活率
-     * <p> 示例值：1.00
-     */
+     /**
+      * 激活率
+      * <p> 示例值：1.00
+      */
     @SerializedName("active_user_rate")
     private String activeUserRate;
-    /**
-     * 活跃人数
-     * <p> 示例值：0
-     */
+     /**
+      * 活跃人数
+      * <p> 示例值：0
+      */
     @SerializedName("suite_dau")
     private Integer suiteDau;
-    /**
-     * 活跃率
-     * <p> 示例值：0.00
-     */
+     /**
+      * 活跃率
+      * <p> 示例值：0.00
+      */
     @SerializedName("suite_active_rate")
     private String suiteActiveRate;
-    /**
-     * 新用户数
-     * <p> 示例值：0
-     */
+     /**
+      * 新用户数
+      * <p> 示例值：0
+      */
     @SerializedName("new_user_num")
     private Integer newUserNum;
-    /**
-     * 新激活数
-     * <p> 示例值：0
-     */
+     /**
+      * 新激活数
+      * <p> 示例值：0
+      */
     @SerializedName("new_active_num")
     private Integer newActiveNum;
-    /**
-     * 离职人数
-     * <p> 示例值：0
-     */
+     /**
+      * 离职人数
+      * <p> 示例值：0
+      */
     @SerializedName("resign_user_num")
     private Integer resignUserNum;
-    /**
-     * 消息活跃人数
-     * <p> 示例值：0
-     */
+     /**
+      * 消息活跃人数
+      * <p> 示例值：0
+      */
     @SerializedName("im_dau")
     private Integer imDau;
-    /**
-     * 发送消息人数
-     * <p> 示例值：0
-     */
+     /**
+      * 发送消息人数
+      * <p> 示例值：0
+      */
     @SerializedName("send_messenger_user_num")
     private Integer sendMessengerUserNum;
-    /**
-     * 发送消息数
-     * <p> 示例值：0
-     */
+     /**
+      * 发送消息数
+      * <p> 示例值：0
+      */
     @SerializedName("send_messenger_num")
     private Integer sendMessengerNum;
-    /**
-     * 人均发送消息数
-     * <p> 示例值：0.00
-     */
+     /**
+      * 人均发送消息数
+      * <p> 示例值：0.00
+      */
     @SerializedName("avg_send_messenger_num")
     private String avgSendMessengerNum;
-    /**
-     * 云文档活跃人数
-     * <p> 示例值：0
-     */
+     /**
+      * 云文档活跃人数
+      * <p> 示例值：0
+      */
     @SerializedName("docs_dau")
     private Integer docsDau;
-    /**
-     * 创建文件人数
-     * <p> 示例值：0
-     */
+     /**
+      * 创建文件人数
+      * <p> 示例值：0
+      */
     @SerializedName("create_docs_user_num")
     private Integer createDocsUserNum;
-    /**
-     * 创建文件数
-     * <p> 示例值：0
-     */
+     /**
+      * 创建文件数
+      * <p> 示例值：0
+      */
     @SerializedName("create_docs_num")
     private Integer createDocsNum;
-    /**
-     * 人均创建文件数
-     * <p> 示例值：0.00
-     */
+     /**
+      * 人均创建文件数
+      * <p> 示例值：0.00
+      */
     @SerializedName("avg_create_docs_num")
     private String avgCreateDocsNum;
-    /**
-     * 日历活跃人数
-     * <p> 示例值：0
-     */
+     /**
+      * 日历活跃人数
+      * <p> 示例值：0
+      */
     @SerializedName("cal_dau")
     private Integer calDau;
-    /**
-     * 创建日程人数
-     * <p> 示例值：0
-     */
+     /**
+      * 创建日程人数
+      * <p> 示例值：0
+      */
     @SerializedName("create_cal_user_num")
     private Integer createCalUserNum;
-    /**
-     * 创建日程数
-     * <p> 示例值：0
-     */
+     /**
+      * 创建日程数
+      * <p> 示例值：0
+      */
     @SerializedName("create_cal_num")
     private Integer createCalNum;
-    /**
-     * 人均创建日程数
-     * <p> 示例值：0.00
-     */
+     /**
+      * 人均创建日程数
+      * <p> 示例值：0.00
+      */
     @SerializedName("avg_create_cal_num")
     private String avgCreateCalNum;
-    /**
-     * 音视频会议活跃人数
-     * <p> 示例值：0
-     */
+     /**
+      * 音视频会议活跃人数
+      * <p> 示例值：0
+      */
     @SerializedName("vc_dau")
     private Integer vcDau;
-    /**
-     * 会议时长：企业内员工参与通话与会议的总时长（分钟）
-     * <p> 示例值：0
-     */
+     /**
+      * 会议时长：企业内员工参与通话与会议的总时长（分钟）
+      * <p> 示例值：0
+      */
     @SerializedName("vc_duration")
     private Integer vcDuration;
-    /**
-     * 人均会议时长（分钟）
-     * <p> 示例值：0.00
-     */
+     /**
+      * 人均会议时长（分钟）
+      * <p> 示例值：0.00
+      */
     @SerializedName("avg_vc_duration")
     private String avgVcDuration;
-    /**
-     * 人均飞书使用时长（分钟）
-     * <p> 示例值：0.00
-     */
+     /**
+      * 人均飞书使用时长（分钟）
+      * <p> 示例值：0.00
+      */
     @SerializedName("avg_duration")
     private String avgDuration;
-    /**
-     * 任务活跃人数
-     * <p> 示例值：0
-     */
+     /**
+      * 任务活跃人数
+      * <p> 示例值：0
+      */
     @SerializedName("task_dau")
     private Integer taskDau;
-    /**
-     * 创建任务人数
-     * <p> 示例值：0
-     */
+     /**
+      * 创建任务人数
+      * <p> 示例值：0
+      */
     @SerializedName("create_task_user_num")
     private Integer createTaskUserNum;
-    /**
-     * 创建任务数
-     * <p> 示例值：0
-     */
+     /**
+      * 创建任务数
+      * <p> 示例值：0
+      */
     @SerializedName("create_task_num")
     private Integer createTaskNum;
-    /**
-     * 人均创建任务数
-     * <p> 示例值：0.00
-     */
+     /**
+      * 人均创建任务数
+      * <p> 示例值：0.00
+      */
     @SerializedName("avg_create_task_num")
     private String avgCreateTaskNum;
-    /**
-     * 邮件总发件量
-     * <p> 示例值：2
-     */
+     /**
+      * 邮件总发件量
+      * <p> 示例值：2
+      */
     @SerializedName("email_send_count")
     private String emailSendCount;
-    /**
-     * 邮件总收件量
-     * <p> 示例值：3
-     */
+     /**
+      * 邮件总收件量
+      * <p> 示例值：3
+      */
     @SerializedName("email_receive_count")
     private String emailReceiveCount;
-    /**
-     * 对外发件数
-     * <p> 示例值：4
-     */
+     /**
+      * 对外发件数
+      * <p> 示例值：4
+      */
     @SerializedName("email_send_ext_count")
     private String emailSendExtCount;
-    /**
-     * 来自外部收件数
-     * <p> 示例值：5
-     */
+     /**
+      * 来自外部收件数
+      * <p> 示例值：5
+      */
     @SerializedName("email_receive_ext_count")
     private String emailReceiveExtCount;
-    /**
-     * 对内发件数
-     * <p> 示例值：6
-     */
+     /**
+      * 对内发件数
+      * <p> 示例值：6
+      */
     @SerializedName("email_send_in_count")
     private String emailSendInCount;
-    /**
-     * 来自内部收件数
-     * <p> 示例值：7
-     */
+     /**
+      * 来自内部收件数
+      * <p> 示例值：7
+      */
     @SerializedName("email_receive_in_count")
     private String emailReceiveInCount;
-    /**
-     * 大搜搜索活跃人数
-     * <p> 示例值：7
-     */
+     /**
+      * 大搜搜索活跃人数
+      * <p> 示例值：7
+      */
     @SerializedName("search_active_dau")
     private String searchActiveDau;
-    /**
-     * 总搜索次数
-     * <p> 示例值：7
-     */
+     /**
+      * 总搜索次数
+      * <p> 示例值：7
+      */
     @SerializedName("total_search_count")
     private String totalSearchCount;
-    /**
-     * 综搜次数
-     * <p> 示例值：7
-     */
+     /**
+      * 综搜次数
+      * <p> 示例值：7
+      */
     @SerializedName("quick_search_count")
     private String quickSearchCount;
-    /**
-     * 垂搜次数
-     * <p> 示例值：7
-     */
+     /**
+      * 垂搜次数
+      * <p> 示例值：7
+      */
     @SerializedName("tab_search_count")
     private String tabSearchCount;
-    /**
-     * 产品版本名称
-     * <p> 示例值：全部产品版本
-     */
+     /**
+      * 产品版本名称
+      * <p> 示例值：全部产品版本
+      */
     @SerializedName("product_version")
     private String productVersion;
-
-    // builder 开始
-    public AdminDeptStat() {
-    }
-
-    public AdminDeptStat(Builder builder) {
-        /**
-         * 日期
-         * <p> 示例值：2020-02-15
-         */
-        this.date = builder.date;
-        /**
-         * 部门的department_id 或者open_department_id
-         * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 部门名字
-         * <p> 示例值：subtestkkk
-         */
-        this.departmentName = builder.departmentName;
-        /**
-         * 部门路径
-         * <p> 示例值：testkkk/subtestkkk
-         */
-        this.departmentPath = builder.departmentPath;
-        /**
-         * 部门总人数
-         * <p> 示例值：2
-         */
-        this.totalUserNum = builder.totalUserNum;
-        /**
-         * 激活人数
-         * <p> 示例值：0
-         */
-        this.activeUserNum = builder.activeUserNum;
-        /**
-         * 激活率
-         * <p> 示例值：1.00
-         */
-        this.activeUserRate = builder.activeUserRate;
-        /**
-         * 活跃人数
-         * <p> 示例值：0
-         */
-        this.suiteDau = builder.suiteDau;
-        /**
-         * 活跃率
-         * <p> 示例值：0.00
-         */
-        this.suiteActiveRate = builder.suiteActiveRate;
-        /**
-         * 新用户数
-         * <p> 示例值：0
-         */
-        this.newUserNum = builder.newUserNum;
-        /**
-         * 新激活数
-         * <p> 示例值：0
-         */
-        this.newActiveNum = builder.newActiveNum;
-        /**
-         * 离职人数
-         * <p> 示例值：0
-         */
-        this.resignUserNum = builder.resignUserNum;
-        /**
-         * 消息活跃人数
-         * <p> 示例值：0
-         */
-        this.imDau = builder.imDau;
-        /**
-         * 发送消息人数
-         * <p> 示例值：0
-         */
-        this.sendMessengerUserNum = builder.sendMessengerUserNum;
-        /**
-         * 发送消息数
-         * <p> 示例值：0
-         */
-        this.sendMessengerNum = builder.sendMessengerNum;
-        /**
-         * 人均发送消息数
-         * <p> 示例值：0.00
-         */
-        this.avgSendMessengerNum = builder.avgSendMessengerNum;
-        /**
-         * 云文档活跃人数
-         * <p> 示例值：0
-         */
-        this.docsDau = builder.docsDau;
-        /**
-         * 创建文件人数
-         * <p> 示例值：0
-         */
-        this.createDocsUserNum = builder.createDocsUserNum;
-        /**
-         * 创建文件数
-         * <p> 示例值：0
-         */
-        this.createDocsNum = builder.createDocsNum;
-        /**
-         * 人均创建文件数
-         * <p> 示例值：0.00
-         */
-        this.avgCreateDocsNum = builder.avgCreateDocsNum;
-        /**
-         * 日历活跃人数
-         * <p> 示例值：0
-         */
-        this.calDau = builder.calDau;
-        /**
-         * 创建日程人数
-         * <p> 示例值：0
-         */
-        this.createCalUserNum = builder.createCalUserNum;
-        /**
-         * 创建日程数
-         * <p> 示例值：0
-         */
-        this.createCalNum = builder.createCalNum;
-        /**
-         * 人均创建日程数
-         * <p> 示例值：0.00
-         */
-        this.avgCreateCalNum = builder.avgCreateCalNum;
-        /**
-         * 音视频会议活跃人数
-         * <p> 示例值：0
-         */
-        this.vcDau = builder.vcDau;
-        /**
-         * 会议时长：企业内员工参与通话与会议的总时长（分钟）
-         * <p> 示例值：0
-         */
-        this.vcDuration = builder.vcDuration;
-        /**
-         * 人均会议时长（分钟）
-         * <p> 示例值：0.00
-         */
-        this.avgVcDuration = builder.avgVcDuration;
-        /**
-         * 人均飞书使用时长（分钟）
-         * <p> 示例值：0.00
-         */
-        this.avgDuration = builder.avgDuration;
-        /**
-         * 任务活跃人数
-         * <p> 示例值：0
-         */
-        this.taskDau = builder.taskDau;
-        /**
-         * 创建任务人数
-         * <p> 示例值：0
-         */
-        this.createTaskUserNum = builder.createTaskUserNum;
-        /**
-         * 创建任务数
-         * <p> 示例值：0
-         */
-        this.createTaskNum = builder.createTaskNum;
-        /**
-         * 人均创建任务数
-         * <p> 示例值：0.00
-         */
-        this.avgCreateTaskNum = builder.avgCreateTaskNum;
-        /**
-         * 邮件总发件量
-         * <p> 示例值：2
-         */
-        this.emailSendCount = builder.emailSendCount;
-        /**
-         * 邮件总收件量
-         * <p> 示例值：3
-         */
-        this.emailReceiveCount = builder.emailReceiveCount;
-        /**
-         * 对外发件数
-         * <p> 示例值：4
-         */
-        this.emailSendExtCount = builder.emailSendExtCount;
-        /**
-         * 来自外部收件数
-         * <p> 示例值：5
-         */
-        this.emailReceiveExtCount = builder.emailReceiveExtCount;
-        /**
-         * 对内发件数
-         * <p> 示例值：6
-         */
-        this.emailSendInCount = builder.emailSendInCount;
-        /**
-         * 来自内部收件数
-         * <p> 示例值：7
-         */
-        this.emailReceiveInCount = builder.emailReceiveInCount;
-        /**
-         * 大搜搜索活跃人数
-         * <p> 示例值：7
-         */
-        this.searchActiveDau = builder.searchActiveDau;
-        /**
-         * 总搜索次数
-         * <p> 示例值：7
-         */
-        this.totalSearchCount = builder.totalSearchCount;
-        /**
-         * 综搜次数
-         * <p> 示例值：7
-         */
-        this.quickSearchCount = builder.quickSearchCount;
-        /**
-         * 垂搜次数
-         * <p> 示例值：7
-         */
-        this.tabSearchCount = builder.tabSearchCount;
-        /**
-         * 产品版本名称
-         * <p> 示例值：全部产品版本
-         */
-        this.productVersion = builder.productVersion;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDate() {
         return this.date;
     }
@@ -858,784 +627,1010 @@ public class AdminDeptStat {
         this.productVersion = productVersion;
     }
 
+
+// builder 开始
+  public AdminDeptStat(){}
+
+  public AdminDeptStat(Builder builder){
+         /**
+          * 日期
+          * <p> 示例值：2020-02-15
+          */
+      this.date = builder.date;
+         /**
+          * 部门的department_id 或者open_department_id
+          * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
+          */
+      this.departmentId = builder.departmentId;
+         /**
+          * 部门名字
+          * <p> 示例值：subtestkkk
+          */
+      this.departmentName = builder.departmentName;
+         /**
+          * 部门路径
+          * <p> 示例值：testkkk/subtestkkk
+          */
+      this.departmentPath = builder.departmentPath;
+         /**
+          * 部门总人数
+          * <p> 示例值：2
+          */
+      this.totalUserNum = builder.totalUserNum;
+         /**
+          * 激活人数
+          * <p> 示例值：0
+          */
+      this.activeUserNum = builder.activeUserNum;
+         /**
+          * 激活率
+          * <p> 示例值：1.00
+          */
+      this.activeUserRate = builder.activeUserRate;
+         /**
+          * 活跃人数
+          * <p> 示例值：0
+          */
+      this.suiteDau = builder.suiteDau;
+         /**
+          * 活跃率
+          * <p> 示例值：0.00
+          */
+      this.suiteActiveRate = builder.suiteActiveRate;
+         /**
+          * 新用户数
+          * <p> 示例值：0
+          */
+      this.newUserNum = builder.newUserNum;
+         /**
+          * 新激活数
+          * <p> 示例值：0
+          */
+      this.newActiveNum = builder.newActiveNum;
+         /**
+          * 离职人数
+          * <p> 示例值：0
+          */
+      this.resignUserNum = builder.resignUserNum;
+         /**
+          * 消息活跃人数
+          * <p> 示例值：0
+          */
+      this.imDau = builder.imDau;
+         /**
+          * 发送消息人数
+          * <p> 示例值：0
+          */
+      this.sendMessengerUserNum = builder.sendMessengerUserNum;
+         /**
+          * 发送消息数
+          * <p> 示例值：0
+          */
+      this.sendMessengerNum = builder.sendMessengerNum;
+         /**
+          * 人均发送消息数
+          * <p> 示例值：0.00
+          */
+      this.avgSendMessengerNum = builder.avgSendMessengerNum;
+         /**
+          * 云文档活跃人数
+          * <p> 示例值：0
+          */
+      this.docsDau = builder.docsDau;
+         /**
+          * 创建文件人数
+          * <p> 示例值：0
+          */
+      this.createDocsUserNum = builder.createDocsUserNum;
+         /**
+          * 创建文件数
+          * <p> 示例值：0
+          */
+      this.createDocsNum = builder.createDocsNum;
+         /**
+          * 人均创建文件数
+          * <p> 示例值：0.00
+          */
+      this.avgCreateDocsNum = builder.avgCreateDocsNum;
+         /**
+          * 日历活跃人数
+          * <p> 示例值：0
+          */
+      this.calDau = builder.calDau;
+         /**
+          * 创建日程人数
+          * <p> 示例值：0
+          */
+      this.createCalUserNum = builder.createCalUserNum;
+         /**
+          * 创建日程数
+          * <p> 示例值：0
+          */
+      this.createCalNum = builder.createCalNum;
+         /**
+          * 人均创建日程数
+          * <p> 示例值：0.00
+          */
+      this.avgCreateCalNum = builder.avgCreateCalNum;
+         /**
+          * 音视频会议活跃人数
+          * <p> 示例值：0
+          */
+      this.vcDau = builder.vcDau;
+         /**
+          * 会议时长：企业内员工参与通话与会议的总时长（分钟）
+          * <p> 示例值：0
+          */
+      this.vcDuration = builder.vcDuration;
+         /**
+          * 人均会议时长（分钟）
+          * <p> 示例值：0.00
+          */
+      this.avgVcDuration = builder.avgVcDuration;
+         /**
+          * 人均飞书使用时长（分钟）
+          * <p> 示例值：0.00
+          */
+      this.avgDuration = builder.avgDuration;
+         /**
+          * 任务活跃人数
+          * <p> 示例值：0
+          */
+      this.taskDau = builder.taskDau;
+         /**
+          * 创建任务人数
+          * <p> 示例值：0
+          */
+      this.createTaskUserNum = builder.createTaskUserNum;
+         /**
+          * 创建任务数
+          * <p> 示例值：0
+          */
+      this.createTaskNum = builder.createTaskNum;
+         /**
+          * 人均创建任务数
+          * <p> 示例值：0.00
+          */
+      this.avgCreateTaskNum = builder.avgCreateTaskNum;
+         /**
+          * 邮件总发件量
+          * <p> 示例值：2
+          */
+      this.emailSendCount = builder.emailSendCount;
+         /**
+          * 邮件总收件量
+          * <p> 示例值：3
+          */
+      this.emailReceiveCount = builder.emailReceiveCount;
+         /**
+          * 对外发件数
+          * <p> 示例值：4
+          */
+      this.emailSendExtCount = builder.emailSendExtCount;
+         /**
+          * 来自外部收件数
+          * <p> 示例值：5
+          */
+      this.emailReceiveExtCount = builder.emailReceiveExtCount;
+         /**
+          * 对内发件数
+          * <p> 示例值：6
+          */
+      this.emailSendInCount = builder.emailSendInCount;
+         /**
+          * 来自内部收件数
+          * <p> 示例值：7
+          */
+      this.emailReceiveInCount = builder.emailReceiveInCount;
+         /**
+          * 大搜搜索活跃人数
+          * <p> 示例值：7
+          */
+      this.searchActiveDau = builder.searchActiveDau;
+         /**
+          * 总搜索次数
+          * <p> 示例值：7
+          */
+      this.totalSearchCount = builder.totalSearchCount;
+         /**
+          * 综搜次数
+          * <p> 示例值：7
+          */
+      this.quickSearchCount = builder.quickSearchCount;
+         /**
+          * 垂搜次数
+          * <p> 示例值：7
+          */
+      this.tabSearchCount = builder.tabSearchCount;
+         /**
+          * 产品版本名称
+          * <p> 示例值：全部产品版本
+          */
+      this.productVersion = builder.productVersion;
+  }
+
     public static class Builder {
-        /**
-         * 日期
-         * <p> 示例值：2020-02-15
-         */
+     /**
+      * 日期
+      * <p> 示例值：2020-02-15
+      */
         private String date;
-        /**
-         * 部门的department_id 或者open_department_id
-         * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
-         */
+     /**
+      * 部门的department_id 或者open_department_id
+      * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
+      */
         private String departmentId;
-        /**
-         * 部门名字
-         * <p> 示例值：subtestkkk
-         */
+     /**
+      * 部门名字
+      * <p> 示例值：subtestkkk
+      */
         private String departmentName;
-        /**
-         * 部门路径
-         * <p> 示例值：testkkk/subtestkkk
-         */
+     /**
+      * 部门路径
+      * <p> 示例值：testkkk/subtestkkk
+      */
         private String departmentPath;
-        /**
-         * 部门总人数
-         * <p> 示例值：2
-         */
+     /**
+      * 部门总人数
+      * <p> 示例值：2
+      */
         private Integer totalUserNum;
-        /**
-         * 激活人数
-         * <p> 示例值：0
-         */
+     /**
+      * 激活人数
+      * <p> 示例值：0
+      */
         private Integer activeUserNum;
-        /**
-         * 激活率
-         * <p> 示例值：1.00
-         */
+     /**
+      * 激活率
+      * <p> 示例值：1.00
+      */
         private String activeUserRate;
-        /**
-         * 活跃人数
-         * <p> 示例值：0
-         */
+     /**
+      * 活跃人数
+      * <p> 示例值：0
+      */
         private Integer suiteDau;
-        /**
-         * 活跃率
-         * <p> 示例值：0.00
-         */
+     /**
+      * 活跃率
+      * <p> 示例值：0.00
+      */
         private String suiteActiveRate;
-        /**
-         * 新用户数
-         * <p> 示例值：0
-         */
+     /**
+      * 新用户数
+      * <p> 示例值：0
+      */
         private Integer newUserNum;
-        /**
-         * 新激活数
-         * <p> 示例值：0
-         */
+     /**
+      * 新激活数
+      * <p> 示例值：0
+      */
         private Integer newActiveNum;
-        /**
-         * 离职人数
-         * <p> 示例值：0
-         */
+     /**
+      * 离职人数
+      * <p> 示例值：0
+      */
         private Integer resignUserNum;
-        /**
-         * 消息活跃人数
-         * <p> 示例值：0
-         */
+     /**
+      * 消息活跃人数
+      * <p> 示例值：0
+      */
         private Integer imDau;
-        /**
-         * 发送消息人数
-         * <p> 示例值：0
-         */
+     /**
+      * 发送消息人数
+      * <p> 示例值：0
+      */
         private Integer sendMessengerUserNum;
-        /**
-         * 发送消息数
-         * <p> 示例值：0
-         */
+     /**
+      * 发送消息数
+      * <p> 示例值：0
+      */
         private Integer sendMessengerNum;
-        /**
-         * 人均发送消息数
-         * <p> 示例值：0.00
-         */
+     /**
+      * 人均发送消息数
+      * <p> 示例值：0.00
+      */
         private String avgSendMessengerNum;
-        /**
-         * 云文档活跃人数
-         * <p> 示例值：0
-         */
+     /**
+      * 云文档活跃人数
+      * <p> 示例值：0
+      */
         private Integer docsDau;
-        /**
-         * 创建文件人数
-         * <p> 示例值：0
-         */
+     /**
+      * 创建文件人数
+      * <p> 示例值：0
+      */
         private Integer createDocsUserNum;
-        /**
-         * 创建文件数
-         * <p> 示例值：0
-         */
+     /**
+      * 创建文件数
+      * <p> 示例值：0
+      */
         private Integer createDocsNum;
-        /**
-         * 人均创建文件数
-         * <p> 示例值：0.00
-         */
+     /**
+      * 人均创建文件数
+      * <p> 示例值：0.00
+      */
         private String avgCreateDocsNum;
-        /**
-         * 日历活跃人数
-         * <p> 示例值：0
-         */
+     /**
+      * 日历活跃人数
+      * <p> 示例值：0
+      */
         private Integer calDau;
-        /**
-         * 创建日程人数
-         * <p> 示例值：0
-         */
+     /**
+      * 创建日程人数
+      * <p> 示例值：0
+      */
         private Integer createCalUserNum;
-        /**
-         * 创建日程数
-         * <p> 示例值：0
-         */
+     /**
+      * 创建日程数
+      * <p> 示例值：0
+      */
         private Integer createCalNum;
-        /**
-         * 人均创建日程数
-         * <p> 示例值：0.00
-         */
+     /**
+      * 人均创建日程数
+      * <p> 示例值：0.00
+      */
         private String avgCreateCalNum;
-        /**
-         * 音视频会议活跃人数
-         * <p> 示例值：0
-         */
+     /**
+      * 音视频会议活跃人数
+      * <p> 示例值：0
+      */
         private Integer vcDau;
-        /**
-         * 会议时长：企业内员工参与通话与会议的总时长（分钟）
-         * <p> 示例值：0
-         */
+     /**
+      * 会议时长：企业内员工参与通话与会议的总时长（分钟）
+      * <p> 示例值：0
+      */
         private Integer vcDuration;
-        /**
-         * 人均会议时长（分钟）
-         * <p> 示例值：0.00
-         */
+     /**
+      * 人均会议时长（分钟）
+      * <p> 示例值：0.00
+      */
         private String avgVcDuration;
-        /**
-         * 人均飞书使用时长（分钟）
-         * <p> 示例值：0.00
-         */
+     /**
+      * 人均飞书使用时长（分钟）
+      * <p> 示例值：0.00
+      */
         private String avgDuration;
-        /**
-         * 任务活跃人数
-         * <p> 示例值：0
-         */
+     /**
+      * 任务活跃人数
+      * <p> 示例值：0
+      */
         private Integer taskDau;
-        /**
-         * 创建任务人数
-         * <p> 示例值：0
-         */
+     /**
+      * 创建任务人数
+      * <p> 示例值：0
+      */
         private Integer createTaskUserNum;
-        /**
-         * 创建任务数
-         * <p> 示例值：0
-         */
+     /**
+      * 创建任务数
+      * <p> 示例值：0
+      */
         private Integer createTaskNum;
-        /**
-         * 人均创建任务数
-         * <p> 示例值：0.00
-         */
+     /**
+      * 人均创建任务数
+      * <p> 示例值：0.00
+      */
         private String avgCreateTaskNum;
-        /**
-         * 邮件总发件量
-         * <p> 示例值：2
-         */
+     /**
+      * 邮件总发件量
+      * <p> 示例值：2
+      */
         private String emailSendCount;
-        /**
-         * 邮件总收件量
-         * <p> 示例值：3
-         */
+     /**
+      * 邮件总收件量
+      * <p> 示例值：3
+      */
         private String emailReceiveCount;
-        /**
-         * 对外发件数
-         * <p> 示例值：4
-         */
+     /**
+      * 对外发件数
+      * <p> 示例值：4
+      */
         private String emailSendExtCount;
-        /**
-         * 来自外部收件数
-         * <p> 示例值：5
-         */
+     /**
+      * 来自外部收件数
+      * <p> 示例值：5
+      */
         private String emailReceiveExtCount;
-        /**
-         * 对内发件数
-         * <p> 示例值：6
-         */
+     /**
+      * 对内发件数
+      * <p> 示例值：6
+      */
         private String emailSendInCount;
-        /**
-         * 来自内部收件数
-         * <p> 示例值：7
-         */
+     /**
+      * 来自内部收件数
+      * <p> 示例值：7
+      */
         private String emailReceiveInCount;
-        /**
-         * 大搜搜索活跃人数
-         * <p> 示例值：7
-         */
+     /**
+      * 大搜搜索活跃人数
+      * <p> 示例值：7
+      */
         private String searchActiveDau;
-        /**
-         * 总搜索次数
-         * <p> 示例值：7
-         */
+     /**
+      * 总搜索次数
+      * <p> 示例值：7
+      */
         private String totalSearchCount;
-        /**
-         * 综搜次数
-         * <p> 示例值：7
-         */
+     /**
+      * 综搜次数
+      * <p> 示例值：7
+      */
         private String quickSearchCount;
-        /**
-         * 垂搜次数
-         * <p> 示例值：7
-         */
+     /**
+      * 垂搜次数
+      * <p> 示例值：7
+      */
         private String tabSearchCount;
-        /**
-         * 产品版本名称
-         * <p> 示例值：全部产品版本
-         */
+     /**
+      * 产品版本名称
+      * <p> 示例值：全部产品版本
+      */
         private String productVersion;
 
         /**
          * 日期
          * <p> 示例值：2020-02-15
-         *
          * @param date
          * @return
          */
         public Builder date(String date) {
-            this.date = date;
-            return this;
+             this.date = date;
+             return this;
         }
 
+    
 
         /**
          * 部门的department_id 或者open_department_id
          * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
-         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
+             this.departmentId = departmentId;
+             return this;
         }
 
+    
 
         /**
          * 部门名字
          * <p> 示例值：subtestkkk
-         *
          * @param departmentName
          * @return
          */
         public Builder departmentName(String departmentName) {
-            this.departmentName = departmentName;
-            return this;
+             this.departmentName = departmentName;
+             return this;
         }
 
+    
 
         /**
          * 部门路径
          * <p> 示例值：testkkk/subtestkkk
-         *
          * @param departmentPath
          * @return
          */
         public Builder departmentPath(String departmentPath) {
-            this.departmentPath = departmentPath;
-            return this;
+             this.departmentPath = departmentPath;
+             return this;
         }
 
+    
 
         /**
          * 部门总人数
          * <p> 示例值：2
-         *
          * @param totalUserNum
          * @return
          */
         public Builder totalUserNum(Integer totalUserNum) {
-            this.totalUserNum = totalUserNum;
-            return this;
+             this.totalUserNum = totalUserNum;
+             return this;
         }
 
+    
 
         /**
          * 激活人数
          * <p> 示例值：0
-         *
          * @param activeUserNum
          * @return
          */
         public Builder activeUserNum(Integer activeUserNum) {
-            this.activeUserNum = activeUserNum;
-            return this;
+             this.activeUserNum = activeUserNum;
+             return this;
         }
 
+    
 
         /**
          * 激活率
          * <p> 示例值：1.00
-         *
          * @param activeUserRate
          * @return
          */
         public Builder activeUserRate(String activeUserRate) {
-            this.activeUserRate = activeUserRate;
-            return this;
+             this.activeUserRate = activeUserRate;
+             return this;
         }
 
+    
 
         /**
          * 活跃人数
          * <p> 示例值：0
-         *
          * @param suiteDau
          * @return
          */
         public Builder suiteDau(Integer suiteDau) {
-            this.suiteDau = suiteDau;
-            return this;
+             this.suiteDau = suiteDau;
+             return this;
         }
 
+    
 
         /**
          * 活跃率
          * <p> 示例值：0.00
-         *
          * @param suiteActiveRate
          * @return
          */
         public Builder suiteActiveRate(String suiteActiveRate) {
-            this.suiteActiveRate = suiteActiveRate;
-            return this;
+             this.suiteActiveRate = suiteActiveRate;
+             return this;
         }
 
+    
 
         /**
          * 新用户数
          * <p> 示例值：0
-         *
          * @param newUserNum
          * @return
          */
         public Builder newUserNum(Integer newUserNum) {
-            this.newUserNum = newUserNum;
-            return this;
+             this.newUserNum = newUserNum;
+             return this;
         }
 
+    
 
         /**
          * 新激活数
          * <p> 示例值：0
-         *
          * @param newActiveNum
          * @return
          */
         public Builder newActiveNum(Integer newActiveNum) {
-            this.newActiveNum = newActiveNum;
-            return this;
+             this.newActiveNum = newActiveNum;
+             return this;
         }
 
+    
 
         /**
          * 离职人数
          * <p> 示例值：0
-         *
          * @param resignUserNum
          * @return
          */
         public Builder resignUserNum(Integer resignUserNum) {
-            this.resignUserNum = resignUserNum;
-            return this;
+             this.resignUserNum = resignUserNum;
+             return this;
         }
 
+    
 
         /**
          * 消息活跃人数
          * <p> 示例值：0
-         *
          * @param imDau
          * @return
          */
         public Builder imDau(Integer imDau) {
-            this.imDau = imDau;
-            return this;
+             this.imDau = imDau;
+             return this;
         }
 
+    
 
         /**
          * 发送消息人数
          * <p> 示例值：0
-         *
          * @param sendMessengerUserNum
          * @return
          */
         public Builder sendMessengerUserNum(Integer sendMessengerUserNum) {
-            this.sendMessengerUserNum = sendMessengerUserNum;
-            return this;
+             this.sendMessengerUserNum = sendMessengerUserNum;
+             return this;
         }
 
+    
 
         /**
          * 发送消息数
          * <p> 示例值：0
-         *
          * @param sendMessengerNum
          * @return
          */
         public Builder sendMessengerNum(Integer sendMessengerNum) {
-            this.sendMessengerNum = sendMessengerNum;
-            return this;
+             this.sendMessengerNum = sendMessengerNum;
+             return this;
         }
 
+    
 
         /**
          * 人均发送消息数
          * <p> 示例值：0.00
-         *
          * @param avgSendMessengerNum
          * @return
          */
         public Builder avgSendMessengerNum(String avgSendMessengerNum) {
-            this.avgSendMessengerNum = avgSendMessengerNum;
-            return this;
+             this.avgSendMessengerNum = avgSendMessengerNum;
+             return this;
         }
 
+    
 
         /**
          * 云文档活跃人数
          * <p> 示例值：0
-         *
          * @param docsDau
          * @return
          */
         public Builder docsDau(Integer docsDau) {
-            this.docsDau = docsDau;
-            return this;
+             this.docsDau = docsDau;
+             return this;
         }
 
+    
 
         /**
          * 创建文件人数
          * <p> 示例值：0
-         *
          * @param createDocsUserNum
          * @return
          */
         public Builder createDocsUserNum(Integer createDocsUserNum) {
-            this.createDocsUserNum = createDocsUserNum;
-            return this;
+             this.createDocsUserNum = createDocsUserNum;
+             return this;
         }
 
+    
 
         /**
          * 创建文件数
          * <p> 示例值：0
-         *
          * @param createDocsNum
          * @return
          */
         public Builder createDocsNum(Integer createDocsNum) {
-            this.createDocsNum = createDocsNum;
-            return this;
+             this.createDocsNum = createDocsNum;
+             return this;
         }
 
+    
 
         /**
          * 人均创建文件数
          * <p> 示例值：0.00
-         *
          * @param avgCreateDocsNum
          * @return
          */
         public Builder avgCreateDocsNum(String avgCreateDocsNum) {
-            this.avgCreateDocsNum = avgCreateDocsNum;
-            return this;
+             this.avgCreateDocsNum = avgCreateDocsNum;
+             return this;
         }
 
+    
 
         /**
          * 日历活跃人数
          * <p> 示例值：0
-         *
          * @param calDau
          * @return
          */
         public Builder calDau(Integer calDau) {
-            this.calDau = calDau;
-            return this;
+             this.calDau = calDau;
+             return this;
         }
 
+    
 
         /**
          * 创建日程人数
          * <p> 示例值：0
-         *
          * @param createCalUserNum
          * @return
          */
         public Builder createCalUserNum(Integer createCalUserNum) {
-            this.createCalUserNum = createCalUserNum;
-            return this;
+             this.createCalUserNum = createCalUserNum;
+             return this;
         }
 
+    
 
         /**
          * 创建日程数
          * <p> 示例值：0
-         *
          * @param createCalNum
          * @return
          */
         public Builder createCalNum(Integer createCalNum) {
-            this.createCalNum = createCalNum;
-            return this;
+             this.createCalNum = createCalNum;
+             return this;
         }
 
+    
 
         /**
          * 人均创建日程数
          * <p> 示例值：0.00
-         *
          * @param avgCreateCalNum
          * @return
          */
         public Builder avgCreateCalNum(String avgCreateCalNum) {
-            this.avgCreateCalNum = avgCreateCalNum;
-            return this;
+             this.avgCreateCalNum = avgCreateCalNum;
+             return this;
         }
 
+    
 
         /**
          * 音视频会议活跃人数
          * <p> 示例值：0
-         *
          * @param vcDau
          * @return
          */
         public Builder vcDau(Integer vcDau) {
-            this.vcDau = vcDau;
-            return this;
+             this.vcDau = vcDau;
+             return this;
         }
 
+    
 
         /**
          * 会议时长：企业内员工参与通话与会议的总时长（分钟）
          * <p> 示例值：0
-         *
          * @param vcDuration
          * @return
          */
         public Builder vcDuration(Integer vcDuration) {
-            this.vcDuration = vcDuration;
-            return this;
+             this.vcDuration = vcDuration;
+             return this;
         }
 
+    
 
         /**
          * 人均会议时长（分钟）
          * <p> 示例值：0.00
-         *
          * @param avgVcDuration
          * @return
          */
         public Builder avgVcDuration(String avgVcDuration) {
-            this.avgVcDuration = avgVcDuration;
-            return this;
+             this.avgVcDuration = avgVcDuration;
+             return this;
         }
 
+    
 
         /**
          * 人均飞书使用时长（分钟）
          * <p> 示例值：0.00
-         *
          * @param avgDuration
          * @return
          */
         public Builder avgDuration(String avgDuration) {
-            this.avgDuration = avgDuration;
-            return this;
+             this.avgDuration = avgDuration;
+             return this;
         }
 
+    
 
         /**
          * 任务活跃人数
          * <p> 示例值：0
-         *
          * @param taskDau
          * @return
          */
         public Builder taskDau(Integer taskDau) {
-            this.taskDau = taskDau;
-            return this;
+             this.taskDau = taskDau;
+             return this;
         }
 
+    
 
         /**
          * 创建任务人数
          * <p> 示例值：0
-         *
          * @param createTaskUserNum
          * @return
          */
         public Builder createTaskUserNum(Integer createTaskUserNum) {
-            this.createTaskUserNum = createTaskUserNum;
-            return this;
+             this.createTaskUserNum = createTaskUserNum;
+             return this;
         }
 
+    
 
         /**
          * 创建任务数
          * <p> 示例值：0
-         *
          * @param createTaskNum
          * @return
          */
         public Builder createTaskNum(Integer createTaskNum) {
-            this.createTaskNum = createTaskNum;
-            return this;
+             this.createTaskNum = createTaskNum;
+             return this;
         }
 
+    
 
         /**
          * 人均创建任务数
          * <p> 示例值：0.00
-         *
          * @param avgCreateTaskNum
          * @return
          */
         public Builder avgCreateTaskNum(String avgCreateTaskNum) {
-            this.avgCreateTaskNum = avgCreateTaskNum;
-            return this;
+             this.avgCreateTaskNum = avgCreateTaskNum;
+             return this;
         }
 
+    
 
         /**
          * 邮件总发件量
          * <p> 示例值：2
-         *
          * @param emailSendCount
          * @return
          */
         public Builder emailSendCount(String emailSendCount) {
-            this.emailSendCount = emailSendCount;
-            return this;
+             this.emailSendCount = emailSendCount;
+             return this;
         }
 
+    
 
         /**
          * 邮件总收件量
          * <p> 示例值：3
-         *
          * @param emailReceiveCount
          * @return
          */
         public Builder emailReceiveCount(String emailReceiveCount) {
-            this.emailReceiveCount = emailReceiveCount;
-            return this;
+             this.emailReceiveCount = emailReceiveCount;
+             return this;
         }
 
+    
 
         /**
          * 对外发件数
          * <p> 示例值：4
-         *
          * @param emailSendExtCount
          * @return
          */
         public Builder emailSendExtCount(String emailSendExtCount) {
-            this.emailSendExtCount = emailSendExtCount;
-            return this;
+             this.emailSendExtCount = emailSendExtCount;
+             return this;
         }
 
+    
 
         /**
          * 来自外部收件数
          * <p> 示例值：5
-         *
          * @param emailReceiveExtCount
          * @return
          */
         public Builder emailReceiveExtCount(String emailReceiveExtCount) {
-            this.emailReceiveExtCount = emailReceiveExtCount;
-            return this;
+             this.emailReceiveExtCount = emailReceiveExtCount;
+             return this;
         }
 
+    
 
         /**
          * 对内发件数
          * <p> 示例值：6
-         *
          * @param emailSendInCount
          * @return
          */
         public Builder emailSendInCount(String emailSendInCount) {
-            this.emailSendInCount = emailSendInCount;
-            return this;
+             this.emailSendInCount = emailSendInCount;
+             return this;
         }
 
+    
 
         /**
          * 来自内部收件数
          * <p> 示例值：7
-         *
          * @param emailReceiveInCount
          * @return
          */
         public Builder emailReceiveInCount(String emailReceiveInCount) {
-            this.emailReceiveInCount = emailReceiveInCount;
-            return this;
+             this.emailReceiveInCount = emailReceiveInCount;
+             return this;
         }
 
+    
 
         /**
          * 大搜搜索活跃人数
          * <p> 示例值：7
-         *
          * @param searchActiveDau
          * @return
          */
         public Builder searchActiveDau(String searchActiveDau) {
-            this.searchActiveDau = searchActiveDau;
-            return this;
+             this.searchActiveDau = searchActiveDau;
+             return this;
         }
 
+    
 
         /**
          * 总搜索次数
          * <p> 示例值：7
-         *
          * @param totalSearchCount
          * @return
          */
         public Builder totalSearchCount(String totalSearchCount) {
-            this.totalSearchCount = totalSearchCount;
-            return this;
+             this.totalSearchCount = totalSearchCount;
+             return this;
         }
 
+    
 
         /**
          * 综搜次数
          * <p> 示例值：7
-         *
          * @param quickSearchCount
          * @return
          */
         public Builder quickSearchCount(String quickSearchCount) {
-            this.quickSearchCount = quickSearchCount;
-            return this;
+             this.quickSearchCount = quickSearchCount;
+             return this;
         }
 
+    
 
         /**
          * 垂搜次数
          * <p> 示例值：7
-         *
          * @param tabSearchCount
          * @return
          */
         public Builder tabSearchCount(String tabSearchCount) {
-            this.tabSearchCount = tabSearchCount;
-            return this;
+             this.tabSearchCount = tabSearchCount;
+             return this;
         }
 
+    
 
         /**
          * 产品版本名称
          * <p> 示例值：全部产品版本
-         *
          * @param productVersion
          * @return
          */
         public Builder productVersion(String productVersion) {
-            this.productVersion = productVersion;
-            return this;
+             this.productVersion = productVersion;
+             return this;
         }
 
+    
+    
+    public AdminDeptStat build(){
+        return new AdminDeptStat(this);
+      }
+    }
 
-        public AdminDeptStat build() {
-            return new AdminDeptStat(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

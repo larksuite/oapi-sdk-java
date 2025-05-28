@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.report.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.report.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,148 +19,78 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Task {
-    /**
-     * 汇报任务ID
-     * <p> 示例值：6968793659214921747
-     */
+     /**
+      * 汇报任务ID
+      * <p> 示例值：6968793659214921747
+      */
     @SerializedName("task_id")
     private String taskId;
-    /**
-     * 规则名称
-     * <p> 示例值：工作月报
-     */
+     /**
+      * 规则名称
+      * <p> 示例值：工作月报
+      */
     @SerializedName("rule_name")
     private String ruleName;
-    /**
-     * 汇报用户ID
-     * <p> 示例值：ou_c04cebc780341ab22bd311ba6902ffeb
-     */
+     /**
+      * 汇报用户ID
+      * <p> 示例值：ou_c04cebc780341ab22bd311ba6902ffeb
+      */
     @SerializedName("from_user_id")
     private String fromUserId;
-    /**
-     * 汇报用户名称
-     * <p> 示例值：张三
-     */
+     /**
+      * 汇报用户名称
+      * <p> 示例值：张三
+      */
     @SerializedName("from_user_name")
     private String fromUserName;
-    /**
-     * 汇报用户部门名称
-     * <p> 示例值：部门A
-     */
+     /**
+      * 汇报用户部门名称
+      * <p> 示例值：部门A
+      */
     @SerializedName("department_name")
     private String departmentName;
-    /**
-     * 提交时间时间戳
-     * <p> 示例值：1622548713
-     */
+     /**
+      * 提交时间时间戳
+      * <p> 示例值：1622548713
+      */
     @SerializedName("commit_time")
     private Integer commitTime;
-    /**
-     * 汇报表单内容
-     * <p> 示例值：
-     */
+     /**
+      * 汇报表单内容
+      * <p> 示例值：
+      */
     @SerializedName("form_contents")
     private FormContent[] formContents;
-    /**
-     * 汇报规则ID
-     * <p> 示例值：6968793659214921747
-     */
+     /**
+      * 汇报规则ID
+      * <p> 示例值：6968793659214921747
+      */
     @SerializedName("rule_id")
     private String ruleId;
-    /**
-     * 部门id
-     * <p> 示例值：
-     */
+     /**
+      * 部门id
+      * <p> 示例值：
+      */
     @SerializedName("department_ids")
     private String[] departmentIds;
-    /**
-     * 汇报给谁
-     * <p> 示例值：
-     */
+     /**
+      * 汇报给谁
+      * <p> 示例值：
+      */
     @SerializedName("to_user_ids")
     private String[] toUserIds;
-    /**
-     * 汇报给谁的名字
-     * <p> 示例值：
-     */
+     /**
+      * 汇报给谁的名字
+      * <p> 示例值：
+      */
     @SerializedName("to_user_names")
     private String[] toUserNames;
-
-    // builder 开始
-    public Task() {
-    }
-
-    public Task(Builder builder) {
-        /**
-         * 汇报任务ID
-         * <p> 示例值：6968793659214921747
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 规则名称
-         * <p> 示例值：工作月报
-         */
-        this.ruleName = builder.ruleName;
-        /**
-         * 汇报用户ID
-         * <p> 示例值：ou_c04cebc780341ab22bd311ba6902ffeb
-         */
-        this.fromUserId = builder.fromUserId;
-        /**
-         * 汇报用户名称
-         * <p> 示例值：张三
-         */
-        this.fromUserName = builder.fromUserName;
-        /**
-         * 汇报用户部门名称
-         * <p> 示例值：部门A
-         */
-        this.departmentName = builder.departmentName;
-        /**
-         * 提交时间时间戳
-         * <p> 示例值：1622548713
-         */
-        this.commitTime = builder.commitTime;
-        /**
-         * 汇报表单内容
-         * <p> 示例值：
-         */
-        this.formContents = builder.formContents;
-        /**
-         * 汇报规则ID
-         * <p> 示例值：6968793659214921747
-         */
-        this.ruleId = builder.ruleId;
-        /**
-         * 部门id
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 汇报给谁
-         * <p> 示例值：
-         */
-        this.toUserIds = builder.toUserIds;
-        /**
-         * 汇报给谁的名字
-         * <p> 示例值：
-         */
-        this.toUserNames = builder.toUserNames;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTaskId() {
         return this.taskId;
     }
@@ -250,208 +179,274 @@ public class Task {
         this.toUserNames = toUserNames;
     }
 
+
+// builder 开始
+  public Task(){}
+
+  public Task(Builder builder){
+         /**
+          * 汇报任务ID
+          * <p> 示例值：6968793659214921747
+          */
+      this.taskId = builder.taskId;
+         /**
+          * 规则名称
+          * <p> 示例值：工作月报
+          */
+      this.ruleName = builder.ruleName;
+         /**
+          * 汇报用户ID
+          * <p> 示例值：ou_c04cebc780341ab22bd311ba6902ffeb
+          */
+      this.fromUserId = builder.fromUserId;
+         /**
+          * 汇报用户名称
+          * <p> 示例值：张三
+          */
+      this.fromUserName = builder.fromUserName;
+         /**
+          * 汇报用户部门名称
+          * <p> 示例值：部门A
+          */
+      this.departmentName = builder.departmentName;
+         /**
+          * 提交时间时间戳
+          * <p> 示例值：1622548713
+          */
+      this.commitTime = builder.commitTime;
+         /**
+          * 汇报表单内容
+          * <p> 示例值：
+          */
+      this.formContents = builder.formContents;
+         /**
+          * 汇报规则ID
+          * <p> 示例值：6968793659214921747
+          */
+      this.ruleId = builder.ruleId;
+         /**
+          * 部门id
+          * <p> 示例值：
+          */
+      this.departmentIds = builder.departmentIds;
+         /**
+          * 汇报给谁
+          * <p> 示例值：
+          */
+      this.toUserIds = builder.toUserIds;
+         /**
+          * 汇报给谁的名字
+          * <p> 示例值：
+          */
+      this.toUserNames = builder.toUserNames;
+  }
+
     public static class Builder {
-        /**
-         * 汇报任务ID
-         * <p> 示例值：6968793659214921747
-         */
+     /**
+      * 汇报任务ID
+      * <p> 示例值：6968793659214921747
+      */
         private String taskId;
-        /**
-         * 规则名称
-         * <p> 示例值：工作月报
-         */
+     /**
+      * 规则名称
+      * <p> 示例值：工作月报
+      */
         private String ruleName;
-        /**
-         * 汇报用户ID
-         * <p> 示例值：ou_c04cebc780341ab22bd311ba6902ffeb
-         */
+     /**
+      * 汇报用户ID
+      * <p> 示例值：ou_c04cebc780341ab22bd311ba6902ffeb
+      */
         private String fromUserId;
-        /**
-         * 汇报用户名称
-         * <p> 示例值：张三
-         */
+     /**
+      * 汇报用户名称
+      * <p> 示例值：张三
+      */
         private String fromUserName;
-        /**
-         * 汇报用户部门名称
-         * <p> 示例值：部门A
-         */
+     /**
+      * 汇报用户部门名称
+      * <p> 示例值：部门A
+      */
         private String departmentName;
-        /**
-         * 提交时间时间戳
-         * <p> 示例值：1622548713
-         */
+     /**
+      * 提交时间时间戳
+      * <p> 示例值：1622548713
+      */
         private Integer commitTime;
-        /**
-         * 汇报表单内容
-         * <p> 示例值：
-         */
+     /**
+      * 汇报表单内容
+      * <p> 示例值：
+      */
         private FormContent[] formContents;
-        /**
-         * 汇报规则ID
-         * <p> 示例值：6968793659214921747
-         */
+     /**
+      * 汇报规则ID
+      * <p> 示例值：6968793659214921747
+      */
         private String ruleId;
-        /**
-         * 部门id
-         * <p> 示例值：
-         */
+     /**
+      * 部门id
+      * <p> 示例值：
+      */
         private String[] departmentIds;
-        /**
-         * 汇报给谁
-         * <p> 示例值：
-         */
+     /**
+      * 汇报给谁
+      * <p> 示例值：
+      */
         private String[] toUserIds;
-        /**
-         * 汇报给谁的名字
-         * <p> 示例值：
-         */
+     /**
+      * 汇报给谁的名字
+      * <p> 示例值：
+      */
         private String[] toUserNames;
 
         /**
          * 汇报任务ID
          * <p> 示例值：6968793659214921747
-         *
          * @param taskId
          * @return
          */
         public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
+             this.taskId = taskId;
+             return this;
         }
 
+    
 
         /**
          * 规则名称
          * <p> 示例值：工作月报
-         *
          * @param ruleName
          * @return
          */
         public Builder ruleName(String ruleName) {
-            this.ruleName = ruleName;
-            return this;
+             this.ruleName = ruleName;
+             return this;
         }
 
+    
 
         /**
          * 汇报用户ID
          * <p> 示例值：ou_c04cebc780341ab22bd311ba6902ffeb
-         *
          * @param fromUserId
          * @return
          */
         public Builder fromUserId(String fromUserId) {
-            this.fromUserId = fromUserId;
-            return this;
+             this.fromUserId = fromUserId;
+             return this;
         }
 
+    
 
         /**
          * 汇报用户名称
          * <p> 示例值：张三
-         *
          * @param fromUserName
          * @return
          */
         public Builder fromUserName(String fromUserName) {
-            this.fromUserName = fromUserName;
-            return this;
+             this.fromUserName = fromUserName;
+             return this;
         }
 
+    
 
         /**
          * 汇报用户部门名称
          * <p> 示例值：部门A
-         *
          * @param departmentName
          * @return
          */
         public Builder departmentName(String departmentName) {
-            this.departmentName = departmentName;
-            return this;
+             this.departmentName = departmentName;
+             return this;
         }
 
+    
 
         /**
          * 提交时间时间戳
          * <p> 示例值：1622548713
-         *
          * @param commitTime
          * @return
          */
         public Builder commitTime(Integer commitTime) {
-            this.commitTime = commitTime;
-            return this;
+             this.commitTime = commitTime;
+             return this;
         }
 
+    
 
         /**
          * 汇报表单内容
          * <p> 示例值：
-         *
          * @param formContents
          * @return
          */
         public Builder formContents(FormContent[] formContents) {
-            this.formContents = formContents;
-            return this;
+             this.formContents = formContents;
+             return this;
         }
 
+    
 
         /**
          * 汇报规则ID
          * <p> 示例值：6968793659214921747
-         *
          * @param ruleId
          * @return
          */
         public Builder ruleId(String ruleId) {
-            this.ruleId = ruleId;
-            return this;
+             this.ruleId = ruleId;
+             return this;
         }
 
+    
 
         /**
          * 部门id
          * <p> 示例值：
-         *
          * @param departmentIds
          * @return
          */
         public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
+             this.departmentIds = departmentIds;
+             return this;
         }
 
+    
 
         /**
          * 汇报给谁
          * <p> 示例值：
-         *
          * @param toUserIds
          * @return
          */
         public Builder toUserIds(String[] toUserIds) {
-            this.toUserIds = toUserIds;
-            return this;
+             this.toUserIds = toUserIds;
+             return this;
         }
 
+    
 
         /**
          * 汇报给谁的名字
          * <p> 示例值：
-         *
          * @param toUserNames
          * @return
          */
         public Builder toUserNames(String[] toUserNames) {
-            this.toUserNames = toUserNames;
-            return this;
+             this.toUserNames = toUserNames;
+             return this;
         }
 
+    
+    
+    public Task build(){
+        return new Task(this);
+      }
+    }
 
-        public Task build() {
-            return new Task(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

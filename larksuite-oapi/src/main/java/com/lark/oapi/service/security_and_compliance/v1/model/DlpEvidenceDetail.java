@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DlpEvidenceDetail {
-    /**
-     * 命中关键词
-     * <p> 示例值：
-     */
+     /**
+      * 命中关键词
+      * <p> 示例值：
+      */
     @SerializedName("keyword_hits")
     private String[] keywordHits;
-    /**
-     * 命中正则表达式
-     * <p> 示例值：
-     */
+     /**
+      * 命中正则表达式
+      * <p> 示例值：
+      */
     @SerializedName("regular_hits")
     private String[] regularHits;
-    /**
-     * 命中敏感信息类型
-     * <p> 示例值：
-     */
+     /**
+      * 命中敏感信息类型
+      * <p> 示例值：
+      */
     @SerializedName("sensitive_hits")
     private String[] sensitiveHits;
-    /**
-     * 命中文件大小
-     * <p> 示例值：
-     */
+     /**
+      * 命中文件大小
+      * <p> 示例值：
+      */
     @SerializedName("file_size_hits")
     private String[] fileSizeHits;
-    /**
-     * 命中文件类型
-     * <p> 示例值：
-     */
+     /**
+      * 命中文件类型
+      * <p> 示例值：
+      */
     @SerializedName("file_type_hits")
     private String[] fileTypeHits;
-    /**
-     * 命中文件拓展名
-     * <p> 示例值：
-     */
+     /**
+      * 命中文件拓展名
+      * <p> 示例值：
+      */
     @SerializedName("file_name_ext_hits")
     private String[] fileNameExtHits;
-    /**
-     * 命中片段
-     * <p> 示例值：
-     */
+     /**
+      * 命中片段
+      * <p> 示例值：
+      */
     @SerializedName("trigger_snippets")
     private DlpPolicyHitProof[] triggerSnippets;
-    /**
-     * 命中密级标签
-     * <p> 示例值：
-     */
+     /**
+      * 命中密级标签
+      * <p> 示例值：
+      */
     @SerializedName("secure_label_hits")
     private String[] secureLabelHits;
-
-    // builder 开始
-    public DlpEvidenceDetail() {
-    }
-
-    public DlpEvidenceDetail(Builder builder) {
-        /**
-         * 命中关键词
-         * <p> 示例值：
-         */
-        this.keywordHits = builder.keywordHits;
-        /**
-         * 命中正则表达式
-         * <p> 示例值：
-         */
-        this.regularHits = builder.regularHits;
-        /**
-         * 命中敏感信息类型
-         * <p> 示例值：
-         */
-        this.sensitiveHits = builder.sensitiveHits;
-        /**
-         * 命中文件大小
-         * <p> 示例值：
-         */
-        this.fileSizeHits = builder.fileSizeHits;
-        /**
-         * 命中文件类型
-         * <p> 示例值：
-         */
-        this.fileTypeHits = builder.fileTypeHits;
-        /**
-         * 命中文件拓展名
-         * <p> 示例值：
-         */
-        this.fileNameExtHits = builder.fileNameExtHits;
-        /**
-         * 命中片段
-         * <p> 示例值：
-         */
-        this.triggerSnippets = builder.triggerSnippets;
-        /**
-         * 命中密级标签
-         * <p> 示例值：
-         */
-        this.secureLabelHits = builder.secureLabelHits;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getKeywordHits() {
         return this.keywordHits;
     }
@@ -193,154 +137,205 @@ public class DlpEvidenceDetail {
         this.secureLabelHits = secureLabelHits;
     }
 
+
+// builder 开始
+  public DlpEvidenceDetail(){}
+
+  public DlpEvidenceDetail(Builder builder){
+         /**
+          * 命中关键词
+          * <p> 示例值：
+          */
+      this.keywordHits = builder.keywordHits;
+         /**
+          * 命中正则表达式
+          * <p> 示例值：
+          */
+      this.regularHits = builder.regularHits;
+         /**
+          * 命中敏感信息类型
+          * <p> 示例值：
+          */
+      this.sensitiveHits = builder.sensitiveHits;
+         /**
+          * 命中文件大小
+          * <p> 示例值：
+          */
+      this.fileSizeHits = builder.fileSizeHits;
+         /**
+          * 命中文件类型
+          * <p> 示例值：
+          */
+      this.fileTypeHits = builder.fileTypeHits;
+         /**
+          * 命中文件拓展名
+          * <p> 示例值：
+          */
+      this.fileNameExtHits = builder.fileNameExtHits;
+         /**
+          * 命中片段
+          * <p> 示例值：
+          */
+      this.triggerSnippets = builder.triggerSnippets;
+         /**
+          * 命中密级标签
+          * <p> 示例值：
+          */
+      this.secureLabelHits = builder.secureLabelHits;
+  }
+
     public static class Builder {
-        /**
-         * 命中关键词
-         * <p> 示例值：
-         */
+     /**
+      * 命中关键词
+      * <p> 示例值：
+      */
         private String[] keywordHits;
-        /**
-         * 命中正则表达式
-         * <p> 示例值：
-         */
+     /**
+      * 命中正则表达式
+      * <p> 示例值：
+      */
         private String[] regularHits;
-        /**
-         * 命中敏感信息类型
-         * <p> 示例值：
-         */
+     /**
+      * 命中敏感信息类型
+      * <p> 示例值：
+      */
         private String[] sensitiveHits;
-        /**
-         * 命中文件大小
-         * <p> 示例值：
-         */
+     /**
+      * 命中文件大小
+      * <p> 示例值：
+      */
         private String[] fileSizeHits;
-        /**
-         * 命中文件类型
-         * <p> 示例值：
-         */
+     /**
+      * 命中文件类型
+      * <p> 示例值：
+      */
         private String[] fileTypeHits;
-        /**
-         * 命中文件拓展名
-         * <p> 示例值：
-         */
+     /**
+      * 命中文件拓展名
+      * <p> 示例值：
+      */
         private String[] fileNameExtHits;
-        /**
-         * 命中片段
-         * <p> 示例值：
-         */
+     /**
+      * 命中片段
+      * <p> 示例值：
+      */
         private DlpPolicyHitProof[] triggerSnippets;
-        /**
-         * 命中密级标签
-         * <p> 示例值：
-         */
+     /**
+      * 命中密级标签
+      * <p> 示例值：
+      */
         private String[] secureLabelHits;
 
         /**
          * 命中关键词
          * <p> 示例值：
-         *
          * @param keywordHits
          * @return
          */
         public Builder keywordHits(String[] keywordHits) {
-            this.keywordHits = keywordHits;
-            return this;
+             this.keywordHits = keywordHits;
+             return this;
         }
 
+    
 
         /**
          * 命中正则表达式
          * <p> 示例值：
-         *
          * @param regularHits
          * @return
          */
         public Builder regularHits(String[] regularHits) {
-            this.regularHits = regularHits;
-            return this;
+             this.regularHits = regularHits;
+             return this;
         }
 
+    
 
         /**
          * 命中敏感信息类型
          * <p> 示例值：
-         *
          * @param sensitiveHits
          * @return
          */
         public Builder sensitiveHits(String[] sensitiveHits) {
-            this.sensitiveHits = sensitiveHits;
-            return this;
+             this.sensitiveHits = sensitiveHits;
+             return this;
         }
 
+    
 
         /**
          * 命中文件大小
          * <p> 示例值：
-         *
          * @param fileSizeHits
          * @return
          */
         public Builder fileSizeHits(String[] fileSizeHits) {
-            this.fileSizeHits = fileSizeHits;
-            return this;
+             this.fileSizeHits = fileSizeHits;
+             return this;
         }
 
+    
 
         /**
          * 命中文件类型
          * <p> 示例值：
-         *
          * @param fileTypeHits
          * @return
          */
         public Builder fileTypeHits(String[] fileTypeHits) {
-            this.fileTypeHits = fileTypeHits;
-            return this;
+             this.fileTypeHits = fileTypeHits;
+             return this;
         }
 
+    
 
         /**
          * 命中文件拓展名
          * <p> 示例值：
-         *
          * @param fileNameExtHits
          * @return
          */
         public Builder fileNameExtHits(String[] fileNameExtHits) {
-            this.fileNameExtHits = fileNameExtHits;
-            return this;
+             this.fileNameExtHits = fileNameExtHits;
+             return this;
         }
 
+    
 
         /**
          * 命中片段
          * <p> 示例值：
-         *
          * @param triggerSnippets
          * @return
          */
         public Builder triggerSnippets(DlpPolicyHitProof[] triggerSnippets) {
-            this.triggerSnippets = triggerSnippets;
-            return this;
+             this.triggerSnippets = triggerSnippets;
+             return this;
         }
 
+    
 
         /**
          * 命中密级标签
          * <p> 示例值：
-         *
          * @param secureLabelHits
          * @return
          */
         public Builder secureLabelHits(String[] secureLabelHits) {
-            this.secureLabelHits = secureLabelHits;
-            return this;
+             this.secureLabelHits = secureLabelHits;
+             return this;
         }
 
+    
+    
+    public DlpEvidenceDetail build(){
+        return new DlpEvidenceDetail(this);
+      }
+    }
 
-        public DlpEvidenceDetail build() {
-            return new DlpEvidenceDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

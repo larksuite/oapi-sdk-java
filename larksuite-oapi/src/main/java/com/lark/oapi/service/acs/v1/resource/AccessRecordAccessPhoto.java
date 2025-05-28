@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.acs.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.acs.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class AccessRecordAccessPhoto {
         this.config = config;
     }
 
-
+    
     /**
      * 下载开门时的人脸识别图片，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录，对于使用人脸识别方式进行开门的识别记录，还会有抓拍图。;;可以用该接口下载开门时的人脸识别照片。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get</a> ;
@@ -64,7 +59,7 @@ public class AccessRecordAccessPhoto {
                 , "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         if (httpResponse.getStatusCode() == 200) {
             GetAccessRecordAccessPhotoResp resp = new GetAccessRecordAccessPhotoResp();
             resp.setRawResponse(httpResponse);
@@ -72,7 +67,7 @@ public class AccessRecordAccessPhoto {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return resp;
+            return  resp;
         }
         // 反序列化
         GetAccessRecordAccessPhotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAccessRecordAccessPhotoResp.class);
@@ -81,14 +76,14 @@ public class AccessRecordAccessPhoto {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -106,7 +101,7 @@ public class AccessRecordAccessPhoto {
                 , "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 下载请求，返回流
         if (httpResponse.getStatusCode() == 200) {
             GetAccessRecordAccessPhotoResp resp = new GetAccessRecordAccessPhotoResp();
@@ -115,7 +110,7 @@ public class AccessRecordAccessPhoto {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return resp;
+            return  resp;
         }
         // 反序列化
         GetAccessRecordAccessPhotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAccessRecordAccessPhotoResp.class);
@@ -124,13 +119,13 @@ public class AccessRecordAccessPhoto {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

@@ -17,17 +17,16 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 语言编码
  */
 public enum I18nStructLangLocaleEnum {
-    ZHCN("zh_CN"), // 中文
-    ENUS("en_US"), // 英文
-    JAJP("ja_JP"), // 日文
-    ;
-    private String value;
-
+     ZHCN("zh_CN"), // 中文
+     ENUS("en_US"), // 英文
+     JAJP("ja_JP"), // 日文
+  ;
+   private String value;
     I18nStructLangLocaleEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

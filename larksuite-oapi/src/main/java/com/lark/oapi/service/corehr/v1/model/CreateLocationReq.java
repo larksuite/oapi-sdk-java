@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateLocationReq {
-    /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
-     */
+     /**
+      * 根据client_token是否一致来判断是否为同一请求
+      * <p> 示例值：12454646
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    @Body
-    private Location body;
-
-    // builder 开始
-    public CreateLocationReq() {
-    }
-
-    public CreateLocationReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getClientToken() {
         return this.clientToken;
     }
@@ -62,6 +38,9 @@ public class CreateLocationReq {
     public void setClientToken(String clientToken) {
         this.clientToken = clientToken;
     }
+
+    @Body
+    private Location body;
 
     public Location getLocation() {
         return this.body;
@@ -71,39 +50,54 @@ public class CreateLocationReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateLocationReq(){}
+
+  public CreateLocationReq(Builder builder){
+         /**
+          * 根据client_token是否一致来判断是否为同一请求
+          * <p> 示例值：12454646
+          */
+       this.clientToken = builder.clientToken;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private Location body;
-
+    
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：12454646
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
+        private Location body;
+    
         public Location getLocation() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder location(Location body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateLocationReq build(){
+        return new CreateLocationReq(this);
+      }
+    }
 
-        public CreateLocationReq build() {
-            return new CreateLocationReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

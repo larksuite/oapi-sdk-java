@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListAppDataAssetRespBody {
-    /**
-     * 数据知识列表
-     * <p> 示例值：
-     */
+     /**
+      * 数据知识列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private DataAsset[] items;
-    /**
-     * has_more=true，可使用page_token继续查询
-     * <p> 示例值：
-     */
+     /**
+      * has_more=true，可使用page_token继续查询
+      * <p> 示例值：
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否有更多
-     * <p> 示例值：
-     */
+     /**
+      * 是否有更多
+      * <p> 示例值：
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public DataAsset[] getItems() {
         return this.items;
     }

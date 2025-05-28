@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AuditLogNetInfo {
-    /**
-     * 客户端IP
-     * <p> 示例值：192.168.1.1
-     */
+     /**
+      * 客户端IP
+      * <p> 示例值：192.168.1.1
+      */
     @SerializedName("client_ip")
     private String clientIp;
-    /**
-     * IP位置
-     * <p> 示例值：中国北京
-     */
+     /**
+      * IP位置
+      * <p> 示例值：中国北京
+      */
     @SerializedName("ip_loc")
     private String ipLoc;
-    /**
-     * IP提供商
-     * <p> 示例值：ISP_com
-     */
+     /**
+      * IP提供商
+      * <p> 示例值：ISP_com
+      */
     @SerializedName("ip_provider")
     private String ipProvider;
-    /**
-     * 引用页面
-     * <p> 示例值：https://example.com/referer
-     */
+     /**
+      * 引用页面
+      * <p> 示例值：https://example.com/referer
+      */
     @SerializedName("referer")
     private String referer;
-    /**
-     * 源页面
-     * <p> 示例值：https://example.com/origin
-     */
+     /**
+      * 源页面
+      * <p> 示例值：https://example.com/origin
+      */
     @SerializedName("origin")
     private String origin;
-    /**
-     * 用户代理
-     * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
-     */
+     /**
+      * 用户代理
+      * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+      */
     @SerializedName("user_agent")
     private String userAgent;
-
-    // builder 开始
-    public AuditLogNetInfo() {
-    }
-
-    public AuditLogNetInfo(Builder builder) {
-        /**
-         * 客户端IP
-         * <p> 示例值：192.168.1.1
-         */
-        this.clientIp = builder.clientIp;
-        /**
-         * IP位置
-         * <p> 示例值：中国北京
-         */
-        this.ipLoc = builder.ipLoc;
-        /**
-         * IP提供商
-         * <p> 示例值：ISP_com
-         */
-        this.ipProvider = builder.ipProvider;
-        /**
-         * 引用页面
-         * <p> 示例值：https://example.com/referer
-         */
-        this.referer = builder.referer;
-        /**
-         * 源页面
-         * <p> 示例值：https://example.com/origin
-         */
-        this.origin = builder.origin;
-        /**
-         * 用户代理
-         * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
-         */
-        this.userAgent = builder.userAgent;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getClientIp() {
         return this.clientIp;
     }
@@ -155,118 +109,159 @@ public class AuditLogNetInfo {
         this.userAgent = userAgent;
     }
 
+
+// builder 开始
+  public AuditLogNetInfo(){}
+
+  public AuditLogNetInfo(Builder builder){
+         /**
+          * 客户端IP
+          * <p> 示例值：192.168.1.1
+          */
+      this.clientIp = builder.clientIp;
+         /**
+          * IP位置
+          * <p> 示例值：中国北京
+          */
+      this.ipLoc = builder.ipLoc;
+         /**
+          * IP提供商
+          * <p> 示例值：ISP_com
+          */
+      this.ipProvider = builder.ipProvider;
+         /**
+          * 引用页面
+          * <p> 示例值：https://example.com/referer
+          */
+      this.referer = builder.referer;
+         /**
+          * 源页面
+          * <p> 示例值：https://example.com/origin
+          */
+      this.origin = builder.origin;
+         /**
+          * 用户代理
+          * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+          */
+      this.userAgent = builder.userAgent;
+  }
+
     public static class Builder {
-        /**
-         * 客户端IP
-         * <p> 示例值：192.168.1.1
-         */
+     /**
+      * 客户端IP
+      * <p> 示例值：192.168.1.1
+      */
         private String clientIp;
-        /**
-         * IP位置
-         * <p> 示例值：中国北京
-         */
+     /**
+      * IP位置
+      * <p> 示例值：中国北京
+      */
         private String ipLoc;
-        /**
-         * IP提供商
-         * <p> 示例值：ISP_com
-         */
+     /**
+      * IP提供商
+      * <p> 示例值：ISP_com
+      */
         private String ipProvider;
-        /**
-         * 引用页面
-         * <p> 示例值：https://example.com/referer
-         */
+     /**
+      * 引用页面
+      * <p> 示例值：https://example.com/referer
+      */
         private String referer;
-        /**
-         * 源页面
-         * <p> 示例值：https://example.com/origin
-         */
+     /**
+      * 源页面
+      * <p> 示例值：https://example.com/origin
+      */
         private String origin;
-        /**
-         * 用户代理
-         * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
-         */
+     /**
+      * 用户代理
+      * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+      */
         private String userAgent;
 
         /**
          * 客户端IP
          * <p> 示例值：192.168.1.1
-         *
          * @param clientIp
          * @return
          */
         public Builder clientIp(String clientIp) {
-            this.clientIp = clientIp;
-            return this;
+             this.clientIp = clientIp;
+             return this;
         }
 
+    
 
         /**
          * IP位置
          * <p> 示例值：中国北京
-         *
          * @param ipLoc
          * @return
          */
         public Builder ipLoc(String ipLoc) {
-            this.ipLoc = ipLoc;
-            return this;
+             this.ipLoc = ipLoc;
+             return this;
         }
 
+    
 
         /**
          * IP提供商
          * <p> 示例值：ISP_com
-         *
          * @param ipProvider
          * @return
          */
         public Builder ipProvider(String ipProvider) {
-            this.ipProvider = ipProvider;
-            return this;
+             this.ipProvider = ipProvider;
+             return this;
         }
 
+    
 
         /**
          * 引用页面
          * <p> 示例值：https://example.com/referer
-         *
          * @param referer
          * @return
          */
         public Builder referer(String referer) {
-            this.referer = referer;
-            return this;
+             this.referer = referer;
+             return this;
         }
 
+    
 
         /**
          * 源页面
          * <p> 示例值：https://example.com/origin
-         *
          * @param origin
          * @return
          */
         public Builder origin(String origin) {
-            this.origin = origin;
-            return this;
+             this.origin = origin;
+             return this;
         }
 
+    
 
         /**
          * 用户代理
          * <p> 示例值：Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
-         *
          * @param userAgent
          * @return
          */
         public Builder userAgent(String userAgent) {
-            this.userAgent = userAgent;
-            return this;
+             this.userAgent = userAgent;
+             return this;
         }
 
+    
+    
+    public AuditLogNetInfo build(){
+        return new AuditLogNetInfo(this);
+      }
+    }
 
-        public AuditLogNetInfo build() {
-            return new AuditLogNetInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.hire.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.hire.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class EcoBackgroundCheckPackage {
         this.config = config;
     }
 
-
+    
     /**
      * 删除背调套餐和附加调查项，删除指定帐号的指定背调套餐和附加调查项信息，删除不会影响已创建的背调。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete</a> ;
@@ -63,7 +58,7 @@ public class EcoBackgroundCheckPackage {
                 , "/open-apis/hire/v1/eco_background_check_packages/batch_delete"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoBackgroundCheckPackageResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class EcoBackgroundCheckPackage {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages/batch_delete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class EcoBackgroundCheckPackage {
                 , "/open-apis/hire/v1/eco_background_check_packages/batch_delete"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoBackgroundCheckPackageResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class EcoBackgroundCheckPackage {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages/batch_delete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 更新背调套餐和附加调查项，更新指定帐号可用的背调套餐和附加调查项信息，更新将影响已发起背调的表单项展示
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update</a> ;
@@ -129,7 +123,7 @@ public class EcoBackgroundCheckPackage {
                 , "/open-apis/hire/v1/eco_background_check_packages/batch_update"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchUpdateEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoBackgroundCheckPackageResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class EcoBackgroundCheckPackage {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages/batch_update"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class EcoBackgroundCheckPackage {
                 , "/open-apis/hire/v1/eco_background_check_packages/batch_update"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchUpdateEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoBackgroundCheckPackageResp.class);
         if (resp == null) {
@@ -169,16 +163,15 @@ public class EcoBackgroundCheckPackage {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages/batch_update"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 推送背调套餐和附加调查项，定制指定帐号可用的背调套餐和附加调查项信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create</a> ;
@@ -195,7 +188,7 @@ public class EcoBackgroundCheckPackage {
                 , "/open-apis/hire/v1/eco_background_check_packages"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoBackgroundCheckPackageResp.class);
         if (resp == null) {
@@ -203,14 +196,14 @@ public class EcoBackgroundCheckPackage {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -227,7 +220,7 @@ public class EcoBackgroundCheckPackage {
                 , "/open-apis/hire/v1/eco_background_check_packages"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoBackgroundCheckPackageResp.class);
         if (resp == null) {
@@ -235,13 +228,13 @@ public class EcoBackgroundCheckPackage {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

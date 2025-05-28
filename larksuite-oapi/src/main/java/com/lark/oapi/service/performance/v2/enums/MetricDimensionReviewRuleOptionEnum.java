@@ -17,16 +17,15 @@ package com.lark.oapi.service.performance.v2.enums;
  * 指标评分规则设置
  */
 public enum MetricDimensionReviewRuleOptionEnum {
-    SAMERULE(0), // 使用相同的评估规则
-    DIFFERENTRULE(1), // 使用不同的评估规则
-    ;
-    private Integer value;
-
+     SAMERULE(0), // 使用相同的评估规则
+     DIFFERENTRULE(1), // 使用不同的评估规则
+  ;
+   private Integer value;
     MetricDimensionReviewRuleOptionEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

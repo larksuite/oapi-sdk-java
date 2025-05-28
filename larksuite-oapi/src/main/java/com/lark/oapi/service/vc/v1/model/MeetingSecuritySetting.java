@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MeetingSecuritySetting {
-    /**
-     * 安全级别
-     * <p> 示例值：1
-     */
+     /**
+      * 安全级别
+      * <p> 示例值：1
+      */
     @SerializedName("security_level")
     private Integer securityLevel;
-    /**
-     * 允许入会的群组ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 允许入会的群组ID列表
+      * <p> 示例值：
+      */
     @SerializedName("group_ids")
     private String[] groupIds;
-    /**
-     * 允许入会的用户ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 允许入会的用户ID列表
+      * <p> 示例值：
+      */
     @SerializedName("user_ids")
     private UserId[] userIds;
-    /**
-     * 允许入会的会议室ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 允许入会的会议室ID列表
+      * <p> 示例值：
+      */
     @SerializedName("room_ids")
     private String[] roomIds;
-    /**
-     * 是否设置了仅指定联系人和群组可参会
-     * <p> 示例值：true
-     */
+     /**
+      * 是否设置了仅指定联系人和群组可参会
+      * <p> 示例值：true
+      */
     @SerializedName("has_set_security_contacts_and_group")
     private Boolean hasSetSecurityContactsAndGroup;
-
-    // builder 开始
-    public MeetingSecuritySetting() {
-    }
-
-    public MeetingSecuritySetting(Builder builder) {
-        /**
-         * 安全级别
-         * <p> 示例值：1
-         */
-        this.securityLevel = builder.securityLevel;
-        /**
-         * 允许入会的群组ID列表
-         * <p> 示例值：
-         */
-        this.groupIds = builder.groupIds;
-        /**
-         * 允许入会的用户ID列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 允许入会的会议室ID列表
-         * <p> 示例值：
-         */
-        this.roomIds = builder.roomIds;
-        /**
-         * 是否设置了仅指定联系人和群组可参会
-         * <p> 示例值：true
-         */
-        this.hasSetSecurityContactsAndGroup = builder.hasSetSecurityContactsAndGroup;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getSecurityLevel() {
         return this.securityLevel;
     }
@@ -136,112 +95,146 @@ public class MeetingSecuritySetting {
         this.hasSetSecurityContactsAndGroup = hasSetSecurityContactsAndGroup;
     }
 
+
+// builder 开始
+  public MeetingSecuritySetting(){}
+
+  public MeetingSecuritySetting(Builder builder){
+         /**
+          * 安全级别
+          * <p> 示例值：1
+          */
+      this.securityLevel = builder.securityLevel;
+         /**
+          * 允许入会的群组ID列表
+          * <p> 示例值：
+          */
+      this.groupIds = builder.groupIds;
+         /**
+          * 允许入会的用户ID列表
+          * <p> 示例值：
+          */
+      this.userIds = builder.userIds;
+         /**
+          * 允许入会的会议室ID列表
+          * <p> 示例值：
+          */
+      this.roomIds = builder.roomIds;
+         /**
+          * 是否设置了仅指定联系人和群组可参会
+          * <p> 示例值：true
+          */
+      this.hasSetSecurityContactsAndGroup = builder.hasSetSecurityContactsAndGroup;
+  }
+
     public static class Builder {
-        /**
-         * 安全级别
-         * <p> 示例值：1
-         */
+     /**
+      * 安全级别
+      * <p> 示例值：1
+      */
         private Integer securityLevel;
-        /**
-         * 允许入会的群组ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 允许入会的群组ID列表
+      * <p> 示例值：
+      */
         private String[] groupIds;
-        /**
-         * 允许入会的用户ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 允许入会的用户ID列表
+      * <p> 示例值：
+      */
         private UserId[] userIds;
-        /**
-         * 允许入会的会议室ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 允许入会的会议室ID列表
+      * <p> 示例值：
+      */
         private String[] roomIds;
-        /**
-         * 是否设置了仅指定联系人和群组可参会
-         * <p> 示例值：true
-         */
+     /**
+      * 是否设置了仅指定联系人和群组可参会
+      * <p> 示例值：true
+      */
         private Boolean hasSetSecurityContactsAndGroup;
 
         /**
          * 安全级别
          * <p> 示例值：1
-         *
          * @param securityLevel
          * @return
          */
         public Builder securityLevel(Integer securityLevel) {
-            this.securityLevel = securityLevel;
-            return this;
+             this.securityLevel = securityLevel;
+             return this;
         }
-
         /**
          * 安全级别
          * <p> 示例值：1
-         *
          * @param securityLevel {@link com.lark.oapi.service.vc.v1.enums.MeetingSecuritySettingSecurityLevelEnum}
          * @return
          */
         public Builder securityLevel(com.lark.oapi.service.vc.v1.enums.MeetingSecuritySettingSecurityLevelEnum securityLevel) {
-            this.securityLevel = securityLevel.getValue();
-            return this;
+             this.securityLevel = securityLevel.getValue();
+             return this;
         }
 
+    
 
         /**
          * 允许入会的群组ID列表
          * <p> 示例值：
-         *
          * @param groupIds
          * @return
          */
         public Builder groupIds(String[] groupIds) {
-            this.groupIds = groupIds;
-            return this;
+             this.groupIds = groupIds;
+             return this;
         }
 
+    
 
         /**
          * 允许入会的用户ID列表
          * <p> 示例值：
-         *
          * @param userIds
          * @return
          */
         public Builder userIds(UserId[] userIds) {
-            this.userIds = userIds;
-            return this;
+             this.userIds = userIds;
+             return this;
         }
 
+    
 
         /**
          * 允许入会的会议室ID列表
          * <p> 示例值：
-         *
          * @param roomIds
          * @return
          */
         public Builder roomIds(String[] roomIds) {
-            this.roomIds = roomIds;
-            return this;
+             this.roomIds = roomIds;
+             return this;
         }
 
+    
 
         /**
          * 是否设置了仅指定联系人和群组可参会
          * <p> 示例值：true
-         *
          * @param hasSetSecurityContactsAndGroup
          * @return
          */
         public Builder hasSetSecurityContactsAndGroup(Boolean hasSetSecurityContactsAndGroup) {
-            this.hasSetSecurityContactsAndGroup = hasSetSecurityContactsAndGroup;
-            return this;
+             this.hasSetSecurityContactsAndGroup = hasSetSecurityContactsAndGroup;
+             return this;
         }
 
+    
+    
+    public MeetingSecuritySetting build(){
+        return new MeetingSecuritySetting(this);
+      }
+    }
 
-        public MeetingSecuritySetting build() {
-            return new MeetingSecuritySetting(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,70 +12,39 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListRoomLevelReq {
-    /**
-     * 层级ID，当需要获取租户下层级列表时，room_level_id可传空
-     * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-     */
+     /**
+      * 层级ID，当需要获取租户下层级列表时，room_level_id可传空
+      * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+      */
     @Query
     @SerializedName("room_level_id")
     private String roomLevelId;
-    /**
-     * 分页尺寸大小
-     * <p> 示例值：10
-     */
+     /**
+      * 分页尺寸大小
+      * <p> 示例值：10
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-     * <p> 示例值：
-     */
+     /**
+      * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
+      * <p> 示例值：  
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-
-    // builder 开始
-    public ListRoomLevelReq() {
-    }
-
-    public ListRoomLevelReq(Builder builder) {
-        /**
-         * 层级ID，当需要获取租户下层级列表时，room_level_id可传空
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
-        this.roomLevelId = builder.roomLevelId;
-        /**
-         * 分页尺寸大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoomLevelId() {
         return this.roomLevelId;
     }
@@ -100,52 +69,75 @@ public class ListRoomLevelReq {
         this.pageToken = pageToken;
     }
 
+
+// builder 开始
+  public ListRoomLevelReq(){}
+
+  public ListRoomLevelReq(Builder builder){
+         /**
+          * 层级ID，当需要获取租户下层级列表时，room_level_id可传空
+          * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+          */
+       this.roomLevelId = builder.roomLevelId;
+         /**
+          * 分页尺寸大小
+          * <p> 示例值：10
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
+          * <p> 示例值：  
+          */
+       this.pageToken = builder.pageToken;
+  }
+
     public static class Builder {
         private String roomLevelId; // 层级ID，当需要获取租户下层级列表时，room_level_id可传空
         private Integer pageSize; // 分页尺寸大小
         private String pageToken; // 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-
+    
         /**
          * 层级ID，当需要获取租户下层级列表时，room_level_id可传空
          * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         *
          * @param roomLevelId
          * @return
          */
-        public Builder roomLevelId(String roomLevelId) {
-            this.roomLevelId = roomLevelId;
-            return this;
-        }
+           public Builder roomLevelId(String roomLevelId) {
+                this.roomLevelId = roomLevelId;
+                return this;
+           }
 
-
+    
         /**
          * 分页尺寸大小
          * <p> 示例值：10
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-         * <p> 示例值：
-         *
+         * <p> 示例值：  
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
+    public ListRoomLevelReq build(){
+        return new ListRoomLevelReq(this);
+      }
+    }
 
-        public ListRoomLevelReq build() {
-            return new ListRoomLevelReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

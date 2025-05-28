@@ -17,16 +17,15 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 雇佣状态
  */
 public enum SearchEmployeeEmploymentStatusEnum {
-    HIRED("hired"), // 在职
-    TERMINATED("terminated"), // 离职
-    ;
-    private String value;
-
+     HIRED("hired"), // 在职
+     TERMINATED("terminated"), // 离职
+  ;
+   private String value;
     SearchEmployeeEmploymentStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

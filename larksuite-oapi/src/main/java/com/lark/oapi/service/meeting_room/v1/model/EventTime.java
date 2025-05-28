@@ -12,44 +12,24 @@
  */
 
 package com.lark.oapi.service.meeting_room.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EventTime {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("time_stamp")
     private Integer timeStamp;
-
-    // builder 开始
-    public EventTime() {
-    }
-
-    public EventTime(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.timeStamp = builder.timeStamp;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getTimeStamp() {
         return this.timeStamp;
     }
@@ -58,26 +38,44 @@ public class EventTime {
         this.timeStamp = timeStamp;
     }
 
+
+// builder 开始
+  public EventTime(){}
+
+  public EventTime(Builder builder){
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.timeStamp = builder.timeStamp;
+  }
+
     public static class Builder {
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private Integer timeStamp;
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param timeStamp
          * @return
          */
         public Builder timeStamp(Integer timeStamp) {
-            this.timeStamp = timeStamp;
-            return this;
+             this.timeStamp = timeStamp;
+             return this;
         }
 
+    
+    
+    public EventTime build(){
+        return new EventTime(this);
+      }
+    }
 
-        public EventTime build() {
-            return new EventTime(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

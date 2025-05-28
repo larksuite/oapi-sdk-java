@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InvokeApplicationFunctionReq {
-    /**
-     * 应用命名空间
-     * <p> 示例值：package_test__c
-     */
+     /**
+      * 应用命名空间
+      * <p> 示例值：package_test__c
+      */
     @Path
     @SerializedName("namespace")
     private String namespace;
-    /**
-     * 函数 API 名称
-     * <p> 示例值：printParam
-     */
+     /**
+      * 函数 API 名称
+      * <p> 示例值：printParam
+      */
     @Path
     @SerializedName("function_api_name")
     private String functionApiName;
-    @Body
-    private InvokeApplicationFunctionReqBody body;
-
-    // builder 开始
-    public InvokeApplicationFunctionReq() {
-    }
-
-    public InvokeApplicationFunctionReq(Builder builder) {
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 函数 API 名称
-         * <p> 示例值：printParam
-         */
-        this.functionApiName = builder.functionApiName;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNamespace() {
         return this.namespace;
     }
@@ -83,6 +54,9 @@ public class InvokeApplicationFunctionReq {
         this.functionApiName = functionApiName;
     }
 
+    @Body
+    private InvokeApplicationFunctionReqBody body;
+
     public InvokeApplicationFunctionReqBody getInvokeApplicationFunctionReqBody() {
         return this.body;
     }
@@ -91,53 +65,72 @@ public class InvokeApplicationFunctionReq {
         this.body = body;
     }
 
-    public static class Builder {
+// builder 开始
+  public InvokeApplicationFunctionReq(){}
 
+  public InvokeApplicationFunctionReq(Builder builder){
+     /**
+      * 应用命名空间
+      * <p> 示例值：package_test__c
+      */
+       this.namespace = builder.namespace;
+     /**
+      * 函数 API 名称
+      * <p> 示例值：printParam
+      */
+       this.functionApiName = builder.functionApiName;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+    
         private String namespace; // 应用命名空间
         private String functionApiName; // 函数 API 名称
-        private InvokeApplicationFunctionReqBody body;
-
         /**
          * 应用命名空间
          * <p> 示例值：package_test__c
-         *
          * @param namespace
          * @return
          */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
+          public Builder namespace(String namespace) {
+               this.namespace = namespace;
+               return this;
+          }
 
+    
         /**
          * 函数 API 名称
          * <p> 示例值：printParam
-         *
          * @param functionApiName
          * @return
          */
-        public Builder functionApiName(String functionApiName) {
-            this.functionApiName = functionApiName;
-            return this;
-        }
+          public Builder functionApiName(String functionApiName) {
+               this.functionApiName = functionApiName;
+               return this;
+          }
 
+    
+        private InvokeApplicationFunctionReqBody body;
+    
         public InvokeApplicationFunctionReqBody getInvokeApplicationFunctionReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder invokeApplicationFunctionReqBody(InvokeApplicationFunctionReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public InvokeApplicationFunctionReq build(){
+        return new InvokeApplicationFunctionReq(this);
+      }
+    }
 
-        public InvokeApplicationFunctionReq build() {
-            return new InvokeApplicationFunctionReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

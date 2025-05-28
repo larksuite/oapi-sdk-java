@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataAssetImportKnowledgeHelpdesk {
-    /**
-     * 飞书服务台ID
-     * <p> 示例值：123
-     */
+     /**
+      * 飞书服务台ID
+      * <p> 示例值：123
+      */
     @SerializedName("helpdesk_id")
     private String helpdeskId;
-
-    // builder 开始
-    public DataAssetImportKnowledgeHelpdesk() {
-    }
-
-    public DataAssetImportKnowledgeHelpdesk(Builder builder) {
-        /**
-         * 飞书服务台ID
-         * <p> 示例值：123
-         */
-        this.helpdeskId = builder.helpdeskId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getHelpdeskId() {
         return this.helpdeskId;
     }
@@ -60,28 +39,44 @@ public class DataAssetImportKnowledgeHelpdesk {
         this.helpdeskId = helpdeskId;
     }
 
+
+// builder 开始
+  public DataAssetImportKnowledgeHelpdesk(){}
+
+  public DataAssetImportKnowledgeHelpdesk(Builder builder){
+         /**
+          * 飞书服务台ID
+          * <p> 示例值：123
+          */
+      this.helpdeskId = builder.helpdeskId;
+  }
+
     public static class Builder {
-        /**
-         * 飞书服务台ID
-         * <p> 示例值：123
-         */
+     /**
+      * 飞书服务台ID
+      * <p> 示例值：123
+      */
         private String helpdeskId;
 
         /**
          * 飞书服务台ID
          * <p> 示例值：123
-         *
          * @param helpdeskId
          * @return
          */
         public Builder helpdeskId(String helpdeskId) {
-            this.helpdeskId = helpdeskId;
-            return this;
+             this.helpdeskId = helpdeskId;
+             return this;
         }
 
+    
+    
+    public DataAssetImportKnowledgeHelpdesk build(){
+        return new DataAssetImportKnowledgeHelpdesk(this);
+      }
+    }
 
-        public DataAssetImportKnowledgeHelpdesk build() {
-            return new DataAssetImportKnowledgeHelpdesk(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

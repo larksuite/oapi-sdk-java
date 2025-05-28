@@ -17,17 +17,16 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 此次删除中所使用的部门ID类型
  */
 public enum DeleteDepartmentDepartmentIdTypeEnum {
-    OPEN_DEPARTMENT_ID("open_department_id"), // 以 open_department_id 来标识部门
-    DEPARTMENT_ID("department_id"), // 以 department_id 来标识部门
-    PEOPLE_COREHR_DEPARTMENT_ID("people_corehr_department_id"), // 以 people_corehr_department_id 来标识部门
-    ;
-    private String value;
-
+     OPEN_DEPARTMENT_ID("open_department_id"), // 以 open_department_id 来标识部门
+     DEPARTMENT_ID("department_id"), // 以 department_id 来标识部门
+     PEOPLE_COREHR_DEPARTMENT_ID("people_corehr_department_id"), // 以 people_corehr_department_id 来标识部门
+  ;
+   private String value;
     DeleteDepartmentDepartmentIdTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

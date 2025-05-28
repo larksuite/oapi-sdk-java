@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CardCallbackRequest {
-    /**
-     * open_chat_id
-     * <p> 示例值：""
-     */
+     /**
+      * open_chat_id
+      * <p> 示例值：""
+      */
     @SerializedName("open_chat_id")
     private String openChatId;
-    /**
-     * open_message_id
-     * <p> 示例值：""
-     */
+     /**
+      * open_message_id
+      * <p> 示例值：""
+      */
     @SerializedName("open_message_id")
     private String openMessageId;
-    /**
-     * token
-     * <p> 示例值：""
-     */
+     /**
+      * token
+      * <p> 示例值：""
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * CallbackAction
-     * <p> 示例值：
-     */
+     /**
+      * CallbackAction
+      * <p> 示例值：
+      */
     @SerializedName("action")
     private CallbackAction action;
-
-    // builder 开始
-    public CardCallbackRequest() {
-    }
-
-    public CardCallbackRequest(Builder builder) {
-        /**
-         * open_chat_id
-         * <p> 示例值：""
-         */
-        this.openChatId = builder.openChatId;
-        /**
-         * open_message_id
-         * <p> 示例值：""
-         */
-        this.openMessageId = builder.openMessageId;
-        /**
-         * token
-         * <p> 示例值：""
-         */
-        this.token = builder.token;
-        /**
-         * CallbackAction
-         * <p> 示例值：
-         */
-        this.action = builder.action;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOpenChatId() {
         return this.openChatId;
     }
@@ -117,82 +81,113 @@ public class CardCallbackRequest {
         this.action = action;
     }
 
+
+// builder 开始
+  public CardCallbackRequest(){}
+
+  public CardCallbackRequest(Builder builder){
+         /**
+          * open_chat_id
+          * <p> 示例值：""
+          */
+      this.openChatId = builder.openChatId;
+         /**
+          * open_message_id
+          * <p> 示例值：""
+          */
+      this.openMessageId = builder.openMessageId;
+         /**
+          * token
+          * <p> 示例值：""
+          */
+      this.token = builder.token;
+         /**
+          * CallbackAction
+          * <p> 示例值：
+          */
+      this.action = builder.action;
+  }
+
     public static class Builder {
-        /**
-         * open_chat_id
-         * <p> 示例值：""
-         */
+     /**
+      * open_chat_id
+      * <p> 示例值：""
+      */
         private String openChatId;
-        /**
-         * open_message_id
-         * <p> 示例值：""
-         */
+     /**
+      * open_message_id
+      * <p> 示例值：""
+      */
         private String openMessageId;
-        /**
-         * token
-         * <p> 示例值：""
-         */
+     /**
+      * token
+      * <p> 示例值：""
+      */
         private String token;
-        /**
-         * CallbackAction
-         * <p> 示例值：
-         */
+     /**
+      * CallbackAction
+      * <p> 示例值：
+      */
         private CallbackAction action;
 
         /**
          * open_chat_id
          * <p> 示例值：""
-         *
          * @param openChatId
          * @return
          */
         public Builder openChatId(String openChatId) {
-            this.openChatId = openChatId;
-            return this;
+             this.openChatId = openChatId;
+             return this;
         }
 
+    
 
         /**
          * open_message_id
          * <p> 示例值：""
-         *
          * @param openMessageId
          * @return
          */
         public Builder openMessageId(String openMessageId) {
-            this.openMessageId = openMessageId;
-            return this;
+             this.openMessageId = openMessageId;
+             return this;
         }
 
+    
 
         /**
          * token
          * <p> 示例值：""
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * CallbackAction
          * <p> 示例值：
-         *
          * @param action
          * @return
          */
         public Builder action(CallbackAction action) {
-            this.action = action;
-            return this;
+             this.action = action;
+             return this;
         }
 
+    
+    
+    public CardCallbackRequest build(){
+        return new CardCallbackRequest(this);
+      }
+    }
 
-        public CardCallbackRequest build() {
-            return new CardCallbackRequest(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

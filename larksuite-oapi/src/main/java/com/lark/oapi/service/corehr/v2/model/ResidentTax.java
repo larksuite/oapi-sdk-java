@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ResidentTax {
-    /**
-     * 年度
-     * <p> 示例值：2023
-     */
+     /**
+      * 年度
+      * <p> 示例值：2023
+      */
     @SerializedName("year_resident_tax")
     private String yearResidentTax;
-    /**
-     * -| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"
-     * <p> 示例值：
-     */
+     /**
+      * -| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"
+      * <p> 示例值：
+      */
     @SerializedName("resident_status")
     private Enum residentStatus;
-    /**
-     * 国家/地区，可通过【查询国家/地区信息】 接口查询
-     * <p> 示例值：中国
-     */
+     /**
+      * 国家/地区，可通过【查询国家/地区信息】 接口查询
+      * <p> 示例值：中国
+      */
     @SerializedName("tax_country_region_id")
     private String taxCountryRegionId;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-
-    // builder 开始
-    public ResidentTax() {
-    }
-
-    public ResidentTax(Builder builder) {
-        /**
-         * 年度
-         * <p> 示例值：2023
-         */
-        this.yearResidentTax = builder.yearResidentTax;
-        /**
-         * -| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"
-         * <p> 示例值：
-         */
-        this.residentStatus = builder.residentStatus;
-        /**
-         * 国家/地区，可通过【查询国家/地区信息】 接口查询
-         * <p> 示例值：中国
-         */
-        this.taxCountryRegionId = builder.taxCountryRegionId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getYearResidentTax() {
         return this.yearResidentTax;
     }
@@ -117,82 +81,113 @@ public class ResidentTax {
         this.customFields = customFields;
     }
 
+
+// builder 开始
+  public ResidentTax(){}
+
+  public ResidentTax(Builder builder){
+         /**
+          * 年度
+          * <p> 示例值：2023
+          */
+      this.yearResidentTax = builder.yearResidentTax;
+         /**
+          * -| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"
+          * <p> 示例值：
+          */
+      this.residentStatus = builder.residentStatus;
+         /**
+          * 国家/地区，可通过【查询国家/地区信息】 接口查询
+          * <p> 示例值：中国
+          */
+      this.taxCountryRegionId = builder.taxCountryRegionId;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+  }
+
     public static class Builder {
-        /**
-         * 年度
-         * <p> 示例值：2023
-         */
+     /**
+      * 年度
+      * <p> 示例值：2023
+      */
         private String yearResidentTax;
-        /**
-         * -| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"
-         * <p> 示例值：
-         */
+     /**
+      * -| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"
+      * <p> 示例值：
+      */
         private Enum residentStatus;
-        /**
-         * 国家/地区，可通过【查询国家/地区信息】 接口查询
-         * <p> 示例值：中国
-         */
+     /**
+      * 国家/地区，可通过【查询国家/地区信息】 接口查询
+      * <p> 示例值：中国
+      */
         private String taxCountryRegionId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ObjectFieldData[] customFields;
 
         /**
          * 年度
          * <p> 示例值：2023
-         *
          * @param yearResidentTax
          * @return
          */
         public Builder yearResidentTax(String yearResidentTax) {
-            this.yearResidentTax = yearResidentTax;
-            return this;
+             this.yearResidentTax = yearResidentTax;
+             return this;
         }
 
+    
 
         /**
          * -| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"
          * <p> 示例值：
-         *
          * @param residentStatus
          * @return
          */
         public Builder residentStatus(Enum residentStatus) {
-            this.residentStatus = residentStatus;
-            return this;
+             this.residentStatus = residentStatus;
+             return this;
         }
 
+    
 
         /**
          * 国家/地区，可通过【查询国家/地区信息】 接口查询
          * <p> 示例值：中国
-         *
          * @param taxCountryRegionId
          * @return
          */
         public Builder taxCountryRegionId(String taxCountryRegionId) {
-            this.taxCountryRegionId = taxCountryRegionId;
-            return this;
+             this.taxCountryRegionId = taxCountryRegionId;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
+    
+    public ResidentTax build(){
+        return new ResidentTax(this);
+      }
+    }
 
-        public ResidentTax build() {
-            return new ResidentTax(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

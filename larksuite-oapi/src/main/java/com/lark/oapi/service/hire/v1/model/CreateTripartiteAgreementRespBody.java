@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateTripartiteAgreementRespBody {
-    /**
-     * 创建的三方协议的 id
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 创建的三方协议的 id
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("id")
     private String id;
-
     public String getId() {
         return this.id;
     }

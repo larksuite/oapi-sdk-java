@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.helpdesk.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class Faq {
         this.config = config;
     }
 
-
+    
     /**
      * 创建知识库，该接口用于创建知识库。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/create</a> ;
@@ -64,7 +59,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         CreateFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFaqResp.class);
         if (resp == null) {
@@ -72,14 +67,14 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -97,7 +92,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         CreateFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFaqResp.class);
         if (resp == null) {
@@ -105,16 +100,15 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除知识库，该接口用于删除知识库。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/delete</a> ;
@@ -132,7 +126,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/:id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DeleteFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFaqResp.class);
         if (resp == null) {
@@ -140,14 +134,14 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -165,7 +159,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/:id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DeleteFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFaqResp.class);
         if (resp == null) {
@@ -173,16 +167,15 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取知识库图像，该接口用于获取知识库图像。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/faq_image">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/faq_image</a> ;
@@ -201,7 +194,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/:id/image/:image_key"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         if (httpResponse.getStatusCode() == 200) {
             FaqImageFaqResp resp = new FaqImageFaqResp();
             resp.setRawResponse(httpResponse);
@@ -209,7 +202,7 @@ public class Faq {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return resp;
+            return  resp;
         }
         // 反序列化
         FaqImageFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, FaqImageFaqResp.class);
@@ -218,14 +211,14 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/:id/image/:image_key"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -244,7 +237,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/:id/image/:image_key"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 下载请求，返回流
         if (httpResponse.getStatusCode() == 200) {
             FaqImageFaqResp resp = new FaqImageFaqResp();
@@ -253,7 +246,7 @@ public class Faq {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return resp;
+            return  resp;
         }
         // 反序列化
         FaqImageFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, FaqImageFaqResp.class);
@@ -262,16 +255,15 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/:id/image/:image_key"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取知识库详情，该接口用于获取服务台知识库详情。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/get</a> ;
@@ -289,7 +281,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/:id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFaqResp.class);
         if (resp == null) {
@@ -297,14 +289,14 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -322,7 +314,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/:id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFaqResp.class);
         if (resp == null) {
@@ -330,16 +322,15 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取全部知识库详情，该接口用于获取服务台知识库详情。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/list</a> ;
@@ -357,7 +348,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFaqResp.class);
         if (resp == null) {
@@ -365,14 +356,14 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -390,7 +381,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFaqResp.class);
         if (resp == null) {
@@ -398,16 +389,15 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 修改知识库，该接口用于修改知识库。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/patch</a> ;
@@ -425,7 +415,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/:id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         PatchFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFaqResp.class);
         if (resp == null) {
@@ -433,14 +423,14 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -458,7 +448,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/:id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         PatchFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFaqResp.class);
         if (resp == null) {
@@ -466,16 +456,15 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 搜索知识库，该接口用于搜索服务台知识库。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/faq/search</a> ;
@@ -493,7 +482,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/search"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         SearchFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchFaqResp.class);
         if (resp == null) {
@@ -501,14 +490,14 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/search"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -526,7 +515,7 @@ public class Faq {
                 , "/open-apis/helpdesk/v1/faqs/search"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         SearchFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchFaqResp.class);
         if (resp == null) {
@@ -534,13 +523,13 @@ public class Faq {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/faqs/search"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

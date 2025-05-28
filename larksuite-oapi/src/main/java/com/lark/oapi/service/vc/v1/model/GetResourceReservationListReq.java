@@ -12,130 +12,74 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetResourceReservationListReq {
-    /**
-     * 层级id
-     * <p> 示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
-     */
+     /**
+      * 层级id
+      * <p> 示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
+      */
     @Query
     @SerializedName("room_level_id")
     private String roomLevelId;
-    /**
-     * 是否展示会议主题
-     * <p> 示例值：true
-     */
+     /**
+      * 是否展示会议主题
+      * <p> 示例值：true
+      */
     @Query
     @SerializedName("need_topic")
     private Boolean needTopic;
-    /**
-     * 查询开始时间（unix时间，单位sec）
-     * <p> 示例值：1655276858
-     */
+     /**
+      * 查询开始时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
     @Query
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 查询结束时间（unix时间，单位sec）
-     * <p> 示例值：1655276858
-     */
+     /**
+      * 查询结束时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
     @Query
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 待筛选的会议室id列表
-     * <p> 示例值：
-     */
+     /**
+      * 待筛选的会议室id列表
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("room_ids")
     private String[] roomIds;
-    /**
-     * 若为true表示导出room_ids范围外的会议室，默认为false
-     * <p> 示例值：false
-     */
+     /**
+      * 若为true表示导出room_ids范围外的会议室，默认为false
+      * <p> 示例值：false
+      */
     @Query
     @SerializedName("is_exclude")
     private Boolean isExclude;
-    /**
-     * 分页尺寸大小
-     * <p> 示例值：20
-     */
+     /**
+      * 分页尺寸大小
+      * <p> 示例值：20
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-     * <p> 示例值：
-     */
+     /**
+      * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-
-    // builder 开始
-    public GetResourceReservationListReq() {
-    }
-
-    public GetResourceReservationListReq(Builder builder) {
-        /**
-         * 层级id
-         * <p> 示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
-         */
-        this.roomLevelId = builder.roomLevelId;
-        /**
-         * 是否展示会议主题
-         * <p> 示例值：true
-         */
-        this.needTopic = builder.needTopic;
-        /**
-         * 查询开始时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 查询结束时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 待筛选的会议室id列表
-         * <p> 示例值：
-         */
-        this.roomIds = builder.roomIds;
-        /**
-         * 若为true表示导出room_ids范围外的会议室，默认为false
-         * <p> 示例值：false
-         */
-        this.isExclude = builder.isExclude;
-        /**
-         * 分页尺寸大小
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoomLevelId() {
         return this.roomLevelId;
     }
@@ -200,6 +144,53 @@ public class GetResourceReservationListReq {
         this.pageToken = pageToken;
     }
 
+
+// builder 开始
+  public GetResourceReservationListReq(){}
+
+  public GetResourceReservationListReq(Builder builder){
+         /**
+          * 层级id
+          * <p> 示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
+          */
+       this.roomLevelId = builder.roomLevelId;
+         /**
+          * 是否展示会议主题
+          * <p> 示例值：true
+          */
+       this.needTopic = builder.needTopic;
+         /**
+          * 查询开始时间（unix时间，单位sec）
+          * <p> 示例值：1655276858
+          */
+       this.startTime = builder.startTime;
+         /**
+          * 查询结束时间（unix时间，单位sec）
+          * <p> 示例值：1655276858
+          */
+       this.endTime = builder.endTime;
+         /**
+          * 待筛选的会议室id列表
+          * <p> 示例值：
+          */
+       this.roomIds = builder.roomIds;
+         /**
+          * 若为true表示导出room_ids范围外的会议室，默认为false
+          * <p> 示例值：false
+          */
+       this.isExclude = builder.isExclude;
+         /**
+          * 分页尺寸大小
+          * <p> 示例值：20
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
+          * <p> 示例值：
+          */
+       this.pageToken = builder.pageToken;
+  }
+
     public static class Builder {
         private String roomLevelId; // 层级id
         private Boolean needTopic; // 是否展示会议主题
@@ -209,113 +200,109 @@ public class GetResourceReservationListReq {
         private Boolean isExclude; // 若为true表示导出room_ids范围外的会议室，默认为false
         private Integer pageSize; // 分页尺寸大小
         private String pageToken; // 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-
+    
         /**
          * 层级id
          * <p> 示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
-         *
          * @param roomLevelId
          * @return
          */
-        public Builder roomLevelId(String roomLevelId) {
-            this.roomLevelId = roomLevelId;
-            return this;
-        }
+           public Builder roomLevelId(String roomLevelId) {
+                this.roomLevelId = roomLevelId;
+                return this;
+           }
 
-
+    
         /**
          * 是否展示会议主题
          * <p> 示例值：true
-         *
          * @param needTopic
          * @return
          */
-        public Builder needTopic(Boolean needTopic) {
-            this.needTopic = needTopic;
-            return this;
-        }
+           public Builder needTopic(Boolean needTopic) {
+                this.needTopic = needTopic;
+                return this;
+           }
 
-
+    
         /**
          * 查询开始时间（unix时间，单位sec）
          * <p> 示例值：1655276858
-         *
          * @param startTime
          * @return
          */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
+           public Builder startTime(String startTime) {
+                this.startTime = startTime;
+                return this;
+           }
 
-
+    
         /**
          * 查询结束时间（unix时间，单位sec）
          * <p> 示例值：1655276858
-         *
          * @param endTime
          * @return
          */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
+           public Builder endTime(String endTime) {
+                this.endTime = endTime;
+                return this;
+           }
 
-
+    
         /**
          * 待筛选的会议室id列表
          * <p> 示例值：
-         *
          * @param roomIds
          * @return
          */
-        public Builder roomIds(String[] roomIds) {
-            this.roomIds = roomIds;
-            return this;
-        }
+           public Builder roomIds(String[] roomIds) {
+                this.roomIds = roomIds;
+                return this;
+           }
 
-
+    
         /**
          * 若为true表示导出room_ids范围外的会议室，默认为false
          * <p> 示例值：false
-         *
          * @param isExclude
          * @return
          */
-        public Builder isExclude(Boolean isExclude) {
-            this.isExclude = isExclude;
-            return this;
-        }
+           public Builder isExclude(Boolean isExclude) {
+                this.isExclude = isExclude;
+                return this;
+           }
 
-
+    
         /**
          * 分页尺寸大小
          * <p> 示例值：20
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
          * <p> 示例值：
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
+    public GetResourceReservationListReq build(){
+        return new GetResourceReservationListReq(this);
+      }
+    }
 
-        public GetResourceReservationListReq build() {
-            return new GetResourceReservationListReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

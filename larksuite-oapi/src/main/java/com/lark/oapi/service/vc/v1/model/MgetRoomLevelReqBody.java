@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MgetRoomLevelReqBody {
-    /**
-     * 层级ID列表
-     * <p> 示例值：["omb_4ad1a2c7a2fbc5fc9570f38456931293"]
-     */
+     /**
+      * 层级ID列表
+      * <p> 示例值：["omb_4ad1a2c7a2fbc5fc9570f38456931293"]
+      */
     @SerializedName("level_ids")
     private String[] levelIds;
-
-    // builder 开始
-    public MgetRoomLevelReqBody() {
-    }
-
-    public MgetRoomLevelReqBody(Builder builder) {
-        /**
-         * 层级ID列表
-         * <p> 示例值：["omb_4ad1a2c7a2fbc5fc9570f38456931293"]
-         */
-        this.levelIds = builder.levelIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getLevelIds() {
         return this.levelIds;
     }
@@ -60,28 +39,44 @@ public class MgetRoomLevelReqBody {
         this.levelIds = levelIds;
     }
 
+
+// builder 开始
+  public MgetRoomLevelReqBody(){}
+
+  public MgetRoomLevelReqBody(Builder builder){
+         /**
+          * 层级ID列表
+          * <p> 示例值：["omb_4ad1a2c7a2fbc5fc9570f38456931293"]
+          */
+      this.levelIds = builder.levelIds;
+  }
+
     public static class Builder {
-        /**
-         * 层级ID列表
-         * <p> 示例值：["omb_4ad1a2c7a2fbc5fc9570f38456931293"]
-         */
+     /**
+      * 层级ID列表
+      * <p> 示例值：["omb_4ad1a2c7a2fbc5fc9570f38456931293"]
+      */
         private String[] levelIds;
 
         /**
          * 层级ID列表
          * <p> 示例值：["omb_4ad1a2c7a2fbc5fc9570f38456931293"]
-         *
          * @param levelIds
          * @return
          */
         public Builder levelIds(String[] levelIds) {
-            this.levelIds = levelIds;
-            return this;
+             this.levelIds = levelIds;
+             return this;
         }
 
+    
+    
+    public MgetRoomLevelReqBody build(){
+        return new MgetRoomLevelReqBody(this);
+      }
+    }
 
-        public MgetRoomLevelReqBody build() {
-            return new MgetRoomLevelReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetJobFamilyReq {
-    /**
-     * 职务序列 ID
-     * <p> 示例值：1554548
-     */
+     /**
+      * 职务序列 ID
+      * <p> 示例值：1554548
+      */
     @Path
     @SerializedName("job_family_id")
     private String jobFamilyId;
-
-    // builder 开始
-    public GetJobFamilyReq() {
-    }
-
-    public GetJobFamilyReq(Builder builder) {
-        /**
-         * 职务序列 ID
-         * <p> 示例值：1554548
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getJobFamilyId() {
         return this.jobFamilyId;
     }
@@ -60,25 +39,39 @@ public class GetJobFamilyReq {
         this.jobFamilyId = jobFamilyId;
     }
 
+
+// builder 开始
+  public GetJobFamilyReq(){}
+
+  public GetJobFamilyReq(Builder builder){
+     /**
+      * 职务序列 ID
+      * <p> 示例值：1554548
+      */
+       this.jobFamilyId = builder.jobFamilyId;
+  }
+
     public static class Builder {
-
+    
         private String jobFamilyId; // 职务序列 ID
-
         /**
          * 职务序列 ID
          * <p> 示例值：1554548
-         *
          * @param jobFamilyId
          * @return
          */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
+          public Builder jobFamilyId(String jobFamilyId) {
+               this.jobFamilyId = jobFamilyId;
+               return this;
+          }
 
+    
+    public GetJobFamilyReq build(){
+        return new GetJobFamilyReq(this);
+      }
+    }
 
-        public GetJobFamilyReq build() {
-            return new GetJobFamilyReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

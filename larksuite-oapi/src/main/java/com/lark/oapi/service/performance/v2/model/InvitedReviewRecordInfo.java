@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InvitedReviewRecordInfo {
-    /**
-     * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
-     * <p> 示例值：
-     */
+     /**
+      * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
+      * <p> 示例值：
+      */
     @SerializedName("reviewer_id")
     private User reviewerId;
-    /**
-     * 是否拒绝
-     * <p> 示例值：false
-     */
+     /**
+      * 是否拒绝
+      * <p> 示例值：false
+      */
     @SerializedName("is_rejected")
     private Boolean isRejected;
-    /**
-     * 360° 评估人拒绝评估的理由，当 360° 评估环节被评估人拒绝时有值
-     * <p> 示例值：test
-     */
+     /**
+      * 360° 评估人拒绝评估的理由，当 360° 评估环节被评估人拒绝时有值
+      * <p> 示例值：test
+      */
     @SerializedName("rejected_reason")
     private String rejectedReason;
-    /**
-     * 360° 评估人的评估尺度标签
-     * <p> 示例值：1
-     */
+     /**
+      * 360° 评估人的评估尺度标签
+      * <p> 示例值：1
+      */
     @SerializedName("distribute_type")
     private Integer distributeType;
-    /**
-     * 360° 评估人的评估尺度数值
-     * <p> 示例值：1.23
-     */
+     /**
+      * 360° 评估人的评估尺度数值
+      * <p> 示例值：1.23
+      */
     @SerializedName("avg_diff")
     private String avgDiff;
-    /**
-     * 360° 评估人的与被评估人关系。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
-     * <p> 示例值：direct_report
-     */
+     /**
+      * 360° 评估人的与被评估人关系。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
+      * <p> 示例值：direct_report
+      */
     @SerializedName("relationship_with_reviewee")
     private String relationshipWithReviewee;
-    /**
-     * 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
-     * <p> 示例值：system_default
-     */
+     /**
+      * 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
+      * <p> 示例值：system_default
+      */
     @SerializedName("invitedby")
     private String invitedby;
-
-    // builder 开始
-    public InvitedReviewRecordInfo() {
-    }
-
-    public InvitedReviewRecordInfo(Builder builder) {
-        /**
-         * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
-         * <p> 示例值：
-         */
-        this.reviewerId = builder.reviewerId;
-        /**
-         * 是否拒绝
-         * <p> 示例值：false
-         */
-        this.isRejected = builder.isRejected;
-        /**
-         * 360° 评估人拒绝评估的理由，当 360° 评估环节被评估人拒绝时有值
-         * <p> 示例值：test
-         */
-        this.rejectedReason = builder.rejectedReason;
-        /**
-         * 360° 评估人的评估尺度标签
-         * <p> 示例值：1
-         */
-        this.distributeType = builder.distributeType;
-        /**
-         * 360° 评估人的评估尺度数值
-         * <p> 示例值：1.23
-         */
-        this.avgDiff = builder.avgDiff;
-        /**
-         * 360° 评估人的与被评估人关系。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
-         * <p> 示例值：direct_report
-         */
-        this.relationshipWithReviewee = builder.relationshipWithReviewee;
-        /**
-         * 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
-         * <p> 示例值：system_default
-         */
-        this.invitedby = builder.invitedby;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public User getReviewerId() {
         return this.reviewerId;
     }
@@ -174,160 +123,201 @@ public class InvitedReviewRecordInfo {
         this.invitedby = invitedby;
     }
 
+
+// builder 开始
+  public InvitedReviewRecordInfo(){}
+
+  public InvitedReviewRecordInfo(Builder builder){
+         /**
+          * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
+          * <p> 示例值：
+          */
+      this.reviewerId = builder.reviewerId;
+         /**
+          * 是否拒绝
+          * <p> 示例值：false
+          */
+      this.isRejected = builder.isRejected;
+         /**
+          * 360° 评估人拒绝评估的理由，当 360° 评估环节被评估人拒绝时有值
+          * <p> 示例值：test
+          */
+      this.rejectedReason = builder.rejectedReason;
+         /**
+          * 360° 评估人的评估尺度标签
+          * <p> 示例值：1
+          */
+      this.distributeType = builder.distributeType;
+         /**
+          * 360° 评估人的评估尺度数值
+          * <p> 示例值：1.23
+          */
+      this.avgDiff = builder.avgDiff;
+         /**
+          * 360° 评估人的与被评估人关系。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
+          * <p> 示例值：direct_report
+          */
+      this.relationshipWithReviewee = builder.relationshipWithReviewee;
+         /**
+          * 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
+          * <p> 示例值：system_default
+          */
+      this.invitedby = builder.invitedby;
+  }
+
     public static class Builder {
-        /**
-         * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
-         * <p> 示例值：
-         */
+     /**
+      * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
+      * <p> 示例值：
+      */
         private User reviewerId;
-        /**
-         * 是否拒绝
-         * <p> 示例值：false
-         */
+     /**
+      * 是否拒绝
+      * <p> 示例值：false
+      */
         private Boolean isRejected;
-        /**
-         * 360° 评估人拒绝评估的理由，当 360° 评估环节被评估人拒绝时有值
-         * <p> 示例值：test
-         */
+     /**
+      * 360° 评估人拒绝评估的理由，当 360° 评估环节被评估人拒绝时有值
+      * <p> 示例值：test
+      */
         private String rejectedReason;
-        /**
-         * 360° 评估人的评估尺度标签
-         * <p> 示例值：1
-         */
+     /**
+      * 360° 评估人的评估尺度标签
+      * <p> 示例值：1
+      */
         private Integer distributeType;
-        /**
-         * 360° 评估人的评估尺度数值
-         * <p> 示例值：1.23
-         */
+     /**
+      * 360° 评估人的评估尺度数值
+      * <p> 示例值：1.23
+      */
         private String avgDiff;
-        /**
-         * 360° 评估人的与被评估人关系。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
-         * <p> 示例值：direct_report
-         */
+     /**
+      * 360° 评估人的与被评估人关系。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
+      * <p> 示例值：direct_report
+      */
         private String relationshipWithReviewee;
-        /**
-         * 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
-         * <p> 示例值：system_default
-         */
+     /**
+      * 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
+      * <p> 示例值：system_default
+      */
         private String invitedby;
 
         /**
          * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
          * <p> 示例值：
-         *
          * @param reviewerId
          * @return
          */
         public Builder reviewerId(User reviewerId) {
-            this.reviewerId = reviewerId;
-            return this;
+             this.reviewerId = reviewerId;
+             return this;
         }
 
+    
 
         /**
          * 是否拒绝
          * <p> 示例值：false
-         *
          * @param isRejected
          * @return
          */
         public Builder isRejected(Boolean isRejected) {
-            this.isRejected = isRejected;
-            return this;
+             this.isRejected = isRejected;
+             return this;
         }
 
+    
 
         /**
          * 360° 评估人拒绝评估的理由，当 360° 评估环节被评估人拒绝时有值
          * <p> 示例值：test
-         *
          * @param rejectedReason
          * @return
          */
         public Builder rejectedReason(String rejectedReason) {
-            this.rejectedReason = rejectedReason;
-            return this;
+             this.rejectedReason = rejectedReason;
+             return this;
         }
 
+    
 
         /**
          * 360° 评估人的评估尺度标签
          * <p> 示例值：1
-         *
          * @param distributeType
          * @return
          */
         public Builder distributeType(Integer distributeType) {
-            this.distributeType = distributeType;
-            return this;
+             this.distributeType = distributeType;
+             return this;
         }
 
 
         /**
          * 360° 评估人的评估尺度数值
          * <p> 示例值：1.23
-         *
          * @param avgDiff
          * @return
          */
         public Builder avgDiff(String avgDiff) {
-            this.avgDiff = avgDiff;
-            return this;
+             this.avgDiff = avgDiff;
+             return this;
         }
 
+    
 
         /**
          * 360° 评估人的与被评估人关系。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
          * <p> 示例值：direct_report
-         *
          * @param relationshipWithReviewee
          * @return
          */
         public Builder relationshipWithReviewee(String relationshipWithReviewee) {
-            this.relationshipWithReviewee = relationshipWithReviewee;
-            return this;
+             this.relationshipWithReviewee = relationshipWithReviewee;
+             return this;
         }
-
         /**
          * 360° 评估人的与被评估人关系。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
          * <p> 示例值：direct_report
-         *
          * @param relationshipWithReviewee {@link com.lark.oapi.service.performance.v2.enums.InvitedReviewRecordInfoRelationshipWithRevieweeEnum}
          * @return
          */
         public Builder relationshipWithReviewee(com.lark.oapi.service.performance.v2.enums.InvitedReviewRecordInfoRelationshipWithRevieweeEnum relationshipWithReviewee) {
-            this.relationshipWithReviewee = relationshipWithReviewee.getValue();
-            return this;
+             this.relationshipWithReviewee = relationshipWithReviewee.getValue();
+             return this;
         }
 
+    
 
         /**
          * 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
          * <p> 示例值：system_default
-         *
          * @param invitedby
          * @return
          */
         public Builder invitedby(String invitedby) {
-            this.invitedby = invitedby;
-            return this;
+             this.invitedby = invitedby;
+             return this;
         }
-
         /**
          * 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
          * <p> 示例值：system_default
-         *
          * @param invitedby {@link com.lark.oapi.service.performance.v2.enums.InvitedReviewRecordInfoInvitedbyEnum}
          * @return
          */
         public Builder invitedby(com.lark.oapi.service.performance.v2.enums.InvitedReviewRecordInfoInvitedbyEnum invitedby) {
-            this.invitedby = invitedby.getValue();
-            return this;
+             this.invitedby = invitedby.getValue();
+             return this;
         }
 
+    
+    
+    public InvitedReviewRecordInfo build(){
+        return new InvitedReviewRecordInfo(this);
+      }
+    }
 
-        public InvitedReviewRecordInfo build() {
-            return new InvitedReviewRecordInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

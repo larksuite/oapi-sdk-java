@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteExchangeBindingReq {
-    /**
-     * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
-     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
-     */
+     /**
+      * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+      * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+      */
     @Path
     @SerializedName("exchange_binding_id")
     private String exchangeBindingId;
-
-    // builder 开始
-    public DeleteExchangeBindingReq() {
-    }
-
-    public DeleteExchangeBindingReq(Builder builder) {
-        /**
-         * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
-         * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
-         */
-        this.exchangeBindingId = builder.exchangeBindingId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getExchangeBindingId() {
         return this.exchangeBindingId;
     }
@@ -60,25 +39,39 @@ public class DeleteExchangeBindingReq {
         this.exchangeBindingId = exchangeBindingId;
     }
 
+
+// builder 开始
+  public DeleteExchangeBindingReq(){}
+
+  public DeleteExchangeBindingReq(Builder builder){
+     /**
+      * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+      * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+      */
+       this.exchangeBindingId = builder.exchangeBindingId;
+  }
+
     public static class Builder {
-
+    
         private String exchangeBindingId; // exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
-
         /**
          * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
          * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
-         *
          * @param exchangeBindingId
          * @return
          */
-        public Builder exchangeBindingId(String exchangeBindingId) {
-            this.exchangeBindingId = exchangeBindingId;
-            return this;
-        }
+          public Builder exchangeBindingId(String exchangeBindingId) {
+               this.exchangeBindingId = exchangeBindingId;
+               return this;
+          }
 
+    
+    public DeleteExchangeBindingReq build(){
+        return new DeleteExchangeBindingReq(this);
+      }
+    }
 
-        public DeleteExchangeBindingReq build() {
-            return new DeleteExchangeBindingReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

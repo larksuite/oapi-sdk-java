@@ -17,16 +17,15 @@ package com.lark.oapi.service.vc.v1.enums;
  * 邀请结果
  */
 public enum MeetingInviteStatusInviteStatusEnum {
-    OK(1), // 邀请成功
-    FAILED(2), // 邀请失败
-    ;
-    private Integer value;
-
+     OK(1), // 邀请成功
+     FAILED(2), // 邀请失败
+  ;
+   private Integer value;
     MeetingInviteStatusInviteStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

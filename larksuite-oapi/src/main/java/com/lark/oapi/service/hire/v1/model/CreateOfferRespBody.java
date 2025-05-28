@@ -12,65 +12,60 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateOfferRespBody {
-    /**
-     * Offer ID
-     * <p> 示例值：7016605170635213100
-     */
+     /**
+      * Offer ID
+      * <p> 示例值：7016605170635213100
+      */
     @SerializedName("offer_id")
     private String offerId;
-    /**
-     * 投递 ID
-     * <p> 示例值：7013552389293279532
-     */
+     /**
+      * 投递 ID
+      * <p> 示例值：7013552389293279532
+      */
     @SerializedName("application_id")
     private String applicationId;
-    /**
-     * 模板 ID
-     * <p> 示例值：7013318077945596204
-     */
+     /**
+      * 模板 ID
+      * <p> 示例值：7013318077945596204
+      */
     @SerializedName("schema_id")
     private String schemaId;
-    /**
-     * Offer 类型
-     * <p> 示例值：1
-     */
+     /**
+      * Offer 类型
+      * <p> 示例值：1
+      */
     @SerializedName("offer_type")
     private Integer offerType;
-    /**
-     * Offer 基本信息
-     * <p> 示例值：
-     */
+     /**
+      * Offer 基本信息
+      * <p> 示例值：
+      */
     @SerializedName("basic_info")
     private OfferBasicInfo basicInfo;
-    /**
-     * Offer 薪资信息
-     * <p> 示例值：
-     */
+     /**
+      * Offer 薪资信息
+      * <p> 示例值：
+      */
     @SerializedName("salary_info")
     private OfferSalaryInfo salaryInfo;
-    /**
-     * 自定义信息
-     * <p> 示例值：
-     */
+     /**
+      * 自定义信息
+      * <p> 示例值：
+      */
     @SerializedName("customized_info_list")
     private OfferCustomizedInfo[] customizedInfoList;
-
     public String getOfferId() {
         return this.offerId;
     }

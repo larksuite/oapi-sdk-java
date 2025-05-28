@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TalentWorksInfo {
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     */
+     /**
+      * ID
+      * <p> 示例值：6891560630172518670
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 作品链接
-     * <p> 示例值：www.test.com
-     */
+     /**
+      * 作品链接
+      * <p> 示例值：www.test.com
+      */
     @SerializedName("link")
     private String link;
-    /**
-     * 描述
-     * <p> 示例值：test
-     */
+     /**
+      * 描述
+      * <p> 示例值：test
+      */
     @SerializedName("desc")
     private String desc;
-    /**
-     * 作品附件名称，若需获取作品附件预览信息可调用「获取附件预览信息」接口
-     * <p> 示例值：XX项目
-     */
+     /**
+      * 作品附件名称，若需获取作品附件预览信息可调用「获取附件预览信息」接口
+      * <p> 示例值：XX项目
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("customized_data_list")
     private TalentCustomizedDataChild[] customizedDataList;
-
-    // builder 开始
-    public TalentWorksInfo() {
-    }
-
-    public TalentWorksInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 作品链接
-         * <p> 示例值：www.test.com
-         */
-        this.link = builder.link;
-        /**
-         * 描述
-         * <p> 示例值：test
-         */
-        this.desc = builder.desc;
-        /**
-         * 作品附件名称，若需获取作品附件预览信息可调用「获取附件预览信息」接口
-         * <p> 示例值：XX项目
-         */
-        this.name = builder.name;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedDataList = builder.customizedDataList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -135,100 +94,136 @@ public class TalentWorksInfo {
         this.customizedDataList = customizedDataList;
     }
 
+
+// builder 开始
+  public TalentWorksInfo(){}
+
+  public TalentWorksInfo(Builder builder){
+         /**
+          * ID
+          * <p> 示例值：6891560630172518670
+          */
+      this.id = builder.id;
+         /**
+          * 作品链接
+          * <p> 示例值：www.test.com
+          */
+      this.link = builder.link;
+         /**
+          * 描述
+          * <p> 示例值：test
+          */
+      this.desc = builder.desc;
+         /**
+          * 作品附件名称，若需获取作品附件预览信息可调用「获取附件预览信息」接口
+          * <p> 示例值：XX项目
+          */
+      this.name = builder.name;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customizedDataList = builder.customizedDataList;
+  }
+
     public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
+     /**
+      * ID
+      * <p> 示例值：6891560630172518670
+      */
         private String id;
-        /**
-         * 作品链接
-         * <p> 示例值：www.test.com
-         */
+     /**
+      * 作品链接
+      * <p> 示例值：www.test.com
+      */
         private String link;
-        /**
-         * 描述
-         * <p> 示例值：test
-         */
+     /**
+      * 描述
+      * <p> 示例值：test
+      */
         private String desc;
-        /**
-         * 作品附件名称，若需获取作品附件预览信息可调用「获取附件预览信息」接口
-         * <p> 示例值：XX项目
-         */
+     /**
+      * 作品附件名称，若需获取作品附件预览信息可调用「获取附件预览信息」接口
+      * <p> 示例值：XX项目
+      */
         private String name;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private TalentCustomizedDataChild[] customizedDataList;
 
         /**
          * ID
          * <p> 示例值：6891560630172518670
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 作品链接
          * <p> 示例值：www.test.com
-         *
          * @param link
          * @return
          */
         public Builder link(String link) {
-            this.link = link;
-            return this;
+             this.link = link;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：test
-         *
          * @param desc
          * @return
          */
         public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
+             this.desc = desc;
+             return this;
         }
 
+    
 
         /**
          * 作品附件名称，若需获取作品附件预览信息可调用「获取附件预览信息」接口
          * <p> 示例值：XX项目
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customizedDataList
          * @return
          */
         public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-            this.customizedDataList = customizedDataList;
-            return this;
+             this.customizedDataList = customizedDataList;
+             return this;
         }
 
+    
+    
+    public TalentWorksInfo build(){
+        return new TalentWorksInfo(this);
+      }
+    }
 
-        public TalentWorksInfo build() {
-            return new TalentWorksInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

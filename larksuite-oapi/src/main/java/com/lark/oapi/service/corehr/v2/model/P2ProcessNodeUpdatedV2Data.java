@@ -12,65 +12,60 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2ProcessNodeUpdatedV2Data {
-    /**
-     * 流程定义id
-     * <p> 示例值：people_7182520625066475540_7222929439175839532
-     */
+     /**
+      * 流程定义id
+      * <p> 示例值：people_7182520625066475540_7222929439175839532
+      */
     @SerializedName("flow_definition_id")
     private String flowDefinitionId;
-    /**
-     * 节点定义id
-     * <p> 示例值：approval_7c7d9c4d25b
-     */
+     /**
+      * 节点定义id
+      * <p> 示例值：approval_7c7d9c4d25b
+      */
     @SerializedName("node_definition_id")
     private String nodeDefinitionId;
-    /**
-     * 流程运行实例id
-     * <p> 示例值：7312658016791168538
-     */
+     /**
+      * 流程运行实例id
+      * <p> 示例值：7312658016791168538
+      */
     @SerializedName("process_id")
     private String processId;
-    /**
-     * 节点运行实例id
-     * <p> 示例值：7311696871833994796
-     */
+     /**
+      * 节点运行实例id
+      * <p> 示例值：7311696871833994796
+      */
     @SerializedName("process_node_id")
     private String processNodeId;
-    /**
-     * 节点类型
-     * <p> 示例值：1
-     */
+     /**
+      * 节点类型
+      * <p> 示例值：1
+      */
     @SerializedName("node_type")
     private Integer nodeType;
-    /**
-     * 单据状态
-     * <p> 示例值：1
-     */
+     /**
+      * 单据状态
+      * <p> 示例值：1
+      */
     @SerializedName("node_status")
     private Integer nodeStatus;
-    /**
-     * 业务类型
-     * <p> 示例值：renewal_record
-     */
+     /**
+      * 业务类型
+      * <p> 示例值：renewal_record
+      */
     @SerializedName("biz_type")
     private String bizType;
-
     public String getFlowDefinitionId() {
         return this.flowDefinitionId;
     }

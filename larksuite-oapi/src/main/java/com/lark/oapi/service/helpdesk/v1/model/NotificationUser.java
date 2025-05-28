@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class NotificationUser {
-    /**
-     * 非必填，用户id
-     * <p> 示例值：ou_7277fd1262bfafc363d5b2a1f9c2ac90
-     */
+     /**
+      * 非必填，用户id
+      * <p> 示例值：ou_7277fd1262bfafc363d5b2a1f9c2ac90
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 非必填，头像地址
-     * <p> 示例值：http://*.com/*.png
-     */
+     /**
+      * 非必填，头像地址
+      * <p> 示例值：http://*.com/*.png
+      */
     @SerializedName("avatar_url")
     private String avatarUrl;
-    /**
-     * 非必填，用户名称
-     * <p> 示例值：test
-     */
+     /**
+      * 非必填，用户名称
+      * <p> 示例值：test
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public NotificationUser() {
-    }
-
-    public NotificationUser(Builder builder) {
-        /**
-         * 非必填，用户id
-         * <p> 示例值：ou_7277fd1262bfafc363d5b2a1f9c2ac90
-         */
-        this.userId = builder.userId;
-        /**
-         * 非必填，头像地址
-         * <p> 示例值：http://*.com/*.png
-         */
-        this.avatarUrl = builder.avatarUrl;
-        /**
-         * 非必填，用户名称
-         * <p> 示例值：test
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -98,64 +67,90 @@ public class NotificationUser {
         this.name = name;
     }
 
+
+// builder 开始
+  public NotificationUser(){}
+
+  public NotificationUser(Builder builder){
+         /**
+          * 非必填，用户id
+          * <p> 示例值：ou_7277fd1262bfafc363d5b2a1f9c2ac90
+          */
+      this.userId = builder.userId;
+         /**
+          * 非必填，头像地址
+          * <p> 示例值：http://*.com/*.png
+          */
+      this.avatarUrl = builder.avatarUrl;
+         /**
+          * 非必填，用户名称
+          * <p> 示例值：test
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 非必填，用户id
-         * <p> 示例值：ou_7277fd1262bfafc363d5b2a1f9c2ac90
-         */
+     /**
+      * 非必填，用户id
+      * <p> 示例值：ou_7277fd1262bfafc363d5b2a1f9c2ac90
+      */
         private String userId;
-        /**
-         * 非必填，头像地址
-         * <p> 示例值：http://*.com/*.png
-         */
+     /**
+      * 非必填，头像地址
+      * <p> 示例值：http://*.com/*.png
+      */
         private String avatarUrl;
-        /**
-         * 非必填，用户名称
-         * <p> 示例值：test
-         */
+     /**
+      * 非必填，用户名称
+      * <p> 示例值：test
+      */
         private String name;
 
         /**
          * 非必填，用户id
          * <p> 示例值：ou_7277fd1262bfafc363d5b2a1f9c2ac90
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 非必填，头像地址
          * <p> 示例值：http://*.com/*.png
-         *
          * @param avatarUrl
          * @return
          */
         public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
+             this.avatarUrl = avatarUrl;
+             return this;
         }
 
+    
 
         /**
          * 非必填，用户名称
          * <p> 示例值：test
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public NotificationUser build(){
+        return new NotificationUser(this);
+      }
+    }
 
-        public NotificationUser build() {
-            return new NotificationUser(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

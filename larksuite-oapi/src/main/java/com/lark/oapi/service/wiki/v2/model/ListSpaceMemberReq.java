@@ -12,70 +12,32 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListSpaceMemberReq {
-    /**
-     * 分页大小
-     * <p> 示例值：1
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：ou_12345
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：ou_12345
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 知识空间id
-     * <p> 示例值：7375263209671884820
-     */
-    @Path
-    @SerializedName("space_id")
-    private String spaceId;
-
-    // builder 开始
-    public ListSpaceMemberReq() {
-    }
-
-    public ListSpaceMemberReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：1
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：ou_12345
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 知识空间id
-         * <p> 示例值：7375263209671884820
-         */
-        this.spaceId = builder.spaceId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -92,6 +54,13 @@ public class ListSpaceMemberReq {
         this.pageToken = pageToken;
     }
 
+     /**
+      * 知识空间id
+      * <p> 示例值：7375263209671884820
+      */
+    @Path
+    @SerializedName("space_id")
+    private String spaceId;
     public String getSpaceId() {
         return this.spaceId;
     }
@@ -100,50 +69,75 @@ public class ListSpaceMemberReq {
         this.spaceId = spaceId;
     }
 
+
+// builder 开始
+  public ListSpaceMemberReq(){}
+
+  public ListSpaceMemberReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：1
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：ou_12345
+          */
+       this.pageToken = builder.pageToken;
+     /**
+      * 知识空间id
+      * <p> 示例值：7375263209671884820
+      */
+       this.spaceId = builder.spaceId;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String spaceId; // 知识空间id
-
+    
         /**
          * 分页大小
          * <p> 示例值：1
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：ou_12345
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
+        private String spaceId; // 知识空间id
         /**
          * 知识空间id
          * <p> 示例值：7375263209671884820
-         *
          * @param spaceId
          * @return
          */
-        public Builder spaceId(String spaceId) {
-            this.spaceId = spaceId;
-            return this;
-        }
+          public Builder spaceId(String spaceId) {
+               this.spaceId = spaceId;
+               return this;
+          }
 
+    
+    public ListSpaceMemberReq build(){
+        return new ListSpaceMemberReq(this);
+      }
+    }
 
-        public ListSpaceMemberReq build() {
-            return new ListSpaceMemberReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

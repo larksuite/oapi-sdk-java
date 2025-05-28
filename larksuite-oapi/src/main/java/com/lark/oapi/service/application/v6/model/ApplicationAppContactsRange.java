@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApplicationAppContactsRange {
-    /**
-     * 通讯录可见性类型
-     * <p> 示例值：some
-     */
+     /**
+      * 通讯录可见性类型
+      * <p> 示例值：some
+      */
     @SerializedName("contacts_scope_type")
     private String contactsScopeType;
-    /**
-     * 可用名单
-     * <p> 示例值：
-     */
+     /**
+      * 可用名单
+      * <p> 示例值：
+      */
     @SerializedName("visible_list")
     private AppVisibleList visibleList;
-
-    // builder 开始
-    public ApplicationAppContactsRange() {
-    }
-
-    public ApplicationAppContactsRange(Builder builder) {
-        /**
-         * 通讯录可见性类型
-         * <p> 示例值：some
-         */
-        this.contactsScopeType = builder.contactsScopeType;
-        /**
-         * 可用名单
-         * <p> 示例值：
-         */
-        this.visibleList = builder.visibleList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContactsScopeType() {
         return this.contactsScopeType;
     }
@@ -79,58 +53,77 @@ public class ApplicationAppContactsRange {
         this.visibleList = visibleList;
     }
 
+
+// builder 开始
+  public ApplicationAppContactsRange(){}
+
+  public ApplicationAppContactsRange(Builder builder){
+         /**
+          * 通讯录可见性类型
+          * <p> 示例值：some
+          */
+      this.contactsScopeType = builder.contactsScopeType;
+         /**
+          * 可用名单
+          * <p> 示例值：
+          */
+      this.visibleList = builder.visibleList;
+  }
+
     public static class Builder {
-        /**
-         * 通讯录可见性类型
-         * <p> 示例值：some
-         */
+     /**
+      * 通讯录可见性类型
+      * <p> 示例值：some
+      */
         private String contactsScopeType;
-        /**
-         * 可用名单
-         * <p> 示例值：
-         */
+     /**
+      * 可用名单
+      * <p> 示例值：
+      */
         private AppVisibleList visibleList;
 
         /**
          * 通讯录可见性类型
          * <p> 示例值：some
-         *
          * @param contactsScopeType
          * @return
          */
         public Builder contactsScopeType(String contactsScopeType) {
-            this.contactsScopeType = contactsScopeType;
-            return this;
+             this.contactsScopeType = contactsScopeType;
+             return this;
         }
-
         /**
          * 通讯录可见性类型
          * <p> 示例值：some
-         *
          * @param contactsScopeType {@link com.lark.oapi.service.application.v6.enums.ApplicationAppContactsRangeContactsScopeTypeEnum}
          * @return
          */
         public Builder contactsScopeType(com.lark.oapi.service.application.v6.enums.ApplicationAppContactsRangeContactsScopeTypeEnum contactsScopeType) {
-            this.contactsScopeType = contactsScopeType.getValue();
-            return this;
+             this.contactsScopeType = contactsScopeType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 可用名单
          * <p> 示例值：
-         *
          * @param visibleList
          * @return
          */
         public Builder visibleList(AppVisibleList visibleList) {
-            this.visibleList = visibleList;
-            return this;
+             this.visibleList = visibleList;
+             return this;
         }
 
+    
+    
+    public ApplicationAppContactsRange build(){
+        return new ApplicationAppContactsRange(this);
+      }
+    }
 
-        public ApplicationAppContactsRange build() {
-            return new ApplicationAppContactsRange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

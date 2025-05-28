@@ -17,16 +17,15 @@ package com.lark.oapi.service.aily.v1.enums;
  * 表类型，分为 "datatable"、"dataset"
  */
 public enum TableTableTypeEnum {
-    DATASET("dataset"), // 分析表
-    DATATABLE("datatable"), //  数据表
-    ;
-    private String value;
-
+     DATASET("dataset"), // 分析表
+     DATATABLE("datatable"), //  数据表
+  ;
+   private String value;
     TableTableTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

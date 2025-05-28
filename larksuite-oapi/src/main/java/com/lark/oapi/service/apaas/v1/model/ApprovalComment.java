@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApprovalComment {
-    /**
-     * 审批评论ID
-     * <p> 示例值：1740167780951095
-     */
+     /**
+      * 审批评论ID
+      * <p> 示例值：1740167780951095
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 审批人
-     * <p> 示例值：1740200388911118
-     */
+     /**
+      * 审批人
+      * <p> 示例值：1740200388911118
+      */
     @SerializedName("commenter")
     private String commenter;
-    /**
-     * 评论内容
-     * <p> 示例值：{"imgs":[],"html":"<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\" style=\"white-space: pre;\">q\n</div>"}
-     */
+     /**
+      * 评论内容
+      * <p> 示例值：{"imgs":[],"html":"<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\" style=\"white-space: pre;\">q\n</div>"}
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 评论创建时间
-     * <p> 示例值：1659600754592
-     */
+     /**
+      * 评论创建时间
+      * <p> 示例值：1659600754592
+      */
     @SerializedName("create_at")
     private String createAt;
-    /**
-     * 评论更新时间
-     * <p> 示例值：1659600754592
-     */
+     /**
+      * 评论更新时间
+      * <p> 示例值：1659600754592
+      */
     @SerializedName("update_at")
     private String updateAt;
-
-    // builder 开始
-    public ApprovalComment() {
-    }
-
-    public ApprovalComment(Builder builder) {
-        /**
-         * 审批评论ID
-         * <p> 示例值：1740167780951095
-         */
-        this.id = builder.id;
-        /**
-         * 审批人
-         * <p> 示例值：1740200388911118
-         */
-        this.commenter = builder.commenter;
-        /**
-         * 评论内容
-         * <p> 示例值：{"imgs":[],"html":"<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\" style=\"white-space: pre;\">q\n</div>"}
-         */
-        this.content = builder.content;
-        /**
-         * 评论创建时间
-         * <p> 示例值：1659600754592
-         */
-        this.createAt = builder.createAt;
-        /**
-         * 评论更新时间
-         * <p> 示例值：1659600754592
-         */
-        this.updateAt = builder.updateAt;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -136,100 +95,136 @@ public class ApprovalComment {
         this.updateAt = updateAt;
     }
 
+
+// builder 开始
+  public ApprovalComment(){}
+
+  public ApprovalComment(Builder builder){
+         /**
+          * 审批评论ID
+          * <p> 示例值：1740167780951095
+          */
+      this.id = builder.id;
+         /**
+          * 审批人
+          * <p> 示例值：1740200388911118
+          */
+      this.commenter = builder.commenter;
+         /**
+          * 评论内容
+          * <p> 示例值：{"imgs":[],"html":"<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\" style=\"white-space: pre;\">q\n</div>"}
+          */
+      this.content = builder.content;
+         /**
+          * 评论创建时间
+          * <p> 示例值：1659600754592
+          */
+      this.createAt = builder.createAt;
+         /**
+          * 评论更新时间
+          * <p> 示例值：1659600754592
+          */
+      this.updateAt = builder.updateAt;
+  }
+
     public static class Builder {
-        /**
-         * 审批评论ID
-         * <p> 示例值：1740167780951095
-         */
+     /**
+      * 审批评论ID
+      * <p> 示例值：1740167780951095
+      */
         private String id;
-        /**
-         * 审批人
-         * <p> 示例值：1740200388911118
-         */
+     /**
+      * 审批人
+      * <p> 示例值：1740200388911118
+      */
         private String commenter;
-        /**
-         * 评论内容
-         * <p> 示例值：{"imgs":[],"html":"<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\" style=\"white-space: pre;\">q\n</div>"}
-         */
+     /**
+      * 评论内容
+      * <p> 示例值：{"imgs":[],"html":"<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\" style=\"white-space: pre;\">q\n</div>"}
+      */
         private String content;
-        /**
-         * 评论创建时间
-         * <p> 示例值：1659600754592
-         */
+     /**
+      * 评论创建时间
+      * <p> 示例值：1659600754592
+      */
         private String createAt;
-        /**
-         * 评论更新时间
-         * <p> 示例值：1659600754592
-         */
+     /**
+      * 评论更新时间
+      * <p> 示例值：1659600754592
+      */
         private String updateAt;
 
         /**
          * 审批评论ID
          * <p> 示例值：1740167780951095
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 审批人
          * <p> 示例值：1740200388911118
-         *
          * @param commenter
          * @return
          */
         public Builder commenter(String commenter) {
-            this.commenter = commenter;
-            return this;
+             this.commenter = commenter;
+             return this;
         }
 
+    
 
         /**
          * 评论内容
          * <p> 示例值：{"imgs":[],"html":"<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\" style=\"white-space: pre;\">q\n</div>"}
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 评论创建时间
          * <p> 示例值：1659600754592
-         *
          * @param createAt
          * @return
          */
         public Builder createAt(String createAt) {
-            this.createAt = createAt;
-            return this;
+             this.createAt = createAt;
+             return this;
         }
 
+    
 
         /**
          * 评论更新时间
          * <p> 示例值：1659600754592
-         *
          * @param updateAt
          * @return
          */
         public Builder updateAt(String updateAt) {
-            this.updateAt = updateAt;
-            return this;
+             this.updateAt = updateAt;
+             return this;
         }
 
+    
+    
+    public ApprovalComment build(){
+        return new ApprovalComment(this);
+      }
+    }
 
-        public ApprovalComment build() {
-            return new ApprovalComment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,118 +12,67 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListFileReq {
-    /**
-     * 分页大小
-     * <p> 示例值：10
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：10
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：MTY1NTA3MTA1OXw3MTA4NDc2MDc1NzkyOTI0Nabcef
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：MTY1NTA3MTA1OXw3MTA4NDc2MDc1NzkyOTI0Nabcef
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 文件夹的token（若不填写该参数或填写空字符串，则默认获取用户云空间下的清单，且不支持分页）
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a9abcef
-     */
+     /**
+      * 文件夹的token（若不填写该参数或填写空字符串，则默认获取用户云空间下的清单，且不支持分页）
+      * <p> 示例值：fldbcO1UuPz8VwnpPx5a9abcef
+      */
     @Query
     @SerializedName("folder_token")
     private String folderToken;
-    /**
-     * 排序规则
-     * <p> 示例值：EditedTime
-     */
+     /**
+      * 排序规则
+      * <p> 示例值：EditedTime
+      */
     @Query
     @SerializedName("order_by")
     private String orderBy;
-    /**
-     * 升序降序
-     * <p> 示例值：DESC
-     */
+     /**
+      * 升序降序
+      * <p> 示例值：DESC
+      */
     @Query
     @SerializedName("direction")
     private String direction;
-    /**
-     * 指定获取文件清单的特殊方式
-     * <p> 示例值：get_all_children_unsort
-     */
+     /**
+      * 指定获取文件清单的特殊方式
+      * <p> 示例值：get_all_children_unsort
+      */
     @Query
     @SerializedName("option")
     private String option;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-
-    // builder 开始
-    public ListFileReq() {
-    }
-
-    public ListFileReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：MTY1NTA3MTA1OXw3MTA4NDc2MDc1NzkyOTI0Nabcef
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 文件夹的token（若不填写该参数或填写空字符串，则默认获取用户云空间下的清单，且不支持分页）
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a9abcef
-         */
-        this.folderToken = builder.folderToken;
-        /**
-         * 排序规则
-         * <p> 示例值：EditedTime
-         */
-        this.orderBy = builder.orderBy;
-        /**
-         * 升序降序
-         * <p> 示例值：DESC
-         */
-        this.direction = builder.direction;
-        /**
-         * 指定获取文件清单的特殊方式
-         * <p> 示例值：get_all_children_unsort
-         */
-        this.option = builder.option;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -180,6 +129,48 @@ public class ListFileReq {
         this.userIdType = userIdType;
     }
 
+
+// builder 开始
+  public ListFileReq(){}
+
+  public ListFileReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：10
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：MTY1NTA3MTA1OXw3MTA4NDc2MDc1NzkyOTI0Nabcef
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 文件夹的token（若不填写该参数或填写空字符串，则默认获取用户云空间下的清单，且不支持分页）
+          * <p> 示例值：fldbcO1UuPz8VwnpPx5a9abcef
+          */
+       this.folderToken = builder.folderToken;
+         /**
+          * 排序规则
+          * <p> 示例值：EditedTime
+          */
+       this.orderBy = builder.orderBy;
+         /**
+          * 升序降序
+          * <p> 示例值：DESC
+          */
+       this.direction = builder.direction;
+         /**
+          * 指定获取文件清单的特殊方式
+          * <p> 示例值：get_all_children_unsort
+          */
+       this.option = builder.option;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
@@ -188,136 +179,130 @@ public class ListFileReq {
         private String direction; // 升序降序
         private String option; // 指定获取文件清单的特殊方式
         private String userIdType; // 此次调用中使用的用户ID的类型
-
+    
         /**
          * 分页大小
          * <p> 示例值：10
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：MTY1NTA3MTA1OXw3MTA4NDc2MDc1NzkyOTI0Nabcef
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 文件夹的token（若不填写该参数或填写空字符串，则默认获取用户云空间下的清单，且不支持分页）
          * <p> 示例值：fldbcO1UuPz8VwnpPx5a9abcef
-         *
          * @param folderToken
          * @return
          */
-        public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
-        }
+           public Builder folderToken(String folderToken) {
+                this.folderToken = folderToken;
+                return this;
+           }
 
-
+    
         /**
          * 排序规则
          * <p> 示例值：EditedTime
-         *
          * @param orderBy
          * @return
          */
-        public Builder orderBy(String orderBy) {
-            this.orderBy = orderBy;
-            return this;
-        }
+           public Builder orderBy(String orderBy) {
+                this.orderBy = orderBy;
+                return this;
+           }
 
         /**
          * 排序规则
          * <p> 示例值：EditedTime
-         *
          * @param orderBy {@link com.lark.oapi.service.drive.v1.enums.ListFileOrderByEnum}
          * @return
          */
-        public Builder orderBy(com.lark.oapi.service.drive.v1.enums.ListFileOrderByEnum orderBy) {
-            this.orderBy = orderBy.getValue();
-            return this;
-        }
+          public Builder orderBy(com.lark.oapi.service.drive.v1.enums.ListFileOrderByEnum orderBy) {
+               this.orderBy = orderBy.getValue();
+               return this;
+          }
 
-
+    
         /**
          * 升序降序
          * <p> 示例值：DESC
-         *
          * @param direction
          * @return
          */
-        public Builder direction(String direction) {
-            this.direction = direction;
-            return this;
-        }
+           public Builder direction(String direction) {
+                this.direction = direction;
+                return this;
+           }
 
         /**
          * 升序降序
          * <p> 示例值：DESC
-         *
          * @param direction {@link com.lark.oapi.service.drive.v1.enums.ListFileDirectionEnum}
          * @return
          */
-        public Builder direction(com.lark.oapi.service.drive.v1.enums.ListFileDirectionEnum direction) {
-            this.direction = direction.getValue();
-            return this;
-        }
+          public Builder direction(com.lark.oapi.service.drive.v1.enums.ListFileDirectionEnum direction) {
+               this.direction = direction.getValue();
+               return this;
+          }
 
-
+    
         /**
          * 指定获取文件清单的特殊方式
          * <p> 示例值：get_all_children_unsort
-         *
          * @param option
          * @return
          */
-        public Builder option(String option) {
-            this.option = option;
-            return this;
-        }
+           public Builder option(String option) {
+                this.option = option;
+                return this;
+           }
 
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.ListFileUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.drive.v1.enums.ListFileUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+    public ListFileReq build(){
+        return new ListFileReq(this);
+      }
+    }
 
-        public ListFileReq build() {
-            return new ListFileReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

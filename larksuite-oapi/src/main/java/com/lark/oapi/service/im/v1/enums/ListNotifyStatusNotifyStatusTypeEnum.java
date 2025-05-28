@@ -17,16 +17,15 @@ package com.lark.oapi.service.im.v1.enums;
  * 加急状态类型
  */
 public enum ListNotifyStatusNotifyStatusTypeEnum {
-    NOANSWER("no_answer"), // 未接听加急电话
-    TOOFREQUENT("too_frequent"), // 命中频控
-    ;
-    private String value;
-
+     NOANSWER("no_answer"), // 未接听加急电话
+     TOOFREQUENT("too_frequent"), // 命中频控
+  ;
+   private String value;
     ListNotifyStatusNotifyStatusTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

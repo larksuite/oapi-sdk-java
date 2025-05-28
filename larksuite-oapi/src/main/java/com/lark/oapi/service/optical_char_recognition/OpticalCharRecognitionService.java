@@ -23,14 +23,12 @@ public class OpticalCharRecognitionService {
     private final Image image; // 图片识别
 
     public OpticalCharRecognitionService(Config config) {
-        this.v1 = new V1(config);
-        this.image = new Image(config);
+    this.v1 = new V1(config);
+    this.image = new Image(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public Image image() {
         return image;
     }

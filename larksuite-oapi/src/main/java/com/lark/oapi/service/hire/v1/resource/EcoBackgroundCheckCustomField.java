@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.hire.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.hire.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class EcoBackgroundCheckCustomField {
         this.config = config;
     }
 
-
+    
     /**
      * 删除背调自定义字段，删除用户在发起背调时的自定义字段，删除不影响已创建的背调，删除后对应的自定义字段的 key 不能再复用。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_delete</a> ;
@@ -63,7 +58,7 @@ public class EcoBackgroundCheckCustomField {
                 , "/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoBackgroundCheckCustomFieldResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class EcoBackgroundCheckCustomField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class EcoBackgroundCheckCustomField {
                 , "/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoBackgroundCheckCustomFieldResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class EcoBackgroundCheckCustomField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 更新背调自定义字段，更新用户在发起背调时的自定义字段。更新操作不支持更新自定义字段类型，且将影响已发起的背调表单展示。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_update</a> ;
@@ -129,7 +123,7 @@ public class EcoBackgroundCheckCustomField {
                 , "/open-apis/hire/v1/eco_background_check_custom_fields/batch_update"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchUpdateEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoBackgroundCheckCustomFieldResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class EcoBackgroundCheckCustomField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields/batch_update"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class EcoBackgroundCheckCustomField {
                 , "/open-apis/hire/v1/eco_background_check_custom_fields/batch_update"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchUpdateEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoBackgroundCheckCustomFieldResp.class);
         if (resp == null) {
@@ -169,16 +163,15 @@ public class EcoBackgroundCheckCustomField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields/batch_update"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 创建背调自定义字段，定制用户在发起背调时的自定义字段
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create</a> ;
@@ -195,7 +188,7 @@ public class EcoBackgroundCheckCustomField {
                 , "/open-apis/hire/v1/eco_background_check_custom_fields"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoBackgroundCheckCustomFieldResp.class);
         if (resp == null) {
@@ -203,14 +196,14 @@ public class EcoBackgroundCheckCustomField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -227,7 +220,7 @@ public class EcoBackgroundCheckCustomField {
                 , "/open-apis/hire/v1/eco_background_check_custom_fields"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoBackgroundCheckCustomFieldResp.class);
         if (resp == null) {
@@ -235,13 +228,13 @@ public class EcoBackgroundCheckCustomField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReactionList {
-    /**
-     * 表情类型
-     * <p> 示例值：OK
-     */
+     /**
+      * 表情类型
+      * <p> 示例值：OK
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 回复该表情的人数
-     * <p> 示例值：3
-     */
+     /**
+      * 回复该表情的人数
+      * <p> 示例值：3
+      */
     @SerializedName("count")
     private Integer count;
-
-    // builder 开始
-    public ReactionList() {
-    }
-
-    public ReactionList(Builder builder) {
-        /**
-         * 表情类型
-         * <p> 示例值：OK
-         */
-        this.type = builder.type;
-        /**
-         * 回复该表情的人数
-         * <p> 示例值：3
-         */
-        this.count = builder.count;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -79,46 +53,67 @@ public class ReactionList {
         this.count = count;
     }
 
+
+// builder 开始
+  public ReactionList(){}
+
+  public ReactionList(Builder builder){
+         /**
+          * 表情类型
+          * <p> 示例值：OK
+          */
+      this.type = builder.type;
+         /**
+          * 回复该表情的人数
+          * <p> 示例值：3
+          */
+      this.count = builder.count;
+  }
+
     public static class Builder {
-        /**
-         * 表情类型
-         * <p> 示例值：OK
-         */
+     /**
+      * 表情类型
+      * <p> 示例值：OK
+      */
         private String type;
-        /**
-         * 回复该表情的人数
-         * <p> 示例值：3
-         */
+     /**
+      * 回复该表情的人数
+      * <p> 示例值：3
+      */
         private Integer count;
 
         /**
          * 表情类型
          * <p> 示例值：OK
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 回复该表情的人数
          * <p> 示例值：3
-         *
          * @param count
          * @return
          */
         public Builder count(Integer count) {
-            this.count = count;
-            return this;
+             this.count = count;
+             return this;
         }
 
+    
+    
+    public ReactionList build(){
+        return new ReactionList(this);
+      }
+    }
 
-        public ReactionList build() {
-            return new ReactionList(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

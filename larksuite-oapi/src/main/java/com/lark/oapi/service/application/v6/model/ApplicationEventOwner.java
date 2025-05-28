@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApplicationEventOwner {
-    /**
-     * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
-     * <p> 示例值：0
-     */
+     /**
+      * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
+      * <p> 示例值：0
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * 应用开发商名称，仅商店应用返回
-     * <p> 示例值：应用名称
-     */
+     /**
+      * 应用开发商名称，仅商店应用返回
+      * <p> 示例值：应用名称
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
-     * <p> 示例值：
-     */
+     /**
+      * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+      * <p> 示例值：
+      */
     @SerializedName("help_desk")
     private String helpDesk;
-    /**
-     * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
-     * <p> 示例值：
-     */
+     /**
+      * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+      * <p> 示例值：
+      */
     @SerializedName("email")
     private String email;
-    /**
-     * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
-     * <p> 示例值：
-     */
+     /**
+      * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+      * <p> 示例值：
+      */
     @SerializedName("phone")
     private String phone;
-    /**
-     * 应用所有者用户ID
-     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-     */
+     /**
+      * 应用所有者用户ID
+      * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+      */
     @SerializedName("owner_id")
     private UserId ownerId;
-    /**
-     * 客服账号
-     * <p> 示例值：feishu@bytedance.com
-     */
+     /**
+      * 客服账号
+      * <p> 示例值：feishu@bytedance.com
+      */
     @SerializedName("customer_service_account")
     private String customerServiceAccount;
-
-    // builder 开始
-    public ApplicationEventOwner() {
-    }
-
-    public ApplicationEventOwner(Builder builder) {
-        /**
-         * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
-         * <p> 示例值：0
-         */
-        this.type = builder.type;
-        /**
-         * 应用开发商名称，仅商店应用返回
-         * <p> 示例值：应用名称
-         */
-        this.name = builder.name;
-        /**
-         * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
-         * <p> 示例值：
-         */
-        this.helpDesk = builder.helpDesk;
-        /**
-         * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
-         * <p> 示例值：
-         */
-        this.email = builder.email;
-        /**
-         * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
-         * <p> 示例值：
-         */
-        this.phone = builder.phone;
-        /**
-         * 应用所有者用户ID
-         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 客服账号
-         * <p> 示例值：feishu@bytedance.com
-         */
-        this.customerServiceAccount = builder.customerServiceAccount;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getType() {
         return this.type;
     }
@@ -174,136 +123,182 @@ public class ApplicationEventOwner {
         this.customerServiceAccount = customerServiceAccount;
     }
 
+
+// builder 开始
+  public ApplicationEventOwner(){}
+
+  public ApplicationEventOwner(Builder builder){
+         /**
+          * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
+          * <p> 示例值：0
+          */
+      this.type = builder.type;
+         /**
+          * 应用开发商名称，仅商店应用返回
+          * <p> 示例值：应用名称
+          */
+      this.name = builder.name;
+         /**
+          * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+          * <p> 示例值：
+          */
+      this.helpDesk = builder.helpDesk;
+         /**
+          * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+          * <p> 示例值：
+          */
+      this.email = builder.email;
+         /**
+          * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+          * <p> 示例值：
+          */
+      this.phone = builder.phone;
+         /**
+          * 应用所有者用户ID
+          * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+          */
+      this.ownerId = builder.ownerId;
+         /**
+          * 客服账号
+          * <p> 示例值：feishu@bytedance.com
+          */
+      this.customerServiceAccount = builder.customerServiceAccount;
+  }
+
     public static class Builder {
-        /**
-         * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
-         * <p> 示例值：0
-         */
+     /**
+      * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
+      * <p> 示例值：0
+      */
         private Integer type;
-        /**
-         * 应用开发商名称，仅商店应用返回
-         * <p> 示例值：应用名称
-         */
+     /**
+      * 应用开发商名称，仅商店应用返回
+      * <p> 示例值：应用名称
+      */
         private String name;
-        /**
-         * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
-         * <p> 示例值：
-         */
+     /**
+      * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+      * <p> 示例值：
+      */
         private String helpDesk;
-        /**
-         * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
-         * <p> 示例值：
-         */
+     /**
+      * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+      * <p> 示例值：
+      */
         private String email;
-        /**
-         * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
-         * <p> 示例值：
-         */
+     /**
+      * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+      * <p> 示例值：
+      */
         private String phone;
-        /**
-         * 应用所有者用户ID
-         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-         */
+     /**
+      * 应用所有者用户ID
+      * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+      */
         private UserId ownerId;
-        /**
-         * 客服账号
-         * <p> 示例值：feishu@bytedance.com
-         */
+     /**
+      * 客服账号
+      * <p> 示例值：feishu@bytedance.com
+      */
         private String customerServiceAccount;
 
         /**
          * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
          * <p> 示例值：0
-         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 应用开发商名称，仅商店应用返回
          * <p> 示例值：应用名称
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
          * <p> 示例值：
-         *
          * @param helpDesk
          * @return
          */
         public Builder helpDesk(String helpDesk) {
-            this.helpDesk = helpDesk;
-            return this;
+             this.helpDesk = helpDesk;
+             return this;
         }
 
+    
 
         /**
          * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
          * <p> 示例值：
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
 
         /**
          * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
          * <p> 示例值：
-         *
          * @param phone
          * @return
          */
         public Builder phone(String phone) {
-            this.phone = phone;
-            return this;
+             this.phone = phone;
+             return this;
         }
 
+    
 
         /**
          * 应用所有者用户ID
          * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-         *
          * @param ownerId
          * @return
          */
         public Builder ownerId(UserId ownerId) {
-            this.ownerId = ownerId;
-            return this;
+             this.ownerId = ownerId;
+             return this;
         }
 
+    
 
         /**
          * 客服账号
          * <p> 示例值：feishu@bytedance.com
-         *
          * @param customerServiceAccount
          * @return
          */
         public Builder customerServiceAccount(String customerServiceAccount) {
-            this.customerServiceAccount = customerServiceAccount;
-            return this;
+             this.customerServiceAccount = customerServiceAccount;
+             return this;
         }
 
+    
+    
+    public ApplicationEventOwner build(){
+        return new ApplicationEventOwner(this);
+      }
+    }
 
-        public ApplicationEventOwner build() {
-            return new ApplicationEventOwner(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

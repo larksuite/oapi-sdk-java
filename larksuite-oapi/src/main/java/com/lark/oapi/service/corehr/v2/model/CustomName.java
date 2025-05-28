@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CustomName {
-    /**
-     * 中文
-     * <p> 示例值：自定义姓名
-     */
+     /**
+      * 中文
+      * <p> 示例值：自定义姓名
+      */
     @SerializedName("zh_cn")
     private String zhCn;
-    /**
-     * 英文
-     * <p> 示例值：Custom Name
-     */
+     /**
+      * 英文
+      * <p> 示例值：Custom Name
+      */
     @SerializedName("en_us")
     private String enUs;
-
-    // builder 开始
-    public CustomName() {
-    }
-
-    public CustomName(Builder builder) {
-        /**
-         * 中文
-         * <p> 示例值：自定义姓名
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 英文
-         * <p> 示例值：Custom Name
-         */
-        this.enUs = builder.enUs;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getZhCn() {
         return this.zhCn;
     }
@@ -79,46 +53,67 @@ public class CustomName {
         this.enUs = enUs;
     }
 
+
+// builder 开始
+  public CustomName(){}
+
+  public CustomName(Builder builder){
+         /**
+          * 中文
+          * <p> 示例值：自定义姓名
+          */
+      this.zhCn = builder.zhCn;
+         /**
+          * 英文
+          * <p> 示例值：Custom Name
+          */
+      this.enUs = builder.enUs;
+  }
+
     public static class Builder {
-        /**
-         * 中文
-         * <p> 示例值：自定义姓名
-         */
+     /**
+      * 中文
+      * <p> 示例值：自定义姓名
+      */
         private String zhCn;
-        /**
-         * 英文
-         * <p> 示例值：Custom Name
-         */
+     /**
+      * 英文
+      * <p> 示例值：Custom Name
+      */
         private String enUs;
 
         /**
          * 中文
          * <p> 示例值：自定义姓名
-         *
          * @param zhCn
          * @return
          */
         public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
+             this.zhCn = zhCn;
+             return this;
         }
 
+    
 
         /**
          * 英文
          * <p> 示例值：Custom Name
-         *
          * @param enUs
          * @return
          */
         public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
+             this.enUs = enUs;
+             return this;
         }
 
+    
+    
+    public CustomName build(){
+        return new CustomName(this);
+      }
+    }
 
-        public CustomName build() {
-            return new CustomName(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

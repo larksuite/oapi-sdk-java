@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Indicator {
-    /**
-     * 评估项 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 评估项 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 评估项名称
-     * <p> 示例值：
-     */
+     /**
+      * 评估项名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 评估项类型
-     * <p> 示例值：plus
-     */
+     /**
+      * 评估项类型
+      * <p> 示例值：plus
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 评估项等级列表
-     * <p> 示例值：
-     */
+     /**
+      * 评估项等级列表
+      * <p> 示例值：
+      */
     @SerializedName("options")
     private IndicatorOption[] options;
-
-    // builder 开始
-    public Indicator() {
-    }
-
-    public Indicator(Builder builder) {
-        /**
-         * 评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.id = builder.id;
-        /**
-         * 评估项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 评估项类型
-         * <p> 示例值：plus
-         */
-        this.type = builder.type;
-        /**
-         * 评估项等级列表
-         * <p> 示例值：
-         */
-        this.options = builder.options;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -117,94 +81,123 @@ public class Indicator {
         this.options = options;
     }
 
+
+// builder 开始
+  public Indicator(){}
+
+  public Indicator(Builder builder){
+         /**
+          * 评估项 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.id = builder.id;
+         /**
+          * 评估项名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 评估项类型
+          * <p> 示例值：plus
+          */
+      this.type = builder.type;
+         /**
+          * 评估项等级列表
+          * <p> 示例值：
+          */
+      this.options = builder.options;
+  }
+
     public static class Builder {
-        /**
-         * 评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 评估项 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String id;
-        /**
-         * 评估项名称
-         * <p> 示例值：
-         */
+     /**
+      * 评估项名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 评估项类型
-         * <p> 示例值：plus
-         */
+     /**
+      * 评估项类型
+      * <p> 示例值：plus
+      */
         private String type;
-        /**
-         * 评估项等级列表
-         * <p> 示例值：
-         */
+     /**
+      * 评估项等级列表
+      * <p> 示例值：
+      */
         private IndicatorOption[] options;
 
         /**
          * 评估项 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 评估项名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 评估项类型
          * <p> 示例值：plus
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 评估项类型
          * <p> 示例值：plus
-         *
          * @param type {@link com.lark.oapi.service.performance.v2.enums.IndicatorTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.performance.v2.enums.IndicatorTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 评估项等级列表
          * <p> 示例值：
-         *
          * @param options
          * @return
          */
         public Builder options(IndicatorOption[] options) {
-            this.options = options;
-            return this;
+             this.options = options;
+             return this;
         }
 
+    
+    
+    public Indicator build(){
+        return new Indicator(this);
+      }
+    }
 
-        public Indicator build() {
-            return new Indicator(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReactionSet {
-    /**
-     * 表情列表
-     * <p> 示例值：
-     */
+     /**
+      * 表情列表
+      * <p> 示例值：
+      */
     @SerializedName("reactions")
     private ReactionList[] reactions;
-    /**
-     * 全部表情计数
-     * <p> 示例值：20
-     */
+     /**
+      * 全部表情计数
+      * <p> 示例值：20
+      */
     @SerializedName("total_count")
     private Integer totalCount;
-
-    // builder 开始
-    public ReactionSet() {
-    }
-
-    public ReactionSet(Builder builder) {
-        /**
-         * 表情列表
-         * <p> 示例值：
-         */
-        this.reactions = builder.reactions;
-        /**
-         * 全部表情计数
-         * <p> 示例值：20
-         */
-        this.totalCount = builder.totalCount;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ReactionList[] getReactions() {
         return this.reactions;
     }
@@ -79,46 +53,67 @@ public class ReactionSet {
         this.totalCount = totalCount;
     }
 
+
+// builder 开始
+  public ReactionSet(){}
+
+  public ReactionSet(Builder builder){
+         /**
+          * 表情列表
+          * <p> 示例值：
+          */
+      this.reactions = builder.reactions;
+         /**
+          * 全部表情计数
+          * <p> 示例值：20
+          */
+      this.totalCount = builder.totalCount;
+  }
+
     public static class Builder {
-        /**
-         * 表情列表
-         * <p> 示例值：
-         */
+     /**
+      * 表情列表
+      * <p> 示例值：
+      */
         private ReactionList[] reactions;
-        /**
-         * 全部表情计数
-         * <p> 示例值：20
-         */
+     /**
+      * 全部表情计数
+      * <p> 示例值：20
+      */
         private Integer totalCount;
 
         /**
          * 表情列表
          * <p> 示例值：
-         *
          * @param reactions
          * @return
          */
         public Builder reactions(ReactionList[] reactions) {
-            this.reactions = reactions;
-            return this;
+             this.reactions = reactions;
+             return this;
         }
 
+    
 
         /**
          * 全部表情计数
          * <p> 示例值：20
-         *
          * @param totalCount
          * @return
          */
         public Builder totalCount(Integer totalCount) {
-            this.totalCount = totalCount;
-            return this;
+             this.totalCount = totalCount;
+             return this;
         }
 
+    
+    
+    public ReactionSet build(){
+        return new ReactionSet(this);
+      }
+    }
 
-        public ReactionSet build() {
-            return new ReactionSet(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

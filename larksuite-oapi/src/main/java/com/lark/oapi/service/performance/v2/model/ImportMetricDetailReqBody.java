@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ImportMetricDetailReqBody {
-    /**
-     * 周期 ID，semester_id 可通过【获取周期】接口获得
-     * <p> 示例值：7293040702907514899
-     */
+     /**
+      * 周期 ID，semester_id 可通过【获取周期】接口获得
+      * <p> 示例值：7293040702907514899
+      */
     @SerializedName("semester_id")
     private String semesterId;
-    /**
-     * 录入记录名称，数据源录入人在录入记录页面可以查看该记录名称。如果不传则默认为「API 录入」
-     * <p> 示例值：API录入
-     */
+     /**
+      * 录入记录名称，数据源录入人在录入记录页面可以查看该记录名称。如果不传则默认为「API 录入」
+      * <p> 示例值：API录入
+      */
     @SerializedName("import_record_name")
     private String importRecordName;
-    /**
-     * 指标明细列表，一次最多50个
-     * <p> 示例值：
-     */
+     /**
+      * 指标明细列表，一次最多50个
+      * <p> 示例值：
+      */
     @SerializedName("imported_metrics")
     private ImportedMetric[] importedMetrics;
-
-    // builder 开始
-    public ImportMetricDetailReqBody() {
-    }
-
-    public ImportMetricDetailReqBody(Builder builder) {
-        /**
-         * 周期 ID，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7293040702907514899
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 录入记录名称，数据源录入人在录入记录页面可以查看该记录名称。如果不传则默认为「API 录入」
-         * <p> 示例值：API录入
-         */
-        this.importRecordName = builder.importRecordName;
-        /**
-         * 指标明细列表，一次最多50个
-         * <p> 示例值：
-         */
-        this.importedMetrics = builder.importedMetrics;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSemesterId() {
         return this.semesterId;
     }
@@ -98,64 +67,90 @@ public class ImportMetricDetailReqBody {
         this.importedMetrics = importedMetrics;
     }
 
+
+// builder 开始
+  public ImportMetricDetailReqBody(){}
+
+  public ImportMetricDetailReqBody(Builder builder){
+         /**
+          * 周期 ID，semester_id 可通过【获取周期】接口获得
+          * <p> 示例值：7293040702907514899
+          */
+      this.semesterId = builder.semesterId;
+         /**
+          * 录入记录名称，数据源录入人在录入记录页面可以查看该记录名称。如果不传则默认为「API 录入」
+          * <p> 示例值：API录入
+          */
+      this.importRecordName = builder.importRecordName;
+         /**
+          * 指标明细列表，一次最多50个
+          * <p> 示例值：
+          */
+      this.importedMetrics = builder.importedMetrics;
+  }
+
     public static class Builder {
-        /**
-         * 周期 ID，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7293040702907514899
-         */
+     /**
+      * 周期 ID，semester_id 可通过【获取周期】接口获得
+      * <p> 示例值：7293040702907514899
+      */
         private String semesterId;
-        /**
-         * 录入记录名称，数据源录入人在录入记录页面可以查看该记录名称。如果不传则默认为「API 录入」
-         * <p> 示例值：API录入
-         */
+     /**
+      * 录入记录名称，数据源录入人在录入记录页面可以查看该记录名称。如果不传则默认为「API 录入」
+      * <p> 示例值：API录入
+      */
         private String importRecordName;
-        /**
-         * 指标明细列表，一次最多50个
-         * <p> 示例值：
-         */
+     /**
+      * 指标明细列表，一次最多50个
+      * <p> 示例值：
+      */
         private ImportedMetric[] importedMetrics;
 
         /**
          * 周期 ID，semester_id 可通过【获取周期】接口获得
          * <p> 示例值：7293040702907514899
-         *
          * @param semesterId
          * @return
          */
         public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
+             this.semesterId = semesterId;
+             return this;
         }
 
+    
 
         /**
          * 录入记录名称，数据源录入人在录入记录页面可以查看该记录名称。如果不传则默认为「API 录入」
          * <p> 示例值：API录入
-         *
          * @param importRecordName
          * @return
          */
         public Builder importRecordName(String importRecordName) {
-            this.importRecordName = importRecordName;
-            return this;
+             this.importRecordName = importRecordName;
+             return this;
         }
 
+    
 
         /**
          * 指标明细列表，一次最多50个
          * <p> 示例值：
-         *
          * @param importedMetrics
          * @return
          */
         public Builder importedMetrics(ImportedMetric[] importedMetrics) {
-            this.importedMetrics = importedMetrics;
-            return this;
+             this.importedMetrics = importedMetrics;
+             return this;
         }
 
+    
+    
+    public ImportMetricDetailReqBody build(){
+        return new ImportMetricDetailReqBody(this);
+      }
+    }
 
-        public ImportMetricDetailReqBody build() {
-            return new ImportMetricDetailReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

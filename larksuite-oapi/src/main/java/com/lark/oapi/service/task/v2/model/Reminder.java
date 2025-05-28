@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Reminder {
-    /**
-     * 提醒时间设置的 ID
-     * <p> 示例值：10
-     */
+     /**
+      * 提醒时间设置的 ID
+      * <p> 示例值：10
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 相对于截止时间的提醒时间分钟数。例如30表示截止时间前30分钟提醒；0表示截止时提醒。
-     * <p> 示例值：30
-     */
+     /**
+      * 相对于截止时间的提醒时间分钟数。例如30表示截止时间前30分钟提醒；0表示截止时提醒。
+      * <p> 示例值：30
+      */
     @SerializedName("relative_fire_minute")
     private Integer relativeFireMinute;
-
-    // builder 开始
-    public Reminder() {
-    }
-
-    public Reminder(Builder builder) {
-        /**
-         * 提醒时间设置的 ID
-         * <p> 示例值：10
-         */
-        this.id = builder.id;
-        /**
-         * 相对于截止时间的提醒时间分钟数。例如30表示截止时间前30分钟提醒；0表示截止时提醒。
-         * <p> 示例值：30
-         */
-        this.relativeFireMinute = builder.relativeFireMinute;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -79,46 +53,67 @@ public class Reminder {
         this.relativeFireMinute = relativeFireMinute;
     }
 
+
+// builder 开始
+  public Reminder(){}
+
+  public Reminder(Builder builder){
+         /**
+          * 提醒时间设置的 ID
+          * <p> 示例值：10
+          */
+      this.id = builder.id;
+         /**
+          * 相对于截止时间的提醒时间分钟数。例如30表示截止时间前30分钟提醒；0表示截止时提醒。
+          * <p> 示例值：30
+          */
+      this.relativeFireMinute = builder.relativeFireMinute;
+  }
+
     public static class Builder {
-        /**
-         * 提醒时间设置的 ID
-         * <p> 示例值：10
-         */
+     /**
+      * 提醒时间设置的 ID
+      * <p> 示例值：10
+      */
         private String id;
-        /**
-         * 相对于截止时间的提醒时间分钟数。例如30表示截止时间前30分钟提醒；0表示截止时提醒。
-         * <p> 示例值：30
-         */
+     /**
+      * 相对于截止时间的提醒时间分钟数。例如30表示截止时间前30分钟提醒；0表示截止时提醒。
+      * <p> 示例值：30
+      */
         private Integer relativeFireMinute;
 
         /**
          * 提醒时间设置的 ID
          * <p> 示例值：10
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 相对于截止时间的提醒时间分钟数。例如30表示截止时间前30分钟提醒；0表示截止时提醒。
          * <p> 示例值：30
-         *
          * @param relativeFireMinute
          * @return
          */
         public Builder relativeFireMinute(Integer relativeFireMinute) {
-            this.relativeFireMinute = relativeFireMinute;
-            return this;
+             this.relativeFireMinute = relativeFireMinute;
+             return this;
         }
 
+    
+    
+    public Reminder build(){
+        return new Reminder(this);
+      }
+    }
 
-        public Reminder build() {
-            return new Reminder(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

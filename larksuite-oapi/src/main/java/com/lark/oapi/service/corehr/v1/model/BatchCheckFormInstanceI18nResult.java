@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchCheckFormInstanceI18nResult {
-    /**
-     * 是否成功
-     * <p> 示例值：false
-     */
+     /**
+      * 是否成功
+      * <p> 示例值：false
+      */
     @SerializedName("success")
     private Boolean success;
-    /**
-     * 当出现某个控件校验不通过时，会用此字段返回校验结果，map格式
-     * <p> 示例值：null
-     */
+     /**
+      * 当出现某个控件校验不通过时，会用此字段返回校验结果，map格式
+      * <p> 示例值：null
+      */
     @SerializedName("field_validate_error_messages")
     private String fieldValidateErrorMessages;
-    /**
-     * 当出现配置了表单提交校验，且校验不通过时，会用此字段返回校验结果。
-     * <p> 示例值：
-     */
+     /**
+      * 当出现配置了表单提交校验，且校验不通过时，会用此字段返回校验结果。
+      * <p> 示例值：
+      */
     @SerializedName("form_validate_error_messages")
     private BpmDataengineI18n[] formValidateErrorMessages;
-    /**
-     * 申请人未填写
-     * <p> 示例值：map
-     */
+     /**
+      * 申请人未填写
+      * <p> 示例值：map
+      */
     @SerializedName("system_error_message")
     private BpmFormErrorMessage systemErrorMessage;
-    /**
-     * 明细控件、高级控件校验不通过时，会用此字段返回校验结果。
-     * <p> 示例值：null
-     */
+     /**
+      * 明细控件、高级控件校验不通过时，会用此字段返回校验结果。
+      * <p> 示例值：null
+      */
     @SerializedName("advanced_field_check_result_list")
     private String advancedFieldCheckResultList;
-    /**
-     * 用于多维表格导出场景的校验文案返回
-     * <p> 示例值：
-     */
+     /**
+      * 用于多维表格导出场景的校验文案返回
+      * <p> 示例值：
+      */
     @SerializedName("err_message_for_export")
     private BpmDataengineI18n[] errMessageForExport;
-    /**
-     * 业务传入的变量在表单中无权限
-     * <p> 示例值：
-     */
+     /**
+      * 业务传入的变量在表单中无权限
+      * <p> 示例值：
+      */
     @SerializedName("no_permisson_apis")
     private String[][] noPermissonApis;
-
-    // builder 开始
-    public BatchCheckFormInstanceI18nResult() {
-    }
-
-    public BatchCheckFormInstanceI18nResult(Builder builder) {
-        /**
-         * 是否成功
-         * <p> 示例值：false
-         */
-        this.success = builder.success;
-        /**
-         * 当出现某个控件校验不通过时，会用此字段返回校验结果，map格式
-         * <p> 示例值：null
-         */
-        this.fieldValidateErrorMessages = builder.fieldValidateErrorMessages;
-        /**
-         * 当出现配置了表单提交校验，且校验不通过时，会用此字段返回校验结果。
-         * <p> 示例值：
-         */
-        this.formValidateErrorMessages = builder.formValidateErrorMessages;
-        /**
-         * 申请人未填写
-         * <p> 示例值：map
-         */
-        this.systemErrorMessage = builder.systemErrorMessage;
-        /**
-         * 明细控件、高级控件校验不通过时，会用此字段返回校验结果。
-         * <p> 示例值：null
-         */
-        this.advancedFieldCheckResultList = builder.advancedFieldCheckResultList;
-        /**
-         * 用于多维表格导出场景的校验文案返回
-         * <p> 示例值：
-         */
-        this.errMessageForExport = builder.errMessageForExport;
-        /**
-         * 业务传入的变量在表单中无权限
-         * <p> 示例值：
-         */
-        this.noPermissonApis = builder.noPermissonApis;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getSuccess() {
         return this.success;
     }
@@ -174,136 +123,182 @@ public class BatchCheckFormInstanceI18nResult {
         this.noPermissonApis = noPermissonApis;
     }
 
+
+// builder 开始
+  public BatchCheckFormInstanceI18nResult(){}
+
+  public BatchCheckFormInstanceI18nResult(Builder builder){
+         /**
+          * 是否成功
+          * <p> 示例值：false
+          */
+      this.success = builder.success;
+         /**
+          * 当出现某个控件校验不通过时，会用此字段返回校验结果，map格式
+          * <p> 示例值：null
+          */
+      this.fieldValidateErrorMessages = builder.fieldValidateErrorMessages;
+         /**
+          * 当出现配置了表单提交校验，且校验不通过时，会用此字段返回校验结果。
+          * <p> 示例值：
+          */
+      this.formValidateErrorMessages = builder.formValidateErrorMessages;
+         /**
+          * 申请人未填写
+          * <p> 示例值：map
+          */
+      this.systemErrorMessage = builder.systemErrorMessage;
+         /**
+          * 明细控件、高级控件校验不通过时，会用此字段返回校验结果。
+          * <p> 示例值：null
+          */
+      this.advancedFieldCheckResultList = builder.advancedFieldCheckResultList;
+         /**
+          * 用于多维表格导出场景的校验文案返回
+          * <p> 示例值：
+          */
+      this.errMessageForExport = builder.errMessageForExport;
+         /**
+          * 业务传入的变量在表单中无权限
+          * <p> 示例值：
+          */
+      this.noPermissonApis = builder.noPermissonApis;
+  }
+
     public static class Builder {
-        /**
-         * 是否成功
-         * <p> 示例值：false
-         */
+     /**
+      * 是否成功
+      * <p> 示例值：false
+      */
         private Boolean success;
-        /**
-         * 当出现某个控件校验不通过时，会用此字段返回校验结果，map格式
-         * <p> 示例值：null
-         */
+     /**
+      * 当出现某个控件校验不通过时，会用此字段返回校验结果，map格式
+      * <p> 示例值：null
+      */
         private String fieldValidateErrorMessages;
-        /**
-         * 当出现配置了表单提交校验，且校验不通过时，会用此字段返回校验结果。
-         * <p> 示例值：
-         */
+     /**
+      * 当出现配置了表单提交校验，且校验不通过时，会用此字段返回校验结果。
+      * <p> 示例值：
+      */
         private BpmDataengineI18n[] formValidateErrorMessages;
-        /**
-         * 申请人未填写
-         * <p> 示例值：map
-         */
+     /**
+      * 申请人未填写
+      * <p> 示例值：map
+      */
         private BpmFormErrorMessage systemErrorMessage;
-        /**
-         * 明细控件、高级控件校验不通过时，会用此字段返回校验结果。
-         * <p> 示例值：null
-         */
+     /**
+      * 明细控件、高级控件校验不通过时，会用此字段返回校验结果。
+      * <p> 示例值：null
+      */
         private String advancedFieldCheckResultList;
-        /**
-         * 用于多维表格导出场景的校验文案返回
-         * <p> 示例值：
-         */
+     /**
+      * 用于多维表格导出场景的校验文案返回
+      * <p> 示例值：
+      */
         private BpmDataengineI18n[] errMessageForExport;
-        /**
-         * 业务传入的变量在表单中无权限
-         * <p> 示例值：
-         */
+     /**
+      * 业务传入的变量在表单中无权限
+      * <p> 示例值：
+      */
         private String[][] noPermissonApis;
 
         /**
          * 是否成功
          * <p> 示例值：false
-         *
          * @param success
          * @return
          */
         public Builder success(Boolean success) {
-            this.success = success;
-            return this;
+             this.success = success;
+             return this;
         }
 
+    
 
         /**
          * 当出现某个控件校验不通过时，会用此字段返回校验结果，map格式
          * <p> 示例值：null
-         *
          * @param fieldValidateErrorMessages
          * @return
          */
         public Builder fieldValidateErrorMessages(String fieldValidateErrorMessages) {
-            this.fieldValidateErrorMessages = fieldValidateErrorMessages;
-            return this;
+             this.fieldValidateErrorMessages = fieldValidateErrorMessages;
+             return this;
         }
 
+    
 
         /**
          * 当出现配置了表单提交校验，且校验不通过时，会用此字段返回校验结果。
          * <p> 示例值：
-         *
          * @param formValidateErrorMessages
          * @return
          */
         public Builder formValidateErrorMessages(BpmDataengineI18n[] formValidateErrorMessages) {
-            this.formValidateErrorMessages = formValidateErrorMessages;
-            return this;
+             this.formValidateErrorMessages = formValidateErrorMessages;
+             return this;
         }
 
+    
 
         /**
          * 申请人未填写
          * <p> 示例值：map
-         *
          * @param systemErrorMessage
          * @return
          */
         public Builder systemErrorMessage(BpmFormErrorMessage systemErrorMessage) {
-            this.systemErrorMessage = systemErrorMessage;
-            return this;
+             this.systemErrorMessage = systemErrorMessage;
+             return this;
         }
 
+    
 
         /**
          * 明细控件、高级控件校验不通过时，会用此字段返回校验结果。
          * <p> 示例值：null
-         *
          * @param advancedFieldCheckResultList
          * @return
          */
         public Builder advancedFieldCheckResultList(String advancedFieldCheckResultList) {
-            this.advancedFieldCheckResultList = advancedFieldCheckResultList;
-            return this;
+             this.advancedFieldCheckResultList = advancedFieldCheckResultList;
+             return this;
         }
 
+    
 
         /**
          * 用于多维表格导出场景的校验文案返回
          * <p> 示例值：
-         *
          * @param errMessageForExport
          * @return
          */
         public Builder errMessageForExport(BpmDataengineI18n[] errMessageForExport) {
-            this.errMessageForExport = errMessageForExport;
-            return this;
+             this.errMessageForExport = errMessageForExport;
+             return this;
         }
 
+    
 
         /**
          * 业务传入的变量在表单中无权限
          * <p> 示例值：
-         *
          * @param noPermissonApis
          * @return
          */
         public Builder noPermissonApis(String[][] noPermissonApis) {
-            this.noPermissonApis = noPermissonApis;
-            return this;
+             this.noPermissonApis = noPermissonApis;
+             return this;
         }
 
+    
+    
+    public BatchCheckFormInstanceI18nResult build(){
+        return new BatchCheckFormInstanceI18nResult(this);
+      }
+    }
 
-        public BatchCheckFormInstanceI18nResult build() {
-            return new BatchCheckFormInstanceI18nResult(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

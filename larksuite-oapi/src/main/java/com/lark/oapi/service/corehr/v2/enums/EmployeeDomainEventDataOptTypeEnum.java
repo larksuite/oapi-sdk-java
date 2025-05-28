@@ -17,17 +17,16 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 操作类型
  */
 public enum EmployeeDomainEventDataOptTypeEnum {
-    ADD(1), // 新增
-    UPDATE(2), // 修改
-    DELETE(3), // 删除
-    ;
-    private Integer value;
-
+     ADD(1), // 新增
+     UPDATE(2), // 修改
+     DELETE(3), // 删除
+  ;
+   private Integer value;
     EmployeeDomainEventDataOptTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

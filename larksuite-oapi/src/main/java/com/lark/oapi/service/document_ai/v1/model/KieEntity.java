@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class KieEntity {
-    /**
-     * 识别信息的key
-     * <p> 示例值：取样地点
-     */
+     /**
+      * 识别信息的key
+      * <p> 示例值：取样地点
+      */
     @SerializedName("key")
     private String key;
-    /**
-     * 识别信息的值
-     * <p> 示例值：库房
-     */
+     /**
+      * 识别信息的值
+      * <p> 示例值：库房
+      */
     @SerializedName("value")
     private String value;
-
-    // builder 开始
-    public KieEntity() {
-    }
-
-    public KieEntity(Builder builder) {
-        /**
-         * 识别信息的key
-         * <p> 示例值：取样地点
-         */
-        this.key = builder.key;
-        /**
-         * 识别信息的值
-         * <p> 示例值：库房
-         */
-        this.value = builder.value;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKey() {
         return this.key;
     }
@@ -79,46 +53,67 @@ public class KieEntity {
         this.value = value;
     }
 
+
+// builder 开始
+  public KieEntity(){}
+
+  public KieEntity(Builder builder){
+         /**
+          * 识别信息的key
+          * <p> 示例值：取样地点
+          */
+      this.key = builder.key;
+         /**
+          * 识别信息的值
+          * <p> 示例值：库房
+          */
+      this.value = builder.value;
+  }
+
     public static class Builder {
-        /**
-         * 识别信息的key
-         * <p> 示例值：取样地点
-         */
+     /**
+      * 识别信息的key
+      * <p> 示例值：取样地点
+      */
         private String key;
-        /**
-         * 识别信息的值
-         * <p> 示例值：库房
-         */
+     /**
+      * 识别信息的值
+      * <p> 示例值：库房
+      */
         private String value;
 
         /**
          * 识别信息的key
          * <p> 示例值：取样地点
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
 
         /**
          * 识别信息的值
          * <p> 示例值：库房
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
+    
+    public KieEntity build(){
+        return new KieEntity(this);
+      }
+    }
 
-        public KieEntity build() {
-            return new KieEntity(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

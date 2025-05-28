@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EmploymentCostAllocation {
-    /**
-     * id
-     * <p> 示例值：703912325303191204
-     */
+     /**
+      * id
+      * <p> 示例值：703912325303191204
+      */
     @SerializedName("wk_id")
     private String wkId;
-    /**
-     * 分摊生效日期
-     * <p> 示例值：2024-12-01
-     */
+     /**
+      * 分摊生效日期
+      * <p> 示例值：2024-12-01
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 分摊失效日期
-     * <p> 示例值：2024-12-02
-     */
+     /**
+      * 分摊失效日期
+      * <p> 示例值：2024-12-02
+      */
     @SerializedName("expiration_time")
     private String expirationTime;
-    /**
-     * 成本分摊
-     * <p> 示例值：
-     */
+     /**
+      * 成本分摊
+      * <p> 示例值：
+      */
     @SerializedName("job_data_cost_center_id")
     private JobDataCostCenter[] jobDataCostCenterId;
-    /**
-     * 任职id
-     * <p> 示例值：
-     */
+     /**
+      * 任职id
+      * <p> 示例值：
+      */
     @SerializedName("job_data_id")
     private JobDataId jobDataId;
-    /**
-     * 变更原因
-     * <p> 示例值：异动
-     */
+     /**
+      * 变更原因
+      * <p> 示例值：异动
+      */
     @SerializedName("reason")
     private String reason;
-
-    // builder 开始
-    public EmploymentCostAllocation() {
-    }
-
-    public EmploymentCostAllocation(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：703912325303191204
-         */
-        this.wkId = builder.wkId;
-        /**
-         * 分摊生效日期
-         * <p> 示例值：2024-12-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 分摊失效日期
-         * <p> 示例值：2024-12-02
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
-        this.jobDataCostCenterId = builder.jobDataCostCenterId;
-        /**
-         * 任职id
-         * <p> 示例值：
-         */
-        this.jobDataId = builder.jobDataId;
-        /**
-         * 变更原因
-         * <p> 示例值：异动
-         */
-        this.reason = builder.reason;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getWkId() {
         return this.wkId;
     }
@@ -155,118 +109,159 @@ public class EmploymentCostAllocation {
         this.reason = reason;
     }
 
+
+// builder 开始
+  public EmploymentCostAllocation(){}
+
+  public EmploymentCostAllocation(Builder builder){
+         /**
+          * id
+          * <p> 示例值：703912325303191204
+          */
+      this.wkId = builder.wkId;
+         /**
+          * 分摊生效日期
+          * <p> 示例值：2024-12-01
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 分摊失效日期
+          * <p> 示例值：2024-12-02
+          */
+      this.expirationTime = builder.expirationTime;
+         /**
+          * 成本分摊
+          * <p> 示例值：
+          */
+      this.jobDataCostCenterId = builder.jobDataCostCenterId;
+         /**
+          * 任职id
+          * <p> 示例值：
+          */
+      this.jobDataId = builder.jobDataId;
+         /**
+          * 变更原因
+          * <p> 示例值：异动
+          */
+      this.reason = builder.reason;
+  }
+
     public static class Builder {
-        /**
-         * id
-         * <p> 示例值：703912325303191204
-         */
+     /**
+      * id
+      * <p> 示例值：703912325303191204
+      */
         private String wkId;
-        /**
-         * 分摊生效日期
-         * <p> 示例值：2024-12-01
-         */
+     /**
+      * 分摊生效日期
+      * <p> 示例值：2024-12-01
+      */
         private String effectiveTime;
-        /**
-         * 分摊失效日期
-         * <p> 示例值：2024-12-02
-         */
+     /**
+      * 分摊失效日期
+      * <p> 示例值：2024-12-02
+      */
         private String expirationTime;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
+     /**
+      * 成本分摊
+      * <p> 示例值：
+      */
         private JobDataCostCenter[] jobDataCostCenterId;
-        /**
-         * 任职id
-         * <p> 示例值：
-         */
+     /**
+      * 任职id
+      * <p> 示例值：
+      */
         private JobDataId jobDataId;
-        /**
-         * 变更原因
-         * <p> 示例值：异动
-         */
+     /**
+      * 变更原因
+      * <p> 示例值：异动
+      */
         private String reason;
 
         /**
          * id
          * <p> 示例值：703912325303191204
-         *
          * @param wkId
          * @return
          */
         public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
+             this.wkId = wkId;
+             return this;
         }
 
+    
 
         /**
          * 分摊生效日期
          * <p> 示例值：2024-12-01
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 分摊失效日期
          * <p> 示例值：2024-12-02
-         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
+             this.expirationTime = expirationTime;
+             return this;
         }
 
+    
 
         /**
          * 成本分摊
          * <p> 示例值：
-         *
          * @param jobDataCostCenterId
          * @return
          */
         public Builder jobDataCostCenterId(JobDataCostCenter[] jobDataCostCenterId) {
-            this.jobDataCostCenterId = jobDataCostCenterId;
-            return this;
+             this.jobDataCostCenterId = jobDataCostCenterId;
+             return this;
         }
 
+    
 
         /**
          * 任职id
          * <p> 示例值：
-         *
          * @param jobDataId
          * @return
          */
         public Builder jobDataId(JobDataId jobDataId) {
-            this.jobDataId = jobDataId;
-            return this;
+             this.jobDataId = jobDataId;
+             return this;
         }
 
+    
 
         /**
          * 变更原因
          * <p> 示例值：异动
-         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
+             this.reason = reason;
+             return this;
         }
 
+    
+    
+    public EmploymentCostAllocation build(){
+        return new EmploymentCostAllocation(this);
+      }
+    }
 
-        public EmploymentCostAllocation build() {
-            return new EmploymentCostAllocation(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

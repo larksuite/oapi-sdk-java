@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MergeRange {
-    /**
-     * 起始行
-     * <p> 示例值：0
-     */
+     /**
+      * 起始行
+      * <p> 示例值：0
+      */
     @SerializedName("start_row_index")
     private Integer startRowIndex;
-    /**
-     * 结束行
-     * <p> 示例值：0
-     */
+     /**
+      * 结束行
+      * <p> 示例值：0
+      */
     @SerializedName("end_row_index")
     private Integer endRowIndex;
-    /**
-     * 起始列
-     * <p> 示例值：0
-     */
+     /**
+      * 起始列
+      * <p> 示例值：0
+      */
     @SerializedName("start_column_index")
     private Integer startColumnIndex;
-    /**
-     * 结束列
-     * <p> 示例值：0
-     */
+     /**
+      * 结束列
+      * <p> 示例值：0
+      */
     @SerializedName("end_column_index")
     private Integer endColumnIndex;
-
-    // builder 开始
-    public MergeRange() {
-    }
-
-    public MergeRange(Builder builder) {
-        /**
-         * 起始行
-         * <p> 示例值：0
-         */
-        this.startRowIndex = builder.startRowIndex;
-        /**
-         * 结束行
-         * <p> 示例值：0
-         */
-        this.endRowIndex = builder.endRowIndex;
-        /**
-         * 起始列
-         * <p> 示例值：0
-         */
-        this.startColumnIndex = builder.startColumnIndex;
-        /**
-         * 结束列
-         * <p> 示例值：0
-         */
-        this.endColumnIndex = builder.endColumnIndex;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getStartRowIndex() {
         return this.startRowIndex;
     }
@@ -117,82 +81,113 @@ public class MergeRange {
         this.endColumnIndex = endColumnIndex;
     }
 
+
+// builder 开始
+  public MergeRange(){}
+
+  public MergeRange(Builder builder){
+         /**
+          * 起始行
+          * <p> 示例值：0
+          */
+      this.startRowIndex = builder.startRowIndex;
+         /**
+          * 结束行
+          * <p> 示例值：0
+          */
+      this.endRowIndex = builder.endRowIndex;
+         /**
+          * 起始列
+          * <p> 示例值：0
+          */
+      this.startColumnIndex = builder.startColumnIndex;
+         /**
+          * 结束列
+          * <p> 示例值：0
+          */
+      this.endColumnIndex = builder.endColumnIndex;
+  }
+
     public static class Builder {
-        /**
-         * 起始行
-         * <p> 示例值：0
-         */
+     /**
+      * 起始行
+      * <p> 示例值：0
+      */
         private Integer startRowIndex;
-        /**
-         * 结束行
-         * <p> 示例值：0
-         */
+     /**
+      * 结束行
+      * <p> 示例值：0
+      */
         private Integer endRowIndex;
-        /**
-         * 起始列
-         * <p> 示例值：0
-         */
+     /**
+      * 起始列
+      * <p> 示例值：0
+      */
         private Integer startColumnIndex;
-        /**
-         * 结束列
-         * <p> 示例值：0
-         */
+     /**
+      * 结束列
+      * <p> 示例值：0
+      */
         private Integer endColumnIndex;
 
         /**
          * 起始行
          * <p> 示例值：0
-         *
          * @param startRowIndex
          * @return
          */
         public Builder startRowIndex(Integer startRowIndex) {
-            this.startRowIndex = startRowIndex;
-            return this;
+             this.startRowIndex = startRowIndex;
+             return this;
         }
 
+    
 
         /**
          * 结束行
          * <p> 示例值：0
-         *
          * @param endRowIndex
          * @return
          */
         public Builder endRowIndex(Integer endRowIndex) {
-            this.endRowIndex = endRowIndex;
-            return this;
+             this.endRowIndex = endRowIndex;
+             return this;
         }
 
+    
 
         /**
          * 起始列
          * <p> 示例值：0
-         *
          * @param startColumnIndex
          * @return
          */
         public Builder startColumnIndex(Integer startColumnIndex) {
-            this.startColumnIndex = startColumnIndex;
-            return this;
+             this.startColumnIndex = startColumnIndex;
+             return this;
         }
 
+    
 
         /**
          * 结束列
          * <p> 示例值：0
-         *
          * @param endColumnIndex
          * @return
          */
         public Builder endColumnIndex(Integer endColumnIndex) {
-            this.endColumnIndex = endColumnIndex;
-            return this;
+             this.endColumnIndex = endColumnIndex;
+             return this;
         }
 
+    
+    
+    public MergeRange build(){
+        return new MergeRange(this);
+      }
+    }
 
-        public MergeRange build() {
-            return new MergeRange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

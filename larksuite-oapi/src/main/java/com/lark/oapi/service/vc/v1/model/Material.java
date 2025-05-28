@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Material {
-    /**
-     * 素材名称
-     * <p> 示例值：green
-     */
+     /**
+      * 素材名称
+      * <p> 示例值：green
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 文件上传drive后的token
-     * <p> 示例值：u8ajdjadau8wqu
-     */
+     /**
+      * 文件上传drive后的token
+      * <p> 示例值：u8ajdjadau8wqu
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 文件大小(KB)
-     * <p> 示例值：1024
-     */
+     /**
+      * 文件大小(KB)
+      * <p> 示例值：1024
+      */
     @SerializedName("file_size")
     private Integer fileSize;
-    /**
-     * 素材适用设备类型
-     * <p> 示例值：2
-     */
+     /**
+      * 素材适用设备类型
+      * <p> 示例值：2
+      */
     @SerializedName("device_type")
     private Integer deviceType;
-    /**
-     * 素材类型
-     * <p> 示例值：2
-     */
+     /**
+      * 素材类型
+      * <p> 示例值：2
+      */
     @SerializedName("material_type")
     private Integer materialType;
-    /**
-     * 审核结果
-     * <p> 示例值：2
-     */
+     /**
+      * 审核结果
+      * <p> 示例值：2
+      */
     @SerializedName("review_result")
     private Integer reviewResult;
-    /**
-     * 素材来源
-     * <p> 示例值：2
-     */
+     /**
+      * 素材来源
+      * <p> 示例值：2
+      */
     @SerializedName("material_source")
     private Integer materialSource;
-
-    // builder 开始
-    public Material() {
-    }
-
-    public Material(Builder builder) {
-        /**
-         * 素材名称
-         * <p> 示例值：green
-         */
-        this.name = builder.name;
-        /**
-         * 文件上传drive后的token
-         * <p> 示例值：u8ajdjadau8wqu
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 文件大小(KB)
-         * <p> 示例值：1024
-         */
-        this.fileSize = builder.fileSize;
-        /**
-         * 素材适用设备类型
-         * <p> 示例值：2
-         */
-        this.deviceType = builder.deviceType;
-        /**
-         * 素材类型
-         * <p> 示例值：2
-         */
-        this.materialType = builder.materialType;
-        /**
-         * 审核结果
-         * <p> 示例值：2
-         */
-        this.reviewResult = builder.reviewResult;
-        /**
-         * 素材来源
-         * <p> 示例值：2
-         */
-        this.materialSource = builder.materialSource;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -174,184 +123,222 @@ public class Material {
         this.materialSource = materialSource;
     }
 
+
+// builder 开始
+  public Material(){}
+
+  public Material(Builder builder){
+         /**
+          * 素材名称
+          * <p> 示例值：green
+          */
+      this.name = builder.name;
+         /**
+          * 文件上传drive后的token
+          * <p> 示例值：u8ajdjadau8wqu
+          */
+      this.fileToken = builder.fileToken;
+         /**
+          * 文件大小(KB)
+          * <p> 示例值：1024
+          */
+      this.fileSize = builder.fileSize;
+         /**
+          * 素材适用设备类型
+          * <p> 示例值：2
+          */
+      this.deviceType = builder.deviceType;
+         /**
+          * 素材类型
+          * <p> 示例值：2
+          */
+      this.materialType = builder.materialType;
+         /**
+          * 审核结果
+          * <p> 示例值：2
+          */
+      this.reviewResult = builder.reviewResult;
+         /**
+          * 素材来源
+          * <p> 示例值：2
+          */
+      this.materialSource = builder.materialSource;
+  }
+
     public static class Builder {
-        /**
-         * 素材名称
-         * <p> 示例值：green
-         */
+     /**
+      * 素材名称
+      * <p> 示例值：green
+      */
         private String name;
-        /**
-         * 文件上传drive后的token
-         * <p> 示例值：u8ajdjadau8wqu
-         */
+     /**
+      * 文件上传drive后的token
+      * <p> 示例值：u8ajdjadau8wqu
+      */
         private String fileToken;
-        /**
-         * 文件大小(KB)
-         * <p> 示例值：1024
-         */
+     /**
+      * 文件大小(KB)
+      * <p> 示例值：1024
+      */
         private Integer fileSize;
-        /**
-         * 素材适用设备类型
-         * <p> 示例值：2
-         */
+     /**
+      * 素材适用设备类型
+      * <p> 示例值：2
+      */
         private Integer deviceType;
-        /**
-         * 素材类型
-         * <p> 示例值：2
-         */
+     /**
+      * 素材类型
+      * <p> 示例值：2
+      */
         private Integer materialType;
-        /**
-         * 审核结果
-         * <p> 示例值：2
-         */
+     /**
+      * 审核结果
+      * <p> 示例值：2
+      */
         private Integer reviewResult;
-        /**
-         * 素材来源
-         * <p> 示例值：2
-         */
+     /**
+      * 素材来源
+      * <p> 示例值：2
+      */
         private Integer materialSource;
 
         /**
          * 素材名称
          * <p> 示例值：green
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 文件上传drive后的token
          * <p> 示例值：u8ajdjadau8wqu
-         *
          * @param fileToken
          * @return
          */
         public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
+             this.fileToken = fileToken;
+             return this;
         }
 
+    
 
         /**
          * 文件大小(KB)
          * <p> 示例值：1024
-         *
          * @param fileSize
          * @return
          */
         public Builder fileSize(Integer fileSize) {
-            this.fileSize = fileSize;
-            return this;
+             this.fileSize = fileSize;
+             return this;
         }
 
+    
 
         /**
          * 素材适用设备类型
          * <p> 示例值：2
-         *
          * @param deviceType
          * @return
          */
         public Builder deviceType(Integer deviceType) {
-            this.deviceType = deviceType;
-            return this;
+             this.deviceType = deviceType;
+             return this;
         }
-
         /**
          * 素材适用设备类型
          * <p> 示例值：2
-         *
          * @param deviceType {@link com.lark.oapi.service.vc.v1.enums.MaterialDeviceTypeEnum}
          * @return
          */
         public Builder deviceType(com.lark.oapi.service.vc.v1.enums.MaterialDeviceTypeEnum deviceType) {
-            this.deviceType = deviceType.getValue();
-            return this;
+             this.deviceType = deviceType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 素材类型
          * <p> 示例值：2
-         *
          * @param materialType
          * @return
          */
         public Builder materialType(Integer materialType) {
-            this.materialType = materialType;
-            return this;
+             this.materialType = materialType;
+             return this;
         }
-
         /**
          * 素材类型
          * <p> 示例值：2
-         *
          * @param materialType {@link com.lark.oapi.service.vc.v1.enums.MaterialMaterialTypeEnum}
          * @return
          */
         public Builder materialType(com.lark.oapi.service.vc.v1.enums.MaterialMaterialTypeEnum materialType) {
-            this.materialType = materialType.getValue();
-            return this;
+             this.materialType = materialType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 审核结果
          * <p> 示例值：2
-         *
          * @param reviewResult
          * @return
          */
         public Builder reviewResult(Integer reviewResult) {
-            this.reviewResult = reviewResult;
-            return this;
+             this.reviewResult = reviewResult;
+             return this;
         }
-
         /**
          * 审核结果
          * <p> 示例值：2
-         *
          * @param reviewResult {@link com.lark.oapi.service.vc.v1.enums.MaterialReviewResultEnum}
          * @return
          */
         public Builder reviewResult(com.lark.oapi.service.vc.v1.enums.MaterialReviewResultEnum reviewResult) {
-            this.reviewResult = reviewResult.getValue();
-            return this;
+             this.reviewResult = reviewResult.getValue();
+             return this;
         }
 
+    
 
         /**
          * 素材来源
          * <p> 示例值：2
-         *
          * @param materialSource
          * @return
          */
         public Builder materialSource(Integer materialSource) {
-            this.materialSource = materialSource;
-            return this;
+             this.materialSource = materialSource;
+             return this;
         }
-
         /**
          * 素材来源
          * <p> 示例值：2
-         *
          * @param materialSource {@link com.lark.oapi.service.vc.v1.enums.MaterialMaterialSourceEnum}
          * @return
          */
         public Builder materialSource(com.lark.oapi.service.vc.v1.enums.MaterialMaterialSourceEnum materialSource) {
-            this.materialSource = materialSource.getValue();
-            return this;
+             this.materialSource = materialSource.getValue();
+             return this;
         }
 
+    
+    
+    public Material build(){
+        return new Material(this);
+      }
+    }
 
-        public Material build() {
-            return new Material(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

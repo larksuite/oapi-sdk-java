@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MyAiSearchDefinitionScenarioContext {
-    /**
-     * 用户的原始输入
-     * <p> 示例值：帮我发起报销申请
-     */
+     /**
+      * 用户的原始输入
+      * <p> 示例值：帮我发起报销申请
+      */
     @SerializedName("tool_raw_instruction")
     private String toolRawInstruction;
-
-    // builder 开始
-    public MyAiSearchDefinitionScenarioContext() {
-    }
-
-    public MyAiSearchDefinitionScenarioContext(Builder builder) {
-        /**
-         * 用户的原始输入
-         * <p> 示例值：帮我发起报销申请
-         */
-        this.toolRawInstruction = builder.toolRawInstruction;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getToolRawInstruction() {
         return this.toolRawInstruction;
     }
@@ -60,28 +39,44 @@ public class MyAiSearchDefinitionScenarioContext {
         this.toolRawInstruction = toolRawInstruction;
     }
 
+
+// builder 开始
+  public MyAiSearchDefinitionScenarioContext(){}
+
+  public MyAiSearchDefinitionScenarioContext(Builder builder){
+         /**
+          * 用户的原始输入
+          * <p> 示例值：帮我发起报销申请
+          */
+      this.toolRawInstruction = builder.toolRawInstruction;
+  }
+
     public static class Builder {
-        /**
-         * 用户的原始输入
-         * <p> 示例值：帮我发起报销申请
-         */
+     /**
+      * 用户的原始输入
+      * <p> 示例值：帮我发起报销申请
+      */
         private String toolRawInstruction;
 
         /**
          * 用户的原始输入
          * <p> 示例值：帮我发起报销申请
-         *
          * @param toolRawInstruction
          * @return
          */
         public Builder toolRawInstruction(String toolRawInstruction) {
-            this.toolRawInstruction = toolRawInstruction;
-            return this;
+             this.toolRawInstruction = toolRawInstruction;
+             return this;
         }
 
+    
+    
+    public MyAiSearchDefinitionScenarioContext build(){
+        return new MyAiSearchDefinitionScenarioContext(this);
+      }
+    }
 
-        public MyAiSearchDefinitionScenarioContext build() {
-            return new MyAiSearchDefinitionScenarioContext(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

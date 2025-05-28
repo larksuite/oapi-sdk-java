@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchDeleteAppRoleMemberReq {
-    /**
-     * 多维表格文档 Token
-     * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
-     */
+     /**
+      * 多维表格文档 Token
+      * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
+      */
     @Path
     @SerializedName("app_token")
     private String appToken;
-    /**
-     * 自定义角色 ID
-     * <p> 示例值：rolNGhPqks
-     */
+     /**
+      * 自定义角色 ID
+      * <p> 示例值：rolNGhPqks
+      */
     @Path
     @SerializedName("role_id")
     private String roleId;
-    @Body
-    private BatchDeleteAppRoleMemberReqBody body;
-
-    // builder 开始
-    public BatchDeleteAppRoleMemberReq() {
-    }
-
-    public BatchDeleteAppRoleMemberReq(Builder builder) {
-        /**
-         * 多维表格文档 Token
-         * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 自定义角色 ID
-         * <p> 示例值：rolNGhPqks
-         */
-        this.roleId = builder.roleId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAppToken() {
         return this.appToken;
     }
@@ -83,6 +54,9 @@ public class BatchDeleteAppRoleMemberReq {
         this.roleId = roleId;
     }
 
+    @Body
+    private BatchDeleteAppRoleMemberReqBody body;
+
     public BatchDeleteAppRoleMemberReqBody getBatchDeleteAppRoleMemberReqBody() {
         return this.body;
     }
@@ -91,53 +65,72 @@ public class BatchDeleteAppRoleMemberReq {
         this.body = body;
     }
 
-    public static class Builder {
+// builder 开始
+  public BatchDeleteAppRoleMemberReq(){}
 
+  public BatchDeleteAppRoleMemberReq(Builder builder){
+     /**
+      * 多维表格文档 Token
+      * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
+      */
+       this.appToken = builder.appToken;
+     /**
+      * 自定义角色 ID
+      * <p> 示例值：rolNGhPqks
+      */
+       this.roleId = builder.roleId;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+    
         private String appToken; // 多维表格文档 Token
         private String roleId; // 自定义角色 ID
-        private BatchDeleteAppRoleMemberReqBody body;
-
         /**
          * 多维表格文档 Token
          * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
-         *
          * @param appToken
          * @return
          */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
 
+    
         /**
          * 自定义角色 ID
          * <p> 示例值：rolNGhPqks
-         *
          * @param roleId
          * @return
          */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
+          public Builder roleId(String roleId) {
+               this.roleId = roleId;
+               return this;
+          }
 
+    
+        private BatchDeleteAppRoleMemberReqBody body;
+    
         public BatchDeleteAppRoleMemberReqBody getBatchDeleteAppRoleMemberReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder batchDeleteAppRoleMemberReqBody(BatchDeleteAppRoleMemberReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public BatchDeleteAppRoleMemberReq build(){
+        return new BatchDeleteAppRoleMemberReq(this);
+      }
+    }
 
-        public BatchDeleteAppRoleMemberReq build() {
-            return new BatchDeleteAppRoleMemberReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

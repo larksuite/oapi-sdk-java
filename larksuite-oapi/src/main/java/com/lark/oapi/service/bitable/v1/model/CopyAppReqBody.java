@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CopyAppReqBody {
-    /**
-     * 多维表格 App 名字
-     * <p> 示例值：一篇新的多维表格
-     */
+     /**
+      * 多维表格 App 名字
+      * <p> 示例值：一篇新的多维表格
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 多维表格 App 归属文件夹
-     * <p> 示例值：fldbco*****CIMltVc
-     */
+     /**
+      * 多维表格 App 归属文件夹
+      * <p> 示例值：fldbco*****CIMltVc
+      */
     @SerializedName("folder_token")
     private String folderToken;
-    /**
-     * 不复制文档内容，只复制文档结构
-     * <p> 示例值：false
-     */
+     /**
+      * 不复制文档内容，只复制文档结构
+      * <p> 示例值：false
+      */
     @SerializedName("without_content")
     private Boolean withoutContent;
-    /**
-     * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-     * <p> 示例值：Asia/Shanghai
-     */
+     /**
+      * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+      * <p> 示例值：Asia/Shanghai
+      */
     @SerializedName("time_zone")
     private String timeZone;
-
-    // builder 开始
-    public CopyAppReqBody() {
-    }
-
-    public CopyAppReqBody(Builder builder) {
-        /**
-         * 多维表格 App 名字
-         * <p> 示例值：一篇新的多维表格
-         */
-        this.name = builder.name;
-        /**
-         * 多维表格 App 归属文件夹
-         * <p> 示例值：fldbco*****CIMltVc
-         */
-        this.folderToken = builder.folderToken;
-        /**
-         * 不复制文档内容，只复制文档结构
-         * <p> 示例值：false
-         */
-        this.withoutContent = builder.withoutContent;
-        /**
-         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timeZone = builder.timeZone;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -117,82 +81,113 @@ public class CopyAppReqBody {
         this.timeZone = timeZone;
     }
 
+
+// builder 开始
+  public CopyAppReqBody(){}
+
+  public CopyAppReqBody(Builder builder){
+         /**
+          * 多维表格 App 名字
+          * <p> 示例值：一篇新的多维表格
+          */
+      this.name = builder.name;
+         /**
+          * 多维表格 App 归属文件夹
+          * <p> 示例值：fldbco*****CIMltVc
+          */
+      this.folderToken = builder.folderToken;
+         /**
+          * 不复制文档内容，只复制文档结构
+          * <p> 示例值：false
+          */
+      this.withoutContent = builder.withoutContent;
+         /**
+          * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+          * <p> 示例值：Asia/Shanghai
+          */
+      this.timeZone = builder.timeZone;
+  }
+
     public static class Builder {
-        /**
-         * 多维表格 App 名字
-         * <p> 示例值：一篇新的多维表格
-         */
+     /**
+      * 多维表格 App 名字
+      * <p> 示例值：一篇新的多维表格
+      */
         private String name;
-        /**
-         * 多维表格 App 归属文件夹
-         * <p> 示例值：fldbco*****CIMltVc
-         */
+     /**
+      * 多维表格 App 归属文件夹
+      * <p> 示例值：fldbco*****CIMltVc
+      */
         private String folderToken;
-        /**
-         * 不复制文档内容，只复制文档结构
-         * <p> 示例值：false
-         */
+     /**
+      * 不复制文档内容，只复制文档结构
+      * <p> 示例值：false
+      */
         private Boolean withoutContent;
-        /**
-         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-         * <p> 示例值：Asia/Shanghai
-         */
+     /**
+      * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+      * <p> 示例值：Asia/Shanghai
+      */
         private String timeZone;
 
         /**
          * 多维表格 App 名字
          * <p> 示例值：一篇新的多维表格
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 多维表格 App 归属文件夹
          * <p> 示例值：fldbco*****CIMltVc
-         *
          * @param folderToken
          * @return
          */
         public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
+             this.folderToken = folderToken;
+             return this;
         }
 
+    
 
         /**
          * 不复制文档内容，只复制文档结构
          * <p> 示例值：false
-         *
          * @param withoutContent
          * @return
          */
         public Builder withoutContent(Boolean withoutContent) {
-            this.withoutContent = withoutContent;
-            return this;
+             this.withoutContent = withoutContent;
+             return this;
         }
 
+    
 
         /**
          * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
          * <p> 示例值：Asia/Shanghai
-         *
          * @param timeZone
          * @return
          */
         public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
+             this.timeZone = timeZone;
+             return this;
         }
 
+    
+    
+    public CopyAppReqBody build(){
+        return new CopyAppReqBody(this);
+      }
+    }
 
-        public CopyAppReqBody build() {
-            return new CopyAppReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

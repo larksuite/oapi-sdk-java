@@ -17,16 +17,15 @@ package com.lark.oapi.service.im.v1.enums;
  * 谁可以发起视频会议
  */
 public enum CreateChatVideoConferenceSettingTypeEnum {
-    ONLY_OWNER("only_owner"), // 仅群主和管理员
-    ALL_MEMBERS("all_members"), // 所有成员
-    ;
-    private String value;
-
+     ONLY_OWNER("only_owner"), // 仅群主和管理员
+     ALL_MEMBERS("all_members"), // 所有成员
+  ;
+   private String value;
     CreateChatVideoConferenceSettingTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

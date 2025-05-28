@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TaskInfo {
-    /**
-     * -
-     * <p> 示例值：-
-     */
+     /**
+      * -
+      * <p> 示例值：-
+      */
     @SerializedName("task_id")
     private String taskId;
-    /**
-     * -
-     * <p> 示例值：-
-     */
+     /**
+      * -
+      * <p> 示例值：-
+      */
     @SerializedName("task_progress")
     private String taskProgress;
-    /**
-     * -
-     * <p> 示例值：-
-     */
+     /**
+      * -
+      * <p> 示例值：-
+      */
     @SerializedName("task_status")
     private String taskStatus;
-
-    // builder 开始
-    public TaskInfo() {
-    }
-
-    public TaskInfo(Builder builder) {
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.taskId = builder.taskId;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.taskProgress = builder.taskProgress;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.taskStatus = builder.taskStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTaskId() {
         return this.taskId;
     }
@@ -98,64 +67,90 @@ public class TaskInfo {
         this.taskStatus = taskStatus;
     }
 
+
+// builder 开始
+  public TaskInfo(){}
+
+  public TaskInfo(Builder builder){
+         /**
+          * -
+          * <p> 示例值：-
+          */
+      this.taskId = builder.taskId;
+         /**
+          * -
+          * <p> 示例值：-
+          */
+      this.taskProgress = builder.taskProgress;
+         /**
+          * -
+          * <p> 示例值：-
+          */
+      this.taskStatus = builder.taskStatus;
+  }
+
     public static class Builder {
-        /**
-         * -
-         * <p> 示例值：-
-         */
+     /**
+      * -
+      * <p> 示例值：-
+      */
         private String taskId;
-        /**
-         * -
-         * <p> 示例值：-
-         */
+     /**
+      * -
+      * <p> 示例值：-
+      */
         private String taskProgress;
-        /**
-         * -
-         * <p> 示例值：-
-         */
+     /**
+      * -
+      * <p> 示例值：-
+      */
         private String taskStatus;
 
         /**
          * -
          * <p> 示例值：-
-         *
          * @param taskId
          * @return
          */
         public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
+             this.taskId = taskId;
+             return this;
         }
 
+    
 
         /**
          * -
          * <p> 示例值：-
-         *
          * @param taskProgress
          * @return
          */
         public Builder taskProgress(String taskProgress) {
-            this.taskProgress = taskProgress;
-            return this;
+             this.taskProgress = taskProgress;
+             return this;
         }
 
+    
 
         /**
          * -
          * <p> 示例值：-
-         *
          * @param taskStatus
          * @return
          */
         public Builder taskStatus(String taskStatus) {
-            this.taskStatus = taskStatus;
-            return this;
+             this.taskStatus = taskStatus;
+             return this;
         }
 
+    
+    
+    public TaskInfo build(){
+        return new TaskInfo(this);
+      }
+    }
 
-        public TaskInfo build() {
-            return new TaskInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

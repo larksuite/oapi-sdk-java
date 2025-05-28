@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QuerySpreadsheetSheetReq {
-    /**
-     * 电子表格的token
-     * <p> 示例值：shtxxxxxxxxxxxxxxxx
-     */
+     /**
+      * 电子表格的token
+      * <p> 示例值：shtxxxxxxxxxxxxxxxx
+      */
     @Path
     @SerializedName("spreadsheet_token")
     private String spreadsheetToken;
-
-    // builder 开始
-    public QuerySpreadsheetSheetReq() {
-    }
-
-    public QuerySpreadsheetSheetReq(Builder builder) {
-        /**
-         * 电子表格的token
-         * <p> 示例值：shtxxxxxxxxxxxxxxxx
-         */
-        this.spreadsheetToken = builder.spreadsheetToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSpreadsheetToken() {
         return this.spreadsheetToken;
     }
@@ -60,25 +39,39 @@ public class QuerySpreadsheetSheetReq {
         this.spreadsheetToken = spreadsheetToken;
     }
 
+
+// builder 开始
+  public QuerySpreadsheetSheetReq(){}
+
+  public QuerySpreadsheetSheetReq(Builder builder){
+     /**
+      * 电子表格的token
+      * <p> 示例值：shtxxxxxxxxxxxxxxxx
+      */
+       this.spreadsheetToken = builder.spreadsheetToken;
+  }
+
     public static class Builder {
-
+    
         private String spreadsheetToken; // 电子表格的token
-
         /**
          * 电子表格的token
          * <p> 示例值：shtxxxxxxxxxxxxxxxx
-         *
          * @param spreadsheetToken
          * @return
          */
-        public Builder spreadsheetToken(String spreadsheetToken) {
-            this.spreadsheetToken = spreadsheetToken;
-            return this;
-        }
+          public Builder spreadsheetToken(String spreadsheetToken) {
+               this.spreadsheetToken = spreadsheetToken;
+               return this;
+          }
 
+    
+    public QuerySpreadsheetSheetReq build(){
+        return new QuerySpreadsheetSheetReq(this);
+      }
+    }
 
-        public QuerySpreadsheetSheetReq build() {
-            return new QuerySpreadsheetSheetReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

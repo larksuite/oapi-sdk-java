@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DateTime {
-    /**
-     * 时间日期
-     * <p> 示例值：2022/02/22
-     */
+     /**
+      * 时间日期
+      * <p> 示例值：2022/02/22
+      */
     @SerializedName("date_time")
     private String dateTime;
-
-    // builder 开始
-    public DateTime() {
-    }
-
-    public DateTime(Builder builder) {
-        /**
-         * 时间日期
-         * <p> 示例值：2022/02/22
-         */
-        this.dateTime = builder.dateTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDateTime() {
         return this.dateTime;
     }
@@ -60,28 +39,44 @@ public class DateTime {
         this.dateTime = dateTime;
     }
 
+
+// builder 开始
+  public DateTime(){}
+
+  public DateTime(Builder builder){
+         /**
+          * 时间日期
+          * <p> 示例值：2022/02/22
+          */
+      this.dateTime = builder.dateTime;
+  }
+
     public static class Builder {
-        /**
-         * 时间日期
-         * <p> 示例值：2022/02/22
-         */
+     /**
+      * 时间日期
+      * <p> 示例值：2022/02/22
+      */
         private String dateTime;
 
         /**
          * 时间日期
          * <p> 示例值：2022/02/22
-         *
          * @param dateTime
          * @return
          */
         public Builder dateTime(String dateTime) {
-            this.dateTime = dateTime;
-            return this;
+             this.dateTime = dateTime;
+             return this;
         }
 
+    
+    
+    public DateTime build(){
+        return new DateTime(this);
+      }
+    }
 
-        public DateTime build() {
-            return new DateTime(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

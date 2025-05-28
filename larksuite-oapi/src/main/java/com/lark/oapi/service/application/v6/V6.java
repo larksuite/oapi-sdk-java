@@ -17,85 +17,72 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.application.v6.resource.*;
 
 public class V6 {
-    private final AppBadge appBadge; // 应用红点
-    private final AppRecommendRule appRecommendRule; // 我的常用推荐规则
-    private final Application application; // 应用
-    private final ApplicationAppUsage applicationAppUsage; // 应用使用情况
-    private final ApplicationAppVersion applicationAppVersion; // 事件
-    private final ApplicationCollaborators applicationCollaborators; // application.collaborators
-    private final ApplicationContactsRange applicationContactsRange; // application.contacts_range
-    private final ApplicationFeedback applicationFeedback; // 应用反馈
-    private final ApplicationManagement applicationManagement; // application.management
-    private final ApplicationOwner applicationOwner; // application.owner
-    private final ApplicationVisibility applicationVisibility; // 事件
-    private final Bot bot; // 事件
-    private final Scope scope; // scope
+	private final AppBadge appBadge; // 应用红点
+	private final AppRecommendRule appRecommendRule; // 我的常用推荐规则
+	private final Application application; // 应用
+	private final ApplicationAppUsage applicationAppUsage; // 应用使用情况
+	private final ApplicationAppVersion applicationAppVersion; // 事件
+	private final ApplicationCollaborators applicationCollaborators; // application.collaborators
+	private final ApplicationContactsRange applicationContactsRange; // application.contacts_range
+	private final ApplicationFeedback applicationFeedback; // 应用反馈
+	private final ApplicationManagement applicationManagement; // application.management
+	private final ApplicationOwner applicationOwner; // application.owner
+	private final ApplicationVisibility applicationVisibility; // 事件
+	private final Bot bot; // 事件
+	private final Scope scope; // scope
 
-    public V6(Config config) {
-        this.appBadge = new AppBadge(config);
-        this.appRecommendRule = new AppRecommendRule(config);
-        this.application = new Application(config);
-        this.applicationAppUsage = new ApplicationAppUsage(config);
-        this.applicationAppVersion = new ApplicationAppVersion(config);
-        this.applicationCollaborators = new ApplicationCollaborators(config);
-        this.applicationContactsRange = new ApplicationContactsRange(config);
-        this.applicationFeedback = new ApplicationFeedback(config);
-        this.applicationManagement = new ApplicationManagement(config);
-        this.applicationOwner = new ApplicationOwner(config);
-        this.applicationVisibility = new ApplicationVisibility(config);
-        this.bot = new Bot(config);
-        this.scope = new Scope(config);
-    }
-
-    public AppBadge appBadge() {
-        return appBadge;
-    }
-
-    public AppRecommendRule appRecommendRule() {
-        return appRecommendRule;
-    }
-
-    public Application application() {
-        return application;
-    }
-
-    public ApplicationAppUsage applicationAppUsage() {
-        return applicationAppUsage;
-    }
-
-    public ApplicationAppVersion applicationAppVersion() {
-        return applicationAppVersion;
-    }
-
-    public ApplicationCollaborators applicationCollaborators() {
-        return applicationCollaborators;
-    }
-
-    public ApplicationContactsRange applicationContactsRange() {
-        return applicationContactsRange;
-    }
-
-    public ApplicationFeedback applicationFeedback() {
-        return applicationFeedback;
-    }
-
-    public ApplicationManagement applicationManagement() {
-        return applicationManagement;
-    }
-
-    public ApplicationOwner applicationOwner() {
-        return applicationOwner;
-    }
-
-    public ApplicationVisibility applicationVisibility() {
-        return applicationVisibility;
-    }
-
-    public Bot bot() {
-        return bot;
-    }
-
-    public Scope scope() {
-        return scope;
-    }
+	public V6(Config config) {
+		this.appBadge = new AppBadge(config);
+		this.appRecommendRule = new AppRecommendRule(config);
+		this.application = new Application(config);
+		this.applicationAppUsage = new ApplicationAppUsage(config);
+		this.applicationAppVersion = new ApplicationAppVersion(config);
+		this.applicationCollaborators = new ApplicationCollaborators(config);
+		this.applicationContactsRange = new ApplicationContactsRange(config);
+		this.applicationFeedback = new ApplicationFeedback(config);
+		this.applicationManagement = new ApplicationManagement(config);
+		this.applicationOwner = new ApplicationOwner(config);
+		this.applicationVisibility = new ApplicationVisibility(config);
+		this.bot = new Bot(config);
+		this.scope = new Scope(config);
+	}
+	public AppBadge appBadge() {
+		return appBadge;
+	}
+	public AppRecommendRule appRecommendRule() {
+		return appRecommendRule;
+	}
+	public Application application() {
+		return application;
+	}
+	public ApplicationAppUsage applicationAppUsage() {
+		return applicationAppUsage;
+	}
+	public ApplicationAppVersion applicationAppVersion() {
+		return applicationAppVersion;
+	}
+	public ApplicationCollaborators applicationCollaborators() {
+		return applicationCollaborators;
+	}
+	public ApplicationContactsRange applicationContactsRange() {
+		return applicationContactsRange;
+	}
+	public ApplicationFeedback applicationFeedback() {
+		return applicationFeedback;
+	}
+	public ApplicationManagement applicationManagement() {
+		return applicationManagement;
+	}
+	public ApplicationOwner applicationOwner() {
+		return applicationOwner;
+	}
+	public ApplicationVisibility applicationVisibility() {
+		return applicationVisibility;
+	}
+	public Bot bot() {
+		return bot;
+	}
+	public Scope scope() {
+		return scope;
+	}
 }

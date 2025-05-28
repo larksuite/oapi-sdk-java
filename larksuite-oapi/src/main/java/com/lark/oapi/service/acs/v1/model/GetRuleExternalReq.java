@@ -12,58 +12,32 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetRuleExternalReq {
-    /**
-     * 设备id
-     * <p> 示例值：7296700518380863767
-     */
+     /**
+      * 设备id
+      * <p> 示例值：7296700518380863767
+      */
     @Query
     @SerializedName("device_id")
     private String deviceId;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-
-    // builder 开始
-    public GetRuleExternalReq() {
-    }
-
-    public GetRuleExternalReq(Builder builder) {
-        /**
-         * 设备id
-         * <p> 示例值：7296700518380863767
-         */
-        this.deviceId = builder.deviceId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDeviceId() {
         return this.deviceId;
     }
@@ -80,50 +54,68 @@ public class GetRuleExternalReq {
         this.userIdType = userIdType;
     }
 
+
+// builder 开始
+  public GetRuleExternalReq(){}
+
+  public GetRuleExternalReq(Builder builder){
+         /**
+          * 设备id
+          * <p> 示例值：7296700518380863767
+          */
+       this.deviceId = builder.deviceId;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+  }
+
     public static class Builder {
         private String deviceId; // 设备id
         private String userIdType; // 此次调用中使用的用户ID的类型
-
+    
         /**
          * 设备id
          * <p> 示例值：7296700518380863767
-         *
          * @param deviceId
          * @return
          */
-        public Builder deviceId(String deviceId) {
-            this.deviceId = deviceId;
-            return this;
-        }
+           public Builder deviceId(String deviceId) {
+                this.deviceId = deviceId;
+                return this;
+           }
 
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.GetRuleExternalUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.acs.v1.enums.GetRuleExternalUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.acs.v1.enums.GetRuleExternalUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+    public GetRuleExternalReq build(){
+        return new GetRuleExternalReq(this);
+      }
+    }
 
-        public GetRuleExternalReq build() {
-            return new GetRuleExternalReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

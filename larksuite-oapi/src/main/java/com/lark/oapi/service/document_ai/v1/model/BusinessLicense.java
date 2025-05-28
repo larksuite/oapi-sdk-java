@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BusinessLicense {
-    /**
-     * 识别出的实体类型
-     * <p> 示例值：
-     */
+     /**
+      * 识别出的实体类型
+      * <p> 示例值：
+      */
     @SerializedName("entities")
     private BusinessEntity[] entities;
-
-    // builder 开始
-    public BusinessLicense() {
-    }
-
-    public BusinessLicense(Builder builder) {
-        /**
-         * 识别出的实体类型
-         * <p> 示例值：
-         */
-        this.entities = builder.entities;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public BusinessEntity[] getEntities() {
         return this.entities;
     }
@@ -60,28 +39,44 @@ public class BusinessLicense {
         this.entities = entities;
     }
 
+
+// builder 开始
+  public BusinessLicense(){}
+
+  public BusinessLicense(Builder builder){
+         /**
+          * 识别出的实体类型
+          * <p> 示例值：
+          */
+      this.entities = builder.entities;
+  }
+
     public static class Builder {
-        /**
-         * 识别出的实体类型
-         * <p> 示例值：
-         */
+     /**
+      * 识别出的实体类型
+      * <p> 示例值：
+      */
         private BusinessEntity[] entities;
 
         /**
          * 识别出的实体类型
          * <p> 示例值：
-         *
          * @param entities
          * @return
          */
         public Builder entities(BusinessEntity[] entities) {
-            this.entities = entities;
-            return this;
+             this.entities = entities;
+             return this;
         }
 
+    
+    
+    public BusinessLicense build(){
+        return new BusinessLicense(this);
+      }
+    }
 
-        public BusinessLicense build() {
-            return new BusinessLicense(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

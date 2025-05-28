@@ -17,18 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 安全级别
  */
 public enum MeetingSecuritySettingSecurityLevelEnum {
-    PUBLIC(1), // 所有人可加入
-    TENANT(2), // 仅企业内用户可加入
-    CONTACTS_AND_GROUP(3), // 仅指定联系人和群可加入
-    ONLY_HOST(4), // 仅主持人可参会（锁定会议）
-    ;
-    private Integer value;
-
+     PUBLIC(1), // 所有人可加入
+     TENANT(2), // 仅企业内用户可加入
+     CONTACTS_AND_GROUP(3), // 仅指定联系人和群可加入
+     ONLY_HOST(4), // 仅主持人可参会（锁定会议）
+  ;
+   private Integer value;
     MeetingSecuritySettingSecurityLevelEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

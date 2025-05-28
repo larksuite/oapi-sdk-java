@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,107 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApprovalEvent {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("approval_id")
     private String approvalId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("approval_code")
     private String approvalCode;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("version_id")
     private String versionId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("widget_group_type")
     private Integer widgetGroupType;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("form_definition_id")
     private String formDefinitionId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("process_obj")
     private String processObj;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("timestamp")
     private String timestamp;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("extra")
     private String extra;
-
-    // builder 开始
-    public ApprovalEvent() {
-    }
-
-    public ApprovalEvent(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.approvalId = builder.approvalId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.versionId = builder.versionId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.widgetGroupType = builder.widgetGroupType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.formDefinitionId = builder.formDefinitionId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.processObj = builder.processObj;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.timestamp = builder.timestamp;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApprovalId() {
         return this.approvalId;
     }
@@ -185,138 +137,205 @@ public class ApprovalEvent {
         this.extra = extra;
     }
 
+
+// builder 开始
+  public ApprovalEvent(){}
+
+  public ApprovalEvent(Builder builder){
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.approvalId = builder.approvalId;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.approvalCode = builder.approvalCode;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.versionId = builder.versionId;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.widgetGroupType = builder.widgetGroupType;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.formDefinitionId = builder.formDefinitionId;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.processObj = builder.processObj;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.timestamp = builder.timestamp;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.extra = builder.extra;
+  }
+
     public static class Builder {
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String approvalId;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String approvalCode;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String versionId;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private Integer widgetGroupType;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String formDefinitionId;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String processObj;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String timestamp;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String extra;
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param approvalId
          * @return
          */
         public Builder approvalId(String approvalId) {
-            this.approvalId = approvalId;
-            return this;
+             this.approvalId = approvalId;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param approvalCode
          * @return
          */
         public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
+             this.approvalCode = approvalCode;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param versionId
          * @return
          */
         public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
+             this.versionId = versionId;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param widgetGroupType
          * @return
          */
         public Builder widgetGroupType(Integer widgetGroupType) {
-            this.widgetGroupType = widgetGroupType;
-            return this;
+             this.widgetGroupType = widgetGroupType;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param formDefinitionId
          * @return
          */
         public Builder formDefinitionId(String formDefinitionId) {
-            this.formDefinitionId = formDefinitionId;
-            return this;
+             this.formDefinitionId = formDefinitionId;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param processObj
          * @return
          */
         public Builder processObj(String processObj) {
-            this.processObj = processObj;
-            return this;
+             this.processObj = processObj;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param timestamp
          * @return
          */
         public Builder timestamp(String timestamp) {
-            this.timestamp = timestamp;
-            return this;
+             this.timestamp = timestamp;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param extra
          * @return
          */
         public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
+             this.extra = extra;
+             return this;
         }
 
+    
+    
+    public ApprovalEvent build(){
+        return new ApprovalEvent(this);
+      }
+    }
 
-        public ApprovalEvent build() {
-            return new ApprovalEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

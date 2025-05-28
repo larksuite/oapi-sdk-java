@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DatasourceRecordField {
-    /**
-     * 数据源字段编码
-     * <p> 示例值：test__c
-     */
+     /**
+      * 数据源字段编码
+      * <p> 示例值：test__c
+      */
     @SerializedName("field_code")
     private String fieldCode;
-    /**
-     * 字段值 通过string传输，确保字段的值符合协议。  - money：金额  eg: "12.23"  超过设定精度会被四舍五入，目前只支持人民币¥元 - number：数值 eg: "12.87" 超过设定精度会被四舍五入 - text：文本 eg: "我是一段文本"。文本字符个数不允许超过500，一条记录的文本总的字符个数不允许超过3000. - date：日期 yyyy-MM-dd  eg: "2024-05-09" - percentage：百分比 "10" 代表10%，最多保留两位小数，超过后四舍五入
-     * <p> 示例值：123
-     */
+     /**
+      * 字段值 通过string传输，确保字段的值符合协议。  - money：金额  eg: "12.23"  超过设定精度会被四舍五入，目前只支持人民币¥元 - number：数值 eg: "12.87" 超过设定精度会被四舍五入 - text：文本 eg: "我是一段文本"。文本字符个数不允许超过500，一条记录的文本总的字符个数不允许超过3000. - date：日期 yyyy-MM-dd  eg: "2024-05-09" - percentage：百分比 "10" 代表10%，最多保留两位小数，超过后四舍五入
+      * <p> 示例值：123
+      */
     @SerializedName("value")
     private String value;
-    /**
-     * 字段类型
-     * <p> 示例值：1
-     */
+     /**
+      * 字段类型
+      * <p> 示例值：1
+      */
     @SerializedName("field_type")
     private Integer fieldType;
-
-    // builder 开始
-    public DatasourceRecordField() {
-    }
-
-    public DatasourceRecordField(Builder builder) {
-        /**
-         * 数据源字段编码
-         * <p> 示例值：test__c
-         */
-        this.fieldCode = builder.fieldCode;
-        /**
-         * 字段值 通过string传输，确保字段的值符合协议。  - money：金额  eg: "12.23"  超过设定精度会被四舍五入，目前只支持人民币¥元 - number：数值 eg: "12.87" 超过设定精度会被四舍五入 - text：文本 eg: "我是一段文本"。文本字符个数不允许超过500，一条记录的文本总的字符个数不允许超过3000. - date：日期 yyyy-MM-dd  eg: "2024-05-09" - percentage：百分比 "10" 代表10%，最多保留两位小数，超过后四舍五入
-         * <p> 示例值：123
-         */
-        this.value = builder.value;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.fieldType = builder.fieldType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFieldCode() {
         return this.fieldCode;
     }
@@ -98,64 +67,90 @@ public class DatasourceRecordField {
         this.fieldType = fieldType;
     }
 
+
+// builder 开始
+  public DatasourceRecordField(){}
+
+  public DatasourceRecordField(Builder builder){
+         /**
+          * 数据源字段编码
+          * <p> 示例值：test__c
+          */
+      this.fieldCode = builder.fieldCode;
+         /**
+          * 字段值 通过string传输，确保字段的值符合协议。  - money：金额  eg: "12.23"  超过设定精度会被四舍五入，目前只支持人民币¥元 - number：数值 eg: "12.87" 超过设定精度会被四舍五入 - text：文本 eg: "我是一段文本"。文本字符个数不允许超过500，一条记录的文本总的字符个数不允许超过3000. - date：日期 yyyy-MM-dd  eg: "2024-05-09" - percentage：百分比 "10" 代表10%，最多保留两位小数，超过后四舍五入
+          * <p> 示例值：123
+          */
+      this.value = builder.value;
+         /**
+          * 字段类型
+          * <p> 示例值：1
+          */
+      this.fieldType = builder.fieldType;
+  }
+
     public static class Builder {
-        /**
-         * 数据源字段编码
-         * <p> 示例值：test__c
-         */
+     /**
+      * 数据源字段编码
+      * <p> 示例值：test__c
+      */
         private String fieldCode;
-        /**
-         * 字段值 通过string传输，确保字段的值符合协议。  - money：金额  eg: "12.23"  超过设定精度会被四舍五入，目前只支持人民币¥元 - number：数值 eg: "12.87" 超过设定精度会被四舍五入 - text：文本 eg: "我是一段文本"。文本字符个数不允许超过500，一条记录的文本总的字符个数不允许超过3000. - date：日期 yyyy-MM-dd  eg: "2024-05-09" - percentage：百分比 "10" 代表10%，最多保留两位小数，超过后四舍五入
-         * <p> 示例值：123
-         */
+     /**
+      * 字段值 通过string传输，确保字段的值符合协议。  - money：金额  eg: "12.23"  超过设定精度会被四舍五入，目前只支持人民币¥元 - number：数值 eg: "12.87" 超过设定精度会被四舍五入 - text：文本 eg: "我是一段文本"。文本字符个数不允许超过500，一条记录的文本总的字符个数不允许超过3000. - date：日期 yyyy-MM-dd  eg: "2024-05-09" - percentage：百分比 "10" 代表10%，最多保留两位小数，超过后四舍五入
+      * <p> 示例值：123
+      */
         private String value;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
+     /**
+      * 字段类型
+      * <p> 示例值：1
+      */
         private Integer fieldType;
 
         /**
          * 数据源字段编码
          * <p> 示例值：test__c
-         *
          * @param fieldCode
          * @return
          */
         public Builder fieldCode(String fieldCode) {
-            this.fieldCode = fieldCode;
-            return this;
+             this.fieldCode = fieldCode;
+             return this;
         }
 
+    
 
         /**
          * 字段值 通过string传输，确保字段的值符合协议。  - money：金额  eg: "12.23"  超过设定精度会被四舍五入，目前只支持人民币¥元 - number：数值 eg: "12.87" 超过设定精度会被四舍五入 - text：文本 eg: "我是一段文本"。文本字符个数不允许超过500，一条记录的文本总的字符个数不允许超过3000. - date：日期 yyyy-MM-dd  eg: "2024-05-09" - percentage：百分比 "10" 代表10%，最多保留两位小数，超过后四舍五入
          * <p> 示例值：123
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
 
         /**
          * 字段类型
          * <p> 示例值：1
-         *
          * @param fieldType
          * @return
          */
         public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
+             this.fieldType = fieldType;
+             return this;
         }
 
+    
+    
+    public DatasourceRecordField build(){
+        return new DatasourceRecordField(this);
+      }
+    }
 
-        public DatasourceRecordField build() {
-            return new DatasourceRecordField(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

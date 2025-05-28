@@ -12,85 +12,32 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchDeleteDocumentBlockChildrenReq {
-    /**
-     * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
-     * <p> 示例值：-1
-     */
+     /**
+      * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
+      * <p> 示例值：-1
+      */
     @Query
     @SerializedName("document_revision_id")
     private Integer documentRevisionId;
-    /**
-     * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
-     * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-     */
+     /**
+      * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+      * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 文档的唯一标识
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-     */
-    @Path
-    @SerializedName("document_id")
-    private String documentId;
-    /**
-     * 父 Block 的唯一标识
-     * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-     */
-    @Path
-    @SerializedName("block_id")
-    private String blockId;
-    @Body
-    private BatchDeleteDocumentBlockChildrenReqBody body;
-
-    // builder 开始
-    public BatchDeleteDocumentBlockChildrenReq() {
-    }
-
-    public BatchDeleteDocumentBlockChildrenReq(Builder builder) {
-        /**
-         * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
-         * <p> 示例值：-1
-         */
-        this.documentRevisionId = builder.documentRevisionId;
-        /**
-         * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
-         * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-         */
-        this.documentId = builder.documentId;
-        /**
-         * 父 Block 的唯一标识
-         * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-         */
-        this.blockId = builder.blockId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getDocumentRevisionId() {
         return this.documentRevisionId;
     }
@@ -107,6 +54,20 @@ public class BatchDeleteDocumentBlockChildrenReq {
         this.clientToken = clientToken;
     }
 
+     /**
+      * 文档的唯一标识
+      * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+      */
+    @Path
+    @SerializedName("document_id")
+    private String documentId;
+     /**
+      * 父 Block 的唯一标识
+      * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+      */
+    @Path
+    @SerializedName("block_id")
+    private String blockId;
     public String getDocumentId() {
         return this.documentId;
     }
@@ -123,6 +84,9 @@ public class BatchDeleteDocumentBlockChildrenReq {
         this.blockId = blockId;
     }
 
+    @Body
+    private BatchDeleteDocumentBlockChildrenReqBody body;
+
     public BatchDeleteDocumentBlockChildrenReqBody getBatchDeleteDocumentBlockChildrenReqBody() {
         return this.body;
     }
@@ -131,78 +95,108 @@ public class BatchDeleteDocumentBlockChildrenReq {
         this.body = body;
     }
 
+// builder 开始
+  public BatchDeleteDocumentBlockChildrenReq(){}
+
+  public BatchDeleteDocumentBlockChildrenReq(Builder builder){
+         /**
+          * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
+          * <p> 示例值：-1
+          */
+       this.documentRevisionId = builder.documentRevisionId;
+         /**
+          * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+          * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+          */
+       this.clientToken = builder.clientToken;
+     /**
+      * 文档的唯一标识
+      * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+      */
+       this.documentId = builder.documentId;
+     /**
+      * 父 Block 的唯一标识
+      * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+      */
+       this.blockId = builder.blockId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private Integer documentRevisionId; // 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
         private String clientToken; // 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
-        private String documentId; // 文档的唯一标识
-        private String blockId; // 父 Block 的唯一标识
-        private BatchDeleteDocumentBlockChildrenReqBody body;
-
+    
         /**
          * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
          * <p> 示例值：-1
-         *
          * @param documentRevisionId
          * @return
          */
-        public Builder documentRevisionId(Integer documentRevisionId) {
-            this.documentRevisionId = documentRevisionId;
-            return this;
-        }
+           public Builder documentRevisionId(Integer documentRevisionId) {
+                this.documentRevisionId = documentRevisionId;
+                return this;
+           }
 
+    
         /**
          * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
          * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
+        private String documentId; // 文档的唯一标识
+        private String blockId; // 父 Block 的唯一标识
         /**
          * 文档的唯一标识
          * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-         *
          * @param documentId
          * @return
          */
-        public Builder documentId(String documentId) {
-            this.documentId = documentId;
-            return this;
-        }
+          public Builder documentId(String documentId) {
+               this.documentId = documentId;
+               return this;
+          }
 
+    
         /**
          * 父 Block 的唯一标识
          * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-         *
          * @param blockId
          * @return
          */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
+          public Builder blockId(String blockId) {
+               this.blockId = blockId;
+               return this;
+          }
 
+    
+        private BatchDeleteDocumentBlockChildrenReqBody body;
+    
         public BatchDeleteDocumentBlockChildrenReqBody getBatchDeleteDocumentBlockChildrenReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder batchDeleteDocumentBlockChildrenReqBody(BatchDeleteDocumentBlockChildrenReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public BatchDeleteDocumentBlockChildrenReq build(){
+        return new BatchDeleteDocumentBlockChildrenReq(this);
+      }
+    }
 
-        public BatchDeleteDocumentBlockChildrenReq build() {
-            return new BatchDeleteDocumentBlockChildrenReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Iframe {
-    /**
-     * iframe 的组成元素
-     * <p> 示例值：
-     */
+     /**
+      * iframe 的组成元素
+      * <p> 示例值：
+      */
     @SerializedName("component")
     private IframeComponent component;
-
-    // builder 开始
-    public Iframe() {
-    }
-
-    public Iframe(Builder builder) {
-        /**
-         * iframe 的组成元素
-         * <p> 示例值：
-         */
-        this.component = builder.component;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public IframeComponent getComponent() {
         return this.component;
     }
@@ -60,28 +39,44 @@ public class Iframe {
         this.component = component;
     }
 
+
+// builder 开始
+  public Iframe(){}
+
+  public Iframe(Builder builder){
+         /**
+          * iframe 的组成元素
+          * <p> 示例值：
+          */
+      this.component = builder.component;
+  }
+
     public static class Builder {
-        /**
-         * iframe 的组成元素
-         * <p> 示例值：
-         */
+     /**
+      * iframe 的组成元素
+      * <p> 示例值：
+      */
         private IframeComponent component;
 
         /**
          * iframe 的组成元素
          * <p> 示例值：
-         *
          * @param component
          * @return
          */
         public Builder component(IframeComponent component) {
-            this.component = component;
-            return this;
+             this.component = component;
+             return this;
         }
 
+    
+    
+    public Iframe build(){
+        return new Iframe(this);
+      }
+    }
 
-        public Iframe build() {
-            return new Iframe(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReplyMessageReqBody {
-    /**
-     * 消息内容 json 格式，格式说明参考: [发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-     * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom </at> test content\"}
-     */
+     /**
+      * 消息内容 json 格式，格式说明参考: [发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+      * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom </at> test content\"}
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 消息类型，包括：text、post、image、file、audio、media、sticker、interactive、share_card、share_user
-     * <p> 示例值：text
-     */
+     /**
+      * 消息类型，包括：text、post、image、file、audio、media、sticker、interactive、share_card、share_user
+      * <p> 示例值：text
+      */
     @SerializedName("msg_type")
     private String msgType;
-    /**
-     * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
-     * <p> 示例值：false
-     */
+     /**
+      * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
+      * <p> 示例值：false
+      */
     @SerializedName("reply_in_thread")
     private Boolean replyInThread;
-    /**
-     * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-     * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-     */
+     /**
+      * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
+      * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+      */
     @SerializedName("uuid")
     private String uuid;
-
-    // builder 开始
-    public ReplyMessageReqBody() {
-    }
-
-    public ReplyMessageReqBody(Builder builder) {
-        /**
-         * 消息内容 json 格式，格式说明参考: [发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-         * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom </at> test content\"}
-         */
-        this.content = builder.content;
-        /**
-         * 消息类型，包括：text、post、image、file、audio、media、sticker、interactive、share_card、share_user
-         * <p> 示例值：text
-         */
-        this.msgType = builder.msgType;
-        /**
-         * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
-         * <p> 示例值：false
-         */
-        this.replyInThread = builder.replyInThread;
-        /**
-         * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-         * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-         */
-        this.uuid = builder.uuid;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContent() {
         return this.content;
     }
@@ -117,82 +81,113 @@ public class ReplyMessageReqBody {
         this.uuid = uuid;
     }
 
+
+// builder 开始
+  public ReplyMessageReqBody(){}
+
+  public ReplyMessageReqBody(Builder builder){
+         /**
+          * 消息内容 json 格式，格式说明参考: [发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+          * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom </at> test content\"}
+          */
+      this.content = builder.content;
+         /**
+          * 消息类型，包括：text、post、image、file、audio、media、sticker、interactive、share_card、share_user
+          * <p> 示例值：text
+          */
+      this.msgType = builder.msgType;
+         /**
+          * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
+          * <p> 示例值：false
+          */
+      this.replyInThread = builder.replyInThread;
+         /**
+          * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
+          * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+          */
+      this.uuid = builder.uuid;
+  }
+
     public static class Builder {
-        /**
-         * 消息内容 json 格式，格式说明参考: [发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-         * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom </at> test content\"}
-         */
+     /**
+      * 消息内容 json 格式，格式说明参考: [发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+      * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom </at> test content\"}
+      */
         private String content;
-        /**
-         * 消息类型，包括：text、post、image、file、audio、media、sticker、interactive、share_card、share_user
-         * <p> 示例值：text
-         */
+     /**
+      * 消息类型，包括：text、post、image、file、audio、media、sticker、interactive、share_card、share_user
+      * <p> 示例值：text
+      */
         private String msgType;
-        /**
-         * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
-         * <p> 示例值：false
-         */
+     /**
+      * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
+      * <p> 示例值：false
+      */
         private Boolean replyInThread;
-        /**
-         * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-         * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-         */
+     /**
+      * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
+      * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+      */
         private String uuid;
 
         /**
          * 消息内容 json 格式，格式说明参考: [发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
          * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom </at> test content\"}
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 消息类型，包括：text、post、image、file、audio、media、sticker、interactive、share_card、share_user
          * <p> 示例值：text
-         *
          * @param msgType
          * @return
          */
         public Builder msgType(String msgType) {
-            this.msgType = msgType;
-            return this;
+             this.msgType = msgType;
+             return this;
         }
 
+    
 
         /**
          * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
          * <p> 示例值：false
-         *
          * @param replyInThread
          * @return
          */
         public Builder replyInThread(Boolean replyInThread) {
-            this.replyInThread = replyInThread;
-            return this;
+             this.replyInThread = replyInThread;
+             return this;
         }
 
+    
 
         /**
          * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
          * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-         *
          * @param uuid
          * @return
          */
         public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
+             this.uuid = uuid;
+             return this;
         }
 
+    
+    
+    public ReplyMessageReqBody build(){
+        return new ReplyMessageReqBody(this);
+      }
+    }
 
-        public ReplyMessageReqBody build() {
-            return new ReplyMessageReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

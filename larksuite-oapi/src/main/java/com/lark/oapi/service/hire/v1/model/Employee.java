@@ -12,210 +12,114 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Employee {
-    /**
-     * 员工ID
-     * <p> 示例值：7095600054216542508
-     */
+     /**
+      * 员工ID
+      * <p> 示例值：7095600054216542508
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 投递ID
-     * <p> 示例值：7073372582620416300
-     */
+     /**
+      * 投递ID
+      * <p> 示例值：7073372582620416300
+      */
     @SerializedName("application_id")
     private String applicationId;
-    /**
-     * 入职状态
-     * <p> 示例值：1
-     */
+     /**
+      * 入职状态
+      * <p> 示例值：1
+      */
     @SerializedName("onboard_status")
     private Integer onboardStatus;
-    /**
-     * 转正状态
-     * <p> 示例值：1
-     */
+     /**
+      * 转正状态
+      * <p> 示例值：1
+      */
     @SerializedName("conversion_status")
     private Integer conversionStatus;
-    /**
-     * 实际入职时间
-     * <p> 示例值：1637596800000
-     */
+     /**
+      * 实际入职时间
+      * <p> 示例值：1637596800000
+      */
     @SerializedName("onboard_time")
     private Long onboardTime;
-    /**
-     * 预期转正时间
-     * <p> 示例值：1637596800000
-     */
+     /**
+      * 预期转正时间
+      * <p> 示例值：1637596800000
+      */
     @SerializedName("expected_conversion_time")
     private Long expectedConversionTime;
-    /**
-     * 实际转正时间
-     * <p> 示例值：1637596800000
-     */
+     /**
+      * 实际转正时间
+      * <p> 示例值：1637596800000
+      */
     @SerializedName("actual_conversion_time")
     private Long actualConversionTime;
-    /**
-     * 离职时间
-     * <p> 示例值：1637596800000
-     */
+     /**
+      * 离职时间
+      * <p> 示例值：1637596800000
+      */
     @SerializedName("overboard_time")
     private Long overboardTime;
-    /**
-     * 离职原因
-     * <p> 示例值：职业发展考虑
-     */
+     /**
+      * 离职原因
+      * <p> 示例值：职业发展考虑
+      */
     @SerializedName("overboard_note")
     private String overboardNote;
-    /**
-     * 办公地点
-     * <p> 示例值：CT_2
-     */
+     /**
+      * 办公地点
+      * <p> 示例值：CT_2
+      */
     @SerializedName("onboard_city_code")
     private String onboardCityCode;
-    /**
-     * 入职部门
-     * <p> 示例值：6966123381141866028
-     */
+     /**
+      * 入职部门
+      * <p> 示例值：6966123381141866028
+      */
     @SerializedName("department")
     private String department;
-    /**
-     * 直属上级
-     * <p> 示例值：ou-xxx
-     */
+     /**
+      * 直属上级
+      * <p> 示例值：ou-xxx
+      */
     @SerializedName("leader")
     private String leader;
-    /**
-     * 序列
-     * <p> 示例值：6937934036379650311
-     */
+     /**
+      * 序列
+      * <p> 示例值：6937934036379650311
+      */
     @SerializedName("sequence")
     private String sequence;
-    /**
-     * 职级
-     * <p> 示例值：7006234385490345986
-     */
+     /**
+      * 职级
+      * <p> 示例值：7006234385490345986
+      */
     @SerializedName("level")
     private String level;
-    /**
-     * 员工类型
-     * <p> 示例值：1
-     */
+     /**
+      * 员工类型
+      * <p> 示例值：1
+      */
     @SerializedName("employee_type")
     private String employeeType;
-    /**
-     * 招聘需求ID
-     * <p> 示例值：123123123213
-     */
+     /**
+      * 招聘需求ID
+      * <p> 示例值：123123123213
+      */
     @SerializedName("job_requirement_id")
     private String jobRequirementId;
-
-    // builder 开始
-    public Employee() {
-    }
-
-    public Employee(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7095600054216542508
-         */
-        this.id = builder.id;
-        /**
-         * 投递ID
-         * <p> 示例值：7073372582620416300
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 入职状态
-         * <p> 示例值：1
-         */
-        this.onboardStatus = builder.onboardStatus;
-        /**
-         * 转正状态
-         * <p> 示例值：1
-         */
-        this.conversionStatus = builder.conversionStatus;
-        /**
-         * 实际入职时间
-         * <p> 示例值：1637596800000
-         */
-        this.onboardTime = builder.onboardTime;
-        /**
-         * 预期转正时间
-         * <p> 示例值：1637596800000
-         */
-        this.expectedConversionTime = builder.expectedConversionTime;
-        /**
-         * 实际转正时间
-         * <p> 示例值：1637596800000
-         */
-        this.actualConversionTime = builder.actualConversionTime;
-        /**
-         * 离职时间
-         * <p> 示例值：1637596800000
-         */
-        this.overboardTime = builder.overboardTime;
-        /**
-         * 离职原因
-         * <p> 示例值：职业发展考虑
-         */
-        this.overboardNote = builder.overboardNote;
-        /**
-         * 办公地点
-         * <p> 示例值：CT_2
-         */
-        this.onboardCityCode = builder.onboardCityCode;
-        /**
-         * 入职部门
-         * <p> 示例值：6966123381141866028
-         */
-        this.department = builder.department;
-        /**
-         * 直属上级
-         * <p> 示例值：ou-xxx
-         */
-        this.leader = builder.leader;
-        /**
-         * 序列
-         * <p> 示例值：6937934036379650311
-         */
-        this.sequence = builder.sequence;
-        /**
-         * 职级
-         * <p> 示例值：7006234385490345986
-         */
-        this.level = builder.level;
-        /**
-         * 员工类型
-         * <p> 示例值：1
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 招聘需求ID
-         * <p> 示例值：123123123213
-         */
-        this.jobRequirementId = builder.jobRequirementId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -344,298 +248,389 @@ public class Employee {
         this.jobRequirementId = jobRequirementId;
     }
 
+
+// builder 开始
+  public Employee(){}
+
+  public Employee(Builder builder){
+         /**
+          * 员工ID
+          * <p> 示例值：7095600054216542508
+          */
+      this.id = builder.id;
+         /**
+          * 投递ID
+          * <p> 示例值：7073372582620416300
+          */
+      this.applicationId = builder.applicationId;
+         /**
+          * 入职状态
+          * <p> 示例值：1
+          */
+      this.onboardStatus = builder.onboardStatus;
+         /**
+          * 转正状态
+          * <p> 示例值：1
+          */
+      this.conversionStatus = builder.conversionStatus;
+         /**
+          * 实际入职时间
+          * <p> 示例值：1637596800000
+          */
+      this.onboardTime = builder.onboardTime;
+         /**
+          * 预期转正时间
+          * <p> 示例值：1637596800000
+          */
+      this.expectedConversionTime = builder.expectedConversionTime;
+         /**
+          * 实际转正时间
+          * <p> 示例值：1637596800000
+          */
+      this.actualConversionTime = builder.actualConversionTime;
+         /**
+          * 离职时间
+          * <p> 示例值：1637596800000
+          */
+      this.overboardTime = builder.overboardTime;
+         /**
+          * 离职原因
+          * <p> 示例值：职业发展考虑
+          */
+      this.overboardNote = builder.overboardNote;
+         /**
+          * 办公地点
+          * <p> 示例值：CT_2
+          */
+      this.onboardCityCode = builder.onboardCityCode;
+         /**
+          * 入职部门
+          * <p> 示例值：6966123381141866028
+          */
+      this.department = builder.department;
+         /**
+          * 直属上级
+          * <p> 示例值：ou-xxx
+          */
+      this.leader = builder.leader;
+         /**
+          * 序列
+          * <p> 示例值：6937934036379650311
+          */
+      this.sequence = builder.sequence;
+         /**
+          * 职级
+          * <p> 示例值：7006234385490345986
+          */
+      this.level = builder.level;
+         /**
+          * 员工类型
+          * <p> 示例值：1
+          */
+      this.employeeType = builder.employeeType;
+         /**
+          * 招聘需求ID
+          * <p> 示例值：123123123213
+          */
+      this.jobRequirementId = builder.jobRequirementId;
+  }
+
     public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7095600054216542508
-         */
+     /**
+      * 员工ID
+      * <p> 示例值：7095600054216542508
+      */
         private String id;
-        /**
-         * 投递ID
-         * <p> 示例值：7073372582620416300
-         */
+     /**
+      * 投递ID
+      * <p> 示例值：7073372582620416300
+      */
         private String applicationId;
-        /**
-         * 入职状态
-         * <p> 示例值：1
-         */
+     /**
+      * 入职状态
+      * <p> 示例值：1
+      */
         private Integer onboardStatus;
-        /**
-         * 转正状态
-         * <p> 示例值：1
-         */
+     /**
+      * 转正状态
+      * <p> 示例值：1
+      */
         private Integer conversionStatus;
-        /**
-         * 实际入职时间
-         * <p> 示例值：1637596800000
-         */
+     /**
+      * 实际入职时间
+      * <p> 示例值：1637596800000
+      */
         private Long onboardTime;
-        /**
-         * 预期转正时间
-         * <p> 示例值：1637596800000
-         */
+     /**
+      * 预期转正时间
+      * <p> 示例值：1637596800000
+      */
         private Long expectedConversionTime;
-        /**
-         * 实际转正时间
-         * <p> 示例值：1637596800000
-         */
+     /**
+      * 实际转正时间
+      * <p> 示例值：1637596800000
+      */
         private Long actualConversionTime;
-        /**
-         * 离职时间
-         * <p> 示例值：1637596800000
-         */
+     /**
+      * 离职时间
+      * <p> 示例值：1637596800000
+      */
         private Long overboardTime;
-        /**
-         * 离职原因
-         * <p> 示例值：职业发展考虑
-         */
+     /**
+      * 离职原因
+      * <p> 示例值：职业发展考虑
+      */
         private String overboardNote;
-        /**
-         * 办公地点
-         * <p> 示例值：CT_2
-         */
+     /**
+      * 办公地点
+      * <p> 示例值：CT_2
+      */
         private String onboardCityCode;
-        /**
-         * 入职部门
-         * <p> 示例值：6966123381141866028
-         */
+     /**
+      * 入职部门
+      * <p> 示例值：6966123381141866028
+      */
         private String department;
-        /**
-         * 直属上级
-         * <p> 示例值：ou-xxx
-         */
+     /**
+      * 直属上级
+      * <p> 示例值：ou-xxx
+      */
         private String leader;
-        /**
-         * 序列
-         * <p> 示例值：6937934036379650311
-         */
+     /**
+      * 序列
+      * <p> 示例值：6937934036379650311
+      */
         private String sequence;
-        /**
-         * 职级
-         * <p> 示例值：7006234385490345986
-         */
+     /**
+      * 职级
+      * <p> 示例值：7006234385490345986
+      */
         private String level;
-        /**
-         * 员工类型
-         * <p> 示例值：1
-         */
+     /**
+      * 员工类型
+      * <p> 示例值：1
+      */
         private String employeeType;
-        /**
-         * 招聘需求ID
-         * <p> 示例值：123123123213
-         */
+     /**
+      * 招聘需求ID
+      * <p> 示例值：123123123213
+      */
         private String jobRequirementId;
 
         /**
          * 员工ID
          * <p> 示例值：7095600054216542508
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 投递ID
          * <p> 示例值：7073372582620416300
-         *
          * @param applicationId
          * @return
          */
         public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
+             this.applicationId = applicationId;
+             return this;
         }
 
+    
 
         /**
          * 入职状态
          * <p> 示例值：1
-         *
          * @param onboardStatus
          * @return
          */
         public Builder onboardStatus(Integer onboardStatus) {
-            this.onboardStatus = onboardStatus;
-            return this;
+             this.onboardStatus = onboardStatus;
+             return this;
         }
 
+    
 
         /**
          * 转正状态
          * <p> 示例值：1
-         *
          * @param conversionStatus
          * @return
          */
         public Builder conversionStatus(Integer conversionStatus) {
-            this.conversionStatus = conversionStatus;
-            return this;
+             this.conversionStatus = conversionStatus;
+             return this;
         }
 
+    
 
         /**
          * 实际入职时间
          * <p> 示例值：1637596800000
-         *
          * @param onboardTime
          * @return
          */
         public Builder onboardTime(Long onboardTime) {
-            this.onboardTime = onboardTime;
-            return this;
+             this.onboardTime = onboardTime;
+             return this;
         }
 
+    
 
         /**
          * 预期转正时间
          * <p> 示例值：1637596800000
-         *
          * @param expectedConversionTime
          * @return
          */
         public Builder expectedConversionTime(Long expectedConversionTime) {
-            this.expectedConversionTime = expectedConversionTime;
-            return this;
+             this.expectedConversionTime = expectedConversionTime;
+             return this;
         }
 
+    
 
         /**
          * 实际转正时间
          * <p> 示例值：1637596800000
-         *
          * @param actualConversionTime
          * @return
          */
         public Builder actualConversionTime(Long actualConversionTime) {
-            this.actualConversionTime = actualConversionTime;
-            return this;
+             this.actualConversionTime = actualConversionTime;
+             return this;
         }
 
+    
 
         /**
          * 离职时间
          * <p> 示例值：1637596800000
-         *
          * @param overboardTime
          * @return
          */
         public Builder overboardTime(Long overboardTime) {
-            this.overboardTime = overboardTime;
-            return this;
+             this.overboardTime = overboardTime;
+             return this;
         }
 
+    
 
         /**
          * 离职原因
          * <p> 示例值：职业发展考虑
-         *
          * @param overboardNote
          * @return
          */
         public Builder overboardNote(String overboardNote) {
-            this.overboardNote = overboardNote;
-            return this;
+             this.overboardNote = overboardNote;
+             return this;
         }
 
+    
 
         /**
          * 办公地点
          * <p> 示例值：CT_2
-         *
          * @param onboardCityCode
          * @return
          */
         public Builder onboardCityCode(String onboardCityCode) {
-            this.onboardCityCode = onboardCityCode;
-            return this;
+             this.onboardCityCode = onboardCityCode;
+             return this;
         }
 
+    
 
         /**
          * 入职部门
          * <p> 示例值：6966123381141866028
-         *
          * @param department
          * @return
          */
         public Builder department(String department) {
-            this.department = department;
-            return this;
+             this.department = department;
+             return this;
         }
 
+    
 
         /**
          * 直属上级
          * <p> 示例值：ou-xxx
-         *
          * @param leader
          * @return
          */
         public Builder leader(String leader) {
-            this.leader = leader;
-            return this;
+             this.leader = leader;
+             return this;
         }
 
+    
 
         /**
          * 序列
          * <p> 示例值：6937934036379650311
-         *
          * @param sequence
          * @return
          */
         public Builder sequence(String sequence) {
-            this.sequence = sequence;
-            return this;
+             this.sequence = sequence;
+             return this;
         }
 
+    
 
         /**
          * 职级
          * <p> 示例值：7006234385490345986
-         *
          * @param level
          * @return
          */
         public Builder level(String level) {
-            this.level = level;
-            return this;
+             this.level = level;
+             return this;
         }
 
+    
 
         /**
          * 员工类型
          * <p> 示例值：1
-         *
          * @param employeeType
          * @return
          */
         public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
+             this.employeeType = employeeType;
+             return this;
         }
 
+    
 
         /**
          * 招聘需求ID
          * <p> 示例值：123123123213
-         *
          * @param jobRequirementId
          * @return
          */
         public Builder jobRequirementId(String jobRequirementId) {
-            this.jobRequirementId = jobRequirementId;
-            return this;
+             this.jobRequirementId = jobRequirementId;
+             return this;
         }
 
+    
+    
+    public Employee build(){
+        return new Employee(this);
+      }
+    }
 
-        public Employee build() {
-            return new Employee(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

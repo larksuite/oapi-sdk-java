@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReferEntity {
-    /**
-     * 快捷方式指向的文档token
-     * <p> 示例值：doxbcGvhSVN0R6octqPwAEYNfFb
-     */
+     /**
+      * 快捷方式指向的文档token
+      * <p> 示例值：doxbcGvhSVN0R6octqPwAEYNfFb
+      */
     @SerializedName("refer_token")
     private String referToken;
-    /**
-     * 快捷方式指向的文档类型
-     * <p> 示例值：doc
-     */
+     /**
+      * 快捷方式指向的文档类型
+      * <p> 示例值：doc
+      */
     @SerializedName("refer_type")
     private String referType;
-
-    // builder 开始
-    public ReferEntity() {
-    }
-
-    public ReferEntity(Builder builder) {
-        /**
-         * 快捷方式指向的文档token
-         * <p> 示例值：doxbcGvhSVN0R6octqPwAEYNfFb
-         */
-        this.referToken = builder.referToken;
-        /**
-         * 快捷方式指向的文档类型
-         * <p> 示例值：doc
-         */
-        this.referType = builder.referType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getReferToken() {
         return this.referToken;
     }
@@ -79,58 +53,77 @@ public class ReferEntity {
         this.referType = referType;
     }
 
+
+// builder 开始
+  public ReferEntity(){}
+
+  public ReferEntity(Builder builder){
+         /**
+          * 快捷方式指向的文档token
+          * <p> 示例值：doxbcGvhSVN0R6octqPwAEYNfFb
+          */
+      this.referToken = builder.referToken;
+         /**
+          * 快捷方式指向的文档类型
+          * <p> 示例值：doc
+          */
+      this.referType = builder.referType;
+  }
+
     public static class Builder {
-        /**
-         * 快捷方式指向的文档token
-         * <p> 示例值：doxbcGvhSVN0R6octqPwAEYNfFb
-         */
+     /**
+      * 快捷方式指向的文档token
+      * <p> 示例值：doxbcGvhSVN0R6octqPwAEYNfFb
+      */
         private String referToken;
-        /**
-         * 快捷方式指向的文档类型
-         * <p> 示例值：doc
-         */
+     /**
+      * 快捷方式指向的文档类型
+      * <p> 示例值：doc
+      */
         private String referType;
 
         /**
          * 快捷方式指向的文档token
          * <p> 示例值：doxbcGvhSVN0R6octqPwAEYNfFb
-         *
          * @param referToken
          * @return
          */
         public Builder referToken(String referToken) {
-            this.referToken = referToken;
-            return this;
+             this.referToken = referToken;
+             return this;
         }
 
+    
 
         /**
          * 快捷方式指向的文档类型
          * <p> 示例值：doc
-         *
          * @param referType
          * @return
          */
         public Builder referType(String referType) {
-            this.referType = referType;
-            return this;
+             this.referType = referType;
+             return this;
         }
-
         /**
          * 快捷方式指向的文档类型
          * <p> 示例值：doc
-         *
          * @param referType {@link com.lark.oapi.service.drive.v1.enums.ReferEntityReferTypeEnum}
          * @return
          */
         public Builder referType(com.lark.oapi.service.drive.v1.enums.ReferEntityReferTypeEnum referType) {
-            this.referType = referType.getValue();
-            return this;
+             this.referType = referType.getValue();
+             return this;
         }
 
+    
+    
+    public ReferEntity build(){
+        return new ReferEntity(this);
+      }
+    }
 
-        public ReferEntity build() {
-            return new ReferEntity(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

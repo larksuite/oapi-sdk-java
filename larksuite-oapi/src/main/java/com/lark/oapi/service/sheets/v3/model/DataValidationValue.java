@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataValidationValue {
-    /**
-     * 选项值
-     * <p> 示例值：Option1
-     */
+     /**
+      * 选项值
+      * <p> 示例值：Option1
+      */
     @SerializedName("option_value")
     private String optionValue;
-    /**
-     * 选项颜色
-     * <p> 示例值：#ff00ff
-     */
+     /**
+      * 选项颜色
+      * <p> 示例值：#ff00ff
+      */
     @SerializedName("option_color")
     private String optionColor;
-
-    // builder 开始
-    public DataValidationValue() {
-    }
-
-    public DataValidationValue(Builder builder) {
-        /**
-         * 选项值
-         * <p> 示例值：Option1
-         */
-        this.optionValue = builder.optionValue;
-        /**
-         * 选项颜色
-         * <p> 示例值：#ff00ff
-         */
-        this.optionColor = builder.optionColor;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOptionValue() {
         return this.optionValue;
     }
@@ -79,46 +53,67 @@ public class DataValidationValue {
         this.optionColor = optionColor;
     }
 
+
+// builder 开始
+  public DataValidationValue(){}
+
+  public DataValidationValue(Builder builder){
+         /**
+          * 选项值
+          * <p> 示例值：Option1
+          */
+      this.optionValue = builder.optionValue;
+         /**
+          * 选项颜色
+          * <p> 示例值：#ff00ff
+          */
+      this.optionColor = builder.optionColor;
+  }
+
     public static class Builder {
-        /**
-         * 选项值
-         * <p> 示例值：Option1
-         */
+     /**
+      * 选项值
+      * <p> 示例值：Option1
+      */
         private String optionValue;
-        /**
-         * 选项颜色
-         * <p> 示例值：#ff00ff
-         */
+     /**
+      * 选项颜色
+      * <p> 示例值：#ff00ff
+      */
         private String optionColor;
 
         /**
          * 选项值
          * <p> 示例值：Option1
-         *
          * @param optionValue
          * @return
          */
         public Builder optionValue(String optionValue) {
-            this.optionValue = optionValue;
-            return this;
+             this.optionValue = optionValue;
+             return this;
         }
 
+    
 
         /**
          * 选项颜色
          * <p> 示例值：#ff00ff
-         *
          * @param optionColor
          * @return
          */
         public Builder optionColor(String optionColor) {
-            this.optionColor = optionColor;
-            return this;
+             this.optionColor = optionColor;
+             return this;
         }
 
+    
+    
+    public DataValidationValue build(){
+        return new DataValidationValue(this);
+      }
+    }
 
-        public DataValidationValue build() {
-            return new DataValidationValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

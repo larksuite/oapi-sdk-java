@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProtectedSheet {
-    /**
-     * 工作表ID
-     * <p> 示例值：Kd7L09
-     */
+     /**
+      * 工作表ID
+      * <p> 示例值：Kd7L09
+      */
     @SerializedName("sheet_id")
     private String sheetId;
-
-    // builder 开始
-    public ProtectedSheet() {
-    }
-
-    public ProtectedSheet(Builder builder) {
-        /**
-         * 工作表ID
-         * <p> 示例值：Kd7L09
-         */
-        this.sheetId = builder.sheetId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSheetId() {
         return this.sheetId;
     }
@@ -60,28 +39,44 @@ public class ProtectedSheet {
         this.sheetId = sheetId;
     }
 
+
+// builder 开始
+  public ProtectedSheet(){}
+
+  public ProtectedSheet(Builder builder){
+         /**
+          * 工作表ID
+          * <p> 示例值：Kd7L09
+          */
+      this.sheetId = builder.sheetId;
+  }
+
     public static class Builder {
-        /**
-         * 工作表ID
-         * <p> 示例值：Kd7L09
-         */
+     /**
+      * 工作表ID
+      * <p> 示例值：Kd7L09
+      */
         private String sheetId;
 
         /**
          * 工作表ID
          * <p> 示例值：Kd7L09
-         *
          * @param sheetId
          * @return
          */
         public Builder sheetId(String sheetId) {
-            this.sheetId = sheetId;
-            return this;
+             this.sheetId = sheetId;
+             return this;
         }
 
+    
+    
+    public ProtectedSheet build(){
+        return new ProtectedSheet(this);
+      }
+    }
 
-        public ProtectedSheet build() {
-            return new ProtectedSheet(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

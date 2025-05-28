@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryInstanceRespBody {
-    /**
-     * 查询返回条数
-     * <p> 示例值：10
-     */
+     /**
+      * 查询返回条数
+      * <p> 示例值：10
+      */
     @SerializedName("count")
     private Integer count;
-    /**
-     * 审批实例列表
-     * <p> 示例值：
-     */
+     /**
+      * 审批实例列表
+      * <p> 示例值：
+      */
     @SerializedName("instance_list")
     private InstanceSearchItem[] instanceList;
-    /**
-     * 翻页 Token
-     * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-     */
+     /**
+      * 翻页 Token
+      * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否有更多任务可供拉取
-     * <p> 示例值：false
-     */
+     /**
+      * 是否有更多任务可供拉取
+      * <p> 示例值：false
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public Integer getCount() {
         return this.count;
     }

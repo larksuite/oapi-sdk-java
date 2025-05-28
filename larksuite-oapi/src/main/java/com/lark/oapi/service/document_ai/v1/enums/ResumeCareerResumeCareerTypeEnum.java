@@ -17,16 +17,15 @@ package com.lark.oapi.service.document_ai.v1.enums;
  * 工作类型
  */
 public enum ResumeCareerResumeCareerTypeEnum {
-    INTERNSHIP(1), // 实习
-    FULLTIME(2), // 全职
-    ;
-    private Integer value;
-
+     INTERNSHIP(1), // 实习
+     FULLTIME(2), // 全职
+  ;
+   private Integer value;
     ResumeCareerResumeCareerTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

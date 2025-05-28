@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.bitable.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class AppTableRecord {
         this.config = config;
     }
 
-
+    
     /**
      * 新增多条记录，该接口用于在数据表中新增多条记录，单次调用最多新增 500 条记录。
      * <p> 该接口支持调用频率上限为 10 QPS（Query Per Second，每秒请求率） ;
@@ -64,7 +59,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchCreateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCreateAppTableRecordResp.class);
         if (resp == null) {
@@ -72,14 +67,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -97,7 +92,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchCreateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCreateAppTableRecordResp.class);
         if (resp == null) {
@@ -105,16 +100,15 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除多条记录，该接口用于删除数据表中现有的多条记录，单次调用中最多删除 500 条记录。
      * <p> 该接口支持调用频率上限为 10 QPS ;
@@ -132,7 +126,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteAppTableRecordResp.class);
         if (resp == null) {
@@ -140,14 +134,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -165,7 +159,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteAppTableRecordResp.class);
         if (resp == null) {
@@ -173,16 +167,15 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，批量获取多维表格记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=bitable&resource=app.table.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_get&project=bitable&resource=app.table.record&version=v1</a> ;
@@ -199,7 +192,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_get"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         BatchGetAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetAppTableRecordResp.class);
         if (resp == null) {
@@ -207,14 +200,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_get"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -231,7 +224,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_get"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         BatchGetAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetAppTableRecordResp.class);
         if (resp == null) {
@@ -239,16 +232,15 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_get"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 更新多条记录，该接口用于更新数据表中的多条记录，单次调用最多更新 500 条记录。
      * <p> 该接口支持调用频率上限为 10 QPS ;
@@ -266,7 +258,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchUpdateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateAppTableRecordResp.class);
         if (resp == null) {
@@ -274,14 +266,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -299,7 +291,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchUpdateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateAppTableRecordResp.class);
         if (resp == null) {
@@ -307,16 +299,15 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 新增记录，该接口用于在数据表中新增一条记录
      * <p> 该接口支持调用频率上限为 10 QPS（Query Per Second，每秒请求率） ;
@@ -334,7 +325,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppTableRecordResp.class);
         if (resp == null) {
@@ -342,14 +333,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -367,7 +358,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppTableRecordResp.class);
         if (resp == null) {
@@ -375,16 +366,15 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除记录，该接口用于删除数据表中的一条记录
      * <p> 该接口支持调用频率上限为 10 QPS ;
@@ -402,7 +392,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteAppTableRecordResp.class);
         if (resp == null) {
@@ -410,14 +400,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -435,7 +425,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteAppTableRecordResp.class);
         if (resp == null) {
@@ -443,16 +433,15 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 检索记录，该接口用于根据 record_id 的值检索现有记录
      * <p> 该接口支持调用频率上限为 20 QPS ;
@@ -470,7 +459,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAppTableRecordResp.class);
         if (resp == null) {
@@ -478,14 +467,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -503,7 +492,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAppTableRecordResp.class);
         if (resp == null) {
@@ -511,16 +500,15 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 列出记录，该接口用于列出数据表中的现有记录，单次最多列出 500 行记录，支持分页获取。
      * <p> 该接口支持调用频率上限为 10 QPS（Query Per Second，每秒请求率），1000 QPM（Query Per Minute，每分钟请求率） ;
@@ -538,7 +526,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppTableRecordResp.class);
         if (resp == null) {
@@ -546,14 +534,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -571,7 +559,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppTableRecordResp.class);
         if (resp == null) {
@@ -579,16 +567,15 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，查找多维表格记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=bitable&resource=app.table.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=bitable&resource=app.table.record&version=v1</a> ;
@@ -605,7 +592,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/search"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         SearchAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchAppTableRecordResp.class);
         if (resp == null) {
@@ -613,14 +600,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/search"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -637,7 +624,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/search"
                 , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         SearchAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchAppTableRecordResp.class);
         if (resp == null) {
@@ -645,16 +632,15 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/search"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 更新记录，该接口用于更新数据表中的一条记录
      * <p> 该接口支持调用频率上限为 10 QPS（Query Per Second，每秒请求率） ;
@@ -672,7 +658,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UpdateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateAppTableRecordResp.class);
         if (resp == null) {
@@ -680,14 +666,14 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -705,7 +691,7 @@ public class AppTableRecord {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UpdateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateAppTableRecordResp.class);
         if (resp == null) {
@@ -713,13 +699,13 @@ public class AppTableRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

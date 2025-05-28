@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2OfferStatusChangedV1Data {
-    /**
-     * 发生状态变更的 OfferID
-     * <p> 示例值：7132790542665222407
-     */
+     /**
+      * 发生状态变更的 OfferID
+      * <p> 示例值：7132790542665222407
+      */
     @SerializedName("offer_id")
     private String offerId;
-    /**
-     * Offer 状态
-     * <p> 示例值：
-     */
+     /**
+      * Offer 状态
+      * <p> 示例值：
+      */
     @SerializedName("offer_status")
     private Integer offerStatus;
-
     public String getOfferId() {
         return this.offerId;
     }

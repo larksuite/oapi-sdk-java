@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TalentOperationLog {
-    /**
-     * 投递 ID
-     * <p> 示例值：6949805467799537964
-     */
+     /**
+      * 投递 ID
+      * <p> 示例值：6949805467799537964
+      */
     @SerializedName("application_id")
     private String applicationId;
-    /**
-     * 候选人 ID
-     * <p> 示例值：6843547872837273223
-     */
+     /**
+      * 候选人 ID
+      * <p> 示例值：6843547872837273223
+      */
     @SerializedName("talent_id")
     private String talentId;
-    /**
-     * 操作人
-     * <p> 示例值：
-     */
+     /**
+      * 操作人
+      * <p> 示例值：
+      */
     @SerializedName("operator")
     private IdNameObject operator;
-    /**
-     * 操作类型
-     * <p> 示例值："3001"
-     */
+     /**
+      * 操作类型
+      * <p> 示例值："3001"
+      */
     @SerializedName("operation_type")
     private Integer operationType;
-    /**
-     * 操作时间
-     * <p> 示例值：1618500278663
-     */
+     /**
+      * 操作时间
+      * <p> 示例值：1618500278663
+      */
     @SerializedName("operation_time")
     private String operationTime;
-    /**
-     * 操作人类型
-     * <p> 示例值：1
-     */
+     /**
+      * 操作人类型
+      * <p> 示例值：1
+      */
     @SerializedName("operator_type")
     private Integer operatorType;
-
-    // builder 开始
-    public TalentOperationLog() {
-    }
-
-    public TalentOperationLog(Builder builder) {
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 候选人 ID
-         * <p> 示例值：6843547872837273223
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 操作人
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 操作类型
-         * <p> 示例值："3001"
-         */
-        this.operationType = builder.operationType;
-        /**
-         * 操作时间
-         * <p> 示例值：1618500278663
-         */
-        this.operationTime = builder.operationTime;
-        /**
-         * 操作人类型
-         * <p> 示例值：1
-         */
-        this.operatorType = builder.operatorType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApplicationId() {
         return this.applicationId;
     }
@@ -154,118 +108,159 @@ public class TalentOperationLog {
         this.operatorType = operatorType;
     }
 
+
+// builder 开始
+  public TalentOperationLog(){}
+
+  public TalentOperationLog(Builder builder){
+         /**
+          * 投递 ID
+          * <p> 示例值：6949805467799537964
+          */
+      this.applicationId = builder.applicationId;
+         /**
+          * 候选人 ID
+          * <p> 示例值：6843547872837273223
+          */
+      this.talentId = builder.talentId;
+         /**
+          * 操作人
+          * <p> 示例值：
+          */
+      this.operator = builder.operator;
+         /**
+          * 操作类型
+          * <p> 示例值："3001"
+          */
+      this.operationType = builder.operationType;
+         /**
+          * 操作时间
+          * <p> 示例值：1618500278663
+          */
+      this.operationTime = builder.operationTime;
+         /**
+          * 操作人类型
+          * <p> 示例值：1
+          */
+      this.operatorType = builder.operatorType;
+  }
+
     public static class Builder {
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         */
+     /**
+      * 投递 ID
+      * <p> 示例值：6949805467799537964
+      */
         private String applicationId;
-        /**
-         * 候选人 ID
-         * <p> 示例值：6843547872837273223
-         */
+     /**
+      * 候选人 ID
+      * <p> 示例值：6843547872837273223
+      */
         private String talentId;
-        /**
-         * 操作人
-         * <p> 示例值：
-         */
+     /**
+      * 操作人
+      * <p> 示例值：
+      */
         private IdNameObject operator;
-        /**
-         * 操作类型
-         * <p> 示例值："3001"
-         */
+     /**
+      * 操作类型
+      * <p> 示例值："3001"
+      */
         private Integer operationType;
-        /**
-         * 操作时间
-         * <p> 示例值：1618500278663
-         */
+     /**
+      * 操作时间
+      * <p> 示例值：1618500278663
+      */
         private String operationTime;
-        /**
-         * 操作人类型
-         * <p> 示例值：1
-         */
+     /**
+      * 操作人类型
+      * <p> 示例值：1
+      */
         private Integer operatorType;
 
         /**
          * 投递 ID
          * <p> 示例值：6949805467799537964
-         *
          * @param applicationId
          * @return
          */
         public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
+             this.applicationId = applicationId;
+             return this;
         }
 
+    
 
         /**
          * 候选人 ID
          * <p> 示例值：6843547872837273223
-         *
          * @param talentId
          * @return
          */
         public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
+             this.talentId = talentId;
+             return this;
         }
 
+    
 
         /**
          * 操作人
          * <p> 示例值：
-         *
          * @param operator
          * @return
          */
         public Builder operator(IdNameObject operator) {
-            this.operator = operator;
-            return this;
+             this.operator = operator;
+             return this;
         }
 
+    
 
         /**
          * 操作类型
          * <p> 示例值："3001"
-         *
          * @param operationType
          * @return
          */
         public Builder operationType(Integer operationType) {
-            this.operationType = operationType;
-            return this;
+             this.operationType = operationType;
+             return this;
         }
 
+    
 
         /**
          * 操作时间
          * <p> 示例值：1618500278663
-         *
          * @param operationTime
          * @return
          */
         public Builder operationTime(String operationTime) {
-            this.operationTime = operationTime;
-            return this;
+             this.operationTime = operationTime;
+             return this;
         }
 
+    
 
         /**
          * 操作人类型
          * <p> 示例值：1
-         *
          * @param operatorType
          * @return
          */
         public Builder operatorType(Integer operatorType) {
-            this.operatorType = operatorType;
-            return this;
+             this.operatorType = operatorType;
+             return this;
         }
 
+    
+    
+    public TalentOperationLog build(){
+        return new TalentOperationLog(this);
+      }
+    }
 
-        public TalentOperationLog build() {
-            return new TalentOperationLog(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

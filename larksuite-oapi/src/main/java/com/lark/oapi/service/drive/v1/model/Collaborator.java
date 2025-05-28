@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Collaborator {
-    /**
-     * 协作者类型 "user" or "chat"
-     * <p> 示例值：user
-     */
+     /**
+      * 协作者类型 "user" or "chat"
+      * <p> 示例值：user
+      */
     @SerializedName("member_type")
     private String memberType;
-    /**
-     * 协作者openid
-     * <p> 示例值：ou_65b0affcc6c342a50e4c66f700137b64
-     */
+     /**
+      * 协作者openid
+      * <p> 示例值：ou_65b0affcc6c342a50e4c66f700137b64
+      */
     @SerializedName("member_open_id")
     private String memberOpenId;
-    /**
-     * 协作者userid(仅当member_type="user"时有效)
-     * <p> 示例值：96g3c421
-     */
+     /**
+      * 协作者userid(仅当member_type="user"时有效)
+      * <p> 示例值：96g3c421
+      */
     @SerializedName("member_user_id")
     private String memberUserId;
-    /**
-     * 协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)
-     * <p> 示例值：view
-     */
+     /**
+      * 协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)
+      * <p> 示例值：view
+      */
     @SerializedName("perm")
     private String perm;
-
-    // builder 开始
-    public Collaborator() {
-    }
-
-    public Collaborator(Builder builder) {
-        /**
-         * 协作者类型 "user" or "chat"
-         * <p> 示例值：user
-         */
-        this.memberType = builder.memberType;
-        /**
-         * 协作者openid
-         * <p> 示例值：ou_65b0affcc6c342a50e4c66f700137b64
-         */
-        this.memberOpenId = builder.memberOpenId;
-        /**
-         * 协作者userid(仅当member_type="user"时有效)
-         * <p> 示例值：96g3c421
-         */
-        this.memberUserId = builder.memberUserId;
-        /**
-         * 协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)
-         * <p> 示例值：view
-         */
-        this.perm = builder.perm;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMemberType() {
         return this.memberType;
     }
@@ -117,82 +81,113 @@ public class Collaborator {
         this.perm = perm;
     }
 
+
+// builder 开始
+  public Collaborator(){}
+
+  public Collaborator(Builder builder){
+         /**
+          * 协作者类型 "user" or "chat"
+          * <p> 示例值：user
+          */
+      this.memberType = builder.memberType;
+         /**
+          * 协作者openid
+          * <p> 示例值：ou_65b0affcc6c342a50e4c66f700137b64
+          */
+      this.memberOpenId = builder.memberOpenId;
+         /**
+          * 协作者userid(仅当member_type="user"时有效)
+          * <p> 示例值：96g3c421
+          */
+      this.memberUserId = builder.memberUserId;
+         /**
+          * 协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)
+          * <p> 示例值：view
+          */
+      this.perm = builder.perm;
+  }
+
     public static class Builder {
-        /**
-         * 协作者类型 "user" or "chat"
-         * <p> 示例值：user
-         */
+     /**
+      * 协作者类型 "user" or "chat"
+      * <p> 示例值：user
+      */
         private String memberType;
-        /**
-         * 协作者openid
-         * <p> 示例值：ou_65b0affcc6c342a50e4c66f700137b64
-         */
+     /**
+      * 协作者openid
+      * <p> 示例值：ou_65b0affcc6c342a50e4c66f700137b64
+      */
         private String memberOpenId;
-        /**
-         * 协作者userid(仅当member_type="user"时有效)
-         * <p> 示例值：96g3c421
-         */
+     /**
+      * 协作者userid(仅当member_type="user"时有效)
+      * <p> 示例值：96g3c421
+      */
         private String memberUserId;
-        /**
-         * 协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)
-         * <p> 示例值：view
-         */
+     /**
+      * 协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)
+      * <p> 示例值：view
+      */
         private String perm;
 
         /**
          * 协作者类型 "user" or "chat"
          * <p> 示例值：user
-         *
          * @param memberType
          * @return
          */
         public Builder memberType(String memberType) {
-            this.memberType = memberType;
-            return this;
+             this.memberType = memberType;
+             return this;
         }
 
+    
 
         /**
          * 协作者openid
          * <p> 示例值：ou_65b0affcc6c342a50e4c66f700137b64
-         *
          * @param memberOpenId
          * @return
          */
         public Builder memberOpenId(String memberOpenId) {
-            this.memberOpenId = memberOpenId;
-            return this;
+             this.memberOpenId = memberOpenId;
+             return this;
         }
 
+    
 
         /**
          * 协作者userid(仅当member_type="user"时有效)
          * <p> 示例值：96g3c421
-         *
          * @param memberUserId
          * @return
          */
         public Builder memberUserId(String memberUserId) {
-            this.memberUserId = memberUserId;
-            return this;
+             this.memberUserId = memberUserId;
+             return this;
         }
 
+    
 
         /**
          * 协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)
          * <p> 示例值：view
-         *
          * @param perm
          * @return
          */
         public Builder perm(String perm) {
-            this.perm = perm;
-            return this;
+             this.perm = perm;
+             return this;
         }
 
+    
+    
+    public Collaborator build(){
+        return new Collaborator(this);
+      }
+    }
 
-        public Collaborator build() {
-            return new Collaborator(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

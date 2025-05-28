@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,126 +19,66 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QrCode {
-    /**
-     * 二维码id
-     * <p> 示例值：6892698621939026184
-     */
+     /**
+      * 二维码id
+      * <p> 示例值：6892698621939026184
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 二维码图片链接,文件名区分语言
-     * <p> 示例值：https://open.feishu-boe.cn
-     */
+     /**
+      * 二维码图片链接,文件名区分语言
+      * <p> 示例值：https://open.feishu-boe.cn
+      */
     @SerializedName("png")
     private String png;
-    /**
-     * 二维码值链接
-     * <p> 示例值：https://open.feishu-boe.cn
-     */
+     /**
+      * 二维码值链接
+      * <p> 示例值：https://open.feishu-boe.cn
+      */
     @SerializedName("url")
     private String url;
-    /**
-     * 有效性
-     * <p> 示例值：
-     */
+     /**
+      * 有效性
+      * <p> 示例值：
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 创建人
-     * <p> 示例值：7032210902531327521
-     */
+     /**
+      * 创建人
+      * <p> 示例值：7032210902531327521
+      */
     @SerializedName("created_by")
     private String createdBy;
-    /**
-     * 更新人
-     * <p> 示例值：7032210902531327521
-     */
+     /**
+      * 更新人
+      * <p> 示例值：7032210902531327521
+      */
     @SerializedName("updated_by")
     private String updatedBy;
-    /**
-     * 创建时间
-     * <p> 示例值：1704038400
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：1704038400
+      */
     @SerializedName("created_at")
     private Integer createdAt;
-    /**
-     * 更新时间
-     * <p> 示例值：1704038400
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：1704038400
+      */
     @SerializedName("updated_at")
     private Integer updatedAt;
-    /**
-     * 维度值列表
-     * <p> 示例值：
-     */
+     /**
+      * 维度值列表
+      * <p> 示例值：
+      */
     @SerializedName("dimension_value_list")
     private QrCodeDimensionValue[] dimensionValueList;
-
-    // builder 开始
-    public QrCode() {
-    }
-
-    public QrCode(Builder builder) {
-        /**
-         * 二维码id
-         * <p> 示例值：6892698621939026184
-         */
-        this.id = builder.id;
-        /**
-         * 二维码图片链接,文件名区分语言
-         * <p> 示例值：https://open.feishu-boe.cn
-         */
-        this.png = builder.png;
-        /**
-         * 二维码值链接
-         * <p> 示例值：https://open.feishu-boe.cn
-         */
-        this.url = builder.url;
-        /**
-         * 有效性
-         * <p> 示例值：
-         */
-        this.active = builder.active;
-        /**
-         * 创建人
-         * <p> 示例值：7032210902531327521
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 更新人
-         * <p> 示例值：7032210902531327521
-         */
-        this.updatedBy = builder.updatedBy;
-        /**
-         * 创建时间
-         * <p> 示例值：1704038400
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 更新时间
-         * <p> 示例值：1704038400
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 维度值列表
-         * <p> 示例值：
-         */
-        this.dimensionValueList = builder.dimensionValueList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -212,172 +151,228 @@ public class QrCode {
         this.dimensionValueList = dimensionValueList;
     }
 
+
+// builder 开始
+  public QrCode(){}
+
+  public QrCode(Builder builder){
+         /**
+          * 二维码id
+          * <p> 示例值：6892698621939026184
+          */
+      this.id = builder.id;
+         /**
+          * 二维码图片链接,文件名区分语言
+          * <p> 示例值：https://open.feishu-boe.cn
+          */
+      this.png = builder.png;
+         /**
+          * 二维码值链接
+          * <p> 示例值：https://open.feishu-boe.cn
+          */
+      this.url = builder.url;
+         /**
+          * 有效性
+          * <p> 示例值：
+          */
+      this.active = builder.active;
+         /**
+          * 创建人
+          * <p> 示例值：7032210902531327521
+          */
+      this.createdBy = builder.createdBy;
+         /**
+          * 更新人
+          * <p> 示例值：7032210902531327521
+          */
+      this.updatedBy = builder.updatedBy;
+         /**
+          * 创建时间
+          * <p> 示例值：1704038400
+          */
+      this.createdAt = builder.createdAt;
+         /**
+          * 更新时间
+          * <p> 示例值：1704038400
+          */
+      this.updatedAt = builder.updatedAt;
+         /**
+          * 维度值列表
+          * <p> 示例值：
+          */
+      this.dimensionValueList = builder.dimensionValueList;
+  }
+
     public static class Builder {
-        /**
-         * 二维码id
-         * <p> 示例值：6892698621939026184
-         */
+     /**
+      * 二维码id
+      * <p> 示例值：6892698621939026184
+      */
         private String id;
-        /**
-         * 二维码图片链接,文件名区分语言
-         * <p> 示例值：https://open.feishu-boe.cn
-         */
+     /**
+      * 二维码图片链接,文件名区分语言
+      * <p> 示例值：https://open.feishu-boe.cn
+      */
         private String png;
-        /**
-         * 二维码值链接
-         * <p> 示例值：https://open.feishu-boe.cn
-         */
+     /**
+      * 二维码值链接
+      * <p> 示例值：https://open.feishu-boe.cn
+      */
         private String url;
-        /**
-         * 有效性
-         * <p> 示例值：
-         */
+     /**
+      * 有效性
+      * <p> 示例值：
+      */
         private Boolean active;
-        /**
-         * 创建人
-         * <p> 示例值：7032210902531327521
-         */
+     /**
+      * 创建人
+      * <p> 示例值：7032210902531327521
+      */
         private String createdBy;
-        /**
-         * 更新人
-         * <p> 示例值：7032210902531327521
-         */
+     /**
+      * 更新人
+      * <p> 示例值：7032210902531327521
+      */
         private String updatedBy;
-        /**
-         * 创建时间
-         * <p> 示例值：1704038400
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：1704038400
+      */
         private Integer createdAt;
-        /**
-         * 更新时间
-         * <p> 示例值：1704038400
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：1704038400
+      */
         private Integer updatedAt;
-        /**
-         * 维度值列表
-         * <p> 示例值：
-         */
+     /**
+      * 维度值列表
+      * <p> 示例值：
+      */
         private QrCodeDimensionValue[] dimensionValueList;
 
         /**
          * 二维码id
          * <p> 示例值：6892698621939026184
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 二维码图片链接,文件名区分语言
          * <p> 示例值：https://open.feishu-boe.cn
-         *
          * @param png
          * @return
          */
         public Builder png(String png) {
-            this.png = png;
-            return this;
+             this.png = png;
+             return this;
         }
 
+    
 
         /**
          * 二维码值链接
          * <p> 示例值：https://open.feishu-boe.cn
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
 
         /**
          * 有效性
          * <p> 示例值：
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 创建人
          * <p> 示例值：7032210902531327521
-         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
+             this.createdBy = createdBy;
+             return this;
         }
 
+    
 
         /**
          * 更新人
          * <p> 示例值：7032210902531327521
-         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(String updatedBy) {
-            this.updatedBy = updatedBy;
-            return this;
+             this.updatedBy = updatedBy;
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：1704038400
-         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
+             this.createdAt = createdAt;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：1704038400
-         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(Integer updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
+             this.updatedAt = updatedAt;
+             return this;
         }
 
+    
 
         /**
          * 维度值列表
          * <p> 示例值：
-         *
          * @param dimensionValueList
          * @return
          */
         public Builder dimensionValueList(QrCodeDimensionValue[] dimensionValueList) {
-            this.dimensionValueList = dimensionValueList;
-            return this;
+             this.dimensionValueList = dimensionValueList;
+             return this;
         }
 
+    
+    
+    public QrCode build(){
+        return new QrCode(this);
+      }
+    }
 
-        public QrCode build() {
-            return new QrCode(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

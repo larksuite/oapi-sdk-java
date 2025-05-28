@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TalentCombinedWorkInfo {
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     */
+     /**
+      * ID
+      * <p> 示例值：6891560630172518670
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 作品链接
-     * <p> 示例值：https://www.a.com
-     */
+     /**
+      * 作品链接
+      * <p> 示例值：https://www.a.com
+      */
     @SerializedName("link")
     private String link;
-    /**
-     * 描述
-     * <p> 示例值：个人设计作品
-     */
+     /**
+      * 描述
+      * <p> 示例值：个人设计作品
+      */
     @SerializedName("desc")
     private String desc;
-    /**
-     * 附件 ID
-     * <p> 示例值：12345678
-     */
+     /**
+      * 附件 ID
+      * <p> 示例值：12345678
+      */
     @SerializedName("attachment_id")
     private String attachmentId;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("customized_data")
     private TalentCustomizedDataObjectValue[] customizedData;
-
-    // builder 开始
-    public TalentCombinedWorkInfo() {
-    }
-
-    public TalentCombinedWorkInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 作品链接
-         * <p> 示例值：https://www.a.com
-         */
-        this.link = builder.link;
-        /**
-         * 描述
-         * <p> 示例值：个人设计作品
-         */
-        this.desc = builder.desc;
-        /**
-         * 附件 ID
-         * <p> 示例值：12345678
-         */
-        this.attachmentId = builder.attachmentId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -135,100 +94,136 @@ public class TalentCombinedWorkInfo {
         this.customizedData = customizedData;
     }
 
+
+// builder 开始
+  public TalentCombinedWorkInfo(){}
+
+  public TalentCombinedWorkInfo(Builder builder){
+         /**
+          * ID
+          * <p> 示例值：6891560630172518670
+          */
+      this.id = builder.id;
+         /**
+          * 作品链接
+          * <p> 示例值：https://www.a.com
+          */
+      this.link = builder.link;
+         /**
+          * 描述
+          * <p> 示例值：个人设计作品
+          */
+      this.desc = builder.desc;
+         /**
+          * 附件 ID
+          * <p> 示例值：12345678
+          */
+      this.attachmentId = builder.attachmentId;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customizedData = builder.customizedData;
+  }
+
     public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
+     /**
+      * ID
+      * <p> 示例值：6891560630172518670
+      */
         private String id;
-        /**
-         * 作品链接
-         * <p> 示例值：https://www.a.com
-         */
+     /**
+      * 作品链接
+      * <p> 示例值：https://www.a.com
+      */
         private String link;
-        /**
-         * 描述
-         * <p> 示例值：个人设计作品
-         */
+     /**
+      * 描述
+      * <p> 示例值：个人设计作品
+      */
         private String desc;
-        /**
-         * 附件 ID
-         * <p> 示例值：12345678
-         */
+     /**
+      * 附件 ID
+      * <p> 示例值：12345678
+      */
         private String attachmentId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private TalentCustomizedDataObjectValue[] customizedData;
 
         /**
          * ID
          * <p> 示例值：6891560630172518670
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 作品链接
          * <p> 示例值：https://www.a.com
-         *
          * @param link
          * @return
          */
         public Builder link(String link) {
-            this.link = link;
-            return this;
+             this.link = link;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：个人设计作品
-         *
          * @param desc
          * @return
          */
         public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
+             this.desc = desc;
+             return this;
         }
 
+    
 
         /**
          * 附件 ID
          * <p> 示例值：12345678
-         *
          * @param attachmentId
          * @return
          */
         public Builder attachmentId(String attachmentId) {
-            this.attachmentId = attachmentId;
-            return this;
+             this.attachmentId = attachmentId;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customizedData
          * @return
          */
         public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
+             this.customizedData = customizedData;
+             return this;
         }
 
+    
+    
+    public TalentCombinedWorkInfo build(){
+        return new TalentCombinedWorkInfo(this);
+      }
+    }
 
-        public TalentCombinedWorkInfo build() {
-            return new TalentCombinedWorkInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,91 +17,77 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.drive.v1.resource.*;
 
 public class V1 {
-    private final ExportTask exportTask; // 导出
-    private final File file; // 上传
-    private final FileComment fileComment; // 评论
-    private final FileCommentReply fileCommentReply; // 评论
-    private final FileStatistics fileStatistics; // file.statistics
-    private final FileSubscription fileSubscription; // 订阅
-    private final FileVersion fileVersion; // 文档版本
-    private final FileViewRecord fileViewRecord; // file.view_record
-    private final ImportTask importTask; // 导入
-    private final Media media; // 分片上传
-    private final Meta meta; // meta
-    private final PermissionMember permissionMember; // 成员
-    private final PermissionPublic permissionPublic; // 设置
-    private final PermissionPublicPassword permissionPublicPassword; // permission.public.password
+	private final ExportTask exportTask; // 导出
+	private final File file; // 下载
+	private final FileComment fileComment; // 评论
+	private final FileCommentReply fileCommentReply; // 评论
+	private final FileStatistics fileStatistics; // file.statistics
+	private final FileSubscription fileSubscription; // 订阅
+	private final FileVersion fileVersion; // 文档版本
+	private final FileViewRecord fileViewRecord; // file.view_record
+	private final ImportTask importTask; // 导入
+	private final Media media; // 分片上传
+	private final Meta meta; // meta
+	private final PermissionMember permissionMember; // 成员
+	private final PermissionPublic permissionPublic; // 设置
+	private final PermissionPublicPassword permissionPublicPassword; // permission.public.password
 
-    public V1(Config config) {
-        this.exportTask = new ExportTask(config);
-        this.file = new File(config);
-        this.fileComment = new FileComment(config);
-        this.fileCommentReply = new FileCommentReply(config);
-        this.fileStatistics = new FileStatistics(config);
-        this.fileSubscription = new FileSubscription(config);
-        this.fileVersion = new FileVersion(config);
-        this.fileViewRecord = new FileViewRecord(config);
-        this.importTask = new ImportTask(config);
-        this.media = new Media(config);
-        this.meta = new Meta(config);
-        this.permissionMember = new PermissionMember(config);
-        this.permissionPublic = new PermissionPublic(config);
-        this.permissionPublicPassword = new PermissionPublicPassword(config);
-    }
-
-    public ExportTask exportTask() {
-        return exportTask;
-    }
-
-    public File file() {
-        return file;
-    }
-
-    public FileComment fileComment() {
-        return fileComment;
-    }
-
-    public FileCommentReply fileCommentReply() {
-        return fileCommentReply;
-    }
-
-    public FileStatistics fileStatistics() {
-        return fileStatistics;
-    }
-
-    public FileSubscription fileSubscription() {
-        return fileSubscription;
-    }
-
-    public FileVersion fileVersion() {
-        return fileVersion;
-    }
-
-    public FileViewRecord fileViewRecord() {
-        return fileViewRecord;
-    }
-
-    public ImportTask importTask() {
-        return importTask;
-    }
-
-    public Media media() {
-        return media;
-    }
-
-    public Meta meta() {
-        return meta;
-    }
-
-    public PermissionMember permissionMember() {
-        return permissionMember;
-    }
-
-    public PermissionPublic permissionPublic() {
-        return permissionPublic;
-    }
-
-    public PermissionPublicPassword permissionPublicPassword() {
-        return permissionPublicPassword;
-    }
+	public V1(Config config) {
+		this.exportTask = new ExportTask(config);
+		this.file = new File(config);
+		this.fileComment = new FileComment(config);
+		this.fileCommentReply = new FileCommentReply(config);
+		this.fileStatistics = new FileStatistics(config);
+		this.fileSubscription = new FileSubscription(config);
+		this.fileVersion = new FileVersion(config);
+		this.fileViewRecord = new FileViewRecord(config);
+		this.importTask = new ImportTask(config);
+		this.media = new Media(config);
+		this.meta = new Meta(config);
+		this.permissionMember = new PermissionMember(config);
+		this.permissionPublic = new PermissionPublic(config);
+		this.permissionPublicPassword = new PermissionPublicPassword(config);
+	}
+	public ExportTask exportTask() {
+		return exportTask;
+	}
+	public File file() {
+		return file;
+	}
+	public FileComment fileComment() {
+		return fileComment;
+	}
+	public FileCommentReply fileCommentReply() {
+		return fileCommentReply;
+	}
+	public FileStatistics fileStatistics() {
+		return fileStatistics;
+	}
+	public FileSubscription fileSubscription() {
+		return fileSubscription;
+	}
+	public FileVersion fileVersion() {
+		return fileVersion;
+	}
+	public FileViewRecord fileViewRecord() {
+		return fileViewRecord;
+	}
+	public ImportTask importTask() {
+		return importTask;
+	}
+	public Media media() {
+		return media;
+	}
+	public Meta meta() {
+		return meta;
+	}
+	public PermissionMember permissionMember() {
+		return permissionMember;
+	}
+	public PermissionPublic permissionPublic() {
+		return permissionPublic;
+	}
+	public PermissionPublicPassword permissionPublicPassword() {
+		return permissionPublicPassword;
+	}
 }

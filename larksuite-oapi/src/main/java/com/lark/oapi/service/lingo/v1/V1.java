@@ -17,37 +17,32 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.lingo.v1.resource.*;
 
 public class V1 {
-    private final Classification classification; // classification
-    private final Draft draft; // draft
-    private final Entity entity; // entity
-    private final File file; // file
-    private final Repo repo; // repo
+	private final Classification classification; // classification
+	private final Draft draft; // draft
+	private final Entity entity; // entity
+	private final File file; // file
+	private final Repo repo; // repo
 
-    public V1(Config config) {
-        this.classification = new Classification(config);
-        this.draft = new Draft(config);
-        this.entity = new Entity(config);
-        this.file = new File(config);
-        this.repo = new Repo(config);
-    }
-
-    public Classification classification() {
-        return classification;
-    }
-
-    public Draft draft() {
-        return draft;
-    }
-
-    public Entity entity() {
-        return entity;
-    }
-
-    public File file() {
-        return file;
-    }
-
-    public Repo repo() {
-        return repo;
-    }
+	public V1(Config config) {
+		this.classification = new Classification(config);
+		this.draft = new Draft(config);
+		this.entity = new Entity(config);
+		this.file = new File(config);
+		this.repo = new Repo(config);
+	}
+	public Classification classification() {
+		return classification;
+	}
+	public Draft draft() {
+		return draft;
+	}
+	public Entity entity() {
+		return entity;
+	}
+	public File file() {
+		return file;
+	}
+	public Repo repo() {
+		return repo;
+	}
 }

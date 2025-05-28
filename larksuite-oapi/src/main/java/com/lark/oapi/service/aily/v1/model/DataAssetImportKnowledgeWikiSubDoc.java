@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataAssetImportKnowledgeWikiSubDoc {
-    /**
-     * 云文档类型，只支持wiki中的云文档
-     * <p> 示例值：wiki
-     */
+     /**
+      * 云文档类型，只支持wiki中的云文档
+      * <p> 示例值：wiki
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 云文档标识
-     * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
-     */
+     /**
+      * 云文档标识
+      * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * 云文档链接
-     * <p> 示例值：https://cdas.feishu.cn/wiki/fdisu1
-     */
+     /**
+      * 云文档链接
+      * <p> 示例值：https://cdas.feishu.cn/wiki/fdisu1
+      */
     @SerializedName("url")
     private String url;
-
-    // builder 开始
-    public DataAssetImportKnowledgeWikiSubDoc() {
-    }
-
-    public DataAssetImportKnowledgeWikiSubDoc(Builder builder) {
-        /**
-         * 云文档类型，只支持wiki中的云文档
-         * <p> 示例值：wiki
-         */
-        this.type = builder.type;
-        /**
-         * 云文档标识
-         * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
-         */
-        this.token = builder.token;
-        /**
-         * 云文档链接
-         * <p> 示例值：https://cdas.feishu.cn/wiki/fdisu1
-         */
-        this.url = builder.url;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -98,76 +67,100 @@ public class DataAssetImportKnowledgeWikiSubDoc {
         this.url = url;
     }
 
+
+// builder 开始
+  public DataAssetImportKnowledgeWikiSubDoc(){}
+
+  public DataAssetImportKnowledgeWikiSubDoc(Builder builder){
+         /**
+          * 云文档类型，只支持wiki中的云文档
+          * <p> 示例值：wiki
+          */
+      this.type = builder.type;
+         /**
+          * 云文档标识
+          * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
+          */
+      this.token = builder.token;
+         /**
+          * 云文档链接
+          * <p> 示例值：https://cdas.feishu.cn/wiki/fdisu1
+          */
+      this.url = builder.url;
+  }
+
     public static class Builder {
-        /**
-         * 云文档类型，只支持wiki中的云文档
-         * <p> 示例值：wiki
-         */
+     /**
+      * 云文档类型，只支持wiki中的云文档
+      * <p> 示例值：wiki
+      */
         private String type;
-        /**
-         * 云文档标识
-         * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
-         */
+     /**
+      * 云文档标识
+      * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
+      */
         private String token;
-        /**
-         * 云文档链接
-         * <p> 示例值：https://cdas.feishu.cn/wiki/fdisu1
-         */
+     /**
+      * 云文档链接
+      * <p> 示例值：https://cdas.feishu.cn/wiki/fdisu1
+      */
         private String url;
 
         /**
          * 云文档类型，只支持wiki中的云文档
          * <p> 示例值：wiki
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 云文档类型，只支持wiki中的云文档
          * <p> 示例值：wiki
-         *
          * @param type {@link com.lark.oapi.service.aily.v1.enums.DataAssetImportKnowledgeWikiSubDocTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.aily.v1.enums.DataAssetImportKnowledgeWikiSubDocTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 云文档标识
          * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * 云文档链接
          * <p> 示例值：https://cdas.feishu.cn/wiki/fdisu1
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
+    
+    public DataAssetImportKnowledgeWikiSubDoc build(){
+        return new DataAssetImportKnowledgeWikiSubDoc(this);
+      }
+    }
 
-        public DataAssetImportKnowledgeWikiSubDoc build() {
-            return new DataAssetImportKnowledgeWikiSubDoc(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

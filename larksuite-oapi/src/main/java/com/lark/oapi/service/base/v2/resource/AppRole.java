@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.base.v2.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.base.v2.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class AppRole {
         this.config = config;
     }
 
-
+    
     /**
      * ，新增自定义角色
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=base&resource=app.role&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=base&resource=app.role&version=v2</a> ;
@@ -63,7 +58,7 @@ public class AppRole {
                 , "/open-apis/base/v2/apps/:app_token/roles"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppRoleResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class AppRole {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/base/v2/apps/:app_token/roles"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class AppRole {
                 , "/open-apis/base/v2/apps/:app_token/roles"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppRoleResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class AppRole {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/base/v2/apps/:app_token/roles"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，列出自定义角色
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=base&resource=app.role&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=base&resource=app.role&version=v2</a> ;
@@ -129,7 +123,7 @@ public class AppRole {
                 , "/open-apis/base/v2/apps/:app_token/roles"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppRoleResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class AppRole {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/base/v2/apps/:app_token/roles"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class AppRole {
                 , "/open-apis/base/v2/apps/:app_token/roles"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppRoleResp.class);
         if (resp == null) {
@@ -169,16 +163,15 @@ public class AppRole {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/base/v2/apps/:app_token/roles"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，更新自定义角色
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=base&resource=app.role&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=base&resource=app.role&version=v2</a> ;
@@ -195,7 +188,7 @@ public class AppRole {
                 , "/open-apis/base/v2/apps/:app_token/roles/:role_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UpdateAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateAppRoleResp.class);
         if (resp == null) {
@@ -203,14 +196,14 @@ public class AppRole {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/base/v2/apps/:app_token/roles/:role_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -227,7 +220,7 @@ public class AppRole {
                 , "/open-apis/base/v2/apps/:app_token/roles/:role_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UpdateAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateAppRoleResp.class);
         if (resp == null) {
@@ -235,13 +228,13 @@ public class AppRole {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/base/v2/apps/:app_token/roles/:role_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

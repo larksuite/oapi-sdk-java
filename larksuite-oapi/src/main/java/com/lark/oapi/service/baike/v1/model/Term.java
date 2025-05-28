@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Term {
-    /**
-     * 名称的值
-     * <p> 示例值：企业百科
-     */
+     /**
+      * 名称的值
+      * <p> 示例值：企业百科
+      */
     @SerializedName("key")
     private String key;
-    /**
-     * 名称展示范围
-     * <p> 示例值：
-     */
+     /**
+      * 名称展示范围
+      * <p> 示例值：
+      */
     @SerializedName("display_status")
     private DisplayStatus displayStatus;
-
-    // builder 开始
-    public Term() {
-    }
-
-    public Term(Builder builder) {
-        /**
-         * 名称的值
-         * <p> 示例值：企业百科
-         */
-        this.key = builder.key;
-        /**
-         * 名称展示范围
-         * <p> 示例值：
-         */
-        this.displayStatus = builder.displayStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKey() {
         return this.key;
     }
@@ -79,46 +53,67 @@ public class Term {
         this.displayStatus = displayStatus;
     }
 
+
+// builder 开始
+  public Term(){}
+
+  public Term(Builder builder){
+         /**
+          * 名称的值
+          * <p> 示例值：企业百科
+          */
+      this.key = builder.key;
+         /**
+          * 名称展示范围
+          * <p> 示例值：
+          */
+      this.displayStatus = builder.displayStatus;
+  }
+
     public static class Builder {
-        /**
-         * 名称的值
-         * <p> 示例值：企业百科
-         */
+     /**
+      * 名称的值
+      * <p> 示例值：企业百科
+      */
         private String key;
-        /**
-         * 名称展示范围
-         * <p> 示例值：
-         */
+     /**
+      * 名称展示范围
+      * <p> 示例值：
+      */
         private DisplayStatus displayStatus;
 
         /**
          * 名称的值
          * <p> 示例值：企业百科
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
 
         /**
          * 名称展示范围
          * <p> 示例值：
-         *
          * @param displayStatus
          * @return
          */
         public Builder displayStatus(DisplayStatus displayStatus) {
-            this.displayStatus = displayStatus;
-            return this;
+             this.displayStatus = displayStatus;
+             return this;
         }
 
+    
+    
+    public Term build(){
+        return new Term(this);
+      }
+    }
 
-        public Term build() {
-            return new Term(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

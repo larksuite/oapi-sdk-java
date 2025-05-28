@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BasicEmployee {
-    /**
-     * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
-     * <p> 示例值：6893014062142064135
-     */
+     /**
+      * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
+      * <p> 示例值：6893014062142064135
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
-     * <p> 示例值：6893014062142064135
-     */
+     /**
+      * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+      * <p> 示例值：6893014062142064135
+      */
     @SerializedName("employment_id_v2")
     private String employmentIdV2;
-    /**
-     * 工号
-     * <p> 示例值：1000000
-     */
+     /**
+      * 工号
+      * <p> 示例值：1000000
+      */
     @SerializedName("employee_number")
     private String employeeNumber;
-    /**
-     * 邮箱地址
-     * <p> 示例值：test@163.com
-     */
+     /**
+      * 邮箱地址
+      * <p> 示例值：test@163.com
+      */
     @SerializedName("email_address")
     private String emailAddress;
-    /**
-     * 基本个人信息
-     * <p> 示例值：
-     */
+     /**
+      * 基本个人信息
+      * <p> 示例值：
+      */
     @SerializedName("person_info")
     private BasicPersonInfo personInfo;
-
-    // builder 开始
-    public BasicEmployee() {
-    }
-
-    public BasicEmployee(Builder builder) {
-        /**
-         * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
-         * <p> 示例值：6893014062142064135
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
-         * <p> 示例值：6893014062142064135
-         */
-        this.employmentIdV2 = builder.employmentIdV2;
-        /**
-         * 工号
-         * <p> 示例值：1000000
-         */
-        this.employeeNumber = builder.employeeNumber;
-        /**
-         * 邮箱地址
-         * <p> 示例值：test@163.com
-         */
-        this.emailAddress = builder.emailAddress;
-        /**
-         * 基本个人信息
-         * <p> 示例值：
-         */
-        this.personInfo = builder.personInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -136,100 +95,136 @@ public class BasicEmployee {
         this.personInfo = personInfo;
     }
 
+
+// builder 开始
+  public BasicEmployee(){}
+
+  public BasicEmployee(Builder builder){
+         /**
+          * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
+          * <p> 示例值：6893014062142064135
+          */
+      this.employmentId = builder.employmentId;
+         /**
+          * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+          * <p> 示例值：6893014062142064135
+          */
+      this.employmentIdV2 = builder.employmentIdV2;
+         /**
+          * 工号
+          * <p> 示例值：1000000
+          */
+      this.employeeNumber = builder.employeeNumber;
+         /**
+          * 邮箱地址
+          * <p> 示例值：test@163.com
+          */
+      this.emailAddress = builder.emailAddress;
+         /**
+          * 基本个人信息
+          * <p> 示例值：
+          */
+      this.personInfo = builder.personInfo;
+  }
+
     public static class Builder {
-        /**
-         * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
-         * <p> 示例值：6893014062142064135
-         */
+     /**
+      * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
+      * <p> 示例值：6893014062142064135
+      */
         private String employmentId;
-        /**
-         * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
-         * <p> 示例值：6893014062142064135
-         */
+     /**
+      * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+      * <p> 示例值：6893014062142064135
+      */
         private String employmentIdV2;
-        /**
-         * 工号
-         * <p> 示例值：1000000
-         */
+     /**
+      * 工号
+      * <p> 示例值：1000000
+      */
         private String employeeNumber;
-        /**
-         * 邮箱地址
-         * <p> 示例值：test@163.com
-         */
+     /**
+      * 邮箱地址
+      * <p> 示例值：test@163.com
+      */
         private String emailAddress;
-        /**
-         * 基本个人信息
-         * <p> 示例值：
-         */
+     /**
+      * 基本个人信息
+      * <p> 示例值：
+      */
         private BasicPersonInfo personInfo;
 
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
          * <p> 示例值：6893014062142064135
-         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
+             this.employmentId = employmentId;
+             return this;
         }
 
+    
 
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
          * <p> 示例值：6893014062142064135
-         *
          * @param employmentIdV2
          * @return
          */
         public Builder employmentIdV2(String employmentIdV2) {
-            this.employmentIdV2 = employmentIdV2;
-            return this;
+             this.employmentIdV2 = employmentIdV2;
+             return this;
         }
 
+    
 
         /**
          * 工号
          * <p> 示例值：1000000
-         *
          * @param employeeNumber
          * @return
          */
         public Builder employeeNumber(String employeeNumber) {
-            this.employeeNumber = employeeNumber;
-            return this;
+             this.employeeNumber = employeeNumber;
+             return this;
         }
 
+    
 
         /**
          * 邮箱地址
          * <p> 示例值：test@163.com
-         *
          * @param emailAddress
          * @return
          */
         public Builder emailAddress(String emailAddress) {
-            this.emailAddress = emailAddress;
-            return this;
+             this.emailAddress = emailAddress;
+             return this;
         }
 
+    
 
         /**
          * 基本个人信息
          * <p> 示例值：
-         *
          * @param personInfo
          * @return
          */
         public Builder personInfo(BasicPersonInfo personInfo) {
-            this.personInfo = personInfo;
-            return this;
+             this.personInfo = personInfo;
+             return this;
         }
 
+    
+    
+    public BasicEmployee build(){
+        return new BasicEmployee(this);
+      }
+    }
 
-        public BasicEmployee build() {
-            return new BasicEmployee(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

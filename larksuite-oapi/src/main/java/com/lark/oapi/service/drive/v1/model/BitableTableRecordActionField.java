@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BitableTableRecordActionField {
-    /**
-     * 字段 ID
-     * <p> 示例值：
-     */
+     /**
+      * 字段 ID
+      * <p> 示例值：
+      */
     @SerializedName("field_id")
     private String fieldId;
-    /**
-     * 字段值
-     * <p> 示例值：
-     */
+     /**
+      * 字段值
+      * <p> 示例值：
+      */
     @SerializedName("field_value")
     private String fieldValue;
-    /**
-     * 人员字段补充信息
-     * <p> 示例值：
-     */
+     /**
+      * 人员字段补充信息
+      * <p> 示例值：
+      */
     @SerializedName("field_identity_value")
     private BitableTableRecordActionFieldIdentity fieldIdentityValue;
-
-    // builder 开始
-    public BitableTableRecordActionField() {
-    }
-
-    public BitableTableRecordActionField(Builder builder) {
-        /**
-         * 字段 ID
-         * <p> 示例值：
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 字段值
-         * <p> 示例值：
-         */
-        this.fieldValue = builder.fieldValue;
-        /**
-         * 人员字段补充信息
-         * <p> 示例值：
-         */
-        this.fieldIdentityValue = builder.fieldIdentityValue;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFieldId() {
         return this.fieldId;
     }
@@ -98,64 +67,90 @@ public class BitableTableRecordActionField {
         this.fieldIdentityValue = fieldIdentityValue;
     }
 
+
+// builder 开始
+  public BitableTableRecordActionField(){}
+
+  public BitableTableRecordActionField(Builder builder){
+         /**
+          * 字段 ID
+          * <p> 示例值：
+          */
+      this.fieldId = builder.fieldId;
+         /**
+          * 字段值
+          * <p> 示例值：
+          */
+      this.fieldValue = builder.fieldValue;
+         /**
+          * 人员字段补充信息
+          * <p> 示例值：
+          */
+      this.fieldIdentityValue = builder.fieldIdentityValue;
+  }
+
     public static class Builder {
-        /**
-         * 字段 ID
-         * <p> 示例值：
-         */
+     /**
+      * 字段 ID
+      * <p> 示例值：
+      */
         private String fieldId;
-        /**
-         * 字段值
-         * <p> 示例值：
-         */
+     /**
+      * 字段值
+      * <p> 示例值：
+      */
         private String fieldValue;
-        /**
-         * 人员字段补充信息
-         * <p> 示例值：
-         */
+     /**
+      * 人员字段补充信息
+      * <p> 示例值：
+      */
         private BitableTableRecordActionFieldIdentity fieldIdentityValue;
 
         /**
          * 字段 ID
          * <p> 示例值：
-         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
+             this.fieldId = fieldId;
+             return this;
         }
 
+    
 
         /**
          * 字段值
          * <p> 示例值：
-         *
          * @param fieldValue
          * @return
          */
         public Builder fieldValue(String fieldValue) {
-            this.fieldValue = fieldValue;
-            return this;
+             this.fieldValue = fieldValue;
+             return this;
         }
 
+    
 
         /**
          * 人员字段补充信息
          * <p> 示例值：
-         *
          * @param fieldIdentityValue
          * @return
          */
         public Builder fieldIdentityValue(BitableTableRecordActionFieldIdentity fieldIdentityValue) {
-            this.fieldIdentityValue = fieldIdentityValue;
-            return this;
+             this.fieldIdentityValue = fieldIdentityValue;
+             return this;
         }
 
+    
+    
+    public BitableTableRecordActionField build(){
+        return new BitableTableRecordActionField(this);
+      }
+    }
 
-        public BitableTableRecordActionField build() {
-            return new BitableTableRecordActionField(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

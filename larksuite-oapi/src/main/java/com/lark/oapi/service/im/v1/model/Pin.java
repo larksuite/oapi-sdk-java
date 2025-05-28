@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Pin {
-    /**
-     * Pin的消息ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
+     /**
+      * Pin的消息ID
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
     @SerializedName("message_id")
     private String messageId;
-    /**
-     * Pin消息所在的群聊ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     */
+     /**
+      * Pin消息所在的群聊ID
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * Pin的操作人ID
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-     */
+     /**
+      * Pin的操作人ID
+      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+      */
     @SerializedName("operator_id")
     private String operatorId;
-    /**
-     * Pin的操作人ID类型。当Pin的操作人为用户时，为==open_id==；当Pin的操作人为机器人时，为==app_id==
-     * <p> 示例值：open_id
-     */
+     /**
+      * Pin的操作人ID类型。当Pin的操作人为用户时，为==open_id==；当Pin的操作人为机器人时，为==app_id==
+      * <p> 示例值：open_id
+      */
     @SerializedName("operator_id_type")
     private String operatorIdType;
-    /**
-     * Pin的创建时间（毫秒级时间戳）
-     * <p> 示例值：1615380573211
-     */
+     /**
+      * Pin的创建时间（毫秒级时间戳）
+      * <p> 示例值：1615380573211
+      */
     @SerializedName("create_time")
     private String createTime;
-
-    // builder 开始
-    public Pin() {
-    }
-
-    public Pin(Builder builder) {
-        /**
-         * Pin的消息ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
-        /**
-         * Pin消息所在的群聊ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.chatId = builder.chatId;
-        /**
-         * Pin的操作人ID
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        this.operatorId = builder.operatorId;
-        /**
-         * Pin的操作人ID类型。当Pin的操作人为用户时，为==open_id==；当Pin的操作人为机器人时，为==app_id==
-         * <p> 示例值：open_id
-         */
-        this.operatorIdType = builder.operatorIdType;
-        /**
-         * Pin的创建时间（毫秒级时间戳）
-         * <p> 示例值：1615380573211
-         */
-        this.createTime = builder.createTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMessageId() {
         return this.messageId;
     }
@@ -136,100 +95,136 @@ public class Pin {
         this.createTime = createTime;
     }
 
+
+// builder 开始
+  public Pin(){}
+
+  public Pin(Builder builder){
+         /**
+          * Pin的消息ID
+          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+          */
+      this.messageId = builder.messageId;
+         /**
+          * Pin消息所在的群聊ID
+          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+          */
+      this.chatId = builder.chatId;
+         /**
+          * Pin的操作人ID
+          * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+          */
+      this.operatorId = builder.operatorId;
+         /**
+          * Pin的操作人ID类型。当Pin的操作人为用户时，为==open_id==；当Pin的操作人为机器人时，为==app_id==
+          * <p> 示例值：open_id
+          */
+      this.operatorIdType = builder.operatorIdType;
+         /**
+          * Pin的创建时间（毫秒级时间戳）
+          * <p> 示例值：1615380573211
+          */
+      this.createTime = builder.createTime;
+  }
+
     public static class Builder {
-        /**
-         * Pin的消息ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
+     /**
+      * Pin的消息ID
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
         private String messageId;
-        /**
-         * Pin消息所在的群聊ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
+     /**
+      * Pin消息所在的群聊ID
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+      */
         private String chatId;
-        /**
-         * Pin的操作人ID
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
+     /**
+      * Pin的操作人ID
+      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+      */
         private String operatorId;
-        /**
-         * Pin的操作人ID类型。当Pin的操作人为用户时，为==open_id==；当Pin的操作人为机器人时，为==app_id==
-         * <p> 示例值：open_id
-         */
+     /**
+      * Pin的操作人ID类型。当Pin的操作人为用户时，为==open_id==；当Pin的操作人为机器人时，为==app_id==
+      * <p> 示例值：open_id
+      */
         private String operatorIdType;
-        /**
-         * Pin的创建时间（毫秒级时间戳）
-         * <p> 示例值：1615380573211
-         */
+     /**
+      * Pin的创建时间（毫秒级时间戳）
+      * <p> 示例值：1615380573211
+      */
         private String createTime;
 
         /**
          * Pin的消息ID
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
          * @param messageId
          * @return
          */
         public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
+             this.messageId = messageId;
+             return this;
         }
 
+    
 
         /**
          * Pin消息所在的群聊ID
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
          * @param chatId
          * @return
          */
         public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
+             this.chatId = chatId;
+             return this;
         }
 
+    
 
         /**
          * Pin的操作人ID
          * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
+             this.operatorId = operatorId;
+             return this;
         }
 
+    
 
         /**
          * Pin的操作人ID类型。当Pin的操作人为用户时，为==open_id==；当Pin的操作人为机器人时，为==app_id==
          * <p> 示例值：open_id
-         *
          * @param operatorIdType
          * @return
          */
         public Builder operatorIdType(String operatorIdType) {
-            this.operatorIdType = operatorIdType;
-            return this;
+             this.operatorIdType = operatorIdType;
+             return this;
         }
 
+    
 
         /**
          * Pin的创建时间（毫秒级时间戳）
          * <p> 示例值：1615380573211
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
+    
+    public Pin build(){
+        return new Pin(this);
+      }
+    }
 
-        public Pin build() {
-            return new Pin(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

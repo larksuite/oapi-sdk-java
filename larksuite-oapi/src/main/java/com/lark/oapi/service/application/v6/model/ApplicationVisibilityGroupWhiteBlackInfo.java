@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApplicationVisibilityGroupWhiteBlackInfo {
-    /**
-     * 用户组ID
-     * <p> 示例值：96815a9cd9beg8g4
-     */
+     /**
+      * 用户组ID
+      * <p> 示例值：96815a9cd9beg8g4
+      */
     @SerializedName("group_id")
     private String groupId;
-    /**
-     * 是否在白名单中
-     * <p> 示例值：false
-     */
+     /**
+      * 是否在白名单中
+      * <p> 示例值：false
+      */
     @SerializedName("in_white_list")
     private Boolean inWhiteList;
-    /**
-     * 是否在黑名单中
-     * <p> 示例值：false
-     */
+     /**
+      * 是否在黑名单中
+      * <p> 示例值：false
+      */
     @SerializedName("in_black_list")
     private Boolean inBlackList;
-
-    // builder 开始
-    public ApplicationVisibilityGroupWhiteBlackInfo() {
-    }
-
-    public ApplicationVisibilityGroupWhiteBlackInfo(Builder builder) {
-        /**
-         * 用户组ID
-         * <p> 示例值：96815a9cd9beg8g4
-         */
-        this.groupId = builder.groupId;
-        /**
-         * 是否在白名单中
-         * <p> 示例值：false
-         */
-        this.inWhiteList = builder.inWhiteList;
-        /**
-         * 是否在黑名单中
-         * <p> 示例值：false
-         */
-        this.inBlackList = builder.inBlackList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getGroupId() {
         return this.groupId;
     }
@@ -98,64 +67,90 @@ public class ApplicationVisibilityGroupWhiteBlackInfo {
         this.inBlackList = inBlackList;
     }
 
+
+// builder 开始
+  public ApplicationVisibilityGroupWhiteBlackInfo(){}
+
+  public ApplicationVisibilityGroupWhiteBlackInfo(Builder builder){
+         /**
+          * 用户组ID
+          * <p> 示例值：96815a9cd9beg8g4
+          */
+      this.groupId = builder.groupId;
+         /**
+          * 是否在白名单中
+          * <p> 示例值：false
+          */
+      this.inWhiteList = builder.inWhiteList;
+         /**
+          * 是否在黑名单中
+          * <p> 示例值：false
+          */
+      this.inBlackList = builder.inBlackList;
+  }
+
     public static class Builder {
-        /**
-         * 用户组ID
-         * <p> 示例值：96815a9cd9beg8g4
-         */
+     /**
+      * 用户组ID
+      * <p> 示例值：96815a9cd9beg8g4
+      */
         private String groupId;
-        /**
-         * 是否在白名单中
-         * <p> 示例值：false
-         */
+     /**
+      * 是否在白名单中
+      * <p> 示例值：false
+      */
         private Boolean inWhiteList;
-        /**
-         * 是否在黑名单中
-         * <p> 示例值：false
-         */
+     /**
+      * 是否在黑名单中
+      * <p> 示例值：false
+      */
         private Boolean inBlackList;
 
         /**
          * 用户组ID
          * <p> 示例值：96815a9cd9beg8g4
-         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
+             this.groupId = groupId;
+             return this;
         }
 
+    
 
         /**
          * 是否在白名单中
          * <p> 示例值：false
-         *
          * @param inWhiteList
          * @return
          */
         public Builder inWhiteList(Boolean inWhiteList) {
-            this.inWhiteList = inWhiteList;
-            return this;
+             this.inWhiteList = inWhiteList;
+             return this;
         }
 
+    
 
         /**
          * 是否在黑名单中
          * <p> 示例值：false
-         *
          * @param inBlackList
          * @return
          */
         public Builder inBlackList(Boolean inBlackList) {
-            this.inBlackList = inBlackList;
-            return this;
+             this.inBlackList = inBlackList;
+             return this;
         }
 
+    
+    
+    public ApplicationVisibilityGroupWhiteBlackInfo build(){
+        return new ApplicationVisibilityGroupWhiteBlackInfo(this);
+      }
+    }
 
-        public ApplicationVisibilityGroupWhiteBlackInfo build() {
-            return new ApplicationVisibilityGroupWhiteBlackInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

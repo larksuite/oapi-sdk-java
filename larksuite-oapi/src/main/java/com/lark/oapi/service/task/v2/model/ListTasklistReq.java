@@ -12,70 +12,39 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListTasklistReq {
-    /**
-     * 每页返回的清单数量
-     * <p> 示例值：50
-     */
+     /**
+      * 每页返回的清单数量
+      * <p> 示例值：50
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-     * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-     */
+     /**
+      * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
+      * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
-     */
+     /**
+      * 表示user的ID的类型，支持open_id, user_id, union_id
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-
-    // builder 开始
-    public ListTasklistReq() {
-    }
-
-    public ListTasklistReq(Builder builder) {
-        /**
-         * 每页返回的清单数量
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-         * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -100,52 +69,75 @@ public class ListTasklistReq {
         this.userIdType = userIdType;
     }
 
+
+// builder 开始
+  public ListTasklistReq(){}
+
+  public ListTasklistReq(Builder builder){
+         /**
+          * 每页返回的清单数量
+          * <p> 示例值：50
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
+          * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 表示user的ID的类型，支持open_id, user_id, union_id
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+  }
+
     public static class Builder {
         private Integer pageSize; // 每页返回的清单数量
         private String pageToken; // 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-
+    
         /**
          * 每页返回的清单数量
          * <p> 示例值：50
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
          * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 表示user的ID的类型，支持open_id, user_id, union_id
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+    public ListTasklistReq build(){
+        return new ListTasklistReq(this);
+      }
+    }
 
-        public ListTasklistReq build() {
-            return new ListTasklistReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

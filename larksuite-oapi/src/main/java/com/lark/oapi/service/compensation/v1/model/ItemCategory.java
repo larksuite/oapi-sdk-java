@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ItemCategory {
-    /**
-     * 薪酬项分类ID
-     * <p> 示例值：4532312334
-     */
+     /**
+      * 薪酬项分类ID
+      * <p> 示例值：4532312334
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 薪酬项分类名称
-     * <p> 示例值：基本薪资类
-     */
+     /**
+      * 薪酬项分类名称
+      * <p> 示例值：基本薪资类
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 薪酬项多语言分类
-     * <p> 示例值：
-     */
+     /**
+      * 薪酬项多语言分类
+      * <p> 示例值：
+      */
     @SerializedName("i18n_names")
     private I18nContent[] i18nNames;
-
-    // builder 开始
-    public ItemCategory() {
-    }
-
-    public ItemCategory(Builder builder) {
-        /**
-         * 薪酬项分类ID
-         * <p> 示例值：4532312334
-         */
-        this.id = builder.id;
-        /**
-         * 薪酬项分类名称
-         * <p> 示例值：基本薪资类
-         */
-        this.name = builder.name;
-        /**
-         * 薪酬项多语言分类
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -98,64 +67,90 @@ public class ItemCategory {
         this.i18nNames = i18nNames;
     }
 
+
+// builder 开始
+  public ItemCategory(){}
+
+  public ItemCategory(Builder builder){
+         /**
+          * 薪酬项分类ID
+          * <p> 示例值：4532312334
+          */
+      this.id = builder.id;
+         /**
+          * 薪酬项分类名称
+          * <p> 示例值：基本薪资类
+          */
+      this.name = builder.name;
+         /**
+          * 薪酬项多语言分类
+          * <p> 示例值：
+          */
+      this.i18nNames = builder.i18nNames;
+  }
+
     public static class Builder {
-        /**
-         * 薪酬项分类ID
-         * <p> 示例值：4532312334
-         */
+     /**
+      * 薪酬项分类ID
+      * <p> 示例值：4532312334
+      */
         private String id;
-        /**
-         * 薪酬项分类名称
-         * <p> 示例值：基本薪资类
-         */
+     /**
+      * 薪酬项分类名称
+      * <p> 示例值：基本薪资类
+      */
         private String name;
-        /**
-         * 薪酬项多语言分类
-         * <p> 示例值：
-         */
+     /**
+      * 薪酬项多语言分类
+      * <p> 示例值：
+      */
         private I18nContent[] i18nNames;
 
         /**
          * 薪酬项分类ID
          * <p> 示例值：4532312334
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 薪酬项分类名称
          * <p> 示例值：基本薪资类
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 薪酬项多语言分类
          * <p> 示例值：
-         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(I18nContent[] i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
+             this.i18nNames = i18nNames;
+             return this;
         }
 
+    
+    
+    public ItemCategory build(){
+        return new ItemCategory(this);
+      }
+    }
 
-        public ItemCategory build() {
-            return new ItemCategory(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

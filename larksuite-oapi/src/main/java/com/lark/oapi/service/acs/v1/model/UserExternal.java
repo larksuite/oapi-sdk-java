@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserExternal {
-    /**
-     * 用户类型
-     * <p> 示例值：1
-     */
+     /**
+      * 用户类型
+      * <p> 示例值：1
+      */
     @SerializedName("user_type")
     private Integer userType;
-    /**
-     * 用户id
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     */
+     /**
+      * 用户id
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 用户名称
-     * <p> 示例值：张三
-     */
+     /**
+      * 用户名称
+      * <p> 示例值：张三
+      */
     @SerializedName("user_name")
     private String userName;
-    /**
-     * 电话号码
-     * <p> 示例值：1357890001
-     */
+     /**
+      * 电话号码
+      * <p> 示例值：1357890001
+      */
     @SerializedName("phone_num")
     private String phoneNum;
-    /**
-     * 部门id
-     * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
-     */
+     /**
+      * 部门id
+      * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
+      */
     @SerializedName("department_id")
     private String departmentId;
-
-    // builder 开始
-    public UserExternal() {
-    }
-
-    public UserExternal(Builder builder) {
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         */
-        this.userType = builder.userType;
-        /**
-         * 用户id
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户名称
-         * <p> 示例值：张三
-         */
-        this.userName = builder.userName;
-        /**
-         * 电话号码
-         * <p> 示例值：1357890001
-         */
-        this.phoneNum = builder.phoneNum;
-        /**
-         * 部门id
-         * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
-         */
-        this.departmentId = builder.departmentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getUserType() {
         return this.userType;
     }
@@ -136,112 +95,146 @@ public class UserExternal {
         this.departmentId = departmentId;
     }
 
+
+// builder 开始
+  public UserExternal(){}
+
+  public UserExternal(Builder builder){
+         /**
+          * 用户类型
+          * <p> 示例值：1
+          */
+      this.userType = builder.userType;
+         /**
+          * 用户id
+          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+          */
+      this.userId = builder.userId;
+         /**
+          * 用户名称
+          * <p> 示例值：张三
+          */
+      this.userName = builder.userName;
+         /**
+          * 电话号码
+          * <p> 示例值：1357890001
+          */
+      this.phoneNum = builder.phoneNum;
+         /**
+          * 部门id
+          * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
+          */
+      this.departmentId = builder.departmentId;
+  }
+
     public static class Builder {
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         */
+     /**
+      * 用户类型
+      * <p> 示例值：1
+      */
         private Integer userType;
-        /**
-         * 用户id
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
+     /**
+      * 用户id
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
         private String userId;
-        /**
-         * 用户名称
-         * <p> 示例值：张三
-         */
+     /**
+      * 用户名称
+      * <p> 示例值：张三
+      */
         private String userName;
-        /**
-         * 电话号码
-         * <p> 示例值：1357890001
-         */
+     /**
+      * 电话号码
+      * <p> 示例值：1357890001
+      */
         private String phoneNum;
-        /**
-         * 部门id
-         * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
-         */
+     /**
+      * 部门id
+      * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
+      */
         private String departmentId;
 
         /**
          * 用户类型
          * <p> 示例值：1
-         *
          * @param userType
          * @return
          */
         public Builder userType(Integer userType) {
-            this.userType = userType;
-            return this;
+             this.userType = userType;
+             return this;
         }
-
         /**
          * 用户类型
          * <p> 示例值：1
-         *
          * @param userType {@link com.lark.oapi.service.acs.v1.enums.UserExternalUserTypeEnum}
          * @return
          */
         public Builder userType(com.lark.oapi.service.acs.v1.enums.UserExternalUserTypeEnum userType) {
-            this.userType = userType.getValue();
-            return this;
+             this.userType = userType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 用户id
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 用户名称
          * <p> 示例值：张三
-         *
          * @param userName
          * @return
          */
         public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
+             this.userName = userName;
+             return this;
         }
 
+    
 
         /**
          * 电话号码
          * <p> 示例值：1357890001
-         *
          * @param phoneNum
          * @return
          */
         public Builder phoneNum(String phoneNum) {
-            this.phoneNum = phoneNum;
-            return this;
+             this.phoneNum = phoneNum;
+             return this;
         }
 
+    
 
         /**
          * 部门id
          * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
-         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
+             this.departmentId = departmentId;
+             return this;
         }
 
+    
+    
+    public UserExternal build(){
+        return new UserExternal(this);
+      }
+    }
 
-        public UserExternal build() {
-            return new UserExternal(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

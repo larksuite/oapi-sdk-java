@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserMeta {
-    /**
-     * 用户名称
-     * <p> 示例值：none
-     */
+     /**
+      * 用户名称
+      * <p> 示例值：none
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 用户ID
-     * <p> 示例值：none
-     */
+     /**
+      * 用户ID
+      * <p> 示例值：none
+      */
     @SerializedName("user_id")
     private String userId;
-
-    // builder 开始
-    public UserMeta() {
-    }
-
-    public UserMeta(Builder builder) {
-        /**
-         * 用户名称
-         * <p> 示例值：none
-         */
-        this.name = builder.name;
-        /**
-         * 用户ID
-         * <p> 示例值：none
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -79,46 +53,67 @@ public class UserMeta {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public UserMeta(){}
+
+  public UserMeta(Builder builder){
+         /**
+          * 用户名称
+          * <p> 示例值：none
+          */
+      this.name = builder.name;
+         /**
+          * 用户ID
+          * <p> 示例值：none
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * 用户名称
-         * <p> 示例值：none
-         */
+     /**
+      * 用户名称
+      * <p> 示例值：none
+      */
         private String name;
-        /**
-         * 用户ID
-         * <p> 示例值：none
-         */
+     /**
+      * 用户ID
+      * <p> 示例值：none
+      */
         private String userId;
 
         /**
          * 用户名称
          * <p> 示例值：none
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 用户ID
          * <p> 示例值：none
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public UserMeta build(){
+        return new UserMeta(this);
+      }
+    }
 
-        public UserMeta build() {
-            return new UserMeta(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,58 +12,32 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteTaskCommentReq {
-    /**
-     * 任务ID
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-     */
+     /**
+      * 任务ID
+      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+      */
     @Path
     @SerializedName("task_id")
     private String taskId;
-    /**
-     * 评论ID
-     * <p> 示例值：6937231762296684564
-     */
+     /**
+      * 评论ID
+      * <p> 示例值：6937231762296684564
+      */
     @Path
     @SerializedName("comment_id")
     private String commentId;
-
-    // builder 开始
-    public DeleteTaskCommentReq() {
-    }
-
-    public DeleteTaskCommentReq(Builder builder) {
-        /**
-         * 任务ID
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 评论ID
-         * <p> 示例值：6937231762296684564
-         */
-        this.commentId = builder.commentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTaskId() {
         return this.taskId;
     }
@@ -80,39 +54,57 @@ public class DeleteTaskCommentReq {
         this.commentId = commentId;
     }
 
-    public static class Builder {
 
+// builder 开始
+  public DeleteTaskCommentReq(){}
+
+  public DeleteTaskCommentReq(Builder builder){
+     /**
+      * 任务ID
+      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+      */
+       this.taskId = builder.taskId;
+     /**
+      * 评论ID
+      * <p> 示例值：6937231762296684564
+      */
+       this.commentId = builder.commentId;
+  }
+
+    public static class Builder {
+    
         private String taskId; // 任务ID
         private String commentId; // 评论ID
-
         /**
          * 任务ID
          * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         *
          * @param taskId
          * @return
          */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
 
-
+    
         /**
          * 评论ID
          * <p> 示例值：6937231762296684564
-         *
          * @param commentId
          * @return
          */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
+          public Builder commentId(String commentId) {
+               this.commentId = commentId;
+               return this;
+          }
 
+    
+    public DeleteTaskCommentReq build(){
+        return new DeleteTaskCommentReq(this);
+      }
+    }
 
-        public DeleteTaskCommentReq build() {
-            return new DeleteTaskCommentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

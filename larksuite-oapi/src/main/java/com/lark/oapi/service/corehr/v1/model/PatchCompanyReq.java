@@ -12,61 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchCompanyReq {
-    /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
-     */
+     /**
+      * 根据client_token是否一致来判断是否为同一请求
+      * <p> 示例值：12454646
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 需要更新的公司 ID
-     * <p> 示例值：1616161616
-     */
-    @Path
-    @SerializedName("company_id")
-    private String companyId;
-    @Body
-    private Company body;
-
-    // builder 开始
-    public PatchCompanyReq() {
-    }
-
-    public PatchCompanyReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 需要更新的公司 ID
-         * <p> 示例值：1616161616
-         */
-        this.companyId = builder.companyId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getClientToken() {
         return this.clientToken;
     }
@@ -75,6 +39,13 @@ public class PatchCompanyReq {
         this.clientToken = clientToken;
     }
 
+     /**
+      * 需要更新的公司 ID
+      * <p> 示例值：1616161616
+      */
+    @Path
+    @SerializedName("company_id")
+    private String companyId;
     public String getCompanyId() {
         return this.companyId;
     }
@@ -82,6 +53,9 @@ public class PatchCompanyReq {
     public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
+
+    @Body
+    private Company body;
 
     public Company getCompany() {
         return this.body;
@@ -91,52 +65,72 @@ public class PatchCompanyReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchCompanyReq(){}
+
+  public PatchCompanyReq(Builder builder){
+         /**
+          * 根据client_token是否一致来判断是否为同一请求
+          * <p> 示例值：12454646
+          */
+       this.clientToken = builder.clientToken;
+     /**
+      * 需要更新的公司 ID
+      * <p> 示例值：1616161616
+      */
+       this.companyId = builder.companyId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String companyId; // 需要更新的公司 ID
-        private Company body;
-
+    
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：12454646
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
+        private String companyId; // 需要更新的公司 ID
         /**
          * 需要更新的公司 ID
          * <p> 示例值：1616161616
-         *
          * @param companyId
          * @return
          */
-        public Builder companyId(String companyId) {
-            this.companyId = companyId;
-            return this;
-        }
+          public Builder companyId(String companyId) {
+               this.companyId = companyId;
+               return this;
+          }
 
+    
+        private Company body;
+    
         public Company getCompany() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder company(Company body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchCompanyReq build(){
+        return new PatchCompanyReq(this);
+      }
+    }
 
-        public PatchCompanyReq build() {
-            return new PatchCompanyReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

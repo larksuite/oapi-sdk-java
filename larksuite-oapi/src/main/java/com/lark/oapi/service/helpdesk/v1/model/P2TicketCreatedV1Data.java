@@ -12,100 +12,96 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2TicketCreatedV1Data {
-    /**
-     * ticket id
-     * <p> 示例值：
-     */
+     /**
+      * ticket id
+      * <p> 示例值：
+      */
     @SerializedName("ticket_id")
     private String ticketId;
-    /**
-     * helpdesk id
-     * <p> 示例值：
-     */
+     /**
+      * helpdesk id
+      * <p> 示例值：
+      */
     @SerializedName("helpdesk_id")
     private String helpdeskId;
-    /**
-     * guest of this ticket
-     * <p> 示例值：
-     */
+     /**
+      * guest of this ticket
+      * <p> 示例值：
+      */
     @SerializedName("guest")
     private TicketUserEvent guest;
-    /**
-     * ticket stage
-     * <p> 示例值：
-     */
+     /**
+      * ticket stage
+      * <p> 示例值：
+      */
     @SerializedName("stage")
     private Integer stage;
-    /**
-     * ticket status
-     * <p> 示例值：
-     */
+     /**
+      * ticket status
+      * <p> 示例值：
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * ticket score
-     * <p> 示例值：
-     */
+     /**
+      * ticket score
+      * <p> 示例值：
+      */
     @SerializedName("score")
     private Integer score;
-    /**
-     * the time when the ticket is created
-     * <p> 示例值：
-     */
+     /**
+      * the time when the ticket is created
+      * <p> 示例值：
+      */
     @SerializedName("created_at")
     private Integer createdAt;
-    /**
-     * the time when the ticket is updated
-     * <p> 示例值：
-     */
+     /**
+      * the time when the ticket is updated
+      * <p> 示例值：
+      */
     @SerializedName("updated_at")
     private Integer updatedAt;
-    /**
-     * the time when the ticket is closed
-     * <p> 示例值：
-     */
+     /**
+      * the time when the ticket is closed
+      * <p> 示例值：
+      */
     @SerializedName("closed_at")
     private Integer closedAt;
-    /**
-     * the ticket channel
-     * <p> 示例值：
-     */
+     /**
+      * the ticket channel
+      * <p> 示例值：
+      */
     @SerializedName("channel")
     private Integer channel;
-    /**
-     * if ticket is solved
-     * <p> 示例值：
-     */
+     /**
+      * if ticket is solved
+      * <p> 示例值：
+      */
     @SerializedName("solve")
     private Integer solve;
-    /**
-     * ticket customized fields
-     * <p> 示例值：
-     */
+     /**
+      * ticket customized fields
+      * <p> 示例值：
+      */
     @SerializedName("customized_fields")
     private CustomizedFieldDisplayItem[] customizedFields;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("chat_id")
     private String chatId;
-
     public String getTicketId() {
         return this.ticketId;
     }

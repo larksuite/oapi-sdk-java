@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,412 +19,222 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PositionAdjustmentInfo {
-    /**
-     * 原序列 ID
-     * <p> 示例值：
-     */
+     /**
+      * 原序列 ID
+      * <p> 示例值：
+      */
     @SerializedName("original_job_families")
     private String[] originalJobFamilies;
-    /**
-     * 新序列 ID
-     * <p> 示例值：
-     */
+     /**
+      * 新序列 ID
+      * <p> 示例值：
+      */
     @SerializedName("target_job_families")
     private String[] targetJobFamilies;
-    /**
-     * 原所属部门 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 原所属部门 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("original_department")
     private String originalDepartment;
-    /**
-     * 新所属部门 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 新所属部门 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("target_department")
     private String targetDepartment;
-    /**
-     * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("target_draft_department")
     private String targetDraftDepartment;
-    /**
-     * 原岗位默认成本中心 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 原岗位默认成本中心 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("original_cost_center")
     private String originalCostCenter;
-    /**
-     * 新岗位默认成本中心 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 新岗位默认成本中心 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("target_cost_center")
     private String targetCostCenter;
-    /**
-     * 原工时制度 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 原工时制度 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("original_working_hours_type")
     private String originalWorkingHoursType;
-    /**
-     * 新工时制度 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 新工时制度 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("target_working_hours_type")
     private String targetWorkingHoursType;
-    /**
-     * 原职务 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 原职务 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("original_job")
     private String originalJob;
-    /**
-     * 新职务 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 新职务 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("target_job")
     private String targetJob;
-    /**
-     * 原是否关键岗位
-     * <p> 示例值：true
-     */
+     /**
+      * 原是否关键岗位
+      * <p> 示例值：true
+      */
     @SerializedName("original_is_key_position")
     private Boolean originalIsKeyPosition;
-    /**
-     * 新是否关键岗位
-     * <p> 示例值：true
-     */
+     /**
+      * 新是否关键岗位
+      * <p> 示例值：true
+      */
     @SerializedName("target_is_key_position")
     private Boolean targetIsKeyPosition;
-    /**
-     * 原人员类型 ID
-     * <p> 示例值：
-     */
+     /**
+      * 原人员类型 ID
+      * <p> 示例值：
+      */
     @SerializedName("original_employee_types")
     private String[] originalEmployeeTypes;
-    /**
-     * 新人员类型 ID
-     * <p> 示例值：
-     */
+     /**
+      * 新人员类型 ID
+      * <p> 示例值：
+      */
     @SerializedName("target_employee_types")
     private String[] targetEmployeeTypes;
-    /**
-     * 原名称
-     * <p> 示例值：
-     */
+     /**
+      * 原名称
+      * <p> 示例值：
+      */
     @SerializedName("original_names")
     private I18n[] originalNames;
-    /**
-     * 新名称
-     * <p> 示例值：
-     */
+     /**
+      * 新名称
+      * <p> 示例值：
+      */
     @SerializedName("target_names")
     private I18n[] targetNames;
-    /**
-     * 原职等 ID
-     * <p> 示例值：
-     */
+     /**
+      * 原职等 ID
+      * <p> 示例值：
+      */
     @SerializedName("original_job_grades")
     private String[] originalJobGrades;
-    /**
-     * 新职等 ID
-     * <p> 示例值：
-     */
+     /**
+      * 新职等 ID
+      * <p> 示例值：
+      */
     @SerializedName("target_job_grades")
     private String[] targetJobGrades;
-    /**
-     * 原编码
-     * <p> 示例值：P00000456
-     */
+     /**
+      * 原编码
+      * <p> 示例值：P00000456
+      */
     @SerializedName("original_code")
     private String originalCode;
-    /**
-     * 新编码
-     * <p> 示例值：P00000456
-     */
+     /**
+      * 新编码
+      * <p> 示例值：P00000456
+      */
     @SerializedName("target_code")
     private String targetCode;
-    /**
-     * 原职级 ID
-     * <p> 示例值：
-     */
+     /**
+      * 原职级 ID
+      * <p> 示例值：
+      */
     @SerializedName("original_job_levels")
     private String[] originalJobLevels;
-    /**
-     * 新职级 ID
-     * <p> 示例值：
-     */
+     /**
+      * 新职级 ID
+      * <p> 示例值：
+      */
     @SerializedName("target_job_levels")
     private String[] targetJobLevels;
-    /**
-     * 原状态
-     * <p> 示例值：true
-     */
+     /**
+      * 原状态
+      * <p> 示例值：true
+      */
     @SerializedName("original_active")
     private Boolean originalActive;
-    /**
-     * 新状态
-     * <p> 示例值：true
-     */
+     /**
+      * 新状态
+      * <p> 示例值：true
+      */
     @SerializedName("target_active")
     private Boolean targetActive;
-    /**
-     * 原直线上级（岗位） ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 原直线上级（岗位） ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("original_direct_leader")
     private String originalDirectLeader;
-    /**
-     * 新直线上级（岗位） ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 新直线上级（岗位） ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("target_direct_leader")
     private String targetDirectLeader;
-    /**
-     * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("target_draft_direct_leader")
     private String targetDraftDirectLeader;
-    /**
-     * 原工作地点 ID
-     * <p> 示例值：
-     */
+     /**
+      * 原工作地点 ID
+      * <p> 示例值：
+      */
     @SerializedName("original_work_locations")
     private String[] originalWorkLocations;
-    /**
-     * 新工作地点 ID
-     * <p> 示例值：
-     */
+     /**
+      * 新工作地点 ID
+      * <p> 示例值：
+      */
     @SerializedName("target_work_locations")
     private String[] targetWorkLocations;
-    /**
-     * 原描述
-     * <p> 示例值：
-     */
+     /**
+      * 原描述
+      * <p> 示例值：
+      */
     @SerializedName("original_descriptions")
     private I18n[] originalDescriptions;
-    /**
-     * 新描述
-     * <p> 示例值：
-     */
+     /**
+      * 新描述
+      * <p> 示例值：
+      */
     @SerializedName("target_descriptions")
     private I18n[] targetDescriptions;
-    /**
-     * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("original_department_id_paths")
     private OrgdraftDepartmentId[] originalDepartmentIdPaths;
-    /**
-     * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("target_department_id_paths")
     private OrgdraftDepartmentId[] targetDepartmentIdPaths;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ChangeFieldPair[] customFields;
-
-    // builder 开始
-    public PositionAdjustmentInfo() {
-    }
-
-    public PositionAdjustmentInfo(Builder builder) {
-        /**
-         * 原序列 ID
-         * <p> 示例值：
-         */
-        this.originalJobFamilies = builder.originalJobFamilies;
-        /**
-         * 新序列 ID
-         * <p> 示例值：
-         */
-        this.targetJobFamilies = builder.targetJobFamilies;
-        /**
-         * 原所属部门 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalDepartment = builder.originalDepartment;
-        /**
-         * 新所属部门 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetDepartment = builder.targetDepartment;
-        /**
-         * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetDraftDepartment = builder.targetDraftDepartment;
-        /**
-         * 原岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalCostCenter = builder.originalCostCenter;
-        /**
-         * 新岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetCostCenter = builder.targetCostCenter;
-        /**
-         * 原工时制度 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalWorkingHoursType = builder.originalWorkingHoursType;
-        /**
-         * 新工时制度 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetWorkingHoursType = builder.targetWorkingHoursType;
-        /**
-         * 原职务 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalJob = builder.originalJob;
-        /**
-         * 新职务 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetJob = builder.targetJob;
-        /**
-         * 原是否关键岗位
-         * <p> 示例值：true
-         */
-        this.originalIsKeyPosition = builder.originalIsKeyPosition;
-        /**
-         * 新是否关键岗位
-         * <p> 示例值：true
-         */
-        this.targetIsKeyPosition = builder.targetIsKeyPosition;
-        /**
-         * 原人员类型 ID
-         * <p> 示例值：
-         */
-        this.originalEmployeeTypes = builder.originalEmployeeTypes;
-        /**
-         * 新人员类型 ID
-         * <p> 示例值：
-         */
-        this.targetEmployeeTypes = builder.targetEmployeeTypes;
-        /**
-         * 原名称
-         * <p> 示例值：
-         */
-        this.originalNames = builder.originalNames;
-        /**
-         * 新名称
-         * <p> 示例值：
-         */
-        this.targetNames = builder.targetNames;
-        /**
-         * 原职等 ID
-         * <p> 示例值：
-         */
-        this.originalJobGrades = builder.originalJobGrades;
-        /**
-         * 新职等 ID
-         * <p> 示例值：
-         */
-        this.targetJobGrades = builder.targetJobGrades;
-        /**
-         * 原编码
-         * <p> 示例值：P00000456
-         */
-        this.originalCode = builder.originalCode;
-        /**
-         * 新编码
-         * <p> 示例值：P00000456
-         */
-        this.targetCode = builder.targetCode;
-        /**
-         * 原职级 ID
-         * <p> 示例值：
-         */
-        this.originalJobLevels = builder.originalJobLevels;
-        /**
-         * 新职级 ID
-         * <p> 示例值：
-         */
-        this.targetJobLevels = builder.targetJobLevels;
-        /**
-         * 原状态
-         * <p> 示例值：true
-         */
-        this.originalActive = builder.originalActive;
-        /**
-         * 新状态
-         * <p> 示例值：true
-         */
-        this.targetActive = builder.targetActive;
-        /**
-         * 原直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalDirectLeader = builder.originalDirectLeader;
-        /**
-         * 新直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetDirectLeader = builder.targetDirectLeader;
-        /**
-         * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetDraftDirectLeader = builder.targetDraftDirectLeader;
-        /**
-         * 原工作地点 ID
-         * <p> 示例值：
-         */
-        this.originalWorkLocations = builder.originalWorkLocations;
-        /**
-         * 新工作地点 ID
-         * <p> 示例值：
-         */
-        this.targetWorkLocations = builder.targetWorkLocations;
-        /**
-         * 原描述
-         * <p> 示例值：
-         */
-        this.originalDescriptions = builder.originalDescriptions;
-        /**
-         * 新描述
-         * <p> 示例值：
-         */
-        this.targetDescriptions = builder.targetDescriptions;
-        /**
-         * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         */
-        this.originalDepartmentIdPaths = builder.originalDepartmentIdPaths;
-        /**
-         * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         */
-        this.targetDepartmentIdPaths = builder.targetDepartmentIdPaths;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getOriginalJobFamilies() {
         return this.originalJobFamilies;
     }
@@ -706,640 +515,826 @@ public class PositionAdjustmentInfo {
         this.customFields = customFields;
     }
 
+
+// builder 开始
+  public PositionAdjustmentInfo(){}
+
+  public PositionAdjustmentInfo(Builder builder){
+         /**
+          * 原序列 ID
+          * <p> 示例值：
+          */
+      this.originalJobFamilies = builder.originalJobFamilies;
+         /**
+          * 新序列 ID
+          * <p> 示例值：
+          */
+      this.targetJobFamilies = builder.targetJobFamilies;
+         /**
+          * 原所属部门 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.originalDepartment = builder.originalDepartment;
+         /**
+          * 新所属部门 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.targetDepartment = builder.targetDepartment;
+         /**
+          * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.targetDraftDepartment = builder.targetDraftDepartment;
+         /**
+          * 原岗位默认成本中心 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.originalCostCenter = builder.originalCostCenter;
+         /**
+          * 新岗位默认成本中心 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.targetCostCenter = builder.targetCostCenter;
+         /**
+          * 原工时制度 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.originalWorkingHoursType = builder.originalWorkingHoursType;
+         /**
+          * 新工时制度 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.targetWorkingHoursType = builder.targetWorkingHoursType;
+         /**
+          * 原职务 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.originalJob = builder.originalJob;
+         /**
+          * 新职务 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.targetJob = builder.targetJob;
+         /**
+          * 原是否关键岗位
+          * <p> 示例值：true
+          */
+      this.originalIsKeyPosition = builder.originalIsKeyPosition;
+         /**
+          * 新是否关键岗位
+          * <p> 示例值：true
+          */
+      this.targetIsKeyPosition = builder.targetIsKeyPosition;
+         /**
+          * 原人员类型 ID
+          * <p> 示例值：
+          */
+      this.originalEmployeeTypes = builder.originalEmployeeTypes;
+         /**
+          * 新人员类型 ID
+          * <p> 示例值：
+          */
+      this.targetEmployeeTypes = builder.targetEmployeeTypes;
+         /**
+          * 原名称
+          * <p> 示例值：
+          */
+      this.originalNames = builder.originalNames;
+         /**
+          * 新名称
+          * <p> 示例值：
+          */
+      this.targetNames = builder.targetNames;
+         /**
+          * 原职等 ID
+          * <p> 示例值：
+          */
+      this.originalJobGrades = builder.originalJobGrades;
+         /**
+          * 新职等 ID
+          * <p> 示例值：
+          */
+      this.targetJobGrades = builder.targetJobGrades;
+         /**
+          * 原编码
+          * <p> 示例值：P00000456
+          */
+      this.originalCode = builder.originalCode;
+         /**
+          * 新编码
+          * <p> 示例值：P00000456
+          */
+      this.targetCode = builder.targetCode;
+         /**
+          * 原职级 ID
+          * <p> 示例值：
+          */
+      this.originalJobLevels = builder.originalJobLevels;
+         /**
+          * 新职级 ID
+          * <p> 示例值：
+          */
+      this.targetJobLevels = builder.targetJobLevels;
+         /**
+          * 原状态
+          * <p> 示例值：true
+          */
+      this.originalActive = builder.originalActive;
+         /**
+          * 新状态
+          * <p> 示例值：true
+          */
+      this.targetActive = builder.targetActive;
+         /**
+          * 原直线上级（岗位） ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.originalDirectLeader = builder.originalDirectLeader;
+         /**
+          * 新直线上级（岗位） ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.targetDirectLeader = builder.targetDirectLeader;
+         /**
+          * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
+          * <p> 示例值：6974659700705068581
+          */
+      this.targetDraftDirectLeader = builder.targetDraftDirectLeader;
+         /**
+          * 原工作地点 ID
+          * <p> 示例值：
+          */
+      this.originalWorkLocations = builder.originalWorkLocations;
+         /**
+          * 新工作地点 ID
+          * <p> 示例值：
+          */
+      this.targetWorkLocations = builder.targetWorkLocations;
+         /**
+          * 原描述
+          * <p> 示例值：
+          */
+      this.originalDescriptions = builder.originalDescriptions;
+         /**
+          * 新描述
+          * <p> 示例值：
+          */
+      this.targetDescriptions = builder.targetDescriptions;
+         /**
+          * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
+          * <p> 示例值：
+          */
+      this.originalDepartmentIdPaths = builder.originalDepartmentIdPaths;
+         /**
+          * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
+          * <p> 示例值：
+          */
+      this.targetDepartmentIdPaths = builder.targetDepartmentIdPaths;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+  }
+
     public static class Builder {
-        /**
-         * 原序列 ID
-         * <p> 示例值：
-         */
+     /**
+      * 原序列 ID
+      * <p> 示例值：
+      */
         private String[] originalJobFamilies;
-        /**
-         * 新序列 ID
-         * <p> 示例值：
-         */
+     /**
+      * 新序列 ID
+      * <p> 示例值：
+      */
         private String[] targetJobFamilies;
-        /**
-         * 原所属部门 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 原所属部门 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String originalDepartment;
-        /**
-         * 新所属部门 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 新所属部门 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String targetDepartment;
-        /**
-         * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String targetDraftDepartment;
-        /**
-         * 原岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 原岗位默认成本中心 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String originalCostCenter;
-        /**
-         * 新岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 新岗位默认成本中心 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String targetCostCenter;
-        /**
-         * 原工时制度 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 原工时制度 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String originalWorkingHoursType;
-        /**
-         * 新工时制度 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 新工时制度 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String targetWorkingHoursType;
-        /**
-         * 原职务 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 原职务 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String originalJob;
-        /**
-         * 新职务 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 新职务 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String targetJob;
-        /**
-         * 原是否关键岗位
-         * <p> 示例值：true
-         */
+     /**
+      * 原是否关键岗位
+      * <p> 示例值：true
+      */
         private Boolean originalIsKeyPosition;
-        /**
-         * 新是否关键岗位
-         * <p> 示例值：true
-         */
+     /**
+      * 新是否关键岗位
+      * <p> 示例值：true
+      */
         private Boolean targetIsKeyPosition;
-        /**
-         * 原人员类型 ID
-         * <p> 示例值：
-         */
+     /**
+      * 原人员类型 ID
+      * <p> 示例值：
+      */
         private String[] originalEmployeeTypes;
-        /**
-         * 新人员类型 ID
-         * <p> 示例值：
-         */
+     /**
+      * 新人员类型 ID
+      * <p> 示例值：
+      */
         private String[] targetEmployeeTypes;
-        /**
-         * 原名称
-         * <p> 示例值：
-         */
+     /**
+      * 原名称
+      * <p> 示例值：
+      */
         private I18n[] originalNames;
-        /**
-         * 新名称
-         * <p> 示例值：
-         */
+     /**
+      * 新名称
+      * <p> 示例值：
+      */
         private I18n[] targetNames;
-        /**
-         * 原职等 ID
-         * <p> 示例值：
-         */
+     /**
+      * 原职等 ID
+      * <p> 示例值：
+      */
         private String[] originalJobGrades;
-        /**
-         * 新职等 ID
-         * <p> 示例值：
-         */
+     /**
+      * 新职等 ID
+      * <p> 示例值：
+      */
         private String[] targetJobGrades;
-        /**
-         * 原编码
-         * <p> 示例值：P00000456
-         */
+     /**
+      * 原编码
+      * <p> 示例值：P00000456
+      */
         private String originalCode;
-        /**
-         * 新编码
-         * <p> 示例值：P00000456
-         */
+     /**
+      * 新编码
+      * <p> 示例值：P00000456
+      */
         private String targetCode;
-        /**
-         * 原职级 ID
-         * <p> 示例值：
-         */
+     /**
+      * 原职级 ID
+      * <p> 示例值：
+      */
         private String[] originalJobLevels;
-        /**
-         * 新职级 ID
-         * <p> 示例值：
-         */
+     /**
+      * 新职级 ID
+      * <p> 示例值：
+      */
         private String[] targetJobLevels;
-        /**
-         * 原状态
-         * <p> 示例值：true
-         */
+     /**
+      * 原状态
+      * <p> 示例值：true
+      */
         private Boolean originalActive;
-        /**
-         * 新状态
-         * <p> 示例值：true
-         */
+     /**
+      * 新状态
+      * <p> 示例值：true
+      */
         private Boolean targetActive;
-        /**
-         * 原直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 原直线上级（岗位） ID
+      * <p> 示例值：6974659700705068581
+      */
         private String originalDirectLeader;
-        /**
-         * 新直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 新直线上级（岗位） ID
+      * <p> 示例值：6974659700705068581
+      */
         private String targetDirectLeader;
-        /**
-         * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
+      * <p> 示例值：6974659700705068581
+      */
         private String targetDraftDirectLeader;
-        /**
-         * 原工作地点 ID
-         * <p> 示例值：
-         */
+     /**
+      * 原工作地点 ID
+      * <p> 示例值：
+      */
         private String[] originalWorkLocations;
-        /**
-         * 新工作地点 ID
-         * <p> 示例值：
-         */
+     /**
+      * 新工作地点 ID
+      * <p> 示例值：
+      */
         private String[] targetWorkLocations;
-        /**
-         * 原描述
-         * <p> 示例值：
-         */
+     /**
+      * 原描述
+      * <p> 示例值：
+      */
         private I18n[] originalDescriptions;
-        /**
-         * 新描述
-         * <p> 示例值：
-         */
+     /**
+      * 新描述
+      * <p> 示例值：
+      */
         private I18n[] targetDescriptions;
-        /**
-         * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
+      * <p> 示例值：
+      */
         private OrgdraftDepartmentId[] originalDepartmentIdPaths;
-        /**
-         * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
+      * <p> 示例值：
+      */
         private OrgdraftDepartmentId[] targetDepartmentIdPaths;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ChangeFieldPair[] customFields;
 
         /**
          * 原序列 ID
          * <p> 示例值：
-         *
          * @param originalJobFamilies
          * @return
          */
         public Builder originalJobFamilies(String[] originalJobFamilies) {
-            this.originalJobFamilies = originalJobFamilies;
-            return this;
+             this.originalJobFamilies = originalJobFamilies;
+             return this;
         }
 
+    
 
         /**
          * 新序列 ID
          * <p> 示例值：
-         *
          * @param targetJobFamilies
          * @return
          */
         public Builder targetJobFamilies(String[] targetJobFamilies) {
-            this.targetJobFamilies = targetJobFamilies;
-            return this;
+             this.targetJobFamilies = targetJobFamilies;
+             return this;
         }
 
+    
 
         /**
          * 原所属部门 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param originalDepartment
          * @return
          */
         public Builder originalDepartment(String originalDepartment) {
-            this.originalDepartment = originalDepartment;
-            return this;
+             this.originalDepartment = originalDepartment;
+             return this;
         }
 
+    
 
         /**
          * 新所属部门 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param targetDepartment
          * @return
          */
         public Builder targetDepartment(String targetDepartment) {
-            this.targetDepartment = targetDepartment;
-            return this;
+             this.targetDepartment = targetDepartment;
+             return this;
         }
 
+    
 
         /**
          * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param targetDraftDepartment
          * @return
          */
         public Builder targetDraftDepartment(String targetDraftDepartment) {
-            this.targetDraftDepartment = targetDraftDepartment;
-            return this;
+             this.targetDraftDepartment = targetDraftDepartment;
+             return this;
         }
 
+    
 
         /**
          * 原岗位默认成本中心 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param originalCostCenter
          * @return
          */
         public Builder originalCostCenter(String originalCostCenter) {
-            this.originalCostCenter = originalCostCenter;
-            return this;
+             this.originalCostCenter = originalCostCenter;
+             return this;
         }
 
+    
 
         /**
          * 新岗位默认成本中心 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param targetCostCenter
          * @return
          */
         public Builder targetCostCenter(String targetCostCenter) {
-            this.targetCostCenter = targetCostCenter;
-            return this;
+             this.targetCostCenter = targetCostCenter;
+             return this;
         }
 
+    
 
         /**
          * 原工时制度 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param originalWorkingHoursType
          * @return
          */
         public Builder originalWorkingHoursType(String originalWorkingHoursType) {
-            this.originalWorkingHoursType = originalWorkingHoursType;
-            return this;
+             this.originalWorkingHoursType = originalWorkingHoursType;
+             return this;
         }
 
+    
 
         /**
          * 新工时制度 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param targetWorkingHoursType
          * @return
          */
         public Builder targetWorkingHoursType(String targetWorkingHoursType) {
-            this.targetWorkingHoursType = targetWorkingHoursType;
-            return this;
+             this.targetWorkingHoursType = targetWorkingHoursType;
+             return this;
         }
 
+    
 
         /**
          * 原职务 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param originalJob
          * @return
          */
         public Builder originalJob(String originalJob) {
-            this.originalJob = originalJob;
-            return this;
+             this.originalJob = originalJob;
+             return this;
         }
 
+    
 
         /**
          * 新职务 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param targetJob
          * @return
          */
         public Builder targetJob(String targetJob) {
-            this.targetJob = targetJob;
-            return this;
+             this.targetJob = targetJob;
+             return this;
         }
 
+    
 
         /**
          * 原是否关键岗位
          * <p> 示例值：true
-         *
          * @param originalIsKeyPosition
          * @return
          */
         public Builder originalIsKeyPosition(Boolean originalIsKeyPosition) {
-            this.originalIsKeyPosition = originalIsKeyPosition;
-            return this;
+             this.originalIsKeyPosition = originalIsKeyPosition;
+             return this;
         }
 
+    
 
         /**
          * 新是否关键岗位
          * <p> 示例值：true
-         *
          * @param targetIsKeyPosition
          * @return
          */
         public Builder targetIsKeyPosition(Boolean targetIsKeyPosition) {
-            this.targetIsKeyPosition = targetIsKeyPosition;
-            return this;
+             this.targetIsKeyPosition = targetIsKeyPosition;
+             return this;
         }
 
+    
 
         /**
          * 原人员类型 ID
          * <p> 示例值：
-         *
          * @param originalEmployeeTypes
          * @return
          */
         public Builder originalEmployeeTypes(String[] originalEmployeeTypes) {
-            this.originalEmployeeTypes = originalEmployeeTypes;
-            return this;
+             this.originalEmployeeTypes = originalEmployeeTypes;
+             return this;
         }
 
+    
 
         /**
          * 新人员类型 ID
          * <p> 示例值：
-         *
          * @param targetEmployeeTypes
          * @return
          */
         public Builder targetEmployeeTypes(String[] targetEmployeeTypes) {
-            this.targetEmployeeTypes = targetEmployeeTypes;
-            return this;
+             this.targetEmployeeTypes = targetEmployeeTypes;
+             return this;
         }
 
+    
 
         /**
          * 原名称
          * <p> 示例值：
-         *
          * @param originalNames
          * @return
          */
         public Builder originalNames(I18n[] originalNames) {
-            this.originalNames = originalNames;
-            return this;
+             this.originalNames = originalNames;
+             return this;
         }
 
+    
 
         /**
          * 新名称
          * <p> 示例值：
-         *
          * @param targetNames
          * @return
          */
         public Builder targetNames(I18n[] targetNames) {
-            this.targetNames = targetNames;
-            return this;
+             this.targetNames = targetNames;
+             return this;
         }
 
+    
 
         /**
          * 原职等 ID
          * <p> 示例值：
-         *
          * @param originalJobGrades
          * @return
          */
         public Builder originalJobGrades(String[] originalJobGrades) {
-            this.originalJobGrades = originalJobGrades;
-            return this;
+             this.originalJobGrades = originalJobGrades;
+             return this;
         }
 
+    
 
         /**
          * 新职等 ID
          * <p> 示例值：
-         *
          * @param targetJobGrades
          * @return
          */
         public Builder targetJobGrades(String[] targetJobGrades) {
-            this.targetJobGrades = targetJobGrades;
-            return this;
+             this.targetJobGrades = targetJobGrades;
+             return this;
         }
 
+    
 
         /**
          * 原编码
          * <p> 示例值：P00000456
-         *
          * @param originalCode
          * @return
          */
         public Builder originalCode(String originalCode) {
-            this.originalCode = originalCode;
-            return this;
+             this.originalCode = originalCode;
+             return this;
         }
 
+    
 
         /**
          * 新编码
          * <p> 示例值：P00000456
-         *
          * @param targetCode
          * @return
          */
         public Builder targetCode(String targetCode) {
-            this.targetCode = targetCode;
-            return this;
+             this.targetCode = targetCode;
+             return this;
         }
 
+    
 
         /**
          * 原职级 ID
          * <p> 示例值：
-         *
          * @param originalJobLevels
          * @return
          */
         public Builder originalJobLevels(String[] originalJobLevels) {
-            this.originalJobLevels = originalJobLevels;
-            return this;
+             this.originalJobLevels = originalJobLevels;
+             return this;
         }
 
+    
 
         /**
          * 新职级 ID
          * <p> 示例值：
-         *
          * @param targetJobLevels
          * @return
          */
         public Builder targetJobLevels(String[] targetJobLevels) {
-            this.targetJobLevels = targetJobLevels;
-            return this;
+             this.targetJobLevels = targetJobLevels;
+             return this;
         }
 
+    
 
         /**
          * 原状态
          * <p> 示例值：true
-         *
          * @param originalActive
          * @return
          */
         public Builder originalActive(Boolean originalActive) {
-            this.originalActive = originalActive;
-            return this;
+             this.originalActive = originalActive;
+             return this;
         }
 
+    
 
         /**
          * 新状态
          * <p> 示例值：true
-         *
          * @param targetActive
          * @return
          */
         public Builder targetActive(Boolean targetActive) {
-            this.targetActive = targetActive;
-            return this;
+             this.targetActive = targetActive;
+             return this;
         }
 
+    
 
         /**
          * 原直线上级（岗位） ID
          * <p> 示例值：6974659700705068581
-         *
          * @param originalDirectLeader
          * @return
          */
         public Builder originalDirectLeader(String originalDirectLeader) {
-            this.originalDirectLeader = originalDirectLeader;
-            return this;
+             this.originalDirectLeader = originalDirectLeader;
+             return this;
         }
 
+    
 
         /**
          * 新直线上级（岗位） ID
          * <p> 示例值：6974659700705068581
-         *
          * @param targetDirectLeader
          * @return
          */
         public Builder targetDirectLeader(String targetDirectLeader) {
-            this.targetDirectLeader = targetDirectLeader;
-            return this;
+             this.targetDirectLeader = targetDirectLeader;
+             return this;
         }
 
+    
 
         /**
          * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
          * <p> 示例值：6974659700705068581
-         *
          * @param targetDraftDirectLeader
          * @return
          */
         public Builder targetDraftDirectLeader(String targetDraftDirectLeader) {
-            this.targetDraftDirectLeader = targetDraftDirectLeader;
-            return this;
+             this.targetDraftDirectLeader = targetDraftDirectLeader;
+             return this;
         }
 
+    
 
         /**
          * 原工作地点 ID
          * <p> 示例值：
-         *
          * @param originalWorkLocations
          * @return
          */
         public Builder originalWorkLocations(String[] originalWorkLocations) {
-            this.originalWorkLocations = originalWorkLocations;
-            return this;
+             this.originalWorkLocations = originalWorkLocations;
+             return this;
         }
 
+    
 
         /**
          * 新工作地点 ID
          * <p> 示例值：
-         *
          * @param targetWorkLocations
          * @return
          */
         public Builder targetWorkLocations(String[] targetWorkLocations) {
-            this.targetWorkLocations = targetWorkLocations;
-            return this;
+             this.targetWorkLocations = targetWorkLocations;
+             return this;
         }
 
+    
 
         /**
          * 原描述
          * <p> 示例值：
-         *
          * @param originalDescriptions
          * @return
          */
         public Builder originalDescriptions(I18n[] originalDescriptions) {
-            this.originalDescriptions = originalDescriptions;
-            return this;
+             this.originalDescriptions = originalDescriptions;
+             return this;
         }
 
+    
 
         /**
          * 新描述
          * <p> 示例值：
-         *
          * @param targetDescriptions
          * @return
          */
         public Builder targetDescriptions(I18n[] targetDescriptions) {
-            this.targetDescriptions = targetDescriptions;
-            return this;
+             this.targetDescriptions = targetDescriptions;
+             return this;
         }
 
+    
 
         /**
          * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
          * <p> 示例值：
-         *
          * @param originalDepartmentIdPaths
          * @return
          */
         public Builder originalDepartmentIdPaths(OrgdraftDepartmentId[] originalDepartmentIdPaths) {
-            this.originalDepartmentIdPaths = originalDepartmentIdPaths;
-            return this;
+             this.originalDepartmentIdPaths = originalDepartmentIdPaths;
+             return this;
         }
 
+    
 
         /**
          * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
          * <p> 示例值：
-         *
          * @param targetDepartmentIdPaths
          * @return
          */
         public Builder targetDepartmentIdPaths(OrgdraftDepartmentId[] targetDepartmentIdPaths) {
-            this.targetDepartmentIdPaths = targetDepartmentIdPaths;
-            return this;
+             this.targetDepartmentIdPaths = targetDepartmentIdPaths;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ChangeFieldPair[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
+    
+    public PositionAdjustmentInfo build(){
+        return new PositionAdjustmentInfo(this);
+      }
+    }
 
-        public PositionAdjustmentInfo build() {
-            return new PositionAdjustmentInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

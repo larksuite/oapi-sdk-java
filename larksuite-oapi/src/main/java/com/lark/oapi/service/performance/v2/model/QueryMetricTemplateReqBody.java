@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryMetricTemplateReqBody {
-    /**
-     * 指标模板 ID 列表，metrics_template_id 可以通过指标模板的后台配置详情页的 url 获取，也可通过本接口的返回值获取。不填写则默认返回所有指标模板
-     * <p> 示例值：
-     */
+     /**
+      * 指标模板 ID 列表，metrics_template_id 可以通过指标模板的后台配置详情页的 url 获取，也可通过本接口的返回值获取。不填写则默认返回所有指标模板
+      * <p> 示例值：
+      */
     @SerializedName("metrics_template_ids")
     private String[] metricsTemplateIds;
-    /**
-     * 状态
-     * <p> 示例值：to_be_configured
-     */
+     /**
+      * 状态
+      * <p> 示例值：to_be_configured
+      */
     @SerializedName("status")
     private String status;
-
-    // builder 开始
-    public QueryMetricTemplateReqBody() {
-    }
-
-    public QueryMetricTemplateReqBody(Builder builder) {
-        /**
-         * 指标模板 ID 列表，metrics_template_id 可以通过指标模板的后台配置详情页的 url 获取，也可通过本接口的返回值获取。不填写则默认返回所有指标模板
-         * <p> 示例值：
-         */
-        this.metricsTemplateIds = builder.metricsTemplateIds;
-        /**
-         * 状态
-         * <p> 示例值：to_be_configured
-         */
-        this.status = builder.status;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getMetricsTemplateIds() {
         return this.metricsTemplateIds;
     }
@@ -79,58 +53,77 @@ public class QueryMetricTemplateReqBody {
         this.status = status;
     }
 
+
+// builder 开始
+  public QueryMetricTemplateReqBody(){}
+
+  public QueryMetricTemplateReqBody(Builder builder){
+         /**
+          * 指标模板 ID 列表，metrics_template_id 可以通过指标模板的后台配置详情页的 url 获取，也可通过本接口的返回值获取。不填写则默认返回所有指标模板
+          * <p> 示例值：
+          */
+      this.metricsTemplateIds = builder.metricsTemplateIds;
+         /**
+          * 状态
+          * <p> 示例值：to_be_configured
+          */
+      this.status = builder.status;
+  }
+
     public static class Builder {
-        /**
-         * 指标模板 ID 列表，metrics_template_id 可以通过指标模板的后台配置详情页的 url 获取，也可通过本接口的返回值获取。不填写则默认返回所有指标模板
-         * <p> 示例值：
-         */
+     /**
+      * 指标模板 ID 列表，metrics_template_id 可以通过指标模板的后台配置详情页的 url 获取，也可通过本接口的返回值获取。不填写则默认返回所有指标模板
+      * <p> 示例值：
+      */
         private String[] metricsTemplateIds;
-        /**
-         * 状态
-         * <p> 示例值：to_be_configured
-         */
+     /**
+      * 状态
+      * <p> 示例值：to_be_configured
+      */
         private String status;
 
         /**
          * 指标模板 ID 列表，metrics_template_id 可以通过指标模板的后台配置详情页的 url 获取，也可通过本接口的返回值获取。不填写则默认返回所有指标模板
          * <p> 示例值：
-         *
          * @param metricsTemplateIds
          * @return
          */
         public Builder metricsTemplateIds(String[] metricsTemplateIds) {
-            this.metricsTemplateIds = metricsTemplateIds;
-            return this;
+             this.metricsTemplateIds = metricsTemplateIds;
+             return this;
         }
 
+    
 
         /**
          * 状态
          * <p> 示例值：to_be_configured
-         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 状态
          * <p> 示例值：to_be_configured
-         *
          * @param status {@link com.lark.oapi.service.performance.v2.enums.QueryMetricTemplateStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.performance.v2.enums.QueryMetricTemplateStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
+    
+    public QueryMetricTemplateReqBody build(){
+        return new QueryMetricTemplateReqBody(this);
+      }
+    }
 
-        public QueryMetricTemplateReqBody build() {
-            return new QueryMetricTemplateReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

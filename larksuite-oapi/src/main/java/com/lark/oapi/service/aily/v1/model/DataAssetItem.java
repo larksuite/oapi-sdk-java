@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,85 +19,43 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
-
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataAssetItem {
-    /**
-     * 数据知识项ID
-     * <p> 示例值：asset_item_aadg3mcgvpydu
-     */
+     /**
+      * 数据知识项ID
+      * <p> 示例值：asset_item_aadg3mcgvpydu
+      */
     @SerializedName("data_asset_item_id")
     private String dataAssetItemId;
-    /**
-     * 数据知识项标识
-     * <p> 示例值：movie
-     */
+     /**
+      * 数据知识项标识
+      * <p> 示例值：movie
+      */
     @SerializedName("api_name")
     private String apiName;
-    /**
-     * 数据知识项标题
-     * <p> 示例值：
-     */
+     /**
+      * 数据知识项标题
+      * <p> 示例值：
+      */
     @SerializedName("label")
     private Map<String, String> label;
-    /**
-     * 数据知识项描述
-     * <p> 示例值：
-     */
+     /**
+      * 数据知识项描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private Map<String, String> description;
-    /**
-     * 数据知识资源
-     * <p> 示例值：
-     */
+     /**
+      * 数据知识资源
+      * <p> 示例值：
+      */
     @SerializedName("resources")
     private DataAssetResource[] resources;
-
-    // builder 开始
-    public DataAssetItem() {
-    }
-
-    public DataAssetItem(Builder builder) {
-        /**
-         * 数据知识项ID
-         * <p> 示例值：asset_item_aadg3mcgvpydu
-         */
-        this.dataAssetItemId = builder.dataAssetItemId;
-        /**
-         * 数据知识项标识
-         * <p> 示例值：movie
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 数据知识项标题
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 数据知识项描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 数据知识资源
-         * <p> 示例值：
-         */
-        this.resources = builder.resources;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDataAssetItemId() {
         return this.dataAssetItemId;
     }
@@ -139,100 +96,136 @@ public class DataAssetItem {
         this.resources = resources;
     }
 
+
+// builder 开始
+  public DataAssetItem(){}
+
+  public DataAssetItem(Builder builder){
+         /**
+          * 数据知识项ID
+          * <p> 示例值：asset_item_aadg3mcgvpydu
+          */
+      this.dataAssetItemId = builder.dataAssetItemId;
+         /**
+          * 数据知识项标识
+          * <p> 示例值：movie
+          */
+      this.apiName = builder.apiName;
+         /**
+          * 数据知识项标题
+          * <p> 示例值：
+          */
+      this.label = builder.label;
+         /**
+          * 数据知识项描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 数据知识资源
+          * <p> 示例值：
+          */
+      this.resources = builder.resources;
+  }
+
     public static class Builder {
-        /**
-         * 数据知识项ID
-         * <p> 示例值：asset_item_aadg3mcgvpydu
-         */
+     /**
+      * 数据知识项ID
+      * <p> 示例值：asset_item_aadg3mcgvpydu
+      */
         private String dataAssetItemId;
-        /**
-         * 数据知识项标识
-         * <p> 示例值：movie
-         */
+     /**
+      * 数据知识项标识
+      * <p> 示例值：movie
+      */
         private String apiName;
-        /**
-         * 数据知识项标题
-         * <p> 示例值：
-         */
+     /**
+      * 数据知识项标题
+      * <p> 示例值：
+      */
         private Map<String, String> label;
-        /**
-         * 数据知识项描述
-         * <p> 示例值：
-         */
+     /**
+      * 数据知识项描述
+      * <p> 示例值：
+      */
         private Map<String, String> description;
-        /**
-         * 数据知识资源
-         * <p> 示例值：
-         */
+     /**
+      * 数据知识资源
+      * <p> 示例值：
+      */
         private DataAssetResource[] resources;
 
         /**
          * 数据知识项ID
          * <p> 示例值：asset_item_aadg3mcgvpydu
-         *
          * @param dataAssetItemId
          * @return
          */
         public Builder dataAssetItemId(String dataAssetItemId) {
-            this.dataAssetItemId = dataAssetItemId;
-            return this;
+             this.dataAssetItemId = dataAssetItemId;
+             return this;
         }
 
+    
 
         /**
          * 数据知识项标识
          * <p> 示例值：movie
-         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
+             this.apiName = apiName;
+             return this;
         }
 
+    
 
         /**
          * 数据知识项标题
          * <p> 示例值：
-         *
          * @param label
          * @return
          */
         public Builder label(Map<String, String> label) {
-            this.label = label;
-            return this;
+             this.label = label;
+             return this;
         }
 
+    
 
         /**
          * 数据知识项描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(Map<String, String> description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 数据知识资源
          * <p> 示例值：
-         *
          * @param resources
          * @return
          */
         public Builder resources(DataAssetResource[] resources) {
-            this.resources = resources;
-            return this;
+             this.resources = resources;
+             return this;
         }
 
+    
+    
+    public DataAssetItem build(){
+        return new DataAssetItem(this);
+      }
+    }
 
-        public DataAssetItem build() {
-            return new DataAssetItem(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ContentTextRun {
-    /**
-     * 具体的文本内容
-     * <p> 示例值：周报内容
-     */
+     /**
+      * 具体的文本内容
+      * <p> 示例值：周报内容
+      */
     @SerializedName("text")
     private String text;
-    /**
-     * 文本内容的样式，支持 BIUS、颜色等
-     * <p> 示例值：
-     */
+     /**
+      * 文本内容的样式，支持 BIUS、颜色等
+      * <p> 示例值：
+      */
     @SerializedName("style")
     private ContentTextStyle style;
-
-    // builder 开始
-    public ContentTextRun() {
-    }
-
-    public ContentTextRun(Builder builder) {
-        /**
-         * 具体的文本内容
-         * <p> 示例值：周报内容
-         */
-        this.text = builder.text;
-        /**
-         * 文本内容的样式，支持 BIUS、颜色等
-         * <p> 示例值：
-         */
-        this.style = builder.style;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getText() {
         return this.text;
     }
@@ -79,46 +53,67 @@ public class ContentTextRun {
         this.style = style;
     }
 
+
+// builder 开始
+  public ContentTextRun(){}
+
+  public ContentTextRun(Builder builder){
+         /**
+          * 具体的文本内容
+          * <p> 示例值：周报内容
+          */
+      this.text = builder.text;
+         /**
+          * 文本内容的样式，支持 BIUS、颜色等
+          * <p> 示例值：
+          */
+      this.style = builder.style;
+  }
+
     public static class Builder {
-        /**
-         * 具体的文本内容
-         * <p> 示例值：周报内容
-         */
+     /**
+      * 具体的文本内容
+      * <p> 示例值：周报内容
+      */
         private String text;
-        /**
-         * 文本内容的样式，支持 BIUS、颜色等
-         * <p> 示例值：
-         */
+     /**
+      * 文本内容的样式，支持 BIUS、颜色等
+      * <p> 示例值：
+      */
         private ContentTextStyle style;
 
         /**
          * 具体的文本内容
          * <p> 示例值：周报内容
-         *
          * @param text
          * @return
          */
         public Builder text(String text) {
-            this.text = text;
-            return this;
+             this.text = text;
+             return this;
         }
 
+    
 
         /**
          * 文本内容的样式，支持 BIUS、颜色等
          * <p> 示例值：
-         *
          * @param style
          * @return
          */
         public Builder style(ContentTextStyle style) {
-            this.style = style;
-            return this;
+             this.style = style;
+             return this;
         }
 
+    
+    
+    public ContentTextRun build(){
+        return new ContentTextRun(this);
+      }
+    }
 
-        public ContentTextRun build() {
-            return new ContentTextRun(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WorkExperienceForUpdate {
-    /**
-     * 公司名称
-     * <p> 示例值：猎豹
-     */
+     /**
+      * 公司名称
+      * <p> 示例值：猎豹
+      */
     @SerializedName("company_name")
     private String companyName;
-    /**
-     * 开始时间
-     * <p> 示例值：2015-02-01
-     */
+     /**
+      * 开始时间
+      * <p> 示例值：2015-02-01
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 结束时间
-     * <p> 示例值：2017-02-01
-     */
+     /**
+      * 结束时间
+      * <p> 示例值：2017-02-01
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 岗位
-     * <p> 示例值：产品经理
-     */
+     /**
+      * 岗位
+      * <p> 示例值：产品经理
+      */
     @SerializedName("job_title")
     private String jobTitle;
-    /**
-     * 工作描述
-     * <p> 示例值：app
-     */
+     /**
+      * 工作描述
+      * <p> 示例值：app
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 部门
-     * <p> 示例值：部门名称
-     */
+     /**
+      * 部门
+      * <p> 示例值：部门名称
+      */
     @SerializedName("department")
     private String department;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-
-    // builder 开始
-    public WorkExperienceForUpdate() {
-    }
-
-    public WorkExperienceForUpdate(Builder builder) {
-        /**
-         * 公司名称
-         * <p> 示例值：猎豹
-         */
-        this.companyName = builder.companyName;
-        /**
-         * 开始时间
-         * <p> 示例值：2015-02-01
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：2017-02-01
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 岗位
-         * <p> 示例值：产品经理
-         */
-        this.jobTitle = builder.jobTitle;
-        /**
-         * 工作描述
-         * <p> 示例值：app
-         */
-        this.description = builder.description;
-        /**
-         * 部门
-         * <p> 示例值：部门名称
-         */
-        this.department = builder.department;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCompanyName() {
         return this.companyName;
     }
@@ -174,136 +123,182 @@ public class WorkExperienceForUpdate {
         this.customFields = customFields;
     }
 
+
+// builder 开始
+  public WorkExperienceForUpdate(){}
+
+  public WorkExperienceForUpdate(Builder builder){
+         /**
+          * 公司名称
+          * <p> 示例值：猎豹
+          */
+      this.companyName = builder.companyName;
+         /**
+          * 开始时间
+          * <p> 示例值：2015-02-01
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 结束时间
+          * <p> 示例值：2017-02-01
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 岗位
+          * <p> 示例值：产品经理
+          */
+      this.jobTitle = builder.jobTitle;
+         /**
+          * 工作描述
+          * <p> 示例值：app
+          */
+      this.description = builder.description;
+         /**
+          * 部门
+          * <p> 示例值：部门名称
+          */
+      this.department = builder.department;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+  }
+
     public static class Builder {
-        /**
-         * 公司名称
-         * <p> 示例值：猎豹
-         */
+     /**
+      * 公司名称
+      * <p> 示例值：猎豹
+      */
         private String companyName;
-        /**
-         * 开始时间
-         * <p> 示例值：2015-02-01
-         */
+     /**
+      * 开始时间
+      * <p> 示例值：2015-02-01
+      */
         private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：2017-02-01
-         */
+     /**
+      * 结束时间
+      * <p> 示例值：2017-02-01
+      */
         private String endTime;
-        /**
-         * 岗位
-         * <p> 示例值：产品经理
-         */
+     /**
+      * 岗位
+      * <p> 示例值：产品经理
+      */
         private String jobTitle;
-        /**
-         * 工作描述
-         * <p> 示例值：app
-         */
+     /**
+      * 工作描述
+      * <p> 示例值：app
+      */
         private String description;
-        /**
-         * 部门
-         * <p> 示例值：部门名称
-         */
+     /**
+      * 部门
+      * <p> 示例值：部门名称
+      */
         private String department;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ObjectFieldData[] customFields;
 
         /**
          * 公司名称
          * <p> 示例值：猎豹
-         *
          * @param companyName
          * @return
          */
         public Builder companyName(String companyName) {
-            this.companyName = companyName;
-            return this;
+             this.companyName = companyName;
+             return this;
         }
 
+    
 
         /**
          * 开始时间
          * <p> 示例值：2015-02-01
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 结束时间
          * <p> 示例值：2017-02-01
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 岗位
          * <p> 示例值：产品经理
-         *
          * @param jobTitle
          * @return
          */
         public Builder jobTitle(String jobTitle) {
-            this.jobTitle = jobTitle;
-            return this;
+             this.jobTitle = jobTitle;
+             return this;
         }
 
+    
 
         /**
          * 工作描述
          * <p> 示例值：app
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 部门
          * <p> 示例值：部门名称
-         *
          * @param department
          * @return
          */
         public Builder department(String department) {
-            this.department = department;
-            return this;
+             this.department = department;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
+    
+    public WorkExperienceForUpdate build(){
+        return new WorkExperienceForUpdate(this);
+      }
+    }
 
-        public WorkExperienceForUpdate build() {
-            return new WorkExperienceForUpdate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

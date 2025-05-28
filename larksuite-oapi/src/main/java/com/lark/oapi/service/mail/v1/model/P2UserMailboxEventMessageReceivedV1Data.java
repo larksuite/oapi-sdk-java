@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2UserMailboxEventMessageReceivedV1Data {
-    /**
-     * 收信的邮箱
-     * <p> 示例值：a@xxx.com
-     */
+     /**
+      * 收信的邮箱
+      * <p> 示例值：a@xxx.com
+      */
     @SerializedName("mail_address")
     private String mailAddress;
-    /**
-     * 邮件 id
-     * <p> 示例值：ODM5OTgzYWItOTNmMS00NGJiLTk4MzAtODIwNGMzMjM1OGJh
-     */
+     /**
+      * 邮件 id
+      * <p> 示例值：ODM5OTgzYWItOTNmMS00NGJiLTk4MzAtODIwNGMzMjM1OGJh
+      */
     @SerializedName("message_id")
     private String messageId;
-    /**
-     * 收到邮件的邮箱类型
-     * <p> 示例值：1
-     */
+     /**
+      * 收到邮件的邮箱类型
+      * <p> 示例值：1
+      */
     @SerializedName("mailbox_type")
     private Integer mailboxType;
-    /**
-     * 订阅者
-     * <p> 示例值：
-     */
+     /**
+      * 订阅者
+      * <p> 示例值：
+      */
     @SerializedName("subscriber")
     private Subscriber subscriber;
-
     public String getMailAddress() {
         return this.mailAddress;
     }

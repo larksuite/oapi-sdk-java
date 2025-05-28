@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class NodeApprover {
-    /**
-     * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
-     * <p> 示例值：46e6d96cfa756980907209209ec03b64
-     */
+     /**
+      * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+      * <p> 示例值：46e6d96cfa756980907209209ec03b64
+      */
     @SerializedName("key")
     private String key;
-    /**
-     * value: 审批人列表
-     * <p> 示例值：["f7cb567e"]
-     */
+     /**
+      * value: 审批人列表
+      * <p> 示例值：["f7cb567e"]
+      */
     @SerializedName("value")
     private String[] value;
-
-    // builder 开始
-    public NodeApprover() {
-    }
-
-    public NodeApprover(Builder builder) {
-        /**
-         * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        this.key = builder.key;
-        /**
-         * value: 审批人列表
-         * <p> 示例值：["f7cb567e"]
-         */
-        this.value = builder.value;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKey() {
         return this.key;
     }
@@ -79,46 +53,67 @@ public class NodeApprover {
         this.value = value;
     }
 
+
+// builder 开始
+  public NodeApprover(){}
+
+  public NodeApprover(Builder builder){
+         /**
+          * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+          * <p> 示例值：46e6d96cfa756980907209209ec03b64
+          */
+      this.key = builder.key;
+         /**
+          * value: 审批人列表
+          * <p> 示例值：["f7cb567e"]
+          */
+      this.value = builder.value;
+  }
+
     public static class Builder {
-        /**
-         * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
+     /**
+      * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+      * <p> 示例值：46e6d96cfa756980907209209ec03b64
+      */
         private String key;
-        /**
-         * value: 审批人列表
-         * <p> 示例值：["f7cb567e"]
-         */
+     /**
+      * value: 审批人列表
+      * <p> 示例值：["f7cb567e"]
+      */
         private String[] value;
 
         /**
          * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
          * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
 
         /**
          * value: 审批人列表
          * <p> 示例值：["f7cb567e"]
-         *
          * @param value
          * @return
          */
         public Builder value(String[] value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
+    
+    public NodeApprover build(){
+        return new NodeApprover(this);
+      }
+    }
 
-        public NodeApprover build() {
-            return new NodeApprover(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

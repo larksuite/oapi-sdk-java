@@ -12,58 +12,25 @@
  */
 
 package com.lark.oapi.service.minutes.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.minutes.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetMinuteReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 妙记的唯一标识
-     * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-     */
-    @Path
-    @SerializedName("minute_token")
-    private String minuteToken;
-
-    // builder 开始
-    public GetMinuteReq() {
-    }
-
-    public GetMinuteReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 妙记的唯一标识
-         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-         */
-        this.minuteToken = builder.minuteToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -72,6 +39,13 @@ public class GetMinuteReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 妙记的唯一标识
+      * <p> 示例值：obcnq3b9jl72l83w4f149w9c
+      */
+    @Path
+    @SerializedName("minute_token")
+    private String minuteToken;
     public String getMinuteToken() {
         return this.minuteToken;
     }
@@ -80,49 +54,68 @@ public class GetMinuteReq {
         this.minuteToken = minuteToken;
     }
 
+
+// builder 开始
+  public GetMinuteReq(){}
+
+  public GetMinuteReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 妙记的唯一标识
+      * <p> 示例值：obcnq3b9jl72l83w4f149w9c
+      */
+       this.minuteToken = builder.minuteToken;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String minuteToken; // 妙记的唯一标识
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.minutes.v1.enums.GetMinuteUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.minutes.v1.enums.GetMinuteUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.minutes.v1.enums.GetMinuteUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String minuteToken; // 妙记的唯一标识
         /**
          * 妙记的唯一标识
          * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-         *
          * @param minuteToken
          * @return
          */
-        public Builder minuteToken(String minuteToken) {
-            this.minuteToken = minuteToken;
-            return this;
-        }
+          public Builder minuteToken(String minuteToken) {
+               this.minuteToken = minuteToken;
+               return this;
+          }
 
+    
+    public GetMinuteReq build(){
+        return new GetMinuteReq(this);
+      }
+    }
 
-        public GetMinuteReq build() {
-            return new GetMinuteReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

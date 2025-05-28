@@ -36,7 +36,7 @@ import com.lark.oapi.service.drive.v2.model.*;
 public class DriveService {
     private final V1 v1;
     private final ExportTask exportTask; // 导出
-    private final File file; // 上传
+    private final File file; // 下载
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics
@@ -52,162 +52,135 @@ public class DriveService {
     private final V2 v2;
 
     public DriveService(Config config) {
-        this.v1 = new V1(config);
-        this.exportTask = new ExportTask(config);
-        this.file = new File(config);
-        this.fileComment = new FileComment(config);
-        this.fileCommentReply = new FileCommentReply(config);
-        this.fileStatistics = new FileStatistics(config);
-        this.fileSubscription = new FileSubscription(config);
-        this.fileVersion = new FileVersion(config);
-        this.fileViewRecord = new FileViewRecord(config);
-        this.importTask = new ImportTask(config);
-        this.media = new Media(config);
-        this.meta = new Meta(config);
-        this.permissionMember = new PermissionMember(config);
-        this.permissionPublic = new PermissionPublic(config);
-        this.permissionPublicPassword = new PermissionPublicPassword(config);
-        this.v2 = new V2(config);
+    this.v1 = new V1(config);
+    this.exportTask = new ExportTask(config);
+    this.file = new File(config);
+    this.fileComment = new FileComment(config);
+    this.fileCommentReply = new FileCommentReply(config);
+    this.fileStatistics = new FileStatistics(config);
+    this.fileSubscription = new FileSubscription(config);
+    this.fileVersion = new FileVersion(config);
+    this.fileViewRecord = new FileViewRecord(config);
+    this.importTask = new ImportTask(config);
+    this.media = new Media(config);
+    this.meta = new Meta(config);
+    this.permissionMember = new PermissionMember(config);
+    this.permissionPublic = new PermissionPublic(config);
+    this.permissionPublicPassword = new PermissionPublicPassword(config);
+    this.v2 = new V2(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public ExportTask exportTask() {
         return exportTask;
     }
-
     public File file() {
         return file;
     }
-
     public FileComment fileComment() {
         return fileComment;
     }
-
     public FileCommentReply fileCommentReply() {
         return fileCommentReply;
     }
-
     public FileStatistics fileStatistics() {
         return fileStatistics;
     }
-
     public FileSubscription fileSubscription() {
         return fileSubscription;
     }
-
     public FileVersion fileVersion() {
         return fileVersion;
     }
-
     public FileViewRecord fileViewRecord() {
         return fileViewRecord;
     }
-
     public ImportTask importTask() {
         return importTask;
     }
-
     public Media media() {
         return media;
     }
-
     public Meta meta() {
         return meta;
     }
-
     public PermissionMember permissionMember() {
         return permissionMember;
     }
-
     public PermissionPublic permissionPublic() {
         return permissionPublic;
     }
-
     public PermissionPublicPassword permissionPublicPassword() {
         return permissionPublicPassword;
     }
-
-    public V2 v2() {
-        return v2;
-    }
-
     public abstract static class P2FileBitableFieldChangedV1Handler implements IEventHandler<P2FileBitableFieldChangedV1> {
         @Override
         public P2FileBitableFieldChangedV1 getEvent() {
             return new P2FileBitableFieldChangedV1();
         }
     }
-
     public abstract static class P2FileBitableRecordChangedV1Handler implements IEventHandler<P2FileBitableRecordChangedV1> {
         @Override
         public P2FileBitableRecordChangedV1 getEvent() {
             return new P2FileBitableRecordChangedV1();
         }
     }
-
     public abstract static class P2FileCreatedInFolderV1Handler implements IEventHandler<P2FileCreatedInFolderV1> {
         @Override
         public P2FileCreatedInFolderV1 getEvent() {
             return new P2FileCreatedInFolderV1();
         }
     }
-
     public abstract static class P2FileDeletedV1Handler implements IEventHandler<P2FileDeletedV1> {
         @Override
         public P2FileDeletedV1 getEvent() {
             return new P2FileDeletedV1();
         }
     }
-
     public abstract static class P2FileEditV1Handler implements IEventHandler<P2FileEditV1> {
         @Override
         public P2FileEditV1 getEvent() {
             return new P2FileEditV1();
         }
     }
-
     public abstract static class P2FilePermissionMemberAddedV1Handler implements IEventHandler<P2FilePermissionMemberAddedV1> {
         @Override
         public P2FilePermissionMemberAddedV1 getEvent() {
             return new P2FilePermissionMemberAddedV1();
         }
     }
-
     public abstract static class P2FilePermissionMemberAppliedV1Handler implements IEventHandler<P2FilePermissionMemberAppliedV1> {
         @Override
         public P2FilePermissionMemberAppliedV1 getEvent() {
             return new P2FilePermissionMemberAppliedV1();
         }
     }
-
     public abstract static class P2FilePermissionMemberRemovedV1Handler implements IEventHandler<P2FilePermissionMemberRemovedV1> {
         @Override
         public P2FilePermissionMemberRemovedV1 getEvent() {
             return new P2FilePermissionMemberRemovedV1();
         }
     }
-
     public abstract static class P2FileReadV1Handler implements IEventHandler<P2FileReadV1> {
         @Override
         public P2FileReadV1 getEvent() {
             return new P2FileReadV1();
         }
     }
-
     public abstract static class P2FileTitleUpdatedV1Handler implements IEventHandler<P2FileTitleUpdatedV1> {
         @Override
         public P2FileTitleUpdatedV1 getEvent() {
             return new P2FileTitleUpdatedV1();
         }
     }
-
     public abstract static class P2FileTrashedV1Handler implements IEventHandler<P2FileTrashedV1> {
         @Override
         public P2FileTrashedV1 getEvent() {
             return new P2FileTrashedV1();
         }
+    }
+    public V2 v2() {
+        return v2;
     }
 }

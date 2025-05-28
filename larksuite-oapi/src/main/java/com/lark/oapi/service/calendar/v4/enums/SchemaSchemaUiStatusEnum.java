@@ -17,18 +17,17 @@ package com.lark.oapi.service.calendar.v4.enums;
  * UI项自定义状态。**目前只支持hide**
  */
 public enum SchemaSchemaUiStatusEnum {
-    HIDE("hide"), // 隐藏显示
-    READONLY("readonly"), // 只读
-    EDITABLE("editable"), // 可编辑
-    UNKNOWN("unknown"), // 未知UI项自定义状态，仅用于读取时兼容
-    ;
-    private String value;
-
+     HIDE("hide"), // 隐藏显示
+     READONLY("readonly"), // 只读
+     EDITABLE("editable"), // 可编辑
+     UNKNOWN("unknown"), // 未知UI项自定义状态，仅用于读取时兼容
+  ;
+   private String value;
     SchemaSchemaUiStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -31,34 +31,28 @@ public class WikiService {
     private final Task task; // 云文档
 
     public WikiService(Config config) {
-        this.v2 = new V2(config);
-        this.space = new Space(config);
-        this.spaceMember = new SpaceMember(config);
-        this.spaceNode = new SpaceNode(config);
-        this.spaceSetting = new SpaceSetting(config);
-        this.task = new Task(config);
+    this.v2 = new V2(config);
+    this.space = new Space(config);
+    this.spaceMember = new SpaceMember(config);
+    this.spaceNode = new SpaceNode(config);
+    this.spaceSetting = new SpaceSetting(config);
+    this.task = new Task(config);
     }
-
     public V2 v2() {
         return v2;
     }
-
     public Space space() {
         return space;
     }
-
     public SpaceMember spaceMember() {
         return spaceMember;
     }
-
     public SpaceNode spaceNode() {
         return spaceNode;
     }
-
     public SpaceSetting spaceSetting() {
         return spaceSetting;
     }
-
     public Task task() {
         return task;
     }

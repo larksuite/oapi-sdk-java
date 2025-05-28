@@ -17,18 +17,17 @@ package com.lark.oapi.service.search.v2.enums;
  * agent类型
  */
 public enum DialogSearchRequestAgentTypeEnum {
-    UNKNOWN(0), // 默认值
-    QAONLY(1), // 只需要qa能力
-    NLSONLY(2), // 只需要nls能力
-    QANLSTRIGGER(3), // QA还是NLS交给Trigger模型判断
-    ;
-    private Integer value;
-
+     UNKNOWN(0), // 默认值
+     QAONLY(1), // 只需要qa能力
+     NLSONLY(2), // 只需要nls能力
+     QANLSTRIGGER(3), // QA还是NLS交给Trigger模型判断
+  ;
+   private Integer value;
     DialogSearchRequestAgentTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

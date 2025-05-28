@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchGetDepartmentReqBody {
-    /**
-     * 部门 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 部门 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("department_id_list")
     private String[] departmentIdList;
-    /**
-     * 返回数据的字段列表
-     * <p> 示例值：
-     */
+     /**
+      * 返回数据的字段列表
+      * <p> 示例值：
+      */
     @SerializedName("fields")
     private String[] fields;
-    /**
-     * 部门名称精确匹配，最多传100个
-     * <p> 示例值：
-     */
+     /**
+      * 部门名称精确匹配，最多传100个
+      * <p> 示例值：
+      */
     @SerializedName("department_name_list")
     private String[] departmentNameList;
-
-    // builder 开始
-    public BatchGetDepartmentReqBody() {
-    }
-
-    public BatchGetDepartmentReqBody(Builder builder) {
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentIdList = builder.departmentIdList;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 部门名称精确匹配，最多传100个
-         * <p> 示例值：
-         */
-        this.departmentNameList = builder.departmentNameList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getDepartmentIdList() {
         return this.departmentIdList;
     }
@@ -98,64 +67,90 @@ public class BatchGetDepartmentReqBody {
         this.departmentNameList = departmentNameList;
     }
 
+
+// builder 开始
+  public BatchGetDepartmentReqBody(){}
+
+  public BatchGetDepartmentReqBody(Builder builder){
+         /**
+          * 部门 ID 列表
+          * <p> 示例值：
+          */
+      this.departmentIdList = builder.departmentIdList;
+         /**
+          * 返回数据的字段列表
+          * <p> 示例值：
+          */
+      this.fields = builder.fields;
+         /**
+          * 部门名称精确匹配，最多传100个
+          * <p> 示例值：
+          */
+      this.departmentNameList = builder.departmentNameList;
+  }
+
     public static class Builder {
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 部门 ID 列表
+      * <p> 示例值：
+      */
         private String[] departmentIdList;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
+     /**
+      * 返回数据的字段列表
+      * <p> 示例值：
+      */
         private String[] fields;
-        /**
-         * 部门名称精确匹配，最多传100个
-         * <p> 示例值：
-         */
+     /**
+      * 部门名称精确匹配，最多传100个
+      * <p> 示例值：
+      */
         private String[] departmentNameList;
 
         /**
          * 部门 ID 列表
          * <p> 示例值：
-         *
          * @param departmentIdList
          * @return
          */
         public Builder departmentIdList(String[] departmentIdList) {
-            this.departmentIdList = departmentIdList;
-            return this;
+             this.departmentIdList = departmentIdList;
+             return this;
         }
 
+    
 
         /**
          * 返回数据的字段列表
          * <p> 示例值：
-         *
          * @param fields
          * @return
          */
         public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
+             this.fields = fields;
+             return this;
         }
 
+    
 
         /**
          * 部门名称精确匹配，最多传100个
          * <p> 示例值：
-         *
          * @param departmentNameList
          * @return
          */
         public Builder departmentNameList(String[] departmentNameList) {
-            this.departmentNameList = departmentNameList;
-            return this;
+             this.departmentNameList = departmentNameList;
+             return this;
         }
 
+    
+    
+    public BatchGetDepartmentReqBody build(){
+        return new BatchGetDepartmentReqBody(this);
+      }
+    }
 
-        public BatchGetDepartmentReqBody build() {
-            return new BatchGetDepartmentReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

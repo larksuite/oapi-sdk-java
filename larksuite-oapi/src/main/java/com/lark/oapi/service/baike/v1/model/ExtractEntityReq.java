@@ -12,36 +12,20 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ExtractEntityReq {
     @Body
     private ExtractEntityReqBody body;
-
-    // builder 开始
-    public ExtractEntityReq() {
-    }
-
-    public ExtractEntityReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public ExtractEntityReqBody getExtractEntityReqBody() {
         return this.body;
@@ -51,27 +35,36 @@ public class ExtractEntityReq {
         this.body = body;
     }
 
+// builder 开始
+  public ExtractEntityReq(){}
+
+  public ExtractEntityReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private ExtractEntityReqBody body;
-
+    
         public ExtractEntityReqBody getExtractEntityReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder extractEntityReqBody(ExtractEntityReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public ExtractEntityReq build(){
+        return new ExtractEntityReq(this);
+      }
+    }
 
-        public ExtractEntityReq build() {
-            return new ExtractEntityReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

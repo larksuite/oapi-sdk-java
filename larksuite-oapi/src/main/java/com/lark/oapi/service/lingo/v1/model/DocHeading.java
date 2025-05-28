@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DocHeading {
-    /**
-     * 标题文本内容
-     * <p> 示例值：这是一段标题内容
-     */
+     /**
+      * 标题文本内容
+      * <p> 示例值：这是一段标题内容
+      */
     @SerializedName("text")
     private String text;
-    /**
-     * 标题等级
-     * <p> 示例值：1
-     */
+     /**
+      * 标题等级
+      * <p> 示例值：1
+      */
     @SerializedName("heading_level")
     private Integer headingLevel;
-
-    // builder 开始
-    public DocHeading() {
-    }
-
-    public DocHeading(Builder builder) {
-        /**
-         * 标题文本内容
-         * <p> 示例值：这是一段标题内容
-         */
-        this.text = builder.text;
-        /**
-         * 标题等级
-         * <p> 示例值：1
-         */
-        this.headingLevel = builder.headingLevel;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getText() {
         return this.text;
     }
@@ -79,46 +53,67 @@ public class DocHeading {
         this.headingLevel = headingLevel;
     }
 
+
+// builder 开始
+  public DocHeading(){}
+
+  public DocHeading(Builder builder){
+         /**
+          * 标题文本内容
+          * <p> 示例值：这是一段标题内容
+          */
+      this.text = builder.text;
+         /**
+          * 标题等级
+          * <p> 示例值：1
+          */
+      this.headingLevel = builder.headingLevel;
+  }
+
     public static class Builder {
-        /**
-         * 标题文本内容
-         * <p> 示例值：这是一段标题内容
-         */
+     /**
+      * 标题文本内容
+      * <p> 示例值：这是一段标题内容
+      */
         private String text;
-        /**
-         * 标题等级
-         * <p> 示例值：1
-         */
+     /**
+      * 标题等级
+      * <p> 示例值：1
+      */
         private Integer headingLevel;
 
         /**
          * 标题文本内容
          * <p> 示例值：这是一段标题内容
-         *
          * @param text
          * @return
          */
         public Builder text(String text) {
-            this.text = text;
-            return this;
+             this.text = text;
+             return this;
         }
 
+    
 
         /**
          * 标题等级
          * <p> 示例值：1
-         *
          * @param headingLevel
          * @return
          */
         public Builder headingLevel(Integer headingLevel) {
-            this.headingLevel = headingLevel;
-            return this;
+             this.headingLevel = headingLevel;
+             return this;
         }
 
+    
+    
+    public DocHeading build(){
+        return new DocHeading(this);
+      }
+    }
 
-        public DocHeading build() {
-            return new DocHeading(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

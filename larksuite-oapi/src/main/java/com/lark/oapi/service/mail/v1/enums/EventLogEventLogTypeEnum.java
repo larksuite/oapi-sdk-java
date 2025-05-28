@@ -17,15 +17,14 @@ package com.lark.oapi.service.mail.v1.enums;
  * 行为类型
  */
 public enum EventLogEventLogTypeEnum {
-    AUTO_FORWARD(1), // 自动转发
-    ;
-    private Integer value;
-
+     AUTO_FORWARD(1), // 自动转发
+  ;
+   private Integer value;
     EventLogEventLogTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

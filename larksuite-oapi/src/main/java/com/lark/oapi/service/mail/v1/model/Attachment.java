@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Attachment {
-    /**
-     * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
-     * <p> 示例值：aGVsbG8gd29ybGQK
-     */
+     /**
+      * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
+      * <p> 示例值：aGVsbG8gd29ybGQK
+      */
     @SerializedName("body")
     private String body;
-    /**
-     * 附件文件名
-     * <p> 示例值：helloworld.txt
-     */
+     /**
+      * 附件文件名
+      * <p> 示例值：helloworld.txt
+      */
     @SerializedName("filename")
     private String filename;
-    /**
-     * 附件 id
-     * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-     */
+     /**
+      * 附件 id
+      * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 附件类型
-     * <p> 示例值：1
-     */
+     /**
+      * 附件类型
+      * <p> 示例值：1
+      */
     @SerializedName("attachment_type")
     private Integer attachmentType;
-
-    // builder 开始
-    public Attachment() {
-    }
-
-    public Attachment(Builder builder) {
-        /**
-         * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
-         * <p> 示例值：aGVsbG8gd29ybGQK
-         */
-        this.body = builder.body;
-        /**
-         * 附件文件名
-         * <p> 示例值：helloworld.txt
-         */
-        this.filename = builder.filename;
-        /**
-         * 附件 id
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         */
-        this.id = builder.id;
-        /**
-         * 附件类型
-         * <p> 示例值：1
-         */
-        this.attachmentType = builder.attachmentType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBody() {
         return this.body;
     }
@@ -117,94 +81,123 @@ public class Attachment {
         this.attachmentType = attachmentType;
     }
 
+
+// builder 开始
+  public Attachment(){}
+
+  public Attachment(Builder builder){
+         /**
+          * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
+          * <p> 示例值：aGVsbG8gd29ybGQK
+          */
+      this.body = builder.body;
+         /**
+          * 附件文件名
+          * <p> 示例值：helloworld.txt
+          */
+      this.filename = builder.filename;
+         /**
+          * 附件 id
+          * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+          */
+      this.id = builder.id;
+         /**
+          * 附件类型
+          * <p> 示例值：1
+          */
+      this.attachmentType = builder.attachmentType;
+  }
+
     public static class Builder {
-        /**
-         * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
-         * <p> 示例值：aGVsbG8gd29ybGQK
-         */
+     /**
+      * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
+      * <p> 示例值：aGVsbG8gd29ybGQK
+      */
         private String body;
-        /**
-         * 附件文件名
-         * <p> 示例值：helloworld.txt
-         */
+     /**
+      * 附件文件名
+      * <p> 示例值：helloworld.txt
+      */
         private String filename;
-        /**
-         * 附件 id
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         */
+     /**
+      * 附件 id
+      * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+      */
         private String id;
-        /**
-         * 附件类型
-         * <p> 示例值：1
-         */
+     /**
+      * 附件类型
+      * <p> 示例值：1
+      */
         private Integer attachmentType;
 
         /**
          * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
          * <p> 示例值：aGVsbG8gd29ybGQK
-         *
          * @param body
          * @return
          */
         public Builder body(String body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
 
+    
 
         /**
          * 附件文件名
          * <p> 示例值：helloworld.txt
-         *
          * @param filename
          * @return
          */
         public Builder filename(String filename) {
-            this.filename = filename;
-            return this;
+             this.filename = filename;
+             return this;
         }
 
+    
 
         /**
          * 附件 id
          * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 附件类型
          * <p> 示例值：1
-         *
          * @param attachmentType
          * @return
          */
         public Builder attachmentType(Integer attachmentType) {
-            this.attachmentType = attachmentType;
-            return this;
+             this.attachmentType = attachmentType;
+             return this;
         }
-
         /**
          * 附件类型
          * <p> 示例值：1
-         *
          * @param attachmentType {@link com.lark.oapi.service.mail.v1.enums.AttachmentAttachmentTypeEnum}
          * @return
          */
         public Builder attachmentType(com.lark.oapi.service.mail.v1.enums.AttachmentAttachmentTypeEnum attachmentType) {
-            this.attachmentType = attachmentType.getValue();
-            return this;
+             this.attachmentType = attachmentType.getValue();
+             return this;
         }
 
+    
+    
+    public Attachment build(){
+        return new Attachment(this);
+      }
+    }
 
-        public Attachment build() {
-            return new Attachment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

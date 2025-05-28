@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchTestReqBody {
-    /**
-     * 投递 ID 列表，最多 100 个，默认查询全部投递
-     * <p> 示例值：7018467800193304840
-     */
+     /**
+      * 投递 ID 列表，最多 100 个，默认查询全部投递
+      * <p> 示例值：7018467800193304840
+      */
     @SerializedName("application_id_list")
     private String[] applicationIdList;
-    /**
-     * 笔试开始时间晚于等于的时间
-     * <p> 示例值：1608725989000
-     */
+     /**
+      * 笔试开始时间晚于等于的时间
+      * <p> 示例值：1608725989000
+      */
     @SerializedName("test_start_time_min")
     private String testStartTimeMin;
-    /**
-     * 笔试开始时间早于等于的时间
-     * <p> 示例值：1608726989000
-     */
+     /**
+      * 笔试开始时间早于等于的时间
+      * <p> 示例值：1608726989000
+      */
     @SerializedName("test_start_time_max")
     private String testStartTimeMax;
-
-    // builder 开始
-    public SearchTestReqBody() {
-    }
-
-    public SearchTestReqBody(Builder builder) {
-        /**
-         * 投递 ID 列表，最多 100 个，默认查询全部投递
-         * <p> 示例值：7018467800193304840
-         */
-        this.applicationIdList = builder.applicationIdList;
-        /**
-         * 笔试开始时间晚于等于的时间
-         * <p> 示例值：1608725989000
-         */
-        this.testStartTimeMin = builder.testStartTimeMin;
-        /**
-         * 笔试开始时间早于等于的时间
-         * <p> 示例值：1608726989000
-         */
-        this.testStartTimeMax = builder.testStartTimeMax;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getApplicationIdList() {
         return this.applicationIdList;
     }
@@ -97,64 +66,90 @@ public class SearchTestReqBody {
         this.testStartTimeMax = testStartTimeMax;
     }
 
+
+// builder 开始
+  public SearchTestReqBody(){}
+
+  public SearchTestReqBody(Builder builder){
+         /**
+          * 投递 ID 列表，最多 100 个，默认查询全部投递
+          * <p> 示例值：7018467800193304840
+          */
+      this.applicationIdList = builder.applicationIdList;
+         /**
+          * 笔试开始时间晚于等于的时间
+          * <p> 示例值：1608725989000
+          */
+      this.testStartTimeMin = builder.testStartTimeMin;
+         /**
+          * 笔试开始时间早于等于的时间
+          * <p> 示例值：1608726989000
+          */
+      this.testStartTimeMax = builder.testStartTimeMax;
+  }
+
     public static class Builder {
-        /**
-         * 投递 ID 列表，最多 100 个，默认查询全部投递
-         * <p> 示例值：7018467800193304840
-         */
+     /**
+      * 投递 ID 列表，最多 100 个，默认查询全部投递
+      * <p> 示例值：7018467800193304840
+      */
         private String[] applicationIdList;
-        /**
-         * 笔试开始时间晚于等于的时间
-         * <p> 示例值：1608725989000
-         */
+     /**
+      * 笔试开始时间晚于等于的时间
+      * <p> 示例值：1608725989000
+      */
         private String testStartTimeMin;
-        /**
-         * 笔试开始时间早于等于的时间
-         * <p> 示例值：1608726989000
-         */
+     /**
+      * 笔试开始时间早于等于的时间
+      * <p> 示例值：1608726989000
+      */
         private String testStartTimeMax;
 
         /**
          * 投递 ID 列表，最多 100 个，默认查询全部投递
          * <p> 示例值：7018467800193304840
-         *
          * @param applicationIdList
          * @return
          */
         public Builder applicationIdList(String[] applicationIdList) {
-            this.applicationIdList = applicationIdList;
-            return this;
+             this.applicationIdList = applicationIdList;
+             return this;
         }
 
+    
 
         /**
          * 笔试开始时间晚于等于的时间
          * <p> 示例值：1608725989000
-         *
          * @param testStartTimeMin
          * @return
          */
         public Builder testStartTimeMin(String testStartTimeMin) {
-            this.testStartTimeMin = testStartTimeMin;
-            return this;
+             this.testStartTimeMin = testStartTimeMin;
+             return this;
         }
 
+    
 
         /**
          * 笔试开始时间早于等于的时间
          * <p> 示例值：1608726989000
-         *
          * @param testStartTimeMax
          * @return
          */
         public Builder testStartTimeMax(String testStartTimeMax) {
-            this.testStartTimeMax = testStartTimeMax;
-            return this;
+             this.testStartTimeMax = testStartTimeMax;
+             return this;
         }
 
+    
+    
+    public SearchTestReqBody build(){
+        return new SearchTestReqBody(this);
+      }
+    }
 
-        public SearchTestReqBody build() {
-            return new SearchTestReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

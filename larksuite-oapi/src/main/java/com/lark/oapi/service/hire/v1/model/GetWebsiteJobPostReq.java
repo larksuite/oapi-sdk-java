@@ -12,93 +12,38 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetWebsiteJobPostReq {
-    /**
-     * 用户 ID 类型
-     * <p> 示例值：open_id
-     */
+     /**
+      * 用户 ID 类型
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 此次调用中使用的部门 ID 的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的部门 ID 的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    /**
-     * 此次调用中使用的「职级 ID」的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的「职级 ID」的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("job_level_id_type")
     private String jobLevelIdType;
-    /**
-     * 官网 ID
-     * <p> 示例值：111
-     */
-    @Path
-    @SerializedName("website_id")
-    private String websiteId;
-    /**
-     * 职位广告 ID
-     * <p> 示例值：111
-     */
-    @Path
-    @SerializedName("job_post_id")
-    private String jobPostId;
-
-    // builder 开始
-    public GetWebsiteJobPostReq() {
-    }
-
-    public GetWebsiteJobPostReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         */
-        this.jobLevelIdType = builder.jobLevelIdType;
-        /**
-         * 官网 ID
-         * <p> 示例值：111
-         */
-        this.websiteId = builder.websiteId;
-        /**
-         * 职位广告 ID
-         * <p> 示例值：111
-         */
-        this.jobPostId = builder.jobPostId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -123,6 +68,20 @@ public class GetWebsiteJobPostReq {
         this.jobLevelIdType = jobLevelIdType;
     }
 
+     /**
+      * 官网 ID
+      * <p> 示例值：111
+      */
+    @Path
+    @SerializedName("website_id")
+    private String websiteId;
+     /**
+      * 职位广告 ID
+      * <p> 示例值：111
+      */
+    @Path
+    @SerializedName("job_post_id")
+    private String jobPostId;
     public String getWebsiteId() {
         return this.websiteId;
     }
@@ -139,77 +98,111 @@ public class GetWebsiteJobPostReq {
         this.jobPostId = jobPostId;
     }
 
+
+// builder 开始
+  public GetWebsiteJobPostReq(){}
+
+  public GetWebsiteJobPostReq(Builder builder){
+         /**
+          * 用户 ID 类型
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 此次调用中使用的部门 ID 的类型
+          * <p> 示例值：
+          */
+       this.departmentIdType = builder.departmentIdType;
+         /**
+          * 此次调用中使用的「职级 ID」的类型
+          * <p> 示例值：
+          */
+       this.jobLevelIdType = builder.jobLevelIdType;
+     /**
+      * 官网 ID
+      * <p> 示例值：111
+      */
+       this.websiteId = builder.websiteId;
+     /**
+      * 职位广告 ID
+      * <p> 示例值：111
+      */
+       this.jobPostId = builder.jobPostId;
+  }
+
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String departmentIdType; // 此次调用中使用的部门 ID 的类型
         private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
-        private String websiteId; // 官网 ID
-        private String jobPostId; // 职位广告 ID
-
+    
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
         /**
          * 此次调用中使用的部门 ID 的类型
          * <p> 示例值：
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
+    
         /**
          * 此次调用中使用的「职级 ID」的类型
          * <p> 示例值：
-         *
          * @param jobLevelIdType
          * @return
          */
-        public Builder jobLevelIdType(String jobLevelIdType) {
-            this.jobLevelIdType = jobLevelIdType;
-            return this;
-        }
+           public Builder jobLevelIdType(String jobLevelIdType) {
+                this.jobLevelIdType = jobLevelIdType;
+                return this;
+           }
 
+    
+        private String websiteId; // 官网 ID
+        private String jobPostId; // 职位广告 ID
         /**
          * 官网 ID
          * <p> 示例值：111
-         *
          * @param websiteId
          * @return
          */
-        public Builder websiteId(String websiteId) {
-            this.websiteId = websiteId;
-            return this;
-        }
+          public Builder websiteId(String websiteId) {
+               this.websiteId = websiteId;
+               return this;
+          }
 
-
+    
         /**
          * 职位广告 ID
          * <p> 示例值：111
-         *
          * @param jobPostId
          * @return
          */
-        public Builder jobPostId(String jobPostId) {
-            this.jobPostId = jobPostId;
-            return this;
-        }
+          public Builder jobPostId(String jobPostId) {
+               this.jobPostId = jobPostId;
+               return this;
+          }
 
+    
+    public GetWebsiteJobPostReq build(){
+        return new GetWebsiteJobPostReq(this);
+      }
+    }
 
-        public GetWebsiteJobPostReq build() {
-            return new GetWebsiteJobPostReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

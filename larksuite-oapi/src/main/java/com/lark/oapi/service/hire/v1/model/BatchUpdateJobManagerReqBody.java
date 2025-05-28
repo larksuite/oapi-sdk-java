@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchUpdateJobManagerReqBody {
-    /**
-     * 招聘负责人 ID
-     * <p> 示例值：ou_e6139117c300506837def50545420c6a
-     */
+     /**
+      * 招聘负责人 ID
+      * <p> 示例值：ou_e6139117c300506837def50545420c6a
+      */
     @SerializedName("recruiter_id")
     private String recruiterId;
-    /**
-     * 招聘协助人 ID
-     * <p> 示例值：ou_efk39117c300506837def50545420c6a
-     */
+     /**
+      * 招聘协助人 ID
+      * <p> 示例值：ou_efk39117c300506837def50545420c6a
+      */
     @SerializedName("assistant_id_list")
     private String[] assistantIdList;
-    /**
-     * 用人经理 ID
-     * <p> 示例值：ou_efk39117c300506837def50545420c6a
-     */
+     /**
+      * 用人经理 ID
+      * <p> 示例值：ou_efk39117c300506837def50545420c6a
+      */
     @SerializedName("hiring_manager_id_list")
     private String[] hiringManagerIdList;
-    /**
-     * 更新的人员类型，可选值：1=招聘负责人; 2=招聘协助人; 3=用人经理；
-     * <p> 示例值：1
-     */
+     /**
+      * 更新的人员类型，可选值：1=招聘负责人; 2=招聘协助人; 3=用人经理；
+      * <p> 示例值：1
+      */
     @SerializedName("update_option_list")
     private Integer[] updateOptionList;
-    /**
-     * 操作者 ID
-     * <p> 示例值：ou_efk39117c300506837def50545420c6a
-     */
+     /**
+      * 操作者 ID
+      * <p> 示例值：ou_efk39117c300506837def50545420c6a
+      */
     @SerializedName("creator_id")
     private String creatorId;
-
-    // builder 开始
-    public BatchUpdateJobManagerReqBody() {
-    }
-
-    public BatchUpdateJobManagerReqBody(Builder builder) {
-        /**
-         * 招聘负责人 ID
-         * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         */
-        this.recruiterId = builder.recruiterId;
-        /**
-         * 招聘协助人 ID
-         * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         */
-        this.assistantIdList = builder.assistantIdList;
-        /**
-         * 用人经理 ID
-         * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         */
-        this.hiringManagerIdList = builder.hiringManagerIdList;
-        /**
-         * 更新的人员类型，可选值：1=招聘负责人; 2=招聘协助人; 3=用人经理；
-         * <p> 示例值：1
-         */
-        this.updateOptionList = builder.updateOptionList;
-        /**
-         * 操作者 ID
-         * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         */
-        this.creatorId = builder.creatorId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRecruiterId() {
         return this.recruiterId;
     }
@@ -135,100 +94,136 @@ public class BatchUpdateJobManagerReqBody {
         this.creatorId = creatorId;
     }
 
+
+// builder 开始
+  public BatchUpdateJobManagerReqBody(){}
+
+  public BatchUpdateJobManagerReqBody(Builder builder){
+         /**
+          * 招聘负责人 ID
+          * <p> 示例值：ou_e6139117c300506837def50545420c6a
+          */
+      this.recruiterId = builder.recruiterId;
+         /**
+          * 招聘协助人 ID
+          * <p> 示例值：ou_efk39117c300506837def50545420c6a
+          */
+      this.assistantIdList = builder.assistantIdList;
+         /**
+          * 用人经理 ID
+          * <p> 示例值：ou_efk39117c300506837def50545420c6a
+          */
+      this.hiringManagerIdList = builder.hiringManagerIdList;
+         /**
+          * 更新的人员类型，可选值：1=招聘负责人; 2=招聘协助人; 3=用人经理；
+          * <p> 示例值：1
+          */
+      this.updateOptionList = builder.updateOptionList;
+         /**
+          * 操作者 ID
+          * <p> 示例值：ou_efk39117c300506837def50545420c6a
+          */
+      this.creatorId = builder.creatorId;
+  }
+
     public static class Builder {
-        /**
-         * 招聘负责人 ID
-         * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         */
+     /**
+      * 招聘负责人 ID
+      * <p> 示例值：ou_e6139117c300506837def50545420c6a
+      */
         private String recruiterId;
-        /**
-         * 招聘协助人 ID
-         * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         */
+     /**
+      * 招聘协助人 ID
+      * <p> 示例值：ou_efk39117c300506837def50545420c6a
+      */
         private String[] assistantIdList;
-        /**
-         * 用人经理 ID
-         * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         */
+     /**
+      * 用人经理 ID
+      * <p> 示例值：ou_efk39117c300506837def50545420c6a
+      */
         private String[] hiringManagerIdList;
-        /**
-         * 更新的人员类型，可选值：1=招聘负责人; 2=招聘协助人; 3=用人经理；
-         * <p> 示例值：1
-         */
+     /**
+      * 更新的人员类型，可选值：1=招聘负责人; 2=招聘协助人; 3=用人经理；
+      * <p> 示例值：1
+      */
         private Integer[] updateOptionList;
-        /**
-         * 操作者 ID
-         * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         */
+     /**
+      * 操作者 ID
+      * <p> 示例值：ou_efk39117c300506837def50545420c6a
+      */
         private String creatorId;
 
         /**
          * 招聘负责人 ID
          * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         *
          * @param recruiterId
          * @return
          */
         public Builder recruiterId(String recruiterId) {
-            this.recruiterId = recruiterId;
-            return this;
+             this.recruiterId = recruiterId;
+             return this;
         }
 
+    
 
         /**
          * 招聘协助人 ID
          * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         *
          * @param assistantIdList
          * @return
          */
         public Builder assistantIdList(String[] assistantIdList) {
-            this.assistantIdList = assistantIdList;
-            return this;
+             this.assistantIdList = assistantIdList;
+             return this;
         }
 
+    
 
         /**
          * 用人经理 ID
          * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         *
          * @param hiringManagerIdList
          * @return
          */
         public Builder hiringManagerIdList(String[] hiringManagerIdList) {
-            this.hiringManagerIdList = hiringManagerIdList;
-            return this;
+             this.hiringManagerIdList = hiringManagerIdList;
+             return this;
         }
 
+    
 
         /**
          * 更新的人员类型，可选值：1=招聘负责人; 2=招聘协助人; 3=用人经理；
          * <p> 示例值：1
-         *
          * @param updateOptionList
          * @return
          */
         public Builder updateOptionList(Integer[] updateOptionList) {
-            this.updateOptionList = updateOptionList;
-            return this;
+             this.updateOptionList = updateOptionList;
+             return this;
         }
 
+    
 
         /**
          * 操作者 ID
          * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         *
          * @param creatorId
          * @return
          */
         public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
+             this.creatorId = creatorId;
+             return this;
         }
 
+    
+    
+    public BatchUpdateJobManagerReqBody build(){
+        return new BatchUpdateJobManagerReqBody(this);
+      }
+    }
 
-        public BatchUpdateJobManagerReqBody build() {
-            return new BatchUpdateJobManagerReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

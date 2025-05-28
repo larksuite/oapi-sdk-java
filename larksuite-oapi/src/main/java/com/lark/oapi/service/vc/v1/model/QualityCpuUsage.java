@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QualityCpuUsage {
-    /**
-     * 时间
-     * <p> 示例值：2022.12.23 11:17:00
-     */
+     /**
+      * 时间
+      * <p> 示例值：2022.12.23 11:17:00
+      */
     @SerializedName("time")
     private String time;
-    /**
-     * 客户端平均 CPU 占用
-     * <p> 示例值：0.8%
-     */
+     /**
+      * 客户端平均 CPU 占用
+      * <p> 示例值：0.8%
+      */
     @SerializedName("client_avg_cpu_usage")
     private String clientAvgCpuUsage;
-    /**
-     * 客户端最大 CPU 占用
-     * <p> 示例值：2.3%
-     */
+     /**
+      * 客户端最大 CPU 占用
+      * <p> 示例值：2.3%
+      */
     @SerializedName("client_max_cpu_usage")
     private String clientMaxCpuUsage;
-    /**
-     * 系统平均 CPU 占用
-     * <p> 示例值：8.3%
-     */
+     /**
+      * 系统平均 CPU 占用
+      * <p> 示例值：8.3%
+      */
     @SerializedName("system_avg_cpu_usage")
     private String systemAvgCpuUsage;
-    /**
-     * 系统最大 CPU 占用
-     * <p> 示例值：30%
-     */
+     /**
+      * 系统最大 CPU 占用
+      * <p> 示例值：30%
+      */
     @SerializedName("system_max_cpu_usage")
     private String systemMaxCpuUsage;
-
-    // builder 开始
-    public QualityCpuUsage() {
-    }
-
-    public QualityCpuUsage(Builder builder) {
-        /**
-         * 时间
-         * <p> 示例值：2022.12.23 11:17:00
-         */
-        this.time = builder.time;
-        /**
-         * 客户端平均 CPU 占用
-         * <p> 示例值：0.8%
-         */
-        this.clientAvgCpuUsage = builder.clientAvgCpuUsage;
-        /**
-         * 客户端最大 CPU 占用
-         * <p> 示例值：2.3%
-         */
-        this.clientMaxCpuUsage = builder.clientMaxCpuUsage;
-        /**
-         * 系统平均 CPU 占用
-         * <p> 示例值：8.3%
-         */
-        this.systemAvgCpuUsage = builder.systemAvgCpuUsage;
-        /**
-         * 系统最大 CPU 占用
-         * <p> 示例值：30%
-         */
-        this.systemMaxCpuUsage = builder.systemMaxCpuUsage;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTime() {
         return this.time;
     }
@@ -136,100 +95,136 @@ public class QualityCpuUsage {
         this.systemMaxCpuUsage = systemMaxCpuUsage;
     }
 
+
+// builder 开始
+  public QualityCpuUsage(){}
+
+  public QualityCpuUsage(Builder builder){
+         /**
+          * 时间
+          * <p> 示例值：2022.12.23 11:17:00
+          */
+      this.time = builder.time;
+         /**
+          * 客户端平均 CPU 占用
+          * <p> 示例值：0.8%
+          */
+      this.clientAvgCpuUsage = builder.clientAvgCpuUsage;
+         /**
+          * 客户端最大 CPU 占用
+          * <p> 示例值：2.3%
+          */
+      this.clientMaxCpuUsage = builder.clientMaxCpuUsage;
+         /**
+          * 系统平均 CPU 占用
+          * <p> 示例值：8.3%
+          */
+      this.systemAvgCpuUsage = builder.systemAvgCpuUsage;
+         /**
+          * 系统最大 CPU 占用
+          * <p> 示例值：30%
+          */
+      this.systemMaxCpuUsage = builder.systemMaxCpuUsage;
+  }
+
     public static class Builder {
-        /**
-         * 时间
-         * <p> 示例值：2022.12.23 11:17:00
-         */
+     /**
+      * 时间
+      * <p> 示例值：2022.12.23 11:17:00
+      */
         private String time;
-        /**
-         * 客户端平均 CPU 占用
-         * <p> 示例值：0.8%
-         */
+     /**
+      * 客户端平均 CPU 占用
+      * <p> 示例值：0.8%
+      */
         private String clientAvgCpuUsage;
-        /**
-         * 客户端最大 CPU 占用
-         * <p> 示例值：2.3%
-         */
+     /**
+      * 客户端最大 CPU 占用
+      * <p> 示例值：2.3%
+      */
         private String clientMaxCpuUsage;
-        /**
-         * 系统平均 CPU 占用
-         * <p> 示例值：8.3%
-         */
+     /**
+      * 系统平均 CPU 占用
+      * <p> 示例值：8.3%
+      */
         private String systemAvgCpuUsage;
-        /**
-         * 系统最大 CPU 占用
-         * <p> 示例值：30%
-         */
+     /**
+      * 系统最大 CPU 占用
+      * <p> 示例值：30%
+      */
         private String systemMaxCpuUsage;
 
         /**
          * 时间
          * <p> 示例值：2022.12.23 11:17:00
-         *
          * @param time
          * @return
          */
         public Builder time(String time) {
-            this.time = time;
-            return this;
+             this.time = time;
+             return this;
         }
 
+    
 
         /**
          * 客户端平均 CPU 占用
          * <p> 示例值：0.8%
-         *
          * @param clientAvgCpuUsage
          * @return
          */
         public Builder clientAvgCpuUsage(String clientAvgCpuUsage) {
-            this.clientAvgCpuUsage = clientAvgCpuUsage;
-            return this;
+             this.clientAvgCpuUsage = clientAvgCpuUsage;
+             return this;
         }
 
+    
 
         /**
          * 客户端最大 CPU 占用
          * <p> 示例值：2.3%
-         *
          * @param clientMaxCpuUsage
          * @return
          */
         public Builder clientMaxCpuUsage(String clientMaxCpuUsage) {
-            this.clientMaxCpuUsage = clientMaxCpuUsage;
-            return this;
+             this.clientMaxCpuUsage = clientMaxCpuUsage;
+             return this;
         }
 
+    
 
         /**
          * 系统平均 CPU 占用
          * <p> 示例值：8.3%
-         *
          * @param systemAvgCpuUsage
          * @return
          */
         public Builder systemAvgCpuUsage(String systemAvgCpuUsage) {
-            this.systemAvgCpuUsage = systemAvgCpuUsage;
-            return this;
+             this.systemAvgCpuUsage = systemAvgCpuUsage;
+             return this;
         }
 
+    
 
         /**
          * 系统最大 CPU 占用
          * <p> 示例值：30%
-         *
          * @param systemMaxCpuUsage
          * @return
          */
         public Builder systemMaxCpuUsage(String systemMaxCpuUsage) {
-            this.systemMaxCpuUsage = systemMaxCpuUsage;
-            return this;
+             this.systemMaxCpuUsage = systemMaxCpuUsage;
+             return this;
         }
 
+    
+    
+    public QualityCpuUsage build(){
+        return new QualityCpuUsage(this);
+      }
+    }
 
-        public QualityCpuUsage build() {
-            return new QualityCpuUsage(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

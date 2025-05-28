@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Icon {
-    /**
-     * -
-     * <p> 示例值：-
-     */
+     /**
+      * -
+      * <p> 示例值：-
+      */
     @SerializedName("source")
     private String source;
-    /**
-     * -
-     * <p> 示例值：-
-     */
+     /**
+      * -
+      * <p> 示例值：-
+      */
     @SerializedName("color")
     private String color;
-    /**
-     * -
-     * <p> 示例值：-
-     */
+     /**
+      * -
+      * <p> 示例值：-
+      */
     @SerializedName("color_id")
     private String colorId;
-    /**
-     * -
-     * <p> 示例值：-
-     */
+     /**
+      * -
+      * <p> 示例值：-
+      */
     @SerializedName("icon")
     private String icon;
-
-    // builder 开始
-    public Icon() {
-    }
-
-    public Icon(Builder builder) {
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.source = builder.source;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.color = builder.color;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.colorId = builder.colorId;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.icon = builder.icon;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSource() {
         return this.source;
     }
@@ -117,82 +81,113 @@ public class Icon {
         this.icon = icon;
     }
 
+
+// builder 开始
+  public Icon(){}
+
+  public Icon(Builder builder){
+         /**
+          * -
+          * <p> 示例值：-
+          */
+      this.source = builder.source;
+         /**
+          * -
+          * <p> 示例值：-
+          */
+      this.color = builder.color;
+         /**
+          * -
+          * <p> 示例值：-
+          */
+      this.colorId = builder.colorId;
+         /**
+          * -
+          * <p> 示例值：-
+          */
+      this.icon = builder.icon;
+  }
+
     public static class Builder {
-        /**
-         * -
-         * <p> 示例值：-
-         */
+     /**
+      * -
+      * <p> 示例值：-
+      */
         private String source;
-        /**
-         * -
-         * <p> 示例值：-
-         */
+     /**
+      * -
+      * <p> 示例值：-
+      */
         private String color;
-        /**
-         * -
-         * <p> 示例值：-
-         */
+     /**
+      * -
+      * <p> 示例值：-
+      */
         private String colorId;
-        /**
-         * -
-         * <p> 示例值：-
-         */
+     /**
+      * -
+      * <p> 示例值：-
+      */
         private String icon;
 
         /**
          * -
          * <p> 示例值：-
-         *
          * @param source
          * @return
          */
         public Builder source(String source) {
-            this.source = source;
-            return this;
+             this.source = source;
+             return this;
         }
 
+    
 
         /**
          * -
          * <p> 示例值：-
-         *
          * @param color
          * @return
          */
         public Builder color(String color) {
-            this.color = color;
-            return this;
+             this.color = color;
+             return this;
         }
 
+    
 
         /**
          * -
          * <p> 示例值：-
-         *
          * @param colorId
          * @return
          */
         public Builder colorId(String colorId) {
-            this.colorId = colorId;
-            return this;
+             this.colorId = colorId;
+             return this;
         }
 
+    
 
         /**
          * -
          * <p> 示例值：-
-         *
          * @param icon
          * @return
          */
         public Builder icon(String icon) {
-            this.icon = icon;
-            return this;
+             this.icon = icon;
+             return this;
         }
 
+    
+    
+    public Icon build(){
+        return new Icon(this);
+      }
+    }
 
-        public Icon build() {
-            return new Icon(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

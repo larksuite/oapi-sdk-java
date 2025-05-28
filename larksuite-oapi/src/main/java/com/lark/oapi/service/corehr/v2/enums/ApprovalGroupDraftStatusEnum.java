@@ -17,18 +17,17 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 组织架构调整任务状态
  */
 public enum ApprovalGroupDraftStatusEnum {
-    EDIT("0"), // 编辑中
-    APPROVE("1"), // 审批中
-    FINISH("2"), // 已完成
-    WITHDREW("3"), // 已撤销
-    ;
-    private String value;
-
+     EDIT("0"), // 编辑中
+     APPROVE("1"), // 审批中
+     FINISH("2"), // 已完成
+     WITHDREW("3"), // 已撤销
+  ;
+   private String value;
     ApprovalGroupDraftStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

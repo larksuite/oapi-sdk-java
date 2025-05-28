@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateCardReqBody {
-    /**
-     * 卡片数据的类型
-     * <p> 示例值：card_json
-     */
+     /**
+      * 卡片数据的类型
+      * <p> 示例值：card_json
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 卡片数据内容，与卡片数据的类型相对应
-     * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-     */
+     /**
+      * 卡片数据内容，与卡片数据的类型相对应
+      * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
+      */
     @SerializedName("data")
     private String data;
-
-    // builder 开始
-    public CreateCardReqBody() {
-    }
-
-    public CreateCardReqBody(Builder builder) {
-        /**
-         * 卡片数据的类型
-         * <p> 示例值：card_json
-         */
-        this.type = builder.type;
-        /**
-         * 卡片数据内容，与卡片数据的类型相对应
-         * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-         */
-        this.data = builder.data;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -79,46 +53,67 @@ public class CreateCardReqBody {
         this.data = data;
     }
 
+
+// builder 开始
+  public CreateCardReqBody(){}
+
+  public CreateCardReqBody(Builder builder){
+         /**
+          * 卡片数据的类型
+          * <p> 示例值：card_json
+          */
+      this.type = builder.type;
+         /**
+          * 卡片数据内容，与卡片数据的类型相对应
+          * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
+          */
+      this.data = builder.data;
+  }
+
     public static class Builder {
-        /**
-         * 卡片数据的类型
-         * <p> 示例值：card_json
-         */
+     /**
+      * 卡片数据的类型
+      * <p> 示例值：card_json
+      */
         private String type;
-        /**
-         * 卡片数据内容，与卡片数据的类型相对应
-         * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-         */
+     /**
+      * 卡片数据内容，与卡片数据的类型相对应
+      * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
+      */
         private String data;
 
         /**
          * 卡片数据的类型
          * <p> 示例值：card_json
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 卡片数据内容，与卡片数据的类型相对应
          * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-         *
          * @param data
          * @return
          */
         public Builder data(String data) {
-            this.data = data;
-            return this;
+             this.data = data;
+             return this;
         }
 
+    
+    
+    public CreateCardReqBody build(){
+        return new CreateCardReqBody(this);
+      }
+    }
 
-        public CreateCardReqBody build() {
-            return new CreateCardReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

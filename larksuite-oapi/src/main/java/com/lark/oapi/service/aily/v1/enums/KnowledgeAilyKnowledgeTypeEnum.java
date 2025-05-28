@@ -17,22 +17,21 @@ package com.lark.oapi.service.aily.v1.enums;
  * 知识类型
  */
 public enum KnowledgeAilyKnowledgeTypeEnum {
-    DOCS("docs"), // 飞书云文档
-    WIKISPACE("wiki_space"), // 飞书知识空间
-    HELPDESK("helpdesk"), // 飞书服务台
-    FILE("file"), // 文件
-    DATATABLE("datatable"), // 数据表
-    DATASET("dataset"), // 分析表
-    WEB("web"), // 网页
-    FOLDER("folder"), // 飞书文件夹
-    ;
-    private String value;
-
+     DOCS("docs"), // 飞书云文档
+     WIKISPACE("wiki_space"), // 飞书知识空间
+     HELPDESK("helpdesk"), // 飞书服务台
+     FILE("file"), // 文件
+     DATATABLE("datatable"), // 数据表
+     DATASET("dataset"), // 分析表
+     WEB("web"), // 网页
+     FOLDER("folder"), // 飞书文件夹
+  ;
+   private String value;
     KnowledgeAilyKnowledgeTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

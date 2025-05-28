@@ -17,16 +17,15 @@ package com.lark.oapi.service.vc.v1.enums;
  * 移除结果
  */
 public enum MeetingParticipantResultResultEnum {
-    OK(1), // 成功
-    FAILED(2), // 失败
-    ;
-    private Integer value;
-
+     OK(1), // 成功
+     FAILED(2), // 失败
+  ;
+   private Integer value;
     MeetingParticipantResultResultEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

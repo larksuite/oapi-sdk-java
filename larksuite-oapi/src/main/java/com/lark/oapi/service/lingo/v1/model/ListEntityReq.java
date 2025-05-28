@@ -12,94 +12,53 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListEntityReq {
-    /**
-     * 分页大小
-     * <p> 示例值：20
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：20
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 数据提供方【可用来过滤数据】
-     * <p> 示例值：星云
-     */
+     /**
+      * 数据提供方【可用来过滤数据】
+      * <p> 示例值：星云
+      */
     @Query
     @SerializedName("provider")
     private String provider;
-    /**
-     * 词库 id
-     * <p> 示例值：7152790921053274113
-     */
+     /**
+      * 词库 id
+      * <p> 示例值：7152790921053274113
+      */
     @Query
     @SerializedName("repo_id")
     private String repoId;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-
-    // builder 开始
-    public ListEntityReq() {
-    }
-
-    public ListEntityReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 数据提供方【可用来过滤数据】
-         * <p> 示例值：星云
-         */
-        this.provider = builder.provider;
-        /**
-         * 词库 id
-         * <p> 示例值：7152790921053274113
-         */
-        this.repoId = builder.repoId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -140,92 +99,122 @@ public class ListEntityReq {
         this.userIdType = userIdType;
     }
 
+
+// builder 开始
+  public ListEntityReq(){}
+
+  public ListEntityReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：20
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 数据提供方【可用来过滤数据】
+          * <p> 示例值：星云
+          */
+       this.provider = builder.provider;
+         /**
+          * 词库 id
+          * <p> 示例值：7152790921053274113
+          */
+       this.repoId = builder.repoId;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String provider; // 数据提供方【可用来过滤数据】
         private String repoId; // 词库 id
         private String userIdType; // 此次调用中使用的用户ID的类型
-
+    
         /**
          * 分页大小
          * <p> 示例值：20
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 数据提供方【可用来过滤数据】
          * <p> 示例值：星云
-         *
          * @param provider
          * @return
          */
-        public Builder provider(String provider) {
-            this.provider = provider;
-            return this;
-        }
+           public Builder provider(String provider) {
+                this.provider = provider;
+                return this;
+           }
 
-
+    
         /**
          * 词库 id
          * <p> 示例值：7152790921053274113
-         *
          * @param repoId
          * @return
          */
-        public Builder repoId(String repoId) {
-            this.repoId = repoId;
-            return this;
-        }
+           public Builder repoId(String repoId) {
+                this.repoId = repoId;
+                return this;
+           }
 
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.lingo.v1.enums.ListEntityUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.lingo.v1.enums.ListEntityUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.lingo.v1.enums.ListEntityUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+    public ListEntityReq build(){
+        return new ListEntityReq(this);
+      }
+    }
 
-        public ListEntityReq build() {
-            return new ListEntityReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

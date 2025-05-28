@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EmployeeDomainEventData {
-    /**
-     * 变更实体的ID
-     * <p> 示例值：7291573441955235372
-     */
+     /**
+      * 变更实体的ID
+      * <p> 示例值：7291573441955235372
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 变更实体标识，ObjAPIName
-     * <p> 示例值：email
-     */
+     /**
+      * 变更实体标识，ObjAPIName
+      * <p> 示例值：email
+      */
     @SerializedName("entity")
     private String entity;
-    /**
-     * 聚合实体标识，父对象 ObjAPIName
-     * <p> 示例值：person
-     */
+     /**
+      * 聚合实体标识，父对象 ObjAPIName
+      * <p> 示例值：person
+      */
     @SerializedName("agg_entity")
     private String aggEntity;
-    /**
-     * 聚合实体ID 父对象ID
-     * <p> 示例值：7291273149417948716
-     */
+     /**
+      * 聚合实体ID 父对象ID
+      * <p> 示例值：7291273149417948716
+      */
     @SerializedName("agg_entity_id")
     private String aggEntityId;
-    /**
-     * 操作类型
-     * <p> 示例值：1
-     */
+     /**
+      * 操作类型
+      * <p> 示例值：1
+      */
     @SerializedName("opt_type")
     private Integer optType;
-    /**
-     * 字段标识，ApiName
-     * <p> 示例值：
-     */
+     /**
+      * 字段标识，ApiName
+      * <p> 示例值：
+      */
     @SerializedName("fields")
     private String[] fields;
-
-    // builder 开始
-    public EmployeeDomainEventData() {
-    }
-
-    public EmployeeDomainEventData(Builder builder) {
-        /**
-         * 变更实体的ID
-         * <p> 示例值：7291573441955235372
-         */
-        this.id = builder.id;
-        /**
-         * 变更实体标识，ObjAPIName
-         * <p> 示例值：email
-         */
-        this.entity = builder.entity;
-        /**
-         * 聚合实体标识，父对象 ObjAPIName
-         * <p> 示例值：person
-         */
-        this.aggEntity = builder.aggEntity;
-        /**
-         * 聚合实体ID 父对象ID
-         * <p> 示例值：7291273149417948716
-         */
-        this.aggEntityId = builder.aggEntityId;
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        this.optType = builder.optType;
-        /**
-         * 字段标识，ApiName
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -155,130 +109,169 @@ public class EmployeeDomainEventData {
         this.fields = fields;
     }
 
+
+// builder 开始
+  public EmployeeDomainEventData(){}
+
+  public EmployeeDomainEventData(Builder builder){
+         /**
+          * 变更实体的ID
+          * <p> 示例值：7291573441955235372
+          */
+      this.id = builder.id;
+         /**
+          * 变更实体标识，ObjAPIName
+          * <p> 示例值：email
+          */
+      this.entity = builder.entity;
+         /**
+          * 聚合实体标识，父对象 ObjAPIName
+          * <p> 示例值：person
+          */
+      this.aggEntity = builder.aggEntity;
+         /**
+          * 聚合实体ID 父对象ID
+          * <p> 示例值：7291273149417948716
+          */
+      this.aggEntityId = builder.aggEntityId;
+         /**
+          * 操作类型
+          * <p> 示例值：1
+          */
+      this.optType = builder.optType;
+         /**
+          * 字段标识，ApiName
+          * <p> 示例值：
+          */
+      this.fields = builder.fields;
+  }
+
     public static class Builder {
-        /**
-         * 变更实体的ID
-         * <p> 示例值：7291573441955235372
-         */
+     /**
+      * 变更实体的ID
+      * <p> 示例值：7291573441955235372
+      */
         private String id;
-        /**
-         * 变更实体标识，ObjAPIName
-         * <p> 示例值：email
-         */
+     /**
+      * 变更实体标识，ObjAPIName
+      * <p> 示例值：email
+      */
         private String entity;
-        /**
-         * 聚合实体标识，父对象 ObjAPIName
-         * <p> 示例值：person
-         */
+     /**
+      * 聚合实体标识，父对象 ObjAPIName
+      * <p> 示例值：person
+      */
         private String aggEntity;
-        /**
-         * 聚合实体ID 父对象ID
-         * <p> 示例值：7291273149417948716
-         */
+     /**
+      * 聚合实体ID 父对象ID
+      * <p> 示例值：7291273149417948716
+      */
         private String aggEntityId;
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
+     /**
+      * 操作类型
+      * <p> 示例值：1
+      */
         private Integer optType;
-        /**
-         * 字段标识，ApiName
-         * <p> 示例值：
-         */
+     /**
+      * 字段标识，ApiName
+      * <p> 示例值：
+      */
         private String[] fields;
 
         /**
          * 变更实体的ID
          * <p> 示例值：7291573441955235372
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 变更实体标识，ObjAPIName
          * <p> 示例值：email
-         *
          * @param entity
          * @return
          */
         public Builder entity(String entity) {
-            this.entity = entity;
-            return this;
+             this.entity = entity;
+             return this;
         }
 
+    
 
         /**
          * 聚合实体标识，父对象 ObjAPIName
          * <p> 示例值：person
-         *
          * @param aggEntity
          * @return
          */
         public Builder aggEntity(String aggEntity) {
-            this.aggEntity = aggEntity;
-            return this;
+             this.aggEntity = aggEntity;
+             return this;
         }
 
+    
 
         /**
          * 聚合实体ID 父对象ID
          * <p> 示例值：7291273149417948716
-         *
          * @param aggEntityId
          * @return
          */
         public Builder aggEntityId(String aggEntityId) {
-            this.aggEntityId = aggEntityId;
-            return this;
+             this.aggEntityId = aggEntityId;
+             return this;
         }
 
+    
 
         /**
          * 操作类型
          * <p> 示例值：1
-         *
          * @param optType
          * @return
          */
         public Builder optType(Integer optType) {
-            this.optType = optType;
-            return this;
+             this.optType = optType;
+             return this;
         }
-
         /**
          * 操作类型
          * <p> 示例值：1
-         *
          * @param optType {@link com.lark.oapi.service.corehr.v2.enums.EmployeeDomainEventDataOptTypeEnum}
          * @return
          */
         public Builder optType(com.lark.oapi.service.corehr.v2.enums.EmployeeDomainEventDataOptTypeEnum optType) {
-            this.optType = optType.getValue();
-            return this;
+             this.optType = optType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 字段标识，ApiName
          * <p> 示例值：
-         *
          * @param fields
          * @return
          */
         public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
+             this.fields = fields;
+             return this;
         }
 
+    
+    
+    public EmployeeDomainEventData build(){
+        return new EmployeeDomainEventData(this);
+      }
+    }
 
-        public EmployeeDomainEventData build() {
-            return new EmployeeDomainEventData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.helpdesk.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class TicketCustomizedField {
         this.config = config;
     }
 
-
+    
     /**
      * 创建工单自定义字段，该接口用于创建自定义字段
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/create</a> ;
@@ -64,7 +59,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         CreateTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -72,14 +67,14 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -97,7 +92,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         CreateTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -105,16 +100,15 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除工单自定义字段，该接口用于删除工单自定义字段。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/delete</a> ;
@@ -132,7 +126,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DeleteTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -140,14 +134,14 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -165,7 +159,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         DeleteTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -173,16 +167,15 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取工单自定义字段，该接口用于获取工单自定义字段详情。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/get</a> ;
@@ -200,7 +193,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -208,14 +201,14 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -233,7 +226,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -241,16 +234,15 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取全部工单自定义字段，该接口用于获取全部工单自定义字段。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list</a> ;
@@ -268,7 +260,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -276,14 +268,14 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -301,7 +293,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -309,16 +301,15 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 更新工单自定义字段，该接口用于更新自定义字段。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/patch</a> ;
@@ -336,7 +327,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         PatchTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -344,14 +335,14 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -369,7 +360,7 @@ public class TicketCustomizedField {
                 , "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                 , Sets.newHashSet(AccessTokenType.User)
                 , req);
-
+        
         // 反序列化
         PatchTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTicketCustomizedFieldResp.class);
         if (resp == null) {
@@ -377,13 +368,13 @@ public class TicketCustomizedField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

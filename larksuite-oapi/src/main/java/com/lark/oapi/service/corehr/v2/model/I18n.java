@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class I18n {
-    /**
-     * 语言编码（IETF BCP 47）
-     * <p> 示例值：zh-CN
-     */
+     /**
+      * 语言编码（IETF BCP 47）
+      * <p> 示例值：zh-CN
+      */
     @SerializedName("lang")
     private String lang;
-    /**
-     * 文本内容
-     * <p> 示例值：中文示例
-     */
+     /**
+      * 文本内容
+      * <p> 示例值：中文示例
+      */
     @SerializedName("value")
     private String value;
-
-    // builder 开始
-    public I18n() {
-    }
-
-    public I18n(Builder builder) {
-        /**
-         * 语言编码（IETF BCP 47）
-         * <p> 示例值：zh-CN
-         */
-        this.lang = builder.lang;
-        /**
-         * 文本内容
-         * <p> 示例值：中文示例
-         */
-        this.value = builder.value;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLang() {
         return this.lang;
     }
@@ -79,46 +53,67 @@ public class I18n {
         this.value = value;
     }
 
+
+// builder 开始
+  public I18n(){}
+
+  public I18n(Builder builder){
+         /**
+          * 语言编码（IETF BCP 47）
+          * <p> 示例值：zh-CN
+          */
+      this.lang = builder.lang;
+         /**
+          * 文本内容
+          * <p> 示例值：中文示例
+          */
+      this.value = builder.value;
+  }
+
     public static class Builder {
-        /**
-         * 语言编码（IETF BCP 47）
-         * <p> 示例值：zh-CN
-         */
+     /**
+      * 语言编码（IETF BCP 47）
+      * <p> 示例值：zh-CN
+      */
         private String lang;
-        /**
-         * 文本内容
-         * <p> 示例值：中文示例
-         */
+     /**
+      * 文本内容
+      * <p> 示例值：中文示例
+      */
         private String value;
 
         /**
          * 语言编码（IETF BCP 47）
          * <p> 示例值：zh-CN
-         *
          * @param lang
          * @return
          */
         public Builder lang(String lang) {
-            this.lang = lang;
-            return this;
+             this.lang = lang;
+             return this;
         }
 
+    
 
         /**
          * 文本内容
          * <p> 示例值：中文示例
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
+    
+    public I18n build(){
+        return new I18n(this);
+      }
+    }
 
-        public I18n build() {
-            return new I18n(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

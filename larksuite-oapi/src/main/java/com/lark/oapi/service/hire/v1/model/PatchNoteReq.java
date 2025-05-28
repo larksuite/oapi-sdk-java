@@ -12,60 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchNoteReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 备注 ID
-     * <p> 示例值：6960663240925956401
-     */
-    @Path
-    @SerializedName("note_id")
-    private String noteId;
-    @Body
-    private PatchNoteReqBody body;
-
-    // builder 开始
-    public PatchNoteReq() {
-    }
-
-    public PatchNoteReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 备注 ID
-         * <p> 示例值：6960663240925956401
-         */
-        this.noteId = builder.noteId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -74,6 +38,13 @@ public class PatchNoteReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 备注 ID
+      * <p> 示例值：6960663240925956401
+      */
+    @Path
+    @SerializedName("note_id")
+    private String noteId;
     public String getNoteId() {
         return this.noteId;
     }
@@ -81,6 +52,9 @@ public class PatchNoteReq {
     public void setNoteId(String noteId) {
         this.noteId = noteId;
     }
+
+    @Body
+    private PatchNoteReqBody body;
 
     public PatchNoteReqBody getPatchNoteReqBody() {
         return this.body;
@@ -90,52 +64,72 @@ public class PatchNoteReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchNoteReq(){}
+
+  public PatchNoteReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 备注 ID
+      * <p> 示例值：6960663240925956401
+      */
+       this.noteId = builder.noteId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String noteId; // 备注 ID
-        private PatchNoteReqBody body;
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+        private String noteId; // 备注 ID
         /**
          * 备注 ID
          * <p> 示例值：6960663240925956401
-         *
          * @param noteId
          * @return
          */
-        public Builder noteId(String noteId) {
-            this.noteId = noteId;
-            return this;
-        }
+          public Builder noteId(String noteId) {
+               this.noteId = noteId;
+               return this;
+          }
 
+    
+        private PatchNoteReqBody body;
+    
         public PatchNoteReqBody getPatchNoteReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder patchNoteReqBody(PatchNoteReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchNoteReq build(){
+        return new PatchNoteReq(this);
+      }
+    }
 
-        public PatchNoteReq build() {
-            return new PatchNoteReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

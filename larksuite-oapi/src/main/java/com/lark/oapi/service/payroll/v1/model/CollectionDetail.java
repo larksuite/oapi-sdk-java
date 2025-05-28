@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CollectionDetail {
-    /**
-     * 员工雇员ID
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 员工雇员ID
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 一个员工的填报活动数据，一个员工可能会有多条活动数据
-     * <p> 示例值：
-     */
+     /**
+      * 一个员工的填报活动数据，一个员工可能会有多条活动数据
+      * <p> 示例值：
+      */
     @SerializedName("activities")
     private CollectionActivityDataWithDetails[] activities;
-
-    // builder 开始
-    public CollectionDetail() {
-    }
-
-    public CollectionDetail(Builder builder) {
-        /**
-         * 员工雇员ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 一个员工的填报活动数据，一个员工可能会有多条活动数据
-         * <p> 示例值：
-         */
-        this.activities = builder.activities;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -79,46 +53,67 @@ public class CollectionDetail {
         this.activities = activities;
     }
 
+
+// builder 开始
+  public CollectionDetail(){}
+
+  public CollectionDetail(Builder builder){
+         /**
+          * 员工雇员ID
+          * <p> 示例值：7202076988667019308
+          */
+      this.employmentId = builder.employmentId;
+         /**
+          * 一个员工的填报活动数据，一个员工可能会有多条活动数据
+          * <p> 示例值：
+          */
+      this.activities = builder.activities;
+  }
+
     public static class Builder {
-        /**
-         * 员工雇员ID
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 员工雇员ID
+      * <p> 示例值：7202076988667019308
+      */
         private String employmentId;
-        /**
-         * 一个员工的填报活动数据，一个员工可能会有多条活动数据
-         * <p> 示例值：
-         */
+     /**
+      * 一个员工的填报活动数据，一个员工可能会有多条活动数据
+      * <p> 示例值：
+      */
         private CollectionActivityDataWithDetails[] activities;
 
         /**
          * 员工雇员ID
          * <p> 示例值：7202076988667019308
-         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
+             this.employmentId = employmentId;
+             return this;
         }
 
+    
 
         /**
          * 一个员工的填报活动数据，一个员工可能会有多条活动数据
          * <p> 示例值：
-         *
          * @param activities
          * @return
          */
         public Builder activities(CollectionActivityDataWithDetails[] activities) {
-            this.activities = activities;
-            return this;
+             this.activities = activities;
+             return this;
         }
 
+    
+    
+    public CollectionDetail build(){
+        return new CollectionDetail(this);
+      }
+    }
 
-        public CollectionDetail build() {
-            return new CollectionDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

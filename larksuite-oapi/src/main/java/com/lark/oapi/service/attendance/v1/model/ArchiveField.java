@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ArchiveField {
-    /**
-     * 字段编号
-     * <p> 示例值：1
-     */
+     /**
+      * 字段编号
+      * <p> 示例值：1
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 字段名称
-     * <p> 示例值：工号
-     */
+     /**
+      * 字段名称
+      * <p> 示例值：工号
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 一级表头名字
-     * <p> 示例值：
-     */
+     /**
+      * 一级表头名字
+      * <p> 示例值：
+      */
     @SerializedName("upper_titles")
     private String[] upperTitles;
-
-    // builder 开始
-    public ArchiveField() {
-    }
-
-    public ArchiveField(Builder builder) {
-        /**
-         * 字段编号
-         * <p> 示例值：1
-         */
-        this.code = builder.code;
-        /**
-         * 字段名称
-         * <p> 示例值：工号
-         */
-        this.title = builder.title;
-        /**
-         * 一级表头名字
-         * <p> 示例值：
-         */
-        this.upperTitles = builder.upperTitles;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCode() {
         return this.code;
     }
@@ -98,64 +67,90 @@ public class ArchiveField {
         this.upperTitles = upperTitles;
     }
 
+
+// builder 开始
+  public ArchiveField(){}
+
+  public ArchiveField(Builder builder){
+         /**
+          * 字段编号
+          * <p> 示例值：1
+          */
+      this.code = builder.code;
+         /**
+          * 字段名称
+          * <p> 示例值：工号
+          */
+      this.title = builder.title;
+         /**
+          * 一级表头名字
+          * <p> 示例值：
+          */
+      this.upperTitles = builder.upperTitles;
+  }
+
     public static class Builder {
-        /**
-         * 字段编号
-         * <p> 示例值：1
-         */
+     /**
+      * 字段编号
+      * <p> 示例值：1
+      */
         private String code;
-        /**
-         * 字段名称
-         * <p> 示例值：工号
-         */
+     /**
+      * 字段名称
+      * <p> 示例值：工号
+      */
         private String title;
-        /**
-         * 一级表头名字
-         * <p> 示例值：
-         */
+     /**
+      * 一级表头名字
+      * <p> 示例值：
+      */
         private String[] upperTitles;
 
         /**
          * 字段编号
          * <p> 示例值：1
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 字段名称
          * <p> 示例值：工号
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 一级表头名字
          * <p> 示例值：
-         *
          * @param upperTitles
          * @return
          */
         public Builder upperTitles(String[] upperTitles) {
-            this.upperTitles = upperTitles;
-            return this;
+             this.upperTitles = upperTitles;
+             return this;
         }
 
+    
+    
+    public ArchiveField build(){
+        return new ArchiveField(this);
+      }
+    }
 
-        public ArchiveField build() {
-            return new ArchiveField(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

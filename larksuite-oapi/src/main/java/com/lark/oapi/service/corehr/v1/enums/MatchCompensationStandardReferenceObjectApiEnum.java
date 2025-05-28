@@ -17,16 +17,15 @@ package com.lark.oapi.service.corehr.v1.enums;
  * 薪资标准的关联对象，项目或者指标
  */
 public enum MatchCompensationStandardReferenceObjectApiEnum {
-    CPST_ITEM("cpst_item"), // 薪资项目
-    CPST_INDICATOR("cpst_indicator"), // 薪资统计指标
-    ;
-    private String value;
-
+     CPST_ITEM("cpst_item"), // 薪资项目
+     CPST_INDICATOR("cpst_indicator"), // 薪资统计指标
+  ;
+   private String value;
     MatchCompensationStandardReferenceObjectApiEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

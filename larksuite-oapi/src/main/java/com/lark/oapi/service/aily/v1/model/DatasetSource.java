@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DatasetSource {
-    /**
-     * 分析表类型：object/external/dataflow
-     * <p> 示例值：object
-     */
+     /**
+      * 分析表类型：object/external/dataflow
+      * <p> 示例值：object
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 分析表数据源信息配置
-     * <p> 示例值：
-     */
+     /**
+      * 分析表数据源信息配置
+      * <p> 示例值：
+      */
     @SerializedName("settings")
     private SourceSetting settings;
-
-    // builder 开始
-    public DatasetSource() {
-    }
-
-    public DatasetSource(Builder builder) {
-        /**
-         * 分析表类型：object/external/dataflow
-         * <p> 示例值：object
-         */
-        this.type = builder.type;
-        /**
-         * 分析表数据源信息配置
-         * <p> 示例值：
-         */
-        this.settings = builder.settings;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -79,58 +53,77 @@ public class DatasetSource {
         this.settings = settings;
     }
 
+
+// builder 开始
+  public DatasetSource(){}
+
+  public DatasetSource(Builder builder){
+         /**
+          * 分析表类型：object/external/dataflow
+          * <p> 示例值：object
+          */
+      this.type = builder.type;
+         /**
+          * 分析表数据源信息配置
+          * <p> 示例值：
+          */
+      this.settings = builder.settings;
+  }
+
     public static class Builder {
-        /**
-         * 分析表类型：object/external/dataflow
-         * <p> 示例值：object
-         */
+     /**
+      * 分析表类型：object/external/dataflow
+      * <p> 示例值：object
+      */
         private String type;
-        /**
-         * 分析表数据源信息配置
-         * <p> 示例值：
-         */
+     /**
+      * 分析表数据源信息配置
+      * <p> 示例值：
+      */
         private SourceSetting settings;
 
         /**
          * 分析表类型：object/external/dataflow
          * <p> 示例值：object
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 分析表类型：object/external/dataflow
          * <p> 示例值：object
-         *
          * @param type {@link com.lark.oapi.service.aily.v1.enums.DatasetSourceSourceTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.aily.v1.enums.DatasetSourceSourceTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 分析表数据源信息配置
          * <p> 示例值：
-         *
          * @param settings
          * @return
          */
         public Builder settings(SourceSetting settings) {
-            this.settings = settings;
-            return this;
+             this.settings = settings;
+             return this;
         }
 
+    
+    
+    public DatasetSource build(){
+        return new DatasetSource(this);
+      }
+    }
 
-        public DatasetSource build() {
-            return new DatasetSource(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

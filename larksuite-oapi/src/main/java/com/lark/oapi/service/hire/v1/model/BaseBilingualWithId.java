@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BaseBilingualWithId {
-    /**
-     * ID
-     * <p> 示例值：1
-     */
+     /**
+      * ID
+      * <p> 示例值：1
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 中文名称
-     * <p> 示例值：正式
-     */
+     /**
+      * 中文名称
+      * <p> 示例值：正式
+      */
     @SerializedName("zh_name")
     private String zhName;
-    /**
-     * 英文名称
-     * <p> 示例值：Regular
-     */
+     /**
+      * 英文名称
+      * <p> 示例值：Regular
+      */
     @SerializedName("en_name")
     private String enName;
-
-    // builder 开始
-    public BaseBilingualWithId() {
-    }
-
-    public BaseBilingualWithId(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 中文名称
-         * <p> 示例值：正式
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 英文名称
-         * <p> 示例值：Regular
-         */
-        this.enName = builder.enName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -97,64 +66,90 @@ public class BaseBilingualWithId {
         this.enName = enName;
     }
 
+
+// builder 开始
+  public BaseBilingualWithId(){}
+
+  public BaseBilingualWithId(Builder builder){
+         /**
+          * ID
+          * <p> 示例值：1
+          */
+      this.id = builder.id;
+         /**
+          * 中文名称
+          * <p> 示例值：正式
+          */
+      this.zhName = builder.zhName;
+         /**
+          * 英文名称
+          * <p> 示例值：Regular
+          */
+      this.enName = builder.enName;
+  }
+
     public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
+     /**
+      * ID
+      * <p> 示例值：1
+      */
         private String id;
-        /**
-         * 中文名称
-         * <p> 示例值：正式
-         */
+     /**
+      * 中文名称
+      * <p> 示例值：正式
+      */
         private String zhName;
-        /**
-         * 英文名称
-         * <p> 示例值：Regular
-         */
+     /**
+      * 英文名称
+      * <p> 示例值：Regular
+      */
         private String enName;
 
         /**
          * ID
          * <p> 示例值：1
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 中文名称
          * <p> 示例值：正式
-         *
          * @param zhName
          * @return
          */
         public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
+             this.zhName = zhName;
+             return this;
         }
 
+    
 
         /**
          * 英文名称
          * <p> 示例值：Regular
-         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
+             this.enName = enName;
+             return this;
         }
 
+    
+    
+    public BaseBilingualWithId build(){
+        return new BaseBilingualWithId(this);
+      }
+    }
 
-        public BaseBilingualWithId build() {
-            return new BaseBilingualWithId(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SelectOptionResult {
-    /**
-     * 选项 ID
-     * <p> 示例值：6950930570311993644
-     */
+     /**
+      * 选项 ID
+      * <p> 示例值：6950930570311993644
+      */
     @SerializedName("option_id")
     private String optionId;
-    /**
-     * 选项中文名称
-     * <p> 示例值：选项一
-     */
+     /**
+      * 选项中文名称
+      * <p> 示例值：选项一
+      */
     @SerializedName("option_name")
     private String optionName;
-    /**
-     * 选项英文名称
-     * <p> 示例值：Option 1
-     */
+     /**
+      * 选项英文名称
+      * <p> 示例值：Option 1
+      */
     @SerializedName("option_en_name")
     private String optionEnName;
-    /**
-     * 选项中文描述
-     * <p> 示例值：测试选项描述
-     */
+     /**
+      * 选项中文描述
+      * <p> 示例值：测试选项描述
+      */
     @SerializedName("option_desc")
     private String optionDesc;
-    /**
-     * 选项英文描述
-     * <p> 示例值：Test Option Desc
-     */
+     /**
+      * 选项英文描述
+      * <p> 示例值：Test Option Desc
+      */
     @SerializedName("option_en_desc")
     private String optionEnDesc;
-    /**
-     * 是否选择
-     * <p> 示例值：true
-     */
+     /**
+      * 是否选择
+      * <p> 示例值：true
+      */
     @SerializedName("is_selected")
     private Boolean isSelected;
-
-    // builder 开始
-    public SelectOptionResult() {
-    }
-
-    public SelectOptionResult(Builder builder) {
-        /**
-         * 选项 ID
-         * <p> 示例值：6950930570311993644
-         */
-        this.optionId = builder.optionId;
-        /**
-         * 选项中文名称
-         * <p> 示例值：选项一
-         */
-        this.optionName = builder.optionName;
-        /**
-         * 选项英文名称
-         * <p> 示例值：Option 1
-         */
-        this.optionEnName = builder.optionEnName;
-        /**
-         * 选项中文描述
-         * <p> 示例值：测试选项描述
-         */
-        this.optionDesc = builder.optionDesc;
-        /**
-         * 选项英文描述
-         * <p> 示例值：Test Option Desc
-         */
-        this.optionEnDesc = builder.optionEnDesc;
-        /**
-         * 是否选择
-         * <p> 示例值：true
-         */
-        this.isSelected = builder.isSelected;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOptionId() {
         return this.optionId;
     }
@@ -154,118 +108,159 @@ public class SelectOptionResult {
         this.isSelected = isSelected;
     }
 
+
+// builder 开始
+  public SelectOptionResult(){}
+
+  public SelectOptionResult(Builder builder){
+         /**
+          * 选项 ID
+          * <p> 示例值：6950930570311993644
+          */
+      this.optionId = builder.optionId;
+         /**
+          * 选项中文名称
+          * <p> 示例值：选项一
+          */
+      this.optionName = builder.optionName;
+         /**
+          * 选项英文名称
+          * <p> 示例值：Option 1
+          */
+      this.optionEnName = builder.optionEnName;
+         /**
+          * 选项中文描述
+          * <p> 示例值：测试选项描述
+          */
+      this.optionDesc = builder.optionDesc;
+         /**
+          * 选项英文描述
+          * <p> 示例值：Test Option Desc
+          */
+      this.optionEnDesc = builder.optionEnDesc;
+         /**
+          * 是否选择
+          * <p> 示例值：true
+          */
+      this.isSelected = builder.isSelected;
+  }
+
     public static class Builder {
-        /**
-         * 选项 ID
-         * <p> 示例值：6950930570311993644
-         */
+     /**
+      * 选项 ID
+      * <p> 示例值：6950930570311993644
+      */
         private String optionId;
-        /**
-         * 选项中文名称
-         * <p> 示例值：选项一
-         */
+     /**
+      * 选项中文名称
+      * <p> 示例值：选项一
+      */
         private String optionName;
-        /**
-         * 选项英文名称
-         * <p> 示例值：Option 1
-         */
+     /**
+      * 选项英文名称
+      * <p> 示例值：Option 1
+      */
         private String optionEnName;
-        /**
-         * 选项中文描述
-         * <p> 示例值：测试选项描述
-         */
+     /**
+      * 选项中文描述
+      * <p> 示例值：测试选项描述
+      */
         private String optionDesc;
-        /**
-         * 选项英文描述
-         * <p> 示例值：Test Option Desc
-         */
+     /**
+      * 选项英文描述
+      * <p> 示例值：Test Option Desc
+      */
         private String optionEnDesc;
-        /**
-         * 是否选择
-         * <p> 示例值：true
-         */
+     /**
+      * 是否选择
+      * <p> 示例值：true
+      */
         private Boolean isSelected;
 
         /**
          * 选项 ID
          * <p> 示例值：6950930570311993644
-         *
          * @param optionId
          * @return
          */
         public Builder optionId(String optionId) {
-            this.optionId = optionId;
-            return this;
+             this.optionId = optionId;
+             return this;
         }
 
+    
 
         /**
          * 选项中文名称
          * <p> 示例值：选项一
-         *
          * @param optionName
          * @return
          */
         public Builder optionName(String optionName) {
-            this.optionName = optionName;
-            return this;
+             this.optionName = optionName;
+             return this;
         }
 
+    
 
         /**
          * 选项英文名称
          * <p> 示例值：Option 1
-         *
          * @param optionEnName
          * @return
          */
         public Builder optionEnName(String optionEnName) {
-            this.optionEnName = optionEnName;
-            return this;
+             this.optionEnName = optionEnName;
+             return this;
         }
 
+    
 
         /**
          * 选项中文描述
          * <p> 示例值：测试选项描述
-         *
          * @param optionDesc
          * @return
          */
         public Builder optionDesc(String optionDesc) {
-            this.optionDesc = optionDesc;
-            return this;
+             this.optionDesc = optionDesc;
+             return this;
         }
 
+    
 
         /**
          * 选项英文描述
          * <p> 示例值：Test Option Desc
-         *
          * @param optionEnDesc
          * @return
          */
         public Builder optionEnDesc(String optionEnDesc) {
-            this.optionEnDesc = optionEnDesc;
-            return this;
+             this.optionEnDesc = optionEnDesc;
+             return this;
         }
 
+    
 
         /**
          * 是否选择
          * <p> 示例值：true
-         *
          * @param isSelected
          * @return
          */
         public Builder isSelected(Boolean isSelected) {
-            this.isSelected = isSelected;
-            return this;
+             this.isSelected = isSelected;
+             return this;
         }
 
+    
+    
+    public SelectOptionResult build(){
+        return new SelectOptionResult(this);
+      }
+    }
 
-        public SelectOptionResult build() {
-            return new SelectOptionResult(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

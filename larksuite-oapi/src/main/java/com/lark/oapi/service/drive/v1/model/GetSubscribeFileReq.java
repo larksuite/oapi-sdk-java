@@ -12,70 +12,32 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetSubscribeFileReq {
-    /**
-     * 文档类型
-     * <p> 示例值：新版文档
-     */
+     /**
+      * 文档类型
+      * <p> 示例值：新版文档
+      */
     @Query
     @SerializedName("file_type")
     private String fileType;
-    /**
-     * 事件类型
-     * <p> 示例值：file.created_in_folder_v1
-     */
+     /**
+      * 事件类型
+      * <p> 示例值：file.created_in_folder_v1
+      */
     @Query
     @SerializedName("event_type")
     private String eventType;
-    /**
-     * 文档token
-     * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
-     */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
-
-    // builder 开始
-    public GetSubscribeFileReq() {
-    }
-
-    public GetSubscribeFileReq(Builder builder) {
-        /**
-         * 文档类型
-         * <p> 示例值：新版文档
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 事件类型
-         * <p> 示例值：file.created_in_folder_v1
-         */
-        this.eventType = builder.eventType;
-        /**
-         * 文档token
-         * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
-         */
-        this.fileToken = builder.fileToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFileType() {
         return this.fileType;
     }
@@ -92,6 +54,13 @@ public class GetSubscribeFileReq {
         this.eventType = eventType;
     }
 
+     /**
+      * 文档token
+      * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
+      */
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
     public String getFileToken() {
         return this.fileToken;
     }
@@ -100,62 +69,86 @@ public class GetSubscribeFileReq {
         this.fileToken = fileToken;
     }
 
+
+// builder 开始
+  public GetSubscribeFileReq(){}
+
+  public GetSubscribeFileReq(Builder builder){
+         /**
+          * 文档类型
+          * <p> 示例值：新版文档
+          */
+       this.fileType = builder.fileType;
+         /**
+          * 事件类型
+          * <p> 示例值：file.created_in_folder_v1
+          */
+       this.eventType = builder.eventType;
+     /**
+      * 文档token
+      * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
+      */
+       this.fileToken = builder.fileToken;
+  }
+
     public static class Builder {
         private String fileType; // 文档类型
         private String eventType; // 事件类型
-        private String fileToken; // 文档token
-
+    
         /**
          * 文档类型
          * <p> 示例值：新版文档
-         *
          * @param fileType
          * @return
          */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
+           public Builder fileType(String fileType) {
+                this.fileType = fileType;
+                return this;
+           }
 
         /**
          * 文档类型
          * <p> 示例值：新版文档
-         *
          * @param fileType {@link com.lark.oapi.service.drive.v1.enums.GetSubscribeFileFileTypeEnum}
          * @return
          */
-        public Builder fileType(com.lark.oapi.service.drive.v1.enums.GetSubscribeFileFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
+          public Builder fileType(com.lark.oapi.service.drive.v1.enums.GetSubscribeFileFileTypeEnum fileType) {
+               this.fileType = fileType.getValue();
+               return this;
+          }
 
+    
         /**
          * 事件类型
          * <p> 示例值：file.created_in_folder_v1
-         *
          * @param eventType
          * @return
          */
-        public Builder eventType(String eventType) {
-            this.eventType = eventType;
-            return this;
-        }
+           public Builder eventType(String eventType) {
+                this.eventType = eventType;
+                return this;
+           }
 
+    
+        private String fileToken; // 文档token
         /**
          * 文档token
          * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
-         *
          * @param fileToken
          * @return
          */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
 
+    
+    public GetSubscribeFileReq build(){
+        return new GetSubscribeFileReq(this);
+      }
+    }
 
-        public GetSubscribeFileReq build() {
-            return new GetSubscribeFileReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

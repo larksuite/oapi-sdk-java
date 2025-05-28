@@ -12,106 +12,46 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListFileCommentReplyReq {
-    /**
-     * 分页大小
-     * <p> 示例值：10
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：10
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：1654857036541812356
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：1654857036541812356
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 文档类型
-     * <p> 示例值：docx
-     */
+     /**
+      * 文档类型
+      * <p> 示例值：docx
+      */
     @Query
     @SerializedName("file_type")
     private String fileType;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 文档Token
-     * <p> 示例值：doxbcdl03Vsxhm7Qmnj110abcef
-     */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
-    /**
-     * 评论ID
-     * <p> 示例值：1654857036541812356
-     */
-    @Path
-    @SerializedName("comment_id")
-    private String commentId;
-
-    // builder 开始
-    public ListFileCommentReplyReq() {
-    }
-
-    public ListFileCommentReplyReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：1654857036541812356
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 文档Token
-         * <p> 示例值：doxbcdl03Vsxhm7Qmnj110abcef
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 评论ID
-         * <p> 示例值：1654857036541812356
-         */
-        this.commentId = builder.commentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -144,6 +84,20 @@ public class ListFileCommentReplyReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 文档Token
+      * <p> 示例值：doxbcdl03Vsxhm7Qmnj110abcef
+      */
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
+     /**
+      * 评论ID
+      * <p> 示例值：1654857036541812356
+      */
+    @Path
+    @SerializedName("comment_id")
+    private String commentId;
     public String getFileToken() {
         return this.fileToken;
     }
@@ -160,114 +114,151 @@ public class ListFileCommentReplyReq {
         this.commentId = commentId;
     }
 
+
+// builder 开始
+  public ListFileCommentReplyReq(){}
+
+  public ListFileCommentReplyReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：10
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：1654857036541812356
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 文档类型
+          * <p> 示例值：docx
+          */
+       this.fileType = builder.fileType;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 文档Token
+      * <p> 示例值：doxbcdl03Vsxhm7Qmnj110abcef
+      */
+       this.fileToken = builder.fileToken;
+     /**
+      * 评论ID
+      * <p> 示例值：1654857036541812356
+      */
+       this.commentId = builder.commentId;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String fileType; // 文档类型
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String fileToken; // 文档Token
-        private String commentId; // 评论ID
-
+    
         /**
          * 分页大小
          * <p> 示例值：10
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：1654857036541812356
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
         /**
          * 文档类型
          * <p> 示例值：docx
-         *
          * @param fileType
          * @return
          */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
+           public Builder fileType(String fileType) {
+                this.fileType = fileType;
+                return this;
+           }
 
         /**
          * 文档类型
          * <p> 示例值：docx
-         *
          * @param fileType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyFileTypeEnum}
          * @return
          */
-        public Builder fileType(com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
+          public Builder fileType(com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyFileTypeEnum fileType) {
+               this.fileType = fileType.getValue();
+               return this;
+          }
 
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String fileToken; // 文档Token
+        private String commentId; // 评论ID
         /**
          * 文档Token
          * <p> 示例值：doxbcdl03Vsxhm7Qmnj110abcef
-         *
          * @param fileToken
          * @return
          */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
 
-
+    
         /**
          * 评论ID
          * <p> 示例值：1654857036541812356
-         *
          * @param commentId
          * @return
          */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
+          public Builder commentId(String commentId) {
+               this.commentId = commentId;
+               return this;
+          }
 
+    
+    public ListFileCommentReplyReq build(){
+        return new ListFileCommentReplyReq(this);
+      }
+    }
 
-        public ListFileCommentReplyReq build() {
-            return new ListFileCommentReplyReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

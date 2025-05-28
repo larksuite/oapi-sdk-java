@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SubscribeUserEvent {
-    /**
-     * 预定人/审批人id
-     * <p> 示例值：ou_e8bce6c3935ef1fc1b432992fd9d3db8
-     */
+     /**
+      * 预定人/审批人id
+      * <p> 示例值：ou_e8bce6c3935ef1fc1b432992fd9d3db8
+      */
     @SerializedName("user_id")
     private UserId userId;
-
-    // builder 开始
-    public SubscribeUserEvent() {
-    }
-
-    public SubscribeUserEvent(Builder builder) {
-        /**
-         * 预定人/审批人id
-         * <p> 示例值：ou_e8bce6c3935ef1fc1b432992fd9d3db8
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public UserId getUserId() {
         return this.userId;
     }
@@ -60,28 +39,44 @@ public class SubscribeUserEvent {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public SubscribeUserEvent(){}
+
+  public SubscribeUserEvent(Builder builder){
+         /**
+          * 预定人/审批人id
+          * <p> 示例值：ou_e8bce6c3935ef1fc1b432992fd9d3db8
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * 预定人/审批人id
-         * <p> 示例值：ou_e8bce6c3935ef1fc1b432992fd9d3db8
-         */
+     /**
+      * 预定人/审批人id
+      * <p> 示例值：ou_e8bce6c3935ef1fc1b432992fd9d3db8
+      */
         private UserId userId;
 
         /**
          * 预定人/审批人id
          * <p> 示例值：ou_e8bce6c3935ef1fc1b432992fd9d3db8
-         *
          * @param userId
          * @return
          */
         public Builder userId(UserId userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public SubscribeUserEvent build(){
+        return new SubscribeUserEvent(this);
+      }
+    }
 
-        public SubscribeUserEvent build() {
-            return new SubscribeUserEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

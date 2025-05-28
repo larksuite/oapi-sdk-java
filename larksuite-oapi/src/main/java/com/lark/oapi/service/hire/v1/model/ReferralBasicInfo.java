@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReferralBasicInfo {
-    /**
-     * 内推 ID
-     * <p> 示例值：6956498101012220204
-     */
+     /**
+      * 内推 ID
+      * <p> 示例值：6956498101012220204
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 投递 ID
-     * <p> 示例值：7051498101012220201
-     */
+     /**
+      * 投递 ID
+      * <p> 示例值：7051498101012220201
+      */
     @SerializedName("application_id")
     private String applicationId;
-    /**
-     * 内推类型
-     * <p> 示例值：1
-     */
+     /**
+      * 内推类型
+      * <p> 示例值：1
+      */
     @SerializedName("referral_type")
     private Integer referralType;
-    /**
-     * 内推人信息
-     * <p> 示例值：
-     */
+     /**
+      * 内推人信息
+      * <p> 示例值：
+      */
     @SerializedName("user_info")
     private BasicUserInfo userInfo;
-    /**
-     * 内推创建时间戳（单位：毫秒）
-     * <p> 示例值：1619720918791
-     */
+     /**
+      * 内推创建时间戳（单位：毫秒）
+      * <p> 示例值：1619720918791
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 内推方法
-     * <p> 示例值：1
-     */
+     /**
+      * 内推方法
+      * <p> 示例值：1
+      */
     @SerializedName("referral_method")
     private Integer referralMethod;
-
-    // builder 开始
-    public ReferralBasicInfo() {
-    }
-
-    public ReferralBasicInfo(Builder builder) {
-        /**
-         * 内推 ID
-         * <p> 示例值：6956498101012220204
-         */
-        this.id = builder.id;
-        /**
-         * 投递 ID
-         * <p> 示例值：7051498101012220201
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 内推类型
-         * <p> 示例值：1
-         */
-        this.referralType = builder.referralType;
-        /**
-         * 内推人信息
-         * <p> 示例值：
-         */
-        this.userInfo = builder.userInfo;
-        /**
-         * 内推创建时间戳（单位：毫秒）
-         * <p> 示例值：1619720918791
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 内推方法
-         * <p> 示例值：1
-         */
-        this.referralMethod = builder.referralMethod;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -154,118 +108,159 @@ public class ReferralBasicInfo {
         this.referralMethod = referralMethod;
     }
 
+
+// builder 开始
+  public ReferralBasicInfo(){}
+
+  public ReferralBasicInfo(Builder builder){
+         /**
+          * 内推 ID
+          * <p> 示例值：6956498101012220204
+          */
+      this.id = builder.id;
+         /**
+          * 投递 ID
+          * <p> 示例值：7051498101012220201
+          */
+      this.applicationId = builder.applicationId;
+         /**
+          * 内推类型
+          * <p> 示例值：1
+          */
+      this.referralType = builder.referralType;
+         /**
+          * 内推人信息
+          * <p> 示例值：
+          */
+      this.userInfo = builder.userInfo;
+         /**
+          * 内推创建时间戳（单位：毫秒）
+          * <p> 示例值：1619720918791
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 内推方法
+          * <p> 示例值：1
+          */
+      this.referralMethod = builder.referralMethod;
+  }
+
     public static class Builder {
-        /**
-         * 内推 ID
-         * <p> 示例值：6956498101012220204
-         */
+     /**
+      * 内推 ID
+      * <p> 示例值：6956498101012220204
+      */
         private String id;
-        /**
-         * 投递 ID
-         * <p> 示例值：7051498101012220201
-         */
+     /**
+      * 投递 ID
+      * <p> 示例值：7051498101012220201
+      */
         private String applicationId;
-        /**
-         * 内推类型
-         * <p> 示例值：1
-         */
+     /**
+      * 内推类型
+      * <p> 示例值：1
+      */
         private Integer referralType;
-        /**
-         * 内推人信息
-         * <p> 示例值：
-         */
+     /**
+      * 内推人信息
+      * <p> 示例值：
+      */
         private BasicUserInfo userInfo;
-        /**
-         * 内推创建时间戳（单位：毫秒）
-         * <p> 示例值：1619720918791
-         */
+     /**
+      * 内推创建时间戳（单位：毫秒）
+      * <p> 示例值：1619720918791
+      */
         private String createTime;
-        /**
-         * 内推方法
-         * <p> 示例值：1
-         */
+     /**
+      * 内推方法
+      * <p> 示例值：1
+      */
         private Integer referralMethod;
 
         /**
          * 内推 ID
          * <p> 示例值：6956498101012220204
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 投递 ID
          * <p> 示例值：7051498101012220201
-         *
          * @param applicationId
          * @return
          */
         public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
+             this.applicationId = applicationId;
+             return this;
         }
 
+    
 
         /**
          * 内推类型
          * <p> 示例值：1
-         *
          * @param referralType
          * @return
          */
         public Builder referralType(Integer referralType) {
-            this.referralType = referralType;
-            return this;
+             this.referralType = referralType;
+             return this;
         }
 
+    
 
         /**
          * 内推人信息
          * <p> 示例值：
-         *
          * @param userInfo
          * @return
          */
         public Builder userInfo(BasicUserInfo userInfo) {
-            this.userInfo = userInfo;
-            return this;
+             this.userInfo = userInfo;
+             return this;
         }
 
+    
 
         /**
          * 内推创建时间戳（单位：毫秒）
          * <p> 示例值：1619720918791
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 内推方法
          * <p> 示例值：1
-         *
          * @param referralMethod
          * @return
          */
         public Builder referralMethod(Integer referralMethod) {
-            this.referralMethod = referralMethod;
-            return this;
+             this.referralMethod = referralMethod;
+             return this;
         }
 
+    
+    
+    public ReferralBasicInfo build(){
+        return new ReferralBasicInfo(this);
+      }
+    }
 
-        public ReferralBasicInfo build() {
-            return new ReferralBasicInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

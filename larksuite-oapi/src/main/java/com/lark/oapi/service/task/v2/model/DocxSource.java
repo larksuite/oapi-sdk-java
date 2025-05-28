@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DocxSource {
-    /**
-     * 任务关联的文档token，要求：如果使用tenant_access_token请求，则请求机器人有文档编辑权限；如果使用user_access_token，则请求用户有文档的编辑权限
-     * <p> 示例值：SFZHdZLo2oXprexhDSrbtvmScHm
-     */
+     /**
+      * 任务关联的文档token，要求：如果使用tenant_access_token请求，则请求机器人有文档编辑权限；如果使用user_access_token，则请求用户有文档的编辑权限
+      * <p> 示例值：SFZHdZLo2oXprexhDSrbtvmScHm
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * 任务关联的文档block_id，要求block_id存在于token对应文档中、且block_id没有绑定过其他的任务
-     * <p> 示例值：O6wwd22uIoG8acxwxGtbljaUcfc
-     */
+     /**
+      * 任务关联的文档block_id，要求block_id存在于token对应文档中、且block_id没有绑定过其他的任务
+      * <p> 示例值：O6wwd22uIoG8acxwxGtbljaUcfc
+      */
     @SerializedName("block_id")
     private String blockId;
-
-    // builder 开始
-    public DocxSource() {
-    }
-
-    public DocxSource(Builder builder) {
-        /**
-         * 任务关联的文档token，要求：如果使用tenant_access_token请求，则请求机器人有文档编辑权限；如果使用user_access_token，则请求用户有文档的编辑权限
-         * <p> 示例值：SFZHdZLo2oXprexhDSrbtvmScHm
-         */
-        this.token = builder.token;
-        /**
-         * 任务关联的文档block_id，要求block_id存在于token对应文档中、且block_id没有绑定过其他的任务
-         * <p> 示例值：O6wwd22uIoG8acxwxGtbljaUcfc
-         */
-        this.blockId = builder.blockId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getToken() {
         return this.token;
     }
@@ -79,46 +53,67 @@ public class DocxSource {
         this.blockId = blockId;
     }
 
+
+// builder 开始
+  public DocxSource(){}
+
+  public DocxSource(Builder builder){
+         /**
+          * 任务关联的文档token，要求：如果使用tenant_access_token请求，则请求机器人有文档编辑权限；如果使用user_access_token，则请求用户有文档的编辑权限
+          * <p> 示例值：SFZHdZLo2oXprexhDSrbtvmScHm
+          */
+      this.token = builder.token;
+         /**
+          * 任务关联的文档block_id，要求block_id存在于token对应文档中、且block_id没有绑定过其他的任务
+          * <p> 示例值：O6wwd22uIoG8acxwxGtbljaUcfc
+          */
+      this.blockId = builder.blockId;
+  }
+
     public static class Builder {
-        /**
-         * 任务关联的文档token，要求：如果使用tenant_access_token请求，则请求机器人有文档编辑权限；如果使用user_access_token，则请求用户有文档的编辑权限
-         * <p> 示例值：SFZHdZLo2oXprexhDSrbtvmScHm
-         */
+     /**
+      * 任务关联的文档token，要求：如果使用tenant_access_token请求，则请求机器人有文档编辑权限；如果使用user_access_token，则请求用户有文档的编辑权限
+      * <p> 示例值：SFZHdZLo2oXprexhDSrbtvmScHm
+      */
         private String token;
-        /**
-         * 任务关联的文档block_id，要求block_id存在于token对应文档中、且block_id没有绑定过其他的任务
-         * <p> 示例值：O6wwd22uIoG8acxwxGtbljaUcfc
-         */
+     /**
+      * 任务关联的文档block_id，要求block_id存在于token对应文档中、且block_id没有绑定过其他的任务
+      * <p> 示例值：O6wwd22uIoG8acxwxGtbljaUcfc
+      */
         private String blockId;
 
         /**
          * 任务关联的文档token，要求：如果使用tenant_access_token请求，则请求机器人有文档编辑权限；如果使用user_access_token，则请求用户有文档的编辑权限
          * <p> 示例值：SFZHdZLo2oXprexhDSrbtvmScHm
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * 任务关联的文档block_id，要求block_id存在于token对应文档中、且block_id没有绑定过其他的任务
          * <p> 示例值：O6wwd22uIoG8acxwxGtbljaUcfc
-         *
          * @param blockId
          * @return
          */
         public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
+             this.blockId = blockId;
+             return this;
         }
 
+    
+    
+    public DocxSource build(){
+        return new DocxSource(this);
+      }
+    }
 
-        public DocxSource build() {
-            return new DocxSource(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

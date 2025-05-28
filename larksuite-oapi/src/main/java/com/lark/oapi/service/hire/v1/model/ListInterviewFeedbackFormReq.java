@@ -12,69 +12,38 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListInterviewFeedbackFormReq {
-    /**
-     * 面试评价表ID列表, 如果使用此字段则会忽略其他参数
-     * <p> 示例值：
-     */
+     /**
+      * 面试评价表ID列表, 如果使用此字段则会忽略其他参数
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("interview_feedback_form_ids")
     private String[] interviewFeedbackFormIds;
-    /**
-     * 分页大小
-     * <p> 示例值：
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-
-    // builder 开始
-    public ListInterviewFeedbackFormReq() {
-    }
-
-    public ListInterviewFeedbackFormReq(Builder builder) {
-        /**
-         * 面试评价表ID列表, 如果使用此字段则会忽略其他参数
-         * <p> 示例值：
-         */
-        this.interviewFeedbackFormIds = builder.interviewFeedbackFormIds;
-        /**
-         * 分页大小
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getInterviewFeedbackFormIds() {
         return this.interviewFeedbackFormIds;
     }
@@ -99,52 +68,75 @@ public class ListInterviewFeedbackFormReq {
         this.pageToken = pageToken;
     }
 
+
+// builder 开始
+  public ListInterviewFeedbackFormReq(){}
+
+  public ListInterviewFeedbackFormReq(Builder builder){
+         /**
+          * 面试评价表ID列表, 如果使用此字段则会忽略其他参数
+          * <p> 示例值：
+          */
+       this.interviewFeedbackFormIds = builder.interviewFeedbackFormIds;
+         /**
+          * 分页大小
+          * <p> 示例值：
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：
+          */
+       this.pageToken = builder.pageToken;
+  }
+
     public static class Builder {
         private String[] interviewFeedbackFormIds; // 面试评价表ID列表, 如果使用此字段则会忽略其他参数
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-
+    
         /**
          * 面试评价表ID列表, 如果使用此字段则会忽略其他参数
          * <p> 示例值：
-         *
          * @param interviewFeedbackFormIds
          * @return
          */
-        public Builder interviewFeedbackFormIds(String[] interviewFeedbackFormIds) {
-            this.interviewFeedbackFormIds = interviewFeedbackFormIds;
-            return this;
-        }
+           public Builder interviewFeedbackFormIds(String[] interviewFeedbackFormIds) {
+                this.interviewFeedbackFormIds = interviewFeedbackFormIds;
+                return this;
+           }
 
-
+    
         /**
          * 分页大小
          * <p> 示例值：
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
+    public ListInterviewFeedbackFormReq build(){
+        return new ListInterviewFeedbackFormReq(this);
+      }
+    }
 
-        public ListInterviewFeedbackFormReq build() {
-            return new ListInterviewFeedbackFormReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

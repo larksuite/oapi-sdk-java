@@ -12,177 +12,96 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApplicationTalent {
-    /**
-     * ID
-     * <p> 示例值：
-     */
+     /**
+      * ID
+      * <p> 示例值：
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 基础信息
-     * <p> 示例值：
-     */
+     /**
+      * 基础信息
+      * <p> 示例值：
+      */
     @SerializedName("basic_info")
     private ApplicationTalentBasicInfo basicInfo;
-    /**
-     * 自我评价
-     * <p> 示例值：
-     */
+     /**
+      * 自我评价
+      * <p> 示例值：
+      */
     @SerializedName("self_evaluation")
     private String selfEvaluation;
-    /**
-     * 教育经历
-     * <p> 示例值：
-     */
+     /**
+      * 教育经历
+      * <p> 示例值：
+      */
     @SerializedName("education_list")
     private AppliTalentEducationInfo[] educationList;
-    /**
-     * 工作经历
-     * <p> 示例值：
-     */
+     /**
+      * 工作经历
+      * <p> 示例值：
+      */
     @SerializedName("career_list")
     private ApplicationTalentCareerInfo[] careerList;
-    /**
-     * 项目经历
-     * <p> 示例值：
-     */
+     /**
+      * 项目经历
+      * <p> 示例值：
+      */
     @SerializedName("project_list")
     private ApplicationTalentProjectInfo[] projectList;
-    /**
-     * 作品集
-     * <p> 示例值：
-     */
+     /**
+      * 作品集
+      * <p> 示例值：
+      */
     @SerializedName("works_list")
     private ApplicationTalentWorksInfo[] worksList;
-    /**
-     * 获奖列表
-     * <p> 示例值：
-     */
+     /**
+      * 获奖列表
+      * <p> 示例值：
+      */
     @SerializedName("award_list")
     private ApplicationTalentAwardInfo[] awardList;
-    /**
-     * 竞赛列表
-     * <p> 示例值：
-     */
+     /**
+      * 竞赛列表
+      * <p> 示例值：
+      */
     @SerializedName("competition_list")
     private AppliTalentCompetitionInfo[] competitionList;
-    /**
-     * 证书列表
-     * <p> 示例值：
-     */
+     /**
+      * 证书列表
+      * <p> 示例值：
+      */
     @SerializedName("certificate_list")
     private AppliTalentCertificateInfo[] certificateList;
-    /**
-     * 语言列表
-     * <p> 示例值：
-     */
+     /**
+      * 语言列表
+      * <p> 示例值：
+      */
     @SerializedName("language_list")
     private ApplicationTalentLanguageInfo[] languageList;
-    /**
-     * SNS列表
-     * <p> 示例值：
-     */
+     /**
+      * SNS列表
+      * <p> 示例值：
+      */
     @SerializedName("sns_list")
     private ApplicationTalentSnsInfo[] snsList;
-    /**
-     * 附件简历列表
-     * <p> 示例值：
-     */
+     /**
+      * 附件简历列表
+      * <p> 示例值：
+      */
     @SerializedName("attachment_resume_list")
     private AppliTalentAttachResumeInfo[] attachmentResumeList;
-
-    // builder 开始
-    public ApplicationTalent() {
-    }
-
-    public ApplicationTalent(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 基础信息
-         * <p> 示例值：
-         */
-        this.basicInfo = builder.basicInfo;
-        /**
-         * 自我评价
-         * <p> 示例值：
-         */
-        this.selfEvaluation = builder.selfEvaluation;
-        /**
-         * 教育经历
-         * <p> 示例值：
-         */
-        this.educationList = builder.educationList;
-        /**
-         * 工作经历
-         * <p> 示例值：
-         */
-        this.careerList = builder.careerList;
-        /**
-         * 项目经历
-         * <p> 示例值：
-         */
-        this.projectList = builder.projectList;
-        /**
-         * 作品集
-         * <p> 示例值：
-         */
-        this.worksList = builder.worksList;
-        /**
-         * 获奖列表
-         * <p> 示例值：
-         */
-        this.awardList = builder.awardList;
-        /**
-         * 竞赛列表
-         * <p> 示例值：
-         */
-        this.competitionList = builder.competitionList;
-        /**
-         * 证书列表
-         * <p> 示例值：
-         */
-        this.certificateList = builder.certificateList;
-        /**
-         * 语言列表
-         * <p> 示例值：
-         */
-        this.languageList = builder.languageList;
-        /**
-         * SNS列表
-         * <p> 示例值：
-         */
-        this.snsList = builder.snsList;
-        /**
-         * 附件简历列表
-         * <p> 示例值：
-         */
-        this.attachmentResumeList = builder.attachmentResumeList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -287,244 +206,320 @@ public class ApplicationTalent {
         this.attachmentResumeList = attachmentResumeList;
     }
 
+
+// builder 开始
+  public ApplicationTalent(){}
+
+  public ApplicationTalent(Builder builder){
+         /**
+          * ID
+          * <p> 示例值：
+          */
+      this.id = builder.id;
+         /**
+          * 基础信息
+          * <p> 示例值：
+          */
+      this.basicInfo = builder.basicInfo;
+         /**
+          * 自我评价
+          * <p> 示例值：
+          */
+      this.selfEvaluation = builder.selfEvaluation;
+         /**
+          * 教育经历
+          * <p> 示例值：
+          */
+      this.educationList = builder.educationList;
+         /**
+          * 工作经历
+          * <p> 示例值：
+          */
+      this.careerList = builder.careerList;
+         /**
+          * 项目经历
+          * <p> 示例值：
+          */
+      this.projectList = builder.projectList;
+         /**
+          * 作品集
+          * <p> 示例值：
+          */
+      this.worksList = builder.worksList;
+         /**
+          * 获奖列表
+          * <p> 示例值：
+          */
+      this.awardList = builder.awardList;
+         /**
+          * 竞赛列表
+          * <p> 示例值：
+          */
+      this.competitionList = builder.competitionList;
+         /**
+          * 证书列表
+          * <p> 示例值：
+          */
+      this.certificateList = builder.certificateList;
+         /**
+          * 语言列表
+          * <p> 示例值：
+          */
+      this.languageList = builder.languageList;
+         /**
+          * SNS列表
+          * <p> 示例值：
+          */
+      this.snsList = builder.snsList;
+         /**
+          * 附件简历列表
+          * <p> 示例值：
+          */
+      this.attachmentResumeList = builder.attachmentResumeList;
+  }
+
     public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：
-         */
+     /**
+      * ID
+      * <p> 示例值：
+      */
         private String id;
-        /**
-         * 基础信息
-         * <p> 示例值：
-         */
+     /**
+      * 基础信息
+      * <p> 示例值：
+      */
         private ApplicationTalentBasicInfo basicInfo;
-        /**
-         * 自我评价
-         * <p> 示例值：
-         */
+     /**
+      * 自我评价
+      * <p> 示例值：
+      */
         private String selfEvaluation;
-        /**
-         * 教育经历
-         * <p> 示例值：
-         */
+     /**
+      * 教育经历
+      * <p> 示例值：
+      */
         private AppliTalentEducationInfo[] educationList;
-        /**
-         * 工作经历
-         * <p> 示例值：
-         */
+     /**
+      * 工作经历
+      * <p> 示例值：
+      */
         private ApplicationTalentCareerInfo[] careerList;
-        /**
-         * 项目经历
-         * <p> 示例值：
-         */
+     /**
+      * 项目经历
+      * <p> 示例值：
+      */
         private ApplicationTalentProjectInfo[] projectList;
-        /**
-         * 作品集
-         * <p> 示例值：
-         */
+     /**
+      * 作品集
+      * <p> 示例值：
+      */
         private ApplicationTalentWorksInfo[] worksList;
-        /**
-         * 获奖列表
-         * <p> 示例值：
-         */
+     /**
+      * 获奖列表
+      * <p> 示例值：
+      */
         private ApplicationTalentAwardInfo[] awardList;
-        /**
-         * 竞赛列表
-         * <p> 示例值：
-         */
+     /**
+      * 竞赛列表
+      * <p> 示例值：
+      */
         private AppliTalentCompetitionInfo[] competitionList;
-        /**
-         * 证书列表
-         * <p> 示例值：
-         */
+     /**
+      * 证书列表
+      * <p> 示例值：
+      */
         private AppliTalentCertificateInfo[] certificateList;
-        /**
-         * 语言列表
-         * <p> 示例值：
-         */
+     /**
+      * 语言列表
+      * <p> 示例值：
+      */
         private ApplicationTalentLanguageInfo[] languageList;
-        /**
-         * SNS列表
-         * <p> 示例值：
-         */
+     /**
+      * SNS列表
+      * <p> 示例值：
+      */
         private ApplicationTalentSnsInfo[] snsList;
-        /**
-         * 附件简历列表
-         * <p> 示例值：
-         */
+     /**
+      * 附件简历列表
+      * <p> 示例值：
+      */
         private AppliTalentAttachResumeInfo[] attachmentResumeList;
 
         /**
          * ID
          * <p> 示例值：
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 基础信息
          * <p> 示例值：
-         *
          * @param basicInfo
          * @return
          */
         public Builder basicInfo(ApplicationTalentBasicInfo basicInfo) {
-            this.basicInfo = basicInfo;
-            return this;
+             this.basicInfo = basicInfo;
+             return this;
         }
 
+    
 
         /**
          * 自我评价
          * <p> 示例值：
-         *
          * @param selfEvaluation
          * @return
          */
         public Builder selfEvaluation(String selfEvaluation) {
-            this.selfEvaluation = selfEvaluation;
-            return this;
+             this.selfEvaluation = selfEvaluation;
+             return this;
         }
 
+    
 
         /**
          * 教育经历
          * <p> 示例值：
-         *
          * @param educationList
          * @return
          */
         public Builder educationList(AppliTalentEducationInfo[] educationList) {
-            this.educationList = educationList;
-            return this;
+             this.educationList = educationList;
+             return this;
         }
 
+    
 
         /**
          * 工作经历
          * <p> 示例值：
-         *
          * @param careerList
          * @return
          */
         public Builder careerList(ApplicationTalentCareerInfo[] careerList) {
-            this.careerList = careerList;
-            return this;
+             this.careerList = careerList;
+             return this;
         }
 
+    
 
         /**
          * 项目经历
          * <p> 示例值：
-         *
          * @param projectList
          * @return
          */
         public Builder projectList(ApplicationTalentProjectInfo[] projectList) {
-            this.projectList = projectList;
-            return this;
+             this.projectList = projectList;
+             return this;
         }
 
+    
 
         /**
          * 作品集
          * <p> 示例值：
-         *
          * @param worksList
          * @return
          */
         public Builder worksList(ApplicationTalentWorksInfo[] worksList) {
-            this.worksList = worksList;
-            return this;
+             this.worksList = worksList;
+             return this;
         }
 
+    
 
         /**
          * 获奖列表
          * <p> 示例值：
-         *
          * @param awardList
          * @return
          */
         public Builder awardList(ApplicationTalentAwardInfo[] awardList) {
-            this.awardList = awardList;
-            return this;
+             this.awardList = awardList;
+             return this;
         }
 
+    
 
         /**
          * 竞赛列表
          * <p> 示例值：
-         *
          * @param competitionList
          * @return
          */
         public Builder competitionList(AppliTalentCompetitionInfo[] competitionList) {
-            this.competitionList = competitionList;
-            return this;
+             this.competitionList = competitionList;
+             return this;
         }
 
+    
 
         /**
          * 证书列表
          * <p> 示例值：
-         *
          * @param certificateList
          * @return
          */
         public Builder certificateList(AppliTalentCertificateInfo[] certificateList) {
-            this.certificateList = certificateList;
-            return this;
+             this.certificateList = certificateList;
+             return this;
         }
 
+    
 
         /**
          * 语言列表
          * <p> 示例值：
-         *
          * @param languageList
          * @return
          */
         public Builder languageList(ApplicationTalentLanguageInfo[] languageList) {
-            this.languageList = languageList;
-            return this;
+             this.languageList = languageList;
+             return this;
         }
 
+    
 
         /**
          * SNS列表
          * <p> 示例值：
-         *
          * @param snsList
          * @return
          */
         public Builder snsList(ApplicationTalentSnsInfo[] snsList) {
-            this.snsList = snsList;
-            return this;
+             this.snsList = snsList;
+             return this;
         }
 
+    
 
         /**
          * 附件简历列表
          * <p> 示例值：
-         *
          * @param attachmentResumeList
          * @return
          */
         public Builder attachmentResumeList(AppliTalentAttachResumeInfo[] attachmentResumeList) {
-            this.attachmentResumeList = attachmentResumeList;
-            return this;
+             this.attachmentResumeList = attachmentResumeList;
+             return this;
         }
 
+    
+    
+    public ApplicationTalent build(){
+        return new ApplicationTalent(this);
+      }
+    }
 
-        public ApplicationTalent build() {
-            return new ApplicationTalent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

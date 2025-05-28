@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OnboardingFlow {
-    /**
-     * 流程id
-     * <p> 示例值：628caefb0eb4ac9c806982ee
-     */
+     /**
+      * 流程id
+      * <p> 示例值：628caefb0eb4ac9c806982ee
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 流程名称
-     * <p> 示例值：
-     */
+     /**
+      * 流程名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18nV2 name;
-
-    // builder 开始
-    public OnboardingFlow() {
-    }
-
-    public OnboardingFlow(Builder builder) {
-        /**
-         * 流程id
-         * <p> 示例值：628caefb0eb4ac9c806982ee
-         */
-        this.id = builder.id;
-        /**
-         * 流程名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -79,46 +53,67 @@ public class OnboardingFlow {
         this.name = name;
     }
 
+
+// builder 开始
+  public OnboardingFlow(){}
+
+  public OnboardingFlow(Builder builder){
+         /**
+          * 流程id
+          * <p> 示例值：628caefb0eb4ac9c806982ee
+          */
+      this.id = builder.id;
+         /**
+          * 流程名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 流程id
-         * <p> 示例值：628caefb0eb4ac9c806982ee
-         */
+     /**
+      * 流程id
+      * <p> 示例值：628caefb0eb4ac9c806982ee
+      */
         private String id;
-        /**
-         * 流程名称
-         * <p> 示例值：
-         */
+     /**
+      * 流程名称
+      * <p> 示例值：
+      */
         private I18nV2 name;
 
         /**
          * 流程id
          * <p> 示例值：628caefb0eb4ac9c806982ee
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 流程名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18nV2 name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public OnboardingFlow build(){
+        return new OnboardingFlow(this);
+      }
+    }
 
-        public OnboardingFlow build() {
-            return new OnboardingFlow(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

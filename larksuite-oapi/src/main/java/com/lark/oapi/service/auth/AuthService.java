@@ -27,24 +27,20 @@ public class AuthService {
     private final TenantAccessToken tenantAccessToken; // tenant_access_token
 
     public AuthService(Config config) {
-        this.v3 = new V3(config);
-        this.appAccessToken = new AppAccessToken(config);
-        this.appTicket = new AppTicket(config);
-        this.tenantAccessToken = new TenantAccessToken(config);
+    this.v3 = new V3(config);
+    this.appAccessToken = new AppAccessToken(config);
+    this.appTicket = new AppTicket(config);
+    this.tenantAccessToken = new TenantAccessToken(config);
     }
-
     public V3 v3() {
         return v3;
     }
-
     public AppAccessToken appAccessToken() {
         return appAccessToken;
     }
-
     public AppTicket appTicket() {
         return appTicket;
     }
-
     public TenantAccessToken tenantAccessToken() {
         return tenantAccessToken;
     }

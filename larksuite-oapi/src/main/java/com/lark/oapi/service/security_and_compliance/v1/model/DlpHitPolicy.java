@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DlpHitPolicy {
-    /**
-     * 策略ID
-     * <p> 示例值：713628373819212
-     */
+     /**
+      * 策略ID
+      * <p> 示例值：713628373819212
+      */
     @SerializedName("policy_id")
     private String policyId;
-    /**
-     * 策略名称
-     * <p> 示例值：dlp测试策略一
-     */
+     /**
+      * 策略名称
+      * <p> 示例值：dlp测试策略一
+      */
     @SerializedName("policy_name")
     private String policyName;
-
-    // builder 开始
-    public DlpHitPolicy() {
-    }
-
-    public DlpHitPolicy(Builder builder) {
-        /**
-         * 策略ID
-         * <p> 示例值：713628373819212
-         */
-        this.policyId = builder.policyId;
-        /**
-         * 策略名称
-         * <p> 示例值：dlp测试策略一
-         */
-        this.policyName = builder.policyName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPolicyId() {
         return this.policyId;
     }
@@ -79,46 +53,67 @@ public class DlpHitPolicy {
         this.policyName = policyName;
     }
 
+
+// builder 开始
+  public DlpHitPolicy(){}
+
+  public DlpHitPolicy(Builder builder){
+         /**
+          * 策略ID
+          * <p> 示例值：713628373819212
+          */
+      this.policyId = builder.policyId;
+         /**
+          * 策略名称
+          * <p> 示例值：dlp测试策略一
+          */
+      this.policyName = builder.policyName;
+  }
+
     public static class Builder {
-        /**
-         * 策略ID
-         * <p> 示例值：713628373819212
-         */
+     /**
+      * 策略ID
+      * <p> 示例值：713628373819212
+      */
         private String policyId;
-        /**
-         * 策略名称
-         * <p> 示例值：dlp测试策略一
-         */
+     /**
+      * 策略名称
+      * <p> 示例值：dlp测试策略一
+      */
         private String policyName;
 
         /**
          * 策略ID
          * <p> 示例值：713628373819212
-         *
          * @param policyId
          * @return
          */
         public Builder policyId(String policyId) {
-            this.policyId = policyId;
-            return this;
+             this.policyId = policyId;
+             return this;
         }
 
+    
 
         /**
          * 策略名称
          * <p> 示例值：dlp测试策略一
-         *
          * @param policyName
          * @return
          */
         public Builder policyName(String policyName) {
-            this.policyName = policyName;
-            return this;
+             this.policyName = policyName;
+             return this;
         }
 
+    
+    
+    public DlpHitPolicy build(){
+        return new DlpHitPolicy(this);
+      }
+    }
 
-        public DlpHitPolicy build() {
-            return new DlpHitPolicy(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

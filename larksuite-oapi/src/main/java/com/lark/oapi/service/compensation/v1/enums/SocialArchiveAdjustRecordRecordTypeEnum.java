@@ -17,16 +17,15 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 类型，increase: 增员; attrition: 减员
  */
 public enum SocialArchiveAdjustRecordRecordTypeEnum {
-    INCREASE("increase"), // 增员
-    ATTRITION("attrition"), // 减员
-    ;
-    private String value;
-
+     INCREASE("increase"), // 增员
+     ATTRITION("attrition"), // 减员
+  ;
+   private String value;
     SocialArchiveAdjustRecordRecordTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

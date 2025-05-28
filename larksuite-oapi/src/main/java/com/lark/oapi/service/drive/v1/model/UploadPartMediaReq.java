@@ -12,36 +12,20 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UploadPartMediaReq {
     @Body
     private UploadPartMediaReqBody body;
-
-    // builder 开始
-    public UploadPartMediaReq() {
-    }
-
-    public UploadPartMediaReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public UploadPartMediaReqBody getUploadPartMediaReqBody() {
         return this.body;
@@ -51,27 +35,36 @@ public class UploadPartMediaReq {
         this.body = body;
     }
 
+// builder 开始
+  public UploadPartMediaReq(){}
+
+  public UploadPartMediaReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private UploadPartMediaReqBody body;
-
+    
         public UploadPartMediaReqBody getUploadPartMediaReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder uploadPartMediaReqBody(UploadPartMediaReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UploadPartMediaReq build(){
+        return new UploadPartMediaReq(this);
+      }
+    }
 
-        public UploadPartMediaReq build() {
-            return new UploadPartMediaReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

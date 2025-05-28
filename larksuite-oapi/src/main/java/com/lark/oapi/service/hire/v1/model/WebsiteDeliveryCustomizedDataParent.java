@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WebsiteDeliveryCustomizedDataParent {
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：6960663240925956651
-     */
+     /**
+      * 自定义字段 ID
+      * <p> 示例值：6960663240925956651
+      */
     @SerializedName("object_id")
     private String objectId;
-    /**
-     * 模块下的字段
-     * <p> 示例值：
-     */
+     /**
+      * 模块下的字段
+      * <p> 示例值：
+      */
     @SerializedName("children")
     private WebsiteDeliveryCustomizedData[] children;
-
-    // builder 开始
-    public WebsiteDeliveryCustomizedDataParent() {
-    }
-
-    public WebsiteDeliveryCustomizedDataParent(Builder builder) {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6960663240925956651
-         */
-        this.objectId = builder.objectId;
-        /**
-         * 模块下的字段
-         * <p> 示例值：
-         */
-        this.children = builder.children;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getObjectId() {
         return this.objectId;
     }
@@ -78,46 +52,67 @@ public class WebsiteDeliveryCustomizedDataParent {
         this.children = children;
     }
 
+
+// builder 开始
+  public WebsiteDeliveryCustomizedDataParent(){}
+
+  public WebsiteDeliveryCustomizedDataParent(Builder builder){
+         /**
+          * 自定义字段 ID
+          * <p> 示例值：6960663240925956651
+          */
+      this.objectId = builder.objectId;
+         /**
+          * 模块下的字段
+          * <p> 示例值：
+          */
+      this.children = builder.children;
+  }
+
     public static class Builder {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6960663240925956651
-         */
+     /**
+      * 自定义字段 ID
+      * <p> 示例值：6960663240925956651
+      */
         private String objectId;
-        /**
-         * 模块下的字段
-         * <p> 示例值：
-         */
+     /**
+      * 模块下的字段
+      * <p> 示例值：
+      */
         private WebsiteDeliveryCustomizedData[] children;
 
         /**
          * 自定义字段 ID
          * <p> 示例值：6960663240925956651
-         *
          * @param objectId
          * @return
          */
         public Builder objectId(String objectId) {
-            this.objectId = objectId;
-            return this;
+             this.objectId = objectId;
+             return this;
         }
 
+    
 
         /**
          * 模块下的字段
          * <p> 示例值：
-         *
          * @param children
          * @return
          */
         public Builder children(WebsiteDeliveryCustomizedData[] children) {
-            this.children = children;
-            return this;
+             this.children = children;
+             return this;
         }
 
+    
+    
+    public WebsiteDeliveryCustomizedDataParent build(){
+        return new WebsiteDeliveryCustomizedDataParent(this);
+      }
+    }
 
-        public WebsiteDeliveryCustomizedDataParent build() {
-            return new WebsiteDeliveryCustomizedDataParent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CustomComplete {
-    /**
-     * pc客户端自定义完成配置（含mac和windows）
-     * <p> 示例值：
-     */
+     /**
+      * pc客户端自定义完成配置（含mac和windows）
+      * <p> 示例值：
+      */
     @SerializedName("pc")
     private CustomCompleteItem pc;
-    /**
-     * ios端的自定义完成配置
-     * <p> 示例值：
-     */
+     /**
+      * ios端的自定义完成配置
+      * <p> 示例值：
+      */
     @SerializedName("ios")
     private CustomCompleteItem ios;
-    /**
-     * android端的自定义完成配置
-     * <p> 示例值：
-     */
+     /**
+      * android端的自定义完成配置
+      * <p> 示例值：
+      */
     @SerializedName("android")
     private CustomCompleteItem android;
-
-    // builder 开始
-    public CustomComplete() {
-    }
-
-    public CustomComplete(Builder builder) {
-        /**
-         * pc客户端自定义完成配置（含mac和windows）
-         * <p> 示例值：
-         */
-        this.pc = builder.pc;
-        /**
-         * ios端的自定义完成配置
-         * <p> 示例值：
-         */
-        this.ios = builder.ios;
-        /**
-         * android端的自定义完成配置
-         * <p> 示例值：
-         */
-        this.android = builder.android;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public CustomCompleteItem getPc() {
         return this.pc;
     }
@@ -98,64 +67,90 @@ public class CustomComplete {
         this.android = android;
     }
 
+
+// builder 开始
+  public CustomComplete(){}
+
+  public CustomComplete(Builder builder){
+         /**
+          * pc客户端自定义完成配置（含mac和windows）
+          * <p> 示例值：
+          */
+      this.pc = builder.pc;
+         /**
+          * ios端的自定义完成配置
+          * <p> 示例值：
+          */
+      this.ios = builder.ios;
+         /**
+          * android端的自定义完成配置
+          * <p> 示例值：
+          */
+      this.android = builder.android;
+  }
+
     public static class Builder {
-        /**
-         * pc客户端自定义完成配置（含mac和windows）
-         * <p> 示例值：
-         */
+     /**
+      * pc客户端自定义完成配置（含mac和windows）
+      * <p> 示例值：
+      */
         private CustomCompleteItem pc;
-        /**
-         * ios端的自定义完成配置
-         * <p> 示例值：
-         */
+     /**
+      * ios端的自定义完成配置
+      * <p> 示例值：
+      */
         private CustomCompleteItem ios;
-        /**
-         * android端的自定义完成配置
-         * <p> 示例值：
-         */
+     /**
+      * android端的自定义完成配置
+      * <p> 示例值：
+      */
         private CustomCompleteItem android;
 
         /**
          * pc客户端自定义完成配置（含mac和windows）
          * <p> 示例值：
-         *
          * @param pc
          * @return
          */
         public Builder pc(CustomCompleteItem pc) {
-            this.pc = pc;
-            return this;
+             this.pc = pc;
+             return this;
         }
 
+    
 
         /**
          * ios端的自定义完成配置
          * <p> 示例值：
-         *
          * @param ios
          * @return
          */
         public Builder ios(CustomCompleteItem ios) {
-            this.ios = ios;
-            return this;
+             this.ios = ios;
+             return this;
         }
 
+    
 
         /**
          * android端的自定义完成配置
          * <p> 示例值：
-         *
          * @param android
          * @return
          */
         public Builder android(CustomCompleteItem android) {
-            this.android = android;
-            return this;
+             this.android = android;
+             return this;
         }
 
+    
+    
+    public CustomComplete build(){
+        return new CustomComplete(this);
+      }
+    }
 
-        public CustomComplete build() {
-            return new CustomComplete(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

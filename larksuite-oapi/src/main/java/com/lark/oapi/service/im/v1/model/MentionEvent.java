@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MentionEvent {
-    /**
-     * mention key
-     * <p> 示例值：@_user_1
-     */
+     /**
+      * mention key
+      * <p> 示例值：@_user_1
+      */
     @SerializedName("key")
     private String key;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
+     /**
+      * 用户 ID
+      * <p> 示例值：
+      */
     @SerializedName("id")
     private UserId id;
-    /**
-     * 用户姓名
-     * <p> 示例值：Tom
-     */
+     /**
+      * 用户姓名
+      * <p> 示例值：Tom
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * tenant key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-     * <p> 示例值：736588c9260f175e
-     */
+     /**
+      * tenant key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+      * <p> 示例值：736588c9260f175e
+      */
     @SerializedName("tenant_key")
     private String tenantKey;
-
-    // builder 开始
-    public MentionEvent() {
-    }
-
-    public MentionEvent(Builder builder) {
-        /**
-         * mention key
-         * <p> 示例值：@_user_1
-         */
-        this.key = builder.key;
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 用户姓名
-         * <p> 示例值：Tom
-         */
-        this.name = builder.name;
-        /**
-         * tenant key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-         * <p> 示例值：736588c9260f175e
-         */
-        this.tenantKey = builder.tenantKey;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKey() {
         return this.key;
     }
@@ -117,82 +81,113 @@ public class MentionEvent {
         this.tenantKey = tenantKey;
     }
 
+
+// builder 开始
+  public MentionEvent(){}
+
+  public MentionEvent(Builder builder){
+         /**
+          * mention key
+          * <p> 示例值：@_user_1
+          */
+      this.key = builder.key;
+         /**
+          * 用户 ID
+          * <p> 示例值：
+          */
+      this.id = builder.id;
+         /**
+          * 用户姓名
+          * <p> 示例值：Tom
+          */
+      this.name = builder.name;
+         /**
+          * tenant key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+          * <p> 示例值：736588c9260f175e
+          */
+      this.tenantKey = builder.tenantKey;
+  }
+
     public static class Builder {
-        /**
-         * mention key
-         * <p> 示例值：@_user_1
-         */
+     /**
+      * mention key
+      * <p> 示例值：@_user_1
+      */
         private String key;
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         */
+     /**
+      * 用户 ID
+      * <p> 示例值：
+      */
         private UserId id;
-        /**
-         * 用户姓名
-         * <p> 示例值：Tom
-         */
+     /**
+      * 用户姓名
+      * <p> 示例值：Tom
+      */
         private String name;
-        /**
-         * tenant key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-         * <p> 示例值：736588c9260f175e
-         */
+     /**
+      * tenant key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+      * <p> 示例值：736588c9260f175e
+      */
         private String tenantKey;
 
         /**
          * mention key
          * <p> 示例值：@_user_1
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
 
         /**
          * 用户 ID
          * <p> 示例值：
-         *
          * @param id
          * @return
          */
         public Builder id(UserId id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 用户姓名
          * <p> 示例值：Tom
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * tenant key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
          * <p> 示例值：736588c9260f175e
-         *
          * @param tenantKey
          * @return
          */
         public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
+             this.tenantKey = tenantKey;
+             return this;
         }
 
+    
+    
+    public MentionEvent build(){
+        return new MentionEvent(this);
+      }
+    }
 
-        public MentionEvent build() {
-            return new MentionEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

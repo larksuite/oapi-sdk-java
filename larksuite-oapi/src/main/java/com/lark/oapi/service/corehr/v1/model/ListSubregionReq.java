@@ -12,70 +12,39 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListSubregionReq {
-    /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：1231231987
-     */
+     /**
+      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+      * <p> 示例值：1231231987
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
-     */
+     /**
+      * 每页获取记录数量，最大100
+      * <p> 示例值：100
+      */
     @Query
     @SerializedName("page_size")
     private String pageSize;
-    /**
-     * 省份/行政区id，填写后只查询该省份/行政区下的城市/区域
-     * <p> 示例值：100
-     */
+     /**
+      * 省份/行政区id，填写后只查询该省份/行政区下的城市/区域
+      * <p> 示例值：100
+      */
     @Query
     @SerializedName("subdivision_id")
     private String subdivisionId;
-
-    // builder 开始
-    public ListSubregionReq() {
-    }
-
-    public ListSubregionReq(Builder builder) {
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 省份/行政区id，填写后只查询该省份/行政区下的城市/区域
-         * <p> 示例值：100
-         */
-        this.subdivisionId = builder.subdivisionId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPageToken() {
         return this.pageToken;
     }
@@ -100,52 +69,75 @@ public class ListSubregionReq {
         this.subdivisionId = subdivisionId;
     }
 
+
+// builder 开始
+  public ListSubregionReq(){}
+
+  public ListSubregionReq(Builder builder){
+         /**
+          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+          * <p> 示例值：1231231987
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 每页获取记录数量，最大100
+          * <p> 示例值：100
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 省份/行政区id，填写后只查询该省份/行政区下的城市/区域
+          * <p> 示例值：100
+          */
+       this.subdivisionId = builder.subdivisionId;
+  }
+
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private String pageSize; // 每页获取记录数量，最大100
         private String subdivisionId; // 省份/行政区id，填写后只查询该省份/行政区下的城市/区域
-
+    
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：1231231987
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 每页获取记录数量，最大100
          * <p> 示例值：100
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(String pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 省份/行政区id，填写后只查询该省份/行政区下的城市/区域
          * <p> 示例值：100
-         *
          * @param subdivisionId
          * @return
          */
-        public Builder subdivisionId(String subdivisionId) {
-            this.subdivisionId = subdivisionId;
-            return this;
-        }
+           public Builder subdivisionId(String subdivisionId) {
+                this.subdivisionId = subdivisionId;
+                return this;
+           }
 
+    
+    public ListSubregionReq build(){
+        return new ListSubregionReq(this);
+      }
+    }
 
-        public ListSubregionReq build() {
-            return new ListSubregionReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

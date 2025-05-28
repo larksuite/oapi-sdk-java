@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ContentGallery {
-    /**
-     * 图片元素
-     * <p> 示例值：
-     */
+     /**
+      * 图片元素
+      * <p> 示例值：
+      */
     @SerializedName("imageList")
     private ContentImageItem[] imageList;
-
-    // builder 开始
-    public ContentGallery() {
-    }
-
-    public ContentGallery(Builder builder) {
-        /**
-         * 图片元素
-         * <p> 示例值：
-         */
-        this.imageList = builder.imageList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ContentImageItem[] getImageList() {
         return this.imageList;
     }
@@ -60,28 +39,44 @@ public class ContentGallery {
         this.imageList = imageList;
     }
 
+
+// builder 开始
+  public ContentGallery(){}
+
+  public ContentGallery(Builder builder){
+         /**
+          * 图片元素
+          * <p> 示例值：
+          */
+      this.imageList = builder.imageList;
+  }
+
     public static class Builder {
-        /**
-         * 图片元素
-         * <p> 示例值：
-         */
+     /**
+      * 图片元素
+      * <p> 示例值：
+      */
         private ContentImageItem[] imageList;
 
         /**
          * 图片元素
          * <p> 示例值：
-         *
          * @param imageList
          * @return
          */
         public Builder imageList(ContentImageItem[] imageList) {
-            this.imageList = imageList;
-            return this;
+             this.imageList = imageList;
+             return this;
         }
 
+    
+    
+    public ContentGallery build(){
+        return new ContentGallery(this);
+      }
+    }
 
-        public ContentGallery build() {
-            return new ContentGallery(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

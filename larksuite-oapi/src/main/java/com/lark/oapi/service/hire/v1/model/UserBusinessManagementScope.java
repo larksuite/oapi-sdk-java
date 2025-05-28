@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserBusinessManagementScope {
-    /**
-     * 实体
-     * <p> 示例值：
-     */
+     /**
+      * 实体
+      * <p> 示例值：
+      */
     @SerializedName("entity")
     private EntityInfo entity;
-    /**
-     * 管理范围
-     * <p> 示例值：
-     */
+     /**
+      * 管理范围
+      * <p> 示例值：
+      */
     @SerializedName("scope_rule")
     private PermissionScopeRule scopeRule;
-
-    // builder 开始
-    public UserBusinessManagementScope() {
-    }
-
-    public UserBusinessManagementScope(Builder builder) {
-        /**
-         * 实体
-         * <p> 示例值：
-         */
-        this.entity = builder.entity;
-        /**
-         * 管理范围
-         * <p> 示例值：
-         */
-        this.scopeRule = builder.scopeRule;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public EntityInfo getEntity() {
         return this.entity;
     }
@@ -78,46 +52,67 @@ public class UserBusinessManagementScope {
         this.scopeRule = scopeRule;
     }
 
+
+// builder 开始
+  public UserBusinessManagementScope(){}
+
+  public UserBusinessManagementScope(Builder builder){
+         /**
+          * 实体
+          * <p> 示例值：
+          */
+      this.entity = builder.entity;
+         /**
+          * 管理范围
+          * <p> 示例值：
+          */
+      this.scopeRule = builder.scopeRule;
+  }
+
     public static class Builder {
-        /**
-         * 实体
-         * <p> 示例值：
-         */
+     /**
+      * 实体
+      * <p> 示例值：
+      */
         private EntityInfo entity;
-        /**
-         * 管理范围
-         * <p> 示例值：
-         */
+     /**
+      * 管理范围
+      * <p> 示例值：
+      */
         private PermissionScopeRule scopeRule;
 
         /**
          * 实体
          * <p> 示例值：
-         *
          * @param entity
          * @return
          */
         public Builder entity(EntityInfo entity) {
-            this.entity = entity;
-            return this;
+             this.entity = entity;
+             return this;
         }
 
+    
 
         /**
          * 管理范围
          * <p> 示例值：
-         *
          * @param scopeRule
          * @return
          */
         public Builder scopeRule(PermissionScopeRule scopeRule) {
-            this.scopeRule = scopeRule;
-            return this;
+             this.scopeRule = scopeRule;
+             return this;
         }
 
+    
+    
+    public UserBusinessManagementScope build(){
+        return new UserBusinessManagementScope(this);
+      }
+    }
 
-        public UserBusinessManagementScope build() {
-            return new UserBusinessManagementScope(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

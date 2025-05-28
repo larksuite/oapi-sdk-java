@@ -12,59 +12,54 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AskAppKnowledgeRespBody {
-    /**
-     * 响应状态，枚举值
-     * <p> 示例值：processing
-     */
+     /**
+      * 响应状态，枚举值
+      * <p> 示例值：processing
+      */
     @SerializedName("status")
     private String status;
-    /**
-     * 结束类型，枚举值
-     * <p> 示例值：qa
-     */
+     /**
+      * 结束类型，枚举值
+      * <p> 示例值：qa
+      */
     @SerializedName("finish_type")
     private String finishType;
-    /**
-     * 响应消息
-     * <p> 示例值：
-     */
+     /**
+      * 响应消息
+      * <p> 示例值：
+      */
     @SerializedName("message")
     private AilyKnowledgeMessage message;
-    /**
-     * 知识问答运行过程结构化数据，status=finished 且 finish_type=qa 时返回
-     * <p> 示例值：
-     */
+     /**
+      * 知识问答运行过程结构化数据，status=finished 且 finish_type=qa 时返回
+      * <p> 示例值：
+      */
     @SerializedName("process_data")
     private AilyKnowledgeAskProcessData processData;
-    /**
-     * 匹配标准问答对结果，status=finished 且 finish_type=faq时返回
-     * <p> 示例值：
-     */
+     /**
+      * 匹配标准问答对结果，status=finished 且 finish_type=faq时返回
+      * <p> 示例值：
+      */
     @SerializedName("faq_result")
     private AilyKnowledgeFaq faqResult;
-    /**
-     * 是否有结果，true 则 代表 message 中的内容是通过配置知识而生成的
-     * <p> 示例值：
-     */
+     /**
+      * 是否有结果，true 则 代表 message 中的内容是通过配置知识而生成的
+      * <p> 示例值：
+      */
     @SerializedName("has_answer")
     private Boolean hasAnswer;
-
     public String getStatus() {
         return this.status;
     }

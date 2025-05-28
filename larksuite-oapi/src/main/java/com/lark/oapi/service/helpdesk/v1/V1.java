@@ -17,85 +17,72 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.helpdesk.v1.resource.*;
 
 public class V1 {
-    private final Agent agent; // 客服
-    private final AgentSchedules agentSchedules; // 客服工作日程
-    private final AgentSchedule agentSchedule; // agent_schedule
-    private final AgentSkill agentSkill; // 客服技能
-    private final AgentSkillRule agentSkillRule; // 客服技能规则
-    private final BotMessage botMessage; // 机器人消息
-    private final Category category; // 知识库分类
-    private final Event event; // 事件订阅
-    private final Faq faq; // 知识库
-    private final Notification notification; // 推送中心
-    private final Ticket ticket; // 工单
-    private final TicketMessage ticketMessage; // 工单消息
-    private final TicketCustomizedField ticketCustomizedField; // 工单自定义字段
+	private final Agent agent; // 客服
+	private final AgentSchedules agentSchedules; // 客服工作日程
+	private final AgentSchedule agentSchedule; // agent_schedule
+	private final AgentSkill agentSkill; // 客服技能
+	private final AgentSkillRule agentSkillRule; // 客服技能规则
+	private final BotMessage botMessage; // 机器人消息
+	private final Category category; // 知识库分类
+	private final Event event; // 事件订阅
+	private final Faq faq; // 知识库
+	private final Notification notification; // 推送中心
+	private final Ticket ticket; // 工单
+	private final TicketMessage ticketMessage; // 工单消息
+	private final TicketCustomizedField ticketCustomizedField; // 工单自定义字段
 
-    public V1(Config config) {
-        this.agent = new Agent(config);
-        this.agentSchedules = new AgentSchedules(config);
-        this.agentSchedule = new AgentSchedule(config);
-        this.agentSkill = new AgentSkill(config);
-        this.agentSkillRule = new AgentSkillRule(config);
-        this.botMessage = new BotMessage(config);
-        this.category = new Category(config);
-        this.event = new Event(config);
-        this.faq = new Faq(config);
-        this.notification = new Notification(config);
-        this.ticket = new Ticket(config);
-        this.ticketMessage = new TicketMessage(config);
-        this.ticketCustomizedField = new TicketCustomizedField(config);
-    }
-
-    public Agent agent() {
-        return agent;
-    }
-
-    public AgentSchedules agentSchedules() {
-        return agentSchedules;
-    }
-
-    public AgentSchedule agentSchedule() {
-        return agentSchedule;
-    }
-
-    public AgentSkill agentSkill() {
-        return agentSkill;
-    }
-
-    public AgentSkillRule agentSkillRule() {
-        return agentSkillRule;
-    }
-
-    public BotMessage botMessage() {
-        return botMessage;
-    }
-
-    public Category category() {
-        return category;
-    }
-
-    public Event event() {
-        return event;
-    }
-
-    public Faq faq() {
-        return faq;
-    }
-
-    public Notification notification() {
-        return notification;
-    }
-
-    public Ticket ticket() {
-        return ticket;
-    }
-
-    public TicketMessage ticketMessage() {
-        return ticketMessage;
-    }
-
-    public TicketCustomizedField ticketCustomizedField() {
-        return ticketCustomizedField;
-    }
+	public V1(Config config) {
+		this.agent = new Agent(config);
+		this.agentSchedules = new AgentSchedules(config);
+		this.agentSchedule = new AgentSchedule(config);
+		this.agentSkill = new AgentSkill(config);
+		this.agentSkillRule = new AgentSkillRule(config);
+		this.botMessage = new BotMessage(config);
+		this.category = new Category(config);
+		this.event = new Event(config);
+		this.faq = new Faq(config);
+		this.notification = new Notification(config);
+		this.ticket = new Ticket(config);
+		this.ticketMessage = new TicketMessage(config);
+		this.ticketCustomizedField = new TicketCustomizedField(config);
+	}
+	public Agent agent() {
+		return agent;
+	}
+	public AgentSchedules agentSchedules() {
+		return agentSchedules;
+	}
+	public AgentSchedule agentSchedule() {
+		return agentSchedule;
+	}
+	public AgentSkill agentSkill() {
+		return agentSkill;
+	}
+	public AgentSkillRule agentSkillRule() {
+		return agentSkillRule;
+	}
+	public BotMessage botMessage() {
+		return botMessage;
+	}
+	public Category category() {
+		return category;
+	}
+	public Event event() {
+		return event;
+	}
+	public Faq faq() {
+		return faq;
+	}
+	public Notification notification() {
+		return notification;
+	}
+	public Ticket ticket() {
+		return ticket;
+	}
+	public TicketMessage ticketMessage() {
+		return ticketMessage;
+	}
+	public TicketCustomizedField ticketCustomizedField() {
+		return ticketCustomizedField;
+	}
 }

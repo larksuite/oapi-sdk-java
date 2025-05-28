@@ -12,36 +12,20 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateTagReq {
     @Body
     private CreateTagReqBody body;
-
-    // builder 开始
-    public CreateTagReq() {
-    }
-
-    public CreateTagReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public CreateTagReqBody getCreateTagReqBody() {
         return this.body;
@@ -51,27 +35,36 @@ public class CreateTagReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateTagReq(){}
+
+  public CreateTagReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private CreateTagReqBody body;
-
+    
         public CreateTagReqBody getCreateTagReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder createTagReqBody(CreateTagReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateTagReq build(){
+        return new CreateTagReq(this);
+      }
+    }
 
-        public CreateTagReq build() {
-            return new CreateTagReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchMessageSendProgress {
-    /**
-     * 批量请求中有效的userid数量(包含机器人不可见用户);;;;**注意**： ;当valid_user_ids_count为0有两种情况：;* 批量任务还没有开始被调度（请等待一会再调用该接口）;* 批量发送消息时传入的所有openIDs、employeID、departmentiIDs都不包含有效的用户
-     * <p> 示例值：204
-     */
+     /**
+      * 批量请求中有效的userid数量(包含机器人不可见用户);;;;**注意**： ;当valid_user_ids_count为0有两种情况：;* 批量任务还没有开始被调度（请等待一会再调用该接口）;* 批量发送消息时传入的所有openIDs、employeID、departmentiIDs都不包含有效的用户
+      * <p> 示例值：204
+      */
     @SerializedName("valid_user_ids_count")
     private Integer validUserIdsCount;
-    /**
-     * 已经成功给用户发送成功的消息数量;;;;**注意**：最终success_user_ids_count不一定等于valid_user_ids_count, 因为valid_user_ids_count包含了对机器人不可见的用户
-     * <p> 示例值：200
-     */
+     /**
+      * 已经成功给用户发送成功的消息数量;;;;**注意**：最终success_user_ids_count不一定等于valid_user_ids_count, 因为valid_user_ids_count包含了对机器人不可见的用户
+      * <p> 示例值：200
+      */
     @SerializedName("success_user_ids_count")
     private Integer successUserIdsCount;
-    /**
-     * 已读信息用户数量
-     * <p> 示例值：150
-     */
+     /**
+      * 已读信息用户数量
+      * <p> 示例值：150
+      */
     @SerializedName("read_user_ids_count")
     private Integer readUserIdsCount;
-
-    // builder 开始
-    public BatchMessageSendProgress() {
-    }
-
-    public BatchMessageSendProgress(Builder builder) {
-        /**
-         * 批量请求中有效的userid数量(包含机器人不可见用户);;;;**注意**： ;当valid_user_ids_count为0有两种情况：;* 批量任务还没有开始被调度（请等待一会再调用该接口）;* 批量发送消息时传入的所有openIDs、employeID、departmentiIDs都不包含有效的用户
-         * <p> 示例值：204
-         */
-        this.validUserIdsCount = builder.validUserIdsCount;
-        /**
-         * 已经成功给用户发送成功的消息数量;;;;**注意**：最终success_user_ids_count不一定等于valid_user_ids_count, 因为valid_user_ids_count包含了对机器人不可见的用户
-         * <p> 示例值：200
-         */
-        this.successUserIdsCount = builder.successUserIdsCount;
-        /**
-         * 已读信息用户数量
-         * <p> 示例值：150
-         */
-        this.readUserIdsCount = builder.readUserIdsCount;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getValidUserIdsCount() {
         return this.validUserIdsCount;
     }
@@ -98,64 +67,90 @@ public class BatchMessageSendProgress {
         this.readUserIdsCount = readUserIdsCount;
     }
 
+
+// builder 开始
+  public BatchMessageSendProgress(){}
+
+  public BatchMessageSendProgress(Builder builder){
+         /**
+          * 批量请求中有效的userid数量(包含机器人不可见用户);;;;**注意**： ;当valid_user_ids_count为0有两种情况：;* 批量任务还没有开始被调度（请等待一会再调用该接口）;* 批量发送消息时传入的所有openIDs、employeID、departmentiIDs都不包含有效的用户
+          * <p> 示例值：204
+          */
+      this.validUserIdsCount = builder.validUserIdsCount;
+         /**
+          * 已经成功给用户发送成功的消息数量;;;;**注意**：最终success_user_ids_count不一定等于valid_user_ids_count, 因为valid_user_ids_count包含了对机器人不可见的用户
+          * <p> 示例值：200
+          */
+      this.successUserIdsCount = builder.successUserIdsCount;
+         /**
+          * 已读信息用户数量
+          * <p> 示例值：150
+          */
+      this.readUserIdsCount = builder.readUserIdsCount;
+  }
+
     public static class Builder {
-        /**
-         * 批量请求中有效的userid数量(包含机器人不可见用户);;;;**注意**： ;当valid_user_ids_count为0有两种情况：;* 批量任务还没有开始被调度（请等待一会再调用该接口）;* 批量发送消息时传入的所有openIDs、employeID、departmentiIDs都不包含有效的用户
-         * <p> 示例值：204
-         */
+     /**
+      * 批量请求中有效的userid数量(包含机器人不可见用户);;;;**注意**： ;当valid_user_ids_count为0有两种情况：;* 批量任务还没有开始被调度（请等待一会再调用该接口）;* 批量发送消息时传入的所有openIDs、employeID、departmentiIDs都不包含有效的用户
+      * <p> 示例值：204
+      */
         private Integer validUserIdsCount;
-        /**
-         * 已经成功给用户发送成功的消息数量;;;;**注意**：最终success_user_ids_count不一定等于valid_user_ids_count, 因为valid_user_ids_count包含了对机器人不可见的用户
-         * <p> 示例值：200
-         */
+     /**
+      * 已经成功给用户发送成功的消息数量;;;;**注意**：最终success_user_ids_count不一定等于valid_user_ids_count, 因为valid_user_ids_count包含了对机器人不可见的用户
+      * <p> 示例值：200
+      */
         private Integer successUserIdsCount;
-        /**
-         * 已读信息用户数量
-         * <p> 示例值：150
-         */
+     /**
+      * 已读信息用户数量
+      * <p> 示例值：150
+      */
         private Integer readUserIdsCount;
 
         /**
          * 批量请求中有效的userid数量(包含机器人不可见用户);;;;**注意**： ;当valid_user_ids_count为0有两种情况：;* 批量任务还没有开始被调度（请等待一会再调用该接口）;* 批量发送消息时传入的所有openIDs、employeID、departmentiIDs都不包含有效的用户
          * <p> 示例值：204
-         *
          * @param validUserIdsCount
          * @return
          */
         public Builder validUserIdsCount(Integer validUserIdsCount) {
-            this.validUserIdsCount = validUserIdsCount;
-            return this;
+             this.validUserIdsCount = validUserIdsCount;
+             return this;
         }
 
+    
 
         /**
          * 已经成功给用户发送成功的消息数量;;;;**注意**：最终success_user_ids_count不一定等于valid_user_ids_count, 因为valid_user_ids_count包含了对机器人不可见的用户
          * <p> 示例值：200
-         *
          * @param successUserIdsCount
          * @return
          */
         public Builder successUserIdsCount(Integer successUserIdsCount) {
-            this.successUserIdsCount = successUserIdsCount;
-            return this;
+             this.successUserIdsCount = successUserIdsCount;
+             return this;
         }
 
+    
 
         /**
          * 已读信息用户数量
          * <p> 示例值：150
-         *
          * @param readUserIdsCount
          * @return
          */
         public Builder readUserIdsCount(Integer readUserIdsCount) {
-            this.readUserIdsCount = readUserIdsCount;
-            return this;
+             this.readUserIdsCount = readUserIdsCount;
+             return this;
         }
 
+    
+    
+    public BatchMessageSendProgress build(){
+        return new BatchMessageSendProgress(this);
+      }
+    }
 
-        public BatchMessageSendProgress build() {
-            return new BatchMessageSendProgress(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

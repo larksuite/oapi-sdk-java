@@ -17,16 +17,15 @@ package com.lark.oapi.service.drive.v1.enums;
  * 升序降序
  */
 public enum ListFileDirectionEnum {
-    ASC("ASC"), // 升序
-    DESC("DESC"), // 降序
-    ;
-    private String value;
-
+     ASC("ASC"), // 升序
+     DESC("DESC"), // 降序
+  ;
+   private String value;
     ListFileDirectionEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

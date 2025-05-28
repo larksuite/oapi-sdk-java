@@ -17,21 +17,20 @@ package com.lark.oapi.service.aily.v1.enums;
  * 意图状态
  */
 public enum IntentIntentStatusEnum {
-    CREATED("CREATED"), // 已创建
-    RUNNING("RUNNING"), // 运行中
-    WAITING("WAITING"), // 等待中
-    CANCELED("CANCELED"), // 已取消
-    FINISHED("FINISHED"), // 执行成功
-    FAILED("FAILED"), // 执行失败
-    EXPIRED("EXPIRED"), // 已过期
-    ;
-    private String value;
-
+     CREATED("CREATED"), // 已创建
+     RUNNING("RUNNING"), // 运行中
+     WAITING("WAITING"), // 等待中
+     CANCELED("CANCELED"), // 已取消
+     FINISHED("FINISHED"), // 执行成功
+     FAILED("FAILED"), // 执行失败
+     EXPIRED("EXPIRED"), // 已过期
+  ;
+   private String value;
     IntentIntentStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

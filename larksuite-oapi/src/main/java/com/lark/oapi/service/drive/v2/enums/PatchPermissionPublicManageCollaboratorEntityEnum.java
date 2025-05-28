@@ -17,17 +17,16 @@ package com.lark.oapi.service.drive.v2.enums;
  * 谁可以添加和管理协作者-协作者维度
  */
 public enum PatchPermissionPublicManageCollaboratorEntityEnum {
-    COLLABORATORCANVIEW("collaborator_can_view"), // 拥有可阅读权限的协作者
-    COLLABORATORCANEDIT("collaborator_can_edit"), // 拥有可编辑权限的协作者
-    COLLABORATORFULLACCESS("collaborator_full_access"), // 拥有可管理权限（包括我）的协作者
-    ;
-    private String value;
-
+     COLLABORATORCANVIEW("collaborator_can_view"), // 拥有可阅读权限的协作者
+     COLLABORATORCANEDIT("collaborator_can_edit"), // 拥有可编辑权限的协作者
+     COLLABORATORFULLACCESS("collaborator_full_access"), // 拥有可管理权限（包括我）的协作者
+  ;
+   private String value;
     PatchPermissionPublicManageCollaboratorEntityEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SimpleRelatedUser {
-    /**
-     * 用户id
-     * <p> 示例值：
-     */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * ci分数
-     * <p> 示例值：0.9
-     */
+     /**
+      * ci分数
+      * <p> 示例值：0.9
+      */
     @SerializedName("score")
     private Double score;
-
-    // builder 开始
-    public SimpleRelatedUser() {
-    }
-
-    public SimpleRelatedUser(Builder builder) {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * ci分数
-         * <p> 示例值：0.9
-         */
-        this.score = builder.score;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -79,46 +53,67 @@ public class SimpleRelatedUser {
         this.score = score;
     }
 
+
+// builder 开始
+  public SimpleRelatedUser(){}
+
+  public SimpleRelatedUser(Builder builder){
+         /**
+          * 用户id
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * ci分数
+          * <p> 示例值：0.9
+          */
+      this.score = builder.score;
+  }
+
     public static class Builder {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
         private String userId;
-        /**
-         * ci分数
-         * <p> 示例值：0.9
-         */
+     /**
+      * ci分数
+      * <p> 示例值：0.9
+      */
         private Double score;
 
         /**
          * 用户id
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * ci分数
          * <p> 示例值：0.9
-         *
          * @param score
          * @return
          */
         public Builder score(Double score) {
-            this.score = score;
-            return this;
+             this.score = score;
+             return this;
         }
 
+    
+    
+    public SimpleRelatedUser build(){
+        return new SimpleRelatedUser(this);
+      }
+    }
 
-        public SimpleRelatedUser build() {
-            return new SimpleRelatedUser(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,21 +17,20 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 调整状态
  */
 public enum DepartmentChangeDepartmentChangeStatusEnum {
-    APPROVING(0), // 发起审批
-    APPROVED(1), // 审批通过
-    REJECTED(2), // 审批被拒绝
-    WITHDRAWN(3), // 审批被撤销
-    SUCCESS(4), // 执行成功
-    FAILED(5), // 执行失败
-    PENDING(6), // 待执行
-    ;
-    private Integer value;
-
+     APPROVING(0), // 发起审批
+     APPROVED(1), // 审批通过
+     REJECTED(2), // 审批被拒绝
+     WITHDRAWN(3), // 审批被撤销
+     SUCCESS(4), // 执行成功
+     FAILED(5), // 执行失败
+     PENDING(6), // 待执行
+  ;
+   private Integer value;
     DepartmentChangeDepartmentChangeStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

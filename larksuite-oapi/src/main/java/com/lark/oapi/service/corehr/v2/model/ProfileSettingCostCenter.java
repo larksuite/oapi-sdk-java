@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProfileSettingCostCenter {
-    /**
-     * 100
-     * <p> 示例值：6950635856373745165
-     */
+     /**
+      * 100
+      * <p> 示例值：6950635856373745165
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 分摊比例
-     * <p> 示例值：100
-     */
+     /**
+      * 分摊比例
+      * <p> 示例值：100
+      */
     @SerializedName("rate")
     private Integer rate;
-
-    // builder 开始
-    public ProfileSettingCostCenter() {
-    }
-
-    public ProfileSettingCostCenter(Builder builder) {
-        /**
-         * 100
-         * <p> 示例值：6950635856373745165
-         */
-        this.id = builder.id;
-        /**
-         * 分摊比例
-         * <p> 示例值：100
-         */
-        this.rate = builder.rate;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -79,46 +53,67 @@ public class ProfileSettingCostCenter {
         this.rate = rate;
     }
 
+
+// builder 开始
+  public ProfileSettingCostCenter(){}
+
+  public ProfileSettingCostCenter(Builder builder){
+         /**
+          * 100
+          * <p> 示例值：6950635856373745165
+          */
+      this.id = builder.id;
+         /**
+          * 分摊比例
+          * <p> 示例值：100
+          */
+      this.rate = builder.rate;
+  }
+
     public static class Builder {
-        /**
-         * 100
-         * <p> 示例值：6950635856373745165
-         */
+     /**
+      * 100
+      * <p> 示例值：6950635856373745165
+      */
         private String id;
-        /**
-         * 分摊比例
-         * <p> 示例值：100
-         */
+     /**
+      * 分摊比例
+      * <p> 示例值：100
+      */
         private Integer rate;
 
         /**
          * 100
          * <p> 示例值：6950635856373745165
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 分摊比例
          * <p> 示例值：100
-         *
          * @param rate
          * @return
          */
         public Builder rate(Integer rate) {
-            this.rate = rate;
-            return this;
+             this.rate = rate;
+             return this;
         }
 
+    
+    
+    public ProfileSettingCostCenter build(){
+        return new ProfileSettingCostCenter(this);
+      }
+    }
 
-        public ProfileSettingCostCenter build() {
-            return new ProfileSettingCostCenter(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

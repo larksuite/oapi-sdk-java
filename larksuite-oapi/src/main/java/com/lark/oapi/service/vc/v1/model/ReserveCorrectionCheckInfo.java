@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReserveCorrectionCheckInfo {
-    /**
-     * 指定主持人无效id列表
-     * <p> 示例值：
-     */
+     /**
+      * 指定主持人无效id列表
+      * <p> 示例值：
+      */
     @SerializedName("invalid_host_id_list")
     private String[] invalidHostIdList;
-
-    // builder 开始
-    public ReserveCorrectionCheckInfo() {
-    }
-
-    public ReserveCorrectionCheckInfo(Builder builder) {
-        /**
-         * 指定主持人无效id列表
-         * <p> 示例值：
-         */
-        this.invalidHostIdList = builder.invalidHostIdList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getInvalidHostIdList() {
         return this.invalidHostIdList;
     }
@@ -60,28 +39,44 @@ public class ReserveCorrectionCheckInfo {
         this.invalidHostIdList = invalidHostIdList;
     }
 
+
+// builder 开始
+  public ReserveCorrectionCheckInfo(){}
+
+  public ReserveCorrectionCheckInfo(Builder builder){
+         /**
+          * 指定主持人无效id列表
+          * <p> 示例值：
+          */
+      this.invalidHostIdList = builder.invalidHostIdList;
+  }
+
     public static class Builder {
-        /**
-         * 指定主持人无效id列表
-         * <p> 示例值：
-         */
+     /**
+      * 指定主持人无效id列表
+      * <p> 示例值：
+      */
         private String[] invalidHostIdList;
 
         /**
          * 指定主持人无效id列表
          * <p> 示例值：
-         *
          * @param invalidHostIdList
          * @return
          */
         public Builder invalidHostIdList(String[] invalidHostIdList) {
-            this.invalidHostIdList = invalidHostIdList;
-            return this;
+             this.invalidHostIdList = invalidHostIdList;
+             return this;
         }
 
+    
+    
+    public ReserveCorrectionCheckInfo build(){
+        return new ReserveCorrectionCheckInfo(this);
+      }
+    }
 
-        public ReserveCorrectionCheckInfo build() {
-            return new ReserveCorrectionCheckInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

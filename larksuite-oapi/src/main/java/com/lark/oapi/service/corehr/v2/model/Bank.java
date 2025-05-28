@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Bank {
-    /**
-     * 银行 ID
-     * <p> 示例值：MDBH00000080
-     */
+     /**
+      * 银行 ID
+      * <p> 示例值：MDBH00000080
+      */
     @SerializedName("bank_id")
     private String bankId;
-    /**
-     * 银行名称
-     * <p> 示例值：
-     */
+     /**
+      * 银行名称
+      * <p> 示例值：
+      */
     @SerializedName("bank_name")
     private I18n[] bankName;
-    /**
-     * 总行代码
-     * <p> 示例值：CMB
-     */
+     /**
+      * 总行代码
+      * <p> 示例值：CMB
+      */
     @SerializedName("bank_code")
     private String bankCode;
-    /**
-     * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
-     * <p> 示例值：6862995757234914824
-     */
+     /**
+      * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
+      * <p> 示例值：6862995757234914824
+      */
     @SerializedName("country_region_id")
     private String countryRegionId;
-    /**
-     * 状态
-     * <p> 示例值：1
-     */
+     /**
+      * 状态
+      * <p> 示例值：1
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * 创建时间
-     * <p> 示例值：2020-01-01 00:00:00
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：2020-01-01 00:00:00
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 更新时间
-     * <p> 示例值：2024-01-01 00:00:00
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：2024-01-01 00:00:00
+      */
     @SerializedName("update_time")
     private String updateTime;
-
-    // builder 开始
-    public Bank() {
-    }
-
-    public Bank(Builder builder) {
-        /**
-         * 银行 ID
-         * <p> 示例值：MDBH00000080
-         */
-        this.bankId = builder.bankId;
-        /**
-         * 银行名称
-         * <p> 示例值：
-         */
-        this.bankName = builder.bankName;
-        /**
-         * 总行代码
-         * <p> 示例值：CMB
-         */
-        this.bankCode = builder.bankCode;
-        /**
-         * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
-         * <p> 示例值：6862995757234914824
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 创建时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2024-01-01 00:00:00
-         */
-        this.updateTime = builder.updateTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBankId() {
         return this.bankId;
     }
@@ -174,148 +123,192 @@ public class Bank {
         this.updateTime = updateTime;
     }
 
+
+// builder 开始
+  public Bank(){}
+
+  public Bank(Builder builder){
+         /**
+          * 银行 ID
+          * <p> 示例值：MDBH00000080
+          */
+      this.bankId = builder.bankId;
+         /**
+          * 银行名称
+          * <p> 示例值：
+          */
+      this.bankName = builder.bankName;
+         /**
+          * 总行代码
+          * <p> 示例值：CMB
+          */
+      this.bankCode = builder.bankCode;
+         /**
+          * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
+          * <p> 示例值：6862995757234914824
+          */
+      this.countryRegionId = builder.countryRegionId;
+         /**
+          * 状态
+          * <p> 示例值：1
+          */
+      this.status = builder.status;
+         /**
+          * 创建时间
+          * <p> 示例值：2020-01-01 00:00:00
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 更新时间
+          * <p> 示例值：2024-01-01 00:00:00
+          */
+      this.updateTime = builder.updateTime;
+  }
+
     public static class Builder {
-        /**
-         * 银行 ID
-         * <p> 示例值：MDBH00000080
-         */
+     /**
+      * 银行 ID
+      * <p> 示例值：MDBH00000080
+      */
         private String bankId;
-        /**
-         * 银行名称
-         * <p> 示例值：
-         */
+     /**
+      * 银行名称
+      * <p> 示例值：
+      */
         private I18n[] bankName;
-        /**
-         * 总行代码
-         * <p> 示例值：CMB
-         */
+     /**
+      * 总行代码
+      * <p> 示例值：CMB
+      */
         private String bankCode;
-        /**
-         * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
-         * <p> 示例值：6862995757234914824
-         */
+     /**
+      * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
+      * <p> 示例值：6862995757234914824
+      */
         private String countryRegionId;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
+     /**
+      * 状态
+      * <p> 示例值：1
+      */
         private Integer status;
-        /**
-         * 创建时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：2020-01-01 00:00:00
+      */
         private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2024-01-01 00:00:00
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：2024-01-01 00:00:00
+      */
         private String updateTime;
 
         /**
          * 银行 ID
          * <p> 示例值：MDBH00000080
-         *
          * @param bankId
          * @return
          */
         public Builder bankId(String bankId) {
-            this.bankId = bankId;
-            return this;
+             this.bankId = bankId;
+             return this;
         }
 
+    
 
         /**
          * 银行名称
          * <p> 示例值：
-         *
          * @param bankName
          * @return
          */
         public Builder bankName(I18n[] bankName) {
-            this.bankName = bankName;
-            return this;
+             this.bankName = bankName;
+             return this;
         }
 
+    
 
         /**
          * 总行代码
          * <p> 示例值：CMB
-         *
          * @param bankCode
          * @return
          */
         public Builder bankCode(String bankCode) {
-            this.bankCode = bankCode;
-            return this;
+             this.bankCode = bankCode;
+             return this;
         }
 
+    
 
         /**
          * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
          * <p> 示例值：6862995757234914824
-         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
+             this.countryRegionId = countryRegionId;
+             return this;
         }
 
+    
 
         /**
          * 状态
          * <p> 示例值：1
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 状态
          * <p> 示例值：1
-         *
          * @param status {@link com.lark.oapi.service.corehr.v2.enums.BankBasicDataObjStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.corehr.v2.enums.BankBasicDataObjStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：2020-01-01 00:00:00
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：2024-01-01 00:00:00
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
+    
+    public Bank build(){
+        return new Bank(this);
+      }
+    }
 
-        public Bank build() {
-            return new Bank(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

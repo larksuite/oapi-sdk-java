@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateChatButtonReqBody {
-    /**
-     * 用户 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 用户 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("user_ids")
     private String[] userIds;
-    /**
-     * 群 ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     */
+     /**
+      * 群 ID
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * 按钮
-     * <p> 示例值：
-     */
+     /**
+      * 按钮
+      * <p> 示例值：
+      */
     @SerializedName("buttons")
     private OpenAppFeedCardButtons buttons;
-    /**
-     * Bot id
-     * <p> 示例值：6691086414609645828
-     */
+     /**
+      * Bot id
+      * <p> 示例值：6691086414609645828
+      */
     @SerializedName("bot_id")
     private String botId;
-
-    // builder 开始
-    public UpdateChatButtonReqBody() {
-    }
-
-    public UpdateChatButtonReqBody(Builder builder) {
-        /**
-         * 用户 ID 列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 群 ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 按钮
-         * <p> 示例值：
-         */
-        this.buttons = builder.buttons;
-        /**
-         * Bot id
-         * <p> 示例值：6691086414609645828
-         */
-        this.botId = builder.botId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getUserIds() {
         return this.userIds;
     }
@@ -117,82 +81,113 @@ public class UpdateChatButtonReqBody {
         this.botId = botId;
     }
 
+
+// builder 开始
+  public UpdateChatButtonReqBody(){}
+
+  public UpdateChatButtonReqBody(Builder builder){
+         /**
+          * 用户 ID 列表
+          * <p> 示例值：
+          */
+      this.userIds = builder.userIds;
+         /**
+          * 群 ID
+          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+          */
+      this.chatId = builder.chatId;
+         /**
+          * 按钮
+          * <p> 示例值：
+          */
+      this.buttons = builder.buttons;
+         /**
+          * Bot id
+          * <p> 示例值：6691086414609645828
+          */
+      this.botId = builder.botId;
+  }
+
     public static class Builder {
-        /**
-         * 用户 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 用户 ID 列表
+      * <p> 示例值：
+      */
         private String[] userIds;
-        /**
-         * 群 ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
+     /**
+      * 群 ID
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+      */
         private String chatId;
-        /**
-         * 按钮
-         * <p> 示例值：
-         */
+     /**
+      * 按钮
+      * <p> 示例值：
+      */
         private OpenAppFeedCardButtons buttons;
-        /**
-         * Bot id
-         * <p> 示例值：6691086414609645828
-         */
+     /**
+      * Bot id
+      * <p> 示例值：6691086414609645828
+      */
         private String botId;
 
         /**
          * 用户 ID 列表
          * <p> 示例值：
-         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
+             this.userIds = userIds;
+             return this;
         }
 
+    
 
         /**
          * 群 ID
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
          * @param chatId
          * @return
          */
         public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
+             this.chatId = chatId;
+             return this;
         }
 
+    
 
         /**
          * 按钮
          * <p> 示例值：
-         *
          * @param buttons
          * @return
          */
         public Builder buttons(OpenAppFeedCardButtons buttons) {
-            this.buttons = buttons;
-            return this;
+             this.buttons = buttons;
+             return this;
         }
 
+    
 
         /**
          * Bot id
          * <p> 示例值：6691086414609645828
-         *
          * @param botId
          * @return
          */
         public Builder botId(String botId) {
-            this.botId = botId;
-            return this;
+             this.botId = botId;
+             return this;
         }
 
+    
+    
+    public UpdateChatButtonReqBody build(){
+        return new UpdateChatButtonReqBody(this);
+      }
+    }
 
-        public UpdateChatButtonReqBody build() {
-            return new UpdateChatButtonReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

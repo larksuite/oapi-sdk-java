@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BackgroundCheckOrderCreator {
-    /**
-     * 创建人ID
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 创建人ID
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("user_id")
     private String userId;
-
-    // builder 开始
-    public BackgroundCheckOrderCreator() {
-    }
-
-    public BackgroundCheckOrderCreator(Builder builder) {
-        /**
-         * 创建人ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -59,28 +38,44 @@ public class BackgroundCheckOrderCreator {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public BackgroundCheckOrderCreator(){}
+
+  public BackgroundCheckOrderCreator(Builder builder){
+         /**
+          * 创建人ID
+          * <p> 示例值：6930815272790114324
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * 创建人ID
-         * <p> 示例值：6930815272790114324
-         */
+     /**
+      * 创建人ID
+      * <p> 示例值：6930815272790114324
+      */
         private String userId;
 
         /**
          * 创建人ID
          * <p> 示例值：6930815272790114324
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public BackgroundCheckOrderCreator build(){
+        return new BackgroundCheckOrderCreator(this);
+      }
+    }
 
-        public BackgroundCheckOrderCreator build() {
-            return new BackgroundCheckOrderCreator(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

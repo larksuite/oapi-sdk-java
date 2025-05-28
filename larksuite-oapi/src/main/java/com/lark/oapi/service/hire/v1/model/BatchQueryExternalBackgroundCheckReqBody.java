@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchQueryExternalBackgroundCheckReqBody {
-    /**
-     * 外部背调 ID 列表,当传递此值时,以此值为准
-     * <p> 示例值：6960663240925956660
-     */
+     /**
+      * 外部背调 ID 列表,当传递此值时,以此值为准
+      * <p> 示例值：6960663240925956660
+      */
     @SerializedName("external_background_check_id_list")
     private String[] externalBackgroundCheckIdList;
-
-    // builder 开始
-    public BatchQueryExternalBackgroundCheckReqBody() {
-    }
-
-    public BatchQueryExternalBackgroundCheckReqBody(Builder builder) {
-        /**
-         * 外部背调 ID 列表,当传递此值时,以此值为准
-         * <p> 示例值：6960663240925956660
-         */
-        this.externalBackgroundCheckIdList = builder.externalBackgroundCheckIdList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getExternalBackgroundCheckIdList() {
         return this.externalBackgroundCheckIdList;
     }
@@ -59,28 +38,44 @@ public class BatchQueryExternalBackgroundCheckReqBody {
         this.externalBackgroundCheckIdList = externalBackgroundCheckIdList;
     }
 
+
+// builder 开始
+  public BatchQueryExternalBackgroundCheckReqBody(){}
+
+  public BatchQueryExternalBackgroundCheckReqBody(Builder builder){
+         /**
+          * 外部背调 ID 列表,当传递此值时,以此值为准
+          * <p> 示例值：6960663240925956660
+          */
+      this.externalBackgroundCheckIdList = builder.externalBackgroundCheckIdList;
+  }
+
     public static class Builder {
-        /**
-         * 外部背调 ID 列表,当传递此值时,以此值为准
-         * <p> 示例值：6960663240925956660
-         */
+     /**
+      * 外部背调 ID 列表,当传递此值时,以此值为准
+      * <p> 示例值：6960663240925956660
+      */
         private String[] externalBackgroundCheckIdList;
 
         /**
          * 外部背调 ID 列表,当传递此值时,以此值为准
          * <p> 示例值：6960663240925956660
-         *
          * @param externalBackgroundCheckIdList
          * @return
          */
         public Builder externalBackgroundCheckIdList(String[] externalBackgroundCheckIdList) {
-            this.externalBackgroundCheckIdList = externalBackgroundCheckIdList;
-            return this;
+             this.externalBackgroundCheckIdList = externalBackgroundCheckIdList;
+             return this;
         }
 
+    
+    
+    public BatchQueryExternalBackgroundCheckReqBody build(){
+        return new BatchQueryExternalBackgroundCheckReqBody(this);
+      }
+    }
 
-        public BatchQueryExternalBackgroundCheckReqBody build() {
-            return new BatchQueryExternalBackgroundCheckReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

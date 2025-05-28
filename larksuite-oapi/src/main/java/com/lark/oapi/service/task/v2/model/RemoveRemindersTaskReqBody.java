@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RemoveRemindersTaskReqBody {
-    /**
-     * 要移除的reminder的id列表
-     * <p> 示例值：
-     */
+     /**
+      * 要移除的reminder的id列表
+      * <p> 示例值：
+      */
     @SerializedName("reminder_ids")
     private String[] reminderIds;
-
-    // builder 开始
-    public RemoveRemindersTaskReqBody() {
-    }
-
-    public RemoveRemindersTaskReqBody(Builder builder) {
-        /**
-         * 要移除的reminder的id列表
-         * <p> 示例值：
-         */
-        this.reminderIds = builder.reminderIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getReminderIds() {
         return this.reminderIds;
     }
@@ -60,28 +39,44 @@ public class RemoveRemindersTaskReqBody {
         this.reminderIds = reminderIds;
     }
 
+
+// builder 开始
+  public RemoveRemindersTaskReqBody(){}
+
+  public RemoveRemindersTaskReqBody(Builder builder){
+         /**
+          * 要移除的reminder的id列表
+          * <p> 示例值：
+          */
+      this.reminderIds = builder.reminderIds;
+  }
+
     public static class Builder {
-        /**
-         * 要移除的reminder的id列表
-         * <p> 示例值：
-         */
+     /**
+      * 要移除的reminder的id列表
+      * <p> 示例值：
+      */
         private String[] reminderIds;
 
         /**
          * 要移除的reminder的id列表
          * <p> 示例值：
-         *
          * @param reminderIds
          * @return
          */
         public Builder reminderIds(String[] reminderIds) {
-            this.reminderIds = reminderIds;
-            return this;
+             this.reminderIds = reminderIds;
+             return this;
         }
 
+    
+    
+    public RemoveRemindersTaskReqBody build(){
+        return new RemoveRemindersTaskReqBody(this);
+      }
+    }
 
-        public RemoveRemindersTaskReqBody build() {
-            return new RemoveRemindersTaskReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

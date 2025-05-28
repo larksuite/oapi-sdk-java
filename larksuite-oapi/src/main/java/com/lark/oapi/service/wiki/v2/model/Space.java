@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Space {
-    /**
-     * 知识空间名称
-     * <p> 示例值：知识空间
-     */
+     /**
+      * 知识空间名称
+      * <p> 示例值：知识空间
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 知识空间描述
-     * <p> 示例值：知识空间描述
-     */
+     /**
+      * 知识空间描述
+      * <p> 示例值：知识空间描述
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 知识空间id
-     * <p> 示例值：6946843325487456878
-     */
+     /**
+      * 知识空间id
+      * <p> 示例值：6946843325487456878
+      */
     @SerializedName("space_id")
     private String spaceId;
-    /**
-     * 表示知识空间类型（团队空间 或 个人空间）
-     * <p> 示例值：team
-     */
+     /**
+      * 表示知识空间类型（团队空间 或 个人空间）
+      * <p> 示例值：team
+      */
     @SerializedName("space_type")
     private String spaceType;
-    /**
-     * 表示知识空间可见性（公开空间 或 私有空间）
-     * <p> 示例值：private
-     */
+     /**
+      * 表示知识空间可见性（公开空间 或 私有空间）
+      * <p> 示例值：private
+      */
     @SerializedName("visibility")
     private String visibility;
-    /**
-     * 表示知识空间的分享状态
-     * <p> 示例值：open
-     */
+     /**
+      * 表示知识空间的分享状态
+      * <p> 示例值：open
+      */
     @SerializedName("open_sharing")
     private String openSharing;
-
-    // builder 开始
-    public Space() {
-    }
-
-    public Space(Builder builder) {
-        /**
-         * 知识空间名称
-         * <p> 示例值：知识空间
-         */
-        this.name = builder.name;
-        /**
-         * 知识空间描述
-         * <p> 示例值：知识空间描述
-         */
-        this.description = builder.description;
-        /**
-         * 知识空间id
-         * <p> 示例值：6946843325487456878
-         */
-        this.spaceId = builder.spaceId;
-        /**
-         * 表示知识空间类型（团队空间 或 个人空间）
-         * <p> 示例值：team
-         */
-        this.spaceType = builder.spaceType;
-        /**
-         * 表示知识空间可见性（公开空间 或 私有空间）
-         * <p> 示例值：private
-         */
-        this.visibility = builder.visibility;
-        /**
-         * 表示知识空间的分享状态
-         * <p> 示例值：open
-         */
-        this.openSharing = builder.openSharing;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -155,154 +109,189 @@ public class Space {
         this.openSharing = openSharing;
     }
 
+
+// builder 开始
+  public Space(){}
+
+  public Space(Builder builder){
+         /**
+          * 知识空间名称
+          * <p> 示例值：知识空间
+          */
+      this.name = builder.name;
+         /**
+          * 知识空间描述
+          * <p> 示例值：知识空间描述
+          */
+      this.description = builder.description;
+         /**
+          * 知识空间id
+          * <p> 示例值：6946843325487456878
+          */
+      this.spaceId = builder.spaceId;
+         /**
+          * 表示知识空间类型（团队空间 或 个人空间）
+          * <p> 示例值：team
+          */
+      this.spaceType = builder.spaceType;
+         /**
+          * 表示知识空间可见性（公开空间 或 私有空间）
+          * <p> 示例值：private
+          */
+      this.visibility = builder.visibility;
+         /**
+          * 表示知识空间的分享状态
+          * <p> 示例值：open
+          */
+      this.openSharing = builder.openSharing;
+  }
+
     public static class Builder {
-        /**
-         * 知识空间名称
-         * <p> 示例值：知识空间
-         */
+     /**
+      * 知识空间名称
+      * <p> 示例值：知识空间
+      */
         private String name;
-        /**
-         * 知识空间描述
-         * <p> 示例值：知识空间描述
-         */
+     /**
+      * 知识空间描述
+      * <p> 示例值：知识空间描述
+      */
         private String description;
-        /**
-         * 知识空间id
-         * <p> 示例值：6946843325487456878
-         */
+     /**
+      * 知识空间id
+      * <p> 示例值：6946843325487456878
+      */
         private String spaceId;
-        /**
-         * 表示知识空间类型（团队空间 或 个人空间）
-         * <p> 示例值：team
-         */
+     /**
+      * 表示知识空间类型（团队空间 或 个人空间）
+      * <p> 示例值：team
+      */
         private String spaceType;
-        /**
-         * 表示知识空间可见性（公开空间 或 私有空间）
-         * <p> 示例值：private
-         */
+     /**
+      * 表示知识空间可见性（公开空间 或 私有空间）
+      * <p> 示例值：private
+      */
         private String visibility;
-        /**
-         * 表示知识空间的分享状态
-         * <p> 示例值：open
-         */
+     /**
+      * 表示知识空间的分享状态
+      * <p> 示例值：open
+      */
         private String openSharing;
 
         /**
          * 知识空间名称
          * <p> 示例值：知识空间
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 知识空间描述
          * <p> 示例值：知识空间描述
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 知识空间id
          * <p> 示例值：6946843325487456878
-         *
          * @param spaceId
          * @return
          */
         public Builder spaceId(String spaceId) {
-            this.spaceId = spaceId;
-            return this;
+             this.spaceId = spaceId;
+             return this;
         }
 
+    
 
         /**
          * 表示知识空间类型（团队空间 或 个人空间）
          * <p> 示例值：team
-         *
          * @param spaceType
          * @return
          */
         public Builder spaceType(String spaceType) {
-            this.spaceType = spaceType;
-            return this;
+             this.spaceType = spaceType;
+             return this;
         }
-
         /**
          * 表示知识空间类型（团队空间 或 个人空间）
          * <p> 示例值：team
-         *
          * @param spaceType {@link com.lark.oapi.service.wiki.v2.enums.SpaceSpaceTypeEnum}
          * @return
          */
         public Builder spaceType(com.lark.oapi.service.wiki.v2.enums.SpaceSpaceTypeEnum spaceType) {
-            this.spaceType = spaceType.getValue();
-            return this;
+             this.spaceType = spaceType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 表示知识空间可见性（公开空间 或 私有空间）
          * <p> 示例值：private
-         *
          * @param visibility
          * @return
          */
         public Builder visibility(String visibility) {
-            this.visibility = visibility;
-            return this;
+             this.visibility = visibility;
+             return this;
         }
-
         /**
          * 表示知识空间可见性（公开空间 或 私有空间）
          * <p> 示例值：private
-         *
          * @param visibility {@link com.lark.oapi.service.wiki.v2.enums.SpaceSpaceVisibilityEnum}
          * @return
          */
         public Builder visibility(com.lark.oapi.service.wiki.v2.enums.SpaceSpaceVisibilityEnum visibility) {
-            this.visibility = visibility.getValue();
-            return this;
+             this.visibility = visibility.getValue();
+             return this;
         }
 
+    
 
         /**
          * 表示知识空间的分享状态
          * <p> 示例值：open
-         *
          * @param openSharing
          * @return
          */
         public Builder openSharing(String openSharing) {
-            this.openSharing = openSharing;
-            return this;
+             this.openSharing = openSharing;
+             return this;
         }
-
         /**
          * 表示知识空间的分享状态
          * <p> 示例值：open
-         *
          * @param openSharing {@link com.lark.oapi.service.wiki.v2.enums.SpaceOpenSharingEnum}
          * @return
          */
         public Builder openSharing(com.lark.oapi.service.wiki.v2.enums.SpaceOpenSharingEnum openSharing) {
-            this.openSharing = openSharing.getValue();
-            return this;
+             this.openSharing = openSharing.getValue();
+             return this;
         }
 
+    
+    
+    public Space build(){
+        return new Space(this);
+      }
+    }
 
-        public Space build() {
-            return new Space(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

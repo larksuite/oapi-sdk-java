@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApplicationOfferAttachment {
-    /**
-     * 附件ID
-     * <p> 示例值：
-     */
+     /**
+      * 附件ID
+      * <p> 示例值：
+      */
     @SerializedName("attachment_id")
     private String attachmentId;
-    /**
-     * 名字
-     * <p> 示例值：
-     */
+     /**
+      * 名字
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public ApplicationOfferAttachment() {
-    }
-
-    public ApplicationOfferAttachment(Builder builder) {
-        /**
-         * 附件ID
-         * <p> 示例值：
-         */
-        this.attachmentId = builder.attachmentId;
-        /**
-         * 名字
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAttachmentId() {
         return this.attachmentId;
     }
@@ -78,46 +52,67 @@ public class ApplicationOfferAttachment {
         this.name = name;
     }
 
+
+// builder 开始
+  public ApplicationOfferAttachment(){}
+
+  public ApplicationOfferAttachment(Builder builder){
+         /**
+          * 附件ID
+          * <p> 示例值：
+          */
+      this.attachmentId = builder.attachmentId;
+         /**
+          * 名字
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 附件ID
-         * <p> 示例值：
-         */
+     /**
+      * 附件ID
+      * <p> 示例值：
+      */
         private String attachmentId;
-        /**
-         * 名字
-         * <p> 示例值：
-         */
+     /**
+      * 名字
+      * <p> 示例值：
+      */
         private String name;
 
         /**
          * 附件ID
          * <p> 示例值：
-         *
          * @param attachmentId
          * @return
          */
         public Builder attachmentId(String attachmentId) {
-            this.attachmentId = attachmentId;
-            return this;
+             this.attachmentId = attachmentId;
+             return this;
         }
 
+    
 
         /**
          * 名字
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public ApplicationOfferAttachment build(){
+        return new ApplicationOfferAttachment(this);
+      }
+    }
 
-        public ApplicationOfferAttachment build() {
-            return new ApplicationOfferAttachment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

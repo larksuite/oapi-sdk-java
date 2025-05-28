@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DisplayStatus {
-    /**
-     * 是否允许在 IM 和 Doc 等场景进行高亮提示
-     * <p> 示例值：true
-     */
+     /**
+      * 是否允许在 IM 和 Doc 等场景进行高亮提示
+      * <p> 示例值：true
+      */
     @SerializedName("allow_highlight")
     private Boolean allowHighlight;
-    /**
-     * 是否允许在飞书中被搜索到
-     * <p> 示例值：true
-     */
+     /**
+      * 是否允许在飞书中被搜索到
+      * <p> 示例值：true
+      */
     @SerializedName("allow_search")
     private Boolean allowSearch;
-
-    // builder 开始
-    public DisplayStatus() {
-    }
-
-    public DisplayStatus(Builder builder) {
-        /**
-         * 是否允许在 IM 和 Doc 等场景进行高亮提示
-         * <p> 示例值：true
-         */
-        this.allowHighlight = builder.allowHighlight;
-        /**
-         * 是否允许在飞书中被搜索到
-         * <p> 示例值：true
-         */
-        this.allowSearch = builder.allowSearch;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getAllowHighlight() {
         return this.allowHighlight;
     }
@@ -79,46 +53,67 @@ public class DisplayStatus {
         this.allowSearch = allowSearch;
     }
 
+
+// builder 开始
+  public DisplayStatus(){}
+
+  public DisplayStatus(Builder builder){
+         /**
+          * 是否允许在 IM 和 Doc 等场景进行高亮提示
+          * <p> 示例值：true
+          */
+      this.allowHighlight = builder.allowHighlight;
+         /**
+          * 是否允许在飞书中被搜索到
+          * <p> 示例值：true
+          */
+      this.allowSearch = builder.allowSearch;
+  }
+
     public static class Builder {
-        /**
-         * 是否允许在 IM 和 Doc 等场景进行高亮提示
-         * <p> 示例值：true
-         */
+     /**
+      * 是否允许在 IM 和 Doc 等场景进行高亮提示
+      * <p> 示例值：true
+      */
         private Boolean allowHighlight;
-        /**
-         * 是否允许在飞书中被搜索到
-         * <p> 示例值：true
-         */
+     /**
+      * 是否允许在飞书中被搜索到
+      * <p> 示例值：true
+      */
         private Boolean allowSearch;
 
         /**
          * 是否允许在 IM 和 Doc 等场景进行高亮提示
          * <p> 示例值：true
-         *
          * @param allowHighlight
          * @return
          */
         public Builder allowHighlight(Boolean allowHighlight) {
-            this.allowHighlight = allowHighlight;
-            return this;
+             this.allowHighlight = allowHighlight;
+             return this;
         }
 
+    
 
         /**
          * 是否允许在飞书中被搜索到
          * <p> 示例值：true
-         *
          * @param allowSearch
          * @return
          */
         public Builder allowSearch(Boolean allowSearch) {
-            this.allowSearch = allowSearch;
-            return this;
+             this.allowSearch = allowSearch;
+             return this;
         }
 
+    
+    
+    public DisplayStatus build(){
+        return new DisplayStatus(this);
+      }
+    }
 
-        public DisplayStatus build() {
-            return new DisplayStatus(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

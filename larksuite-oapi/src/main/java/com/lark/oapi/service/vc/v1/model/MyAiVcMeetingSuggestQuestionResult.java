@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MyAiVcMeetingSuggestQuestionResult {
-    /**
-     * 推荐问题的卡片
-     * <p> 示例值：{"type": "card","body": "xxxxxx","callback_info": ""}
-     */
+     /**
+      * 推荐问题的卡片
+      * <p> 示例值：{"type": "card","body": "xxxxxx","callback_info": ""}
+      */
     @SerializedName("present")
     private String present;
-
-    // builder 开始
-    public MyAiVcMeetingSuggestQuestionResult() {
-    }
-
-    public MyAiVcMeetingSuggestQuestionResult(Builder builder) {
-        /**
-         * 推荐问题的卡片
-         * <p> 示例值：{"type": "card","body": "xxxxxx","callback_info": ""}
-         */
-        this.present = builder.present;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPresent() {
         return this.present;
     }
@@ -60,28 +39,44 @@ public class MyAiVcMeetingSuggestQuestionResult {
         this.present = present;
     }
 
+
+// builder 开始
+  public MyAiVcMeetingSuggestQuestionResult(){}
+
+  public MyAiVcMeetingSuggestQuestionResult(Builder builder){
+         /**
+          * 推荐问题的卡片
+          * <p> 示例值：{"type": "card","body": "xxxxxx","callback_info": ""}
+          */
+      this.present = builder.present;
+  }
+
     public static class Builder {
-        /**
-         * 推荐问题的卡片
-         * <p> 示例值：{"type": "card","body": "xxxxxx","callback_info": ""}
-         */
+     /**
+      * 推荐问题的卡片
+      * <p> 示例值：{"type": "card","body": "xxxxxx","callback_info": ""}
+      */
         private String present;
 
         /**
          * 推荐问题的卡片
          * <p> 示例值：{"type": "card","body": "xxxxxx","callback_info": ""}
-         *
          * @param present
          * @return
          */
         public Builder present(String present) {
-            this.present = present;
-            return this;
+             this.present = present;
+             return this;
         }
 
+    
+    
+    public MyAiVcMeetingSuggestQuestionResult build(){
+        return new MyAiVcMeetingSuggestQuestionResult(this);
+      }
+    }
 
-        public MyAiVcMeetingSuggestQuestionResult build() {
-            return new MyAiVcMeetingSuggestQuestionResult(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

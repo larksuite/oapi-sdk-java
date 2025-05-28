@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Notification {
-    /**
-     * 幂等建
-     * <p> 示例值：0cbd65e0-c7ab-4e9f-a80c-be29dd21df8f
-     */
+     /**
+      * 幂等建
+      * <p> 示例值：0cbd65e0-c7ab-4e9f-a80c-be29dd21df8f
+      */
     @SerializedName("idempotent_key")
     private String idempotentKey;
-    /**
-     * 通知内容
-     * <p> 示例值：
-     */
+     /**
+      * 通知内容
+      * <p> 示例值：
+      */
     @SerializedName("content")
     private String content;
-
-    // builder 开始
-    public Notification() {
-    }
-
-    public Notification(Builder builder) {
-        /**
-         * 幂等建
-         * <p> 示例值：0cbd65e0-c7ab-4e9f-a80c-be29dd21df8f
-         */
-        this.idempotentKey = builder.idempotentKey;
-        /**
-         * 通知内容
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getIdempotentKey() {
         return this.idempotentKey;
     }
@@ -79,46 +53,67 @@ public class Notification {
         this.content = content;
     }
 
+
+// builder 开始
+  public Notification(){}
+
+  public Notification(Builder builder){
+         /**
+          * 幂等建
+          * <p> 示例值：0cbd65e0-c7ab-4e9f-a80c-be29dd21df8f
+          */
+      this.idempotentKey = builder.idempotentKey;
+         /**
+          * 通知内容
+          * <p> 示例值：
+          */
+      this.content = builder.content;
+  }
+
     public static class Builder {
-        /**
-         * 幂等建
-         * <p> 示例值：0cbd65e0-c7ab-4e9f-a80c-be29dd21df8f
-         */
+     /**
+      * 幂等建
+      * <p> 示例值：0cbd65e0-c7ab-4e9f-a80c-be29dd21df8f
+      */
         private String idempotentKey;
-        /**
-         * 通知内容
-         * <p> 示例值：
-         */
+     /**
+      * 通知内容
+      * <p> 示例值：
+      */
         private String content;
 
         /**
          * 幂等建
          * <p> 示例值：0cbd65e0-c7ab-4e9f-a80c-be29dd21df8f
-         *
          * @param idempotentKey
          * @return
          */
         public Builder idempotentKey(String idempotentKey) {
-            this.idempotentKey = idempotentKey;
-            return this;
+             this.idempotentKey = idempotentKey;
+             return this;
         }
 
+    
 
         /**
          * 通知内容
          * <p> 示例值：
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
+    
+    public Notification build(){
+        return new Notification(this);
+      }
+    }
 
-        public Notification build() {
-            return new Notification(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

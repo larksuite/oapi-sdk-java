@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TableMeta {
-    /**
-     * 行数
-     * <p> 示例值：3
-     */
+     /**
+      * 行数
+      * <p> 示例值：3
+      */
     @SerializedName("row_num")
     private Integer rowNum;
-    /**
-     * 列数
-     * <p> 示例值：3
-     */
+     /**
+      * 列数
+      * <p> 示例值：3
+      */
     @SerializedName("col_num")
     private Integer colNum;
-
-    // builder 开始
-    public TableMeta() {
-    }
-
-    public TableMeta(Builder builder) {
-        /**
-         * 行数
-         * <p> 示例值：3
-         */
-        this.rowNum = builder.rowNum;
-        /**
-         * 列数
-         * <p> 示例值：3
-         */
-        this.colNum = builder.colNum;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getRowNum() {
         return this.rowNum;
     }
@@ -79,46 +53,67 @@ public class TableMeta {
         this.colNum = colNum;
     }
 
+
+// builder 开始
+  public TableMeta(){}
+
+  public TableMeta(Builder builder){
+         /**
+          * 行数
+          * <p> 示例值：3
+          */
+      this.rowNum = builder.rowNum;
+         /**
+          * 列数
+          * <p> 示例值：3
+          */
+      this.colNum = builder.colNum;
+  }
+
     public static class Builder {
-        /**
-         * 行数
-         * <p> 示例值：3
-         */
+     /**
+      * 行数
+      * <p> 示例值：3
+      */
         private Integer rowNum;
-        /**
-         * 列数
-         * <p> 示例值：3
-         */
+     /**
+      * 列数
+      * <p> 示例值：3
+      */
         private Integer colNum;
 
         /**
          * 行数
          * <p> 示例值：3
-         *
          * @param rowNum
          * @return
          */
         public Builder rowNum(Integer rowNum) {
-            this.rowNum = rowNum;
-            return this;
+             this.rowNum = rowNum;
+             return this;
         }
 
+    
 
         /**
          * 列数
          * <p> 示例值：3
-         *
          * @param colNum
          * @return
          */
         public Builder colNum(Integer colNum) {
-            this.colNum = colNum;
-            return this;
+             this.colNum = colNum;
+             return this;
         }
 
+    
+    
+    public TableMeta build(){
+        return new TableMeta(this);
+      }
+    }
 
-        public TableMeta build() {
-            return new TableMeta(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

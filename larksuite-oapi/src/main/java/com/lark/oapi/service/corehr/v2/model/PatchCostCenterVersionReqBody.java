@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchCostCenterVersionReqBody {
-    /**
-     * 成本中心名称
-     * <p> 示例值：
-     */
+     /**
+      * 成本中心名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n[] name;
-    /**
-     * 上级成本中心ID
-     * <p> 示例值：6862995757234914824
-     */
+     /**
+      * 上级成本中心ID
+      * <p> 示例值：6862995757234914824
+      */
     @SerializedName("parent_cost_center_id")
     private String parentCostCenterId;
-    /**
-     * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-     * <p> 示例值：
-     */
+     /**
+      * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
+      * <p> 示例值：
+      */
     @SerializedName("managers")
     private String[] managers;
-    /**
-     * 成本中心描述
-     * <p> 示例值：
-     */
+     /**
+      * 成本中心描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private I18n[] description;
-    /**
-     * 生效时间
-     * <p> 示例值：2020-01-01
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-01-01
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 操作原因
-     * <p> 示例值：强行操作
-     */
+     /**
+      * 操作原因
+      * <p> 示例值：强行操作
+      */
     @SerializedName("operation_reason")
     private String operationReason;
-
-    // builder 开始
-    public PatchCostCenterVersionReqBody() {
-    }
-
-    public PatchCostCenterVersionReqBody(Builder builder) {
-        /**
-         * 成本中心名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 上级成本中心ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.parentCostCenterId = builder.parentCostCenterId;
-        /**
-         * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-         * <p> 示例值：
-         */
-        this.managers = builder.managers;
-        /**
-         * 成本中心描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         */
-        this.operationReason = builder.operationReason;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public I18n[] getName() {
         return this.name;
     }
@@ -155,118 +109,159 @@ public class PatchCostCenterVersionReqBody {
         this.operationReason = operationReason;
     }
 
+
+// builder 开始
+  public PatchCostCenterVersionReqBody(){}
+
+  public PatchCostCenterVersionReqBody(Builder builder){
+         /**
+          * 成本中心名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 上级成本中心ID
+          * <p> 示例值：6862995757234914824
+          */
+      this.parentCostCenterId = builder.parentCostCenterId;
+         /**
+          * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
+          * <p> 示例值：
+          */
+      this.managers = builder.managers;
+         /**
+          * 成本中心描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 生效时间
+          * <p> 示例值：2020-01-01
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 操作原因
+          * <p> 示例值：强行操作
+          */
+      this.operationReason = builder.operationReason;
+  }
+
     public static class Builder {
-        /**
-         * 成本中心名称
-         * <p> 示例值：
-         */
+     /**
+      * 成本中心名称
+      * <p> 示例值：
+      */
         private I18n[] name;
-        /**
-         * 上级成本中心ID
-         * <p> 示例值：6862995757234914824
-         */
+     /**
+      * 上级成本中心ID
+      * <p> 示例值：6862995757234914824
+      */
         private String parentCostCenterId;
-        /**
-         * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-         * <p> 示例值：
-         */
+     /**
+      * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
+      * <p> 示例值：
+      */
         private String[] managers;
-        /**
-         * 成本中心描述
-         * <p> 示例值：
-         */
+     /**
+      * 成本中心描述
+      * <p> 示例值：
+      */
         private I18n[] description;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-01-01
+      */
         private String effectiveTime;
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         */
+     /**
+      * 操作原因
+      * <p> 示例值：强行操作
+      */
         private String operationReason;
 
         /**
          * 成本中心名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 上级成本中心ID
          * <p> 示例值：6862995757234914824
-         *
          * @param parentCostCenterId
          * @return
          */
         public Builder parentCostCenterId(String parentCostCenterId) {
-            this.parentCostCenterId = parentCostCenterId;
-            return this;
+             this.parentCostCenterId = parentCostCenterId;
+             return this;
         }
 
+    
 
         /**
          * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
          * <p> 示例值：
-         *
          * @param managers
          * @return
          */
         public Builder managers(String[] managers) {
-            this.managers = managers;
-            return this;
+             this.managers = managers;
+             return this;
         }
 
+    
 
         /**
          * 成本中心描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 生效时间
          * <p> 示例值：2020-01-01
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 操作原因
          * <p> 示例值：强行操作
-         *
          * @param operationReason
          * @return
          */
         public Builder operationReason(String operationReason) {
-            this.operationReason = operationReason;
-            return this;
+             this.operationReason = operationReason;
+             return this;
         }
 
+    
+    
+    public PatchCostCenterVersionReqBody build(){
+        return new PatchCostCenterVersionReqBody(this);
+      }
+    }
 
-        public PatchCostCenterVersionReqBody build() {
-            return new PatchCostCenterVersionReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

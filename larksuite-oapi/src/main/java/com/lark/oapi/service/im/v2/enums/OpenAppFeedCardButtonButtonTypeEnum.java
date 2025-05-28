@@ -17,17 +17,16 @@ package com.lark.oapi.service.im.v2.enums;
  * 按钮类型
  */
 public enum OpenAppFeedCardButtonButtonTypeEnum {
-    DEFAULT("default"), // 默认
-    PRIMARY("primary"), // 主要
-    SUCCESS("success"), // 成功
-    ;
-    private String value;
-
+     DEFAULT("default"), // 默认
+     PRIMARY("primary"), // 主要
+     SUCCESS("success"), // 成功
+  ;
+   private String value;
     OpenAppFeedCardButtonButtonTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

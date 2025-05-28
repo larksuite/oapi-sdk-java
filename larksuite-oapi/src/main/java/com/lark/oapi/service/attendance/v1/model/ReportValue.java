@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReportValue {
-    /**
-     * 结果值
-     * <p> 示例值：1
-     */
+     /**
+      * 结果值
+      * <p> 示例值：1
+      */
     @SerializedName("value")
     private String value;
-    /**
-     * 字段ID
-     * <p> 示例值：1
-     */
+     /**
+      * 字段ID
+      * <p> 示例值：1
+      */
     @SerializedName("field_id")
     private String fieldId;
-
-    // builder 开始
-    public ReportValue() {
-    }
-
-    public ReportValue(Builder builder) {
-        /**
-         * 结果值
-         * <p> 示例值：1
-         */
-        this.value = builder.value;
-        /**
-         * 字段ID
-         * <p> 示例值：1
-         */
-        this.fieldId = builder.fieldId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getValue() {
         return this.value;
     }
@@ -79,46 +53,67 @@ public class ReportValue {
         this.fieldId = fieldId;
     }
 
+
+// builder 开始
+  public ReportValue(){}
+
+  public ReportValue(Builder builder){
+         /**
+          * 结果值
+          * <p> 示例值：1
+          */
+      this.value = builder.value;
+         /**
+          * 字段ID
+          * <p> 示例值：1
+          */
+      this.fieldId = builder.fieldId;
+  }
+
     public static class Builder {
-        /**
-         * 结果值
-         * <p> 示例值：1
-         */
+     /**
+      * 结果值
+      * <p> 示例值：1
+      */
         private String value;
-        /**
-         * 字段ID
-         * <p> 示例值：1
-         */
+     /**
+      * 字段ID
+      * <p> 示例值：1
+      */
         private String fieldId;
 
         /**
          * 结果值
          * <p> 示例值：1
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
 
         /**
          * 字段ID
          * <p> 示例值：1
-         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
+             this.fieldId = fieldId;
+             return this;
         }
 
+    
+    
+    public ReportValue build(){
+        return new ReportValue(this);
+      }
+    }
 
-        public ReportValue build() {
-            return new ReportValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

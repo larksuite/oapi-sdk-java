@@ -12,61 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchWorkingHoursTypeReq {
-    /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
-     */
+     /**
+      * 根据client_token是否一致来判断是否为同一请求
+      * <p> 示例值：12454646
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 工时制度ID
-     * <p> 示例值：1616161616
-     */
-    @Path
-    @SerializedName("working_hours_type_id")
-    private String workingHoursTypeId;
-    @Body
-    private WorkingHoursType body;
-
-    // builder 开始
-    public PatchWorkingHoursTypeReq() {
-    }
-
-    public PatchWorkingHoursTypeReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 工时制度ID
-         * <p> 示例值：1616161616
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getClientToken() {
         return this.clientToken;
     }
@@ -75,6 +39,13 @@ public class PatchWorkingHoursTypeReq {
         this.clientToken = clientToken;
     }
 
+     /**
+      * 工时制度ID
+      * <p> 示例值：1616161616
+      */
+    @Path
+    @SerializedName("working_hours_type_id")
+    private String workingHoursTypeId;
     public String getWorkingHoursTypeId() {
         return this.workingHoursTypeId;
     }
@@ -82,6 +53,9 @@ public class PatchWorkingHoursTypeReq {
     public void setWorkingHoursTypeId(String workingHoursTypeId) {
         this.workingHoursTypeId = workingHoursTypeId;
     }
+
+    @Body
+    private WorkingHoursType body;
 
     public WorkingHoursType getWorkingHoursType() {
         return this.body;
@@ -91,52 +65,72 @@ public class PatchWorkingHoursTypeReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchWorkingHoursTypeReq(){}
+
+  public PatchWorkingHoursTypeReq(Builder builder){
+         /**
+          * 根据client_token是否一致来判断是否为同一请求
+          * <p> 示例值：12454646
+          */
+       this.clientToken = builder.clientToken;
+     /**
+      * 工时制度ID
+      * <p> 示例值：1616161616
+      */
+       this.workingHoursTypeId = builder.workingHoursTypeId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String workingHoursTypeId; // 工时制度ID
-        private WorkingHoursType body;
-
+    
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：12454646
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
+        private String workingHoursTypeId; // 工时制度ID
         /**
          * 工时制度ID
          * <p> 示例值：1616161616
-         *
          * @param workingHoursTypeId
          * @return
          */
-        public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
-        }
+          public Builder workingHoursTypeId(String workingHoursTypeId) {
+               this.workingHoursTypeId = workingHoursTypeId;
+               return this;
+          }
 
+    
+        private WorkingHoursType body;
+    
         public WorkingHoursType getWorkingHoursType() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder workingHoursType(WorkingHoursType body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchWorkingHoursTypeReq build(){
+        return new PatchWorkingHoursTypeReq(this);
+      }
+    }
 
-        public PatchWorkingHoursTypeReq build() {
-            return new PatchWorkingHoursTypeReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,19 +17,17 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.ehr.v1.resource.*;
 
 public class V1 {
-    private final Attachment attachment; // 飞书人事（标准版)
-    private final Employee employee; // 飞书人事（标准版)
+	private final Attachment attachment; // 飞书人事（标准版)
+	private final Employee employee; // 飞书人事（标准版)
 
-    public V1(Config config) {
-        this.attachment = new Attachment(config);
-        this.employee = new Employee(config);
-    }
-
-    public Attachment attachment() {
-        return attachment;
-    }
-
-    public Employee employee() {
-        return employee;
-    }
+	public V1(Config config) {
+		this.attachment = new Attachment(config);
+		this.employee = new Employee(config);
+	}
+	public Attachment attachment() {
+		return attachment;
+	}
+	public Employee employee() {
+		return employee;
+	}
 }

@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchRemoveAuthorizationApplicationRoleMemberReq {
-    /**
-     * 应用命名空间
-     * <p> 示例值：package_test__c
-     */
+     /**
+      * 应用命名空间
+      * <p> 示例值：package_test__c
+      */
     @Path
     @SerializedName("namespace")
     private String namespace;
-    /**
-     * 角色 API 名称
-     * <p> 示例值：adminRole
-     */
+     /**
+      * 角色 API 名称
+      * <p> 示例值：adminRole
+      */
     @Path
     @SerializedName("role_api_name")
     private String roleApiName;
-    @Body
-    private BatchRemoveAuthorizationApplicationRoleMemberReqBody body;
-
-    // builder 开始
-    public BatchRemoveAuthorizationApplicationRoleMemberReq() {
-    }
-
-    public BatchRemoveAuthorizationApplicationRoleMemberReq(Builder builder) {
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 角色 API 名称
-         * <p> 示例值：adminRole
-         */
-        this.roleApiName = builder.roleApiName;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNamespace() {
         return this.namespace;
     }
@@ -83,6 +54,9 @@ public class BatchRemoveAuthorizationApplicationRoleMemberReq {
         this.roleApiName = roleApiName;
     }
 
+    @Body
+    private BatchRemoveAuthorizationApplicationRoleMemberReqBody body;
+
     public BatchRemoveAuthorizationApplicationRoleMemberReqBody getBatchRemoveAuthorizationApplicationRoleMemberReqBody() {
         return this.body;
     }
@@ -91,53 +65,72 @@ public class BatchRemoveAuthorizationApplicationRoleMemberReq {
         this.body = body;
     }
 
-    public static class Builder {
+// builder 开始
+  public BatchRemoveAuthorizationApplicationRoleMemberReq(){}
 
+  public BatchRemoveAuthorizationApplicationRoleMemberReq(Builder builder){
+     /**
+      * 应用命名空间
+      * <p> 示例值：package_test__c
+      */
+       this.namespace = builder.namespace;
+     /**
+      * 角色 API 名称
+      * <p> 示例值：adminRole
+      */
+       this.roleApiName = builder.roleApiName;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+    
         private String namespace; // 应用命名空间
         private String roleApiName; // 角色 API 名称
-        private BatchRemoveAuthorizationApplicationRoleMemberReqBody body;
-
         /**
          * 应用命名空间
          * <p> 示例值：package_test__c
-         *
          * @param namespace
          * @return
          */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
+          public Builder namespace(String namespace) {
+               this.namespace = namespace;
+               return this;
+          }
 
+    
         /**
          * 角色 API 名称
          * <p> 示例值：adminRole
-         *
          * @param roleApiName
          * @return
          */
-        public Builder roleApiName(String roleApiName) {
-            this.roleApiName = roleApiName;
-            return this;
-        }
+          public Builder roleApiName(String roleApiName) {
+               this.roleApiName = roleApiName;
+               return this;
+          }
 
+    
+        private BatchRemoveAuthorizationApplicationRoleMemberReqBody body;
+    
         public BatchRemoveAuthorizationApplicationRoleMemberReqBody getBatchRemoveAuthorizationApplicationRoleMemberReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder batchRemoveAuthorizationApplicationRoleMemberReqBody(BatchRemoveAuthorizationApplicationRoleMemberReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public BatchRemoveAuthorizationApplicationRoleMemberReq build(){
+        return new BatchRemoveAuthorizationApplicationRoleMemberReq(this);
+      }
+    }
 
-        public BatchRemoveAuthorizationApplicationRoleMemberReq build() {
-            return new BatchRemoveAuthorizationApplicationRoleMemberReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ManagementScope {
-    /**
-     * 管理维度;;可选值有：;;- department：部门;- work_location：工作地点;- company：公司;- social_security_location：社保城市
-     * <p> 示例值：department
-     */
+     /**
+      * 管理维度;;可选值有：;;- department：部门;- work_location：工作地点;- company：公司;- social_security_location：社保城市
+      * <p> 示例值：department
+      */
     @SerializedName("management_dimension")
     private String managementDimension;
-    /**
-     * 被授权部门/工作地点/公司/社保城市 ID
-     * <p> 示例值：7023318326176777742
-     */
+     /**
+      * 被授权部门/工作地点/公司/社保城市 ID
+      * <p> 示例值：7023318326176777742
+      */
     @SerializedName("obj_id")
     private String objId;
-
-    // builder 开始
-    public ManagementScope() {
-    }
-
-    public ManagementScope(Builder builder) {
-        /**
-         * 管理维度;;可选值有：;;- department：部门;- work_location：工作地点;- company：公司;- social_security_location：社保城市
-         * <p> 示例值：department
-         */
-        this.managementDimension = builder.managementDimension;
-        /**
-         * 被授权部门/工作地点/公司/社保城市 ID
-         * <p> 示例值：7023318326176777742
-         */
-        this.objId = builder.objId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getManagementDimension() {
         return this.managementDimension;
     }
@@ -79,46 +53,67 @@ public class ManagementScope {
         this.objId = objId;
     }
 
+
+// builder 开始
+  public ManagementScope(){}
+
+  public ManagementScope(Builder builder){
+         /**
+          * 管理维度;;可选值有：;;- department：部门;- work_location：工作地点;- company：公司;- social_security_location：社保城市
+          * <p> 示例值：department
+          */
+      this.managementDimension = builder.managementDimension;
+         /**
+          * 被授权部门/工作地点/公司/社保城市 ID
+          * <p> 示例值：7023318326176777742
+          */
+      this.objId = builder.objId;
+  }
+
     public static class Builder {
-        /**
-         * 管理维度;;可选值有：;;- department：部门;- work_location：工作地点;- company：公司;- social_security_location：社保城市
-         * <p> 示例值：department
-         */
+     /**
+      * 管理维度;;可选值有：;;- department：部门;- work_location：工作地点;- company：公司;- social_security_location：社保城市
+      * <p> 示例值：department
+      */
         private String managementDimension;
-        /**
-         * 被授权部门/工作地点/公司/社保城市 ID
-         * <p> 示例值：7023318326176777742
-         */
+     /**
+      * 被授权部门/工作地点/公司/社保城市 ID
+      * <p> 示例值：7023318326176777742
+      */
         private String objId;
 
         /**
          * 管理维度;;可选值有：;;- department：部门;- work_location：工作地点;- company：公司;- social_security_location：社保城市
          * <p> 示例值：department
-         *
          * @param managementDimension
          * @return
          */
         public Builder managementDimension(String managementDimension) {
-            this.managementDimension = managementDimension;
-            return this;
+             this.managementDimension = managementDimension;
+             return this;
         }
 
+    
 
         /**
          * 被授权部门/工作地点/公司/社保城市 ID
          * <p> 示例值：7023318326176777742
-         *
          * @param objId
          * @return
          */
         public Builder objId(String objId) {
-            this.objId = objId;
-            return this;
+             this.objId = objId;
+             return this;
         }
 
+    
+    
+    public ManagementScope build(){
+        return new ManagementScope(this);
+      }
+    }
 
-        public ManagementScope build() {
-            return new ManagementScope(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

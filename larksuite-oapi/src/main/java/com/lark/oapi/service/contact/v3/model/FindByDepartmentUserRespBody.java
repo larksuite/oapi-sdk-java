@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FindByDepartmentUserRespBody {
-    /**
-     * 是否有下一页数据
-     * <p> 示例值：true
-     */
+     /**
+      * 是否有下一页数据
+      * <p> 示例值：true
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-    /**
-     * 下一页分页的token
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
-     */
+     /**
+      * 下一页分页的token
+      * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 用户信息列表
-     * <p> 示例值：
-     */
+     /**
+      * 用户信息列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private User[] items;
-
     public Boolean getHasMore() {
         return this.hasMore;
     }

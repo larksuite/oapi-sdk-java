@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LocationDistrict {
-    /**
-     * 区/县Code码
-     * <p> 示例值：DS_70
-     */
+     /**
+      * 区/县Code码
+      * <p> 示例值：DS_70
+      */
     @SerializedName("district_code")
     private String districtCode;
-    /**
-     * 市地址Code码
-     * <p> 示例值：CT_1
-     */
+     /**
+      * 市地址Code码
+      * <p> 示例值：CT_1
+      */
     @SerializedName("city_code")
     private String cityCode;
-    /**
-     * 省份/州地址Code码
-     * <p> 示例值：ST_1
-     */
+     /**
+      * 省份/州地址Code码
+      * <p> 示例值：ST_1
+      */
     @SerializedName("state_code")
     private String stateCode;
-    /**
-     * 国家地址Code码
-     * <p> 示例值：CN_1
-     */
+     /**
+      * 国家地址Code码
+      * <p> 示例值：CN_1
+      */
     @SerializedName("country_code")
     private String countryCode;
-    /**
-     * 区/县地址名称信息聚合
-     * <p> 示例值：
-     */
+     /**
+      * 区/县地址名称信息聚合
+      * <p> 示例值：
+      */
     @SerializedName("district_name_info")
     private LocationNameInfo districtNameInfo;
-
-    // builder 开始
-    public LocationDistrict() {
-    }
-
-    public LocationDistrict(Builder builder) {
-        /**
-         * 区/县Code码
-         * <p> 示例值：DS_70
-         */
-        this.districtCode = builder.districtCode;
-        /**
-         * 市地址Code码
-         * <p> 示例值：CT_1
-         */
-        this.cityCode = builder.cityCode;
-        /**
-         * 省份/州地址Code码
-         * <p> 示例值：ST_1
-         */
-        this.stateCode = builder.stateCode;
-        /**
-         * 国家地址Code码
-         * <p> 示例值：CN_1
-         */
-        this.countryCode = builder.countryCode;
-        /**
-         * 区/县地址名称信息聚合
-         * <p> 示例值：
-         */
-        this.districtNameInfo = builder.districtNameInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDistrictCode() {
         return this.districtCode;
     }
@@ -135,100 +94,136 @@ public class LocationDistrict {
         this.districtNameInfo = districtNameInfo;
     }
 
+
+// builder 开始
+  public LocationDistrict(){}
+
+  public LocationDistrict(Builder builder){
+         /**
+          * 区/县Code码
+          * <p> 示例值：DS_70
+          */
+      this.districtCode = builder.districtCode;
+         /**
+          * 市地址Code码
+          * <p> 示例值：CT_1
+          */
+      this.cityCode = builder.cityCode;
+         /**
+          * 省份/州地址Code码
+          * <p> 示例值：ST_1
+          */
+      this.stateCode = builder.stateCode;
+         /**
+          * 国家地址Code码
+          * <p> 示例值：CN_1
+          */
+      this.countryCode = builder.countryCode;
+         /**
+          * 区/县地址名称信息聚合
+          * <p> 示例值：
+          */
+      this.districtNameInfo = builder.districtNameInfo;
+  }
+
     public static class Builder {
-        /**
-         * 区/县Code码
-         * <p> 示例值：DS_70
-         */
+     /**
+      * 区/县Code码
+      * <p> 示例值：DS_70
+      */
         private String districtCode;
-        /**
-         * 市地址Code码
-         * <p> 示例值：CT_1
-         */
+     /**
+      * 市地址Code码
+      * <p> 示例值：CT_1
+      */
         private String cityCode;
-        /**
-         * 省份/州地址Code码
-         * <p> 示例值：ST_1
-         */
+     /**
+      * 省份/州地址Code码
+      * <p> 示例值：ST_1
+      */
         private String stateCode;
-        /**
-         * 国家地址Code码
-         * <p> 示例值：CN_1
-         */
+     /**
+      * 国家地址Code码
+      * <p> 示例值：CN_1
+      */
         private String countryCode;
-        /**
-         * 区/县地址名称信息聚合
-         * <p> 示例值：
-         */
+     /**
+      * 区/县地址名称信息聚合
+      * <p> 示例值：
+      */
         private LocationNameInfo districtNameInfo;
 
         /**
          * 区/县Code码
          * <p> 示例值：DS_70
-         *
          * @param districtCode
          * @return
          */
         public Builder districtCode(String districtCode) {
-            this.districtCode = districtCode;
-            return this;
+             this.districtCode = districtCode;
+             return this;
         }
 
+    
 
         /**
          * 市地址Code码
          * <p> 示例值：CT_1
-         *
          * @param cityCode
          * @return
          */
         public Builder cityCode(String cityCode) {
-            this.cityCode = cityCode;
-            return this;
+             this.cityCode = cityCode;
+             return this;
         }
 
+    
 
         /**
          * 省份/州地址Code码
          * <p> 示例值：ST_1
-         *
          * @param stateCode
          * @return
          */
         public Builder stateCode(String stateCode) {
-            this.stateCode = stateCode;
-            return this;
+             this.stateCode = stateCode;
+             return this;
         }
 
+    
 
         /**
          * 国家地址Code码
          * <p> 示例值：CN_1
-         *
          * @param countryCode
          * @return
          */
         public Builder countryCode(String countryCode) {
-            this.countryCode = countryCode;
-            return this;
+             this.countryCode = countryCode;
+             return this;
         }
 
+    
 
         /**
          * 区/县地址名称信息聚合
          * <p> 示例值：
-         *
          * @param districtNameInfo
          * @return
          */
         public Builder districtNameInfo(LocationNameInfo districtNameInfo) {
-            this.districtNameInfo = districtNameInfo;
-            return this;
+             this.districtNameInfo = districtNameInfo;
+             return this;
         }
 
+    
+    
+    public LocationDistrict build(){
+        return new LocationDistrict(this);
+      }
+    }
 
-        public LocationDistrict build() {
-            return new LocationDistrict(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,131 +12,126 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetUserFlowRespBody {
-    /**
-     * 用户工号
-     * <p> 示例值：abd754f7
-     */
+     /**
+      * 用户工号
+      * <p> 示例值：abd754f7
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 记录创建者的工号
-     * <p> 示例值：abd754f7
-     */
+     /**
+      * 记录创建者的工号
+      * <p> 示例值：abd754f7
+      */
     @SerializedName("creator_id")
     private String creatorId;
-    /**
-     * 打卡位置名称信息
-     * <p> 示例值：西溪八方城
-     */
+     /**
+      * 打卡位置名称信息
+      * <p> 示例值：西溪八方城
+      */
     @SerializedName("location_name")
     private String locationName;
-    /**
-     * 打卡时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     */
+     /**
+      * 打卡时间，精确到秒的时间戳
+      * <p> 示例值：1611476284
+      */
     @SerializedName("check_time")
     private String checkTime;
-    /**
-     * 打卡备注
-     * <p> 示例值：上班打卡
-     */
+     /**
+      * 打卡备注
+      * <p> 示例值：上班打卡
+      */
     @SerializedName("comment")
     private String comment;
-    /**
-     * 打卡记录ID
-     * <p> 示例值：考勤内部的打卡记录ID, 6709359313699356941（导入时此参数无效）
-     */
+     /**
+      * 打卡记录ID
+      * <p> 示例值：考勤内部的打卡记录ID, 6709359313699356941（导入时此参数无效）
+      */
     @SerializedName("record_id")
     private String recordId;
-    /**
-     * 打卡经度
-     * <p> 示例值：30.28991
-     */
+     /**
+      * 打卡经度
+      * <p> 示例值：30.28991
+      */
     @SerializedName("longitude")
     private Double longitude;
-    /**
-     * 打卡纬度
-     * <p> 示例值：120.04513
-     */
+     /**
+      * 打卡纬度
+      * <p> 示例值：120.04513
+      */
     @SerializedName("latitude")
     private Double latitude;
-    /**
-     * 打卡wifi ssid
-     * <p> 示例值：b0:b8:67:5c:1d:72
-     */
+     /**
+      * 打卡wifi ssid
+      * <p> 示例值：b0:b8:67:5c:1d:72
+      */
     @SerializedName("ssid")
     private String ssid;
-    /**
-     * 打卡wifi MAC地址
-     * <p> 示例值：b0:b8:67:5c:1d:72
-     */
+     /**
+      * 打卡wifi MAC地址
+      * <p> 示例值：b0:b8:67:5c:1d:72
+      */
     @SerializedName("bssid")
     private String bssid;
-    /**
-     * 是否为外勤打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否为外勤打卡
+      * <p> 示例值：true
+      */
     @SerializedName("is_field")
     private Boolean isField;
-    /**
-     * 是否为wifi打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否为wifi打卡
+      * <p> 示例值：true
+      */
     @SerializedName("is_wifi")
     private Boolean isWifi;
-    /**
-     * 记录生成方式
-     * <p> 示例值：0
-     */
+     /**
+      * 记录生成方式
+      * <p> 示例值：0
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * 打卡照片列表
-     * <p> 示例值：
-     */
+     /**
+      * 打卡照片列表
+      * <p> 示例值：
+      */
     @SerializedName("photo_urls")
     private String[] photoUrls;
-    /**
-     * 打卡设备ID
-     * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
-     */
+     /**
+      * 打卡设备ID
+      * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
+      */
     @SerializedName("device_id")
     private String deviceId;
-    /**
-     * 打卡结果
-     * <p> 示例值：Invalid
-     */
+     /**
+      * 打卡结果
+      * <p> 示例值：Invalid
+      */
     @SerializedName("check_result")
     private String checkResult;
-    /**
-     * 用户导入的外部打卡记录ID
-     * <p> 示例值：record_123
-     */
+     /**
+      * 用户导入的外部打卡记录ID
+      * <p> 示例值：record_123
+      */
     @SerializedName("external_id")
     private String externalId;
-    /**
-     * 唯一幂等键
-     * <p> 示例值：****_***
-     */
+     /**
+      * 唯一幂等键
+      * <p> 示例值：****_***
+      */
     @SerializedName("idempotent_id")
     private String idempotentId;
-
     public String getUserId() {
         return this.userId;
     }

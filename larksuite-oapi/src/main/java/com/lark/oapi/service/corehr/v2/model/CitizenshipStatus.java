@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CitizenshipStatus {
-    /**
-     * 公民身份id
-     * <p> 示例值：6891251722631890445
-     */
+     /**
+      * 公民身份id
+      * <p> 示例值：6891251722631890445
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 国家/地区id
-     * <p> 示例值：6891251722631890445
-     */
+     /**
+      * 国家/地区id
+      * <p> 示例值：6891251722631890445
+      */
     @SerializedName("country_region_id")
     private String countryRegionId;
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n[] name;
-    /**
-     * 公民身份
-     * <p> 示例值：
-     */
+     /**
+      * 公民身份
+      * <p> 示例值：
+      */
     @SerializedName("citizenship_status")
     private I18n[] citizenshipStatus;
-    /**
-     * 排序
-     * <p> 示例值：1
-     */
+     /**
+      * 排序
+      * <p> 示例值：1
+      */
     @SerializedName("view_order")
     private String viewOrder;
-
-    // builder 开始
-    public CitizenshipStatus() {
-    }
-
-    public CitizenshipStatus(Builder builder) {
-        /**
-         * 公民身份id
-         * <p> 示例值：6891251722631890445
-         */
-        this.id = builder.id;
-        /**
-         * 国家/地区id
-         * <p> 示例值：6891251722631890445
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 公民身份
-         * <p> 示例值：
-         */
-        this.citizenshipStatus = builder.citizenshipStatus;
-        /**
-         * 排序
-         * <p> 示例值：1
-         */
-        this.viewOrder = builder.viewOrder;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -155,118 +109,159 @@ public class CitizenshipStatus {
         this.viewOrder = viewOrder;
     }
 
+
+// builder 开始
+  public CitizenshipStatus(){}
+
+  public CitizenshipStatus(Builder builder){
+         /**
+          * 公民身份id
+          * <p> 示例值：6891251722631890445
+          */
+      this.id = builder.id;
+         /**
+          * 国家/地区id
+          * <p> 示例值：6891251722631890445
+          */
+      this.countryRegionId = builder.countryRegionId;
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 公民身份
+          * <p> 示例值：
+          */
+      this.citizenshipStatus = builder.citizenshipStatus;
+         /**
+          * 排序
+          * <p> 示例值：1
+          */
+      this.viewOrder = builder.viewOrder;
+  }
+
     public static class Builder {
-        /**
-         * 公民身份id
-         * <p> 示例值：6891251722631890445
-         */
+     /**
+      * 公民身份id
+      * <p> 示例值：6891251722631890445
+      */
         private String id;
-        /**
-         * 国家/地区id
-         * <p> 示例值：6891251722631890445
-         */
+     /**
+      * 国家/地区id
+      * <p> 示例值：6891251722631890445
+      */
         private String countryRegionId;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
         private I18n[] name;
-        /**
-         * 公民身份
-         * <p> 示例值：
-         */
+     /**
+      * 公民身份
+      * <p> 示例值：
+      */
         private I18n[] citizenshipStatus;
-        /**
-         * 排序
-         * <p> 示例值：1
-         */
+     /**
+      * 排序
+      * <p> 示例值：1
+      */
         private String viewOrder;
 
         /**
          * 公民身份id
          * <p> 示例值：6891251722631890445
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 国家/地区id
          * <p> 示例值：6891251722631890445
-         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
+             this.countryRegionId = countryRegionId;
+             return this;
         }
 
+    
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 公民身份
          * <p> 示例值：
-         *
          * @param citizenshipStatus
          * @return
          */
         public Builder citizenshipStatus(I18n[] citizenshipStatus) {
-            this.citizenshipStatus = citizenshipStatus;
-            return this;
+             this.citizenshipStatus = citizenshipStatus;
+             return this;
         }
 
+    
 
         /**
          * 排序
          * <p> 示例值：1
-         *
          * @param viewOrder
          * @return
          */
         public Builder viewOrder(String viewOrder) {
-            this.viewOrder = viewOrder;
-            return this;
+             this.viewOrder = viewOrder;
+             return this;
         }
 
+    
+    
+    public CitizenshipStatus build(){
+        return new CitizenshipStatus(this);
+      }
+    }
 
-        public CitizenshipStatus build() {
-            return new CitizenshipStatus(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

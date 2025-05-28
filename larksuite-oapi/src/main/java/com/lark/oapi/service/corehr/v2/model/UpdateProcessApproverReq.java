@@ -12,85 +12,32 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateProcessApproverReq {
-    /**
-     * 用户 ID 类型
-     * <p> 示例值：open_id
-     */
+     /**
+      * 用户 ID 类型
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：open_department_id
-     */
+     /**
+      * 此次调用中使用的部门 ID 类型
+      * <p> 示例值：open_department_id
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    /**
-     * 流程实例id
-     * <p> 示例值：7328345170959681068
-     */
-    @Path
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 审批任务id
-     * <p> 示例值：7328345235136726572
-     */
-    @Path
-    @SerializedName("approver_id")
-    private String approverId;
-    @Body
-    private ProcessApprover body;
-
-    // builder 开始
-    public UpdateProcessApproverReq() {
-    }
-
-    public UpdateProcessApproverReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 流程实例id
-         * <p> 示例值：7328345170959681068
-         */
-        this.processId = builder.processId;
-        /**
-         * 审批任务id
-         * <p> 示例值：7328345235136726572
-         */
-        this.approverId = builder.approverId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -107,6 +54,20 @@ public class UpdateProcessApproverReq {
         this.departmentIdType = departmentIdType;
     }
 
+     /**
+      * 流程实例id
+      * <p> 示例值：7328345170959681068
+      */
+    @Path
+    @SerializedName("process_id")
+    private String processId;
+     /**
+      * 审批任务id
+      * <p> 示例值：7328345235136726572
+      */
+    @Path
+    @SerializedName("approver_id")
+    private String approverId;
     public String getProcessId() {
         return this.processId;
     }
@@ -123,6 +84,9 @@ public class UpdateProcessApproverReq {
         this.approverId = approverId;
     }
 
+    @Body
+    private ProcessApprover body;
+
     public ProcessApprover getProcessApprover() {
         return this.body;
     }
@@ -131,102 +95,130 @@ public class UpdateProcessApproverReq {
         this.body = body;
     }
 
+// builder 开始
+  public UpdateProcessApproverReq(){}
+
+  public UpdateProcessApproverReq(Builder builder){
+         /**
+          * 用户 ID 类型
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 此次调用中使用的部门 ID 类型
+          * <p> 示例值：open_department_id
+          */
+       this.departmentIdType = builder.departmentIdType;
+     /**
+      * 流程实例id
+      * <p> 示例值：7328345170959681068
+      */
+       this.processId = builder.processId;
+     /**
+      * 审批任务id
+      * <p> 示例值：7328345235136726572
+      */
+       this.approverId = builder.approverId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private String processId; // 流程实例id
-        private String approverId; // 审批任务id
-        private ProcessApprover body;
-
+    
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
-         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：open_department_id
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的部门 ID 类型
          * <p> 示例值：open_department_id
-         *
          * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverDepartmentIdTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
+          public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverDepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
 
+    
+        private String processId; // 流程实例id
+        private String approverId; // 审批任务id
         /**
          * 流程实例id
          * <p> 示例值：7328345170959681068
-         *
          * @param processId
          * @return
          */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
+          public Builder processId(String processId) {
+               this.processId = processId;
+               return this;
+          }
 
+    
         /**
          * 审批任务id
          * <p> 示例值：7328345235136726572
-         *
          * @param approverId
          * @return
          */
-        public Builder approverId(String approverId) {
-            this.approverId = approverId;
-            return this;
-        }
+          public Builder approverId(String approverId) {
+               this.approverId = approverId;
+               return this;
+          }
 
+    
+        private ProcessApprover body;
+    
         public ProcessApprover getProcessApprover() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder processApprover(ProcessApprover body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UpdateProcessApproverReq build(){
+        return new UpdateProcessApproverReq(this);
+      }
+    }
 
-        public UpdateProcessApproverReq build() {
-            return new UpdateProcessApproverReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

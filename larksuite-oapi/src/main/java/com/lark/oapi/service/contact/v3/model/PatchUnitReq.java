@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchUnitReq {
-    /**
-     * 单位ID
-     * <p> 示例值：BU121
-     */
+     /**
+      * 单位ID
+      * <p> 示例值：BU121
+      */
     @Path
     @SerializedName("unit_id")
     private String unitId;
-    @Body
-    private PatchUnitReqBody body;
-
-    // builder 开始
-    public PatchUnitReq() {
-    }
-
-    public PatchUnitReq(Builder builder) {
-        /**
-         * 单位ID
-         * <p> 示例值：BU121
-         */
-        this.unitId = builder.unitId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUnitId() {
         return this.unitId;
     }
@@ -62,6 +38,9 @@ public class PatchUnitReq {
     public void setUnitId(String unitId) {
         this.unitId = unitId;
     }
+
+    @Body
+    private PatchUnitReqBody body;
 
     public PatchUnitReqBody getPatchUnitReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class PatchUnitReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchUnitReq(){}
+
+  public PatchUnitReq(Builder builder){
+     /**
+      * 单位ID
+      * <p> 示例值：BU121
+      */
+       this.unitId = builder.unitId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String unitId; // 单位ID
-        private PatchUnitReqBody body;
-
         /**
          * 单位ID
          * <p> 示例值：BU121
-         *
          * @param unitId
          * @return
          */
-        public Builder unitId(String unitId) {
-            this.unitId = unitId;
-            return this;
-        }
+          public Builder unitId(String unitId) {
+               this.unitId = unitId;
+               return this;
+          }
 
+    
+        private PatchUnitReqBody body;
+    
         public PatchUnitReqBody getPatchUnitReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder patchUnitReqBody(PatchUnitReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchUnitReq build(){
+        return new PatchUnitReq(this);
+      }
+    }
 
-        public PatchUnitReq build() {
-            return new PatchUnitReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

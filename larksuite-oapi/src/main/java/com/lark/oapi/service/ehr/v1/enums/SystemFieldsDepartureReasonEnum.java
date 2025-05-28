@@ -17,40 +17,39 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 离职原因
  */
 public enum SystemFieldsDepartureReasonEnum {
-    HEALTH_OR_FAMILY_ISSUES(1), // 身体、家庭原因
-    LACK_OF_CAREER_DEVELOPMENT(2), // 职业发展
-    UNSATISFACTORY_COMPENSATION_AND_BENEFITS(3), // 薪资福利不满意
-    EXCESSIVE_WORKLOAD(4), // 工作压力大
-    NON_RENEWAL_OF_EMPLOYMENT_CONTRACT(5), // 合同到期不续签
-    OTHER(6), // 其他
-    UNSATISFACTORY_PERFORMANCE(7), // 无法胜任工作
-    CORPORATE_RESTRUCTURING_AND_POSITION_OPTIMIZATION(8), // 组织业务调整和岗位优化
-    VIOLATION_OF_COMPANY_REGULATIONS(9), // 违反公司条例
-    VIOLATION_OF_LAWS_AND_DISCIPLINE(10), // 试用期未通过
-    OTHER_OF_INVOLUNTARY(11), // 其他
-    NOT_SATISFIED_WITH_WORK_CONTENT(12), // 不满意工作内容
-    LACK_OF_RECOGNITION_OF_LEADER(13), // 不认可上级或管理层
-    LACK_OF_RECOGNITION_OF_COMPANY_CULTURE(14), // 对公司文化缺乏认同
-    ACTIVE_ORGANIZE_BUSINESS_ADJUSTMENT(15), // 组织架构调整（主动离职）
-    JOB_HOPPING(16), // 跳槽
-    CHANGE_CAREER(17), // 转行
-    FAMILY(18), // 家庭原因
-    POOR_HEALTH(19), // 健康状况不佳
-    WORK_PLACE(20), // 工作地点原因
-    ACCIDENT(21), // 意外
-    DEATH(22), // 身故
-    FIRED(23), // 解雇
-    LOW_WORK_OUTPUT(24), // 工作产出低
-    BREAK_THE_LAW(25), // 违法
-    OTHER_OTHER(26), // 其他（其他）
-    ;
-    private Integer value;
-
+     HEALTH_OR_FAMILY_ISSUES(1), // 身体、家庭原因
+     LACK_OF_CAREER_DEVELOPMENT(2), // 职业发展
+     UNSATISFACTORY_COMPENSATION_AND_BENEFITS(3), // 薪资福利不满意
+     EXCESSIVE_WORKLOAD(4), // 工作压力大
+     NON_RENEWAL_OF_EMPLOYMENT_CONTRACT(5), // 合同到期不续签
+     OTHER(6), // 其他
+     UNSATISFACTORY_PERFORMANCE(7), // 无法胜任工作
+     CORPORATE_RESTRUCTURING_AND_POSITION_OPTIMIZATION(8), // 组织业务调整和岗位优化
+     VIOLATION_OF_COMPANY_REGULATIONS(9), // 违反公司条例
+     VIOLATION_OF_LAWS_AND_DISCIPLINE(10), // 试用期未通过
+     OTHER_OF_INVOLUNTARY(11), // 其他
+     NOT_SATISFIED_WITH_WORK_CONTENT(12), // 不满意工作内容
+     LACK_OF_RECOGNITION_OF_LEADER(13), // 不认可上级或管理层
+     LACK_OF_RECOGNITION_OF_COMPANY_CULTURE(14), // 对公司文化缺乏认同
+     ACTIVE_ORGANIZE_BUSINESS_ADJUSTMENT(15), // 组织架构调整（主动离职）
+     JOB_HOPPING(16), // 跳槽
+     CHANGE_CAREER(17), // 转行
+     FAMILY(18), // 家庭原因
+     POOR_HEALTH(19), // 健康状况不佳
+     WORK_PLACE(20), // 工作地点原因
+     ACCIDENT(21), // 意外
+     DEATH(22), // 身故
+     FIRED(23), // 解雇
+     LOW_WORK_OUTPUT(24), // 工作产出低
+     BREAK_THE_LAW(25), // 违法
+     OTHER_OTHER(26), // 其他（其他）
+  ;
+   private Integer value;
     SystemFieldsDepartureReasonEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

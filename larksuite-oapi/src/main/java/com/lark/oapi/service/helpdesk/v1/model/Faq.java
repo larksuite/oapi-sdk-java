@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,170 +19,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Faq {
-    /**
-     * 知识库ID
-     * <p> 示例值：6936004780707807231
-     */
+     /**
+      * 知识库ID
+      * <p> 示例值：6936004780707807231
+      */
     @SerializedName("faq_id")
     private String faqId;
-    /**
-     * 知识库旧版ID，请使用faq_id
-     * <p> 示例值：6936004780707807231
-     */
+     /**
+      * 知识库旧版ID，请使用faq_id
+      * <p> 示例值：6936004780707807231
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 服务台ID
-     * <p> 示例值：6936004780707807251
-     */
+     /**
+      * 服务台ID
+      * <p> 示例值：6936004780707807251
+      */
     @SerializedName("helpdesk_id")
     private String helpdeskId;
-    /**
-     * 问题
-     * <p> 示例值：问题
-     */
+     /**
+      * 问题
+      * <p> 示例值：问题
+      */
     @SerializedName("question")
     private String question;
-    /**
-     * 答案
-     * <p> 示例值：答案
-     */
+     /**
+      * 答案
+      * <p> 示例值：答案
+      */
     @SerializedName("answer")
     private String answer;
-    /**
-     * 富文本答案
-     * <p> 示例值：
-     */
+     /**
+      * 富文本答案
+      * <p> 示例值：
+      */
     @SerializedName("answer_richtext")
     private Richtext[] answerRichtext;
-    /**
-     * 创建时间
-     * <p> 示例值：1596379008
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：1596379008
+      */
     @SerializedName("create_time")
     private Integer createTime;
-    /**
-     * 修改时间
-     * <p> 示例值：1596379008
-     */
+     /**
+      * 修改时间
+      * <p> 示例值：1596379008
+      */
     @SerializedName("update_time")
     private Integer updateTime;
-    /**
-     * 分类
-     * <p> 示例值：
-     */
+     /**
+      * 分类
+      * <p> 示例值：
+      */
     @SerializedName("categories")
     private Category[] categories;
-    /**
-     * 相似问题列表
-     * <p> 示例值：
-     */
+     /**
+      * 相似问题列表
+      * <p> 示例值：
+      */
     @SerializedName("tags")
     private String[] tags;
-    /**
-     * 失效时间
-     * <p> 示例值：1596379008
-     */
+     /**
+      * 失效时间
+      * <p> 示例值：1596379008
+      */
     @SerializedName("expire_time")
     private Integer expireTime;
-    /**
-     * 更新用户
-     * <p> 示例值：
-     */
+     /**
+      * 更新用户
+      * <p> 示例值：
+      */
     @SerializedName("update_user")
     private TicketUser updateUser;
-    /**
-     * 创建用户
-     * <p> 示例值：
-     */
+     /**
+      * 创建用户
+      * <p> 示例值：
+      */
     @SerializedName("create_user")
     private TicketUser createUser;
-
-    // builder 开始
-    public Faq() {
-    }
-
-    public Faq(Builder builder) {
-        /**
-         * 知识库ID
-         * <p> 示例值：6936004780707807231
-         */
-        this.faqId = builder.faqId;
-        /**
-         * 知识库旧版ID，请使用faq_id
-         * <p> 示例值：6936004780707807231
-         */
-        this.id = builder.id;
-        /**
-         * 服务台ID
-         * <p> 示例值：6936004780707807251
-         */
-        this.helpdeskId = builder.helpdeskId;
-        /**
-         * 问题
-         * <p> 示例值：问题
-         */
-        this.question = builder.question;
-        /**
-         * 答案
-         * <p> 示例值：答案
-         */
-        this.answer = builder.answer;
-        /**
-         * 富文本答案
-         * <p> 示例值：
-         */
-        this.answerRichtext = builder.answerRichtext;
-        /**
-         * 创建时间
-         * <p> 示例值：1596379008
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 修改时间
-         * <p> 示例值：1596379008
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 分类
-         * <p> 示例值：
-         */
-        this.categories = builder.categories;
-        /**
-         * 相似问题列表
-         * <p> 示例值：
-         */
-        this.tags = builder.tags;
-        /**
-         * 失效时间
-         * <p> 示例值：1596379008
-         */
-        this.expireTime = builder.expireTime;
-        /**
-         * 更新用户
-         * <p> 示例值：
-         */
-        this.updateUser = builder.updateUser;
-        /**
-         * 创建用户
-         * <p> 示例值：
-         */
-        this.createUser = builder.createUser;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFaqId() {
         return this.faqId;
     }
@@ -288,244 +207,320 @@ public class Faq {
         this.createUser = createUser;
     }
 
+
+// builder 开始
+  public Faq(){}
+
+  public Faq(Builder builder){
+         /**
+          * 知识库ID
+          * <p> 示例值：6936004780707807231
+          */
+      this.faqId = builder.faqId;
+         /**
+          * 知识库旧版ID，请使用faq_id
+          * <p> 示例值：6936004780707807231
+          */
+      this.id = builder.id;
+         /**
+          * 服务台ID
+          * <p> 示例值：6936004780707807251
+          */
+      this.helpdeskId = builder.helpdeskId;
+         /**
+          * 问题
+          * <p> 示例值：问题
+          */
+      this.question = builder.question;
+         /**
+          * 答案
+          * <p> 示例值：答案
+          */
+      this.answer = builder.answer;
+         /**
+          * 富文本答案
+          * <p> 示例值：
+          */
+      this.answerRichtext = builder.answerRichtext;
+         /**
+          * 创建时间
+          * <p> 示例值：1596379008
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 修改时间
+          * <p> 示例值：1596379008
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 分类
+          * <p> 示例值：
+          */
+      this.categories = builder.categories;
+         /**
+          * 相似问题列表
+          * <p> 示例值：
+          */
+      this.tags = builder.tags;
+         /**
+          * 失效时间
+          * <p> 示例值：1596379008
+          */
+      this.expireTime = builder.expireTime;
+         /**
+          * 更新用户
+          * <p> 示例值：
+          */
+      this.updateUser = builder.updateUser;
+         /**
+          * 创建用户
+          * <p> 示例值：
+          */
+      this.createUser = builder.createUser;
+  }
+
     public static class Builder {
-        /**
-         * 知识库ID
-         * <p> 示例值：6936004780707807231
-         */
+     /**
+      * 知识库ID
+      * <p> 示例值：6936004780707807231
+      */
         private String faqId;
-        /**
-         * 知识库旧版ID，请使用faq_id
-         * <p> 示例值：6936004780707807231
-         */
+     /**
+      * 知识库旧版ID，请使用faq_id
+      * <p> 示例值：6936004780707807231
+      */
         private String id;
-        /**
-         * 服务台ID
-         * <p> 示例值：6936004780707807251
-         */
+     /**
+      * 服务台ID
+      * <p> 示例值：6936004780707807251
+      */
         private String helpdeskId;
-        /**
-         * 问题
-         * <p> 示例值：问题
-         */
+     /**
+      * 问题
+      * <p> 示例值：问题
+      */
         private String question;
-        /**
-         * 答案
-         * <p> 示例值：答案
-         */
+     /**
+      * 答案
+      * <p> 示例值：答案
+      */
         private String answer;
-        /**
-         * 富文本答案
-         * <p> 示例值：
-         */
+     /**
+      * 富文本答案
+      * <p> 示例值：
+      */
         private Richtext[] answerRichtext;
-        /**
-         * 创建时间
-         * <p> 示例值：1596379008
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：1596379008
+      */
         private Integer createTime;
-        /**
-         * 修改时间
-         * <p> 示例值：1596379008
-         */
+     /**
+      * 修改时间
+      * <p> 示例值：1596379008
+      */
         private Integer updateTime;
-        /**
-         * 分类
-         * <p> 示例值：
-         */
+     /**
+      * 分类
+      * <p> 示例值：
+      */
         private Category[] categories;
-        /**
-         * 相似问题列表
-         * <p> 示例值：
-         */
+     /**
+      * 相似问题列表
+      * <p> 示例值：
+      */
         private String[] tags;
-        /**
-         * 失效时间
-         * <p> 示例值：1596379008
-         */
+     /**
+      * 失效时间
+      * <p> 示例值：1596379008
+      */
         private Integer expireTime;
-        /**
-         * 更新用户
-         * <p> 示例值：
-         */
+     /**
+      * 更新用户
+      * <p> 示例值：
+      */
         private TicketUser updateUser;
-        /**
-         * 创建用户
-         * <p> 示例值：
-         */
+     /**
+      * 创建用户
+      * <p> 示例值：
+      */
         private TicketUser createUser;
 
         /**
          * 知识库ID
          * <p> 示例值：6936004780707807231
-         *
          * @param faqId
          * @return
          */
         public Builder faqId(String faqId) {
-            this.faqId = faqId;
-            return this;
+             this.faqId = faqId;
+             return this;
         }
 
+    
 
         /**
          * 知识库旧版ID，请使用faq_id
          * <p> 示例值：6936004780707807231
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 服务台ID
          * <p> 示例值：6936004780707807251
-         *
          * @param helpdeskId
          * @return
          */
         public Builder helpdeskId(String helpdeskId) {
-            this.helpdeskId = helpdeskId;
-            return this;
+             this.helpdeskId = helpdeskId;
+             return this;
         }
 
+    
 
         /**
          * 问题
          * <p> 示例值：问题
-         *
          * @param question
          * @return
          */
         public Builder question(String question) {
-            this.question = question;
-            return this;
+             this.question = question;
+             return this;
         }
 
+    
 
         /**
          * 答案
          * <p> 示例值：答案
-         *
          * @param answer
          * @return
          */
         public Builder answer(String answer) {
-            this.answer = answer;
-            return this;
+             this.answer = answer;
+             return this;
         }
 
+    
 
         /**
          * 富文本答案
          * <p> 示例值：
-         *
          * @param answerRichtext
          * @return
          */
         public Builder answerRichtext(Richtext[] answerRichtext) {
-            this.answerRichtext = answerRichtext;
-            return this;
+             this.answerRichtext = answerRichtext;
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：1596379008
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(Integer createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 修改时间
          * <p> 示例值：1596379008
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 分类
          * <p> 示例值：
-         *
          * @param categories
          * @return
          */
         public Builder categories(Category[] categories) {
-            this.categories = categories;
-            return this;
+             this.categories = categories;
+             return this;
         }
 
+    
 
         /**
          * 相似问题列表
          * <p> 示例值：
-         *
          * @param tags
          * @return
          */
         public Builder tags(String[] tags) {
-            this.tags = tags;
-            return this;
+             this.tags = tags;
+             return this;
         }
 
+    
 
         /**
          * 失效时间
          * <p> 示例值：1596379008
-         *
          * @param expireTime
          * @return
          */
         public Builder expireTime(Integer expireTime) {
-            this.expireTime = expireTime;
-            return this;
+             this.expireTime = expireTime;
+             return this;
         }
 
+    
 
         /**
          * 更新用户
          * <p> 示例值：
-         *
          * @param updateUser
          * @return
          */
         public Builder updateUser(TicketUser updateUser) {
-            this.updateUser = updateUser;
-            return this;
+             this.updateUser = updateUser;
+             return this;
         }
 
+    
 
         /**
          * 创建用户
          * <p> 示例值：
-         *
          * @param createUser
          * @return
          */
         public Builder createUser(TicketUser createUser) {
-            this.createUser = createUser;
-            return this;
+             this.createUser = createUser;
+             return this;
         }
 
+    
+    
+    public Faq build(){
+        return new Faq(this);
+      }
+    }
 
-        public Faq build() {
-            return new Faq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

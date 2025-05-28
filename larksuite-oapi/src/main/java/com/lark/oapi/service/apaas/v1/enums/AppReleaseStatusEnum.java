@@ -17,16 +17,15 @@ package com.lark.oapi.service.apaas.v1.enums;
  * aPaaS 产品应用的发布状态
  */
 public enum AppReleaseStatusEnum {
-    RELEASED("released"), // 已发布
-    UNRELEASED("unreleased"), // 未发布
-    ;
-    private String value;
-
+     RELEASED("released"), // 已发布
+     UNRELEASED("unreleased"), // 未发布
+  ;
+   private String value;
     AppReleaseStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

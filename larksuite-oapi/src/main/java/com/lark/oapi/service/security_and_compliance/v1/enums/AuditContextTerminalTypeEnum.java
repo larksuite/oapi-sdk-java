@@ -17,18 +17,17 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 终端类型
  */
 public enum AuditContextTerminalTypeEnum {
-    IOS(0), // ios
-    ANDROID(1), // 安卓
-    PC(2), // pc端
-    WEB(3), // web端
-    ;
-    private Integer value;
-
+     IOS(0), // ios
+     ANDROID(1), // 安卓
+     PC(2), // pc端
+     WEB(3), // web端
+  ;
+   private Integer value;
     AuditContextTerminalTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

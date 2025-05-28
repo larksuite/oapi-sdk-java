@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AuditDetail {
-    /**
-     * mac地址
-     * <p> 示例值：08:00:20:0A:8C:6D
-     */
+     /**
+      * mac地址
+      * <p> 示例值：08:00:20:0A:8C:6D
+      */
     @SerializedName("mc")
     private String mc;
-    /**
-     * 设备模型
-     * <p> 示例值：iphone14
-     */
+     /**
+      * 设备模型
+      * <p> 示例值：iphone14
+      */
     @SerializedName("device_model")
     private String deviceModel;
-    /**
-     * 操作系统
-     * <p> 示例值：mac os
-     */
+     /**
+      * 操作系统
+      * <p> 示例值：mac os
+      */
     @SerializedName("os")
     private String os;
-    /**
-     * ip属地
-     * <p> 示例值：北京
-     */
+     /**
+      * ip属地
+      * <p> 示例值：北京
+      */
     @SerializedName("city")
     private String city;
-
-    // builder 开始
-    public AuditDetail() {
-    }
-
-    public AuditDetail(Builder builder) {
-        /**
-         * mac地址
-         * <p> 示例值：08:00:20:0A:8C:6D
-         */
-        this.mc = builder.mc;
-        /**
-         * 设备模型
-         * <p> 示例值：iphone14
-         */
-        this.deviceModel = builder.deviceModel;
-        /**
-         * 操作系统
-         * <p> 示例值：mac os
-         */
-        this.os = builder.os;
-        /**
-         * ip属地
-         * <p> 示例值：北京
-         */
-        this.city = builder.city;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMc() {
         return this.mc;
     }
@@ -117,82 +81,113 @@ public class AuditDetail {
         this.city = city;
     }
 
+
+// builder 开始
+  public AuditDetail(){}
+
+  public AuditDetail(Builder builder){
+         /**
+          * mac地址
+          * <p> 示例值：08:00:20:0A:8C:6D
+          */
+      this.mc = builder.mc;
+         /**
+          * 设备模型
+          * <p> 示例值：iphone14
+          */
+      this.deviceModel = builder.deviceModel;
+         /**
+          * 操作系统
+          * <p> 示例值：mac os
+          */
+      this.os = builder.os;
+         /**
+          * ip属地
+          * <p> 示例值：北京
+          */
+      this.city = builder.city;
+  }
+
     public static class Builder {
-        /**
-         * mac地址
-         * <p> 示例值：08:00:20:0A:8C:6D
-         */
+     /**
+      * mac地址
+      * <p> 示例值：08:00:20:0A:8C:6D
+      */
         private String mc;
-        /**
-         * 设备模型
-         * <p> 示例值：iphone14
-         */
+     /**
+      * 设备模型
+      * <p> 示例值：iphone14
+      */
         private String deviceModel;
-        /**
-         * 操作系统
-         * <p> 示例值：mac os
-         */
+     /**
+      * 操作系统
+      * <p> 示例值：mac os
+      */
         private String os;
-        /**
-         * ip属地
-         * <p> 示例值：北京
-         */
+     /**
+      * ip属地
+      * <p> 示例值：北京
+      */
         private String city;
 
         /**
          * mac地址
          * <p> 示例值：08:00:20:0A:8C:6D
-         *
          * @param mc
          * @return
          */
         public Builder mc(String mc) {
-            this.mc = mc;
-            return this;
+             this.mc = mc;
+             return this;
         }
 
+    
 
         /**
          * 设备模型
          * <p> 示例值：iphone14
-         *
          * @param deviceModel
          * @return
          */
         public Builder deviceModel(String deviceModel) {
-            this.deviceModel = deviceModel;
-            return this;
+             this.deviceModel = deviceModel;
+             return this;
         }
 
+    
 
         /**
          * 操作系统
          * <p> 示例值：mac os
-         *
          * @param os
          * @return
          */
         public Builder os(String os) {
-            this.os = os;
-            return this;
+             this.os = os;
+             return this;
         }
 
+    
 
         /**
          * ip属地
          * <p> 示例值：北京
-         *
          * @param city
          * @return
          */
         public Builder city(String city) {
-            this.city = city;
-            return this;
+             this.city = city;
+             return this;
         }
 
+    
+    
+    public AuditDetail build(){
+        return new AuditDetail(this);
+      }
+    }
 
-        public AuditDetail build() {
-            return new AuditDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

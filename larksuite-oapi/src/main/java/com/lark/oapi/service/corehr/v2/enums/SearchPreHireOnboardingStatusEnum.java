@@ -17,19 +17,18 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 入职状态
  */
 public enum SearchPreHireOnboardingStatusEnum {
-    PREBOARDING("preboarding"), // 待入职
-    DELETED("deleted"), // 已删除
-    DAYONE("day_one"), // 准备就绪
-    WITHDRAWN("withdrawn"), // 已撤销
-    COMPLETED("completed"), // 已完成
-    ;
-    private String value;
-
+     PREBOARDING("preboarding"), // 待入职
+     DELETED("deleted"), // 已删除
+     DAYONE("day_one"), // 准备就绪
+     WITHDRAWN("withdrawn"), // 已撤销
+     COMPLETED("completed"), // 已完成
+  ;
+   private String value;
     SearchPreHireOnboardingStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

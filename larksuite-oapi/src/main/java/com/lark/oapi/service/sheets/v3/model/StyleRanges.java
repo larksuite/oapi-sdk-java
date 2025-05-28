@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class StyleRanges {
-    /**
-     * 单元格样式
-     * <p> 示例值：
-     */
+     /**
+      * 单元格样式
+      * <p> 示例值：
+      */
     @SerializedName("style_ranges")
     private Style[] styleRanges;
-
-    // builder 开始
-    public StyleRanges() {
-    }
-
-    public StyleRanges(Builder builder) {
-        /**
-         * 单元格样式
-         * <p> 示例值：
-         */
-        this.styleRanges = builder.styleRanges;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Style[] getStyleRanges() {
         return this.styleRanges;
     }
@@ -60,28 +39,44 @@ public class StyleRanges {
         this.styleRanges = styleRanges;
     }
 
+
+// builder 开始
+  public StyleRanges(){}
+
+  public StyleRanges(Builder builder){
+         /**
+          * 单元格样式
+          * <p> 示例值：
+          */
+      this.styleRanges = builder.styleRanges;
+  }
+
     public static class Builder {
-        /**
-         * 单元格样式
-         * <p> 示例值：
-         */
+     /**
+      * 单元格样式
+      * <p> 示例值：
+      */
         private Style[] styleRanges;
 
         /**
          * 单元格样式
          * <p> 示例值：
-         *
          * @param styleRanges
          * @return
          */
         public Builder styleRanges(Style[] styleRanges) {
-            this.styleRanges = styleRanges;
-            return this;
+             this.styleRanges = styleRanges;
+             return this;
         }
 
+    
+    
+    public StyleRanges build(){
+        return new StyleRanges(this);
+      }
+    }
 
-        public StyleRanges build() {
-            return new StyleRanges(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

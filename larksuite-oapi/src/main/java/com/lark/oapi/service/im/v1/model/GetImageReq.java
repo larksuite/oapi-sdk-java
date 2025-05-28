@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetImageReq {
-    /**
-     * 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
-     * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
-     */
+     /**
+      * 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
+      * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+      */
     @Path
     @SerializedName("image_key")
     private String imageKey;
-
-    // builder 开始
-    public GetImageReq() {
-    }
-
-    public GetImageReq(Builder builder) {
-        /**
-         * 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
-         * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
-         */
-        this.imageKey = builder.imageKey;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getImageKey() {
         return this.imageKey;
     }
@@ -60,25 +39,39 @@ public class GetImageReq {
         this.imageKey = imageKey;
     }
 
+
+// builder 开始
+  public GetImageReq(){}
+
+  public GetImageReq(Builder builder){
+     /**
+      * 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
+      * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+      */
+       this.imageKey = builder.imageKey;
+  }
+
     public static class Builder {
-
+    
         private String imageKey; // 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
-
         /**
          * 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
          * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
-         *
          * @param imageKey
          * @return
          */
-        public Builder imageKey(String imageKey) {
-            this.imageKey = imageKey;
-            return this;
-        }
+          public Builder imageKey(String imageKey) {
+               this.imageKey = imageKey;
+               return this;
+          }
 
+    
+    public GetImageReq build(){
+        return new GetImageReq(this);
+      }
+    }
 
-        public GetImageReq build() {
-            return new GetImageReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

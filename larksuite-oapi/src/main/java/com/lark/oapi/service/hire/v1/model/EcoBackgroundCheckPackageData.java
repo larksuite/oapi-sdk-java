@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EcoBackgroundCheckPackageData {
-    /**
-     * 套餐 ID
-     * <p> 示例值：pkg001
-     */
+     /**
+      * 套餐 ID
+      * <p> 示例值：pkg001
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 背调名称
-     * <p> 示例值：基础套餐
-     */
+     /**
+      * 背调名称
+      * <p> 示例值：基础套餐
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 套餐描述
-     * <p> 示例值：工作履历信息验证X1，工作表现鉴定评价X1，教育背景核实，公民身份信息验证，简历对比，民事诉讼调查
-     */
+     /**
+      * 套餐描述
+      * <p> 示例值：工作履历信息验证X1，工作表现鉴定评价X1，教育背景核实，公民身份信息验证，简历对比，民事诉讼调查
+      */
     @SerializedName("description")
     private String description;
-
-    // builder 开始
-    public EcoBackgroundCheckPackageData() {
-    }
-
-    public EcoBackgroundCheckPackageData(Builder builder) {
-        /**
-         * 套餐 ID
-         * <p> 示例值：pkg001
-         */
-        this.id = builder.id;
-        /**
-         * 背调名称
-         * <p> 示例值：基础套餐
-         */
-        this.name = builder.name;
-        /**
-         * 套餐描述
-         * <p> 示例值：工作履历信息验证X1，工作表现鉴定评价X1，教育背景核实，公民身份信息验证，简历对比，民事诉讼调查
-         */
-        this.description = builder.description;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -97,64 +66,90 @@ public class EcoBackgroundCheckPackageData {
         this.description = description;
     }
 
+
+// builder 开始
+  public EcoBackgroundCheckPackageData(){}
+
+  public EcoBackgroundCheckPackageData(Builder builder){
+         /**
+          * 套餐 ID
+          * <p> 示例值：pkg001
+          */
+      this.id = builder.id;
+         /**
+          * 背调名称
+          * <p> 示例值：基础套餐
+          */
+      this.name = builder.name;
+         /**
+          * 套餐描述
+          * <p> 示例值：工作履历信息验证X1，工作表现鉴定评价X1，教育背景核实，公民身份信息验证，简历对比，民事诉讼调查
+          */
+      this.description = builder.description;
+  }
+
     public static class Builder {
-        /**
-         * 套餐 ID
-         * <p> 示例值：pkg001
-         */
+     /**
+      * 套餐 ID
+      * <p> 示例值：pkg001
+      */
         private String id;
-        /**
-         * 背调名称
-         * <p> 示例值：基础套餐
-         */
+     /**
+      * 背调名称
+      * <p> 示例值：基础套餐
+      */
         private String name;
-        /**
-         * 套餐描述
-         * <p> 示例值：工作履历信息验证X1，工作表现鉴定评价X1，教育背景核实，公民身份信息验证，简历对比，民事诉讼调查
-         */
+     /**
+      * 套餐描述
+      * <p> 示例值：工作履历信息验证X1，工作表现鉴定评价X1，教育背景核实，公民身份信息验证，简历对比，民事诉讼调查
+      */
         private String description;
 
         /**
          * 套餐 ID
          * <p> 示例值：pkg001
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 背调名称
          * <p> 示例值：基础套餐
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 套餐描述
          * <p> 示例值：工作履历信息验证X1，工作表现鉴定评价X1，教育背景核实，公民身份信息验证，简历对比，民事诉讼调查
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
+    
+    public EcoBackgroundCheckPackageData build(){
+        return new EcoBackgroundCheckPackageData(this);
+      }
+    }
 
-        public EcoBackgroundCheckPackageData build() {
-            return new EcoBackgroundCheckPackageData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

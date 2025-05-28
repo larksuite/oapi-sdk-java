@@ -12,60 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateByResumeWebsiteDeliveryReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 官网 ID
-     * <p> 示例值：1618209327096
-     */
-    @Path
-    @SerializedName("website_id")
-    private String websiteId;
-    @Body
-    private WebsiteDelivery body;
-
-    // builder 开始
-    public CreateByResumeWebsiteDeliveryReq() {
-    }
-
-    public CreateByResumeWebsiteDeliveryReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 官网 ID
-         * <p> 示例值：1618209327096
-         */
-        this.websiteId = builder.websiteId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -74,6 +38,13 @@ public class CreateByResumeWebsiteDeliveryReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 官网 ID
+      * <p> 示例值：1618209327096
+      */
+    @Path
+    @SerializedName("website_id")
+    private String websiteId;
     public String getWebsiteId() {
         return this.websiteId;
     }
@@ -81,6 +52,9 @@ public class CreateByResumeWebsiteDeliveryReq {
     public void setWebsiteId(String websiteId) {
         this.websiteId = websiteId;
     }
+
+    @Body
+    private WebsiteDelivery body;
 
     public WebsiteDelivery getWebsiteDelivery() {
         return this.body;
@@ -90,52 +64,72 @@ public class CreateByResumeWebsiteDeliveryReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateByResumeWebsiteDeliveryReq(){}
+
+  public CreateByResumeWebsiteDeliveryReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 官网 ID
+      * <p> 示例值：1618209327096
+      */
+       this.websiteId = builder.websiteId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String websiteId; // 官网 ID
-        private WebsiteDelivery body;
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+        private String websiteId; // 官网 ID
         /**
          * 官网 ID
          * <p> 示例值：1618209327096
-         *
          * @param websiteId
          * @return
          */
-        public Builder websiteId(String websiteId) {
-            this.websiteId = websiteId;
-            return this;
-        }
+          public Builder websiteId(String websiteId) {
+               this.websiteId = websiteId;
+               return this;
+          }
 
+    
+        private WebsiteDelivery body;
+    
         public WebsiteDelivery getWebsiteDelivery() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder websiteDelivery(WebsiteDelivery body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateByResumeWebsiteDeliveryReq build(){
+        return new CreateByResumeWebsiteDeliveryReq(this);
+      }
+    }
 
-        public CreateByResumeWebsiteDeliveryReq build() {
-            return new CreateByResumeWebsiteDeliveryReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

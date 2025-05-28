@@ -17,18 +17,17 @@ package com.lark.oapi.service.acs.v1.enums;
  * 用户类型
  */
 public enum UserExternalUserTypeEnum {
-    USER(1), // 员工
-    DEPARTMENT(2), // 部门
-    TENANT(10), // 全体员工
-    GUEST(11), // 访客
-    ;
-    private Integer value;
-
+     USER(1), // 员工
+     DEPARTMENT(2), // 部门
+     TENANT(10), // 全体员工
+     GUEST(11), // 访客
+  ;
+   private Integer value;
     UserExternalUserTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

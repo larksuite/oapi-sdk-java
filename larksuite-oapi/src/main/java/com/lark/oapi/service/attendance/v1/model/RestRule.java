@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RestRule {
-    /**
-     * 休息开始
-     * <p> 示例值：13:00
-     */
+     /**
+      * 休息开始
+      * <p> 示例值：13:00
+      */
     @SerializedName("rest_begin_time")
     private String restBeginTime;
-    /**
-     * 休息结束
-     * <p> 示例值：14:00
-     */
+     /**
+      * 休息结束
+      * <p> 示例值：14:00
+      */
     @SerializedName("rest_end_time")
     private String restEndTime;
-
-    // builder 开始
-    public RestRule() {
-    }
-
-    public RestRule(Builder builder) {
-        /**
-         * 休息开始
-         * <p> 示例值：13:00
-         */
-        this.restBeginTime = builder.restBeginTime;
-        /**
-         * 休息结束
-         * <p> 示例值：14:00
-         */
-        this.restEndTime = builder.restEndTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRestBeginTime() {
         return this.restBeginTime;
     }
@@ -79,46 +53,67 @@ public class RestRule {
         this.restEndTime = restEndTime;
     }
 
+
+// builder 开始
+  public RestRule(){}
+
+  public RestRule(Builder builder){
+         /**
+          * 休息开始
+          * <p> 示例值：13:00
+          */
+      this.restBeginTime = builder.restBeginTime;
+         /**
+          * 休息结束
+          * <p> 示例值：14:00
+          */
+      this.restEndTime = builder.restEndTime;
+  }
+
     public static class Builder {
-        /**
-         * 休息开始
-         * <p> 示例值：13:00
-         */
+     /**
+      * 休息开始
+      * <p> 示例值：13:00
+      */
         private String restBeginTime;
-        /**
-         * 休息结束
-         * <p> 示例值：14:00
-         */
+     /**
+      * 休息结束
+      * <p> 示例值：14:00
+      */
         private String restEndTime;
 
         /**
          * 休息开始
          * <p> 示例值：13:00
-         *
          * @param restBeginTime
          * @return
          */
         public Builder restBeginTime(String restBeginTime) {
-            this.restBeginTime = restBeginTime;
-            return this;
+             this.restBeginTime = restBeginTime;
+             return this;
         }
 
+    
 
         /**
          * 休息结束
          * <p> 示例值：14:00
-         *
          * @param restEndTime
          * @return
          */
         public Builder restEndTime(String restEndTime) {
-            this.restEndTime = restEndTime;
-            return this;
+             this.restEndTime = restEndTime;
+             return this;
         }
 
+    
+    
+    public RestRule build(){
+        return new RestRule(this);
+      }
+    }
 
-        public RestRule build() {
-            return new RestRule(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

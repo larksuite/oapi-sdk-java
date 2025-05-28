@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Attachment {
-    /**
-     * 附件token
-     * <p> 示例值：xAAAAA
-     */
+     /**
+      * 附件token
+      * <p> 示例值：xAAAAA
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 附件大小
-     * <p> 示例值：2345
-     */
+     /**
+      * 附件大小
+      * <p> 示例值：2345
+      */
     @SerializedName("file_size")
     private String fileSize;
-    /**
-     * 是否删除附件
-     * <p> 示例值：true
-     */
+     /**
+      * 是否删除附件
+      * <p> 示例值：true
+      */
     @SerializedName("is_deleted")
     private Boolean isDeleted;
-    /**
-     * 附件名称
-     * <p> 示例值：附件.jpeg
-     */
+     /**
+      * 附件名称
+      * <p> 示例值：附件.jpeg
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public Attachment() {
-    }
-
-    public Attachment(Builder builder) {
-        /**
-         * 附件token
-         * <p> 示例值：xAAAAA
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 附件大小
-         * <p> 示例值：2345
-         */
-        this.fileSize = builder.fileSize;
-        /**
-         * 是否删除附件
-         * <p> 示例值：true
-         */
-        this.isDeleted = builder.isDeleted;
-        /**
-         * 附件名称
-         * <p> 示例值：附件.jpeg
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFileToken() {
         return this.fileToken;
     }
@@ -117,82 +81,113 @@ public class Attachment {
         this.name = name;
     }
 
+
+// builder 开始
+  public Attachment(){}
+
+  public Attachment(Builder builder){
+         /**
+          * 附件token
+          * <p> 示例值：xAAAAA
+          */
+      this.fileToken = builder.fileToken;
+         /**
+          * 附件大小
+          * <p> 示例值：2345
+          */
+      this.fileSize = builder.fileSize;
+         /**
+          * 是否删除附件
+          * <p> 示例值：true
+          */
+      this.isDeleted = builder.isDeleted;
+         /**
+          * 附件名称
+          * <p> 示例值：附件.jpeg
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 附件token
-         * <p> 示例值：xAAAAA
-         */
+     /**
+      * 附件token
+      * <p> 示例值：xAAAAA
+      */
         private String fileToken;
-        /**
-         * 附件大小
-         * <p> 示例值：2345
-         */
+     /**
+      * 附件大小
+      * <p> 示例值：2345
+      */
         private String fileSize;
-        /**
-         * 是否删除附件
-         * <p> 示例值：true
-         */
+     /**
+      * 是否删除附件
+      * <p> 示例值：true
+      */
         private Boolean isDeleted;
-        /**
-         * 附件名称
-         * <p> 示例值：附件.jpeg
-         */
+     /**
+      * 附件名称
+      * <p> 示例值：附件.jpeg
+      */
         private String name;
 
         /**
          * 附件token
          * <p> 示例值：xAAAAA
-         *
          * @param fileToken
          * @return
          */
         public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
+             this.fileToken = fileToken;
+             return this;
         }
 
+    
 
         /**
          * 附件大小
          * <p> 示例值：2345
-         *
          * @param fileSize
          * @return
          */
         public Builder fileSize(String fileSize) {
-            this.fileSize = fileSize;
-            return this;
+             this.fileSize = fileSize;
+             return this;
         }
 
+    
 
         /**
          * 是否删除附件
          * <p> 示例值：true
-         *
          * @param isDeleted
          * @return
          */
         public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
+             this.isDeleted = isDeleted;
+             return this;
         }
 
+    
 
         /**
          * 附件名称
          * <p> 示例值：附件.jpeg
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public Attachment build(){
+        return new Attachment(this);
+      }
+    }
 
-        public Attachment build() {
-            return new Attachment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

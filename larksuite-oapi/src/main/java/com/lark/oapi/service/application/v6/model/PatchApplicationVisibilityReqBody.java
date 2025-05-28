@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchApplicationVisibilityReqBody {
-    /**
-     * 添加可用人员名单
-     * <p> 示例值：
-     */
+     /**
+      * 添加可用人员名单
+      * <p> 示例值：
+      */
     @SerializedName("add_visible_list")
     private AppVisibilityIdList addVisibleList;
-    /**
-     * 删除可用人员名单
-     * <p> 示例值：
-     */
+     /**
+      * 删除可用人员名单
+      * <p> 示例值：
+      */
     @SerializedName("del_visible_list")
     private AppVisibilityIdList delVisibleList;
-    /**
-     * 添加禁用人员名单
-     * <p> 示例值：
-     */
+     /**
+      * 添加禁用人员名单
+      * <p> 示例值：
+      */
     @SerializedName("add_invisible_list")
     private AppVisibilityIdList addInvisibleList;
-    /**
-     * 删除禁用人员名单
-     * <p> 示例值：
-     */
+     /**
+      * 删除禁用人员名单
+      * <p> 示例值：
+      */
     @SerializedName("del_invisible_list")
     private AppVisibilityIdList delInvisibleList;
-    /**
-     * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
-     * <p> 示例值：false
-     */
+     /**
+      * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
+      * <p> 示例值：false
+      */
     @SerializedName("is_visible_to_all")
     private Boolean isVisibleToAll;
-
-    // builder 开始
-    public PatchApplicationVisibilityReqBody() {
-    }
-
-    public PatchApplicationVisibilityReqBody(Builder builder) {
-        /**
-         * 添加可用人员名单
-         * <p> 示例值：
-         */
-        this.addVisibleList = builder.addVisibleList;
-        /**
-         * 删除可用人员名单
-         * <p> 示例值：
-         */
-        this.delVisibleList = builder.delVisibleList;
-        /**
-         * 添加禁用人员名单
-         * <p> 示例值：
-         */
-        this.addInvisibleList = builder.addInvisibleList;
-        /**
-         * 删除禁用人员名单
-         * <p> 示例值：
-         */
-        this.delInvisibleList = builder.delInvisibleList;
-        /**
-         * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
-         * <p> 示例值：false
-         */
-        this.isVisibleToAll = builder.isVisibleToAll;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public AppVisibilityIdList getAddVisibleList() {
         return this.addVisibleList;
     }
@@ -136,100 +95,136 @@ public class PatchApplicationVisibilityReqBody {
         this.isVisibleToAll = isVisibleToAll;
     }
 
+
+// builder 开始
+  public PatchApplicationVisibilityReqBody(){}
+
+  public PatchApplicationVisibilityReqBody(Builder builder){
+         /**
+          * 添加可用人员名单
+          * <p> 示例值：
+          */
+      this.addVisibleList = builder.addVisibleList;
+         /**
+          * 删除可用人员名单
+          * <p> 示例值：
+          */
+      this.delVisibleList = builder.delVisibleList;
+         /**
+          * 添加禁用人员名单
+          * <p> 示例值：
+          */
+      this.addInvisibleList = builder.addInvisibleList;
+         /**
+          * 删除禁用人员名单
+          * <p> 示例值：
+          */
+      this.delInvisibleList = builder.delInvisibleList;
+         /**
+          * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
+          * <p> 示例值：false
+          */
+      this.isVisibleToAll = builder.isVisibleToAll;
+  }
+
     public static class Builder {
-        /**
-         * 添加可用人员名单
-         * <p> 示例值：
-         */
+     /**
+      * 添加可用人员名单
+      * <p> 示例值：
+      */
         private AppVisibilityIdList addVisibleList;
-        /**
-         * 删除可用人员名单
-         * <p> 示例值：
-         */
+     /**
+      * 删除可用人员名单
+      * <p> 示例值：
+      */
         private AppVisibilityIdList delVisibleList;
-        /**
-         * 添加禁用人员名单
-         * <p> 示例值：
-         */
+     /**
+      * 添加禁用人员名单
+      * <p> 示例值：
+      */
         private AppVisibilityIdList addInvisibleList;
-        /**
-         * 删除禁用人员名单
-         * <p> 示例值：
-         */
+     /**
+      * 删除禁用人员名单
+      * <p> 示例值：
+      */
         private AppVisibilityIdList delInvisibleList;
-        /**
-         * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
-         * <p> 示例值：false
-         */
+     /**
+      * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
+      * <p> 示例值：false
+      */
         private Boolean isVisibleToAll;
 
         /**
          * 添加可用人员名单
          * <p> 示例值：
-         *
          * @param addVisibleList
          * @return
          */
         public Builder addVisibleList(AppVisibilityIdList addVisibleList) {
-            this.addVisibleList = addVisibleList;
-            return this;
+             this.addVisibleList = addVisibleList;
+             return this;
         }
 
+    
 
         /**
          * 删除可用人员名单
          * <p> 示例值：
-         *
          * @param delVisibleList
          * @return
          */
         public Builder delVisibleList(AppVisibilityIdList delVisibleList) {
-            this.delVisibleList = delVisibleList;
-            return this;
+             this.delVisibleList = delVisibleList;
+             return this;
         }
 
+    
 
         /**
          * 添加禁用人员名单
          * <p> 示例值：
-         *
          * @param addInvisibleList
          * @return
          */
         public Builder addInvisibleList(AppVisibilityIdList addInvisibleList) {
-            this.addInvisibleList = addInvisibleList;
-            return this;
+             this.addInvisibleList = addInvisibleList;
+             return this;
         }
 
+    
 
         /**
          * 删除禁用人员名单
          * <p> 示例值：
-         *
          * @param delInvisibleList
          * @return
          */
         public Builder delInvisibleList(AppVisibilityIdList delInvisibleList) {
-            this.delInvisibleList = delInvisibleList;
-            return this;
+             this.delInvisibleList = delInvisibleList;
+             return this;
         }
 
+    
 
         /**
          * 是否全员可见,false:否;true:是;不填:继续当前状态不改变.如果可见范围为全员后添加的可用人员则无效,禁用人员仍然有效
          * <p> 示例值：false
-         *
          * @param isVisibleToAll
          * @return
          */
         public Builder isVisibleToAll(Boolean isVisibleToAll) {
-            this.isVisibleToAll = isVisibleToAll;
-            return this;
+             this.isVisibleToAll = isVisibleToAll;
+             return this;
         }
 
+    
+    
+    public PatchApplicationVisibilityReqBody build(){
+        return new PatchApplicationVisibilityReqBody(this);
+      }
+    }
 
-        public PatchApplicationVisibilityReqBody build() {
-            return new PatchApplicationVisibilityReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

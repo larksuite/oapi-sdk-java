@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DlpProofContext {
-    /**
-     * 命中内容
-     * <p> 示例值：关键词
-     */
+     /**
+      * 命中内容
+      * <p> 示例值：关键词
+      */
     @SerializedName("hit_content")
     private String hitContent;
-    /**
-     * 上下文片段
-     * <p> 示例值：这是一条关键词内容
-     */
+     /**
+      * 上下文片段
+      * <p> 示例值：这是一条关键词内容
+      */
     @SerializedName("context_snippet")
     private String contextSnippet;
-
-    // builder 开始
-    public DlpProofContext() {
-    }
-
-    public DlpProofContext(Builder builder) {
-        /**
-         * 命中内容
-         * <p> 示例值：关键词
-         */
-        this.hitContent = builder.hitContent;
-        /**
-         * 上下文片段
-         * <p> 示例值：这是一条关键词内容
-         */
-        this.contextSnippet = builder.contextSnippet;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getHitContent() {
         return this.hitContent;
     }
@@ -79,46 +53,67 @@ public class DlpProofContext {
         this.contextSnippet = contextSnippet;
     }
 
+
+// builder 开始
+  public DlpProofContext(){}
+
+  public DlpProofContext(Builder builder){
+         /**
+          * 命中内容
+          * <p> 示例值：关键词
+          */
+      this.hitContent = builder.hitContent;
+         /**
+          * 上下文片段
+          * <p> 示例值：这是一条关键词内容
+          */
+      this.contextSnippet = builder.contextSnippet;
+  }
+
     public static class Builder {
-        /**
-         * 命中内容
-         * <p> 示例值：关键词
-         */
+     /**
+      * 命中内容
+      * <p> 示例值：关键词
+      */
         private String hitContent;
-        /**
-         * 上下文片段
-         * <p> 示例值：这是一条关键词内容
-         */
+     /**
+      * 上下文片段
+      * <p> 示例值：这是一条关键词内容
+      */
         private String contextSnippet;
 
         /**
          * 命中内容
          * <p> 示例值：关键词
-         *
          * @param hitContent
          * @return
          */
         public Builder hitContent(String hitContent) {
-            this.hitContent = hitContent;
-            return this;
+             this.hitContent = hitContent;
+             return this;
         }
 
+    
 
         /**
          * 上下文片段
          * <p> 示例值：这是一条关键词内容
-         *
          * @param contextSnippet
          * @return
          */
         public Builder contextSnippet(String contextSnippet) {
-            this.contextSnippet = contextSnippet;
-            return this;
+             this.contextSnippet = contextSnippet;
+             return this;
         }
 
+    
+    
+    public DlpProofContext build(){
+        return new DlpProofContext(this);
+      }
+    }
 
-        public DlpProofContext build() {
-            return new DlpProofContext(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

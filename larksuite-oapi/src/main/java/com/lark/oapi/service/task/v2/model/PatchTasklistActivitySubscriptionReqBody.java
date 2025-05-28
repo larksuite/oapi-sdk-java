@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchTasklistActivitySubscriptionReqBody {
-    /**
-     * 要更新的订阅数据
-     * <p> 示例值：
-     */
+     /**
+      * 要更新的订阅数据
+      * <p> 示例值：
+      */
     @SerializedName("activity_subscription")
     private TasklistActivitySubscription activitySubscription;
-    /**
-     * 要更新的字段
-     * <p> 示例值：
-     */
+     /**
+      * 要更新的字段
+      * <p> 示例值：
+      */
     @SerializedName("update_fields")
     private String[] updateFields;
-
-    // builder 开始
-    public PatchTasklistActivitySubscriptionReqBody() {
-    }
-
-    public PatchTasklistActivitySubscriptionReqBody(Builder builder) {
-        /**
-         * 要更新的订阅数据
-         * <p> 示例值：
-         */
-        this.activitySubscription = builder.activitySubscription;
-        /**
-         * 要更新的字段
-         * <p> 示例值：
-         */
-        this.updateFields = builder.updateFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public TasklistActivitySubscription getActivitySubscription() {
         return this.activitySubscription;
     }
@@ -79,46 +53,67 @@ public class PatchTasklistActivitySubscriptionReqBody {
         this.updateFields = updateFields;
     }
 
+
+// builder 开始
+  public PatchTasklistActivitySubscriptionReqBody(){}
+
+  public PatchTasklistActivitySubscriptionReqBody(Builder builder){
+         /**
+          * 要更新的订阅数据
+          * <p> 示例值：
+          */
+      this.activitySubscription = builder.activitySubscription;
+         /**
+          * 要更新的字段
+          * <p> 示例值：
+          */
+      this.updateFields = builder.updateFields;
+  }
+
     public static class Builder {
-        /**
-         * 要更新的订阅数据
-         * <p> 示例值：
-         */
+     /**
+      * 要更新的订阅数据
+      * <p> 示例值：
+      */
         private TasklistActivitySubscription activitySubscription;
-        /**
-         * 要更新的字段
-         * <p> 示例值：
-         */
+     /**
+      * 要更新的字段
+      * <p> 示例值：
+      */
         private String[] updateFields;
 
         /**
          * 要更新的订阅数据
          * <p> 示例值：
-         *
          * @param activitySubscription
          * @return
          */
         public Builder activitySubscription(TasklistActivitySubscription activitySubscription) {
-            this.activitySubscription = activitySubscription;
-            return this;
+             this.activitySubscription = activitySubscription;
+             return this;
         }
 
+    
 
         /**
          * 要更新的字段
          * <p> 示例值：
-         *
          * @param updateFields
          * @return
          */
         public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
+             this.updateFields = updateFields;
+             return this;
         }
 
+    
+    
+    public PatchTasklistActivitySubscriptionReqBody build(){
+        return new PatchTasklistActivitySubscriptionReqBody(this);
+      }
+    }
 
-        public PatchTasklistActivitySubscriptionReqBody build() {
-            return new PatchTasklistActivitySubscriptionReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

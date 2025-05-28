@@ -12,69 +12,31 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetApplicationReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
-     * <p> 示例值：
-     */
+     /**
+      * 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("options")
     private String[] options;
-    /**
-     * 投递 ID
-     * <p> 示例值：6949805467799537964
-     */
-    @Path
-    @SerializedName("application_id")
-    private String applicationId;
-
-    // builder 开始
-    public GetApplicationReq() {
-    }
-
-    public GetApplicationReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
-         * <p> 示例值：
-         */
-        this.options = builder.options;
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.applicationId = builder.applicationId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -91,6 +53,13 @@ public class GetApplicationReq {
         this.options = options;
     }
 
+     /**
+      * 投递 ID
+      * <p> 示例值：6949805467799537964
+      */
+    @Path
+    @SerializedName("application_id")
+    private String applicationId;
     public String getApplicationId() {
         return this.applicationId;
     }
@@ -99,50 +68,75 @@ public class GetApplicationReq {
         this.applicationId = applicationId;
     }
 
+
+// builder 开始
+  public GetApplicationReq(){}
+
+  public GetApplicationReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
+          * <p> 示例值：
+          */
+       this.options = builder.options;
+     /**
+      * 投递 ID
+      * <p> 示例值：6949805467799537964
+      */
+       this.applicationId = builder.applicationId;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String[] options; // 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
-        private String applicationId; // 投递 ID
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
         /**
          * 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
          * <p> 示例值：
-         *
          * @param options
          * @return
          */
-        public Builder options(String[] options) {
-            this.options = options;
-            return this;
-        }
+           public Builder options(String[] options) {
+                this.options = options;
+                return this;
+           }
 
+    
+        private String applicationId; // 投递 ID
         /**
          * 投递 ID
          * <p> 示例值：6949805467799537964
-         *
          * @param applicationId
          * @return
          */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
+          public Builder applicationId(String applicationId) {
+               this.applicationId = applicationId;
+               return this;
+          }
 
+    
+    public GetApplicationReq build(){
+        return new GetApplicationReq(this);
+      }
+    }
 
-        public GetApplicationReq build() {
-            return new GetApplicationReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

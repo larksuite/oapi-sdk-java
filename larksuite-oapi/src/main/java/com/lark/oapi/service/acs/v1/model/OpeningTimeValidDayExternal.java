@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OpeningTimeValidDayExternal {
-    /**
-     * 权限开始时间
-     * <p> 示例值：1699031483
-     */
+     /**
+      * 权限开始时间
+      * <p> 示例值：1699031483
+      */
     @SerializedName("start_day")
     private Integer startDay;
-    /**
-     * 权限结束时间
-     * <p> 示例值：1699931483
-     */
+     /**
+      * 权限结束时间
+      * <p> 示例值：1699931483
+      */
     @SerializedName("end_day")
     private Integer endDay;
-
-    // builder 开始
-    public OpeningTimeValidDayExternal() {
-    }
-
-    public OpeningTimeValidDayExternal(Builder builder) {
-        /**
-         * 权限开始时间
-         * <p> 示例值：1699031483
-         */
-        this.startDay = builder.startDay;
-        /**
-         * 权限结束时间
-         * <p> 示例值：1699931483
-         */
-        this.endDay = builder.endDay;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getStartDay() {
         return this.startDay;
     }
@@ -79,46 +53,67 @@ public class OpeningTimeValidDayExternal {
         this.endDay = endDay;
     }
 
+
+// builder 开始
+  public OpeningTimeValidDayExternal(){}
+
+  public OpeningTimeValidDayExternal(Builder builder){
+         /**
+          * 权限开始时间
+          * <p> 示例值：1699031483
+          */
+      this.startDay = builder.startDay;
+         /**
+          * 权限结束时间
+          * <p> 示例值：1699931483
+          */
+      this.endDay = builder.endDay;
+  }
+
     public static class Builder {
-        /**
-         * 权限开始时间
-         * <p> 示例值：1699031483
-         */
+     /**
+      * 权限开始时间
+      * <p> 示例值：1699031483
+      */
         private Integer startDay;
-        /**
-         * 权限结束时间
-         * <p> 示例值：1699931483
-         */
+     /**
+      * 权限结束时间
+      * <p> 示例值：1699931483
+      */
         private Integer endDay;
 
         /**
          * 权限开始时间
          * <p> 示例值：1699031483
-         *
          * @param startDay
          * @return
          */
         public Builder startDay(Integer startDay) {
-            this.startDay = startDay;
-            return this;
+             this.startDay = startDay;
+             return this;
         }
 
+    
 
         /**
          * 权限结束时间
          * <p> 示例值：1699931483
-         *
          * @param endDay
          * @return
          */
         public Builder endDay(Integer endDay) {
-            this.endDay = endDay;
-            return this;
+             this.endDay = endDay;
+             return this;
         }
 
+    
+    
+    public OpeningTimeValidDayExternal build(){
+        return new OpeningTimeValidDayExternal(this);
+      }
+    }
 
-        public OpeningTimeValidDayExternal build() {
-            return new OpeningTimeValidDayExternal(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

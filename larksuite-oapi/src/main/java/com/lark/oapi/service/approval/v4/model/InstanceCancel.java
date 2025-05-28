@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InstanceCancel {
-    /**
-     * 审批定义Code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-     */
+     /**
+      * 审批定义Code
+      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+      */
     @SerializedName("approval_code")
     private String approvalCode;
-    /**
-     * 审批实例Code
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     */
+     /**
+      * 审批实例Code
+      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+      */
     @SerializedName("instance_code")
     private String instanceCode;
-    /**
-     * 操作用户, 根据user_id_type填写
-     * <p> 示例值：f7cb567e
-     */
+     /**
+      * 操作用户, 根据user_id_type填写
+      * <p> 示例值：f7cb567e
+      */
     @SerializedName("user_id")
     private String userId;
-
-    // builder 开始
-    public InstanceCancel() {
-    }
-
-    public InstanceCancel(Builder builder) {
-        /**
-         * 审批定义Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批实例Code
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 操作用户, 根据user_id_type填写
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -98,64 +67,90 @@ public class InstanceCancel {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public InstanceCancel(){}
+
+  public InstanceCancel(Builder builder){
+         /**
+          * 审批定义Code
+          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+          */
+      this.approvalCode = builder.approvalCode;
+         /**
+          * 审批实例Code
+          * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+          */
+      this.instanceCode = builder.instanceCode;
+         /**
+          * 操作用户, 根据user_id_type填写
+          * <p> 示例值：f7cb567e
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * 审批定义Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
+     /**
+      * 审批定义Code
+      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+      */
         private String approvalCode;
-        /**
-         * 审批实例Code
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
+     /**
+      * 审批实例Code
+      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+      */
         private String instanceCode;
-        /**
-         * 操作用户, 根据user_id_type填写
-         * <p> 示例值：f7cb567e
-         */
+     /**
+      * 操作用户, 根据user_id_type填写
+      * <p> 示例值：f7cb567e
+      */
         private String userId;
 
         /**
          * 审批定义Code
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
          * @param approvalCode
          * @return
          */
         public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
+             this.approvalCode = approvalCode;
+             return this;
         }
 
+    
 
         /**
          * 审批实例Code
          * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         *
          * @param instanceCode
          * @return
          */
         public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
+             this.instanceCode = instanceCode;
+             return this;
         }
 
+    
 
         /**
          * 操作用户, 根据user_id_type填写
          * <p> 示例值：f7cb567e
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public InstanceCancel build(){
+        return new InstanceCancel(this);
+      }
+    }
 
-        public InstanceCancel build() {
-            return new InstanceCancel(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

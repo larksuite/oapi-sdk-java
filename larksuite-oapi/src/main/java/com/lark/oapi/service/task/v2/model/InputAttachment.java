@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InputAttachment {
-    /**
-     * 附件归属资源的类型
-     * <p> 示例值：task
-     */
+     /**
+      * 附件归属资源的类型
+      * <p> 示例值：task
+      */
     @SerializedName("resource_type")
     private String resourceType;
-    /**
-     * 附件要归属资源的id。例如，要给任务添加附件，这里要填入任务的全局唯一ID
-     * <p> 示例值：fe96108d-b004-4a47-b2f8-6886e758b3a5
-     */
+     /**
+      * 附件要归属资源的id。例如，要给任务添加附件，这里要填入任务的全局唯一ID
+      * <p> 示例值：fe96108d-b004-4a47-b2f8-6886e758b3a5
+      */
     @SerializedName("resource_id")
     private String resourceId;
-    /**
-     * 要上传的文件
-     * <p> 示例值：
-     */
+     /**
+      * 要上传的文件
+      * <p> 示例值：
+      */
     @SerializedName("file")
     private java.io.File file;
-
-    // builder 开始
-    public InputAttachment() {
-    }
-
-    public InputAttachment(Builder builder) {
-        /**
-         * 附件归属资源的类型
-         * <p> 示例值：task
-         */
-        this.resourceType = builder.resourceType;
-        /**
-         * 附件要归属资源的id。例如，要给任务添加附件，这里要填入任务的全局唯一ID
-         * <p> 示例值：fe96108d-b004-4a47-b2f8-6886e758b3a5
-         */
-        this.resourceId = builder.resourceId;
-        /**
-         * 要上传的文件
-         * <p> 示例值：
-         */
-        this.file = builder.file;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getResourceType() {
         return this.resourceType;
     }
@@ -98,64 +67,90 @@ public class InputAttachment {
         this.file = file;
     }
 
+
+// builder 开始
+  public InputAttachment(){}
+
+  public InputAttachment(Builder builder){
+         /**
+          * 附件归属资源的类型
+          * <p> 示例值：task
+          */
+      this.resourceType = builder.resourceType;
+         /**
+          * 附件要归属资源的id。例如，要给任务添加附件，这里要填入任务的全局唯一ID
+          * <p> 示例值：fe96108d-b004-4a47-b2f8-6886e758b3a5
+          */
+      this.resourceId = builder.resourceId;
+         /**
+          * 要上传的文件
+          * <p> 示例值：
+          */
+      this.file = builder.file;
+  }
+
     public static class Builder {
-        /**
-         * 附件归属资源的类型
-         * <p> 示例值：task
-         */
+     /**
+      * 附件归属资源的类型
+      * <p> 示例值：task
+      */
         private String resourceType;
-        /**
-         * 附件要归属资源的id。例如，要给任务添加附件，这里要填入任务的全局唯一ID
-         * <p> 示例值：fe96108d-b004-4a47-b2f8-6886e758b3a5
-         */
+     /**
+      * 附件要归属资源的id。例如，要给任务添加附件，这里要填入任务的全局唯一ID
+      * <p> 示例值：fe96108d-b004-4a47-b2f8-6886e758b3a5
+      */
         private String resourceId;
-        /**
-         * 要上传的文件
-         * <p> 示例值：
-         */
+     /**
+      * 要上传的文件
+      * <p> 示例值：
+      */
         private java.io.File file;
 
         /**
          * 附件归属资源的类型
          * <p> 示例值：task
-         *
          * @param resourceType
          * @return
          */
         public Builder resourceType(String resourceType) {
-            this.resourceType = resourceType;
-            return this;
+             this.resourceType = resourceType;
+             return this;
         }
 
+    
 
         /**
          * 附件要归属资源的id。例如，要给任务添加附件，这里要填入任务的全局唯一ID
          * <p> 示例值：fe96108d-b004-4a47-b2f8-6886e758b3a5
-         *
          * @param resourceId
          * @return
          */
         public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
+             this.resourceId = resourceId;
+             return this;
         }
 
+    
 
         /**
          * 要上传的文件
          * <p> 示例值：
-         *
          * @param file
          * @return
          */
         public Builder file(java.io.File file) {
-            this.file = file;
-            return this;
+             this.file = file;
+             return this;
         }
 
+    
+    
+    public InputAttachment build(){
+        return new InputAttachment(this);
+      }
+    }
 
-        public InputAttachment build() {
-            return new InputAttachment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

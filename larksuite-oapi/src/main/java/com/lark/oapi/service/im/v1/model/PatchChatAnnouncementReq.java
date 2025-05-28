@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchChatAnnouncementReq {
-    /**
-     * 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
-     */
+     /**
+      * 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
+      * <p> 示例值：oc_5ad11d72b830411d72b836c20
+      */
     @Path
     @SerializedName("chat_id")
     private String chatId;
-    @Body
-    private PatchChatAnnouncementReqBody body;
-
-    // builder 开始
-    public PatchChatAnnouncementReq() {
-    }
-
-    public PatchChatAnnouncementReq(Builder builder) {
-        /**
-         * 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
-         * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         */
-        this.chatId = builder.chatId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getChatId() {
         return this.chatId;
     }
@@ -62,6 +38,9 @@ public class PatchChatAnnouncementReq {
     public void setChatId(String chatId) {
         this.chatId = chatId;
     }
+
+    @Body
+    private PatchChatAnnouncementReqBody body;
 
     public PatchChatAnnouncementReqBody getPatchChatAnnouncementReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class PatchChatAnnouncementReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchChatAnnouncementReq(){}
+
+  public PatchChatAnnouncementReq(Builder builder){
+     /**
+      * 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
+      * <p> 示例值：oc_5ad11d72b830411d72b836c20
+      */
+       this.chatId = builder.chatId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String chatId; // 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
-        private PatchChatAnnouncementReqBody body;
-
         /**
          * 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
          * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         *
          * @param chatId
          * @return
          */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
 
+    
+        private PatchChatAnnouncementReqBody body;
+    
         public PatchChatAnnouncementReqBody getPatchChatAnnouncementReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder patchChatAnnouncementReqBody(PatchChatAnnouncementReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchChatAnnouncementReq build(){
+        return new PatchChatAnnouncementReq(this);
+      }
+    }
 
-        public PatchChatAnnouncementReq build() {
-            return new PatchChatAnnouncementReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

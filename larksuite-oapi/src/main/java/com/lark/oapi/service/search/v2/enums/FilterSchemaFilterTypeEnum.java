@@ -17,18 +17,17 @@ package com.lark.oapi.service.search.v2.enums;
  * 过滤字段的类型
  */
 public enum FilterSchemaFilterTypeEnum {
-    STRINGLIST("list<string>"), // string列表
-    STRING("string"), // string类型
-    INT64("int64"), // int64类型
-    FLOAT("float"), // float类型
-    ;
-    private String value;
-
+     STRINGLIST("list<string>"), // string列表
+     STRING("string"), // string类型
+     INT64("int64"), // int64类型
+     FLOAT("float"), // float类型
+  ;
+   private String value;
     FilterSchemaFilterTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

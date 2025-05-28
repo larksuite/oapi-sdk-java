@@ -12,94 +12,53 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListPaymentActivityDetailReq {
-    /**
-     * 页码，第一页从 1 开始
-     * <p> 示例值：100
-     */
+     /**
+      * 页码，第一页从 1 开始
+      * <p> 示例值：100
+      */
     @Query
     @SerializedName("page_index")
     private Integer pageIndex;
-    /**
-     * 每页大小，范围为：[1, 100]
-     * <p> 示例值：
-     */
+     /**
+      * 每页大小，范围为：[1, 100]
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 发薪活动唯一标识
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 发薪活动唯一标识
+      * <p> 示例值：7202076988667019308
+      */
     @Query
     @SerializedName("activity_id")
     private String activityId;
-    /**
-     * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
-     * <p> 示例值：
-     */
+     /**
+      * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("include_segment_data")
     private Boolean includeSegmentData;
-    /**
-     * 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
-     * <p> 示例值：
-     */
+     /**
+      * 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("acct_item_ids")
     private String[] acctItemIds;
-
-    // builder 开始
-    public ListPaymentActivityDetailReq() {
-    }
-
-    public ListPaymentActivityDetailReq(Builder builder) {
-        /**
-         * 页码，第一页从 1 开始
-         * <p> 示例值：100
-         */
-        this.pageIndex = builder.pageIndex;
-        /**
-         * 每页大小，范围为：[1, 100]
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 发薪活动唯一标识
-         * <p> 示例值：7202076988667019308
-         */
-        this.activityId = builder.activityId;
-        /**
-         * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
-         * <p> 示例值：
-         */
-        this.includeSegmentData = builder.includeSegmentData;
-        /**
-         * 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
-         * <p> 示例值：
-         */
-        this.acctItemIds = builder.acctItemIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageIndex() {
         return this.pageIndex;
     }
@@ -140,80 +99,111 @@ public class ListPaymentActivityDetailReq {
         this.acctItemIds = acctItemIds;
     }
 
+
+// builder 开始
+  public ListPaymentActivityDetailReq(){}
+
+  public ListPaymentActivityDetailReq(Builder builder){
+         /**
+          * 页码，第一页从 1 开始
+          * <p> 示例值：100
+          */
+       this.pageIndex = builder.pageIndex;
+         /**
+          * 每页大小，范围为：[1, 100]
+          * <p> 示例值：
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 发薪活动唯一标识
+          * <p> 示例值：7202076988667019308
+          */
+       this.activityId = builder.activityId;
+         /**
+          * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
+          * <p> 示例值：
+          */
+       this.includeSegmentData = builder.includeSegmentData;
+         /**
+          * 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
+          * <p> 示例值：
+          */
+       this.acctItemIds = builder.acctItemIds;
+  }
+
     public static class Builder {
         private Integer pageIndex; // 页码，第一页从 1 开始
         private Integer pageSize; // 每页大小，范围为：[1, 100]
         private String activityId; // 发薪活动唯一标识
         private Boolean includeSegmentData; // 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
         private String[] acctItemIds; // 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
-
+    
         /**
          * 页码，第一页从 1 开始
          * <p> 示例值：100
-         *
          * @param pageIndex
          * @return
          */
-        public Builder pageIndex(Integer pageIndex) {
-            this.pageIndex = pageIndex;
-            return this;
-        }
+           public Builder pageIndex(Integer pageIndex) {
+                this.pageIndex = pageIndex;
+                return this;
+           }
 
-
+    
         /**
          * 每页大小，范围为：[1, 100]
          * <p> 示例值：
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 发薪活动唯一标识
          * <p> 示例值：7202076988667019308
-         *
          * @param activityId
          * @return
          */
-        public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
-        }
+           public Builder activityId(String activityId) {
+                this.activityId = activityId;
+                return this;
+           }
 
-
+    
         /**
          * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
          * <p> 示例值：
-         *
          * @param includeSegmentData
          * @return
          */
-        public Builder includeSegmentData(Boolean includeSegmentData) {
-            this.includeSegmentData = includeSegmentData;
-            return this;
-        }
+           public Builder includeSegmentData(Boolean includeSegmentData) {
+                this.includeSegmentData = includeSegmentData;
+                return this;
+           }
 
-
+    
         /**
          * 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
          * <p> 示例值：
-         *
          * @param acctItemIds
          * @return
          */
-        public Builder acctItemIds(String[] acctItemIds) {
-            this.acctItemIds = acctItemIds;
-            return this;
-        }
+           public Builder acctItemIds(String[] acctItemIds) {
+                this.acctItemIds = acctItemIds;
+                return this;
+           }
 
+    
+    public ListPaymentActivityDetailReq build(){
+        return new ListPaymentActivityDetailReq(this);
+      }
+    }
 
-        public ListPaymentActivityDetailReq build() {
-            return new ListPaymentActivityDetailReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

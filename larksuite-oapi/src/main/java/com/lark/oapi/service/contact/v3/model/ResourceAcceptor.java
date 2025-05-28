@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ResourceAcceptor {
-    /**
-     * 邮件处理方式
-     * <p> 示例值：1
-     */
+     /**
+      * 邮件处理方式
+      * <p> 示例值：1
+      */
     @SerializedName("processing_type")
     private String processingType;
-    /**
-     * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     */
+     /**
+      * 在 processing_type 为 1 （转移资源时），邮件资源接收者
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
     @SerializedName("acceptor_user_id")
     private String acceptorUserId;
-
-    // builder 开始
-    public ResourceAcceptor() {
-    }
-
-    public ResourceAcceptor(Builder builder) {
-        /**
-         * 邮件处理方式
-         * <p> 示例值：1
-         */
-        this.processingType = builder.processingType;
-        /**
-         * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.acceptorUserId = builder.acceptorUserId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getProcessingType() {
         return this.processingType;
     }
@@ -79,58 +53,77 @@ public class ResourceAcceptor {
         this.acceptorUserId = acceptorUserId;
     }
 
+
+// builder 开始
+  public ResourceAcceptor(){}
+
+  public ResourceAcceptor(Builder builder){
+         /**
+          * 邮件处理方式
+          * <p> 示例值：1
+          */
+      this.processingType = builder.processingType;
+         /**
+          * 在 processing_type 为 1 （转移资源时），邮件资源接收者
+          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+          */
+      this.acceptorUserId = builder.acceptorUserId;
+  }
+
     public static class Builder {
-        /**
-         * 邮件处理方式
-         * <p> 示例值：1
-         */
+     /**
+      * 邮件处理方式
+      * <p> 示例值：1
+      */
         private String processingType;
-        /**
-         * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
+     /**
+      * 在 processing_type 为 1 （转移资源时），邮件资源接收者
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
         private String acceptorUserId;
 
         /**
          * 邮件处理方式
          * <p> 示例值：1
-         *
          * @param processingType
          * @return
          */
         public Builder processingType(String processingType) {
-            this.processingType = processingType;
-            return this;
+             this.processingType = processingType;
+             return this;
         }
-
         /**
          * 邮件处理方式
          * <p> 示例值：1
-         *
          * @param processingType {@link com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum}
          * @return
          */
         public Builder processingType(com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum processingType) {
-            this.processingType = processingType.getValue();
-            return this;
+             this.processingType = processingType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 在 processing_type 为 1 （转移资源时），邮件资源接收者
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
          * @param acceptorUserId
          * @return
          */
         public Builder acceptorUserId(String acceptorUserId) {
-            this.acceptorUserId = acceptorUserId;
-            return this;
+             this.acceptorUserId = acceptorUserId;
+             return this;
         }
 
+    
+    
+    public ResourceAcceptor build(){
+        return new ResourceAcceptor(this);
+      }
+    }
 
-        public ResourceAcceptor build() {
-            return new ResourceAcceptor(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

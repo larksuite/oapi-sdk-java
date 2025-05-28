@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchBasicInfoNationalityReq {
-    /**
-     * 分页大小，最大 100
-     * <p> 示例值：100
-     */
+     /**
+      * 分页大小，最大 100
+      * <p> 示例值：100
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：7075702743846897196
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：7075702743846897196
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    @Body
-    private SearchBasicInfoNationalityReqBody body;
-
-    // builder 开始
-    public SearchBasicInfoNationalityReq() {
-    }
-
-    public SearchBasicInfoNationalityReq(Builder builder) {
-        /**
-         * 分页大小，最大 100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：7075702743846897196
-         */
-        this.pageToken = builder.pageToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -83,6 +54,9 @@ public class SearchBasicInfoNationalityReq {
         this.pageToken = pageToken;
     }
 
+    @Body
+    private SearchBasicInfoNationalityReqBody body;
+
     public SearchBasicInfoNationalityReqBody getSearchBasicInfoNationalityReqBody() {
         return this.body;
     }
@@ -91,52 +65,72 @@ public class SearchBasicInfoNationalityReq {
         this.body = body;
     }
 
+// builder 开始
+  public SearchBasicInfoNationalityReq(){}
+
+  public SearchBasicInfoNationalityReq(Builder builder){
+         /**
+          * 分页大小，最大 100
+          * <p> 示例值：100
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：7075702743846897196
+          */
+       this.pageToken = builder.pageToken;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小，最大 100
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private SearchBasicInfoNationalityReqBody body;
-
+    
         /**
          * 分页大小，最大 100
          * <p> 示例值：100
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：7075702743846897196
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
+        private SearchBasicInfoNationalityReqBody body;
+    
         public SearchBasicInfoNationalityReqBody getSearchBasicInfoNationalityReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder searchBasicInfoNationalityReqBody(SearchBasicInfoNationalityReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public SearchBasicInfoNationalityReq build(){
+        return new SearchBasicInfoNationalityReq(this);
+      }
+    }
 
-        public SearchBasicInfoNationalityReq build() {
-            return new SearchBasicInfoNationalityReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

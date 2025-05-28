@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MsgActionI18nInfo {
-    /**
-     * 国际化语言的 key
-     * <p> 示例值：zh_cn
-     */
+     /**
+      * 国际化语言的 key
+      * <p> 示例值：zh_cn
+      */
     @SerializedName("i18n_key")
     private String i18nKey;
-    /**
-     * 国际化名称
-     * <p> 示例值：名称
-     */
+     /**
+      * 国际化名称
+      * <p> 示例值：名称
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public MsgActionI18nInfo() {
-    }
-
-    public MsgActionI18nInfo(Builder builder) {
-        /**
-         * 国际化语言的 key
-         * <p> 示例值：zh_cn
-         */
-        this.i18nKey = builder.i18nKey;
-        /**
-         * 国际化名称
-         * <p> 示例值：名称
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getI18nKey() {
         return this.i18nKey;
     }
@@ -79,58 +53,77 @@ public class MsgActionI18nInfo {
         this.name = name;
     }
 
+
+// builder 开始
+  public MsgActionI18nInfo(){}
+
+  public MsgActionI18nInfo(Builder builder){
+         /**
+          * 国际化语言的 key
+          * <p> 示例值：zh_cn
+          */
+      this.i18nKey = builder.i18nKey;
+         /**
+          * 国际化名称
+          * <p> 示例值：名称
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 国际化语言的 key
-         * <p> 示例值：zh_cn
-         */
+     /**
+      * 国际化语言的 key
+      * <p> 示例值：zh_cn
+      */
         private String i18nKey;
-        /**
-         * 国际化名称
-         * <p> 示例值：名称
-         */
+     /**
+      * 国际化名称
+      * <p> 示例值：名称
+      */
         private String name;
 
         /**
          * 国际化语言的 key
          * <p> 示例值：zh_cn
-         *
          * @param i18nKey
          * @return
          */
         public Builder i18nKey(String i18nKey) {
-            this.i18nKey = i18nKey;
-            return this;
+             this.i18nKey = i18nKey;
+             return this;
         }
-
         /**
          * 国际化语言的 key
          * <p> 示例值：zh_cn
-         *
          * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.MsgActionI18nInfoI18nKeyEnum}
          * @return
          */
         public Builder i18nKey(com.lark.oapi.service.application.v6.enums.MsgActionI18nInfoI18nKeyEnum i18nKey) {
-            this.i18nKey = i18nKey.getValue();
-            return this;
+             this.i18nKey = i18nKey.getValue();
+             return this;
         }
 
+    
 
         /**
          * 国际化名称
          * <p> 示例值：名称
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public MsgActionI18nInfo build(){
+        return new MsgActionI18nInfo(this);
+      }
+    }
 
-        public MsgActionI18nInfo build() {
-            return new MsgActionI18nInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

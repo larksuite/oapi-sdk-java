@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListUserOkrRespBody {
-    /**
-     * OKR周期总数
-     * <p> 示例值：5
-     */
+     /**
+      * OKR周期总数
+      * <p> 示例值：5
+      */
     @SerializedName("total")
     private Integer total;
-    /**
-     * OKR 列表
-     * <p> 示例值：
-     */
+     /**
+      * OKR 列表
+      * <p> 示例值：
+      */
     @SerializedName("okr_list")
     private OkrBatch[] okrList;
-
     public Integer getTotal() {
         return this.total;
     }

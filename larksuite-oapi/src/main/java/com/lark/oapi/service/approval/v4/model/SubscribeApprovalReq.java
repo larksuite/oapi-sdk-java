@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SubscribeApprovalReq {
-    /**
-     * 审批定义唯一标识
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-     */
+     /**
+      * 审批定义唯一标识
+      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+      */
     @Path
     @SerializedName("approval_code")
     private String approvalCode;
-
-    // builder 开始
-    public SubscribeApprovalReq() {
-    }
-
-    public SubscribeApprovalReq(Builder builder) {
-        /**
-         * 审批定义唯一标识
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -60,25 +39,39 @@ public class SubscribeApprovalReq {
         this.approvalCode = approvalCode;
     }
 
+
+// builder 开始
+  public SubscribeApprovalReq(){}
+
+  public SubscribeApprovalReq(Builder builder){
+     /**
+      * 审批定义唯一标识
+      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+      */
+       this.approvalCode = builder.approvalCode;
+  }
+
     public static class Builder {
-
+    
         private String approvalCode; // 审批定义唯一标识
-
         /**
          * 审批定义唯一标识
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
          * @param approvalCode
          * @return
          */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
+          public Builder approvalCode(String approvalCode) {
+               this.approvalCode = approvalCode;
+               return this;
+          }
 
+    
+    public SubscribeApprovalReq build(){
+        return new SubscribeApprovalReq(this);
+      }
+    }
 
-        public SubscribeApprovalReq build() {
-            return new SubscribeApprovalReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

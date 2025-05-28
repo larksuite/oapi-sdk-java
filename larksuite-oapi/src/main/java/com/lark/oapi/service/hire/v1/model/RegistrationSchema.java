@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RegistrationSchema {
-    /**
-     * 信息登记表模板 ID
-     * <p> 示例值：7044739584859326764
-     */
+     /**
+      * 信息登记表模板 ID
+      * <p> 示例值：7044739584859326764
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 信息登记表模板名称
-     * <p> 示例值：默认信息登记表
-     */
+     /**
+      * 信息登记表模板名称
+      * <p> 示例值：默认信息登记表
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 登记表适用场景
-     * <p> 示例值：
-     */
+     /**
+      * 登记表适用场景
+      * <p> 示例值：
+      */
     @SerializedName("scenarios")
     private Integer[] scenarios;
-    /**
-     * 模块列表
-     * <p> 示例值：
-     */
+     /**
+      * 模块列表
+      * <p> 示例值：
+      */
     @SerializedName("objects")
     private CommonSchema[] objects;
-
-    // builder 开始
-    public RegistrationSchema() {
-    }
-
-    public RegistrationSchema(Builder builder) {
-        /**
-         * 信息登记表模板 ID
-         * <p> 示例值：7044739584859326764
-         */
-        this.id = builder.id;
-        /**
-         * 信息登记表模板名称
-         * <p> 示例值：默认信息登记表
-         */
-        this.name = builder.name;
-        /**
-         * 登记表适用场景
-         * <p> 示例值：
-         */
-        this.scenarios = builder.scenarios;
-        /**
-         * 模块列表
-         * <p> 示例值：
-         */
-        this.objects = builder.objects;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -116,82 +80,113 @@ public class RegistrationSchema {
         this.objects = objects;
     }
 
+
+// builder 开始
+  public RegistrationSchema(){}
+
+  public RegistrationSchema(Builder builder){
+         /**
+          * 信息登记表模板 ID
+          * <p> 示例值：7044739584859326764
+          */
+      this.id = builder.id;
+         /**
+          * 信息登记表模板名称
+          * <p> 示例值：默认信息登记表
+          */
+      this.name = builder.name;
+         /**
+          * 登记表适用场景
+          * <p> 示例值：
+          */
+      this.scenarios = builder.scenarios;
+         /**
+          * 模块列表
+          * <p> 示例值：
+          */
+      this.objects = builder.objects;
+  }
+
     public static class Builder {
-        /**
-         * 信息登记表模板 ID
-         * <p> 示例值：7044739584859326764
-         */
+     /**
+      * 信息登记表模板 ID
+      * <p> 示例值：7044739584859326764
+      */
         private String id;
-        /**
-         * 信息登记表模板名称
-         * <p> 示例值：默认信息登记表
-         */
+     /**
+      * 信息登记表模板名称
+      * <p> 示例值：默认信息登记表
+      */
         private String name;
-        /**
-         * 登记表适用场景
-         * <p> 示例值：
-         */
+     /**
+      * 登记表适用场景
+      * <p> 示例值：
+      */
         private Integer[] scenarios;
-        /**
-         * 模块列表
-         * <p> 示例值：
-         */
+     /**
+      * 模块列表
+      * <p> 示例值：
+      */
         private CommonSchema[] objects;
 
         /**
          * 信息登记表模板 ID
          * <p> 示例值：7044739584859326764
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 信息登记表模板名称
          * <p> 示例值：默认信息登记表
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 登记表适用场景
          * <p> 示例值：
-         *
          * @param scenarios
          * @return
          */
         public Builder scenarios(Integer[] scenarios) {
-            this.scenarios = scenarios;
-            return this;
+             this.scenarios = scenarios;
+             return this;
         }
 
+    
 
         /**
          * 模块列表
          * <p> 示例值：
-         *
          * @param objects
          * @return
          */
         public Builder objects(CommonSchema[] objects) {
-            this.objects = objects;
-            return this;
+             this.objects = objects;
+             return this;
         }
 
+    
+    
+    public RegistrationSchema build(){
+        return new RegistrationSchema(this);
+      }
+    }
 
-        public RegistrationSchema build() {
-            return new RegistrationSchema(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

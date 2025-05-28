@@ -17,32 +17,31 @@ package com.lark.oapi.service.personal_settings.v1.enums;
  * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
  */
 public enum SystemStatusSystemStatusIconKeyEnum {
-    GENERALDONOTDISTURB("GeneralDoNotDisturb"), // GeneralDoNotDisturb
-    GENERALINMEETINGBUSY("GeneralInMeetingBusy"), // GeneralInMeetingBusy
-    COFFEE("Coffee"), // Coffee
-    GENERALBUSINESSTRIP("GeneralBusinessTrip"), // GeneralBusinessTrip
-    GENERALWORKFROMHOME("GeneralWorkFromHome"), // GeneralWorkFromHome
-    STATUSENJOYLIFE("StatusEnjoyLife"), // StatusEnjoyLife
-    GENERALTRAVELLINGCAR("GeneralTravellingCar"), // GeneralTravellingCar
-    STATUSBUS("StatusBus"), // StatusBus
-    STATUSINFLIGHT("StatusInFlight"), // StatusInFlight
-    TYPING("Typing"), // Typing
-    EATINGFOOD("EatingFood"), // EatingFood
-    SICK("SICK"), // SICK
-    GENERALSUN("GeneralSun"), // GeneralSun
-    GENERALMOONREST("GeneralMoonRest"), // GeneralMoonRest
-    STATUSREADING("StatusReading"), // StatusReading
-    STATUS_PRIVATEMESSAGE("Status_PrivateMessage"), // Status_PrivateMessage
-    STATUSFLASHOFINSPIRATION("StatusFlashOfInspiration"), // StatusFlashOfInspiration
-    GENERALVACATION("GeneralVacation"), // GeneralVacation
-    ;
-    private String value;
-
+     GENERALDONOTDISTURB("GeneralDoNotDisturb"), // GeneralDoNotDisturb
+     GENERALINMEETINGBUSY("GeneralInMeetingBusy"), // GeneralInMeetingBusy
+     COFFEE("Coffee"), // Coffee
+     GENERALBUSINESSTRIP("GeneralBusinessTrip"), // GeneralBusinessTrip
+     GENERALWORKFROMHOME("GeneralWorkFromHome"), // GeneralWorkFromHome
+     STATUSENJOYLIFE("StatusEnjoyLife"), // StatusEnjoyLife
+     GENERALTRAVELLINGCAR("GeneralTravellingCar"), // GeneralTravellingCar
+     STATUSBUS("StatusBus"), // StatusBus
+     STATUSINFLIGHT("StatusInFlight"), // StatusInFlight
+     TYPING("Typing"), // Typing
+     EATINGFOOD("EatingFood"), // EatingFood
+     SICK("SICK"), // SICK
+     GENERALSUN("GeneralSun"), // GeneralSun
+     GENERALMOONREST("GeneralMoonRest"), // GeneralMoonRest
+     STATUSREADING("StatusReading"), // StatusReading
+     STATUS_PRIVATEMESSAGE("Status_PrivateMessage"), // Status_PrivateMessage
+     STATUSFLASHOFINSPIRATION("StatusFlashOfInspiration"), // StatusFlashOfInspiration
+     GENERALVACATION("GeneralVacation"), // GeneralVacation
+  ;
+   private String value;
     SystemStatusSystemStatusIconKeyEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

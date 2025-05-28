@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SeatAssignment {
-    /**
-     * aPaaS 产品用户的 ID
-     * <p> 示例值：1803710089388154
-     */
+     /**
+      * aPaaS 产品用户的 ID
+      * <p> 示例值：1803710089388154
+      */
     @SerializedName("user_id")
     private Integer userId;
-    /**
-     * aPaaS 产品应用的 namespace
-     * <p> 示例值：package_35f605__c
-     */
+     /**
+      * aPaaS 产品应用的 namespace
+      * <p> 示例值：package_35f605__c
+      */
     @SerializedName("namespace")
     private String namespace;
-    /**
-     * 席位状态，枚举值：1. in_use 2. released
-     * <p> 示例值：in_use
-     */
+     /**
+      * 席位状态，枚举值：1. in_use 2. released
+      * <p> 示例值：in_use
+      */
     @SerializedName("status")
     private String status;
-
-    // builder 开始
-    public SeatAssignment() {
-    }
-
-    public SeatAssignment(Builder builder) {
-        /**
-         * aPaaS 产品用户的 ID
-         * <p> 示例值：1803710089388154
-         */
-        this.userId = builder.userId;
-        /**
-         * aPaaS 产品应用的 namespace
-         * <p> 示例值：package_35f605__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 席位状态，枚举值：1. in_use 2. released
-         * <p> 示例值：in_use
-         */
-        this.status = builder.status;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getUserId() {
         return this.userId;
     }
@@ -98,76 +67,100 @@ public class SeatAssignment {
         this.status = status;
     }
 
+
+// builder 开始
+  public SeatAssignment(){}
+
+  public SeatAssignment(Builder builder){
+         /**
+          * aPaaS 产品用户的 ID
+          * <p> 示例值：1803710089388154
+          */
+      this.userId = builder.userId;
+         /**
+          * aPaaS 产品应用的 namespace
+          * <p> 示例值：package_35f605__c
+          */
+      this.namespace = builder.namespace;
+         /**
+          * 席位状态，枚举值：1. in_use 2. released
+          * <p> 示例值：in_use
+          */
+      this.status = builder.status;
+  }
+
     public static class Builder {
-        /**
-         * aPaaS 产品用户的 ID
-         * <p> 示例值：1803710089388154
-         */
+     /**
+      * aPaaS 产品用户的 ID
+      * <p> 示例值：1803710089388154
+      */
         private Integer userId;
-        /**
-         * aPaaS 产品应用的 namespace
-         * <p> 示例值：package_35f605__c
-         */
+     /**
+      * aPaaS 产品应用的 namespace
+      * <p> 示例值：package_35f605__c
+      */
         private String namespace;
-        /**
-         * 席位状态，枚举值：1. in_use 2. released
-         * <p> 示例值：in_use
-         */
+     /**
+      * 席位状态，枚举值：1. in_use 2. released
+      * <p> 示例值：in_use
+      */
         private String status;
 
         /**
          * aPaaS 产品用户的 ID
          * <p> 示例值：1803710089388154
-         *
          * @param userId
          * @return
          */
         public Builder userId(Integer userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * aPaaS 产品应用的 namespace
          * <p> 示例值：package_35f605__c
-         *
          * @param namespace
          * @return
          */
         public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
+             this.namespace = namespace;
+             return this;
         }
 
+    
 
         /**
          * 席位状态，枚举值：1. in_use 2. released
          * <p> 示例值：in_use
-         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 席位状态，枚举值：1. in_use 2. released
          * <p> 示例值：in_use
-         *
          * @param status {@link com.lark.oapi.service.apaas.v1.enums.SeatAssignmentAssignmentStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.apaas.v1.enums.SeatAssignmentAssignmentStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
+    
+    public SeatAssignment build(){
+        return new SeatAssignment(this);
+      }
+    }
 
-        public SeatAssignment build() {
-            return new SeatAssignment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MetricInTemplate {
-    /**
-     * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
-     * <p> 示例值：7272581996315099155
-     */
+     /**
+      * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
+      * <p> 示例值：7272581996315099155
+      */
     @SerializedName("group_id")
     private String groupId;
-    /**
-     * 指标 ID（备注：指标的统一标识 ID。如果模板存在分组，需要+分组 ID 才能标识到指标模板唯一的指标）
-     * <p> 示例值：7272581996315099155
-     */
+     /**
+      * 指标 ID（备注：指标的统一标识 ID。如果模板存在分组，需要+分组 ID 才能标识到指标模板唯一的指标）
+      * <p> 示例值：7272581996315099155
+      */
     @SerializedName("metric_id")
     private String metricId;
-    /**
-     * 指标名称，指标在该模板中的名称
-     * <p> 示例值：销售额
-     */
+     /**
+      * 指标名称，指标在该模板中的名称
+      * <p> 示例值：销售额
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 指标类型 ID
-     * <p> 示例值：7272581996315099155
-     */
+     /**
+      * 指标类型 ID
+      * <p> 示例值：7272581996315099155
+      */
     @SerializedName("type_id")
     private String typeId;
-    /**
-     * 指标字段信息
-     * <p> 示例值：
-     */
+     /**
+      * 指标字段信息
+      * <p> 示例值：
+      */
     @SerializedName("fields")
     private MetricFieldInTemplate[] fields;
-    /**
-     * 指标是否引自指标库
-     * <p> 示例值：
-     */
+     /**
+      * 指标是否引自指标库
+      * <p> 示例值：
+      */
     @SerializedName("is_from_library")
     private Boolean isFromLibrary;
-    /**
-     * 评分设置类型
-     * <p> 示例值：
-     */
+     /**
+      * 评分设置类型
+      * <p> 示例值：
+      */
     @SerializedName("scoring_setting_type")
     private String scoringSettingType;
-    /**
-     * 数据源录入人
-     * <p> 示例值：
-     */
+     /**
+      * 数据源录入人
+      * <p> 示例值：
+      */
     @SerializedName("data_source_inputters")
     private User[] dataSourceInputters;
-    /**
-     * 所属维度ID
-     * <p> 示例值：7272581996315099155
-     */
+     /**
+      * 所属维度ID
+      * <p> 示例值：7272581996315099155
+      */
     @SerializedName("metric_dimension_id")
     private String metricDimensionId;
-    /**
-     * 指标评估规则配置
-     * <p> 示例值：
-     */
+     /**
+      * 指标评估规则配置
+      * <p> 示例值：
+      */
     @SerializedName("review_rule_config")
     private MetricReviewRuleConfig reviewRuleConfig;
-
-    // builder 开始
-    public MetricInTemplate() {
-    }
-
-    public MetricInTemplate(Builder builder) {
-        /**
-         * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
-         * <p> 示例值：7272581996315099155
-         */
-        this.groupId = builder.groupId;
-        /**
-         * 指标 ID（备注：指标的统一标识 ID。如果模板存在分组，需要+分组 ID 才能标识到指标模板唯一的指标）
-         * <p> 示例值：7272581996315099155
-         */
-        this.metricId = builder.metricId;
-        /**
-         * 指标名称，指标在该模板中的名称
-         * <p> 示例值：销售额
-         */
-        this.name = builder.name;
-        /**
-         * 指标类型 ID
-         * <p> 示例值：7272581996315099155
-         */
-        this.typeId = builder.typeId;
-        /**
-         * 指标字段信息
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 指标是否引自指标库
-         * <p> 示例值：
-         */
-        this.isFromLibrary = builder.isFromLibrary;
-        /**
-         * 评分设置类型
-         * <p> 示例值：
-         */
-        this.scoringSettingType = builder.scoringSettingType;
-        /**
-         * 数据源录入人
-         * <p> 示例值：
-         */
-        this.dataSourceInputters = builder.dataSourceInputters;
-        /**
-         * 所属维度ID
-         * <p> 示例值：7272581996315099155
-         */
-        this.metricDimensionId = builder.metricDimensionId;
-        /**
-         * 指标评估规则配置
-         * <p> 示例值：
-         */
-        this.reviewRuleConfig = builder.reviewRuleConfig;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getGroupId() {
         return this.groupId;
     }
@@ -231,202 +165,261 @@ public class MetricInTemplate {
         this.reviewRuleConfig = reviewRuleConfig;
     }
 
+
+// builder 开始
+  public MetricInTemplate(){}
+
+  public MetricInTemplate(Builder builder){
+         /**
+          * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
+          * <p> 示例值：7272581996315099155
+          */
+      this.groupId = builder.groupId;
+         /**
+          * 指标 ID（备注：指标的统一标识 ID。如果模板存在分组，需要+分组 ID 才能标识到指标模板唯一的指标）
+          * <p> 示例值：7272581996315099155
+          */
+      this.metricId = builder.metricId;
+         /**
+          * 指标名称，指标在该模板中的名称
+          * <p> 示例值：销售额
+          */
+      this.name = builder.name;
+         /**
+          * 指标类型 ID
+          * <p> 示例值：7272581996315099155
+          */
+      this.typeId = builder.typeId;
+         /**
+          * 指标字段信息
+          * <p> 示例值：
+          */
+      this.fields = builder.fields;
+         /**
+          * 指标是否引自指标库
+          * <p> 示例值：
+          */
+      this.isFromLibrary = builder.isFromLibrary;
+         /**
+          * 评分设置类型
+          * <p> 示例值：
+          */
+      this.scoringSettingType = builder.scoringSettingType;
+         /**
+          * 数据源录入人
+          * <p> 示例值：
+          */
+      this.dataSourceInputters = builder.dataSourceInputters;
+         /**
+          * 所属维度ID
+          * <p> 示例值：7272581996315099155
+          */
+      this.metricDimensionId = builder.metricDimensionId;
+         /**
+          * 指标评估规则配置
+          * <p> 示例值：
+          */
+      this.reviewRuleConfig = builder.reviewRuleConfig;
+  }
+
     public static class Builder {
-        /**
-         * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
-         * <p> 示例值：7272581996315099155
-         */
+     /**
+      * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
+      * <p> 示例值：7272581996315099155
+      */
         private String groupId;
-        /**
-         * 指标 ID（备注：指标的统一标识 ID。如果模板存在分组，需要+分组 ID 才能标识到指标模板唯一的指标）
-         * <p> 示例值：7272581996315099155
-         */
+     /**
+      * 指标 ID（备注：指标的统一标识 ID。如果模板存在分组，需要+分组 ID 才能标识到指标模板唯一的指标）
+      * <p> 示例值：7272581996315099155
+      */
         private String metricId;
-        /**
-         * 指标名称，指标在该模板中的名称
-         * <p> 示例值：销售额
-         */
+     /**
+      * 指标名称，指标在该模板中的名称
+      * <p> 示例值：销售额
+      */
         private String name;
-        /**
-         * 指标类型 ID
-         * <p> 示例值：7272581996315099155
-         */
+     /**
+      * 指标类型 ID
+      * <p> 示例值：7272581996315099155
+      */
         private String typeId;
-        /**
-         * 指标字段信息
-         * <p> 示例值：
-         */
+     /**
+      * 指标字段信息
+      * <p> 示例值：
+      */
         private MetricFieldInTemplate[] fields;
-        /**
-         * 指标是否引自指标库
-         * <p> 示例值：
-         */
+     /**
+      * 指标是否引自指标库
+      * <p> 示例值：
+      */
         private Boolean isFromLibrary;
-        /**
-         * 评分设置类型
-         * <p> 示例值：
-         */
+     /**
+      * 评分设置类型
+      * <p> 示例值：
+      */
         private String scoringSettingType;
-        /**
-         * 数据源录入人
-         * <p> 示例值：
-         */
+     /**
+      * 数据源录入人
+      * <p> 示例值：
+      */
         private User[] dataSourceInputters;
-        /**
-         * 所属维度ID
-         * <p> 示例值：7272581996315099155
-         */
+     /**
+      * 所属维度ID
+      * <p> 示例值：7272581996315099155
+      */
         private String metricDimensionId;
-        /**
-         * 指标评估规则配置
-         * <p> 示例值：
-         */
+     /**
+      * 指标评估规则配置
+      * <p> 示例值：
+      */
         private MetricReviewRuleConfig reviewRuleConfig;
 
         /**
          * 所属人群分组 ID，模板分人群设置指标时，指标维度按照人群分组；未分人群设置时该值为空
          * <p> 示例值：7272581996315099155
-         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
+             this.groupId = groupId;
+             return this;
         }
 
+    
 
         /**
          * 指标 ID（备注：指标的统一标识 ID。如果模板存在分组，需要+分组 ID 才能标识到指标模板唯一的指标）
          * <p> 示例值：7272581996315099155
-         *
          * @param metricId
          * @return
          */
         public Builder metricId(String metricId) {
-            this.metricId = metricId;
-            return this;
+             this.metricId = metricId;
+             return this;
         }
 
+    
 
         /**
          * 指标名称，指标在该模板中的名称
          * <p> 示例值：销售额
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 指标类型 ID
          * <p> 示例值：7272581996315099155
-         *
          * @param typeId
          * @return
          */
         public Builder typeId(String typeId) {
-            this.typeId = typeId;
-            return this;
+             this.typeId = typeId;
+             return this;
         }
 
+    
 
         /**
          * 指标字段信息
          * <p> 示例值：
-         *
          * @param fields
          * @return
          */
         public Builder fields(MetricFieldInTemplate[] fields) {
-            this.fields = fields;
-            return this;
+             this.fields = fields;
+             return this;
         }
 
+    
 
         /**
          * 指标是否引自指标库
          * <p> 示例值：
-         *
          * @param isFromLibrary
          * @return
          */
         public Builder isFromLibrary(Boolean isFromLibrary) {
-            this.isFromLibrary = isFromLibrary;
-            return this;
+             this.isFromLibrary = isFromLibrary;
+             return this;
         }
 
+    
 
         /**
          * 评分设置类型
          * <p> 示例值：
-         *
          * @param scoringSettingType
          * @return
          */
         public Builder scoringSettingType(String scoringSettingType) {
-            this.scoringSettingType = scoringSettingType;
-            return this;
+             this.scoringSettingType = scoringSettingType;
+             return this;
         }
-
         /**
          * 评分设置类型
          * <p> 示例值：
-         *
          * @param scoringSettingType {@link com.lark.oapi.service.performance.v2.enums.MetricInTemplateScoringSettingTypeEnum}
          * @return
          */
         public Builder scoringSettingType(com.lark.oapi.service.performance.v2.enums.MetricInTemplateScoringSettingTypeEnum scoringSettingType) {
-            this.scoringSettingType = scoringSettingType.getValue();
-            return this;
+             this.scoringSettingType = scoringSettingType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 数据源录入人
          * <p> 示例值：
-         *
          * @param dataSourceInputters
          * @return
          */
         public Builder dataSourceInputters(User[] dataSourceInputters) {
-            this.dataSourceInputters = dataSourceInputters;
-            return this;
+             this.dataSourceInputters = dataSourceInputters;
+             return this;
         }
 
+    
 
         /**
          * 所属维度ID
          * <p> 示例值：7272581996315099155
-         *
          * @param metricDimensionId
          * @return
          */
         public Builder metricDimensionId(String metricDimensionId) {
-            this.metricDimensionId = metricDimensionId;
-            return this;
+             this.metricDimensionId = metricDimensionId;
+             return this;
         }
 
+    
 
         /**
          * 指标评估规则配置
          * <p> 示例值：
-         *
          * @param reviewRuleConfig
          * @return
          */
         public Builder reviewRuleConfig(MetricReviewRuleConfig reviewRuleConfig) {
-            this.reviewRuleConfig = reviewRuleConfig;
-            return this;
+             this.reviewRuleConfig = reviewRuleConfig;
+             return this;
         }
 
+    
+    
+    public MetricInTemplate build(){
+        return new MetricInTemplate(this);
+      }
+    }
 
-        public MetricInTemplate build() {
-            return new MetricInTemplate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

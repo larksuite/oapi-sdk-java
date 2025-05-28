@@ -17,16 +17,15 @@ package com.lark.oapi.service.approval.v4.enums;
  * 拒绝设置
  */
 public enum ApprovalSettingRejectOptionEnum {
-    REJECTDEFAULT(0), // 默认设置，流程被终止
-    REJECTSUBMIT(1), // 退回至发起人，发起人可编辑流程后重新提交
-    ;
-    private Integer value;
-
+     REJECTDEFAULT(0), // 默认设置，流程被终止
+     REJECTSUBMIT(1), // 退回至发起人，发起人可编辑流程后重新提交
+  ;
+   private Integer value;
     ApprovalSettingRejectOptionEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

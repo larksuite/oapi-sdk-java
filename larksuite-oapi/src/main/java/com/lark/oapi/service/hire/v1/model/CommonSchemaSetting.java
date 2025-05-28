@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CommonSchemaSetting {
-    /**
-     * 字段类型
-     * <p> 示例值：1
-     */
+     /**
+      * 字段类型
+      * <p> 示例值：1
+      */
     @SerializedName("object_type")
     private Integer objectType;
-    /**
-     * 配置信息
-     * <p> 示例值：
-     */
+     /**
+      * 配置信息
+      * <p> 示例值：
+      */
     @SerializedName("config")
     private CommonSchemaConfig config;
-
-    // builder 开始
-    public CommonSchemaSetting() {
-    }
-
-    public CommonSchemaSetting(Builder builder) {
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.objectType = builder.objectType;
-        /**
-         * 配置信息
-         * <p> 示例值：
-         */
-        this.config = builder.config;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getObjectType() {
         return this.objectType;
     }
@@ -78,46 +52,67 @@ public class CommonSchemaSetting {
         this.config = config;
     }
 
+
+// builder 开始
+  public CommonSchemaSetting(){}
+
+  public CommonSchemaSetting(Builder builder){
+         /**
+          * 字段类型
+          * <p> 示例值：1
+          */
+      this.objectType = builder.objectType;
+         /**
+          * 配置信息
+          * <p> 示例值：
+          */
+      this.config = builder.config;
+  }
+
     public static class Builder {
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
+     /**
+      * 字段类型
+      * <p> 示例值：1
+      */
         private Integer objectType;
-        /**
-         * 配置信息
-         * <p> 示例值：
-         */
+     /**
+      * 配置信息
+      * <p> 示例值：
+      */
         private CommonSchemaConfig config;
 
         /**
          * 字段类型
          * <p> 示例值：1
-         *
          * @param objectType
          * @return
          */
         public Builder objectType(Integer objectType) {
-            this.objectType = objectType;
-            return this;
+             this.objectType = objectType;
+             return this;
         }
 
+    
 
         /**
          * 配置信息
          * <p> 示例值：
-         *
          * @param config
          * @return
          */
         public Builder config(CommonSchemaConfig config) {
-            this.config = config;
-            return this;
+             this.config = config;
+             return this;
         }
 
+    
+    
+    public CommonSchemaSetting build(){
+        return new CommonSchemaSetting(this);
+      }
+    }
 
-        public CommonSchemaSetting build() {
-            return new CommonSchemaSetting(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

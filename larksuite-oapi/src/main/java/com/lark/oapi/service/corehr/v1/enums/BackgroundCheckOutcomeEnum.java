@@ -17,18 +17,17 @@ package com.lark.oapi.service.corehr.v1.enums;
  * 结果
  */
 public enum BackgroundCheckOutcomeEnum {
-    CLEAR(1), // 没问题
-    MINORALERT(2), // 次要警报
-    MAJORALERT(3), // 重大警报
-    UNVERIFIED(4), // 未验证
-    ;
-    private Integer value;
-
+     CLEAR(1), // 没问题
+     MINORALERT(2), // 次要警报
+     MAJORALERT(3), // 重大警报
+     UNVERIFIED(4), // 未验证
+  ;
+   private Integer value;
     BackgroundCheckOutcomeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

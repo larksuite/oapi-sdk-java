@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListCalendarRespBody {
-    /**
-     * 是否还有更多数据
-     * <p> 示例值：false
-     */
+     /**
+      * 是否还有更多数据
+      * <p> 示例值：false
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-    /**
-     * 下次请求需要带上的分页标记，90 天有效期
-     * <p> 示例值：ListCalendarsPageToken_xxx
-     */
+     /**
+      * 下次请求需要带上的分页标记，90 天有效期
+      * <p> 示例值：ListCalendarsPageToken_xxx
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 下次请求需要带上的增量同步标记，90 天有效期
-     * <p> 示例值：ListCalendarsSyncToken_xxx
-     */
+     /**
+      * 下次请求需要带上的增量同步标记，90 天有效期
+      * <p> 示例值：ListCalendarsSyncToken_xxx
+      */
     @SerializedName("sync_token")
     private String syncToken;
-    /**
-     * 分页加载的日历数据列表
-     * <p> 示例值：
-     */
+     /**
+      * 分页加载的日历数据列表
+      * <p> 示例值：
+      */
     @SerializedName("calendar_list")
     private Calendar[] calendarList;
-
     public Boolean getHasMore() {
         return this.hasMore;
     }

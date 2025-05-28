@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListEmployeeTypeEnumRespBody {
-    /**
-     * 枚举数据
-     * <p> 示例值：
-     */
+     /**
+      * 枚举数据
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private EmployeeTypeEnum[] items;
-    /**
-     * 是否下一页
-     * <p> 示例值：true
-     */
+     /**
+      * 是否下一页
+      * <p> 示例值：true
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-    /**
-     * 分页token
-     * <p> 示例值：3
-     */
+     /**
+      * 分页token
+      * <p> 示例值：3
+      */
     @SerializedName("page_token")
     private String pageToken;
-
     public EmployeeTypeEnum[] getItems() {
         return this.items;
     }

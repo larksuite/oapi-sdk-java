@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SignatureSignatoryLabel {
-    /**
-     * 电子签模板签订人类型
-     * <p> 示例值：
-     */
+     /**
+      * 电子签模板签订人类型
+      * <p> 示例值：
+      */
     @SerializedName("template_signatory_type")
     private Enum templateSignatoryType;
-    /**
-     * 中英文描述
-     * <p> 示例值：
-     */
+     /**
+      * 中英文描述
+      * <p> 示例值：
+      */
     @SerializedName("label")
     private I18n[] label;
-    /**
-     * 主数据apiname
-     * <p> 示例值：status
-     */
+     /**
+      * 主数据apiname
+      * <p> 示例值：status
+      */
     @SerializedName("apiname")
     private String apiname;
-
-    // builder 开始
-    public SignatureSignatoryLabel() {
-    }
-
-    public SignatureSignatoryLabel(Builder builder) {
-        /**
-         * 电子签模板签订人类型
-         * <p> 示例值：
-         */
-        this.templateSignatoryType = builder.templateSignatoryType;
-        /**
-         * 中英文描述
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 主数据apiname
-         * <p> 示例值：status
-         */
-        this.apiname = builder.apiname;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Enum getTemplateSignatoryType() {
         return this.templateSignatoryType;
     }
@@ -98,64 +67,90 @@ public class SignatureSignatoryLabel {
         this.apiname = apiname;
     }
 
+
+// builder 开始
+  public SignatureSignatoryLabel(){}
+
+  public SignatureSignatoryLabel(Builder builder){
+         /**
+          * 电子签模板签订人类型
+          * <p> 示例值：
+          */
+      this.templateSignatoryType = builder.templateSignatoryType;
+         /**
+          * 中英文描述
+          * <p> 示例值：
+          */
+      this.label = builder.label;
+         /**
+          * 主数据apiname
+          * <p> 示例值：status
+          */
+      this.apiname = builder.apiname;
+  }
+
     public static class Builder {
-        /**
-         * 电子签模板签订人类型
-         * <p> 示例值：
-         */
+     /**
+      * 电子签模板签订人类型
+      * <p> 示例值：
+      */
         private Enum templateSignatoryType;
-        /**
-         * 中英文描述
-         * <p> 示例值：
-         */
+     /**
+      * 中英文描述
+      * <p> 示例值：
+      */
         private I18n[] label;
-        /**
-         * 主数据apiname
-         * <p> 示例值：status
-         */
+     /**
+      * 主数据apiname
+      * <p> 示例值：status
+      */
         private String apiname;
 
         /**
          * 电子签模板签订人类型
          * <p> 示例值：
-         *
          * @param templateSignatoryType
          * @return
          */
         public Builder templateSignatoryType(Enum templateSignatoryType) {
-            this.templateSignatoryType = templateSignatoryType;
-            return this;
+             this.templateSignatoryType = templateSignatoryType;
+             return this;
         }
 
+    
 
         /**
          * 中英文描述
          * <p> 示例值：
-         *
          * @param label
          * @return
          */
         public Builder label(I18n[] label) {
-            this.label = label;
-            return this;
+             this.label = label;
+             return this;
         }
 
+    
 
         /**
          * 主数据apiname
          * <p> 示例值：status
-         *
          * @param apiname
          * @return
          */
         public Builder apiname(String apiname) {
-            this.apiname = apiname;
-            return this;
+             this.apiname = apiname;
+             return this;
         }
 
+    
+    
+    public SignatureSignatoryLabel build(){
+        return new SignatureSignatoryLabel(this);
+      }
+    }
 
-        public SignatureSignatoryLabel build() {
-            return new SignatureSignatoryLabel(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

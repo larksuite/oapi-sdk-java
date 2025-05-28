@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OpenapiLogDetail {
-    /**
-     * http请求路径
-     * <p> 示例值：/open-apis/demo/v1/example
-     */
+     /**
+      * http请求路径
+      * <p> 示例值：/open-apis/demo/v1/example
+      */
     @SerializedName("path")
     private String path;
-    /**
-     * http请求方法
-     * <p> 示例值：POST
-     */
+     /**
+      * http请求方法
+      * <p> 示例值：POST
+      */
     @SerializedName("method")
     private String method;
-    /**
-     * http查询参数
-     * <p> 示例值：{}
-     */
+     /**
+      * http查询参数
+      * <p> 示例值：{}
+      */
     @SerializedName("query_param")
     private String queryParam;
-    /**
-     * http请求体
-     * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
-     */
+     /**
+      * http请求体
+      * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
+      */
     @SerializedName("payload")
     private String payload;
-    /**
-     * http状态码
-     * <p> 示例值：0
-     */
+     /**
+      * http状态码
+      * <p> 示例值：0
+      */
     @SerializedName("status_code")
     private Integer statusCode;
-    /**
-     * http响应体，仅返回code，msg，error信息等
-     * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
-     */
+     /**
+      * http响应体，仅返回code，msg，error信息等
+      * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
+      */
     @SerializedName("response")
     private String response;
-
-    // builder 开始
-    public OpenapiLogDetail() {
-    }
-
-    public OpenapiLogDetail(Builder builder) {
-        /**
-         * http请求路径
-         * <p> 示例值：/open-apis/demo/v1/example
-         */
-        this.path = builder.path;
-        /**
-         * http请求方法
-         * <p> 示例值：POST
-         */
-        this.method = builder.method;
-        /**
-         * http查询参数
-         * <p> 示例值：{}
-         */
-        this.queryParam = builder.queryParam;
-        /**
-         * http请求体
-         * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
-         */
-        this.payload = builder.payload;
-        /**
-         * http状态码
-         * <p> 示例值：0
-         */
-        this.statusCode = builder.statusCode;
-        /**
-         * http响应体，仅返回code，msg，error信息等
-         * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
-         */
-        this.response = builder.response;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPath() {
         return this.path;
     }
@@ -155,118 +109,159 @@ public class OpenapiLogDetail {
         this.response = response;
     }
 
+
+// builder 开始
+  public OpenapiLogDetail(){}
+
+  public OpenapiLogDetail(Builder builder){
+         /**
+          * http请求路径
+          * <p> 示例值：/open-apis/demo/v1/example
+          */
+      this.path = builder.path;
+         /**
+          * http请求方法
+          * <p> 示例值：POST
+          */
+      this.method = builder.method;
+         /**
+          * http查询参数
+          * <p> 示例值：{}
+          */
+      this.queryParam = builder.queryParam;
+         /**
+          * http请求体
+          * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
+          */
+      this.payload = builder.payload;
+         /**
+          * http状态码
+          * <p> 示例值：0
+          */
+      this.statusCode = builder.statusCode;
+         /**
+          * http响应体，仅返回code，msg，error信息等
+          * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
+          */
+      this.response = builder.response;
+  }
+
     public static class Builder {
-        /**
-         * http请求路径
-         * <p> 示例值：/open-apis/demo/v1/example
-         */
+     /**
+      * http请求路径
+      * <p> 示例值：/open-apis/demo/v1/example
+      */
         private String path;
-        /**
-         * http请求方法
-         * <p> 示例值：POST
-         */
+     /**
+      * http请求方法
+      * <p> 示例值：POST
+      */
         private String method;
-        /**
-         * http查询参数
-         * <p> 示例值：{}
-         */
+     /**
+      * http查询参数
+      * <p> 示例值：{}
+      */
         private String queryParam;
-        /**
-         * http请求体
-         * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
-         */
+     /**
+      * http请求体
+      * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
+      */
         private String payload;
-        /**
-         * http状态码
-         * <p> 示例值：0
-         */
+     /**
+      * http状态码
+      * <p> 示例值：0
+      */
         private Integer statusCode;
-        /**
-         * http响应体，仅返回code，msg，error信息等
-         * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
-         */
+     /**
+      * http响应体，仅返回code，msg，error信息等
+      * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
+      */
         private String response;
 
         /**
          * http请求路径
          * <p> 示例值：/open-apis/demo/v1/example
-         *
          * @param path
          * @return
          */
         public Builder path(String path) {
-            this.path = path;
-            return this;
+             this.path = path;
+             return this;
         }
 
+    
 
         /**
          * http请求方法
          * <p> 示例值：POST
-         *
          * @param method
          * @return
          */
         public Builder method(String method) {
-            this.method = method;
-            return this;
+             this.method = method;
+             return this;
         }
 
+    
 
         /**
          * http查询参数
          * <p> 示例值：{}
-         *
          * @param queryParam
          * @return
          */
         public Builder queryParam(String queryParam) {
-            this.queryParam = queryParam;
-            return this;
+             this.queryParam = queryParam;
+             return this;
         }
 
+    
 
         /**
          * http请求体
          * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
-         *
          * @param payload
          * @return
          */
         public Builder payload(String payload) {
-            this.payload = payload;
-            return this;
+             this.payload = payload;
+             return this;
         }
 
+    
 
         /**
          * http状态码
          * <p> 示例值：0
-         *
          * @param statusCode
          * @return
          */
         public Builder statusCode(Integer statusCode) {
-            this.statusCode = statusCode;
-            return this;
+             this.statusCode = statusCode;
+             return this;
         }
 
+    
 
         /**
          * http响应体，仅返回code，msg，error信息等
          * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
-         *
          * @param response
          * @return
          */
         public Builder response(String response) {
-            this.response = response;
-            return this;
+             this.response = response;
+             return this;
         }
 
+    
+    
+    public OpenapiLogDetail build(){
+        return new OpenapiLogDetail(this);
+      }
+    }
 
-        public OpenapiLogDetail build() {
-            return new OpenapiLogDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

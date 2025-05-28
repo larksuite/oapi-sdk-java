@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class StartMeetingRecordingReq {
-    /**
-     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-     * <p> 示例值：6911188411932033028
-     */
+     /**
+      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+      * <p> 示例值：6911188411932033028
+      */
     @Path
     @SerializedName("meeting_id")
     private String meetingId;
-    @Body
-    private StartMeetingRecordingReqBody body;
-
-    // builder 开始
-    public StartMeetingRecordingReq() {
-    }
-
-    public StartMeetingRecordingReq(Builder builder) {
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411932033028
-         */
-        this.meetingId = builder.meetingId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMeetingId() {
         return this.meetingId;
     }
@@ -62,6 +38,9 @@ public class StartMeetingRecordingReq {
     public void setMeetingId(String meetingId) {
         this.meetingId = meetingId;
     }
+
+    @Body
+    private StartMeetingRecordingReqBody body;
 
     public StartMeetingRecordingReqBody getStartMeetingRecordingReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class StartMeetingRecordingReq {
         this.body = body;
     }
 
+// builder 开始
+  public StartMeetingRecordingReq(){}
+
+  public StartMeetingRecordingReq(Builder builder){
+     /**
+      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+      * <p> 示例值：6911188411932033028
+      */
+       this.meetingId = builder.meetingId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-        private StartMeetingRecordingReqBody body;
-
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
          * <p> 示例值：6911188411932033028
-         *
          * @param meetingId
          * @return
          */
-        public Builder meetingId(String meetingId) {
-            this.meetingId = meetingId;
-            return this;
-        }
+          public Builder meetingId(String meetingId) {
+               this.meetingId = meetingId;
+               return this;
+          }
 
+    
+        private StartMeetingRecordingReqBody body;
+    
         public StartMeetingRecordingReqBody getStartMeetingRecordingReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder startMeetingRecordingReqBody(StartMeetingRecordingReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public StartMeetingRecordingReq build(){
+        return new StartMeetingRecordingReq(this);
+      }
+    }
 
-        public StartMeetingRecordingReq build() {
-            return new StartMeetingRecordingReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RuleDimension {
-    /**
-     * 维度的key
-     * <p> 示例值：员工
-     */
+     /**
+      * 维度的key
+      * <p> 示例值：员工
+      */
     @SerializedName("entity_key")
     private String entityKey;
-    /**
-     * 维度名称
-     * <p> 示例值：
-     */
+     /**
+      * 维度名称
+      * <p> 示例值：
+      */
     @SerializedName("entity_name")
     private Name entityName;
-
-    // builder 开始
-    public RuleDimension() {
-    }
-
-    public RuleDimension(Builder builder) {
-        /**
-         * 维度的key
-         * <p> 示例值：员工
-         */
-        this.entityKey = builder.entityKey;
-        /**
-         * 维度名称
-         * <p> 示例值：
-         */
-        this.entityName = builder.entityName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEntityKey() {
         return this.entityKey;
     }
@@ -79,46 +53,67 @@ public class RuleDimension {
         this.entityName = entityName;
     }
 
+
+// builder 开始
+  public RuleDimension(){}
+
+  public RuleDimension(Builder builder){
+         /**
+          * 维度的key
+          * <p> 示例值：员工
+          */
+      this.entityKey = builder.entityKey;
+         /**
+          * 维度名称
+          * <p> 示例值：
+          */
+      this.entityName = builder.entityName;
+  }
+
     public static class Builder {
-        /**
-         * 维度的key
-         * <p> 示例值：员工
-         */
+     /**
+      * 维度的key
+      * <p> 示例值：员工
+      */
         private String entityKey;
-        /**
-         * 维度名称
-         * <p> 示例值：
-         */
+     /**
+      * 维度名称
+      * <p> 示例值：
+      */
         private Name entityName;
 
         /**
          * 维度的key
          * <p> 示例值：员工
-         *
          * @param entityKey
          * @return
          */
         public Builder entityKey(String entityKey) {
-            this.entityKey = entityKey;
-            return this;
+             this.entityKey = entityKey;
+             return this;
         }
 
+    
 
         /**
          * 维度名称
          * <p> 示例值：
-         *
          * @param entityName
          * @return
          */
         public Builder entityName(Name entityName) {
-            this.entityName = entityName;
-            return this;
+             this.entityName = entityName;
+             return this;
         }
 
+    
+    
+    public RuleDimension build(){
+        return new RuleDimension(this);
+      }
+    }
 
-        public RuleDimension build() {
-            return new RuleDimension(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

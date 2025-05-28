@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ExpeditingUserTaskReqBody {
-    /**
-     * 操作人kunlunUserID
-     * <p> 示例值：123
-     */
+     /**
+      * 操作人kunlunUserID
+      * <p> 示例值：123
+      */
     @SerializedName("operator_user_id")
     private String operatorUserId;
-    /**
-     * 催办人的kunlunID列表
-     * <p> 示例值：
-     */
+     /**
+      * 催办人的kunlunID列表
+      * <p> 示例值：
+      */
     @SerializedName("expediting_user_ids")
     private String[] expeditingUserIds;
-    /**
-     * 催办理由
-     * <p> 示例值：催办理由
-     */
+     /**
+      * 催办理由
+      * <p> 示例值：催办理由
+      */
     @SerializedName("opinion")
     private String opinion;
-
-    // builder 开始
-    public ExpeditingUserTaskReqBody() {
-    }
-
-    public ExpeditingUserTaskReqBody(Builder builder) {
-        /**
-         * 操作人kunlunUserID
-         * <p> 示例值：123
-         */
-        this.operatorUserId = builder.operatorUserId;
-        /**
-         * 催办人的kunlunID列表
-         * <p> 示例值：
-         */
-        this.expeditingUserIds = builder.expeditingUserIds;
-        /**
-         * 催办理由
-         * <p> 示例值：催办理由
-         */
-        this.opinion = builder.opinion;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOperatorUserId() {
         return this.operatorUserId;
     }
@@ -98,64 +67,90 @@ public class ExpeditingUserTaskReqBody {
         this.opinion = opinion;
     }
 
+
+// builder 开始
+  public ExpeditingUserTaskReqBody(){}
+
+  public ExpeditingUserTaskReqBody(Builder builder){
+         /**
+          * 操作人kunlunUserID
+          * <p> 示例值：123
+          */
+      this.operatorUserId = builder.operatorUserId;
+         /**
+          * 催办人的kunlunID列表
+          * <p> 示例值：
+          */
+      this.expeditingUserIds = builder.expeditingUserIds;
+         /**
+          * 催办理由
+          * <p> 示例值：催办理由
+          */
+      this.opinion = builder.opinion;
+  }
+
     public static class Builder {
-        /**
-         * 操作人kunlunUserID
-         * <p> 示例值：123
-         */
+     /**
+      * 操作人kunlunUserID
+      * <p> 示例值：123
+      */
         private String operatorUserId;
-        /**
-         * 催办人的kunlunID列表
-         * <p> 示例值：
-         */
+     /**
+      * 催办人的kunlunID列表
+      * <p> 示例值：
+      */
         private String[] expeditingUserIds;
-        /**
-         * 催办理由
-         * <p> 示例值：催办理由
-         */
+     /**
+      * 催办理由
+      * <p> 示例值：催办理由
+      */
         private String opinion;
 
         /**
          * 操作人kunlunUserID
          * <p> 示例值：123
-         *
          * @param operatorUserId
          * @return
          */
         public Builder operatorUserId(String operatorUserId) {
-            this.operatorUserId = operatorUserId;
-            return this;
+             this.operatorUserId = operatorUserId;
+             return this;
         }
 
+    
 
         /**
          * 催办人的kunlunID列表
          * <p> 示例值：
-         *
          * @param expeditingUserIds
          * @return
          */
         public Builder expeditingUserIds(String[] expeditingUserIds) {
-            this.expeditingUserIds = expeditingUserIds;
-            return this;
+             this.expeditingUserIds = expeditingUserIds;
+             return this;
         }
 
+    
 
         /**
          * 催办理由
          * <p> 示例值：催办理由
-         *
          * @param opinion
          * @return
          */
         public Builder opinion(String opinion) {
-            this.opinion = opinion;
-            return this;
+             this.opinion = opinion;
+             return this;
         }
 
+    
+    
+    public ExpeditingUserTaskReqBody build(){
+        return new ExpeditingUserTaskReqBody(this);
+      }
+    }
 
-        public ExpeditingUserTaskReqBody build() {
-            return new ExpeditingUserTaskReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

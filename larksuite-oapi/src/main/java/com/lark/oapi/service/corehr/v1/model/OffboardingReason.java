@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OffboardingReason {
-    /**
-     * 离职原因唯一标识
-     * <p> 示例值：reason_for_offboarding_option8
-     */
+     /**
+      * 离职原因唯一标识
+      * <p> 示例值：reason_for_offboarding_option8
+      */
     @SerializedName("offboarding_reason_unique_identifier")
     private String offboardingReasonUniqueIdentifier;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n[] name;
-    /**
-     * 是否启用，true为启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用，true为启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 当前离职原因的父级原因唯一标识
-     * <p> 示例值：offboarding_reason_1
-     */
+     /**
+      * 当前离职原因的父级原因唯一标识
+      * <p> 示例值：offboarding_reason_1
+      */
     @SerializedName("parent_offboarding_reason_unique_identifier")
     private String parentOffboardingReasonUniqueIdentifier;
-    /**
-     * 创建时间
-     * <p> 示例值：2021-08-20 20:28:23
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：2021-08-20 20:28:23
+      */
     @SerializedName("created_time")
     private String createdTime;
-    /**
-     * 更新时间
-     * <p> 示例值：2022-01-07 17:21:06
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：2022-01-07 17:21:06
+      */
     @SerializedName("updated_time")
     private String updatedTime;
-
-    // builder 开始
-    public OffboardingReason() {
-    }
-
-    public OffboardingReason(Builder builder) {
-        /**
-         * 离职原因唯一标识
-         * <p> 示例值：reason_for_offboarding_option8
-         */
-        this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用，true为启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 当前离职原因的父级原因唯一标识
-         * <p> 示例值：offboarding_reason_1
-         */
-        this.parentOffboardingReasonUniqueIdentifier = builder.parentOffboardingReasonUniqueIdentifier;
-        /**
-         * 创建时间
-         * <p> 示例值：2021-08-20 20:28:23
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2022-01-07 17:21:06
-         */
-        this.updatedTime = builder.updatedTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOffboardingReasonUniqueIdentifier() {
         return this.offboardingReasonUniqueIdentifier;
     }
@@ -155,118 +109,159 @@ public class OffboardingReason {
         this.updatedTime = updatedTime;
     }
 
+
+// builder 开始
+  public OffboardingReason(){}
+
+  public OffboardingReason(Builder builder){
+         /**
+          * 离职原因唯一标识
+          * <p> 示例值：reason_for_offboarding_option8
+          */
+      this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
+         /**
+          * 名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 是否启用，true为启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 当前离职原因的父级原因唯一标识
+          * <p> 示例值：offboarding_reason_1
+          */
+      this.parentOffboardingReasonUniqueIdentifier = builder.parentOffboardingReasonUniqueIdentifier;
+         /**
+          * 创建时间
+          * <p> 示例值：2021-08-20 20:28:23
+          */
+      this.createdTime = builder.createdTime;
+         /**
+          * 更新时间
+          * <p> 示例值：2022-01-07 17:21:06
+          */
+      this.updatedTime = builder.updatedTime;
+  }
+
     public static class Builder {
-        /**
-         * 离职原因唯一标识
-         * <p> 示例值：reason_for_offboarding_option8
-         */
+     /**
+      * 离职原因唯一标识
+      * <p> 示例值：reason_for_offboarding_option8
+      */
         private String offboardingReasonUniqueIdentifier;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
         private I18n[] name;
-        /**
-         * 是否启用，true为启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用，true为启用
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 当前离职原因的父级原因唯一标识
-         * <p> 示例值：offboarding_reason_1
-         */
+     /**
+      * 当前离职原因的父级原因唯一标识
+      * <p> 示例值：offboarding_reason_1
+      */
         private String parentOffboardingReasonUniqueIdentifier;
-        /**
-         * 创建时间
-         * <p> 示例值：2021-08-20 20:28:23
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：2021-08-20 20:28:23
+      */
         private String createdTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2022-01-07 17:21:06
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：2022-01-07 17:21:06
+      */
         private String updatedTime;
 
         /**
          * 离职原因唯一标识
          * <p> 示例值：reason_for_offboarding_option8
-         *
          * @param offboardingReasonUniqueIdentifier
          * @return
          */
         public Builder offboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
-            this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
-            return this;
+             this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 是否启用，true为启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 当前离职原因的父级原因唯一标识
          * <p> 示例值：offboarding_reason_1
-         *
          * @param parentOffboardingReasonUniqueIdentifier
          * @return
          */
         public Builder parentOffboardingReasonUniqueIdentifier(String parentOffboardingReasonUniqueIdentifier) {
-            this.parentOffboardingReasonUniqueIdentifier = parentOffboardingReasonUniqueIdentifier;
-            return this;
+             this.parentOffboardingReasonUniqueIdentifier = parentOffboardingReasonUniqueIdentifier;
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：2021-08-20 20:28:23
-         *
          * @param createdTime
          * @return
          */
         public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
+             this.createdTime = createdTime;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：2022-01-07 17:21:06
-         *
          * @param updatedTime
          * @return
          */
         public Builder updatedTime(String updatedTime) {
-            this.updatedTime = updatedTime;
-            return this;
+             this.updatedTime = updatedTime;
+             return this;
         }
 
+    
+    
+    public OffboardingReason build(){
+        return new OffboardingReason(this);
+      }
+    }
 
-        public OffboardingReason build() {
-            return new OffboardingReason(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

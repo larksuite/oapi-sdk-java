@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TalentFolder {
-    /**
-     * 名称
-     * <p> 示例值：人才文件夹A1
-     */
+     /**
+      * 名称
+      * <p> 示例值：人才文件夹A1
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 文件夹 ID
-     * <p> 示例值：7041806543797995820
-     */
+     /**
+      * 文件夹 ID
+      * <p> 示例值：7041806543797995820
+      */
     @SerializedName("folder_id")
     private String folderId;
-    /**
-     * 所有者 ID
-     * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-     */
+     /**
+      * 所有者 ID
+      * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
+      */
     @SerializedName("owner_id")
     private String ownerId;
-    /**
-     * 文件夹加入时间,毫秒级时间戳
-     * <p> 示例值：1634801678103
-     */
+     /**
+      * 文件夹加入时间,毫秒级时间戳
+      * <p> 示例值：1634801678103
+      */
     @SerializedName("add_time")
     private String addTime;
-
-    // builder 开始
-    public TalentFolder() {
-    }
-
-    public TalentFolder(Builder builder) {
-        /**
-         * 名称
-         * <p> 示例值：人才文件夹A1
-         */
-        this.name = builder.name;
-        /**
-         * 文件夹 ID
-         * <p> 示例值：7041806543797995820
-         */
-        this.folderId = builder.folderId;
-        /**
-         * 所有者 ID
-         * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 文件夹加入时间,毫秒级时间戳
-         * <p> 示例值：1634801678103
-         */
-        this.addTime = builder.addTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -116,82 +80,113 @@ public class TalentFolder {
         this.addTime = addTime;
     }
 
+
+// builder 开始
+  public TalentFolder(){}
+
+  public TalentFolder(Builder builder){
+         /**
+          * 名称
+          * <p> 示例值：人才文件夹A1
+          */
+      this.name = builder.name;
+         /**
+          * 文件夹 ID
+          * <p> 示例值：7041806543797995820
+          */
+      this.folderId = builder.folderId;
+         /**
+          * 所有者 ID
+          * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
+          */
+      this.ownerId = builder.ownerId;
+         /**
+          * 文件夹加入时间,毫秒级时间戳
+          * <p> 示例值：1634801678103
+          */
+      this.addTime = builder.addTime;
+  }
+
     public static class Builder {
-        /**
-         * 名称
-         * <p> 示例值：人才文件夹A1
-         */
+     /**
+      * 名称
+      * <p> 示例值：人才文件夹A1
+      */
         private String name;
-        /**
-         * 文件夹 ID
-         * <p> 示例值：7041806543797995820
-         */
+     /**
+      * 文件夹 ID
+      * <p> 示例值：7041806543797995820
+      */
         private String folderId;
-        /**
-         * 所有者 ID
-         * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-         */
+     /**
+      * 所有者 ID
+      * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
+      */
         private String ownerId;
-        /**
-         * 文件夹加入时间,毫秒级时间戳
-         * <p> 示例值：1634801678103
-         */
+     /**
+      * 文件夹加入时间,毫秒级时间戳
+      * <p> 示例值：1634801678103
+      */
         private String addTime;
 
         /**
          * 名称
          * <p> 示例值：人才文件夹A1
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 文件夹 ID
          * <p> 示例值：7041806543797995820
-         *
          * @param folderId
          * @return
          */
         public Builder folderId(String folderId) {
-            this.folderId = folderId;
-            return this;
+             this.folderId = folderId;
+             return this;
         }
 
+    
 
         /**
          * 所有者 ID
          * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-         *
          * @param ownerId
          * @return
          */
         public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
+             this.ownerId = ownerId;
+             return this;
         }
 
+    
 
         /**
          * 文件夹加入时间,毫秒级时间戳
          * <p> 示例值：1634801678103
-         *
          * @param addTime
          * @return
          */
         public Builder addTime(String addTime) {
-            this.addTime = addTime;
-            return this;
+             this.addTime = addTime;
+             return this;
         }
 
+    
+    
+    public TalentFolder build(){
+        return new TalentFolder(this);
+      }
+    }
 
-        public TalentFolder build() {
-            return new TalentFolder(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

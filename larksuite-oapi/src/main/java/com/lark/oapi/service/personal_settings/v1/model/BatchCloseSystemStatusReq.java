@@ -12,61 +12,25 @@
  */
 
 package com.lark.oapi.service.personal_settings.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchCloseSystemStatusReq {
-    /**
-     * 用户id类型 open_id/user_id/union_id
-     * <p> 示例值：open_id
-     */
+     /**
+      * 用户id类型 open_id/user_id/union_id
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-     * <p> 示例值：7101214603622940671
-     */
-    @Path
-    @SerializedName("system_status_id")
-    private String systemStatusId;
-    @Body
-    private BatchCloseSystemStatusReqBody body;
-
-    // builder 开始
-    public BatchCloseSystemStatusReq() {
-    }
-
-    public BatchCloseSystemStatusReq(Builder builder) {
-        /**
-         * 用户id类型 open_id/user_id/union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-         * <p> 示例值：7101214603622940671
-         */
-        this.systemStatusId = builder.systemStatusId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -75,6 +39,13 @@ public class BatchCloseSystemStatusReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
+      * <p> 示例值：7101214603622940671
+      */
+    @Path
+    @SerializedName("system_status_id")
+    private String systemStatusId;
     public String getSystemStatusId() {
         return this.systemStatusId;
     }
@@ -82,6 +53,9 @@ public class BatchCloseSystemStatusReq {
     public void setSystemStatusId(String systemStatusId) {
         this.systemStatusId = systemStatusId;
     }
+
+    @Body
+    private BatchCloseSystemStatusReqBody body;
 
     public BatchCloseSystemStatusReqBody getBatchCloseSystemStatusReqBody() {
         return this.body;
@@ -91,64 +65,83 @@ public class BatchCloseSystemStatusReq {
         this.body = body;
     }
 
+// builder 开始
+  public BatchCloseSystemStatusReq(){}
+
+  public BatchCloseSystemStatusReq(Builder builder){
+         /**
+          * 用户id类型 open_id/user_id/union_id
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
+      * <p> 示例值：7101214603622940671
+      */
+       this.systemStatusId = builder.systemStatusId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 用户id类型 open_id/user_id/union_id
-        private String systemStatusId; // 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-        private BatchCloseSystemStatusReqBody body;
-
+    
         /**
          * 用户id类型 open_id/user_id/union_id
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 用户id类型 open_id/user_id/union_id
          * <p> 示例值：open_id
-         *
          * @param userIdType {@link com.lark.oapi.service.personal_settings.v1.enums.BatchCloseSystemStatusUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.personal_settings.v1.enums.BatchCloseSystemStatusUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.personal_settings.v1.enums.BatchCloseSystemStatusUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String systemStatusId; // 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
         /**
          * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
          * <p> 示例值：7101214603622940671
-         *
          * @param systemStatusId
          * @return
          */
-        public Builder systemStatusId(String systemStatusId) {
-            this.systemStatusId = systemStatusId;
-            return this;
-        }
+          public Builder systemStatusId(String systemStatusId) {
+               this.systemStatusId = systemStatusId;
+               return this;
+          }
 
+    
+        private BatchCloseSystemStatusReqBody body;
+    
         public BatchCloseSystemStatusReqBody getBatchCloseSystemStatusReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder batchCloseSystemStatusReqBody(BatchCloseSystemStatusReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public BatchCloseSystemStatusReq build(){
+        return new BatchCloseSystemStatusReq(this);
+      }
+    }
 
-        public BatchCloseSystemStatusReq build() {
-            return new BatchCloseSystemStatusReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

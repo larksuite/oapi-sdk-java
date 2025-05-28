@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchAppTableReq {
-    /**
-     * 多维表格 app_token，请参照接入指南获取
-     * <p> 示例值：
-     */
+     /**
+      * 多维表格 app_token，请参照接入指南获取
+      * <p> 示例值：
+      */
     @Path
     @SerializedName("app_token")
     private String appToken;
-    /**
-     * 多维表格 table_id，请参照接入指南获取
-     * <p> 示例值：
-     */
+     /**
+      * 多维表格 table_id，请参照接入指南获取
+      * <p> 示例值：
+      */
     @Path
     @SerializedName("table_id")
     private String tableId;
-    @Body
-    private PatchAppTableReqBody body;
-
-    // builder 开始
-    public PatchAppTableReq() {
-    }
-
-    public PatchAppTableReq(Builder builder) {
-        /**
-         * 多维表格 app_token，请参照接入指南获取
-         * <p> 示例值：
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 多维表格 table_id，请参照接入指南获取
-         * <p> 示例值：
-         */
-        this.tableId = builder.tableId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAppToken() {
         return this.appToken;
     }
@@ -83,6 +54,9 @@ public class PatchAppTableReq {
         this.tableId = tableId;
     }
 
+    @Body
+    private PatchAppTableReqBody body;
+
     public PatchAppTableReqBody getPatchAppTableReqBody() {
         return this.body;
     }
@@ -91,53 +65,72 @@ public class PatchAppTableReq {
         this.body = body;
     }
 
-    public static class Builder {
+// builder 开始
+  public PatchAppTableReq(){}
 
+  public PatchAppTableReq(Builder builder){
+     /**
+      * 多维表格 app_token，请参照接入指南获取
+      * <p> 示例值：
+      */
+       this.appToken = builder.appToken;
+     /**
+      * 多维表格 table_id，请参照接入指南获取
+      * <p> 示例值：
+      */
+       this.tableId = builder.tableId;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+    
         private String appToken; // 多维表格 app_token，请参照接入指南获取
         private String tableId; // 多维表格 table_id，请参照接入指南获取
-        private PatchAppTableReqBody body;
-
         /**
          * 多维表格 app_token，请参照接入指南获取
          * <p> 示例值：
-         *
          * @param appToken
          * @return
          */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
 
+    
         /**
          * 多维表格 table_id，请参照接入指南获取
          * <p> 示例值：
-         *
          * @param tableId
          * @return
          */
-        public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
-        }
+          public Builder tableId(String tableId) {
+               this.tableId = tableId;
+               return this;
+          }
 
+    
+        private PatchAppTableReqBody body;
+    
         public PatchAppTableReqBody getPatchAppTableReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder patchAppTableReqBody(PatchAppTableReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchAppTableReq build(){
+        return new PatchAppTableReq(this);
+      }
+    }
 
-        public PatchAppTableReq build() {
-            return new PatchAppTableReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CopyAppDashboardReq {
-    /**
-     * 多维表格 token
-     * <p> 示例值：basbcldP5xZeskcHDFZQfeToydb
-     */
+     /**
+      * 多维表格 token
+      * <p> 示例值：basbcldP5xZeskcHDFZQfeToydb
+      */
     @Path
     @SerializedName("app_token")
     private String appToken;
-    /**
-     * 多维表格 block_id
-     * <p> 示例值：blkEsvEEaNllY2UV
-     */
+     /**
+      * 多维表格 block_id
+      * <p> 示例值：blkEsvEEaNllY2UV
+      */
     @Path
     @SerializedName("block_id")
     private String blockId;
-    @Body
-    private CopyAppDashboardReqBody body;
-
-    // builder 开始
-    public CopyAppDashboardReq() {
-    }
-
-    public CopyAppDashboardReq(Builder builder) {
-        /**
-         * 多维表格 token
-         * <p> 示例值：basbcldP5xZeskcHDFZQfeToydb
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 多维表格 block_id
-         * <p> 示例值：blkEsvEEaNllY2UV
-         */
-        this.blockId = builder.blockId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAppToken() {
         return this.appToken;
     }
@@ -83,6 +54,9 @@ public class CopyAppDashboardReq {
         this.blockId = blockId;
     }
 
+    @Body
+    private CopyAppDashboardReqBody body;
+
     public CopyAppDashboardReqBody getCopyAppDashboardReqBody() {
         return this.body;
     }
@@ -91,53 +65,72 @@ public class CopyAppDashboardReq {
         this.body = body;
     }
 
-    public static class Builder {
+// builder 开始
+  public CopyAppDashboardReq(){}
 
+  public CopyAppDashboardReq(Builder builder){
+     /**
+      * 多维表格 token
+      * <p> 示例值：basbcldP5xZeskcHDFZQfeToydb
+      */
+       this.appToken = builder.appToken;
+     /**
+      * 多维表格 block_id
+      * <p> 示例值：blkEsvEEaNllY2UV
+      */
+       this.blockId = builder.blockId;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+    
         private String appToken; // 多维表格 token
         private String blockId; // 多维表格 block_id
-        private CopyAppDashboardReqBody body;
-
         /**
          * 多维表格 token
          * <p> 示例值：basbcldP5xZeskcHDFZQfeToydb
-         *
          * @param appToken
          * @return
          */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
 
+    
         /**
          * 多维表格 block_id
          * <p> 示例值：blkEsvEEaNllY2UV
-         *
          * @param blockId
          * @return
          */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
+          public Builder blockId(String blockId) {
+               this.blockId = blockId;
+               return this;
+          }
 
+    
+        private CopyAppDashboardReqBody body;
+    
         public CopyAppDashboardReqBody getCopyAppDashboardReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder copyAppDashboardReqBody(CopyAppDashboardReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CopyAppDashboardReq build(){
+        return new CopyAppDashboardReq(this);
+      }
+    }
 
-        public CopyAppDashboardReq build() {
-            return new CopyAppDashboardReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

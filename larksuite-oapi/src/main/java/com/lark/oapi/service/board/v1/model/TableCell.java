@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TableCell {
-    /**
-     * 行下标，从 1 开始
-     * <p> 示例值：1
-     */
+     /**
+      * 行下标，从 1 开始
+      * <p> 示例值：1
+      */
     @SerializedName("row_index")
     private Integer rowIndex;
-    /**
-     * 列下标，从 1 开始
-     * <p> 示例值：1
-     */
+     /**
+      * 列下标，从 1 开始
+      * <p> 示例值：1
+      */
     @SerializedName("col_index")
     private Integer colIndex;
-    /**
-     * 单元格合并信息
-     * <p> 示例值：
-     */
+     /**
+      * 单元格合并信息
+      * <p> 示例值：
+      */
     @SerializedName("merge_info")
     private TableCellMergeInfo mergeInfo;
-    /**
-     * 单元格包含的子节点 id
-     * <p> 示例值：
-     */
+     /**
+      * 单元格包含的子节点 id
+      * <p> 示例值：
+      */
     @SerializedName("children")
     private String[] children;
-    /**
-     * 单元格内文字
-     * <p> 示例值：
-     */
+     /**
+      * 单元格内文字
+      * <p> 示例值：
+      */
     @SerializedName("text")
     private Text text;
-
-    // builder 开始
-    public TableCell() {
-    }
-
-    public TableCell(Builder builder) {
-        /**
-         * 行下标，从 1 开始
-         * <p> 示例值：1
-         */
-        this.rowIndex = builder.rowIndex;
-        /**
-         * 列下标，从 1 开始
-         * <p> 示例值：1
-         */
-        this.colIndex = builder.colIndex;
-        /**
-         * 单元格合并信息
-         * <p> 示例值：
-         */
-        this.mergeInfo = builder.mergeInfo;
-        /**
-         * 单元格包含的子节点 id
-         * <p> 示例值：
-         */
-        this.children = builder.children;
-        /**
-         * 单元格内文字
-         * <p> 示例值：
-         */
-        this.text = builder.text;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getRowIndex() {
         return this.rowIndex;
     }
@@ -136,100 +95,136 @@ public class TableCell {
         this.text = text;
     }
 
+
+// builder 开始
+  public TableCell(){}
+
+  public TableCell(Builder builder){
+         /**
+          * 行下标，从 1 开始
+          * <p> 示例值：1
+          */
+      this.rowIndex = builder.rowIndex;
+         /**
+          * 列下标，从 1 开始
+          * <p> 示例值：1
+          */
+      this.colIndex = builder.colIndex;
+         /**
+          * 单元格合并信息
+          * <p> 示例值：
+          */
+      this.mergeInfo = builder.mergeInfo;
+         /**
+          * 单元格包含的子节点 id
+          * <p> 示例值：
+          */
+      this.children = builder.children;
+         /**
+          * 单元格内文字
+          * <p> 示例值：
+          */
+      this.text = builder.text;
+  }
+
     public static class Builder {
-        /**
-         * 行下标，从 1 开始
-         * <p> 示例值：1
-         */
+     /**
+      * 行下标，从 1 开始
+      * <p> 示例值：1
+      */
         private Integer rowIndex;
-        /**
-         * 列下标，从 1 开始
-         * <p> 示例值：1
-         */
+     /**
+      * 列下标，从 1 开始
+      * <p> 示例值：1
+      */
         private Integer colIndex;
-        /**
-         * 单元格合并信息
-         * <p> 示例值：
-         */
+     /**
+      * 单元格合并信息
+      * <p> 示例值：
+      */
         private TableCellMergeInfo mergeInfo;
-        /**
-         * 单元格包含的子节点 id
-         * <p> 示例值：
-         */
+     /**
+      * 单元格包含的子节点 id
+      * <p> 示例值：
+      */
         private String[] children;
-        /**
-         * 单元格内文字
-         * <p> 示例值：
-         */
+     /**
+      * 单元格内文字
+      * <p> 示例值：
+      */
         private Text text;
 
         /**
          * 行下标，从 1 开始
          * <p> 示例值：1
-         *
          * @param rowIndex
          * @return
          */
         public Builder rowIndex(Integer rowIndex) {
-            this.rowIndex = rowIndex;
-            return this;
+             this.rowIndex = rowIndex;
+             return this;
         }
 
+    
 
         /**
          * 列下标，从 1 开始
          * <p> 示例值：1
-         *
          * @param colIndex
          * @return
          */
         public Builder colIndex(Integer colIndex) {
-            this.colIndex = colIndex;
-            return this;
+             this.colIndex = colIndex;
+             return this;
         }
 
+    
 
         /**
          * 单元格合并信息
          * <p> 示例值：
-         *
          * @param mergeInfo
          * @return
          */
         public Builder mergeInfo(TableCellMergeInfo mergeInfo) {
-            this.mergeInfo = mergeInfo;
-            return this;
+             this.mergeInfo = mergeInfo;
+             return this;
         }
 
+    
 
         /**
          * 单元格包含的子节点 id
          * <p> 示例值：
-         *
          * @param children
          * @return
          */
         public Builder children(String[] children) {
-            this.children = children;
-            return this;
+             this.children = children;
+             return this;
         }
 
+    
 
         /**
          * 单元格内文字
          * <p> 示例值：
-         *
          * @param text
          * @return
          */
         public Builder text(Text text) {
-            this.text = text;
-            return this;
+             this.text = text;
+             return this;
         }
 
+    
+    
+    public TableCell build(){
+        return new TableCell(this);
+      }
+    }
 
-        public TableCell build() {
-            return new TableCell(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

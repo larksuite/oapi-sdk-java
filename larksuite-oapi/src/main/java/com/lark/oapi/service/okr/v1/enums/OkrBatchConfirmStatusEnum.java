@@ -17,19 +17,18 @@ package com.lark.oapi.service.okr.v1.enums;
  * OKR确认状态
  */
 public enum OkrBatchConfirmStatusEnum {
-    NOT_FILL(0), // 未填写 OKR
-    FILL_BUT_NOT_CONFIRM(1), // 已填写未发起确认
-    WAIT_FOR_CONFIRM(2), // 已发起待上级确认
-    NO_PERMISSION(3), // 上级未通过
-    HAS_PERMISSION(4), // 上级已通过
-    ;
-    private Integer value;
-
+     NOT_FILL(0), // 未填写 OKR
+     FILL_BUT_NOT_CONFIRM(1), // 已填写未发起确认
+     WAIT_FOR_CONFIRM(2), // 已发起待上级确认
+     NO_PERMISSION(3), // 上级未通过
+     HAS_PERMISSION(4), // 上级已通过
+  ;
+   private Integer value;
     OkrBatchConfirmStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

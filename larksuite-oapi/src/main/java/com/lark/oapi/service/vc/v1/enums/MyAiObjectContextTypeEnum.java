@@ -17,22 +17,21 @@ package com.lark.oapi.service.vc.v1.enums;
  * 会话所在实体类型
  */
 public enum MyAiObjectContextTypeEnum {
-    DOC("DOC"), // 飞书文档
-    USER("USER"), // 用户
-    EMAIL("EMAIL"), // 邮箱
-    MESSAGE("MESSAGE"), // IM 消息
-    MESSAGE_COLLECTION("MESSAGE_COLLECTION"), // IM 消息集合
-    TASK("TASK"), // 飞书待办事项
-    SCHEDULE("SCHEDULE"), // 飞书日程
-    MEETING("MEETING"), // 飞书会议
-    ;
-    private String value;
-
+     DOC("DOC"), // 飞书文档
+     USER("USER"), // 用户
+     EMAIL("EMAIL"), // 邮箱
+     MESSAGE("MESSAGE"), // IM 消息
+     MESSAGE_COLLECTION("MESSAGE_COLLECTION"), // IM 消息集合
+     TASK("TASK"), // 飞书待办事项
+     SCHEDULE("SCHEDULE"), // 飞书日程
+     MEETING("MEETING"), // 飞书会议
+  ;
+   private String value;
     MyAiObjectContextTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

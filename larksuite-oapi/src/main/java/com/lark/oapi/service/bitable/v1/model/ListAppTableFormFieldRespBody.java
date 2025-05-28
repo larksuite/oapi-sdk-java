@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListAppTableFormFieldRespBody {
-    /**
-     * 表单问题信息
-     * <p> 示例值：
-     */
+     /**
+      * 表单问题信息
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private AppTableFormField[] items;
-    /**
-     * 下一页分页的token
-     * <p> 示例值：fld1lAbHh7
-     */
+     /**
+      * 下一页分页的token
+      * <p> 示例值：fld1lAbHh7
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：true
-     */
+     /**
+      * 是否有下一页
+      * <p> 示例值：true
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-    /**
-     * 总数
-     * <p> 示例值：1
-     */
+     /**
+      * 总数
+      * <p> 示例值：1
+      */
     @SerializedName("total")
     private Integer total;
-
     public AppTableFormField[] getItems() {
         return this.items;
     }

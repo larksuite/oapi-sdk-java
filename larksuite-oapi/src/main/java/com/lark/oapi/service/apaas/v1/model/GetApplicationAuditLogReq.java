@@ -12,58 +12,25 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetApplicationAuditLogReq {
-    /**
-     * 审计日志ID信息
-     * <p> 示例值：7405456257290600492
-     */
+     /**
+      * 审计日志ID信息
+      * <p> 示例值：7405456257290600492
+      */
     @Query
     @SerializedName("log_id")
     private String logId;
-    /**
-     * 应用
-     * <p> 示例值：package_aaa
-     */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
-
-    // builder 开始
-    public GetApplicationAuditLogReq() {
-    }
-
-    public GetApplicationAuditLogReq(Builder builder) {
-        /**
-         * 审计日志ID信息
-         * <p> 示例值：7405456257290600492
-         */
-        this.logId = builder.logId;
-        /**
-         * 应用
-         * <p> 示例值：package_aaa
-         */
-        this.namespace = builder.namespace;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLogId() {
         return this.logId;
     }
@@ -72,6 +39,13 @@ public class GetApplicationAuditLogReq {
         this.logId = logId;
     }
 
+     /**
+      * 应用
+      * <p> 示例值：package_aaa
+      */
+    @Path
+    @SerializedName("namespace")
+    private String namespace;
     public String getNamespace() {
         return this.namespace;
     }
@@ -80,37 +54,57 @@ public class GetApplicationAuditLogReq {
         this.namespace = namespace;
     }
 
+
+// builder 开始
+  public GetApplicationAuditLogReq(){}
+
+  public GetApplicationAuditLogReq(Builder builder){
+         /**
+          * 审计日志ID信息
+          * <p> 示例值：7405456257290600492
+          */
+       this.logId = builder.logId;
+     /**
+      * 应用
+      * <p> 示例值：package_aaa
+      */
+       this.namespace = builder.namespace;
+  }
+
     public static class Builder {
         private String logId; // 审计日志ID信息
-        private String namespace; // 应用
-
+    
         /**
          * 审计日志ID信息
          * <p> 示例值：7405456257290600492
-         *
          * @param logId
          * @return
          */
-        public Builder logId(String logId) {
-            this.logId = logId;
-            return this;
-        }
+           public Builder logId(String logId) {
+                this.logId = logId;
+                return this;
+           }
 
+    
+        private String namespace; // 应用
         /**
          * 应用
          * <p> 示例值：package_aaa
-         *
          * @param namespace
          * @return
          */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
+          public Builder namespace(String namespace) {
+               this.namespace = namespace;
+               return this;
+          }
 
+    
+    public GetApplicationAuditLogReq build(){
+        return new GetApplicationAuditLogReq(this);
+      }
+    }
 
-        public GetApplicationAuditLogReq build() {
-            return new GetApplicationAuditLogReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

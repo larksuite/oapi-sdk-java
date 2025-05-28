@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Language {
-    /**
-     * 语言 ID
-     * <p> 示例值：6863323445740963342
-     */
+     /**
+      * 语言 ID
+      * <p> 示例值：6863323445740963342
+      */
     @SerializedName("language_id")
     private String languageId;
-    /**
-     * 语言名称
-     * <p> 示例值：
-     */
+     /**
+      * 语言名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n[] name;
-    /**
-     * IETF 编码
-     * <p> 示例值：en-UK
-     */
+     /**
+      * IETF 编码
+      * <p> 示例值：en-UK
+      */
     @SerializedName("ietf_language_tag")
     private String ietfLanguageTag;
-    /**
-     * 状态
-     * <p> 示例值：1
-     */
+     /**
+      * 状态
+      * <p> 示例值：1
+      */
     @SerializedName("status")
     private Integer status;
-
-    // builder 开始
-    public Language() {
-    }
-
-    public Language(Builder builder) {
-        /**
-         * 语言 ID
-         * <p> 示例值：6863323445740963342
-         */
-        this.languageId = builder.languageId;
-        /**
-         * 语言名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * IETF 编码
-         * <p> 示例值：en-UK
-         */
-        this.ietfLanguageTag = builder.ietfLanguageTag;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLanguageId() {
         return this.languageId;
     }
@@ -117,94 +81,123 @@ public class Language {
         this.status = status;
     }
 
+
+// builder 开始
+  public Language(){}
+
+  public Language(Builder builder){
+         /**
+          * 语言 ID
+          * <p> 示例值：6863323445740963342
+          */
+      this.languageId = builder.languageId;
+         /**
+          * 语言名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * IETF 编码
+          * <p> 示例值：en-UK
+          */
+      this.ietfLanguageTag = builder.ietfLanguageTag;
+         /**
+          * 状态
+          * <p> 示例值：1
+          */
+      this.status = builder.status;
+  }
+
     public static class Builder {
-        /**
-         * 语言 ID
-         * <p> 示例值：6863323445740963342
-         */
+     /**
+      * 语言 ID
+      * <p> 示例值：6863323445740963342
+      */
         private String languageId;
-        /**
-         * 语言名称
-         * <p> 示例值：
-         */
+     /**
+      * 语言名称
+      * <p> 示例值：
+      */
         private I18n[] name;
-        /**
-         * IETF 编码
-         * <p> 示例值：en-UK
-         */
+     /**
+      * IETF 编码
+      * <p> 示例值：en-UK
+      */
         private String ietfLanguageTag;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
+     /**
+      * 状态
+      * <p> 示例值：1
+      */
         private Integer status;
 
         /**
          * 语言 ID
          * <p> 示例值：6863323445740963342
-         *
          * @param languageId
          * @return
          */
         public Builder languageId(String languageId) {
-            this.languageId = languageId;
-            return this;
+             this.languageId = languageId;
+             return this;
         }
 
+    
 
         /**
          * 语言名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * IETF 编码
          * <p> 示例值：en-UK
-         *
          * @param ietfLanguageTag
          * @return
          */
         public Builder ietfLanguageTag(String ietfLanguageTag) {
-            this.ietfLanguageTag = ietfLanguageTag;
-            return this;
+             this.ietfLanguageTag = ietfLanguageTag;
+             return this;
         }
 
+    
 
         /**
          * 状态
          * <p> 示例值：1
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 状态
          * <p> 示例值：1
-         *
          * @param status {@link com.lark.oapi.service.corehr.v2.enums.LanguageBasicDataObjStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.corehr.v2.enums.LanguageBasicDataObjStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
+    
+    public Language build(){
+        return new Language(this);
+      }
+    }
 
-        public Language build() {
-            return new Language(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

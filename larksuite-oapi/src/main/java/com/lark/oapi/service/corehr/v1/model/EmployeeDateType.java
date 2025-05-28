@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EmployeeDateType {
-    /**
-     * 日期
-     * <p> 示例值：2023-07-18
-     */
+     /**
+      * 日期
+      * <p> 示例值：2023-07-18
+      */
     @SerializedName("date")
     private String date;
-    /**
-     * 日期类型,1=工作日;2=休息日;3=节假日
-     * <p> 示例值：1
-     */
+     /**
+      * 日期类型,1=工作日;2=休息日;3=节假日
+      * <p> 示例值：1
+      */
     @SerializedName("date_type")
     private Integer dateType;
-
-    // builder 开始
-    public EmployeeDateType() {
-    }
-
-    public EmployeeDateType(Builder builder) {
-        /**
-         * 日期
-         * <p> 示例值：2023-07-18
-         */
-        this.date = builder.date;
-        /**
-         * 日期类型,1=工作日;2=休息日;3=节假日
-         * <p> 示例值：1
-         */
-        this.dateType = builder.dateType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDate() {
         return this.date;
     }
@@ -79,46 +53,67 @@ public class EmployeeDateType {
         this.dateType = dateType;
     }
 
+
+// builder 开始
+  public EmployeeDateType(){}
+
+  public EmployeeDateType(Builder builder){
+         /**
+          * 日期
+          * <p> 示例值：2023-07-18
+          */
+      this.date = builder.date;
+         /**
+          * 日期类型,1=工作日;2=休息日;3=节假日
+          * <p> 示例值：1
+          */
+      this.dateType = builder.dateType;
+  }
+
     public static class Builder {
-        /**
-         * 日期
-         * <p> 示例值：2023-07-18
-         */
+     /**
+      * 日期
+      * <p> 示例值：2023-07-18
+      */
         private String date;
-        /**
-         * 日期类型,1=工作日;2=休息日;3=节假日
-         * <p> 示例值：1
-         */
+     /**
+      * 日期类型,1=工作日;2=休息日;3=节假日
+      * <p> 示例值：1
+      */
         private Integer dateType;
 
         /**
          * 日期
          * <p> 示例值：2023-07-18
-         *
          * @param date
          * @return
          */
         public Builder date(String date) {
-            this.date = date;
-            return this;
+             this.date = date;
+             return this;
         }
 
+    
 
         /**
          * 日期类型,1=工作日;2=休息日;3=节假日
          * <p> 示例值：1
-         *
          * @param dateType
          * @return
          */
         public Builder dateType(Integer dateType) {
-            this.dateType = dateType;
-            return this;
+             this.dateType = dateType;
+             return this;
         }
 
+    
+    
+    public EmployeeDateType build(){
+        return new EmployeeDateType(this);
+      }
+    }
 
-        public EmployeeDateType build() {
-            return new EmployeeDateType(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

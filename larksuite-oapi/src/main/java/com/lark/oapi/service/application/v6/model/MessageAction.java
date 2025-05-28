@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MessageAction {
-    /**
-     * pc 端链接
-     * <p> 示例值：https://www.example.com
-     */
+     /**
+      * pc 端链接
+      * <p> 示例值：https://www.example.com
+      */
     @SerializedName("pc_app_link")
     private String pcAppLink;
-    /**
-     * 移动端链接
-     * <p> 示例值：https://www.example.com
-     */
+     /**
+      * 移动端链接
+      * <p> 示例值：https://www.example.com
+      */
     @SerializedName("mobile_app_link")
     private String mobileAppLink;
-    /**
-     * 国际化信息
-     * <p> 示例值：
-     */
+     /**
+      * 国际化信息
+      * <p> 示例值：
+      */
     @SerializedName("i18n")
     private MessageActionI18nInfo[] i18n;
-
-    // builder 开始
-    public MessageAction() {
-    }
-
-    public MessageAction(Builder builder) {
-        /**
-         * pc 端链接
-         * <p> 示例值：https://www.example.com
-         */
-        this.pcAppLink = builder.pcAppLink;
-        /**
-         * 移动端链接
-         * <p> 示例值：https://www.example.com
-         */
-        this.mobileAppLink = builder.mobileAppLink;
-        /**
-         * 国际化信息
-         * <p> 示例值：
-         */
-        this.i18n = builder.i18n;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPcAppLink() {
         return this.pcAppLink;
     }
@@ -98,64 +67,90 @@ public class MessageAction {
         this.i18n = i18n;
     }
 
+
+// builder 开始
+  public MessageAction(){}
+
+  public MessageAction(Builder builder){
+         /**
+          * pc 端链接
+          * <p> 示例值：https://www.example.com
+          */
+      this.pcAppLink = builder.pcAppLink;
+         /**
+          * 移动端链接
+          * <p> 示例值：https://www.example.com
+          */
+      this.mobileAppLink = builder.mobileAppLink;
+         /**
+          * 国际化信息
+          * <p> 示例值：
+          */
+      this.i18n = builder.i18n;
+  }
+
     public static class Builder {
-        /**
-         * pc 端链接
-         * <p> 示例值：https://www.example.com
-         */
+     /**
+      * pc 端链接
+      * <p> 示例值：https://www.example.com
+      */
         private String pcAppLink;
-        /**
-         * 移动端链接
-         * <p> 示例值：https://www.example.com
-         */
+     /**
+      * 移动端链接
+      * <p> 示例值：https://www.example.com
+      */
         private String mobileAppLink;
-        /**
-         * 国际化信息
-         * <p> 示例值：
-         */
+     /**
+      * 国际化信息
+      * <p> 示例值：
+      */
         private MessageActionI18nInfo[] i18n;
 
         /**
          * pc 端链接
          * <p> 示例值：https://www.example.com
-         *
          * @param pcAppLink
          * @return
          */
         public Builder pcAppLink(String pcAppLink) {
-            this.pcAppLink = pcAppLink;
-            return this;
+             this.pcAppLink = pcAppLink;
+             return this;
         }
 
+    
 
         /**
          * 移动端链接
          * <p> 示例值：https://www.example.com
-         *
          * @param mobileAppLink
          * @return
          */
         public Builder mobileAppLink(String mobileAppLink) {
-            this.mobileAppLink = mobileAppLink;
-            return this;
+             this.mobileAppLink = mobileAppLink;
+             return this;
         }
 
+    
 
         /**
          * 国际化信息
          * <p> 示例值：
-         *
          * @param i18n
          * @return
          */
         public Builder i18n(MessageActionI18nInfo[] i18n) {
-            this.i18n = i18n;
-            return this;
+             this.i18n = i18n;
+             return this;
         }
 
+    
+    
+    public MessageAction build(){
+        return new MessageAction(this);
+      }
+    }
 
-        public MessageAction build() {
-            return new MessageAction(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

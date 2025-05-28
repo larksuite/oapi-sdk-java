@@ -12,73 +12,32 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CheckWhiteBlackListApplicationVisibilityReq {
-    /**
-     * 此次请求传参中的user_id的类型
-     * <p> 示例值：user_id
-     */
+     /**
+      * 此次请求传参中的user_id的类型
+      * <p> 示例值：user_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 此次请求传参中的department_id的类型
-     * <p> 示例值：department_id
-     */
+     /**
+      * 此次请求传参中的department_id的类型
+      * <p> 示例值：department_id
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    /**
-     * 目标应用ID
-     * <p> 示例值：cli_a3a3d00b40b8d01b
-     */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
-    private CheckWhiteBlackListApplicationVisibilityReqBody body;
-
-    // builder 开始
-    public CheckWhiteBlackListApplicationVisibilityReq() {
-    }
-
-    public CheckWhiteBlackListApplicationVisibilityReq(Builder builder) {
-        /**
-         * 此次请求传参中的user_id的类型
-         * <p> 示例值：user_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次请求传参中的department_id的类型
-         * <p> 示例值：department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 目标应用ID
-         * <p> 示例值：cli_a3a3d00b40b8d01b
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -95,6 +54,13 @@ public class CheckWhiteBlackListApplicationVisibilityReq {
         this.departmentIdType = departmentIdType;
     }
 
+     /**
+      * 目标应用ID
+      * <p> 示例值：cli_a3a3d00b40b8d01b
+      */
+    @Path
+    @SerializedName("app_id")
+    private String appId;
     public String getAppId() {
         return this.appId;
     }
@@ -102,6 +68,9 @@ public class CheckWhiteBlackListApplicationVisibilityReq {
     public void setAppId(String appId) {
         this.appId = appId;
     }
+
+    @Body
+    private CheckWhiteBlackListApplicationVisibilityReqBody body;
 
     public CheckWhiteBlackListApplicationVisibilityReqBody getCheckWhiteBlackListApplicationVisibilityReqBody() {
         return this.body;
@@ -111,89 +80,112 @@ public class CheckWhiteBlackListApplicationVisibilityReq {
         this.body = body;
     }
 
+// builder 开始
+  public CheckWhiteBlackListApplicationVisibilityReq(){}
+
+  public CheckWhiteBlackListApplicationVisibilityReq(Builder builder){
+         /**
+          * 此次请求传参中的user_id的类型
+          * <p> 示例值：user_id
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 此次请求传参中的department_id的类型
+          * <p> 示例值：department_id
+          */
+       this.departmentIdType = builder.departmentIdType;
+     /**
+      * 目标应用ID
+      * <p> 示例值：cli_a3a3d00b40b8d01b
+      */
+       this.appId = builder.appId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 此次请求传参中的user_id的类型
         private String departmentIdType; // 此次请求传参中的department_id的类型
-        private String appId; // 目标应用ID
-        private CheckWhiteBlackListApplicationVisibilityReqBody body;
-
+    
         /**
          * 此次请求传参中的user_id的类型
          * <p> 示例值：user_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次请求传参中的user_id的类型
          * <p> 示例值：user_id
-         *
          * @param userIdType {@link com.lark.oapi.service.application.v6.enums.CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.application.v6.enums.CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.application.v6.enums.CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityUserIDTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
         /**
          * 此次请求传参中的department_id的类型
          * <p> 示例值：department_id
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
         /**
          * 此次请求传参中的department_id的类型
          * <p> 示例值：department_id
-         *
          * @param departmentIdType {@link com.lark.oapi.service.application.v6.enums.CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
+          public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityDepartmentIDTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
 
+    
+        private String appId; // 目标应用ID
         /**
          * 目标应用ID
          * <p> 示例值：cli_a3a3d00b40b8d01b
-         *
          * @param appId
          * @return
          */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
 
+    
+        private CheckWhiteBlackListApplicationVisibilityReqBody body;
+    
         public CheckWhiteBlackListApplicationVisibilityReqBody getCheckWhiteBlackListApplicationVisibilityReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder checkWhiteBlackListApplicationVisibilityReqBody(CheckWhiteBlackListApplicationVisibilityReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CheckWhiteBlackListApplicationVisibilityReq build(){
+        return new CheckWhiteBlackListApplicationVisibilityReq(this);
+      }
+    }
 
-        public CheckWhiteBlackListApplicationVisibilityReq build() {
-            return new CheckWhiteBlackListApplicationVisibilityReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,53 +12,48 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2FileEditV1Data {
-    /**
-     * 文档类型
-     * <p> 示例值：docx
-     */
+     /**
+      * 文档类型
+      * <p> 示例值：docx
+      */
     @SerializedName("file_type")
     private String fileType;
-    /**
-     * 文档token
-     * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
-     */
+     /**
+      * 文档token
+      * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 操作者id列表
-     * <p> 示例值：
-     */
+     /**
+      * 操作者id列表
+      * <p> 示例值：
+      */
     @SerializedName("operator_id_list")
     private UserId[] operatorIdList;
-    /**
-     * 订阅用户id列表
-     * <p> 示例值：
-     */
+     /**
+      * 订阅用户id列表
+      * <p> 示例值：
+      */
     @SerializedName("subscriber_id_list")
     private UserId[] subscriberIdList;
-    /**
-     * 表格的子SheetID，当表格发生编辑时将会包含此字段
-     * <p> 示例值：46cdf7
-     */
+     /**
+      * 表格的子SheetID，当表格发生编辑时将会包含此字段
+      * <p> 示例值：46cdf7
+      */
     @SerializedName("sheet_id")
     private String sheetId;
-
     public String getFileType() {
         return this.fileType;
     }

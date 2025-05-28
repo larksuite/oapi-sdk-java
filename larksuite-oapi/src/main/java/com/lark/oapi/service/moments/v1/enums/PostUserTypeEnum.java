@@ -17,18 +17,17 @@ package com.lark.oapi.service.moments.v1.enums;
  * 发帖人类型
  */
 public enum PostUserTypeEnum {
-    REALNAME(1), // 实名
-    NICKNAME(2), // 花名
-    ANONYMOUS(3), // 匿名
-    OFFICIALACCOUNT(4), // 官方号
-    ;
-    private Integer value;
-
+     REALNAME(1), // 实名
+     NICKNAME(2), // 花名
+     ANONYMOUS(3), // 匿名
+     OFFICIALACCOUNT(4), // 官方号
+  ;
+   private Integer value;
     PostUserTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

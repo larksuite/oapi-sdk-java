@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GroupVisibleScope {
-    /**
-     * 可见范围的 id 类型，包用户、部门两类
-     * <p> 示例值：invisible
-     */
+     /**
+      * 可见范围的 id 类型，包用户、部门两类
+      * <p> 示例值：invisible
+      */
     @SerializedName("visible_scope_type")
     private String visibleScopeType;
-    /**
-     * 指定可见用户组的用户 ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 指定可见用户组的用户 ID列表
+      * <p> 示例值：
+      */
     @SerializedName("visible_users")
     private String[] visibleUsers;
-    /**
-     * 指定可见用户组的部门 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 指定可见用户组的部门 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("visible_departments")
     private String[] visibleDepartments;
-    /**
-     * 用户组可用范围
-     * <p> 示例值：
-     */
+     /**
+      * 用户组可用范围
+      * <p> 示例值：
+      */
     @SerializedName("scene_types")
     private Integer[] sceneTypes;
-
-    // builder 开始
-    public GroupVisibleScope() {
-    }
-
-    public GroupVisibleScope(Builder builder) {
-        /**
-         * 可见范围的 id 类型，包用户、部门两类
-         * <p> 示例值：invisible
-         */
-        this.visibleScopeType = builder.visibleScopeType;
-        /**
-         * 指定可见用户组的用户 ID列表
-         * <p> 示例值：
-         */
-        this.visibleUsers = builder.visibleUsers;
-        /**
-         * 指定可见用户组的部门 ID 列表
-         * <p> 示例值：
-         */
-        this.visibleDepartments = builder.visibleDepartments;
-        /**
-         * 用户组可用范围
-         * <p> 示例值：
-         */
-        this.sceneTypes = builder.sceneTypes;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getVisibleScopeType() {
         return this.visibleScopeType;
     }
@@ -117,94 +81,123 @@ public class GroupVisibleScope {
         this.sceneTypes = sceneTypes;
     }
 
+
+// builder 开始
+  public GroupVisibleScope(){}
+
+  public GroupVisibleScope(Builder builder){
+         /**
+          * 可见范围的 id 类型，包用户、部门两类
+          * <p> 示例值：invisible
+          */
+      this.visibleScopeType = builder.visibleScopeType;
+         /**
+          * 指定可见用户组的用户 ID列表
+          * <p> 示例值：
+          */
+      this.visibleUsers = builder.visibleUsers;
+         /**
+          * 指定可见用户组的部门 ID 列表
+          * <p> 示例值：
+          */
+      this.visibleDepartments = builder.visibleDepartments;
+         /**
+          * 用户组可用范围
+          * <p> 示例值：
+          */
+      this.sceneTypes = builder.sceneTypes;
+  }
+
     public static class Builder {
-        /**
-         * 可见范围的 id 类型，包用户、部门两类
-         * <p> 示例值：invisible
-         */
+     /**
+      * 可见范围的 id 类型，包用户、部门两类
+      * <p> 示例值：invisible
+      */
         private String visibleScopeType;
-        /**
-         * 指定可见用户组的用户 ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 指定可见用户组的用户 ID列表
+      * <p> 示例值：
+      */
         private String[] visibleUsers;
-        /**
-         * 指定可见用户组的部门 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 指定可见用户组的部门 ID 列表
+      * <p> 示例值：
+      */
         private String[] visibleDepartments;
-        /**
-         * 用户组可用范围
-         * <p> 示例值：
-         */
+     /**
+      * 用户组可用范围
+      * <p> 示例值：
+      */
         private Integer[] sceneTypes;
 
         /**
          * 可见范围的 id 类型，包用户、部门两类
          * <p> 示例值：invisible
-         *
          * @param visibleScopeType
          * @return
          */
         public Builder visibleScopeType(String visibleScopeType) {
-            this.visibleScopeType = visibleScopeType;
-            return this;
+             this.visibleScopeType = visibleScopeType;
+             return this;
         }
-
         /**
          * 可见范围的 id 类型，包用户、部门两类
          * <p> 示例值：invisible
-         *
          * @param visibleScopeType {@link com.lark.oapi.service.contact.v3.enums.GroupVisibleScopeVisibleScopeTypeEnum}
          * @return
          */
         public Builder visibleScopeType(com.lark.oapi.service.contact.v3.enums.GroupVisibleScopeVisibleScopeTypeEnum visibleScopeType) {
-            this.visibleScopeType = visibleScopeType.getValue();
-            return this;
+             this.visibleScopeType = visibleScopeType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 指定可见用户组的用户 ID列表
          * <p> 示例值：
-         *
          * @param visibleUsers
          * @return
          */
         public Builder visibleUsers(String[] visibleUsers) {
-            this.visibleUsers = visibleUsers;
-            return this;
+             this.visibleUsers = visibleUsers;
+             return this;
         }
 
+    
 
         /**
          * 指定可见用户组的部门 ID 列表
          * <p> 示例值：
-         *
          * @param visibleDepartments
          * @return
          */
         public Builder visibleDepartments(String[] visibleDepartments) {
-            this.visibleDepartments = visibleDepartments;
-            return this;
+             this.visibleDepartments = visibleDepartments;
+             return this;
         }
 
+    
 
         /**
          * 用户组可用范围
          * <p> 示例值：
-         *
          * @param sceneTypes
          * @return
          */
         public Builder sceneTypes(Integer[] sceneTypes) {
-            this.sceneTypes = sceneTypes;
-            return this;
+             this.sceneTypes = sceneTypes;
+             return this;
         }
 
+    
+    
+    public GroupVisibleScope build(){
+        return new GroupVisibleScope(this);
+      }
+    }
 
-        public GroupVisibleScope build() {
-            return new GroupVisibleScope(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

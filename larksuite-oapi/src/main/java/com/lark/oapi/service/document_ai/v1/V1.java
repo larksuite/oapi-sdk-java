@@ -17,115 +17,97 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.document_ai.v1.resource.*;
 
 public class V1 {
-    private final BankCard bankCard; // bank_card
-    private final BusinessCard businessCard; // business_card
-    private final BusinessLicense businessLicense; // business_license
-    private final ChinesePassport chinesePassport; // chinese_passport
-    private final Contract contract; // contract
-    private final DrivingLicense drivingLicense; // driving_license
-    private final FoodManageLicense foodManageLicense; // food_manage_license
-    private final FoodProduceLicense foodProduceLicense; // food_produce_license
-    private final HealthCertificate healthCertificate; // health_certificate
-    private final HkmMainlandTravelPermit hkmMainlandTravelPermit; // hkm_mainland_travel_permit
-    private final IdCard idCard; // id_card
-    private final Resume resume; // resume
-    private final TaxiInvoice taxiInvoice; // taxi_invoice
-    private final TrainInvoice trainInvoice; // train_invoice
-    private final TwMainlandTravelPermit twMainlandTravelPermit; // tw_mainland_travel_permit
-    private final VatInvoice vatInvoice; // vat_invoice
-    private final VehicleInvoice vehicleInvoice; // vehicle_invoice
-    private final VehicleLicense vehicleLicense; // vehicle_license
+	private final BankCard bankCard; // bank_card
+	private final BusinessCard businessCard; // business_card
+	private final BusinessLicense businessLicense; // business_license
+	private final ChinesePassport chinesePassport; // chinese_passport
+	private final Contract contract; // contract
+	private final DrivingLicense drivingLicense; // driving_license
+	private final FoodManageLicense foodManageLicense; // food_manage_license
+	private final FoodProduceLicense foodProduceLicense; // food_produce_license
+	private final HealthCertificate healthCertificate; // health_certificate
+	private final HkmMainlandTravelPermit hkmMainlandTravelPermit; // hkm_mainland_travel_permit
+	private final IdCard idCard; // id_card
+	private final Resume resume; // resume
+	private final TaxiInvoice taxiInvoice; // taxi_invoice
+	private final TrainInvoice trainInvoice; // train_invoice
+	private final TwMainlandTravelPermit twMainlandTravelPermit; // tw_mainland_travel_permit
+	private final VatInvoice vatInvoice; // vat_invoice
+	private final VehicleInvoice vehicleInvoice; // vehicle_invoice
+	private final VehicleLicense vehicleLicense; // vehicle_license
 
-    public V1(Config config) {
-        this.bankCard = new BankCard(config);
-        this.businessCard = new BusinessCard(config);
-        this.businessLicense = new BusinessLicense(config);
-        this.chinesePassport = new ChinesePassport(config);
-        this.contract = new Contract(config);
-        this.drivingLicense = new DrivingLicense(config);
-        this.foodManageLicense = new FoodManageLicense(config);
-        this.foodProduceLicense = new FoodProduceLicense(config);
-        this.healthCertificate = new HealthCertificate(config);
-        this.hkmMainlandTravelPermit = new HkmMainlandTravelPermit(config);
-        this.idCard = new IdCard(config);
-        this.resume = new Resume(config);
-        this.taxiInvoice = new TaxiInvoice(config);
-        this.trainInvoice = new TrainInvoice(config);
-        this.twMainlandTravelPermit = new TwMainlandTravelPermit(config);
-        this.vatInvoice = new VatInvoice(config);
-        this.vehicleInvoice = new VehicleInvoice(config);
-        this.vehicleLicense = new VehicleLicense(config);
-    }
-
-    public BankCard bankCard() {
-        return bankCard;
-    }
-
-    public BusinessCard businessCard() {
-        return businessCard;
-    }
-
-    public BusinessLicense businessLicense() {
-        return businessLicense;
-    }
-
-    public ChinesePassport chinesePassport() {
-        return chinesePassport;
-    }
-
-    public Contract contract() {
-        return contract;
-    }
-
-    public DrivingLicense drivingLicense() {
-        return drivingLicense;
-    }
-
-    public FoodManageLicense foodManageLicense() {
-        return foodManageLicense;
-    }
-
-    public FoodProduceLicense foodProduceLicense() {
-        return foodProduceLicense;
-    }
-
-    public HealthCertificate healthCertificate() {
-        return healthCertificate;
-    }
-
-    public HkmMainlandTravelPermit hkmMainlandTravelPermit() {
-        return hkmMainlandTravelPermit;
-    }
-
-    public IdCard idCard() {
-        return idCard;
-    }
-
-    public Resume resume() {
-        return resume;
-    }
-
-    public TaxiInvoice taxiInvoice() {
-        return taxiInvoice;
-    }
-
-    public TrainInvoice trainInvoice() {
-        return trainInvoice;
-    }
-
-    public TwMainlandTravelPermit twMainlandTravelPermit() {
-        return twMainlandTravelPermit;
-    }
-
-    public VatInvoice vatInvoice() {
-        return vatInvoice;
-    }
-
-    public VehicleInvoice vehicleInvoice() {
-        return vehicleInvoice;
-    }
-
-    public VehicleLicense vehicleLicense() {
-        return vehicleLicense;
-    }
+	public V1(Config config) {
+		this.bankCard = new BankCard(config);
+		this.businessCard = new BusinessCard(config);
+		this.businessLicense = new BusinessLicense(config);
+		this.chinesePassport = new ChinesePassport(config);
+		this.contract = new Contract(config);
+		this.drivingLicense = new DrivingLicense(config);
+		this.foodManageLicense = new FoodManageLicense(config);
+		this.foodProduceLicense = new FoodProduceLicense(config);
+		this.healthCertificate = new HealthCertificate(config);
+		this.hkmMainlandTravelPermit = new HkmMainlandTravelPermit(config);
+		this.idCard = new IdCard(config);
+		this.resume = new Resume(config);
+		this.taxiInvoice = new TaxiInvoice(config);
+		this.trainInvoice = new TrainInvoice(config);
+		this.twMainlandTravelPermit = new TwMainlandTravelPermit(config);
+		this.vatInvoice = new VatInvoice(config);
+		this.vehicleInvoice = new VehicleInvoice(config);
+		this.vehicleLicense = new VehicleLicense(config);
+	}
+	public BankCard bankCard() {
+		return bankCard;
+	}
+	public BusinessCard businessCard() {
+		return businessCard;
+	}
+	public BusinessLicense businessLicense() {
+		return businessLicense;
+	}
+	public ChinesePassport chinesePassport() {
+		return chinesePassport;
+	}
+	public Contract contract() {
+		return contract;
+	}
+	public DrivingLicense drivingLicense() {
+		return drivingLicense;
+	}
+	public FoodManageLicense foodManageLicense() {
+		return foodManageLicense;
+	}
+	public FoodProduceLicense foodProduceLicense() {
+		return foodProduceLicense;
+	}
+	public HealthCertificate healthCertificate() {
+		return healthCertificate;
+	}
+	public HkmMainlandTravelPermit hkmMainlandTravelPermit() {
+		return hkmMainlandTravelPermit;
+	}
+	public IdCard idCard() {
+		return idCard;
+	}
+	public Resume resume() {
+		return resume;
+	}
+	public TaxiInvoice taxiInvoice() {
+		return taxiInvoice;
+	}
+	public TrainInvoice trainInvoice() {
+		return trainInvoice;
+	}
+	public TwMainlandTravelPermit twMainlandTravelPermit() {
+		return twMainlandTravelPermit;
+	}
+	public VatInvoice vatInvoice() {
+		return vatInvoice;
+	}
+	public VehicleInvoice vehicleInvoice() {
+		return vehicleInvoice;
+	}
+	public VehicleLicense vehicleLicense() {
+		return vehicleLicense;
+	}
 }

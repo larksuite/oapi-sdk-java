@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserStatsDataDuration {
-    /**
-     * 天
-     * <p> 示例值：1
-     */
+     /**
+      * 天
+      * <p> 示例值：1
+      */
     @SerializedName("day")
     private String day;
-    /**
-     * 半天
-     * <p> 示例值：1
-     */
+     /**
+      * 半天
+      * <p> 示例值：1
+      */
     @SerializedName("half_day")
     private String halfDay;
-    /**
-     * 小时
-     * <p> 示例值：1
-     */
+     /**
+      * 小时
+      * <p> 示例值：1
+      */
     @SerializedName("hour")
     private String hour;
-    /**
-     * 半小时
-     * <p> 示例值：1
-     */
+     /**
+      * 半小时
+      * <p> 示例值：1
+      */
     @SerializedName("half_hour")
     private String halfHour;
-    /**
-     * 分钟
-     * <p> 示例值：1
-     */
+     /**
+      * 分钟
+      * <p> 示例值：1
+      */
     @SerializedName("minute")
     private String minute;
-
-    // builder 开始
-    public UserStatsDataDuration() {
-    }
-
-    public UserStatsDataDuration(Builder builder) {
-        /**
-         * 天
-         * <p> 示例值：1
-         */
-        this.day = builder.day;
-        /**
-         * 半天
-         * <p> 示例值：1
-         */
-        this.halfDay = builder.halfDay;
-        /**
-         * 小时
-         * <p> 示例值：1
-         */
-        this.hour = builder.hour;
-        /**
-         * 半小时
-         * <p> 示例值：1
-         */
-        this.halfHour = builder.halfHour;
-        /**
-         * 分钟
-         * <p> 示例值：1
-         */
-        this.minute = builder.minute;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDay() {
         return this.day;
     }
@@ -136,100 +95,136 @@ public class UserStatsDataDuration {
         this.minute = minute;
     }
 
+
+// builder 开始
+  public UserStatsDataDuration(){}
+
+  public UserStatsDataDuration(Builder builder){
+         /**
+          * 天
+          * <p> 示例值：1
+          */
+      this.day = builder.day;
+         /**
+          * 半天
+          * <p> 示例值：1
+          */
+      this.halfDay = builder.halfDay;
+         /**
+          * 小时
+          * <p> 示例值：1
+          */
+      this.hour = builder.hour;
+         /**
+          * 半小时
+          * <p> 示例值：1
+          */
+      this.halfHour = builder.halfHour;
+         /**
+          * 分钟
+          * <p> 示例值：1
+          */
+      this.minute = builder.minute;
+  }
+
     public static class Builder {
-        /**
-         * 天
-         * <p> 示例值：1
-         */
+     /**
+      * 天
+      * <p> 示例值：1
+      */
         private String day;
-        /**
-         * 半天
-         * <p> 示例值：1
-         */
+     /**
+      * 半天
+      * <p> 示例值：1
+      */
         private String halfDay;
-        /**
-         * 小时
-         * <p> 示例值：1
-         */
+     /**
+      * 小时
+      * <p> 示例值：1
+      */
         private String hour;
-        /**
-         * 半小时
-         * <p> 示例值：1
-         */
+     /**
+      * 半小时
+      * <p> 示例值：1
+      */
         private String halfHour;
-        /**
-         * 分钟
-         * <p> 示例值：1
-         */
+     /**
+      * 分钟
+      * <p> 示例值：1
+      */
         private String minute;
 
         /**
          * 天
          * <p> 示例值：1
-         *
          * @param day
          * @return
          */
         public Builder day(String day) {
-            this.day = day;
-            return this;
+             this.day = day;
+             return this;
         }
 
+    
 
         /**
          * 半天
          * <p> 示例值：1
-         *
          * @param halfDay
          * @return
          */
         public Builder halfDay(String halfDay) {
-            this.halfDay = halfDay;
-            return this;
+             this.halfDay = halfDay;
+             return this;
         }
 
+    
 
         /**
          * 小时
          * <p> 示例值：1
-         *
          * @param hour
          * @return
          */
         public Builder hour(String hour) {
-            this.hour = hour;
-            return this;
+             this.hour = hour;
+             return this;
         }
 
+    
 
         /**
          * 半小时
          * <p> 示例值：1
-         *
          * @param halfHour
          * @return
          */
         public Builder halfHour(String halfHour) {
-            this.halfHour = halfHour;
-            return this;
+             this.halfHour = halfHour;
+             return this;
         }
 
+    
 
         /**
          * 分钟
          * <p> 示例值：1
-         *
          * @param minute
          * @return
          */
         public Builder minute(String minute) {
-            this.minute = minute;
-            return this;
+             this.minute = minute;
+             return this;
         }
 
+    
+    
+    public UserStatsDataDuration build(){
+        return new UserStatsDataDuration(this);
+      }
+    }
 
-        public UserStatsDataDuration build() {
-            return new UserStatsDataDuration(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

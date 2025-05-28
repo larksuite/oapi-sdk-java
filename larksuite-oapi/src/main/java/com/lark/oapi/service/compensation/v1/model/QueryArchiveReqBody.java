@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryArchiveReqBody {
-    /**
-     * 用户ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 用户ID列表
+      * <p> 示例值：
+      */
     @SerializedName("user_id_list")
     private String[] userIdList;
-    /**
-     * 档案Tid列表
-     * <p> 示例值：
-     */
+     /**
+      * 档案Tid列表
+      * <p> 示例值：
+      */
     @SerializedName("tid_list")
     private String[] tidList;
-    /**
-     * 生效开始时间
-     * <p> 示例值：2022-05-10
-     */
+     /**
+      * 生效开始时间
+      * <p> 示例值：2022-05-10
+      */
     @SerializedName("effective_start_date")
     private String effectiveStartDate;
-    /**
-     * 生效结束时间
-     * <p> 示例值：2023-05-15
-     */
+     /**
+      * 生效结束时间
+      * <p> 示例值：2023-05-15
+      */
     @SerializedName("effective_end_date")
     private String effectiveEndDate;
-
-    // builder 开始
-    public QueryArchiveReqBody() {
-    }
-
-    public QueryArchiveReqBody(Builder builder) {
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        this.userIdList = builder.userIdList;
-        /**
-         * 档案Tid列表
-         * <p> 示例值：
-         */
-        this.tidList = builder.tidList;
-        /**
-         * 生效开始时间
-         * <p> 示例值：2022-05-10
-         */
-        this.effectiveStartDate = builder.effectiveStartDate;
-        /**
-         * 生效结束时间
-         * <p> 示例值：2023-05-15
-         */
-        this.effectiveEndDate = builder.effectiveEndDate;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getUserIdList() {
         return this.userIdList;
     }
@@ -117,82 +81,113 @@ public class QueryArchiveReqBody {
         this.effectiveEndDate = effectiveEndDate;
     }
 
+
+// builder 开始
+  public QueryArchiveReqBody(){}
+
+  public QueryArchiveReqBody(Builder builder){
+         /**
+          * 用户ID列表
+          * <p> 示例值：
+          */
+      this.userIdList = builder.userIdList;
+         /**
+          * 档案Tid列表
+          * <p> 示例值：
+          */
+      this.tidList = builder.tidList;
+         /**
+          * 生效开始时间
+          * <p> 示例值：2022-05-10
+          */
+      this.effectiveStartDate = builder.effectiveStartDate;
+         /**
+          * 生效结束时间
+          * <p> 示例值：2023-05-15
+          */
+      this.effectiveEndDate = builder.effectiveEndDate;
+  }
+
     public static class Builder {
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 用户ID列表
+      * <p> 示例值：
+      */
         private String[] userIdList;
-        /**
-         * 档案Tid列表
-         * <p> 示例值：
-         */
+     /**
+      * 档案Tid列表
+      * <p> 示例值：
+      */
         private String[] tidList;
-        /**
-         * 生效开始时间
-         * <p> 示例值：2022-05-10
-         */
+     /**
+      * 生效开始时间
+      * <p> 示例值：2022-05-10
+      */
         private String effectiveStartDate;
-        /**
-         * 生效结束时间
-         * <p> 示例值：2023-05-15
-         */
+     /**
+      * 生效结束时间
+      * <p> 示例值：2023-05-15
+      */
         private String effectiveEndDate;
 
         /**
          * 用户ID列表
          * <p> 示例值：
-         *
          * @param userIdList
          * @return
          */
         public Builder userIdList(String[] userIdList) {
-            this.userIdList = userIdList;
-            return this;
+             this.userIdList = userIdList;
+             return this;
         }
 
+    
 
         /**
          * 档案Tid列表
          * <p> 示例值：
-         *
          * @param tidList
          * @return
          */
         public Builder tidList(String[] tidList) {
-            this.tidList = tidList;
-            return this;
+             this.tidList = tidList;
+             return this;
         }
 
+    
 
         /**
          * 生效开始时间
          * <p> 示例值：2022-05-10
-         *
          * @param effectiveStartDate
          * @return
          */
         public Builder effectiveStartDate(String effectiveStartDate) {
-            this.effectiveStartDate = effectiveStartDate;
-            return this;
+             this.effectiveStartDate = effectiveStartDate;
+             return this;
         }
 
+    
 
         /**
          * 生效结束时间
          * <p> 示例值：2023-05-15
-         *
          * @param effectiveEndDate
          * @return
          */
         public Builder effectiveEndDate(String effectiveEndDate) {
-            this.effectiveEndDate = effectiveEndDate;
-            return this;
+             this.effectiveEndDate = effectiveEndDate;
+             return this;
         }
 
+    
+    
+    public QueryArchiveReqBody build(){
+        return new QueryArchiveReqBody(this);
+      }
+    }
 
-        public QueryArchiveReqBody build() {
-            return new QueryArchiveReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

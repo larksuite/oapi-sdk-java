@@ -17,24 +17,23 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文件的类型
  */
 public enum BatchCreatePermissionMemberTokenTypeV2Enum {
-    DOC("doc"), // 文档
-    SHEET("sheet"), // 电子表格
-    FILE("file"), // 云空间文件
-    WIKI("wiki"), // 知识库节点
-    BITABLE("bitable"), // 多维表格
-    DOCX("docx"), // 新版文档
-    FOLDER("folder"), // 文件夹
-    MINDNOTE("mindnote"), // 思维笔记
-    MINUTES("minutes"), // 妙记
-    SLIDES("slides"), // 幻灯片
-    ;
-    private String value;
-
+     DOC("doc"), // 文档
+     SHEET("sheet"), // 电子表格
+     FILE("file"), // 云空间文件
+     WIKI("wiki"), // 知识库节点
+     BITABLE("bitable"), // 多维表格
+     DOCX("docx"), // 新版文档
+     FOLDER("folder"), // 文件夹
+     MINDNOTE("mindnote"), // 思维笔记
+     MINUTES("minutes"), // 妙记
+     SLIDES("slides"), // 幻灯片
+  ;
+   private String value;
     BatchCreatePermissionMemberTokenTypeV2Enum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

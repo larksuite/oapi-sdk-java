@@ -14,19 +14,18 @@
 package com.lark.oapi.service.base.v2.enums;
 
 /**
- *
+ * 
  */
 public enum TemplateInfoObjTemplatePublishFlagEnum {
-    OFFLINE(0), // ""
-    ONLINE(1), // ""
-    ;
-    private Integer value;
-
+     OFFLINE(0), // ""
+     ONLINE(1), // ""
+  ;
+   private Integer value;
     TemplateInfoObjTemplatePublishFlagEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

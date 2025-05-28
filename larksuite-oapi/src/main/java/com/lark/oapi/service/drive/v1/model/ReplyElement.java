@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReplyElement {
-    /**
-     * 回复的内容元素
-     * <p> 示例值：text_run
-     */
+     /**
+      * 回复的内容元素
+      * <p> 示例值：text_run
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 文本内容
-     * <p> 示例值：
-     */
+     /**
+      * 文本内容
+      * <p> 示例值：
+      */
     @SerializedName("text_run")
     private TextRun textRun;
-    /**
-     * 文本内容
-     * <p> 示例值：
-     */
+     /**
+      * 文本内容
+      * <p> 示例值：
+      */
     @SerializedName("docs_link")
     private DocsLink docsLink;
-    /**
-     * 文本内容
-     * <p> 示例值：
-     */
+     /**
+      * 文本内容
+      * <p> 示例值：
+      */
     @SerializedName("person")
     private Person person;
-
-    // builder 开始
-    public ReplyElement() {
-    }
-
-    public ReplyElement(Builder builder) {
-        /**
-         * 回复的内容元素
-         * <p> 示例值：text_run
-         */
-        this.type = builder.type;
-        /**
-         * 文本内容
-         * <p> 示例值：
-         */
-        this.textRun = builder.textRun;
-        /**
-         * 文本内容
-         * <p> 示例值：
-         */
-        this.docsLink = builder.docsLink;
-        /**
-         * 文本内容
-         * <p> 示例值：
-         */
-        this.person = builder.person;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -117,94 +81,123 @@ public class ReplyElement {
         this.person = person;
     }
 
+
+// builder 开始
+  public ReplyElement(){}
+
+  public ReplyElement(Builder builder){
+         /**
+          * 回复的内容元素
+          * <p> 示例值：text_run
+          */
+      this.type = builder.type;
+         /**
+          * 文本内容
+          * <p> 示例值：
+          */
+      this.textRun = builder.textRun;
+         /**
+          * 文本内容
+          * <p> 示例值：
+          */
+      this.docsLink = builder.docsLink;
+         /**
+          * 文本内容
+          * <p> 示例值：
+          */
+      this.person = builder.person;
+  }
+
     public static class Builder {
-        /**
-         * 回复的内容元素
-         * <p> 示例值：text_run
-         */
+     /**
+      * 回复的内容元素
+      * <p> 示例值：text_run
+      */
         private String type;
-        /**
-         * 文本内容
-         * <p> 示例值：
-         */
+     /**
+      * 文本内容
+      * <p> 示例值：
+      */
         private TextRun textRun;
-        /**
-         * 文本内容
-         * <p> 示例值：
-         */
+     /**
+      * 文本内容
+      * <p> 示例值：
+      */
         private DocsLink docsLink;
-        /**
-         * 文本内容
-         * <p> 示例值：
-         */
+     /**
+      * 文本内容
+      * <p> 示例值：
+      */
         private Person person;
 
         /**
          * 回复的内容元素
          * <p> 示例值：text_run
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 回复的内容元素
          * <p> 示例值：text_run
-         *
          * @param type {@link com.lark.oapi.service.drive.v1.enums.ReplyElementTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.drive.v1.enums.ReplyElementTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 文本内容
          * <p> 示例值：
-         *
          * @param textRun
          * @return
          */
         public Builder textRun(TextRun textRun) {
-            this.textRun = textRun;
-            return this;
+             this.textRun = textRun;
+             return this;
         }
 
+    
 
         /**
          * 文本内容
          * <p> 示例值：
-         *
          * @param docsLink
          * @return
          */
         public Builder docsLink(DocsLink docsLink) {
-            this.docsLink = docsLink;
-            return this;
+             this.docsLink = docsLink;
+             return this;
         }
 
+    
 
         /**
          * 文本内容
          * <p> 示例值：
-         *
          * @param person
          * @return
          */
         public Builder person(Person person) {
-            this.person = person;
-            return this;
+             this.person = person;
+             return this;
         }
 
+    
+    
+    public ReplyElement build(){
+        return new ReplyElement(this);
+      }
+    }
 
-        public ReplyElement build() {
-            return new ReplyElement(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

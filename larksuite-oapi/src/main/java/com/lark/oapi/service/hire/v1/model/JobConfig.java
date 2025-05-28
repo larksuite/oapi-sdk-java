@@ -12,177 +12,96 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobConfig {
-    /**
-     * Offer 申请表，枚举通过接口「获取 Offer 申请表列表」获取
-     * <p> 示例值：6960663240925956573
-     */
+     /**
+      * Offer 申请表，枚举通过接口「获取 Offer 申请表列表」获取
+      * <p> 示例值：6960663240925956573
+      */
     @SerializedName("offer_apply_schema_id")
     private String offerApplySchemaId;
-    /**
-     * Offer 审批流，枚举通过接口「获取 Offer 审批流列表」获取
-     * <p> 示例值：6960663240925956572
-     */
+     /**
+      * Offer 审批流，枚举通过接口「获取 Offer 审批流列表」获取
+      * <p> 示例值：6960663240925956572
+      */
     @SerializedName("offer_process_conf")
     private String offerProcessConf;
-    /**
-     * 建议评估人 ID 列表
-     * <p> 示例值：6966533137982392320
-     */
+     /**
+      * 建议评估人 ID 列表
+      * <p> 示例值：6966533137982392320
+      */
     @SerializedName("recommended_evaluator_id_list")
     private String[] recommendedEvaluatorIdList;
-    /**
-     * 更新选项，传入要更新的配置项，1=更新面试评价表，2=更新 Offer 申请表，3=更新 Offer 审批流程，4=更新招聘需求，5=更新建议面试官，6=更新推荐评估人
-     * <p> 示例值：1
-     */
+     /**
+      * 更新选项，传入要更新的配置项，1=更新面试评价表，2=更新 Offer 申请表，3=更新 Offer 审批流程，4=更新招聘需求，5=更新建议面试官，6=更新推荐评估人
+      * <p> 示例值：1
+      */
     @SerializedName("update_option_list")
     private Integer[] updateOptionList;
-    /**
-     * 面试评价表，枚举通过接口「获取面试评价表列表」获取
-     * <p> 示例值：6960663240925956571
-     */
+     /**
+      * 面试评价表，枚举通过接口「获取面试评价表列表」获取
+      * <p> 示例值：6960663240925956571
+      */
     @SerializedName("assessment_template_biz_id")
     private String assessmentTemplateBizId;
-    /**
-     * 建议面试官列表
-     * <p> 示例值：
-     */
+     /**
+      * 建议面试官列表
+      * <p> 示例值：
+      */
     @SerializedName("interview_round_conf_list")
     private JobConfigInterviewRoundConf[] interviewRoundConfList;
-    /**
-     * 关联招聘需求，支持关联多个，枚举通过接口「获取招聘需求」获取
-     * <p> 示例值：6966533137982392320
-     */
+     /**
+      * 关联招聘需求，支持关联多个，枚举通过接口「获取招聘需求」获取
+      * <p> 示例值：6966533137982392320
+      */
     @SerializedName("jr_id_list")
     private String[] jrIdList;
-    /**
-     * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("interview_registration_schema_id")
     private String interviewRegistrationSchemaId;
-    /**
-     * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("onboard_registration_schema_id")
     private String onboardRegistrationSchemaId;
-    /**
-     * 面试轮次类型 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 面试轮次类型 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("interview_round_type_conf_list")
     private JobConfigRoundType[] interviewRoundTypeConfList;
-    /**
-     * 关联职位列表，如职位为实体职位则关联虚拟职位id，如职位为虚拟职位则关联实体职位id
-     * <p> 示例值：6966533137982392320
-     */
+     /**
+      * 关联职位列表，如职位为实体职位则关联虚拟职位id，如职位为虚拟职位则关联实体职位id
+      * <p> 示例值：6966533137982392320
+      */
     @SerializedName("related_job_id_list")
     private String[] relatedJobIdList;
-    /**
-     * 自助约面配置
-     * <p> 示例值：
-     */
+     /**
+      * 自助约面配置
+      * <p> 示例值：
+      */
     @SerializedName("interview_appointment_config")
     private InterviewAppointmentConfig interviewAppointmentConfig;
-    /**
-     * 官网申请表ID
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 官网申请表ID
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("portal_website_apply_form_schema_id")
     private String portalWebsiteApplyFormSchemaId;
-
-    // builder 开始
-    public JobConfig() {
-    }
-
-    public JobConfig(Builder builder) {
-        /**
-         * Offer 申请表，枚举通过接口「获取 Offer 申请表列表」获取
-         * <p> 示例值：6960663240925956573
-         */
-        this.offerApplySchemaId = builder.offerApplySchemaId;
-        /**
-         * Offer 审批流，枚举通过接口「获取 Offer 审批流列表」获取
-         * <p> 示例值：6960663240925956572
-         */
-        this.offerProcessConf = builder.offerProcessConf;
-        /**
-         * 建议评估人 ID 列表
-         * <p> 示例值：6966533137982392320
-         */
-        this.recommendedEvaluatorIdList = builder.recommendedEvaluatorIdList;
-        /**
-         * 更新选项，传入要更新的配置项，1=更新面试评价表，2=更新 Offer 申请表，3=更新 Offer 审批流程，4=更新招聘需求，5=更新建议面试官，6=更新推荐评估人
-         * <p> 示例值：1
-         */
-        this.updateOptionList = builder.updateOptionList;
-        /**
-         * 面试评价表，枚举通过接口「获取面试评价表列表」获取
-         * <p> 示例值：6960663240925956571
-         */
-        this.assessmentTemplateBizId = builder.assessmentTemplateBizId;
-        /**
-         * 建议面试官列表
-         * <p> 示例值：
-         */
-        this.interviewRoundConfList = builder.interviewRoundConfList;
-        /**
-         * 关联招聘需求，支持关联多个，枚举通过接口「获取招聘需求」获取
-         * <p> 示例值：6966533137982392320
-         */
-        this.jrIdList = builder.jrIdList;
-        /**
-         * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
-         * <p> 示例值：6930815272790114324
-         */
-        this.interviewRegistrationSchemaId = builder.interviewRegistrationSchemaId;
-        /**
-         * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
-         * <p> 示例值：6930815272790114324
-         */
-        this.onboardRegistrationSchemaId = builder.onboardRegistrationSchemaId;
-        /**
-         * 面试轮次类型 ID 列表
-         * <p> 示例值：
-         */
-        this.interviewRoundTypeConfList = builder.interviewRoundTypeConfList;
-        /**
-         * 关联职位列表，如职位为实体职位则关联虚拟职位id，如职位为虚拟职位则关联实体职位id
-         * <p> 示例值：6966533137982392320
-         */
-        this.relatedJobIdList = builder.relatedJobIdList;
-        /**
-         * 自助约面配置
-         * <p> 示例值：
-         */
-        this.interviewAppointmentConfig = builder.interviewAppointmentConfig;
-        /**
-         * 官网申请表ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.portalWebsiteApplyFormSchemaId = builder.portalWebsiteApplyFormSchemaId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOfferApplySchemaId() {
         return this.offerApplySchemaId;
     }
@@ -287,244 +206,320 @@ public class JobConfig {
         this.portalWebsiteApplyFormSchemaId = portalWebsiteApplyFormSchemaId;
     }
 
+
+// builder 开始
+  public JobConfig(){}
+
+  public JobConfig(Builder builder){
+         /**
+          * Offer 申请表，枚举通过接口「获取 Offer 申请表列表」获取
+          * <p> 示例值：6960663240925956573
+          */
+      this.offerApplySchemaId = builder.offerApplySchemaId;
+         /**
+          * Offer 审批流，枚举通过接口「获取 Offer 审批流列表」获取
+          * <p> 示例值：6960663240925956572
+          */
+      this.offerProcessConf = builder.offerProcessConf;
+         /**
+          * 建议评估人 ID 列表
+          * <p> 示例值：6966533137982392320
+          */
+      this.recommendedEvaluatorIdList = builder.recommendedEvaluatorIdList;
+         /**
+          * 更新选项，传入要更新的配置项，1=更新面试评价表，2=更新 Offer 申请表，3=更新 Offer 审批流程，4=更新招聘需求，5=更新建议面试官，6=更新推荐评估人
+          * <p> 示例值：1
+          */
+      this.updateOptionList = builder.updateOptionList;
+         /**
+          * 面试评价表，枚举通过接口「获取面试评价表列表」获取
+          * <p> 示例值：6960663240925956571
+          */
+      this.assessmentTemplateBizId = builder.assessmentTemplateBizId;
+         /**
+          * 建议面试官列表
+          * <p> 示例值：
+          */
+      this.interviewRoundConfList = builder.interviewRoundConfList;
+         /**
+          * 关联招聘需求，支持关联多个，枚举通过接口「获取招聘需求」获取
+          * <p> 示例值：6966533137982392320
+          */
+      this.jrIdList = builder.jrIdList;
+         /**
+          * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+          * <p> 示例值：6930815272790114324
+          */
+      this.interviewRegistrationSchemaId = builder.interviewRegistrationSchemaId;
+         /**
+          * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+          * <p> 示例值：6930815272790114324
+          */
+      this.onboardRegistrationSchemaId = builder.onboardRegistrationSchemaId;
+         /**
+          * 面试轮次类型 ID 列表
+          * <p> 示例值：
+          */
+      this.interviewRoundTypeConfList = builder.interviewRoundTypeConfList;
+         /**
+          * 关联职位列表，如职位为实体职位则关联虚拟职位id，如职位为虚拟职位则关联实体职位id
+          * <p> 示例值：6966533137982392320
+          */
+      this.relatedJobIdList = builder.relatedJobIdList;
+         /**
+          * 自助约面配置
+          * <p> 示例值：
+          */
+      this.interviewAppointmentConfig = builder.interviewAppointmentConfig;
+         /**
+          * 官网申请表ID
+          * <p> 示例值：6930815272790114324
+          */
+      this.portalWebsiteApplyFormSchemaId = builder.portalWebsiteApplyFormSchemaId;
+  }
+
     public static class Builder {
-        /**
-         * Offer 申请表，枚举通过接口「获取 Offer 申请表列表」获取
-         * <p> 示例值：6960663240925956573
-         */
+     /**
+      * Offer 申请表，枚举通过接口「获取 Offer 申请表列表」获取
+      * <p> 示例值：6960663240925956573
+      */
         private String offerApplySchemaId;
-        /**
-         * Offer 审批流，枚举通过接口「获取 Offer 审批流列表」获取
-         * <p> 示例值：6960663240925956572
-         */
+     /**
+      * Offer 审批流，枚举通过接口「获取 Offer 审批流列表」获取
+      * <p> 示例值：6960663240925956572
+      */
         private String offerProcessConf;
-        /**
-         * 建议评估人 ID 列表
-         * <p> 示例值：6966533137982392320
-         */
+     /**
+      * 建议评估人 ID 列表
+      * <p> 示例值：6966533137982392320
+      */
         private String[] recommendedEvaluatorIdList;
-        /**
-         * 更新选项，传入要更新的配置项，1=更新面试评价表，2=更新 Offer 申请表，3=更新 Offer 审批流程，4=更新招聘需求，5=更新建议面试官，6=更新推荐评估人
-         * <p> 示例值：1
-         */
+     /**
+      * 更新选项，传入要更新的配置项，1=更新面试评价表，2=更新 Offer 申请表，3=更新 Offer 审批流程，4=更新招聘需求，5=更新建议面试官，6=更新推荐评估人
+      * <p> 示例值：1
+      */
         private Integer[] updateOptionList;
-        /**
-         * 面试评价表，枚举通过接口「获取面试评价表列表」获取
-         * <p> 示例值：6960663240925956571
-         */
+     /**
+      * 面试评价表，枚举通过接口「获取面试评价表列表」获取
+      * <p> 示例值：6960663240925956571
+      */
         private String assessmentTemplateBizId;
-        /**
-         * 建议面试官列表
-         * <p> 示例值：
-         */
+     /**
+      * 建议面试官列表
+      * <p> 示例值：
+      */
         private JobConfigInterviewRoundConf[] interviewRoundConfList;
-        /**
-         * 关联招聘需求，支持关联多个，枚举通过接口「获取招聘需求」获取
-         * <p> 示例值：6966533137982392320
-         */
+     /**
+      * 关联招聘需求，支持关联多个，枚举通过接口「获取招聘需求」获取
+      * <p> 示例值：6966533137982392320
+      */
         private String[] jrIdList;
-        /**
-         * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
-         * <p> 示例值：6930815272790114324
-         */
+     /**
+      * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+      * <p> 示例值：6930815272790114324
+      */
         private String interviewRegistrationSchemaId;
-        /**
-         * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
-         * <p> 示例值：6930815272790114324
-         */
+     /**
+      * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+      * <p> 示例值：6930815272790114324
+      */
         private String onboardRegistrationSchemaId;
-        /**
-         * 面试轮次类型 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 面试轮次类型 ID 列表
+      * <p> 示例值：
+      */
         private JobConfigRoundType[] interviewRoundTypeConfList;
-        /**
-         * 关联职位列表，如职位为实体职位则关联虚拟职位id，如职位为虚拟职位则关联实体职位id
-         * <p> 示例值：6966533137982392320
-         */
+     /**
+      * 关联职位列表，如职位为实体职位则关联虚拟职位id，如职位为虚拟职位则关联实体职位id
+      * <p> 示例值：6966533137982392320
+      */
         private String[] relatedJobIdList;
-        /**
-         * 自助约面配置
-         * <p> 示例值：
-         */
+     /**
+      * 自助约面配置
+      * <p> 示例值：
+      */
         private InterviewAppointmentConfig interviewAppointmentConfig;
-        /**
-         * 官网申请表ID
-         * <p> 示例值：6930815272790114324
-         */
+     /**
+      * 官网申请表ID
+      * <p> 示例值：6930815272790114324
+      */
         private String portalWebsiteApplyFormSchemaId;
 
         /**
          * Offer 申请表，枚举通过接口「获取 Offer 申请表列表」获取
          * <p> 示例值：6960663240925956573
-         *
          * @param offerApplySchemaId
          * @return
          */
         public Builder offerApplySchemaId(String offerApplySchemaId) {
-            this.offerApplySchemaId = offerApplySchemaId;
-            return this;
+             this.offerApplySchemaId = offerApplySchemaId;
+             return this;
         }
 
+    
 
         /**
          * Offer 审批流，枚举通过接口「获取 Offer 审批流列表」获取
          * <p> 示例值：6960663240925956572
-         *
          * @param offerProcessConf
          * @return
          */
         public Builder offerProcessConf(String offerProcessConf) {
-            this.offerProcessConf = offerProcessConf;
-            return this;
+             this.offerProcessConf = offerProcessConf;
+             return this;
         }
 
+    
 
         /**
          * 建议评估人 ID 列表
          * <p> 示例值：6966533137982392320
-         *
          * @param recommendedEvaluatorIdList
          * @return
          */
         public Builder recommendedEvaluatorIdList(String[] recommendedEvaluatorIdList) {
-            this.recommendedEvaluatorIdList = recommendedEvaluatorIdList;
-            return this;
+             this.recommendedEvaluatorIdList = recommendedEvaluatorIdList;
+             return this;
         }
 
+    
 
         /**
          * 更新选项，传入要更新的配置项，1=更新面试评价表，2=更新 Offer 申请表，3=更新 Offer 审批流程，4=更新招聘需求，5=更新建议面试官，6=更新推荐评估人
          * <p> 示例值：1
-         *
          * @param updateOptionList
          * @return
          */
         public Builder updateOptionList(Integer[] updateOptionList) {
-            this.updateOptionList = updateOptionList;
-            return this;
+             this.updateOptionList = updateOptionList;
+             return this;
         }
 
+    
 
         /**
          * 面试评价表，枚举通过接口「获取面试评价表列表」获取
          * <p> 示例值：6960663240925956571
-         *
          * @param assessmentTemplateBizId
          * @return
          */
         public Builder assessmentTemplateBizId(String assessmentTemplateBizId) {
-            this.assessmentTemplateBizId = assessmentTemplateBizId;
-            return this;
+             this.assessmentTemplateBizId = assessmentTemplateBizId;
+             return this;
         }
 
+    
 
         /**
          * 建议面试官列表
          * <p> 示例值：
-         *
          * @param interviewRoundConfList
          * @return
          */
         public Builder interviewRoundConfList(JobConfigInterviewRoundConf[] interviewRoundConfList) {
-            this.interviewRoundConfList = interviewRoundConfList;
-            return this;
+             this.interviewRoundConfList = interviewRoundConfList;
+             return this;
         }
 
+    
 
         /**
          * 关联招聘需求，支持关联多个，枚举通过接口「获取招聘需求」获取
          * <p> 示例值：6966533137982392320
-         *
          * @param jrIdList
          * @return
          */
         public Builder jrIdList(String[] jrIdList) {
-            this.jrIdList = jrIdList;
-            return this;
+             this.jrIdList = jrIdList;
+             return this;
         }
 
+    
 
         /**
          * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
          * <p> 示例值：6930815272790114324
-         *
          * @param interviewRegistrationSchemaId
          * @return
          */
         public Builder interviewRegistrationSchemaId(String interviewRegistrationSchemaId) {
-            this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
-            return this;
+             this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
+             return this;
         }
 
+    
 
         /**
          * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
          * <p> 示例值：6930815272790114324
-         *
          * @param onboardRegistrationSchemaId
          * @return
          */
         public Builder onboardRegistrationSchemaId(String onboardRegistrationSchemaId) {
-            this.onboardRegistrationSchemaId = onboardRegistrationSchemaId;
-            return this;
+             this.onboardRegistrationSchemaId = onboardRegistrationSchemaId;
+             return this;
         }
 
+    
 
         /**
          * 面试轮次类型 ID 列表
          * <p> 示例值：
-         *
          * @param interviewRoundTypeConfList
          * @return
          */
         public Builder interviewRoundTypeConfList(JobConfigRoundType[] interviewRoundTypeConfList) {
-            this.interviewRoundTypeConfList = interviewRoundTypeConfList;
-            return this;
+             this.interviewRoundTypeConfList = interviewRoundTypeConfList;
+             return this;
         }
 
+    
 
         /**
          * 关联职位列表，如职位为实体职位则关联虚拟职位id，如职位为虚拟职位则关联实体职位id
          * <p> 示例值：6966533137982392320
-         *
          * @param relatedJobIdList
          * @return
          */
         public Builder relatedJobIdList(String[] relatedJobIdList) {
-            this.relatedJobIdList = relatedJobIdList;
-            return this;
+             this.relatedJobIdList = relatedJobIdList;
+             return this;
         }
 
+    
 
         /**
          * 自助约面配置
          * <p> 示例值：
-         *
          * @param interviewAppointmentConfig
          * @return
          */
         public Builder interviewAppointmentConfig(InterviewAppointmentConfig interviewAppointmentConfig) {
-            this.interviewAppointmentConfig = interviewAppointmentConfig;
-            return this;
+             this.interviewAppointmentConfig = interviewAppointmentConfig;
+             return this;
         }
 
+    
 
         /**
          * 官网申请表ID
          * <p> 示例值：6930815272790114324
-         *
          * @param portalWebsiteApplyFormSchemaId
          * @return
          */
         public Builder portalWebsiteApplyFormSchemaId(String portalWebsiteApplyFormSchemaId) {
-            this.portalWebsiteApplyFormSchemaId = portalWebsiteApplyFormSchemaId;
-            return this;
+             this.portalWebsiteApplyFormSchemaId = portalWebsiteApplyFormSchemaId;
+             return this;
         }
 
+    
+    
+    public JobConfig build(){
+        return new JobConfig(this);
+      }
+    }
 
-        public JobConfig build() {
-            return new JobConfig(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

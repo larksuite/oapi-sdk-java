@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Document {
-    /**
-     * 文档唯一标识token
-     * <p> 示例值：
-     */
+     /**
+      * 文档唯一标识token
+      * <p> 示例值：
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * 文档标题
-     * <p> 示例值：
-     */
+     /**
+      * 文档标题
+      * <p> 示例值：
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 文档更新时间戳
-     * <p> 示例值：
-     */
+     /**
+      * 文档更新时间戳
+      * <p> 示例值：
+      */
     @SerializedName("update_time")
     private Integer updateTime;
-    /**
-     * 文档状态
-     * <p> 示例值：
-     */
+     /**
+      * 文档状态
+      * <p> 示例值：
+      */
     @SerializedName("object_status")
     private Integer objectStatus;
-    /**
-     * 文档类型
-     * <p> 示例值：
-     */
+     /**
+      * 文档类型
+      * <p> 示例值：
+      */
     @SerializedName("object_type")
     private Integer objectType;
-    /**
-     * 文档所有者
-     * <p> 示例值：
-     */
+     /**
+      * 文档所有者
+      * <p> 示例值：
+      */
     @SerializedName("owner")
     private SimpleUser owner;
-
-    // builder 开始
-    public Document() {
-    }
-
-    public Document(Builder builder) {
-        /**
-         * 文档唯一标识token
-         * <p> 示例值：
-         */
-        this.token = builder.token;
-        /**
-         * 文档标题
-         * <p> 示例值：
-         */
-        this.title = builder.title;
-        /**
-         * 文档更新时间戳
-         * <p> 示例值：
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 文档状态
-         * <p> 示例值：
-         */
-        this.objectStatus = builder.objectStatus;
-        /**
-         * 文档类型
-         * <p> 示例值：
-         */
-        this.objectType = builder.objectType;
-        /**
-         * 文档所有者
-         * <p> 示例值：
-         */
-        this.owner = builder.owner;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getToken() {
         return this.token;
     }
@@ -155,142 +109,179 @@ public class Document {
         this.owner = owner;
     }
 
+
+// builder 开始
+  public Document(){}
+
+  public Document(Builder builder){
+         /**
+          * 文档唯一标识token
+          * <p> 示例值：
+          */
+      this.token = builder.token;
+         /**
+          * 文档标题
+          * <p> 示例值：
+          */
+      this.title = builder.title;
+         /**
+          * 文档更新时间戳
+          * <p> 示例值：
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 文档状态
+          * <p> 示例值：
+          */
+      this.objectStatus = builder.objectStatus;
+         /**
+          * 文档类型
+          * <p> 示例值：
+          */
+      this.objectType = builder.objectType;
+         /**
+          * 文档所有者
+          * <p> 示例值：
+          */
+      this.owner = builder.owner;
+  }
+
     public static class Builder {
-        /**
-         * 文档唯一标识token
-         * <p> 示例值：
-         */
+     /**
+      * 文档唯一标识token
+      * <p> 示例值：
+      */
         private String token;
-        /**
-         * 文档标题
-         * <p> 示例值：
-         */
+     /**
+      * 文档标题
+      * <p> 示例值：
+      */
         private String title;
-        /**
-         * 文档更新时间戳
-         * <p> 示例值：
-         */
+     /**
+      * 文档更新时间戳
+      * <p> 示例值：
+      */
         private Integer updateTime;
-        /**
-         * 文档状态
-         * <p> 示例值：
-         */
+     /**
+      * 文档状态
+      * <p> 示例值：
+      */
         private Integer objectStatus;
-        /**
-         * 文档类型
-         * <p> 示例值：
-         */
+     /**
+      * 文档类型
+      * <p> 示例值：
+      */
         private Integer objectType;
-        /**
-         * 文档所有者
-         * <p> 示例值：
-         */
+     /**
+      * 文档所有者
+      * <p> 示例值：
+      */
         private SimpleUser owner;
 
         /**
          * 文档唯一标识token
          * <p> 示例值：
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * 文档标题
          * <p> 示例值：
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 文档更新时间戳
          * <p> 示例值：
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 文档状态
          * <p> 示例值：
-         *
          * @param objectStatus
          * @return
          */
         public Builder objectStatus(Integer objectStatus) {
-            this.objectStatus = objectStatus;
-            return this;
+             this.objectStatus = objectStatus;
+             return this;
         }
-
         /**
          * 文档状态
          * <p> 示例值：
-         *
          * @param objectStatus {@link com.lark.oapi.service.security_and_compliance.v1.enums.DocumentDocumentStatusEnum}
          * @return
          */
         public Builder objectStatus(com.lark.oapi.service.security_and_compliance.v1.enums.DocumentDocumentStatusEnum objectStatus) {
-            this.objectStatus = objectStatus.getValue();
-            return this;
+             this.objectStatus = objectStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 文档类型
          * <p> 示例值：
-         *
          * @param objectType
          * @return
          */
         public Builder objectType(Integer objectType) {
-            this.objectType = objectType;
-            return this;
+             this.objectType = objectType;
+             return this;
         }
-
         /**
          * 文档类型
          * <p> 示例值：
-         *
          * @param objectType {@link com.lark.oapi.service.security_and_compliance.v1.enums.DocumentDocumentTypeEnum}
          * @return
          */
         public Builder objectType(com.lark.oapi.service.security_and_compliance.v1.enums.DocumentDocumentTypeEnum objectType) {
-            this.objectType = objectType.getValue();
-            return this;
+             this.objectType = objectType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 文档所有者
          * <p> 示例值：
-         *
          * @param owner
          * @return
          */
         public Builder owner(SimpleUser owner) {
-            this.owner = owner;
-            return this;
+             this.owner = owner;
+             return this;
         }
 
+    
+    
+    public Document build(){
+        return new Document(this);
+      }
+    }
 
-        public Document build() {
-            return new Document(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

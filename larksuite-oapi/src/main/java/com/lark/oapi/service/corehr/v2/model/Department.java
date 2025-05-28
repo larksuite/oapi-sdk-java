@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,313 +19,168 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Department {
-    /**
-     * 部门 ID
-     * <p> 示例值：4719456877659520852
-     */
+     /**
+      * 部门 ID
+      * <p> 示例值：4719456877659520852
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 部门记录版本 ID
-     * <p> 示例值：6890452208593372611
-     */
+     /**
+      * 部门记录版本 ID
+      * <p> 示例值：6890452208593372611
+      */
     @SerializedName("version_id")
     private String versionId;
-    /**
-     * 部门名称
-     * <p> 示例值：
-     */
+     /**
+      * 部门名称
+      * <p> 示例值：
+      */
     @SerializedName("department_name")
     private I18n[] departmentName;
-    /**
-     * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-     * <p> 示例值：
-     */
+     /**
+      * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+      * <p> 示例值：
+      */
     @SerializedName("sub_type")
     private Enum subType;
-    /**
-     * 上级部门 ID
-     * <p> 示例值：4719456877659520111
-     */
+     /**
+      * 上级部门 ID
+      * <p> 示例值：4719456877659520111
+      */
     @SerializedName("parent_department_id")
     private String parentDepartmentId;
-    /**
-     * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-     * <p> 示例值：6893013238632416777
-     */
+     /**
+      * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
+      * <p> 示例值：6893013238632416777
+      */
     @SerializedName("manager")
     private String manager;
-    /**
-     * 树形排序，代表同层级的部门排序序号
-     * <p> 示例值：001000
-     */
+     /**
+      * 树形排序，代表同层级的部门排序序号
+      * <p> 示例值：001000
+      */
     @SerializedName("tree_order")
     private String treeOrder;
-    /**
-     * 列表排序，代表所有部门的混排序号
-     * <p> 示例值：001000-001000
-     */
+     /**
+      * 列表排序，代表所有部门的混排序号
+      * <p> 示例值：001000-001000
+      */
     @SerializedName("list_order")
     private String listOrder;
-    /**
-     * 编码
-     * <p> 示例值：D00000456
-     */
+     /**
+      * 编码
+      * <p> 示例值：D00000456
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 是否根部门
-     * <p> 示例值：false
-     */
+     /**
+      * 是否根部门
+      * <p> 示例值：false
+      */
     @SerializedName("is_root")
     private Boolean isRoot;
-    /**
-     * 是否保密
-     * <p> 示例值：false
-     */
+     /**
+      * 是否保密
+      * <p> 示例值：false
+      */
     @SerializedName("is_confidential")
     private Boolean isConfidential;
-    /**
-     * 生效日期
-     * <p> 示例值：2020-05-01
-     */
+     /**
+      * 生效日期
+      * <p> 示例值：2020-05-01
+      */
     @SerializedName("effective_date")
     private String effectiveDate;
-    /**
-     * 失效日期
-     * <p> 示例值：2020-05-02
-     */
+     /**
+      * 失效日期
+      * <p> 示例值：2020-05-02
+      */
     @SerializedName("expiration_date")
     private String expirationDate;
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private I18n[] description;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
-    /**
-     * 是否使用职务
-     * <p> 示例值：
-     */
+     /**
+      * 是否使用职务
+      * <p> 示例值：
+      */
     @SerializedName("staffing_model")
     private Enum staffingModel;
-    /**
-     * 成本中心id
-     * <p> 示例值：7142384817131652652
-     */
+     /**
+      * 成本中心id
+      * <p> 示例值：7142384817131652652
+      */
     @SerializedName("cost_center_id")
     private String costCenterId;
-    /**
-     * 创建时间
-     * <p> 示例值：2020-05-01 00:00:00
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
     @SerializedName("created_time")
     private String createdTime;
-    /**
-     * 更新时间
-     * <p> 示例值：2020-05-02 00:00:00
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
     @SerializedName("updated_time")
     private String updatedTime;
-    /**
-     * 创建人
-     * <p> 示例值：6893013238632416777
-     */
+     /**
+      * 创建人
+      * <p> 示例值：6893013238632416777
+      */
     @SerializedName("created_by")
     private String createdBy;
-    /**
-     * 更新人
-     * <p> 示例值：6893013238632416777
-     */
+     /**
+      * 更新人
+      * <p> 示例值：6893013238632416777
+      */
     @SerializedName("updated_by")
     private String updatedBy;
-    /**
-     * 记录创建时间
-     * <p> 示例值：2020-05-01 00:00:00
-     */
+     /**
+      * 记录创建时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
     @SerializedName("record_created_time")
     private String recordCreatedTime;
-    /**
-     * 记录更新时间
-     * <p> 示例值：2020-05-02 00:00:00
-     */
+     /**
+      * 记录更新时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
     @SerializedName("record_updated_time")
     private String recordUpdatedTime;
-    /**
-     * 记录创建人
-     * <p> 示例值：6893013238632416777
-     */
+     /**
+      * 记录创建人
+      * <p> 示例值：6893013238632416777
+      */
     @SerializedName("record_created_by")
     private String recordCreatedBy;
-    /**
-     * 记录更新人
-     * <p> 示例值：6893013238632416777
-     */
+     /**
+      * 记录更新人
+      * <p> 示例值：6893013238632416777
+      */
     @SerializedName("record_updated_by")
     private String recordUpdatedBy;
-
-    // builder 开始
-    public Department() {
-    }
-
-    public Department(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.id = builder.id;
-        /**
-         * 部门记录版本 ID
-         * <p> 示例值：6890452208593372611
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
-        this.departmentName = builder.departmentName;
-        /**
-         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.subType = builder.subType;
-        /**
-         * 上级部门 ID
-         * <p> 示例值：4719456877659520111
-         */
-        this.parentDepartmentId = builder.parentDepartmentId;
-        /**
-         * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-         * <p> 示例值：6893013238632416777
-         */
-        this.manager = builder.manager;
-        /**
-         * 树形排序，代表同层级的部门排序序号
-         * <p> 示例值：001000
-         */
-        this.treeOrder = builder.treeOrder;
-        /**
-         * 列表排序，代表所有部门的混排序号
-         * <p> 示例值：001000-001000
-         */
-        this.listOrder = builder.listOrder;
-        /**
-         * 编码
-         * <p> 示例值：D00000456
-         */
-        this.code = builder.code;
-        /**
-         * 是否根部门
-         * <p> 示例值：false
-         */
-        this.isRoot = builder.isRoot;
-        /**
-         * 是否保密
-         * <p> 示例值：false
-         */
-        this.isConfidential = builder.isConfidential;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 失效日期
-         * <p> 示例值：2020-05-02
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         */
-        this.staffingModel = builder.staffingModel;
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 创建时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        this.updatedTime = builder.updatedTime;
-        /**
-         * 创建人
-         * <p> 示例值：6893013238632416777
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 更新人
-         * <p> 示例值：6893013238632416777
-         */
-        this.updatedBy = builder.updatedBy;
-        /**
-         * 记录创建时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        this.recordCreatedTime = builder.recordCreatedTime;
-        /**
-         * 记录更新时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        this.recordUpdatedTime = builder.recordUpdatedTime;
-        /**
-         * 记录创建人
-         * <p> 示例值：6893013238632416777
-         */
-        this.recordCreatedBy = builder.recordCreatedBy;
-        /**
-         * 记录更新人
-         * <p> 示例值：6893013238632416777
-         */
-        this.recordUpdatedBy = builder.recordUpdatedBy;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -535,478 +389,619 @@ public class Department {
         this.recordUpdatedBy = recordUpdatedBy;
     }
 
+
+// builder 开始
+  public Department(){}
+
+  public Department(Builder builder){
+         /**
+          * 部门 ID
+          * <p> 示例值：4719456877659520852
+          */
+      this.id = builder.id;
+         /**
+          * 部门记录版本 ID
+          * <p> 示例值：6890452208593372611
+          */
+      this.versionId = builder.versionId;
+         /**
+          * 部门名称
+          * <p> 示例值：
+          */
+      this.departmentName = builder.departmentName;
+         /**
+          * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+          * <p> 示例值：
+          */
+      this.subType = builder.subType;
+         /**
+          * 上级部门 ID
+          * <p> 示例值：4719456877659520111
+          */
+      this.parentDepartmentId = builder.parentDepartmentId;
+         /**
+          * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
+          * <p> 示例值：6893013238632416777
+          */
+      this.manager = builder.manager;
+         /**
+          * 树形排序，代表同层级的部门排序序号
+          * <p> 示例值：001000
+          */
+      this.treeOrder = builder.treeOrder;
+         /**
+          * 列表排序，代表所有部门的混排序号
+          * <p> 示例值：001000-001000
+          */
+      this.listOrder = builder.listOrder;
+         /**
+          * 编码
+          * <p> 示例值：D00000456
+          */
+      this.code = builder.code;
+         /**
+          * 是否根部门
+          * <p> 示例值：false
+          */
+      this.isRoot = builder.isRoot;
+         /**
+          * 是否保密
+          * <p> 示例值：false
+          */
+      this.isConfidential = builder.isConfidential;
+         /**
+          * 生效日期
+          * <p> 示例值：2020-05-01
+          */
+      this.effectiveDate = builder.effectiveDate;
+         /**
+          * 失效日期
+          * <p> 示例值：2020-05-02
+          */
+      this.expirationDate = builder.expirationDate;
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 是否使用职务
+          * <p> 示例值：
+          */
+      this.staffingModel = builder.staffingModel;
+         /**
+          * 成本中心id
+          * <p> 示例值：7142384817131652652
+          */
+      this.costCenterId = builder.costCenterId;
+         /**
+          * 创建时间
+          * <p> 示例值：2020-05-01 00:00:00
+          */
+      this.createdTime = builder.createdTime;
+         /**
+          * 更新时间
+          * <p> 示例值：2020-05-02 00:00:00
+          */
+      this.updatedTime = builder.updatedTime;
+         /**
+          * 创建人
+          * <p> 示例值：6893013238632416777
+          */
+      this.createdBy = builder.createdBy;
+         /**
+          * 更新人
+          * <p> 示例值：6893013238632416777
+          */
+      this.updatedBy = builder.updatedBy;
+         /**
+          * 记录创建时间
+          * <p> 示例值：2020-05-01 00:00:00
+          */
+      this.recordCreatedTime = builder.recordCreatedTime;
+         /**
+          * 记录更新时间
+          * <p> 示例值：2020-05-02 00:00:00
+          */
+      this.recordUpdatedTime = builder.recordUpdatedTime;
+         /**
+          * 记录创建人
+          * <p> 示例值：6893013238632416777
+          */
+      this.recordCreatedBy = builder.recordCreatedBy;
+         /**
+          * 记录更新人
+          * <p> 示例值：6893013238632416777
+          */
+      this.recordUpdatedBy = builder.recordUpdatedBy;
+  }
+
     public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
+     /**
+      * 部门 ID
+      * <p> 示例值：4719456877659520852
+      */
         private String id;
-        /**
-         * 部门记录版本 ID
-         * <p> 示例值：6890452208593372611
-         */
+     /**
+      * 部门记录版本 ID
+      * <p> 示例值：6890452208593372611
+      */
         private String versionId;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
+     /**
+      * 部门名称
+      * <p> 示例值：
+      */
         private I18n[] departmentName;
-        /**
-         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-         * <p> 示例值：
-         */
+     /**
+      * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+      * <p> 示例值：
+      */
         private Enum subType;
-        /**
-         * 上级部门 ID
-         * <p> 示例值：4719456877659520111
-         */
+     /**
+      * 上级部门 ID
+      * <p> 示例值：4719456877659520111
+      */
         private String parentDepartmentId;
-        /**
-         * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-         * <p> 示例值：6893013238632416777
-         */
+     /**
+      * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
+      * <p> 示例值：6893013238632416777
+      */
         private String manager;
-        /**
-         * 树形排序，代表同层级的部门排序序号
-         * <p> 示例值：001000
-         */
+     /**
+      * 树形排序，代表同层级的部门排序序号
+      * <p> 示例值：001000
+      */
         private String treeOrder;
-        /**
-         * 列表排序，代表所有部门的混排序号
-         * <p> 示例值：001000-001000
-         */
+     /**
+      * 列表排序，代表所有部门的混排序号
+      * <p> 示例值：001000-001000
+      */
         private String listOrder;
-        /**
-         * 编码
-         * <p> 示例值：D00000456
-         */
+     /**
+      * 编码
+      * <p> 示例值：D00000456
+      */
         private String code;
-        /**
-         * 是否根部门
-         * <p> 示例值：false
-         */
+     /**
+      * 是否根部门
+      * <p> 示例值：false
+      */
         private Boolean isRoot;
-        /**
-         * 是否保密
-         * <p> 示例值：false
-         */
+     /**
+      * 是否保密
+      * <p> 示例值：false
+      */
         private Boolean isConfidential;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
+     /**
+      * 生效日期
+      * <p> 示例值：2020-05-01
+      */
         private String effectiveDate;
-        /**
-         * 失效日期
-         * <p> 示例值：2020-05-02
-         */
+     /**
+      * 失效日期
+      * <p> 示例值：2020-05-02
+      */
         private String expirationDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
         private I18n[] description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private CustomFieldData[] customFields;
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         */
+     /**
+      * 是否使用职务
+      * <p> 示例值：
+      */
         private Enum staffingModel;
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         */
+     /**
+      * 成本中心id
+      * <p> 示例值：7142384817131652652
+      */
         private String costCenterId;
-        /**
-         * 创建时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
         private String createdTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
         private String updatedTime;
-        /**
-         * 创建人
-         * <p> 示例值：6893013238632416777
-         */
+     /**
+      * 创建人
+      * <p> 示例值：6893013238632416777
+      */
         private String createdBy;
-        /**
-         * 更新人
-         * <p> 示例值：6893013238632416777
-         */
+     /**
+      * 更新人
+      * <p> 示例值：6893013238632416777
+      */
         private String updatedBy;
-        /**
-         * 记录创建时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
+     /**
+      * 记录创建时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
         private String recordCreatedTime;
-        /**
-         * 记录更新时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
+     /**
+      * 记录更新时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
         private String recordUpdatedTime;
-        /**
-         * 记录创建人
-         * <p> 示例值：6893013238632416777
-         */
+     /**
+      * 记录创建人
+      * <p> 示例值：6893013238632416777
+      */
         private String recordCreatedBy;
-        /**
-         * 记录更新人
-         * <p> 示例值：6893013238632416777
-         */
+     /**
+      * 记录更新人
+      * <p> 示例值：6893013238632416777
+      */
         private String recordUpdatedBy;
 
         /**
          * 部门 ID
          * <p> 示例值：4719456877659520852
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 部门记录版本 ID
          * <p> 示例值：6890452208593372611
-         *
          * @param versionId
          * @return
          */
         public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
+             this.versionId = versionId;
+             return this;
         }
 
+    
 
         /**
          * 部门名称
          * <p> 示例值：
-         *
          * @param departmentName
          * @return
          */
         public Builder departmentName(I18n[] departmentName) {
-            this.departmentName = departmentName;
-            return this;
+             this.departmentName = departmentName;
+             return this;
         }
 
+    
 
         /**
          * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
          * <p> 示例值：
-         *
          * @param subType
          * @return
          */
         public Builder subType(Enum subType) {
-            this.subType = subType;
-            return this;
+             this.subType = subType;
+             return this;
         }
 
+    
 
         /**
          * 上级部门 ID
          * <p> 示例值：4719456877659520111
-         *
          * @param parentDepartmentId
          * @return
          */
         public Builder parentDepartmentId(String parentDepartmentId) {
-            this.parentDepartmentId = parentDepartmentId;
-            return this;
+             this.parentDepartmentId = parentDepartmentId;
+             return this;
         }
 
+    
 
         /**
          * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
          * <p> 示例值：6893013238632416777
-         *
          * @param manager
          * @return
          */
         public Builder manager(String manager) {
-            this.manager = manager;
-            return this;
+             this.manager = manager;
+             return this;
         }
 
+    
 
         /**
          * 树形排序，代表同层级的部门排序序号
          * <p> 示例值：001000
-         *
          * @param treeOrder
          * @return
          */
         public Builder treeOrder(String treeOrder) {
-            this.treeOrder = treeOrder;
-            return this;
+             this.treeOrder = treeOrder;
+             return this;
         }
 
+    
 
         /**
          * 列表排序，代表所有部门的混排序号
          * <p> 示例值：001000-001000
-         *
          * @param listOrder
          * @return
          */
         public Builder listOrder(String listOrder) {
-            this.listOrder = listOrder;
-            return this;
+             this.listOrder = listOrder;
+             return this;
         }
 
+    
 
         /**
          * 编码
          * <p> 示例值：D00000456
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 是否根部门
          * <p> 示例值：false
-         *
          * @param isRoot
          * @return
          */
         public Builder isRoot(Boolean isRoot) {
-            this.isRoot = isRoot;
-            return this;
+             this.isRoot = isRoot;
+             return this;
         }
 
+    
 
         /**
          * 是否保密
          * <p> 示例值：false
-         *
          * @param isConfidential
          * @return
          */
         public Builder isConfidential(Boolean isConfidential) {
-            this.isConfidential = isConfidential;
-            return this;
+             this.isConfidential = isConfidential;
+             return this;
         }
 
+    
 
         /**
          * 生效日期
          * <p> 示例值：2020-05-01
-         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
+             this.effectiveDate = effectiveDate;
+             return this;
         }
 
+    
 
         /**
          * 失效日期
          * <p> 示例值：2020-05-02
-         *
          * @param expirationDate
          * @return
          */
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
+             this.expirationDate = expirationDate;
+             return this;
         }
 
+    
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 是否使用职务
          * <p> 示例值：
-         *
          * @param staffingModel
          * @return
          */
         public Builder staffingModel(Enum staffingModel) {
-            this.staffingModel = staffingModel;
-            return this;
+             this.staffingModel = staffingModel;
+             return this;
         }
 
+    
 
         /**
          * 成本中心id
          * <p> 示例值：7142384817131652652
-         *
          * @param costCenterId
          * @return
          */
         public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
+             this.costCenterId = costCenterId;
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：2020-05-01 00:00:00
-         *
          * @param createdTime
          * @return
          */
         public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
+             this.createdTime = createdTime;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：2020-05-02 00:00:00
-         *
          * @param updatedTime
          * @return
          */
         public Builder updatedTime(String updatedTime) {
-            this.updatedTime = updatedTime;
-            return this;
+             this.updatedTime = updatedTime;
+             return this;
         }
 
+    
 
         /**
          * 创建人
          * <p> 示例值：6893013238632416777
-         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
+             this.createdBy = createdBy;
+             return this;
         }
 
+    
 
         /**
          * 更新人
          * <p> 示例值：6893013238632416777
-         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(String updatedBy) {
-            this.updatedBy = updatedBy;
-            return this;
+             this.updatedBy = updatedBy;
+             return this;
         }
 
+    
 
         /**
          * 记录创建时间
          * <p> 示例值：2020-05-01 00:00:00
-         *
          * @param recordCreatedTime
          * @return
          */
         public Builder recordCreatedTime(String recordCreatedTime) {
-            this.recordCreatedTime = recordCreatedTime;
-            return this;
+             this.recordCreatedTime = recordCreatedTime;
+             return this;
         }
 
+    
 
         /**
          * 记录更新时间
          * <p> 示例值：2020-05-02 00:00:00
-         *
          * @param recordUpdatedTime
          * @return
          */
         public Builder recordUpdatedTime(String recordUpdatedTime) {
-            this.recordUpdatedTime = recordUpdatedTime;
-            return this;
+             this.recordUpdatedTime = recordUpdatedTime;
+             return this;
         }
 
+    
 
         /**
          * 记录创建人
          * <p> 示例值：6893013238632416777
-         *
          * @param recordCreatedBy
          * @return
          */
         public Builder recordCreatedBy(String recordCreatedBy) {
-            this.recordCreatedBy = recordCreatedBy;
-            return this;
+             this.recordCreatedBy = recordCreatedBy;
+             return this;
         }
 
+    
 
         /**
          * 记录更新人
          * <p> 示例值：6893013238632416777
-         *
          * @param recordUpdatedBy
          * @return
          */
         public Builder recordUpdatedBy(String recordUpdatedBy) {
-            this.recordUpdatedBy = recordUpdatedBy;
-            return this;
+             this.recordUpdatedBy = recordUpdatedBy;
+             return this;
         }
 
+    
+    
+    public Department build(){
+        return new Department(this);
+      }
+    }
 
-        public Department build() {
-            return new Department(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

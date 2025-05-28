@@ -17,15 +17,14 @@ package com.lark.oapi.service.mail.v1.enums;
  * 成员类型
  */
 public enum PublicMailboxMemberPublicMailboxMemberTypeEnum {
-    USER("USER"), // internal user in the team
-    ;
-    private String value;
-
+     USER("USER"), // internal user in the team
+  ;
+   private String value;
     PublicMailboxMemberPublicMailboxMemberTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

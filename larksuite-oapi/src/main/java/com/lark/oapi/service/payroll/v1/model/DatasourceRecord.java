@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DatasourceRecord {
-    /**
-     * 记录的启停用状态
-     * <p> 示例值：1
-     */
+     /**
+      * 记录的启停用状态
+      * <p> 示例值：1
+      */
     @SerializedName("active_status")
     private Integer activeStatus;
-    /**
-     * 记录的字段值列表
-     * <p> 示例值：
-     */
+     /**
+      * 记录的字段值列表
+      * <p> 示例值：
+      */
     @SerializedName("field_values")
     private DatasourceRecordField[] fieldValues;
-
-    // builder 开始
-    public DatasourceRecord() {
-    }
-
-    public DatasourceRecord(Builder builder) {
-        /**
-         * 记录的启停用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 记录的字段值列表
-         * <p> 示例值：
-         */
-        this.fieldValues = builder.fieldValues;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getActiveStatus() {
         return this.activeStatus;
     }
@@ -79,58 +53,77 @@ public class DatasourceRecord {
         this.fieldValues = fieldValues;
     }
 
+
+// builder 开始
+  public DatasourceRecord(){}
+
+  public DatasourceRecord(Builder builder){
+         /**
+          * 记录的启停用状态
+          * <p> 示例值：1
+          */
+      this.activeStatus = builder.activeStatus;
+         /**
+          * 记录的字段值列表
+          * <p> 示例值：
+          */
+      this.fieldValues = builder.fieldValues;
+  }
+
     public static class Builder {
-        /**
-         * 记录的启停用状态
-         * <p> 示例值：1
-         */
+     /**
+      * 记录的启停用状态
+      * <p> 示例值：1
+      */
         private Integer activeStatus;
-        /**
-         * 记录的字段值列表
-         * <p> 示例值：
-         */
+     /**
+      * 记录的字段值列表
+      * <p> 示例值：
+      */
         private DatasourceRecordField[] fieldValues;
 
         /**
          * 记录的启停用状态
          * <p> 示例值：1
-         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
+             this.activeStatus = activeStatus;
+             return this;
         }
-
         /**
          * 记录的启停用状态
          * <p> 示例值：1
-         *
          * @param activeStatus {@link com.lark.oapi.service.payroll.v1.enums.DatasourceRecordActiveStatusEnum}
          * @return
          */
         public Builder activeStatus(com.lark.oapi.service.payroll.v1.enums.DatasourceRecordActiveStatusEnum activeStatus) {
-            this.activeStatus = activeStatus.getValue();
-            return this;
+             this.activeStatus = activeStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 记录的字段值列表
          * <p> 示例值：
-         *
          * @param fieldValues
          * @return
          */
         public Builder fieldValues(DatasourceRecordField[] fieldValues) {
-            this.fieldValues = fieldValues;
-            return this;
+             this.fieldValues = fieldValues;
+             return this;
         }
 
+    
+    
+    public DatasourceRecord build(){
+        return new DatasourceRecord(this);
+      }
+    }
 
-        public DatasourceRecord build() {
-            return new DatasourceRecord(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

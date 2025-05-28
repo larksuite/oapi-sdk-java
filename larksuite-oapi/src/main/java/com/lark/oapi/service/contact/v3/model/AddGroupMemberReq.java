@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AddGroupMemberReq {
-    /**
-     * 用户组ID
-     * <p> 示例值：g281721
-     */
+     /**
+      * 用户组ID
+      * <p> 示例值：g281721
+      */
     @Path
     @SerializedName("group_id")
     private String groupId;
-    @Body
-    private AddGroupMemberReqBody body;
-
-    // builder 开始
-    public AddGroupMemberReq() {
-    }
-
-    public AddGroupMemberReq(Builder builder) {
-        /**
-         * 用户组ID
-         * <p> 示例值：g281721
-         */
-        this.groupId = builder.groupId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getGroupId() {
         return this.groupId;
     }
@@ -62,6 +38,9 @@ public class AddGroupMemberReq {
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
+
+    @Body
+    private AddGroupMemberReqBody body;
 
     public AddGroupMemberReqBody getAddGroupMemberReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class AddGroupMemberReq {
         this.body = body;
     }
 
+// builder 开始
+  public AddGroupMemberReq(){}
+
+  public AddGroupMemberReq(Builder builder){
+     /**
+      * 用户组ID
+      * <p> 示例值：g281721
+      */
+       this.groupId = builder.groupId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String groupId; // 用户组ID
-        private AddGroupMemberReqBody body;
-
         /**
          * 用户组ID
          * <p> 示例值：g281721
-         *
          * @param groupId
          * @return
          */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
+          public Builder groupId(String groupId) {
+               this.groupId = groupId;
+               return this;
+          }
 
+    
+        private AddGroupMemberReqBody body;
+    
         public AddGroupMemberReqBody getAddGroupMemberReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder addGroupMemberReqBody(AddGroupMemberReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public AddGroupMemberReq build(){
+        return new AddGroupMemberReq(this);
+      }
+    }
 
-        public AddGroupMemberReq build() {
-            return new AddGroupMemberReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

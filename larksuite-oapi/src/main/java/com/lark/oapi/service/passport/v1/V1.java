@@ -17,13 +17,12 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.passport.v1.resource.*;
 
 public class V1 {
-    private final Session session; // 登录态
+	private final Session session; // 登录态
 
-    public V1(Config config) {
-        this.session = new Session(config);
-    }
-
-    public Session session() {
-        return session;
-    }
+	public V1(Config config) {
+		this.session = new Session(config);
+	}
+	public Session session() {
+		return session;
+	}
 }

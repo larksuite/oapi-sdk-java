@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.bitable.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class AppTableField {
         this.config = config;
     }
 
-
+    
     /**
      * 新增字段，该接口用于在数据表中新增一个字段
      * <p> 该接口支持调用频率上限为 10 QPS ;
@@ -64,7 +59,7 @@ public class AppTableField {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppTableFieldResp.class);
         if (resp == null) {
@@ -72,14 +67,14 @@ public class AppTableField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -97,7 +92,7 @@ public class AppTableField {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppTableFieldResp.class);
         if (resp == null) {
@@ -105,16 +100,15 @@ public class AppTableField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除字段，该接口用于在数据表中删除一个字段
      * <p> 该接口支持调用频率上限为 10 QPS ;
@@ -132,7 +126,7 @@ public class AppTableField {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteAppTableFieldResp.class);
         if (resp == null) {
@@ -140,14 +134,14 @@ public class AppTableField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -165,7 +159,7 @@ public class AppTableField {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteAppTableFieldResp.class);
         if (resp == null) {
@@ -173,16 +167,15 @@ public class AppTableField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 列出字段，根据 app_token 和 table_id，获取数据表的所有字段
      * <p> 该接口支持调用频率上限为 20 QPS ;
@@ -200,7 +193,7 @@ public class AppTableField {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppTableFieldResp.class);
         if (resp == null) {
@@ -208,14 +201,14 @@ public class AppTableField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -233,7 +226,7 @@ public class AppTableField {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppTableFieldResp.class);
         if (resp == null) {
@@ -241,16 +234,15 @@ public class AppTableField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 更新字段，该接口用于在数据表中更新一个字段
      * <p> 该接口支持调用频率上限为 10 QPS ;
@@ -268,7 +260,7 @@ public class AppTableField {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UpdateAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateAppTableFieldResp.class);
         if (resp == null) {
@@ -276,14 +268,14 @@ public class AppTableField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -301,7 +293,7 @@ public class AppTableField {
                 , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UpdateAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateAppTableFieldResp.class);
         if (resp == null) {
@@ -309,13 +301,13 @@ public class AppTableField {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

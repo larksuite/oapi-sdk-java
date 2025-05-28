@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,225 +19,120 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserFlow {
-    /**
-     * 用户 ID
-     * <p> 示例值：abd754f7
-     */
+     /**
+      * 用户 ID
+      * <p> 示例值：abd754f7
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 记录创建者 ID
-     * <p> 示例值：abd754f7
-     */
+     /**
+      * 记录创建者 ID
+      * <p> 示例值：abd754f7
+      */
     @SerializedName("creator_id")
     private String creatorId;
-    /**
-     * 打卡位置名称信息
-     * <p> 示例值：西溪八方城
-     */
+     /**
+      * 打卡位置名称信息
+      * <p> 示例值：西溪八方城
+      */
     @SerializedName("location_name")
     private String locationName;
-    /**
-     * 打卡时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     */
+     /**
+      * 打卡时间，精确到秒的时间戳
+      * <p> 示例值：1611476284
+      */
     @SerializedName("check_time")
     private String checkTime;
-    /**
-     * 打卡备注
-     * <p> 示例值：上班打卡
-     */
+     /**
+      * 打卡备注
+      * <p> 示例值：上班打卡
+      */
     @SerializedName("comment")
     private String comment;
-    /**
-     * 打卡记录 ID
-     * <p> 示例值：6709359313699356941
-     */
+     /**
+      * 打卡记录 ID
+      * <p> 示例值：6709359313699356941
+      */
     @SerializedName("record_id")
     private String recordId;
-    /**
-     * 打卡经度
-     * <p> 示例值：30.28991
-     */
+     /**
+      * 打卡经度
+      * <p> 示例值：30.28991
+      */
     @SerializedName("longitude")
     private Double longitude;
-    /**
-     * 打卡纬度
-     * <p> 示例值：120.04513
-     */
+     /**
+      * 打卡纬度
+      * <p> 示例值：120.04513
+      */
     @SerializedName("latitude")
     private Double latitude;
-    /**
-     * 打卡 Wi-Fi 的 SSID
-     * <p> 示例值：b0:b8:67:5c:1d:72
-     */
+     /**
+      * 打卡 Wi-Fi 的 SSID
+      * <p> 示例值：b0:b8:67:5c:1d:72
+      */
     @SerializedName("ssid")
     private String ssid;
-    /**
-     * 打卡 Wi-Fi 的 MAC 地址
-     * <p> 示例值：b0:b8:67:5c:1d:72
-     */
+     /**
+      * 打卡 Wi-Fi 的 MAC 地址
+      * <p> 示例值：b0:b8:67:5c:1d:72
+      */
     @SerializedName("bssid")
     private String bssid;
-    /**
-     * 是否为外勤打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否为外勤打卡
+      * <p> 示例值：true
+      */
     @SerializedName("is_field")
     private Boolean isField;
-    /**
-     * 是否为 Wi-Fi 打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否为 Wi-Fi 打卡
+      * <p> 示例值：true
+      */
     @SerializedName("is_wifi")
     private Boolean isWifi;
-    /**
-     * 记录生成方式
-     * <p> 示例值：在开放平台调用时，此参数无效，内部值始终是7
-     */
+     /**
+      * 记录生成方式
+      * <p> 示例值：在开放平台调用时，此参数无效，内部值始终是7
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * 打卡照片列表
-     * <p> 示例值：https://time.clockin.biz/manage/download/6840389754748502021
-     */
+     /**
+      * 打卡照片列表
+      * <p> 示例值：https://time.clockin.biz/manage/download/6840389754748502021
+      */
     @SerializedName("photo_urls")
     private String[] photoUrls;
-    /**
-     * 打卡设备ID
-     * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
-     */
+     /**
+      * 打卡设备ID
+      * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
+      */
     @SerializedName("device_id")
     private String deviceId;
-    /**
-     * 打卡结果
-     * <p> 示例值：Invalid
-     */
+     /**
+      * 打卡结果
+      * <p> 示例值：Invalid
+      */
     @SerializedName("check_result")
     private String checkResult;
-    /**
-     * 用户导入的外部打卡记录ID
-     * <p> 示例值：record_123
-     */
+     /**
+      * 用户导入的外部打卡记录ID
+      * <p> 示例值：record_123
+      */
     @SerializedName("external_id")
     private String externalId;
-    /**
-     * 唯一幂等键
-     * <p> 示例值：****_***
-     */
+     /**
+      * 唯一幂等键
+      * <p> 示例值：****_***
+      */
     @SerializedName("idempotent_id")
     private String idempotentId;
-
-    // builder 开始
-    public UserFlow() {
-    }
-
-    public UserFlow(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：abd754f7
-         */
-        this.userId = builder.userId;
-        /**
-         * 记录创建者 ID
-         * <p> 示例值：abd754f7
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 打卡位置名称信息
-         * <p> 示例值：西溪八方城
-         */
-        this.locationName = builder.locationName;
-        /**
-         * 打卡时间，精确到秒的时间戳
-         * <p> 示例值：1611476284
-         */
-        this.checkTime = builder.checkTime;
-        /**
-         * 打卡备注
-         * <p> 示例值：上班打卡
-         */
-        this.comment = builder.comment;
-        /**
-         * 打卡记录 ID
-         * <p> 示例值：6709359313699356941
-         */
-        this.recordId = builder.recordId;
-        /**
-         * 打卡经度
-         * <p> 示例值：30.28991
-         */
-        this.longitude = builder.longitude;
-        /**
-         * 打卡纬度
-         * <p> 示例值：120.04513
-         */
-        this.latitude = builder.latitude;
-        /**
-         * 打卡 Wi-Fi 的 SSID
-         * <p> 示例值：b0:b8:67:5c:1d:72
-         */
-        this.ssid = builder.ssid;
-        /**
-         * 打卡 Wi-Fi 的 MAC 地址
-         * <p> 示例值：b0:b8:67:5c:1d:72
-         */
-        this.bssid = builder.bssid;
-        /**
-         * 是否为外勤打卡
-         * <p> 示例值：true
-         */
-        this.isField = builder.isField;
-        /**
-         * 是否为 Wi-Fi 打卡
-         * <p> 示例值：true
-         */
-        this.isWifi = builder.isWifi;
-        /**
-         * 记录生成方式
-         * <p> 示例值：在开放平台调用时，此参数无效，内部值始终是7
-         */
-        this.type = builder.type;
-        /**
-         * 打卡照片列表
-         * <p> 示例值：https://time.clockin.biz/manage/download/6840389754748502021
-         */
-        this.photoUrls = builder.photoUrls;
-        /**
-         * 打卡设备ID
-         * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
-         */
-        this.deviceId = builder.deviceId;
-        /**
-         * 打卡结果
-         * <p> 示例值：Invalid
-         */
-        this.checkResult = builder.checkResult;
-        /**
-         * 用户导入的外部打卡记录ID
-         * <p> 示例值：record_123
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 唯一幂等键
-         * <p> 示例值：****_***
-         */
-        this.idempotentId = builder.idempotentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -383,358 +277,455 @@ public class UserFlow {
         this.idempotentId = idempotentId;
     }
 
+
+// builder 开始
+  public UserFlow(){}
+
+  public UserFlow(Builder builder){
+         /**
+          * 用户 ID
+          * <p> 示例值：abd754f7
+          */
+      this.userId = builder.userId;
+         /**
+          * 记录创建者 ID
+          * <p> 示例值：abd754f7
+          */
+      this.creatorId = builder.creatorId;
+         /**
+          * 打卡位置名称信息
+          * <p> 示例值：西溪八方城
+          */
+      this.locationName = builder.locationName;
+         /**
+          * 打卡时间，精确到秒的时间戳
+          * <p> 示例值：1611476284
+          */
+      this.checkTime = builder.checkTime;
+         /**
+          * 打卡备注
+          * <p> 示例值：上班打卡
+          */
+      this.comment = builder.comment;
+         /**
+          * 打卡记录 ID
+          * <p> 示例值：6709359313699356941
+          */
+      this.recordId = builder.recordId;
+         /**
+          * 打卡经度
+          * <p> 示例值：30.28991
+          */
+      this.longitude = builder.longitude;
+         /**
+          * 打卡纬度
+          * <p> 示例值：120.04513
+          */
+      this.latitude = builder.latitude;
+         /**
+          * 打卡 Wi-Fi 的 SSID
+          * <p> 示例值：b0:b8:67:5c:1d:72
+          */
+      this.ssid = builder.ssid;
+         /**
+          * 打卡 Wi-Fi 的 MAC 地址
+          * <p> 示例值：b0:b8:67:5c:1d:72
+          */
+      this.bssid = builder.bssid;
+         /**
+          * 是否为外勤打卡
+          * <p> 示例值：true
+          */
+      this.isField = builder.isField;
+         /**
+          * 是否为 Wi-Fi 打卡
+          * <p> 示例值：true
+          */
+      this.isWifi = builder.isWifi;
+         /**
+          * 记录生成方式
+          * <p> 示例值：在开放平台调用时，此参数无效，内部值始终是7
+          */
+      this.type = builder.type;
+         /**
+          * 打卡照片列表
+          * <p> 示例值：https://time.clockin.biz/manage/download/6840389754748502021
+          */
+      this.photoUrls = builder.photoUrls;
+         /**
+          * 打卡设备ID
+          * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
+          */
+      this.deviceId = builder.deviceId;
+         /**
+          * 打卡结果
+          * <p> 示例值：Invalid
+          */
+      this.checkResult = builder.checkResult;
+         /**
+          * 用户导入的外部打卡记录ID
+          * <p> 示例值：record_123
+          */
+      this.externalId = builder.externalId;
+         /**
+          * 唯一幂等键
+          * <p> 示例值：****_***
+          */
+      this.idempotentId = builder.idempotentId;
+  }
+
     public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：abd754f7
-         */
+     /**
+      * 用户 ID
+      * <p> 示例值：abd754f7
+      */
         private String userId;
-        /**
-         * 记录创建者 ID
-         * <p> 示例值：abd754f7
-         */
+     /**
+      * 记录创建者 ID
+      * <p> 示例值：abd754f7
+      */
         private String creatorId;
-        /**
-         * 打卡位置名称信息
-         * <p> 示例值：西溪八方城
-         */
+     /**
+      * 打卡位置名称信息
+      * <p> 示例值：西溪八方城
+      */
         private String locationName;
-        /**
-         * 打卡时间，精确到秒的时间戳
-         * <p> 示例值：1611476284
-         */
+     /**
+      * 打卡时间，精确到秒的时间戳
+      * <p> 示例值：1611476284
+      */
         private String checkTime;
-        /**
-         * 打卡备注
-         * <p> 示例值：上班打卡
-         */
+     /**
+      * 打卡备注
+      * <p> 示例值：上班打卡
+      */
         private String comment;
-        /**
-         * 打卡记录 ID
-         * <p> 示例值：6709359313699356941
-         */
+     /**
+      * 打卡记录 ID
+      * <p> 示例值：6709359313699356941
+      */
         private String recordId;
-        /**
-         * 打卡经度
-         * <p> 示例值：30.28991
-         */
+     /**
+      * 打卡经度
+      * <p> 示例值：30.28991
+      */
         private Double longitude;
-        /**
-         * 打卡纬度
-         * <p> 示例值：120.04513
-         */
+     /**
+      * 打卡纬度
+      * <p> 示例值：120.04513
+      */
         private Double latitude;
-        /**
-         * 打卡 Wi-Fi 的 SSID
-         * <p> 示例值：b0:b8:67:5c:1d:72
-         */
+     /**
+      * 打卡 Wi-Fi 的 SSID
+      * <p> 示例值：b0:b8:67:5c:1d:72
+      */
         private String ssid;
-        /**
-         * 打卡 Wi-Fi 的 MAC 地址
-         * <p> 示例值：b0:b8:67:5c:1d:72
-         */
+     /**
+      * 打卡 Wi-Fi 的 MAC 地址
+      * <p> 示例值：b0:b8:67:5c:1d:72
+      */
         private String bssid;
-        /**
-         * 是否为外勤打卡
-         * <p> 示例值：true
-         */
+     /**
+      * 是否为外勤打卡
+      * <p> 示例值：true
+      */
         private Boolean isField;
-        /**
-         * 是否为 Wi-Fi 打卡
-         * <p> 示例值：true
-         */
+     /**
+      * 是否为 Wi-Fi 打卡
+      * <p> 示例值：true
+      */
         private Boolean isWifi;
-        /**
-         * 记录生成方式
-         * <p> 示例值：在开放平台调用时，此参数无效，内部值始终是7
-         */
+     /**
+      * 记录生成方式
+      * <p> 示例值：在开放平台调用时，此参数无效，内部值始终是7
+      */
         private Integer type;
-        /**
-         * 打卡照片列表
-         * <p> 示例值：https://time.clockin.biz/manage/download/6840389754748502021
-         */
+     /**
+      * 打卡照片列表
+      * <p> 示例值：https://time.clockin.biz/manage/download/6840389754748502021
+      */
         private String[] photoUrls;
-        /**
-         * 打卡设备ID
-         * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
-         */
+     /**
+      * 打卡设备ID
+      * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
+      */
         private String deviceId;
-        /**
-         * 打卡结果
-         * <p> 示例值：Invalid
-         */
+     /**
+      * 打卡结果
+      * <p> 示例值：Invalid
+      */
         private String checkResult;
-        /**
-         * 用户导入的外部打卡记录ID
-         * <p> 示例值：record_123
-         */
+     /**
+      * 用户导入的外部打卡记录ID
+      * <p> 示例值：record_123
+      */
         private String externalId;
-        /**
-         * 唯一幂等键
-         * <p> 示例值：****_***
-         */
+     /**
+      * 唯一幂等键
+      * <p> 示例值：****_***
+      */
         private String idempotentId;
 
         /**
          * 用户 ID
          * <p> 示例值：abd754f7
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 记录创建者 ID
          * <p> 示例值：abd754f7
-         *
          * @param creatorId
          * @return
          */
         public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
+             this.creatorId = creatorId;
+             return this;
         }
 
+    
 
         /**
          * 打卡位置名称信息
          * <p> 示例值：西溪八方城
-         *
          * @param locationName
          * @return
          */
         public Builder locationName(String locationName) {
-            this.locationName = locationName;
-            return this;
+             this.locationName = locationName;
+             return this;
         }
 
+    
 
         /**
          * 打卡时间，精确到秒的时间戳
          * <p> 示例值：1611476284
-         *
          * @param checkTime
          * @return
          */
         public Builder checkTime(String checkTime) {
-            this.checkTime = checkTime;
-            return this;
+             this.checkTime = checkTime;
+             return this;
         }
 
+    
 
         /**
          * 打卡备注
          * <p> 示例值：上班打卡
-         *
          * @param comment
          * @return
          */
         public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
+             this.comment = comment;
+             return this;
         }
 
+    
 
         /**
          * 打卡记录 ID
          * <p> 示例值：6709359313699356941
-         *
          * @param recordId
          * @return
          */
         public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
+             this.recordId = recordId;
+             return this;
         }
 
+    
 
         /**
          * 打卡经度
          * <p> 示例值：30.28991
-         *
          * @param longitude
          * @return
          */
         public Builder longitude(Double longitude) {
-            this.longitude = longitude;
-            return this;
+             this.longitude = longitude;
+             return this;
         }
 
+    
 
         /**
          * 打卡纬度
          * <p> 示例值：120.04513
-         *
          * @param latitude
          * @return
          */
         public Builder latitude(Double latitude) {
-            this.latitude = latitude;
-            return this;
+             this.latitude = latitude;
+             return this;
         }
 
+    
 
         /**
          * 打卡 Wi-Fi 的 SSID
          * <p> 示例值：b0:b8:67:5c:1d:72
-         *
          * @param ssid
          * @return
          */
         public Builder ssid(String ssid) {
-            this.ssid = ssid;
-            return this;
+             this.ssid = ssid;
+             return this;
         }
 
+    
 
         /**
          * 打卡 Wi-Fi 的 MAC 地址
          * <p> 示例值：b0:b8:67:5c:1d:72
-         *
          * @param bssid
          * @return
          */
         public Builder bssid(String bssid) {
-            this.bssid = bssid;
-            return this;
+             this.bssid = bssid;
+             return this;
         }
 
+    
 
         /**
          * 是否为外勤打卡
          * <p> 示例值：true
-         *
          * @param isField
          * @return
          */
         public Builder isField(Boolean isField) {
-            this.isField = isField;
-            return this;
+             this.isField = isField;
+             return this;
         }
 
+    
 
         /**
          * 是否为 Wi-Fi 打卡
          * <p> 示例值：true
-         *
          * @param isWifi
          * @return
          */
         public Builder isWifi(Boolean isWifi) {
-            this.isWifi = isWifi;
-            return this;
+             this.isWifi = isWifi;
+             return this;
         }
 
+    
 
         /**
          * 记录生成方式
          * <p> 示例值：在开放平台调用时，此参数无效，内部值始终是7
-         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 记录生成方式
          * <p> 示例值：在开放平台调用时，此参数无效，内部值始终是7
-         *
          * @param type {@link com.lark.oapi.service.attendance.v1.enums.UserFlowTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.attendance.v1.enums.UserFlowTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 打卡照片列表
          * <p> 示例值：https://time.clockin.biz/manage/download/6840389754748502021
-         *
          * @param photoUrls
          * @return
          */
         public Builder photoUrls(String[] photoUrls) {
-            this.photoUrls = photoUrls;
-            return this;
+             this.photoUrls = photoUrls;
+             return this;
         }
 
+    
 
         /**
          * 打卡设备ID
          * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
-         *
          * @param deviceId
          * @return
          */
         public Builder deviceId(String deviceId) {
-            this.deviceId = deviceId;
-            return this;
+             this.deviceId = deviceId;
+             return this;
         }
 
+    
 
         /**
          * 打卡结果
          * <p> 示例值：Invalid
-         *
          * @param checkResult
          * @return
          */
         public Builder checkResult(String checkResult) {
-            this.checkResult = checkResult;
-            return this;
+             this.checkResult = checkResult;
+             return this;
         }
-
         /**
          * 打卡结果
          * <p> 示例值：Invalid
-         *
          * @param checkResult {@link com.lark.oapi.service.attendance.v1.enums.UserFlowCheckResultEnum}
          * @return
          */
         public Builder checkResult(com.lark.oapi.service.attendance.v1.enums.UserFlowCheckResultEnum checkResult) {
-            this.checkResult = checkResult.getValue();
-            return this;
+             this.checkResult = checkResult.getValue();
+             return this;
         }
 
+    
 
         /**
          * 用户导入的外部打卡记录ID
          * <p> 示例值：record_123
-         *
          * @param externalId
          * @return
          */
         public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
+             this.externalId = externalId;
+             return this;
         }
 
+    
 
         /**
          * 唯一幂等键
          * <p> 示例值：****_***
-         *
          * @param idempotentId
          * @return
          */
         public Builder idempotentId(String idempotentId) {
-            this.idempotentId = idempotentId;
-            return this;
+             this.idempotentId = idempotentId;
+             return this;
         }
 
+    
+    
+    public UserFlow build(){
+        return new UserFlow(this);
+      }
+    }
 
-        public UserFlow build() {
-            return new UserFlow(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

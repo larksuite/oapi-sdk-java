@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RevertEvent {
-    /**
-     * 类型
-     * <p> 示例值：normal_approval_revert
-     */
+     /**
+      * 类型
+      * <p> 示例值：normal_approval_revert
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 实例code
-     * <p> 示例值：C04A783E-D0BB-4036-BADC-31BECC6DDA29
-     */
+     /**
+      * 实例code
+      * <p> 示例值：C04A783E-D0BB-4036-BADC-31BECC6DDA29
+      */
     @SerializedName("instance_code")
     private String instanceCode;
-    /**
-     * 操作时间
-     * <p> 示例值：1675758455
-     */
+     /**
+      * 操作时间
+      * <p> 示例值：1675758455
+      */
     @SerializedName("operate_time")
     private String operateTime;
-    /**
-     * 状态
-     * <p> 示例值：REVERTED
-     */
+     /**
+      * 状态
+      * <p> 示例值：REVERTED
+      */
     @SerializedName("status")
     private String status;
-    /**
-     * 审批定义 Code
-     * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
-     */
+     /**
+      * 审批定义 Code
+      * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
+      */
     @SerializedName("approval_code")
     private String approvalCode;
-
-    // builder 开始
-    public RevertEvent() {
-    }
-
-    public RevertEvent(Builder builder) {
-        /**
-         * 类型
-         * <p> 示例值：normal_approval_revert
-         */
-        this.type = builder.type;
-        /**
-         * 实例code
-         * <p> 示例值：C04A783E-D0BB-4036-BADC-31BECC6DDA29
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 操作时间
-         * <p> 示例值：1675758455
-         */
-        this.operateTime = builder.operateTime;
-        /**
-         * 状态
-         * <p> 示例值：REVERTED
-         */
-        this.status = builder.status;
-        /**
-         * 审批定义 Code
-         * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
-         */
-        this.approvalCode = builder.approvalCode;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -136,100 +95,136 @@ public class RevertEvent {
         this.approvalCode = approvalCode;
     }
 
+
+// builder 开始
+  public RevertEvent(){}
+
+  public RevertEvent(Builder builder){
+         /**
+          * 类型
+          * <p> 示例值：normal_approval_revert
+          */
+      this.type = builder.type;
+         /**
+          * 实例code
+          * <p> 示例值：C04A783E-D0BB-4036-BADC-31BECC6DDA29
+          */
+      this.instanceCode = builder.instanceCode;
+         /**
+          * 操作时间
+          * <p> 示例值：1675758455
+          */
+      this.operateTime = builder.operateTime;
+         /**
+          * 状态
+          * <p> 示例值：REVERTED
+          */
+      this.status = builder.status;
+         /**
+          * 审批定义 Code
+          * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
+          */
+      this.approvalCode = builder.approvalCode;
+  }
+
     public static class Builder {
-        /**
-         * 类型
-         * <p> 示例值：normal_approval_revert
-         */
+     /**
+      * 类型
+      * <p> 示例值：normal_approval_revert
+      */
         private String type;
-        /**
-         * 实例code
-         * <p> 示例值：C04A783E-D0BB-4036-BADC-31BECC6DDA29
-         */
+     /**
+      * 实例code
+      * <p> 示例值：C04A783E-D0BB-4036-BADC-31BECC6DDA29
+      */
         private String instanceCode;
-        /**
-         * 操作时间
-         * <p> 示例值：1675758455
-         */
+     /**
+      * 操作时间
+      * <p> 示例值：1675758455
+      */
         private String operateTime;
-        /**
-         * 状态
-         * <p> 示例值：REVERTED
-         */
+     /**
+      * 状态
+      * <p> 示例值：REVERTED
+      */
         private String status;
-        /**
-         * 审批定义 Code
-         * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
-         */
+     /**
+      * 审批定义 Code
+      * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
+      */
         private String approvalCode;
 
         /**
          * 类型
          * <p> 示例值：normal_approval_revert
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 实例code
          * <p> 示例值：C04A783E-D0BB-4036-BADC-31BECC6DDA29
-         *
          * @param instanceCode
          * @return
          */
         public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
+             this.instanceCode = instanceCode;
+             return this;
         }
 
+    
 
         /**
          * 操作时间
          * <p> 示例值：1675758455
-         *
          * @param operateTime
          * @return
          */
         public Builder operateTime(String operateTime) {
-            this.operateTime = operateTime;
-            return this;
+             this.operateTime = operateTime;
+             return this;
         }
 
+    
 
         /**
          * 状态
          * <p> 示例值：REVERTED
-         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
 
+    
 
         /**
          * 审批定义 Code
          * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
-         *
          * @param approvalCode
          * @return
          */
         public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
+             this.approvalCode = approvalCode;
+             return this;
         }
 
+    
+    
+    public RevertEvent build(){
+        return new RevertEvent(this);
+      }
+    }
 
-        public RevertEvent build() {
-            return new RevertEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

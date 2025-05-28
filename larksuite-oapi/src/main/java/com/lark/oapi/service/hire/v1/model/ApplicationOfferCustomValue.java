@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApplicationOfferCustomValue {
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：key
-     */
+     /**
+      * 自定义字段 ID
+      * <p> 示例值：key
+      */
     @SerializedName("object_id")
     private String objectId;
-    /**
-     * 自定义字段 value
-     * <p> 示例值：value
-     */
+     /**
+      * 自定义字段 value
+      * <p> 示例值：value
+      */
     @SerializedName("customize_value")
     private String customizeValue;
-
-    // builder 开始
-    public ApplicationOfferCustomValue() {
-    }
-
-    public ApplicationOfferCustomValue(Builder builder) {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：key
-         */
-        this.objectId = builder.objectId;
-        /**
-         * 自定义字段 value
-         * <p> 示例值：value
-         */
-        this.customizeValue = builder.customizeValue;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getObjectId() {
         return this.objectId;
     }
@@ -78,46 +52,67 @@ public class ApplicationOfferCustomValue {
         this.customizeValue = customizeValue;
     }
 
+
+// builder 开始
+  public ApplicationOfferCustomValue(){}
+
+  public ApplicationOfferCustomValue(Builder builder){
+         /**
+          * 自定义字段 ID
+          * <p> 示例值：key
+          */
+      this.objectId = builder.objectId;
+         /**
+          * 自定义字段 value
+          * <p> 示例值：value
+          */
+      this.customizeValue = builder.customizeValue;
+  }
+
     public static class Builder {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：key
-         */
+     /**
+      * 自定义字段 ID
+      * <p> 示例值：key
+      */
         private String objectId;
-        /**
-         * 自定义字段 value
-         * <p> 示例值：value
-         */
+     /**
+      * 自定义字段 value
+      * <p> 示例值：value
+      */
         private String customizeValue;
 
         /**
          * 自定义字段 ID
          * <p> 示例值：key
-         *
          * @param objectId
          * @return
          */
         public Builder objectId(String objectId) {
-            this.objectId = objectId;
-            return this;
+             this.objectId = objectId;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段 value
          * <p> 示例值：value
-         *
          * @param customizeValue
          * @return
          */
         public Builder customizeValue(String customizeValue) {
-            this.customizeValue = customizeValue;
-            return this;
+             this.customizeValue = customizeValue;
+             return this;
         }
 
+    
+    
+    public ApplicationOfferCustomValue build(){
+        return new ApplicationOfferCustomValue(this);
+      }
+    }
 
-        public ApplicationOfferCustomValue build() {
-            return new ApplicationOfferCustomValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class StartAppSkillRespBody {
-    /**
-     * 技能的输出
-     * <p> 示例值：{"input":"你好","custom":true}
-     */
+     /**
+      * 技能的输出
+      * <p> 示例值：{"input":"你好","custom":true}
+      */
     @SerializedName("output")
     private String output;
-    /**
-     * 技能的执行状态
-     * <p> 示例值：success
-     */
+     /**
+      * 技能的执行状态
+      * <p> 示例值：success
+      */
     @SerializedName("status")
     private String status;
-
     public String getOutput() {
         return this.output;
     }

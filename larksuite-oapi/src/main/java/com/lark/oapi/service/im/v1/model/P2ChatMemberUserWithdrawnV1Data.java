@@ -12,65 +12,60 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2ChatMemberUserWithdrawnV1Data {
-    /**
-     * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
-     */
+     /**
+      * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+      * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * 用户 ID
-     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-     */
+     /**
+      * 用户 ID
+      * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+      */
     @SerializedName("operator_id")
     private UserId operatorId;
-    /**
-     * 是否是外部群
-     * <p> 示例值：false
-     */
+     /**
+      * 是否是外部群
+      * <p> 示例值：false
+      */
     @SerializedName("external")
     private Boolean external;
-    /**
-     * 操作者的租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
-     * <p> 示例值：879dsyud8
-     */
+     /**
+      * 操作者的租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+      * <p> 示例值：879dsyud8
+      */
     @SerializedName("operator_tenant_key")
     private String operatorTenantKey;
-    /**
-     * 被撤销加群的用户列表
-     * <p> 示例值：
-     */
+     /**
+      * 被撤销加群的用户列表
+      * <p> 示例值：
+      */
     @SerializedName("users")
     private ChatMemberUser[] users;
-    /**
-     * 群名称
-     * <p> 示例值：群名称测试
-     */
+     /**
+      * 群名称
+      * <p> 示例值：群名称测试
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 群国际化名称
-     * <p> 示例值：
-     */
+     /**
+      * 群国际化名称
+      * <p> 示例值：
+      */
     @SerializedName("i18n_names")
     private I18nNames i18nNames;
-
     public String getChatId() {
         return this.chatId;
     }

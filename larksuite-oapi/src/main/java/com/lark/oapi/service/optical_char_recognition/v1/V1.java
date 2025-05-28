@@ -17,13 +17,12 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.optical_char_recognition.v1.resource.*;
 
 public class V1 {
-    private final Image image; // 图片识别
+	private final Image image; // 图片识别
 
-    public V1(Config config) {
-        this.image = new Image(config);
-    }
-
-    public Image image() {
-        return image;
-    }
+	public V1(Config config) {
+		this.image = new Image(config);
+	}
+	public Image image() {
+		return image;
+	}
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PreHireAbnormalReason {
-    /**
-     * 异常信息描述
-     * <p> 示例值：
-     */
+     /**
+      * 异常信息描述
+      * <p> 示例值：
+      */
     @SerializedName("descriptions")
     private I18n[] descriptions;
-
-    // builder 开始
-    public PreHireAbnormalReason() {
-    }
-
-    public PreHireAbnormalReason(Builder builder) {
-        /**
-         * 异常信息描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public I18n[] getDescriptions() {
         return this.descriptions;
     }
@@ -60,28 +39,44 @@ public class PreHireAbnormalReason {
         this.descriptions = descriptions;
     }
 
+
+// builder 开始
+  public PreHireAbnormalReason(){}
+
+  public PreHireAbnormalReason(Builder builder){
+         /**
+          * 异常信息描述
+          * <p> 示例值：
+          */
+      this.descriptions = builder.descriptions;
+  }
+
     public static class Builder {
-        /**
-         * 异常信息描述
-         * <p> 示例值：
-         */
+     /**
+      * 异常信息描述
+      * <p> 示例值：
+      */
         private I18n[] descriptions;
 
         /**
          * 异常信息描述
          * <p> 示例值：
-         *
          * @param descriptions
          * @return
          */
         public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
+             this.descriptions = descriptions;
+             return this;
         }
 
+    
+    
+    public PreHireAbnormalReason build(){
+        return new PreHireAbnormalReason(this);
+      }
+    }
 
-        public PreHireAbnormalReason build() {
-            return new PreHireAbnormalReason(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

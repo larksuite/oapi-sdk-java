@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.search.v2.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class DataSource {
         this.config = config;
     }
 
-
+    
     /**
      * 创建数据源，创建一个数据源
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/create</a> ;
@@ -63,7 +58,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateDataSourceResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateDataSourceResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除数据源，删除一个已存在的数据源
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/delete</a> ;
@@ -129,7 +123,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources/:data_source_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteDataSourceResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources/:data_source_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources/:data_source_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteDataSourceResp.class);
         if (resp == null) {
@@ -169,16 +163,15 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources/:data_source_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取数据源，获取已经创建的数据源
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/get</a> ;
@@ -195,7 +188,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources/:data_source_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetDataSourceResp.class);
         if (resp == null) {
@@ -203,14 +196,14 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources/:data_source_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -227,7 +220,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources/:data_source_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         GetDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetDataSourceResp.class);
         if (resp == null) {
@@ -235,16 +228,15 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources/:data_source_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 批量获取数据源，批量获取创建的数据源信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/list</a> ;
@@ -261,7 +253,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListDataSourceResp.class);
         if (resp == null) {
@@ -269,14 +261,14 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -293,7 +285,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListDataSourceResp.class);
         if (resp == null) {
@@ -301,16 +293,15 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 修改数据源，更新一个已经存在的数据源
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/patch</a> ;
@@ -327,7 +318,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources/:data_source_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         PatchDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchDataSourceResp.class);
         if (resp == null) {
@@ -335,14 +326,14 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources/:data_source_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -359,7 +350,7 @@ public class DataSource {
                 , "/open-apis/search/v2/data_sources/:data_source_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         PatchDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchDataSourceResp.class);
         if (resp == null) {
@@ -367,13 +358,13 @@ public class DataSource {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources/:data_source_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

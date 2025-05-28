@@ -12,58 +12,25 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DownloadMediaReq {
-    /**
-     * 扩展信息
-     * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-     */
+     /**
+      * 扩展信息
+      * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+      */
     @Query
     @SerializedName("extra")
     private String extra;
-    /**
-     * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-     */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
-
-    // builder 开始
-    public DownloadMediaReq() {
-    }
-
-    public DownloadMediaReq(Builder builder) {
-        /**
-         * 扩展信息
-         * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-         */
-        this.extra = builder.extra;
-        /**
-         * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-         */
-        this.fileToken = builder.fileToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getExtra() {
         return this.extra;
     }
@@ -72,6 +39,13 @@ public class DownloadMediaReq {
         this.extra = extra;
     }
 
+     /**
+      * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+      * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+      */
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
     public String getFileToken() {
         return this.fileToken;
     }
@@ -80,37 +54,57 @@ public class DownloadMediaReq {
         this.fileToken = fileToken;
     }
 
+
+// builder 开始
+  public DownloadMediaReq(){}
+
+  public DownloadMediaReq(Builder builder){
+         /**
+          * 扩展信息
+          * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+          */
+       this.extra = builder.extra;
+     /**
+      * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+      * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+      */
+       this.fileToken = builder.fileToken;
+  }
+
     public static class Builder {
         private String extra; // 扩展信息
-        private String fileToken; // 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-
+    
         /**
          * 扩展信息
          * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-         *
          * @param extra
          * @return
          */
-        public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
-        }
+           public Builder extra(String extra) {
+                this.extra = extra;
+                return this;
+           }
 
+    
+        private String fileToken; // 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
         /**
          * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
          * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-         *
          * @param fileToken
          * @return
          */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
 
+    
+    public DownloadMediaReq build(){
+        return new DownloadMediaReq(this);
+      }
+    }
 
-        public DownloadMediaReq build() {
-            return new DownloadMediaReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

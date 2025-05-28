@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TaskDependency {
-    /**
-     * 依赖类型
-     * <p> 示例值：next
-     */
+     /**
+      * 依赖类型
+      * <p> 示例值：next
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 依赖任务的GUID
-     * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
-     */
+     /**
+      * 依赖任务的GUID
+      * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
+      */
     @SerializedName("task_guid")
     private String taskGuid;
-
-    // builder 开始
-    public TaskDependency() {
-    }
-
-    public TaskDependency(Builder builder) {
-        /**
-         * 依赖类型
-         * <p> 示例值：next
-         */
-        this.type = builder.type;
-        /**
-         * 依赖任务的GUID
-         * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
-         */
-        this.taskGuid = builder.taskGuid;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -79,58 +53,77 @@ public class TaskDependency {
         this.taskGuid = taskGuid;
     }
 
+
+// builder 开始
+  public TaskDependency(){}
+
+  public TaskDependency(Builder builder){
+         /**
+          * 依赖类型
+          * <p> 示例值：next
+          */
+      this.type = builder.type;
+         /**
+          * 依赖任务的GUID
+          * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
+          */
+      this.taskGuid = builder.taskGuid;
+  }
+
     public static class Builder {
-        /**
-         * 依赖类型
-         * <p> 示例值：next
-         */
+     /**
+      * 依赖类型
+      * <p> 示例值：next
+      */
         private String type;
-        /**
-         * 依赖任务的GUID
-         * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
-         */
+     /**
+      * 依赖任务的GUID
+      * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
+      */
         private String taskGuid;
 
         /**
          * 依赖类型
          * <p> 示例值：next
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 依赖类型
          * <p> 示例值：next
-         *
          * @param type {@link com.lark.oapi.service.task.v2.enums.TaskDependencyDependencyTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.task.v2.enums.TaskDependencyDependencyTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 依赖任务的GUID
          * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
-         *
          * @param taskGuid
          * @return
          */
         public Builder taskGuid(String taskGuid) {
-            this.taskGuid = taskGuid;
-            return this;
+             this.taskGuid = taskGuid;
+             return this;
         }
 
+    
+    
+    public TaskDependency build(){
+        return new TaskDependency(this);
+      }
+    }
 
-        public TaskDependency build() {
-            return new TaskDependency(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

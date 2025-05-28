@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InvokeApplicationFunctionRespBody {
-    /**
-     * 函数执行的返回结果（JSON 序列化后的字符串）
-     * <p> 示例值：{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":1718313981794}
-     */
+     /**
+      * 函数执行的返回结果（JSON 序列化后的字符串）
+      * <p> 示例值：{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":1718313981794}
+      */
     @SerializedName("result")
     private String result;
-
     public String getResult() {
         return this.result;
     }

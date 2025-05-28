@@ -12,72 +12,39 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryRevieweeReq {
-    /**
-     * <p> 示例值：open_id
-     */
+     /**
+      * 
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取
-     * <p> 示例值：
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 分页大小
-     * <p> 示例值：30
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：30
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    @Body
-    private QueryRevieweeReqBody body;
-
-    // builder 开始
-    public QueryRevieweeReq() {
-    }
-
-    public QueryRevieweeReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：30
-         */
-        this.pageSize = builder.pageSize;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -102,6 +69,9 @@ public class QueryRevieweeReq {
         this.pageSize = pageSize;
     }
 
+    @Body
+    private QueryRevieweeReqBody body;
+
     public QueryRevieweeReqBody getQueryRevieweeReqBody() {
         return this.body;
     }
@@ -110,75 +80,101 @@ public class QueryRevieweeReq {
         this.body = body;
     }
 
+// builder 开始
+  public QueryRevieweeReq(){}
+
+  public QueryRevieweeReq(Builder builder){
+         /**
+          * 
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取
+          * <p> 示例值：
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 分页大小
+          * <p> 示例值：30
+          */
+       this.pageSize = builder.pageSize;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-        private String userIdType; //
+        private String userIdType; // 
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取
         private Integer pageSize; // 分页大小
-        private QueryRevieweeReqBody body;
-
+    
         /**
+         * 
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
+         * 
          * <p> 示例值：open_id
-         *
          * @param userIdType {@link com.lark.oapi.service.performance.v2.enums.QueryRevieweeUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.performance.v2.enums.QueryRevieweeUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.performance.v2.enums.QueryRevieweeUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取
          * <p> 示例值：
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
         /**
          * 分页大小
          * <p> 示例值：30
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
+    
+        private QueryRevieweeReqBody body;
+    
         public QueryRevieweeReqBody getQueryRevieweeReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder queryRevieweeReqBody(QueryRevieweeReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public QueryRevieweeReq build(){
+        return new QueryRevieweeReq(this);
+      }
+    }
 
-        public QueryRevieweeReq build() {
-            return new QueryRevieweeReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

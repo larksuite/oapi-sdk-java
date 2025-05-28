@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class StageChange {
-    /**
-     * 被更新的环节 ID
-     * <p> 示例值：7026250586485114406
-     */
+     /**
+      * 被更新的环节 ID
+      * <p> 示例值：7026250586485114406
+      */
     @SerializedName("stage_id")
     private String stageId;
-    /**
-     * 环节类型
-     * <p> 示例值：leader_review
-     */
+     /**
+      * 环节类型
+      * <p> 示例值：leader_review
+      */
     @SerializedName("stage_type")
     private String stageType;
-    /**
-     * 评估型环节的执行人角色
-     * <p> 示例值：solid_line_leader
-     */
+     /**
+      * 评估型环节的执行人角色
+      * <p> 示例值：solid_line_leader
+      */
     @SerializedName("review_stage_role")
     private String reviewStageRole;
-
-    // builder 开始
-    public StageChange() {
-    }
-
-    public StageChange(Builder builder) {
-        /**
-         * 被更新的环节 ID
-         * <p> 示例值：7026250586485114406
-         */
-        this.stageId = builder.stageId;
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         */
-        this.stageType = builder.stageType;
-        /**
-         * 评估型环节的执行人角色
-         * <p> 示例值：solid_line_leader
-         */
-        this.reviewStageRole = builder.reviewStageRole;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStageId() {
         return this.stageId;
     }
@@ -98,88 +67,110 @@ public class StageChange {
         this.reviewStageRole = reviewStageRole;
     }
 
+
+// builder 开始
+  public StageChange(){}
+
+  public StageChange(Builder builder){
+         /**
+          * 被更新的环节 ID
+          * <p> 示例值：7026250586485114406
+          */
+      this.stageId = builder.stageId;
+         /**
+          * 环节类型
+          * <p> 示例值：leader_review
+          */
+      this.stageType = builder.stageType;
+         /**
+          * 评估型环节的执行人角色
+          * <p> 示例值：solid_line_leader
+          */
+      this.reviewStageRole = builder.reviewStageRole;
+  }
+
     public static class Builder {
-        /**
-         * 被更新的环节 ID
-         * <p> 示例值：7026250586485114406
-         */
+     /**
+      * 被更新的环节 ID
+      * <p> 示例值：7026250586485114406
+      */
         private String stageId;
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         */
+     /**
+      * 环节类型
+      * <p> 示例值：leader_review
+      */
         private String stageType;
-        /**
-         * 评估型环节的执行人角色
-         * <p> 示例值：solid_line_leader
-         */
+     /**
+      * 评估型环节的执行人角色
+      * <p> 示例值：solid_line_leader
+      */
         private String reviewStageRole;
 
         /**
          * 被更新的环节 ID
          * <p> 示例值：7026250586485114406
-         *
          * @param stageId
          * @return
          */
         public Builder stageId(String stageId) {
-            this.stageId = stageId;
-            return this;
+             this.stageId = stageId;
+             return this;
         }
 
+    
 
         /**
          * 环节类型
          * <p> 示例值：leader_review
-         *
          * @param stageType
          * @return
          */
         public Builder stageType(String stageType) {
-            this.stageType = stageType;
-            return this;
+             this.stageType = stageType;
+             return this;
         }
-
         /**
          * 环节类型
          * <p> 示例值：leader_review
-         *
          * @param stageType {@link com.lark.oapi.service.performance.v2.enums.StageChangeStageTypeEnum}
          * @return
          */
         public Builder stageType(com.lark.oapi.service.performance.v2.enums.StageChangeStageTypeEnum stageType) {
-            this.stageType = stageType.getValue();
-            return this;
+             this.stageType = stageType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 评估型环节的执行人角色
          * <p> 示例值：solid_line_leader
-         *
          * @param reviewStageRole
          * @return
          */
         public Builder reviewStageRole(String reviewStageRole) {
-            this.reviewStageRole = reviewStageRole;
-            return this;
+             this.reviewStageRole = reviewStageRole;
+             return this;
         }
-
         /**
          * 评估型环节的执行人角色
          * <p> 示例值：solid_line_leader
-         *
          * @param reviewStageRole {@link com.lark.oapi.service.performance.v2.enums.StageChangeReviewStageRoleEnum}
          * @return
          */
         public Builder reviewStageRole(com.lark.oapi.service.performance.v2.enums.StageChangeReviewStageRoleEnum reviewStageRole) {
-            this.reviewStageRole = reviewStageRole.getValue();
-            return this;
+             this.reviewStageRole = reviewStageRole.getValue();
+             return this;
         }
 
+    
+    
+    public StageChange build(){
+        return new StageChange(this);
+      }
+    }
 
-        public StageChange build() {
-            return new StageChange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

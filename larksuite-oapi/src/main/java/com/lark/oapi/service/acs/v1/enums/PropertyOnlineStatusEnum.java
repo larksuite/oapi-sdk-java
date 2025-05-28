@@ -17,16 +17,15 @@ package com.lark.oapi.service.acs.v1.enums;
  * 在线状态
  */
 public enum PropertyOnlineStatusEnum {
-    ONLINE(1), // 在线
-    OFFLINE(0), // 离线
-    ;
-    private Integer value;
-
+     ONLINE(1), // 在线
+     OFFLINE(0), // 离线
+  ;
+   private Integer value;
     PropertyOnlineStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

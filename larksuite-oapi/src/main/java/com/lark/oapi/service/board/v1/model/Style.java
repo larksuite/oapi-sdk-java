@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.board.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Style {
-    /**
-     * 填充透明度
-     * <p> 示例值：50
-     */
+     /**
+      * 填充透明度
+      * <p> 示例值：50
+      */
     @SerializedName("fill_opacity")
     private Double fillOpacity;
-    /**
-     * 边框样式
-     * <p> 示例值：
-     */
+     /**
+      * 边框样式
+      * <p> 示例值：
+      */
     @SerializedName("border_style")
     private String borderStyle;
-    /**
-     * 边框宽度
-     * <p> 示例值：
-     */
+     /**
+      * 边框宽度
+      * <p> 示例值：
+      */
     @SerializedName("border_width")
     private String borderWidth;
-    /**
-     * 边框透明度
-     * <p> 示例值：50
-     */
+     /**
+      * 边框透明度
+      * <p> 示例值：50
+      */
     @SerializedName("border_opacity")
     private Double borderOpacity;
-    /**
-     * 水平翻折
-     * <p> 示例值：false
-     */
+     /**
+      * 水平翻折
+      * <p> 示例值：false
+      */
     @SerializedName("h_flip")
     private Boolean hFlip;
-    /**
-     * 垂直翻折
-     * <p> 示例值：false
-     */
+     /**
+      * 垂直翻折
+      * <p> 示例值：false
+      */
     @SerializedName("v_flip")
     private Boolean vFlip;
-
-    // builder 开始
-    public Style() {
-    }
-
-    public Style(Builder builder) {
-        /**
-         * 填充透明度
-         * <p> 示例值：50
-         */
-        this.fillOpacity = builder.fillOpacity;
-        /**
-         * 边框样式
-         * <p> 示例值：
-         */
-        this.borderStyle = builder.borderStyle;
-        /**
-         * 边框宽度
-         * <p> 示例值：
-         */
-        this.borderWidth = builder.borderWidth;
-        /**
-         * 边框透明度
-         * <p> 示例值：50
-         */
-        this.borderOpacity = builder.borderOpacity;
-        /**
-         * 水平翻折
-         * <p> 示例值：false
-         */
-        this.hFlip = builder.hFlip;
-        /**
-         * 垂直翻折
-         * <p> 示例值：false
-         */
-        this.vFlip = builder.vFlip;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Double getFillOpacity() {
         return this.fillOpacity;
     }
@@ -155,142 +109,179 @@ public class Style {
         this.vFlip = vFlip;
     }
 
+
+// builder 开始
+  public Style(){}
+
+  public Style(Builder builder){
+         /**
+          * 填充透明度
+          * <p> 示例值：50
+          */
+      this.fillOpacity = builder.fillOpacity;
+         /**
+          * 边框样式
+          * <p> 示例值：
+          */
+      this.borderStyle = builder.borderStyle;
+         /**
+          * 边框宽度
+          * <p> 示例值：
+          */
+      this.borderWidth = builder.borderWidth;
+         /**
+          * 边框透明度
+          * <p> 示例值：50
+          */
+      this.borderOpacity = builder.borderOpacity;
+         /**
+          * 水平翻折
+          * <p> 示例值：false
+          */
+      this.hFlip = builder.hFlip;
+         /**
+          * 垂直翻折
+          * <p> 示例值：false
+          */
+      this.vFlip = builder.vFlip;
+  }
+
     public static class Builder {
-        /**
-         * 填充透明度
-         * <p> 示例值：50
-         */
+     /**
+      * 填充透明度
+      * <p> 示例值：50
+      */
         private Double fillOpacity;
-        /**
-         * 边框样式
-         * <p> 示例值：
-         */
+     /**
+      * 边框样式
+      * <p> 示例值：
+      */
         private String borderStyle;
-        /**
-         * 边框宽度
-         * <p> 示例值：
-         */
+     /**
+      * 边框宽度
+      * <p> 示例值：
+      */
         private String borderWidth;
-        /**
-         * 边框透明度
-         * <p> 示例值：50
-         */
+     /**
+      * 边框透明度
+      * <p> 示例值：50
+      */
         private Double borderOpacity;
-        /**
-         * 水平翻折
-         * <p> 示例值：false
-         */
+     /**
+      * 水平翻折
+      * <p> 示例值：false
+      */
         private Boolean hFlip;
-        /**
-         * 垂直翻折
-         * <p> 示例值：false
-         */
+     /**
+      * 垂直翻折
+      * <p> 示例值：false
+      */
         private Boolean vFlip;
 
         /**
          * 填充透明度
          * <p> 示例值：50
-         *
          * @param fillOpacity
          * @return
          */
         public Builder fillOpacity(Double fillOpacity) {
-            this.fillOpacity = fillOpacity;
-            return this;
+             this.fillOpacity = fillOpacity;
+             return this;
         }
 
+    
 
         /**
          * 边框样式
          * <p> 示例值：
-         *
          * @param borderStyle
          * @return
          */
         public Builder borderStyle(String borderStyle) {
-            this.borderStyle = borderStyle;
-            return this;
+             this.borderStyle = borderStyle;
+             return this;
         }
-
         /**
          * 边框样式
          * <p> 示例值：
-         *
          * @param borderStyle {@link com.lark.oapi.service.board.v1.enums.StyleBorderStyleEnum}
          * @return
          */
         public Builder borderStyle(com.lark.oapi.service.board.v1.enums.StyleBorderStyleEnum borderStyle) {
-            this.borderStyle = borderStyle.getValue();
-            return this;
+             this.borderStyle = borderStyle.getValue();
+             return this;
         }
 
+    
 
         /**
          * 边框宽度
          * <p> 示例值：
-         *
          * @param borderWidth
          * @return
          */
         public Builder borderWidth(String borderWidth) {
-            this.borderWidth = borderWidth;
-            return this;
+             this.borderWidth = borderWidth;
+             return this;
         }
-
         /**
          * 边框宽度
          * <p> 示例值：
-         *
          * @param borderWidth {@link com.lark.oapi.service.board.v1.enums.StyleBorderWidthEnum}
          * @return
          */
         public Builder borderWidth(com.lark.oapi.service.board.v1.enums.StyleBorderWidthEnum borderWidth) {
-            this.borderWidth = borderWidth.getValue();
-            return this;
+             this.borderWidth = borderWidth.getValue();
+             return this;
         }
 
+    
 
         /**
          * 边框透明度
          * <p> 示例值：50
-         *
          * @param borderOpacity
          * @return
          */
         public Builder borderOpacity(Double borderOpacity) {
-            this.borderOpacity = borderOpacity;
-            return this;
+             this.borderOpacity = borderOpacity;
+             return this;
         }
 
+    
 
         /**
          * 水平翻折
          * <p> 示例值：false
-         *
          * @param hFlip
          * @return
          */
         public Builder hFlip(Boolean hFlip) {
-            this.hFlip = hFlip;
-            return this;
+             this.hFlip = hFlip;
+             return this;
         }
 
+    
 
         /**
          * 垂直翻折
          * <p> 示例值：false
-         *
          * @param vFlip
          * @return
          */
         public Builder vFlip(Boolean vFlip) {
-            this.vFlip = vFlip;
-            return this;
+             this.vFlip = vFlip;
+             return this;
         }
 
+    
+    
+    public Style build(){
+        return new Style(this);
+      }
+    }
 
-        public Style build() {
-            return new Style(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

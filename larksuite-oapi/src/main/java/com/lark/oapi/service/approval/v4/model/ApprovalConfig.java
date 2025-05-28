@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApprovalConfig {
-    /**
-     * 允许用户修改可见范围
-     * <p> 示例值：false
-     */
+     /**
+      * 允许用户修改可见范围
+      * <p> 示例值：false
+      */
     @SerializedName("can_update_viewer")
     private Boolean canUpdateViewer;
-    /**
-     * 允许用户更新表单
-     * <p> 示例值：false
-     */
+     /**
+      * 允许用户更新表单
+      * <p> 示例值：false
+      */
     @SerializedName("can_update_form")
     private Boolean canUpdateForm;
-    /**
-     * 允许用户更新流程定义
-     * <p> 示例值：false
-     */
+     /**
+      * 允许用户更新流程定义
+      * <p> 示例值：false
+      */
     @SerializedName("can_update_process")
     private Boolean canUpdateProcess;
-    /**
-     * 允许用户更新撤回设置
-     * <p> 示例值：false
-     */
+     /**
+      * 允许用户更新撤回设置
+      * <p> 示例值：false
+      */
     @SerializedName("can_update_revert")
     private Boolean canUpdateRevert;
-    /**
-     * 帮助文档链接
-     * <p> 示例值：https://www.baidu.com
-     */
+     /**
+      * 帮助文档链接
+      * <p> 示例值：https://www.baidu.com
+      */
     @SerializedName("help_url")
     private String helpUrl;
-
-    // builder 开始
-    public ApprovalConfig() {
-    }
-
-    public ApprovalConfig(Builder builder) {
-        /**
-         * 允许用户修改可见范围
-         * <p> 示例值：false
-         */
-        this.canUpdateViewer = builder.canUpdateViewer;
-        /**
-         * 允许用户更新表单
-         * <p> 示例值：false
-         */
-        this.canUpdateForm = builder.canUpdateForm;
-        /**
-         * 允许用户更新流程定义
-         * <p> 示例值：false
-         */
-        this.canUpdateProcess = builder.canUpdateProcess;
-        /**
-         * 允许用户更新撤回设置
-         * <p> 示例值：false
-         */
-        this.canUpdateRevert = builder.canUpdateRevert;
-        /**
-         * 帮助文档链接
-         * <p> 示例值：https://www.baidu.com
-         */
-        this.helpUrl = builder.helpUrl;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getCanUpdateViewer() {
         return this.canUpdateViewer;
     }
@@ -136,100 +95,136 @@ public class ApprovalConfig {
         this.helpUrl = helpUrl;
     }
 
+
+// builder 开始
+  public ApprovalConfig(){}
+
+  public ApprovalConfig(Builder builder){
+         /**
+          * 允许用户修改可见范围
+          * <p> 示例值：false
+          */
+      this.canUpdateViewer = builder.canUpdateViewer;
+         /**
+          * 允许用户更新表单
+          * <p> 示例值：false
+          */
+      this.canUpdateForm = builder.canUpdateForm;
+         /**
+          * 允许用户更新流程定义
+          * <p> 示例值：false
+          */
+      this.canUpdateProcess = builder.canUpdateProcess;
+         /**
+          * 允许用户更新撤回设置
+          * <p> 示例值：false
+          */
+      this.canUpdateRevert = builder.canUpdateRevert;
+         /**
+          * 帮助文档链接
+          * <p> 示例值：https://www.baidu.com
+          */
+      this.helpUrl = builder.helpUrl;
+  }
+
     public static class Builder {
-        /**
-         * 允许用户修改可见范围
-         * <p> 示例值：false
-         */
+     /**
+      * 允许用户修改可见范围
+      * <p> 示例值：false
+      */
         private Boolean canUpdateViewer;
-        /**
-         * 允许用户更新表单
-         * <p> 示例值：false
-         */
+     /**
+      * 允许用户更新表单
+      * <p> 示例值：false
+      */
         private Boolean canUpdateForm;
-        /**
-         * 允许用户更新流程定义
-         * <p> 示例值：false
-         */
+     /**
+      * 允许用户更新流程定义
+      * <p> 示例值：false
+      */
         private Boolean canUpdateProcess;
-        /**
-         * 允许用户更新撤回设置
-         * <p> 示例值：false
-         */
+     /**
+      * 允许用户更新撤回设置
+      * <p> 示例值：false
+      */
         private Boolean canUpdateRevert;
-        /**
-         * 帮助文档链接
-         * <p> 示例值：https://www.baidu.com
-         */
+     /**
+      * 帮助文档链接
+      * <p> 示例值：https://www.baidu.com
+      */
         private String helpUrl;
 
         /**
          * 允许用户修改可见范围
          * <p> 示例值：false
-         *
          * @param canUpdateViewer
          * @return
          */
         public Builder canUpdateViewer(Boolean canUpdateViewer) {
-            this.canUpdateViewer = canUpdateViewer;
-            return this;
+             this.canUpdateViewer = canUpdateViewer;
+             return this;
         }
 
+    
 
         /**
          * 允许用户更新表单
          * <p> 示例值：false
-         *
          * @param canUpdateForm
          * @return
          */
         public Builder canUpdateForm(Boolean canUpdateForm) {
-            this.canUpdateForm = canUpdateForm;
-            return this;
+             this.canUpdateForm = canUpdateForm;
+             return this;
         }
 
+    
 
         /**
          * 允许用户更新流程定义
          * <p> 示例值：false
-         *
          * @param canUpdateProcess
          * @return
          */
         public Builder canUpdateProcess(Boolean canUpdateProcess) {
-            this.canUpdateProcess = canUpdateProcess;
-            return this;
+             this.canUpdateProcess = canUpdateProcess;
+             return this;
         }
 
+    
 
         /**
          * 允许用户更新撤回设置
          * <p> 示例值：false
-         *
          * @param canUpdateRevert
          * @return
          */
         public Builder canUpdateRevert(Boolean canUpdateRevert) {
-            this.canUpdateRevert = canUpdateRevert;
-            return this;
+             this.canUpdateRevert = canUpdateRevert;
+             return this;
         }
 
+    
 
         /**
          * 帮助文档链接
          * <p> 示例值：https://www.baidu.com
-         *
          * @param helpUrl
          * @return
          */
         public Builder helpUrl(String helpUrl) {
-            this.helpUrl = helpUrl;
-            return this;
+             this.helpUrl = helpUrl;
+             return this;
         }
 
+    
+    
+    public ApprovalConfig build(){
+        return new ApprovalConfig(this);
+      }
+    }
 
-        public ApprovalConfig build() {
-            return new ApprovalConfig(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

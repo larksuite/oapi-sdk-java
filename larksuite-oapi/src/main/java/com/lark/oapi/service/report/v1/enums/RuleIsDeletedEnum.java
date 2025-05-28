@@ -17,16 +17,15 @@ package com.lark.oapi.service.report.v1.enums;
  * 规则是否已删除
  */
 public enum RuleIsDeletedEnum {
-    UNDELETED(0), // 未删除
-    DELETED(1), // 已删除
-    ;
-    private Integer value;
-
+     UNDELETED(0), // 未删除
+     DELETED(1), // 已删除
+  ;
+   private Integer value;
     RuleIsDeletedEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

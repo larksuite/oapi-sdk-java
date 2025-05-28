@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OvertimeApproval {
-    /**
-     * 用户id
-     * <p> 示例值：
-     */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 加班开始时间
-     * <p> 示例值：2024-10-21 15:15
-     */
+     /**
+      * 加班开始时间
+      * <p> 示例值：2024-10-21 15:15
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 加班结束时间
-     * <p> 示例值：2024-10-22 15:15
-     */
+     /**
+      * 加班结束时间
+      * <p> 示例值：2024-10-22 15:15
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 审批单创建时间
-     * <p> 示例值：2024-10-22 15:15
-     */
+     /**
+      * 审批单创建时间
+      * <p> 示例值：2024-10-22 15:15
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 审批单每日加班详情
-     * <p> 示例值：
-     */
+     /**
+      * 审批单每日加班详情
+      * <p> 示例值：
+      */
     @SerializedName("approval_daily_details")
     private ApprovalDailyDetail[] approvalDailyDetails;
-    /**
-     * 审批单状态
-     * <p> 示例值：0
-     */
+     /**
+      * 审批单状态
+      * <p> 示例值：0
+      */
     @SerializedName("status")
     private Integer status;
-
-    // builder 开始
-    public OvertimeApproval() {
-    }
-
-    public OvertimeApproval(Builder builder) {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 加班开始时间
-         * <p> 示例值：2024-10-21 15:15
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 加班结束时间
-         * <p> 示例值：2024-10-22 15:15
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 审批单创建时间
-         * <p> 示例值：2024-10-22 15:15
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 审批单每日加班详情
-         * <p> 示例值：
-         */
-        this.approvalDailyDetails = builder.approvalDailyDetails;
-        /**
-         * 审批单状态
-         * <p> 示例值：0
-         */
-        this.status = builder.status;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -155,118 +109,159 @@ public class OvertimeApproval {
         this.status = status;
     }
 
+
+// builder 开始
+  public OvertimeApproval(){}
+
+  public OvertimeApproval(Builder builder){
+         /**
+          * 用户id
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * 加班开始时间
+          * <p> 示例值：2024-10-21 15:15
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 加班结束时间
+          * <p> 示例值：2024-10-22 15:15
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 审批单创建时间
+          * <p> 示例值：2024-10-22 15:15
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 审批单每日加班详情
+          * <p> 示例值：
+          */
+      this.approvalDailyDetails = builder.approvalDailyDetails;
+         /**
+          * 审批单状态
+          * <p> 示例值：0
+          */
+      this.status = builder.status;
+  }
+
     public static class Builder {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
         private String userId;
-        /**
-         * 加班开始时间
-         * <p> 示例值：2024-10-21 15:15
-         */
+     /**
+      * 加班开始时间
+      * <p> 示例值：2024-10-21 15:15
+      */
         private String startTime;
-        /**
-         * 加班结束时间
-         * <p> 示例值：2024-10-22 15:15
-         */
+     /**
+      * 加班结束时间
+      * <p> 示例值：2024-10-22 15:15
+      */
         private String endTime;
-        /**
-         * 审批单创建时间
-         * <p> 示例值：2024-10-22 15:15
-         */
+     /**
+      * 审批单创建时间
+      * <p> 示例值：2024-10-22 15:15
+      */
         private String createTime;
-        /**
-         * 审批单每日加班详情
-         * <p> 示例值：
-         */
+     /**
+      * 审批单每日加班详情
+      * <p> 示例值：
+      */
         private ApprovalDailyDetail[] approvalDailyDetails;
-        /**
-         * 审批单状态
-         * <p> 示例值：0
-         */
+     /**
+      * 审批单状态
+      * <p> 示例值：0
+      */
         private Integer status;
 
         /**
          * 用户id
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 加班开始时间
          * <p> 示例值：2024-10-21 15:15
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 加班结束时间
          * <p> 示例值：2024-10-22 15:15
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 审批单创建时间
          * <p> 示例值：2024-10-22 15:15
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 审批单每日加班详情
          * <p> 示例值：
-         *
          * @param approvalDailyDetails
          * @return
          */
         public Builder approvalDailyDetails(ApprovalDailyDetail[] approvalDailyDetails) {
-            this.approvalDailyDetails = approvalDailyDetails;
-            return this;
+             this.approvalDailyDetails = approvalDailyDetails;
+             return this;
         }
 
+    
 
         /**
          * 审批单状态
          * <p> 示例值：0
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
 
+    
+    
+    public OvertimeApproval build(){
+        return new OvertimeApproval(this);
+      }
+    }
 
-        public OvertimeApproval build() {
-            return new OvertimeApproval(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

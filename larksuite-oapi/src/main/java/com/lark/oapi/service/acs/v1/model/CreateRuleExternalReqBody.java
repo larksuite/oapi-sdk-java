@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateRuleExternalReqBody {
-    /**
-     * 权限组信息
-     * <p> 示例值：
-     */
+     /**
+      * 权限组信息
+      * <p> 示例值：
+      */
     @SerializedName("rule")
     private Rule rule;
-
-    // builder 开始
-    public CreateRuleExternalReqBody() {
-    }
-
-    public CreateRuleExternalReqBody(Builder builder) {
-        /**
-         * 权限组信息
-         * <p> 示例值：
-         */
-        this.rule = builder.rule;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Rule getRule() {
         return this.rule;
     }
@@ -60,28 +39,44 @@ public class CreateRuleExternalReqBody {
         this.rule = rule;
     }
 
+
+// builder 开始
+  public CreateRuleExternalReqBody(){}
+
+  public CreateRuleExternalReqBody(Builder builder){
+         /**
+          * 权限组信息
+          * <p> 示例值：
+          */
+      this.rule = builder.rule;
+  }
+
     public static class Builder {
-        /**
-         * 权限组信息
-         * <p> 示例值：
-         */
+     /**
+      * 权限组信息
+      * <p> 示例值：
+      */
         private Rule rule;
 
         /**
          * 权限组信息
          * <p> 示例值：
-         *
          * @param rule
          * @return
          */
         public Builder rule(Rule rule) {
-            this.rule = rule;
-            return this;
+             this.rule = rule;
+             return this;
         }
 
+    
+    
+    public CreateRuleExternalReqBody build(){
+        return new CreateRuleExternalReqBody(this);
+      }
+    }
 
-        public CreateRuleExternalReqBody build() {
-            return new CreateRuleExternalReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

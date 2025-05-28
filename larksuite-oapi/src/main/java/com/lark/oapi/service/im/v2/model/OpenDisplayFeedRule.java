@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OpenDisplayFeedRule {
-    /**
-     * 主规则
-     * <p> 示例值：always_display
-     */
+     /**
+      * 主规则
+      * <p> 示例值：always_display
+      */
     @SerializedName("main_rule")
     private String mainRule;
-    /**
-     * 重要新消息类型
-     * <p> 示例值：
-     */
+     /**
+      * 重要新消息类型
+      * <p> 示例值：
+      */
     @SerializedName("msg_types")
     private String[] msgTypes;
-
-    // builder 开始
-    public OpenDisplayFeedRule() {
-    }
-
-    public OpenDisplayFeedRule(Builder builder) {
-        /**
-         * 主规则
-         * <p> 示例值：always_display
-         */
-        this.mainRule = builder.mainRule;
-        /**
-         * 重要新消息类型
-         * <p> 示例值：
-         */
-        this.msgTypes = builder.msgTypes;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMainRule() {
         return this.mainRule;
     }
@@ -79,58 +53,77 @@ public class OpenDisplayFeedRule {
         this.msgTypes = msgTypes;
     }
 
+
+// builder 开始
+  public OpenDisplayFeedRule(){}
+
+  public OpenDisplayFeedRule(Builder builder){
+         /**
+          * 主规则
+          * <p> 示例值：always_display
+          */
+      this.mainRule = builder.mainRule;
+         /**
+          * 重要新消息类型
+          * <p> 示例值：
+          */
+      this.msgTypes = builder.msgTypes;
+  }
+
     public static class Builder {
-        /**
-         * 主规则
-         * <p> 示例值：always_display
-         */
+     /**
+      * 主规则
+      * <p> 示例值：always_display
+      */
         private String mainRule;
-        /**
-         * 重要新消息类型
-         * <p> 示例值：
-         */
+     /**
+      * 重要新消息类型
+      * <p> 示例值：
+      */
         private String[] msgTypes;
 
         /**
          * 主规则
          * <p> 示例值：always_display
-         *
          * @param mainRule
          * @return
          */
         public Builder mainRule(String mainRule) {
-            this.mainRule = mainRule;
-            return this;
+             this.mainRule = mainRule;
+             return this;
         }
-
         /**
          * 主规则
          * <p> 示例值：always_display
-         *
          * @param mainRule {@link com.lark.oapi.service.im.v2.enums.OpenDisplayFeedRuleMainRuleEnum}
          * @return
          */
         public Builder mainRule(com.lark.oapi.service.im.v2.enums.OpenDisplayFeedRuleMainRuleEnum mainRule) {
-            this.mainRule = mainRule.getValue();
-            return this;
+             this.mainRule = mainRule.getValue();
+             return this;
         }
 
+    
 
         /**
          * 重要新消息类型
          * <p> 示例值：
-         *
          * @param msgTypes
          * @return
          */
         public Builder msgTypes(String[] msgTypes) {
-            this.msgTypes = msgTypes;
-            return this;
+             this.msgTypes = msgTypes;
+             return this;
         }
 
+    
+    
+    public OpenDisplayFeedRule build(){
+        return new OpenDisplayFeedRule(this);
+      }
+    }
 
-        public OpenDisplayFeedRule build() {
-            return new OpenDisplayFeedRule(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

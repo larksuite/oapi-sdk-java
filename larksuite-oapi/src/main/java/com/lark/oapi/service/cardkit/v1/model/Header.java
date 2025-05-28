@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Header {
-    /**
-     * 卡片标题
-     * <p> 示例值：卡片标题
-     */
+     /**
+      * 卡片标题
+      * <p> 示例值：卡片标题
+      */
     @SerializedName("title")
     private String title;
-
-    // builder 开始
-    public Header() {
-    }
-
-    public Header(Builder builder) {
-        /**
-         * 卡片标题
-         * <p> 示例值：卡片标题
-         */
-        this.title = builder.title;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTitle() {
         return this.title;
     }
@@ -60,28 +39,44 @@ public class Header {
         this.title = title;
     }
 
+
+// builder 开始
+  public Header(){}
+
+  public Header(Builder builder){
+         /**
+          * 卡片标题
+          * <p> 示例值：卡片标题
+          */
+      this.title = builder.title;
+  }
+
     public static class Builder {
-        /**
-         * 卡片标题
-         * <p> 示例值：卡片标题
-         */
+     /**
+      * 卡片标题
+      * <p> 示例值：卡片标题
+      */
         private String title;
 
         /**
          * 卡片标题
          * <p> 示例值：卡片标题
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
+    
+    public Header build(){
+        return new Header(this);
+      }
+    }
 
-        public Header build() {
-            return new Header(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchChatMenuItemReqBody {
-    /**
-     * 要修改的字段
-     * <p> 示例值：["ICON"]
-     */
+     /**
+      * 要修改的字段
+      * <p> 示例值：["ICON"]
+      */
     @SerializedName("update_fields")
     private String[] updateFields;
-    /**
-     * 元信息
-     * <p> 示例值：
-     */
+     /**
+      * 元信息
+      * <p> 示例值：
+      */
     @SerializedName("chat_menu_item")
     private ChatMenuItem chatMenuItem;
-
-    // builder 开始
-    public PatchChatMenuItemReqBody() {
-    }
-
-    public PatchChatMenuItemReqBody(Builder builder) {
-        /**
-         * 要修改的字段
-         * <p> 示例值：["ICON"]
-         */
-        this.updateFields = builder.updateFields;
-        /**
-         * 元信息
-         * <p> 示例值：
-         */
-        this.chatMenuItem = builder.chatMenuItem;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getUpdateFields() {
         return this.updateFields;
     }
@@ -79,46 +53,67 @@ public class PatchChatMenuItemReqBody {
         this.chatMenuItem = chatMenuItem;
     }
 
+
+// builder 开始
+  public PatchChatMenuItemReqBody(){}
+
+  public PatchChatMenuItemReqBody(Builder builder){
+         /**
+          * 要修改的字段
+          * <p> 示例值：["ICON"]
+          */
+      this.updateFields = builder.updateFields;
+         /**
+          * 元信息
+          * <p> 示例值：
+          */
+      this.chatMenuItem = builder.chatMenuItem;
+  }
+
     public static class Builder {
-        /**
-         * 要修改的字段
-         * <p> 示例值：["ICON"]
-         */
+     /**
+      * 要修改的字段
+      * <p> 示例值：["ICON"]
+      */
         private String[] updateFields;
-        /**
-         * 元信息
-         * <p> 示例值：
-         */
+     /**
+      * 元信息
+      * <p> 示例值：
+      */
         private ChatMenuItem chatMenuItem;
 
         /**
          * 要修改的字段
          * <p> 示例值：["ICON"]
-         *
          * @param updateFields
          * @return
          */
         public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
+             this.updateFields = updateFields;
+             return this;
         }
 
+    
 
         /**
          * 元信息
          * <p> 示例值：
-         *
          * @param chatMenuItem
          * @return
          */
         public Builder chatMenuItem(ChatMenuItem chatMenuItem) {
-            this.chatMenuItem = chatMenuItem;
-            return this;
+             this.chatMenuItem = chatMenuItem;
+             return this;
         }
 
+    
+    
+    public PatchChatMenuItemReqBody build(){
+        return new PatchChatMenuItemReqBody(this);
+      }
+    }
 
-        public PatchChatMenuItemReqBody build() {
-            return new PatchChatMenuItemReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

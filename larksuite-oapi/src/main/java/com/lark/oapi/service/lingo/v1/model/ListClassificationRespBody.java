@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListClassificationRespBody {
-    /**
-     * 分类list
-     * <p> 示例值：
-     */
+     /**
+      * 分类list
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private Classification[] items;
-    /**
-     * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
-     * <p> 示例值：7202510112396640276
-     */
+     /**
+      * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
+      * <p> 示例值：7202510112396640276
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：false
-     */
+     /**
+      * 是否有下一页
+      * <p> 示例值：false
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public Classification[] getItems() {
         return this.items;
     }

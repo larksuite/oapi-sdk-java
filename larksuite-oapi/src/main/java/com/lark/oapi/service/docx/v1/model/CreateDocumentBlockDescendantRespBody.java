@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateDocumentBlockDescendantRespBody {
-    /**
-     * 所添加的孩子的 Block 信息
-     * <p> 示例值：111
-     */
+     /**
+      * 所添加的孩子的 Block 信息
+      * <p> 示例值：111
+      */
     @SerializedName("children")
     private Block[] children;
-    /**
-     * 当前提交的 Block 创建成功后文档的版本号
-     * <p> 示例值：1
-     */
+     /**
+      * 当前提交的 Block 创建成功后文档的版本号
+      * <p> 示例值：1
+      */
     @SerializedName("document_revision_id")
     private Integer documentRevisionId;
-    /**
-     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-     * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
-     */
+     /**
+      * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+      * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
+      */
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 传入的临时 BlockID 与真实 BlockID 映射关系
-     * <p> 示例值：
-     */
+     /**
+      * 传入的临时 BlockID 与真实 BlockID 映射关系
+      * <p> 示例值：
+      */
     @SerializedName("block_id_relations")
     private BlockIdRelation[] blockIdRelations;
-
     public Block[] getChildren() {
         return this.children;
     }

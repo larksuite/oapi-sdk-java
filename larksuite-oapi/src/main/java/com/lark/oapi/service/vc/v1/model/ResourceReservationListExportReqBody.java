@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ResourceReservationListExportReqBody {
-    /**
-     * 会议室层级id
-     * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
-     */
+     /**
+      * 会议室层级id
+      * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
+      */
     @SerializedName("room_level_id")
     private String roomLevelId;
-    /**
-     * 是否展示会议主题
-     * <p> 示例值：true
-     */
+     /**
+      * 是否展示会议主题
+      * <p> 示例值：true
+      */
     @SerializedName("need_topic")
     private Boolean needTopic;
-    /**
-     * 查询开始时间（unix时间，单位sec）
-     * <p> 示例值：1655276858
-     */
+     /**
+      * 查询开始时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 查询结束时间（unix时间，单位sec）
-     * <p> 示例值：1655276858
-     */
+     /**
+      * 查询结束时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 待筛选的会议室id列表
-     * <p> 示例值：["omm_eada1d61a550955240c28757e7dec3af"]
-     */
+     /**
+      * 待筛选的会议室id列表
+      * <p> 示例值：["omm_eada1d61a550955240c28757e7dec3af"]
+      */
     @SerializedName("room_ids")
     private String[] roomIds;
-    /**
-     * 若为true表示导出room_ids范围外的会议室，默认为false
-     * <p> 示例值：false
-     */
+     /**
+      * 若为true表示导出room_ids范围外的会议室，默认为false
+      * <p> 示例值：false
+      */
     @SerializedName("is_exclude")
     private Boolean isExclude;
-
-    // builder 开始
-    public ResourceReservationListExportReqBody() {
-    }
-
-    public ResourceReservationListExportReqBody(Builder builder) {
-        /**
-         * 会议室层级id
-         * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
-         */
-        this.roomLevelId = builder.roomLevelId;
-        /**
-         * 是否展示会议主题
-         * <p> 示例值：true
-         */
-        this.needTopic = builder.needTopic;
-        /**
-         * 查询开始时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 查询结束时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 待筛选的会议室id列表
-         * <p> 示例值：["omm_eada1d61a550955240c28757e7dec3af"]
-         */
-        this.roomIds = builder.roomIds;
-        /**
-         * 若为true表示导出room_ids范围外的会议室，默认为false
-         * <p> 示例值：false
-         */
-        this.isExclude = builder.isExclude;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoomLevelId() {
         return this.roomLevelId;
     }
@@ -155,118 +109,159 @@ public class ResourceReservationListExportReqBody {
         this.isExclude = isExclude;
     }
 
+
+// builder 开始
+  public ResourceReservationListExportReqBody(){}
+
+  public ResourceReservationListExportReqBody(Builder builder){
+         /**
+          * 会议室层级id
+          * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
+          */
+      this.roomLevelId = builder.roomLevelId;
+         /**
+          * 是否展示会议主题
+          * <p> 示例值：true
+          */
+      this.needTopic = builder.needTopic;
+         /**
+          * 查询开始时间（unix时间，单位sec）
+          * <p> 示例值：1655276858
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 查询结束时间（unix时间，单位sec）
+          * <p> 示例值：1655276858
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 待筛选的会议室id列表
+          * <p> 示例值：["omm_eada1d61a550955240c28757e7dec3af"]
+          */
+      this.roomIds = builder.roomIds;
+         /**
+          * 若为true表示导出room_ids范围外的会议室，默认为false
+          * <p> 示例值：false
+          */
+      this.isExclude = builder.isExclude;
+  }
+
     public static class Builder {
-        /**
-         * 会议室层级id
-         * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
-         */
+     /**
+      * 会议室层级id
+      * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
+      */
         private String roomLevelId;
-        /**
-         * 是否展示会议主题
-         * <p> 示例值：true
-         */
+     /**
+      * 是否展示会议主题
+      * <p> 示例值：true
+      */
         private Boolean needTopic;
-        /**
-         * 查询开始时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
+     /**
+      * 查询开始时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
         private String startTime;
-        /**
-         * 查询结束时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
+     /**
+      * 查询结束时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
         private String endTime;
-        /**
-         * 待筛选的会议室id列表
-         * <p> 示例值：["omm_eada1d61a550955240c28757e7dec3af"]
-         */
+     /**
+      * 待筛选的会议室id列表
+      * <p> 示例值：["omm_eada1d61a550955240c28757e7dec3af"]
+      */
         private String[] roomIds;
-        /**
-         * 若为true表示导出room_ids范围外的会议室，默认为false
-         * <p> 示例值：false
-         */
+     /**
+      * 若为true表示导出room_ids范围外的会议室，默认为false
+      * <p> 示例值：false
+      */
         private Boolean isExclude;
 
         /**
          * 会议室层级id
          * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
-         *
          * @param roomLevelId
          * @return
          */
         public Builder roomLevelId(String roomLevelId) {
-            this.roomLevelId = roomLevelId;
-            return this;
+             this.roomLevelId = roomLevelId;
+             return this;
         }
 
+    
 
         /**
          * 是否展示会议主题
          * <p> 示例值：true
-         *
          * @param needTopic
          * @return
          */
         public Builder needTopic(Boolean needTopic) {
-            this.needTopic = needTopic;
-            return this;
+             this.needTopic = needTopic;
+             return this;
         }
 
+    
 
         /**
          * 查询开始时间（unix时间，单位sec）
          * <p> 示例值：1655276858
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 查询结束时间（unix时间，单位sec）
          * <p> 示例值：1655276858
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 待筛选的会议室id列表
          * <p> 示例值：["omm_eada1d61a550955240c28757e7dec3af"]
-         *
          * @param roomIds
          * @return
          */
         public Builder roomIds(String[] roomIds) {
-            this.roomIds = roomIds;
-            return this;
+             this.roomIds = roomIds;
+             return this;
         }
 
+    
 
         /**
          * 若为true表示导出room_ids范围外的会议室，默认为false
          * <p> 示例值：false
-         *
          * @param isExclude
          * @return
          */
         public Builder isExclude(Boolean isExclude) {
-            this.isExclude = isExclude;
-            return this;
+             this.isExclude = isExclude;
+             return this;
         }
 
+    
+    
+    public ResourceReservationListExportReqBody build(){
+        return new ResourceReservationListExportReqBody(this);
+      }
+    }
 
-        public ResourceReservationListExportReqBody build() {
-            return new ResourceReservationListExportReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

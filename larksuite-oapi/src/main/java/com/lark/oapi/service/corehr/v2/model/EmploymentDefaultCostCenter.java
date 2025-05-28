@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EmploymentDefaultCostCenter {
-    /**
-     * id
-     * <p> 示例值：703912325303191204
-     */
+     /**
+      * id
+      * <p> 示例值：703912325303191204
+      */
     @SerializedName("wk_id")
     private String wkId;
-    /**
-     * id
-     * <p> 示例值：703912321231239801
-     */
+     /**
+      * id
+      * <p> 示例值：703912321231239801
+      */
     @SerializedName("wk_tid")
     private String wkTid;
-    /**
-     * 生效日期
-     * <p> 示例值：2024-12-01
-     */
+     /**
+      * 生效日期
+      * <p> 示例值：2024-12-01
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 成本中心id
-     * <p> 示例值：7039123253031711012
-     */
+     /**
+      * 成本中心id
+      * <p> 示例值：7039123253031711012
+      */
     @SerializedName("cost_center_id")
     private String costCenterId;
-    /**
-     * 任职id
-     * <p> 示例值：7039123253031711012
-     */
+     /**
+      * 任职id
+      * <p> 示例值：7039123253031711012
+      */
     @SerializedName("job_data_id")
     private String jobDataId;
-    /**
-     * 是否继承自岗位/部门的默认成本中心
-     * <p> 示例值：
-     */
+     /**
+      * 是否继承自岗位/部门的默认成本中心
+      * <p> 示例值：
+      */
     @SerializedName("is_inherit")
     private Boolean isInherit;
-    /**
-     * 继承来源
-     * <p> 示例值：
-     */
+     /**
+      * 继承来源
+      * <p> 示例值：
+      */
     @SerializedName("inherit_source")
     private Enum inheritSource;
-    /**
-     * 变更原因
-     * <p> 示例值：异动
-     */
+     /**
+      * 变更原因
+      * <p> 示例值：异动
+      */
     @SerializedName("reason")
     private String reason;
-
-    // builder 开始
-    public EmploymentDefaultCostCenter() {
-    }
-
-    public EmploymentDefaultCostCenter(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：703912325303191204
-         */
-        this.wkId = builder.wkId;
-        /**
-         * id
-         * <p> 示例值：703912321231239801
-         */
-        this.wkTid = builder.wkTid;
-        /**
-         * 生效日期
-         * <p> 示例值：2024-12-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 成本中心id
-         * <p> 示例值：7039123253031711012
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 任职id
-         * <p> 示例值：7039123253031711012
-         */
-        this.jobDataId = builder.jobDataId;
-        /**
-         * 是否继承自岗位/部门的默认成本中心
-         * <p> 示例值：
-         */
-        this.isInherit = builder.isInherit;
-        /**
-         * 继承来源
-         * <p> 示例值：
-         */
-        this.inheritSource = builder.inheritSource;
-        /**
-         * 变更原因
-         * <p> 示例值：异动
-         */
-        this.reason = builder.reason;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getWkId() {
         return this.wkId;
     }
@@ -193,154 +137,205 @@ public class EmploymentDefaultCostCenter {
         this.reason = reason;
     }
 
+
+// builder 开始
+  public EmploymentDefaultCostCenter(){}
+
+  public EmploymentDefaultCostCenter(Builder builder){
+         /**
+          * id
+          * <p> 示例值：703912325303191204
+          */
+      this.wkId = builder.wkId;
+         /**
+          * id
+          * <p> 示例值：703912321231239801
+          */
+      this.wkTid = builder.wkTid;
+         /**
+          * 生效日期
+          * <p> 示例值：2024-12-01
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 成本中心id
+          * <p> 示例值：7039123253031711012
+          */
+      this.costCenterId = builder.costCenterId;
+         /**
+          * 任职id
+          * <p> 示例值：7039123253031711012
+          */
+      this.jobDataId = builder.jobDataId;
+         /**
+          * 是否继承自岗位/部门的默认成本中心
+          * <p> 示例值：
+          */
+      this.isInherit = builder.isInherit;
+         /**
+          * 继承来源
+          * <p> 示例值：
+          */
+      this.inheritSource = builder.inheritSource;
+         /**
+          * 变更原因
+          * <p> 示例值：异动
+          */
+      this.reason = builder.reason;
+  }
+
     public static class Builder {
-        /**
-         * id
-         * <p> 示例值：703912325303191204
-         */
+     /**
+      * id
+      * <p> 示例值：703912325303191204
+      */
         private String wkId;
-        /**
-         * id
-         * <p> 示例值：703912321231239801
-         */
+     /**
+      * id
+      * <p> 示例值：703912321231239801
+      */
         private String wkTid;
-        /**
-         * 生效日期
-         * <p> 示例值：2024-12-01
-         */
+     /**
+      * 生效日期
+      * <p> 示例值：2024-12-01
+      */
         private String effectiveTime;
-        /**
-         * 成本中心id
-         * <p> 示例值：7039123253031711012
-         */
+     /**
+      * 成本中心id
+      * <p> 示例值：7039123253031711012
+      */
         private String costCenterId;
-        /**
-         * 任职id
-         * <p> 示例值：7039123253031711012
-         */
+     /**
+      * 任职id
+      * <p> 示例值：7039123253031711012
+      */
         private String jobDataId;
-        /**
-         * 是否继承自岗位/部门的默认成本中心
-         * <p> 示例值：
-         */
+     /**
+      * 是否继承自岗位/部门的默认成本中心
+      * <p> 示例值：
+      */
         private Boolean isInherit;
-        /**
-         * 继承来源
-         * <p> 示例值：
-         */
+     /**
+      * 继承来源
+      * <p> 示例值：
+      */
         private Enum inheritSource;
-        /**
-         * 变更原因
-         * <p> 示例值：异动
-         */
+     /**
+      * 变更原因
+      * <p> 示例值：异动
+      */
         private String reason;
 
         /**
          * id
          * <p> 示例值：703912325303191204
-         *
          * @param wkId
          * @return
          */
         public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
+             this.wkId = wkId;
+             return this;
         }
 
+    
 
         /**
          * id
          * <p> 示例值：703912321231239801
-         *
          * @param wkTid
          * @return
          */
         public Builder wkTid(String wkTid) {
-            this.wkTid = wkTid;
-            return this;
+             this.wkTid = wkTid;
+             return this;
         }
 
+    
 
         /**
          * 生效日期
          * <p> 示例值：2024-12-01
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 成本中心id
          * <p> 示例值：7039123253031711012
-         *
          * @param costCenterId
          * @return
          */
         public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
+             this.costCenterId = costCenterId;
+             return this;
         }
 
+    
 
         /**
          * 任职id
          * <p> 示例值：7039123253031711012
-         *
          * @param jobDataId
          * @return
          */
         public Builder jobDataId(String jobDataId) {
-            this.jobDataId = jobDataId;
-            return this;
+             this.jobDataId = jobDataId;
+             return this;
         }
 
+    
 
         /**
          * 是否继承自岗位/部门的默认成本中心
          * <p> 示例值：
-         *
          * @param isInherit
          * @return
          */
         public Builder isInherit(Boolean isInherit) {
-            this.isInherit = isInherit;
-            return this;
+             this.isInherit = isInherit;
+             return this;
         }
 
+    
 
         /**
          * 继承来源
          * <p> 示例值：
-         *
          * @param inheritSource
          * @return
          */
         public Builder inheritSource(Enum inheritSource) {
-            this.inheritSource = inheritSource;
-            return this;
+             this.inheritSource = inheritSource;
+             return this;
         }
 
+    
 
         /**
          * 变更原因
          * <p> 示例值：异动
-         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
+             this.reason = reason;
+             return this;
         }
 
+    
+    
+    public EmploymentDefaultCostCenter build(){
+        return new EmploymentDefaultCostCenter(this);
+      }
+    }
 
-        public EmploymentDefaultCostCenter build() {
-            return new EmploymentDefaultCostCenter(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

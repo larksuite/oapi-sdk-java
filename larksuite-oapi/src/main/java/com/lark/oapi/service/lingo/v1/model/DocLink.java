@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DocLink {
-    /**
-     * 链接标题
-     * <p> 示例值：百度
-     */
+     /**
+      * 链接标题
+      * <p> 示例值：百度
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 链接URL
-     * <p> 示例值：https://www.baidu.com
-     */
+     /**
+      * 链接URL
+      * <p> 示例值：https://www.baidu.com
+      */
     @SerializedName("url")
     private String url;
-
-    // builder 开始
-    public DocLink() {
-    }
-
-    public DocLink(Builder builder) {
-        /**
-         * 链接标题
-         * <p> 示例值：百度
-         */
-        this.title = builder.title;
-        /**
-         * 链接URL
-         * <p> 示例值：https://www.baidu.com
-         */
-        this.url = builder.url;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTitle() {
         return this.title;
     }
@@ -79,46 +53,67 @@ public class DocLink {
         this.url = url;
     }
 
+
+// builder 开始
+  public DocLink(){}
+
+  public DocLink(Builder builder){
+         /**
+          * 链接标题
+          * <p> 示例值：百度
+          */
+      this.title = builder.title;
+         /**
+          * 链接URL
+          * <p> 示例值：https://www.baidu.com
+          */
+      this.url = builder.url;
+  }
+
     public static class Builder {
-        /**
-         * 链接标题
-         * <p> 示例值：百度
-         */
+     /**
+      * 链接标题
+      * <p> 示例值：百度
+      */
         private String title;
-        /**
-         * 链接URL
-         * <p> 示例值：https://www.baidu.com
-         */
+     /**
+      * 链接URL
+      * <p> 示例值：https://www.baidu.com
+      */
         private String url;
 
         /**
          * 链接标题
          * <p> 示例值：百度
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 链接URL
          * <p> 示例值：https://www.baidu.com
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
+    
+    public DocLink build(){
+        return new DocLink(this);
+      }
+    }
 
-        public DocLink build() {
-            return new DocLink(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

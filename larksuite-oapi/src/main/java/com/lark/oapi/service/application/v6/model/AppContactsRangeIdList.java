@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AppContactsRangeIdList {
-    /**
-     * 成员id列表
-     * <p> 示例值：
-     */
+     /**
+      * 成员id列表
+      * <p> 示例值：
+      */
     @SerializedName("user_ids")
     private String[] userIds;
-    /**
-     * 部门id列表
-     * <p> 示例值：
-     */
+     /**
+      * 部门id列表
+      * <p> 示例值：
+      */
     @SerializedName("department_ids")
     private String[] departmentIds;
-    /**
-     * 用户组列表
-     * <p> 示例值：
-     */
+     /**
+      * 用户组列表
+      * <p> 示例值：
+      */
     @SerializedName("group_ids")
     private String[] groupIds;
-
-    // builder 开始
-    public AppContactsRangeIdList() {
-    }
-
-    public AppContactsRangeIdList(Builder builder) {
-        /**
-         * 成员id列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 部门id列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 用户组列表
-         * <p> 示例值：
-         */
-        this.groupIds = builder.groupIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getUserIds() {
         return this.userIds;
     }
@@ -98,64 +67,90 @@ public class AppContactsRangeIdList {
         this.groupIds = groupIds;
     }
 
+
+// builder 开始
+  public AppContactsRangeIdList(){}
+
+  public AppContactsRangeIdList(Builder builder){
+         /**
+          * 成员id列表
+          * <p> 示例值：
+          */
+      this.userIds = builder.userIds;
+         /**
+          * 部门id列表
+          * <p> 示例值：
+          */
+      this.departmentIds = builder.departmentIds;
+         /**
+          * 用户组列表
+          * <p> 示例值：
+          */
+      this.groupIds = builder.groupIds;
+  }
+
     public static class Builder {
-        /**
-         * 成员id列表
-         * <p> 示例值：
-         */
+     /**
+      * 成员id列表
+      * <p> 示例值：
+      */
         private String[] userIds;
-        /**
-         * 部门id列表
-         * <p> 示例值：
-         */
+     /**
+      * 部门id列表
+      * <p> 示例值：
+      */
         private String[] departmentIds;
-        /**
-         * 用户组列表
-         * <p> 示例值：
-         */
+     /**
+      * 用户组列表
+      * <p> 示例值：
+      */
         private String[] groupIds;
 
         /**
          * 成员id列表
          * <p> 示例值：
-         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
+             this.userIds = userIds;
+             return this;
         }
 
+    
 
         /**
          * 部门id列表
          * <p> 示例值：
-         *
          * @param departmentIds
          * @return
          */
         public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
+             this.departmentIds = departmentIds;
+             return this;
         }
 
+    
 
         /**
          * 用户组列表
          * <p> 示例值：
-         *
          * @param groupIds
          * @return
          */
         public Builder groupIds(String[] groupIds) {
-            this.groupIds = groupIds;
-            return this;
+             this.groupIds = groupIds;
+             return this;
         }
 
+    
+    
+    public AppContactsRangeIdList build(){
+        return new AppContactsRangeIdList(this);
+      }
+    }
 
-        public AppContactsRangeIdList build() {
-            return new AppContactsRangeIdList(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

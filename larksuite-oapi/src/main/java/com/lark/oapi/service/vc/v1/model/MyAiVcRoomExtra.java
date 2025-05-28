@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MyAiVcRoomExtra {
-    /**
-     * 日程信息
-     * <p> 示例值：json字符串
-     */
+     /**
+      * 日程信息
+      * <p> 示例值：json字符串
+      */
     @SerializedName("calendar_info")
     private String calendarInfo;
-
-    // builder 开始
-    public MyAiVcRoomExtra() {
-    }
-
-    public MyAiVcRoomExtra(Builder builder) {
-        /**
-         * 日程信息
-         * <p> 示例值：json字符串
-         */
-        this.calendarInfo = builder.calendarInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCalendarInfo() {
         return this.calendarInfo;
     }
@@ -60,28 +39,44 @@ public class MyAiVcRoomExtra {
         this.calendarInfo = calendarInfo;
     }
 
+
+// builder 开始
+  public MyAiVcRoomExtra(){}
+
+  public MyAiVcRoomExtra(Builder builder){
+         /**
+          * 日程信息
+          * <p> 示例值：json字符串
+          */
+      this.calendarInfo = builder.calendarInfo;
+  }
+
     public static class Builder {
-        /**
-         * 日程信息
-         * <p> 示例值：json字符串
-         */
+     /**
+      * 日程信息
+      * <p> 示例值：json字符串
+      */
         private String calendarInfo;
 
         /**
          * 日程信息
          * <p> 示例值：json字符串
-         *
          * @param calendarInfo
          * @return
          */
         public Builder calendarInfo(String calendarInfo) {
-            this.calendarInfo = calendarInfo;
-            return this;
+             this.calendarInfo = calendarInfo;
+             return this;
         }
 
+    
+    
+    public MyAiVcRoomExtra build(){
+        return new MyAiVcRoomExtra(this);
+      }
+    }
 
-        public MyAiVcRoomExtra build() {
-            return new MyAiVcRoomExtra(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

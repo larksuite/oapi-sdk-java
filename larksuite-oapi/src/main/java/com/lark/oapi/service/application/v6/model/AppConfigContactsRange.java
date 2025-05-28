@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AppConfigContactsRange {
-    /**
-     * 更新范围方式
-     * <p> 示例值：some
-     */
+     /**
+      * 更新范围方式
+      * <p> 示例值：some
+      */
     @SerializedName("contacts_range_type")
     private String contactsRangeType;
-    /**
-     * 通讯录可用人员列表
-     * <p> 示例值：
-     */
+     /**
+      * 通讯录可用人员列表
+      * <p> 示例值：
+      */
     @SerializedName("visible_list")
     private AppContactsRangeIdList visibleList;
-
-    // builder 开始
-    public AppConfigContactsRange() {
-    }
-
-    public AppConfigContactsRange(Builder builder) {
-        /**
-         * 更新范围方式
-         * <p> 示例值：some
-         */
-        this.contactsRangeType = builder.contactsRangeType;
-        /**
-         * 通讯录可用人员列表
-         * <p> 示例值：
-         */
-        this.visibleList = builder.visibleList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContactsRangeType() {
         return this.contactsRangeType;
     }
@@ -79,58 +53,77 @@ public class AppConfigContactsRange {
         this.visibleList = visibleList;
     }
 
+
+// builder 开始
+  public AppConfigContactsRange(){}
+
+  public AppConfigContactsRange(Builder builder){
+         /**
+          * 更新范围方式
+          * <p> 示例值：some
+          */
+      this.contactsRangeType = builder.contactsRangeType;
+         /**
+          * 通讯录可用人员列表
+          * <p> 示例值：
+          */
+      this.visibleList = builder.visibleList;
+  }
+
     public static class Builder {
-        /**
-         * 更新范围方式
-         * <p> 示例值：some
-         */
+     /**
+      * 更新范围方式
+      * <p> 示例值：some
+      */
         private String contactsRangeType;
-        /**
-         * 通讯录可用人员列表
-         * <p> 示例值：
-         */
+     /**
+      * 通讯录可用人员列表
+      * <p> 示例值：
+      */
         private AppContactsRangeIdList visibleList;
 
         /**
          * 更新范围方式
          * <p> 示例值：some
-         *
          * @param contactsRangeType
          * @return
          */
         public Builder contactsRangeType(String contactsRangeType) {
-            this.contactsRangeType = contactsRangeType;
-            return this;
+             this.contactsRangeType = contactsRangeType;
+             return this;
         }
-
         /**
          * 更新范围方式
          * <p> 示例值：some
-         *
          * @param contactsRangeType {@link com.lark.oapi.service.application.v6.enums.AppConfigContactsRangeContactsRangeTypeEnum}
          * @return
          */
         public Builder contactsRangeType(com.lark.oapi.service.application.v6.enums.AppConfigContactsRangeContactsRangeTypeEnum contactsRangeType) {
-            this.contactsRangeType = contactsRangeType.getValue();
-            return this;
+             this.contactsRangeType = contactsRangeType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 通讯录可用人员列表
          * <p> 示例值：
-         *
          * @param visibleList
          * @return
          */
         public Builder visibleList(AppContactsRangeIdList visibleList) {
-            this.visibleList = visibleList;
-            return this;
+             this.visibleList = visibleList;
+             return this;
         }
 
+    
+    
+    public AppConfigContactsRange build(){
+        return new AppConfigContactsRange(this);
+      }
+    }
 
-        public AppConfigContactsRange build() {
-            return new AppConfigContactsRange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

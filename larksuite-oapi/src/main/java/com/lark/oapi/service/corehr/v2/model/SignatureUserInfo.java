@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SignatureUserInfo {
-    /**
-     * employmentID
-     * <p> 示例值：7300476612163913260
-     */
+     /**
+      * employmentID
+      * <p> 示例值：7300476612163913260
+      */
     @SerializedName("id")
     private String id;
-
-    // builder 开始
-    public SignatureUserInfo() {
-    }
-
-    public SignatureUserInfo(Builder builder) {
-        /**
-         * employmentID
-         * <p> 示例值：7300476612163913260
-         */
-        this.id = builder.id;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -60,28 +39,44 @@ public class SignatureUserInfo {
         this.id = id;
     }
 
+
+// builder 开始
+  public SignatureUserInfo(){}
+
+  public SignatureUserInfo(Builder builder){
+         /**
+          * employmentID
+          * <p> 示例值：7300476612163913260
+          */
+      this.id = builder.id;
+  }
+
     public static class Builder {
-        /**
-         * employmentID
-         * <p> 示例值：7300476612163913260
-         */
+     /**
+      * employmentID
+      * <p> 示例值：7300476612163913260
+      */
         private String id;
 
         /**
          * employmentID
          * <p> 示例值：7300476612163913260
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
+    
+    public SignatureUserInfo build(){
+        return new SignatureUserInfo(this);
+      }
+    }
 
-        public SignatureUserInfo build() {
-            return new SignatureUserInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

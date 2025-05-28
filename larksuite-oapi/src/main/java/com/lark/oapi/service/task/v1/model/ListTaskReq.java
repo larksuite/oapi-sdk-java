@@ -12,106 +12,60 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListTaskReq {
-    /**
-     * 分页大小
-     * <p> 示例值：10
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：10
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：MTYzMTg3ODUxNQ==
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：MTYzMTg3ODUxNQ==
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 范围查询任务时，查询的起始时间。不填时默认起始时间为第一个任务的创建时间。
-     * <p> 示例值：1652323331
-     */
+     /**
+      * 范围查询任务时，查询的起始时间。不填时默认起始时间为第一个任务的创建时间。
+      * <p> 示例值：1652323331
+      */
     @Query
     @SerializedName("start_create_time")
     private String startCreateTime;
-    /**
-     * 范围查询任务时，查询的结束时间。不填时默认结束时间为最后一个任务的创建时间。
-     * <p> 示例值：1652323335
-     */
+     /**
+      * 范围查询任务时，查询的结束时间。不填时默认结束时间为最后一个任务的创建时间。
+      * <p> 示例值：1652323335
+      */
     @Query
     @SerializedName("end_create_time")
     private String endCreateTime;
-    /**
-     * 可用于查询时过滤任务完成状态。true表示只返回已完成的任务，false表示只返回未完成的任务。不填时表示同时返回两种完成状态的任务。
-     * <p> 示例值：false
-     */
+     /**
+      * 可用于查询时过滤任务完成状态。true表示只返回已完成的任务，false表示只返回未完成的任务。不填时表示同时返回两种完成状态的任务。
+      * <p> 示例值：false
+      */
     @Query
     @SerializedName("task_completed")
     private Boolean taskCompleted;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-
-    // builder 开始
-    public ListTaskReq() {
-    }
-
-    public ListTaskReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：MTYzMTg3ODUxNQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 范围查询任务时，查询的起始时间。不填时默认起始时间为第一个任务的创建时间。
-         * <p> 示例值：1652323331
-         */
-        this.startCreateTime = builder.startCreateTime;
-        /**
-         * 范围查询任务时，查询的结束时间。不填时默认结束时间为最后一个任务的创建时间。
-         * <p> 示例值：1652323335
-         */
-        this.endCreateTime = builder.endCreateTime;
-        /**
-         * 可用于查询时过滤任务完成状态。true表示只返回已完成的任务，false表示只返回未完成的任务。不填时表示同时返回两种完成状态的任务。
-         * <p> 示例值：false
-         */
-        this.taskCompleted = builder.taskCompleted;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -160,6 +114,43 @@ public class ListTaskReq {
         this.userIdType = userIdType;
     }
 
+
+// builder 开始
+  public ListTaskReq(){}
+
+  public ListTaskReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：10
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：MTYzMTg3ODUxNQ==
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 范围查询任务时，查询的起始时间。不填时默认起始时间为第一个任务的创建时间。
+          * <p> 示例值：1652323331
+          */
+       this.startCreateTime = builder.startCreateTime;
+         /**
+          * 范围查询任务时，查询的结束时间。不填时默认结束时间为最后一个任务的创建时间。
+          * <p> 示例值：1652323335
+          */
+       this.endCreateTime = builder.endCreateTime;
+         /**
+          * 可用于查询时过滤任务完成状态。true表示只返回已完成的任务，false表示只返回未完成的任务。不填时表示同时返回两种完成状态的任务。
+          * <p> 示例值：false
+          */
+       this.taskCompleted = builder.taskCompleted;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
@@ -167,99 +158,96 @@ public class ListTaskReq {
         private String endCreateTime; // 范围查询任务时，查询的结束时间。不填时默认结束时间为最后一个任务的创建时间。
         private Boolean taskCompleted; // 可用于查询时过滤任务完成状态。true表示只返回已完成的任务，false表示只返回未完成的任务。不填时表示同时返回两种完成状态的任务。
         private String userIdType; // 此次调用中使用的用户ID的类型
-
+    
         /**
          * 分页大小
          * <p> 示例值：10
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：MTYzMTg3ODUxNQ==
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 范围查询任务时，查询的起始时间。不填时默认起始时间为第一个任务的创建时间。
          * <p> 示例值：1652323331
-         *
          * @param startCreateTime
          * @return
          */
-        public Builder startCreateTime(String startCreateTime) {
-            this.startCreateTime = startCreateTime;
-            return this;
-        }
+           public Builder startCreateTime(String startCreateTime) {
+                this.startCreateTime = startCreateTime;
+                return this;
+           }
 
-
+    
         /**
          * 范围查询任务时，查询的结束时间。不填时默认结束时间为最后一个任务的创建时间。
          * <p> 示例值：1652323335
-         *
          * @param endCreateTime
          * @return
          */
-        public Builder endCreateTime(String endCreateTime) {
-            this.endCreateTime = endCreateTime;
-            return this;
-        }
+           public Builder endCreateTime(String endCreateTime) {
+                this.endCreateTime = endCreateTime;
+                return this;
+           }
 
-
+    
         /**
          * 可用于查询时过滤任务完成状态。true表示只返回已完成的任务，false表示只返回未完成的任务。不填时表示同时返回两种完成状态的任务。
          * <p> 示例值：false
-         *
          * @param taskCompleted
          * @return
          */
-        public Builder taskCompleted(Boolean taskCompleted) {
-            this.taskCompleted = taskCompleted;
-            return this;
-        }
+           public Builder taskCompleted(Boolean taskCompleted) {
+                this.taskCompleted = taskCompleted;
+                return this;
+           }
 
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.task.v1.enums.ListTaskUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.task.v1.enums.ListTaskUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.task.v1.enums.ListTaskUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+    public ListTaskReq build(){
+        return new ListTaskReq(this);
+      }
+    }
 
-        public ListTaskReq build() {
-            return new ListTaskReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

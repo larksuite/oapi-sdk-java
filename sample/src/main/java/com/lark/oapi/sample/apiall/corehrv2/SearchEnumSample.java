@@ -23,7 +23,7 @@ public class SearchEnumSample {
                 .build();
 
         // 发起请求
-        SearchEnumResp resp = client.corehr().v2(). enum_().search(req);
+        SearchEnumResp resp = client.corehr().v2().enum_().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

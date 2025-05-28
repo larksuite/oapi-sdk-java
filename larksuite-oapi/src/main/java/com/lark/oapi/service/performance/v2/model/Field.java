@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Field {
-    /**
-     * 评估题 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 评估题 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("field_id")
     private String fieldId;
-    /**
-     * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
-     * <p> 示例值：
-     */
+     /**
+      * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 评估项 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 评估项 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("indicator_id")
     private String indicatorId;
-    /**
-     * 标签填写题 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 标签填写题 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("tag_based_question_id")
     private String tagBasedQuestionId;
-    /**
-     * O 的填写项标题
-     * <p> 示例值：
-     */
+     /**
+      * O 的填写项标题
+      * <p> 示例值：
+      */
     @SerializedName("objective_text_qustion_title")
     private I18n objectiveTextQustionTitle;
-    /**
-     * KR 的填写项标题
-     * <p> 示例值：
-     */
+     /**
+      * KR 的填写项标题
+      * <p> 示例值：
+      */
     @SerializedName("keyresult_text_qustion_title")
     private I18n keyresultTextQustionTitle;
-    /**
-     * 关联的父级评估项 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 关联的父级评估项 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("parent_field_id")
     private String parentFieldId;
-
-    // builder 开始
-    public Field() {
-    }
-
-    public Field(Builder builder) {
-        /**
-         * 评估题 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.indicatorId = builder.indicatorId;
-        /**
-         * 标签填写题 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.tagBasedQuestionId = builder.tagBasedQuestionId;
-        /**
-         * O 的填写项标题
-         * <p> 示例值：
-         */
-        this.objectiveTextQustionTitle = builder.objectiveTextQustionTitle;
-        /**
-         * KR 的填写项标题
-         * <p> 示例值：
-         */
-        this.keyresultTextQustionTitle = builder.keyresultTextQustionTitle;
-        /**
-         * 关联的父级评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.parentFieldId = builder.parentFieldId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFieldId() {
         return this.fieldId;
     }
@@ -174,136 +123,182 @@ public class Field {
         this.parentFieldId = parentFieldId;
     }
 
+
+// builder 开始
+  public Field(){}
+
+  public Field(Builder builder){
+         /**
+          * 评估题 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.fieldId = builder.fieldId;
+         /**
+          * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 评估项 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.indicatorId = builder.indicatorId;
+         /**
+          * 标签填写题 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.tagBasedQuestionId = builder.tagBasedQuestionId;
+         /**
+          * O 的填写项标题
+          * <p> 示例值：
+          */
+      this.objectiveTextQustionTitle = builder.objectiveTextQustionTitle;
+         /**
+          * KR 的填写项标题
+          * <p> 示例值：
+          */
+      this.keyresultTextQustionTitle = builder.keyresultTextQustionTitle;
+         /**
+          * 关联的父级评估项 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.parentFieldId = builder.parentFieldId;
+  }
+
     public static class Builder {
-        /**
-         * 评估题 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 评估题 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String fieldId;
-        /**
-         * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
-         * <p> 示例值：
-         */
+     /**
+      * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 评估项 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String indicatorId;
-        /**
-         * 标签填写题 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 标签填写题 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String tagBasedQuestionId;
-        /**
-         * O 的填写项标题
-         * <p> 示例值：
-         */
+     /**
+      * O 的填写项标题
+      * <p> 示例值：
+      */
         private I18n objectiveTextQustionTitle;
-        /**
-         * KR 的填写项标题
-         * <p> 示例值：
-         */
+     /**
+      * KR 的填写项标题
+      * <p> 示例值：
+      */
         private I18n keyresultTextQustionTitle;
-        /**
-         * 关联的父级评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 关联的父级评估项 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String parentFieldId;
 
         /**
          * 评估题 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
+             this.fieldId = fieldId;
+             return this;
         }
 
+    
 
         /**
          * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 评估项 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param indicatorId
          * @return
          */
         public Builder indicatorId(String indicatorId) {
-            this.indicatorId = indicatorId;
-            return this;
+             this.indicatorId = indicatorId;
+             return this;
         }
 
+    
 
         /**
          * 标签填写题 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param tagBasedQuestionId
          * @return
          */
         public Builder tagBasedQuestionId(String tagBasedQuestionId) {
-            this.tagBasedQuestionId = tagBasedQuestionId;
-            return this;
+             this.tagBasedQuestionId = tagBasedQuestionId;
+             return this;
         }
 
+    
 
         /**
          * O 的填写项标题
          * <p> 示例值：
-         *
          * @param objectiveTextQustionTitle
          * @return
          */
         public Builder objectiveTextQustionTitle(I18n objectiveTextQustionTitle) {
-            this.objectiveTextQustionTitle = objectiveTextQustionTitle;
-            return this;
+             this.objectiveTextQustionTitle = objectiveTextQustionTitle;
+             return this;
         }
 
+    
 
         /**
          * KR 的填写项标题
          * <p> 示例值：
-         *
          * @param keyresultTextQustionTitle
          * @return
          */
         public Builder keyresultTextQustionTitle(I18n keyresultTextQustionTitle) {
-            this.keyresultTextQustionTitle = keyresultTextQustionTitle;
-            return this;
+             this.keyresultTextQustionTitle = keyresultTextQustionTitle;
+             return this;
         }
 
+    
 
         /**
          * 关联的父级评估项 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param parentFieldId
          * @return
          */
         public Builder parentFieldId(String parentFieldId) {
-            this.parentFieldId = parentFieldId;
-            return this;
+             this.parentFieldId = parentFieldId;
+             return this;
         }
 
+    
+    
+    public Field build(){
+        return new Field(this);
+      }
+    }
 
-        public Field build() {
-            return new Field(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

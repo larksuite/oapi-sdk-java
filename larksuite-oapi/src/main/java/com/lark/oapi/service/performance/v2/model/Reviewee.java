@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Reviewee {
-    /**
-     * 被评估人 ID
-     * <p> 示例值：
-     */
+     /**
+      * 被评估人 ID
+      * <p> 示例值：
+      */
     @SerializedName("reviewee_user_id")
     private User revieweeUserId;
-    /**
-     * 被评估人参与的项目
-     * <p> 示例值：
-     */
+     /**
+      * 被评估人参与的项目
+      * <p> 示例值：
+      */
     @SerializedName("activity_ids")
     private String[] activityIds;
-    /**
-     * 被评估人在该周期的个人绩效详情页链接。如果参与的项目未启动则为空
-     * <p> 示例值：https://performance.feishu.cn/perf/profile?rootReviewId=7380183500051202067
-     */
+     /**
+      * 被评估人在该周期的个人绩效详情页链接。如果参与的项目未启动则为空
+      * <p> 示例值：https://performance.feishu.cn/perf/profile?rootReviewId=7380183500051202067
+      */
     @SerializedName("reviewprofile_url")
     private String reviewprofileUrl;
-
-    // builder 开始
-    public Reviewee() {
-    }
-
-    public Reviewee(Builder builder) {
-        /**
-         * 被评估人 ID
-         * <p> 示例值：
-         */
-        this.revieweeUserId = builder.revieweeUserId;
-        /**
-         * 被评估人参与的项目
-         * <p> 示例值：
-         */
-        this.activityIds = builder.activityIds;
-        /**
-         * 被评估人在该周期的个人绩效详情页链接。如果参与的项目未启动则为空
-         * <p> 示例值：https://performance.feishu.cn/perf/profile?rootReviewId=7380183500051202067
-         */
-        this.reviewprofileUrl = builder.reviewprofileUrl;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public User getRevieweeUserId() {
         return this.revieweeUserId;
     }
@@ -98,64 +67,90 @@ public class Reviewee {
         this.reviewprofileUrl = reviewprofileUrl;
     }
 
+
+// builder 开始
+  public Reviewee(){}
+
+  public Reviewee(Builder builder){
+         /**
+          * 被评估人 ID
+          * <p> 示例值：
+          */
+      this.revieweeUserId = builder.revieweeUserId;
+         /**
+          * 被评估人参与的项目
+          * <p> 示例值：
+          */
+      this.activityIds = builder.activityIds;
+         /**
+          * 被评估人在该周期的个人绩效详情页链接。如果参与的项目未启动则为空
+          * <p> 示例值：https://performance.feishu.cn/perf/profile?rootReviewId=7380183500051202067
+          */
+      this.reviewprofileUrl = builder.reviewprofileUrl;
+  }
+
     public static class Builder {
-        /**
-         * 被评估人 ID
-         * <p> 示例值：
-         */
+     /**
+      * 被评估人 ID
+      * <p> 示例值：
+      */
         private User revieweeUserId;
-        /**
-         * 被评估人参与的项目
-         * <p> 示例值：
-         */
+     /**
+      * 被评估人参与的项目
+      * <p> 示例值：
+      */
         private String[] activityIds;
-        /**
-         * 被评估人在该周期的个人绩效详情页链接。如果参与的项目未启动则为空
-         * <p> 示例值：https://performance.feishu.cn/perf/profile?rootReviewId=7380183500051202067
-         */
+     /**
+      * 被评估人在该周期的个人绩效详情页链接。如果参与的项目未启动则为空
+      * <p> 示例值：https://performance.feishu.cn/perf/profile?rootReviewId=7380183500051202067
+      */
         private String reviewprofileUrl;
 
         /**
          * 被评估人 ID
          * <p> 示例值：
-         *
          * @param revieweeUserId
          * @return
          */
         public Builder revieweeUserId(User revieweeUserId) {
-            this.revieweeUserId = revieweeUserId;
-            return this;
+             this.revieweeUserId = revieweeUserId;
+             return this;
         }
 
+    
 
         /**
          * 被评估人参与的项目
          * <p> 示例值：
-         *
          * @param activityIds
          * @return
          */
         public Builder activityIds(String[] activityIds) {
-            this.activityIds = activityIds;
-            return this;
+             this.activityIds = activityIds;
+             return this;
         }
 
+    
 
         /**
          * 被评估人在该周期的个人绩效详情页链接。如果参与的项目未启动则为空
          * <p> 示例值：https://performance.feishu.cn/perf/profile?rootReviewId=7380183500051202067
-         *
          * @param reviewprofileUrl
          * @return
          */
         public Builder reviewprofileUrl(String reviewprofileUrl) {
-            this.reviewprofileUrl = reviewprofileUrl;
-            return this;
+             this.reviewprofileUrl = reviewprofileUrl;
+             return this;
         }
 
+    
+    
+    public Reviewee build(){
+        return new Reviewee(this);
+      }
+    }
 
-        public Reviewee build() {
-            return new Reviewee(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

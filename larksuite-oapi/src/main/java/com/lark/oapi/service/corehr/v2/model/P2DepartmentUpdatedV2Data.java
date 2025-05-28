@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2DepartmentUpdatedV2Data {
-    /**
-     * 部门id
-     * <p> 示例值："7043711774159341101"
-     */
+     /**
+      * 部门id
+      * <p> 示例值："7043711774159341101"
+      */
     @SerializedName("department_id")
     private String departmentId;
-    /**
-     * 发生变更的字段
-     * <p> 示例值：
-     */
+     /**
+      * 发生变更的字段
+      * <p> 示例值：
+      */
     @SerializedName("field_changes")
     private String[] fieldChanges;
-
     public String getDepartmentId() {
         return this.departmentId;
     }

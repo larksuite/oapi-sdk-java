@@ -12,48 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchExternalInterviewAssessmentReq {
-    /**
-     * 外部面评 ID
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 外部面评 ID
+      * <p> 示例值：6930815272790114324
+      */
     @Path
     @SerializedName("external_interview_assessment_id")
     private String externalInterviewAssessmentId;
-    @Body
-    private ExternalInterviewAssessment body;
-
-    // builder 开始
-    public PatchExternalInterviewAssessmentReq() {
-    }
-
-    public PatchExternalInterviewAssessmentReq(Builder builder) {
-        /**
-         * 外部面评 ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.externalInterviewAssessmentId = builder.externalInterviewAssessmentId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getExternalInterviewAssessmentId() {
         return this.externalInterviewAssessmentId;
     }
@@ -61,6 +37,9 @@ public class PatchExternalInterviewAssessmentReq {
     public void setExternalInterviewAssessmentId(String externalInterviewAssessmentId) {
         this.externalInterviewAssessmentId = externalInterviewAssessmentId;
     }
+
+    @Body
+    private ExternalInterviewAssessment body;
 
     public ExternalInterviewAssessment getExternalInterviewAssessment() {
         return this.body;
@@ -70,40 +49,54 @@ public class PatchExternalInterviewAssessmentReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchExternalInterviewAssessmentReq(){}
+
+  public PatchExternalInterviewAssessmentReq(Builder builder){
+     /**
+      * 外部面评 ID
+      * <p> 示例值：6930815272790114324
+      */
+       this.externalInterviewAssessmentId = builder.externalInterviewAssessmentId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String externalInterviewAssessmentId; // 外部面评 ID
-        private ExternalInterviewAssessment body;
-
         /**
          * 外部面评 ID
          * <p> 示例值：6930815272790114324
-         *
          * @param externalInterviewAssessmentId
          * @return
          */
-        public Builder externalInterviewAssessmentId(String externalInterviewAssessmentId) {
-            this.externalInterviewAssessmentId = externalInterviewAssessmentId;
-            return this;
-        }
+          public Builder externalInterviewAssessmentId(String externalInterviewAssessmentId) {
+               this.externalInterviewAssessmentId = externalInterviewAssessmentId;
+               return this;
+          }
 
+    
+        private ExternalInterviewAssessment body;
+    
         public ExternalInterviewAssessment getExternalInterviewAssessment() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder externalInterviewAssessment(ExternalInterviewAssessment body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchExternalInterviewAssessmentReq build(){
+        return new PatchExternalInterviewAssessmentReq(this);
+      }
+    }
 
-        public PatchExternalInterviewAssessmentReq build() {
-            return new PatchExternalInterviewAssessmentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

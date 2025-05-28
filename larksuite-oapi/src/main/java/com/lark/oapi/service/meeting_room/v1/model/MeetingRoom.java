@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.meeting_room.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MeetingRoom {
-    /**
-     * your description here
-     * <p> 示例值：
-     */
+     /**
+      * your description here
+      * <p> 示例值：
+      */
     @SerializedName("room_id")
     private Integer roomId;
-
-    // builder 开始
-    public MeetingRoom() {
-    }
-
-    public MeetingRoom(Builder builder) {
-        /**
-         * your description here
-         * <p> 示例值：
-         */
-        this.roomId = builder.roomId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getRoomId() {
         return this.roomId;
     }
@@ -59,28 +38,44 @@ public class MeetingRoom {
         this.roomId = roomId;
     }
 
+
+// builder 开始
+  public MeetingRoom(){}
+
+  public MeetingRoom(Builder builder){
+         /**
+          * your description here
+          * <p> 示例值：
+          */
+      this.roomId = builder.roomId;
+  }
+
     public static class Builder {
-        /**
-         * your description here
-         * <p> 示例值：
-         */
+     /**
+      * your description here
+      * <p> 示例值：
+      */
         private Integer roomId;
 
         /**
          * your description here
          * <p> 示例值：
-         *
          * @param roomId
          * @return
          */
         public Builder roomId(Integer roomId) {
-            this.roomId = roomId;
-            return this;
+             this.roomId = roomId;
+             return this;
         }
 
+    
+    
+    public MeetingRoom build(){
+        return new MeetingRoom(this);
+      }
+    }
 
-        public MeetingRoom build() {
-            return new MeetingRoom(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

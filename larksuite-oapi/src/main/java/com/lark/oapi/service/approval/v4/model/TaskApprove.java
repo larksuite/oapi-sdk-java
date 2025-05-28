@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TaskApprove {
-    /**
-     * 审批定义 Code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-     */
+     /**
+      * 审批定义 Code
+      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+      */
     @SerializedName("approval_code")
     private String approvalCode;
-    /**
-     * 审批实例 Code
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     */
+     /**
+      * 审批实例 Code
+      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+      */
     @SerializedName("instance_code")
     private String instanceCode;
-    /**
-     * 根据user_id_type填写操作用户id
-     * <p> 示例值：f7cb567e
-     */
+     /**
+      * 根据user_id_type填写操作用户id
+      * <p> 示例值：f7cb567e
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 意见
-     * <p> 示例值：OK
-     */
+     /**
+      * 意见
+      * <p> 示例值：OK
+      */
     @SerializedName("comment")
     private String comment;
-    /**
-     * 任务 ID， 审批实例详情task_list中id
-     * <p> 示例值：12345
-     */
+     /**
+      * 任务 ID， 审批实例详情task_list中id
+      * <p> 示例值：12345
+      */
     @SerializedName("task_id")
     private String taskId;
-    /**
-     * json 数组，控件值
-     * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-     */
+     /**
+      * json 数组，控件值
+      * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
+      */
     @SerializedName("form")
     private String form;
-
-    // builder 开始
-    public TaskApprove() {
-    }
-
-    public TaskApprove(Builder builder) {
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批实例 Code
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 根据user_id_type填写操作用户id
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-        /**
-         * 意见
-         * <p> 示例值：OK
-         */
-        this.comment = builder.comment;
-        /**
-         * 任务 ID， 审批实例详情task_list中id
-         * <p> 示例值：12345
-         */
-        this.taskId = builder.taskId;
-        /**
-         * json 数组，控件值
-         * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-         */
-        this.form = builder.form;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -155,118 +109,159 @@ public class TaskApprove {
         this.form = form;
     }
 
+
+// builder 开始
+  public TaskApprove(){}
+
+  public TaskApprove(Builder builder){
+         /**
+          * 审批定义 Code
+          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+          */
+      this.approvalCode = builder.approvalCode;
+         /**
+          * 审批实例 Code
+          * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+          */
+      this.instanceCode = builder.instanceCode;
+         /**
+          * 根据user_id_type填写操作用户id
+          * <p> 示例值：f7cb567e
+          */
+      this.userId = builder.userId;
+         /**
+          * 意见
+          * <p> 示例值：OK
+          */
+      this.comment = builder.comment;
+         /**
+          * 任务 ID， 审批实例详情task_list中id
+          * <p> 示例值：12345
+          */
+      this.taskId = builder.taskId;
+         /**
+          * json 数组，控件值
+          * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
+          */
+      this.form = builder.form;
+  }
+
     public static class Builder {
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
+     /**
+      * 审批定义 Code
+      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+      */
         private String approvalCode;
-        /**
-         * 审批实例 Code
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
+     /**
+      * 审批实例 Code
+      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+      */
         private String instanceCode;
-        /**
-         * 根据user_id_type填写操作用户id
-         * <p> 示例值：f7cb567e
-         */
+     /**
+      * 根据user_id_type填写操作用户id
+      * <p> 示例值：f7cb567e
+      */
         private String userId;
-        /**
-         * 意见
-         * <p> 示例值：OK
-         */
+     /**
+      * 意见
+      * <p> 示例值：OK
+      */
         private String comment;
-        /**
-         * 任务 ID， 审批实例详情task_list中id
-         * <p> 示例值：12345
-         */
+     /**
+      * 任务 ID， 审批实例详情task_list中id
+      * <p> 示例值：12345
+      */
         private String taskId;
-        /**
-         * json 数组，控件值
-         * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-         */
+     /**
+      * json 数组，控件值
+      * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
+      */
         private String form;
 
         /**
          * 审批定义 Code
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
          * @param approvalCode
          * @return
          */
         public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
+             this.approvalCode = approvalCode;
+             return this;
         }
 
+    
 
         /**
          * 审批实例 Code
          * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         *
          * @param instanceCode
          * @return
          */
         public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
+             this.instanceCode = instanceCode;
+             return this;
         }
 
+    
 
         /**
          * 根据user_id_type填写操作用户id
          * <p> 示例值：f7cb567e
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 意见
          * <p> 示例值：OK
-         *
          * @param comment
          * @return
          */
         public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
+             this.comment = comment;
+             return this;
         }
 
+    
 
         /**
          * 任务 ID， 审批实例详情task_list中id
          * <p> 示例值：12345
-         *
          * @param taskId
          * @return
          */
         public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
+             this.taskId = taskId;
+             return this;
         }
 
+    
 
         /**
          * json 数组，控件值
          * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-         *
          * @param form
          * @return
          */
         public Builder form(String form) {
-            this.form = form;
-            return this;
+             this.form = form;
+             return this;
         }
 
+    
+    
+    public TaskApprove build(){
+        return new TaskApprove(this);
+      }
+    }
 
-        public TaskApprove build() {
-            return new TaskApprove(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

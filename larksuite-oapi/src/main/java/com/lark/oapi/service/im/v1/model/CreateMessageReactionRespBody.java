@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateMessageReactionRespBody {
-    /**
-     * reaction资源ID
-     * <p> 示例值：
-     */
+     /**
+      * reaction资源ID
+      * <p> 示例值：
+      */
     @SerializedName("reaction_id")
     private String reactionId;
-    /**
-     * 添加reaction的操作人
-     * <p> 示例值：
-     */
+     /**
+      * 添加reaction的操作人
+      * <p> 示例值：
+      */
     @SerializedName("operator")
     private Operator operator;
-    /**
-     * reaction动作的的unix timestamp(单位:ms)
-     * <p> 示例值：
-     */
+     /**
+      * reaction动作的的unix timestamp(单位:ms)
+      * <p> 示例值：
+      */
     @SerializedName("action_time")
     private String actionTime;
-    /**
-     * reaction资源类型
-     * <p> 示例值：
-     */
+     /**
+      * reaction资源类型
+      * <p> 示例值：
+      */
     @SerializedName("reaction_type")
     private Emoji reactionType;
-
     public String getReactionId() {
         return this.reactionId;
     }

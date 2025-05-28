@@ -17,16 +17,15 @@ package com.lark.oapi.service.contact.v3.enums;
  * 动态用户组匹配部门层级
  */
 public enum DynamicGroupRuleDepartmentLevelEnum {
-    RECURSIVE("recursive"), // 递归，匹配部门包括下级部门
-    NON_RECURSIVE("non_recursive"), // 非递归，匹配部门不包括下级部门
-    ;
-    private String value;
-
+     RECURSIVE("recursive"), // 递归，匹配部门包括下级部门
+     NON_RECURSIVE("non_recursive"), // 非递归，匹配部门不包括下级部门
+  ;
+   private String value;
     DynamicGroupRuleDepartmentLevelEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

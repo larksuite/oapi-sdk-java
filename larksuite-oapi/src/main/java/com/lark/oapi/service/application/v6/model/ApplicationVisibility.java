@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApplicationVisibility {
-    /**
-     * 是否全员可见
-     * <p> 示例值：false
-     */
+     /**
+      * 是否全员可见
+      * <p> 示例值：false
+      */
     @SerializedName("is_all")
     private Boolean isAll;
-    /**
-     * 可见名单
-     * <p> 示例值：
-     */
+     /**
+      * 可见名单
+      * <p> 示例值：
+      */
     @SerializedName("visible_list")
     private AppVisibleList visibleList;
-    /**
-     * 不可见名单
-     * <p> 示例值：
-     */
+     /**
+      * 不可见名单
+      * <p> 示例值：
+      */
     @SerializedName("invisible_list")
     private AppVisibleList invisibleList;
-
-    // builder 开始
-    public ApplicationVisibility() {
-    }
-
-    public ApplicationVisibility(Builder builder) {
-        /**
-         * 是否全员可见
-         * <p> 示例值：false
-         */
-        this.isAll = builder.isAll;
-        /**
-         * 可见名单
-         * <p> 示例值：
-         */
-        this.visibleList = builder.visibleList;
-        /**
-         * 不可见名单
-         * <p> 示例值：
-         */
-        this.invisibleList = builder.invisibleList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getIsAll() {
         return this.isAll;
     }
@@ -98,64 +67,90 @@ public class ApplicationVisibility {
         this.invisibleList = invisibleList;
     }
 
+
+// builder 开始
+  public ApplicationVisibility(){}
+
+  public ApplicationVisibility(Builder builder){
+         /**
+          * 是否全员可见
+          * <p> 示例值：false
+          */
+      this.isAll = builder.isAll;
+         /**
+          * 可见名单
+          * <p> 示例值：
+          */
+      this.visibleList = builder.visibleList;
+         /**
+          * 不可见名单
+          * <p> 示例值：
+          */
+      this.invisibleList = builder.invisibleList;
+  }
+
     public static class Builder {
-        /**
-         * 是否全员可见
-         * <p> 示例值：false
-         */
+     /**
+      * 是否全员可见
+      * <p> 示例值：false
+      */
         private Boolean isAll;
-        /**
-         * 可见名单
-         * <p> 示例值：
-         */
+     /**
+      * 可见名单
+      * <p> 示例值：
+      */
         private AppVisibleList visibleList;
-        /**
-         * 不可见名单
-         * <p> 示例值：
-         */
+     /**
+      * 不可见名单
+      * <p> 示例值：
+      */
         private AppVisibleList invisibleList;
 
         /**
          * 是否全员可见
          * <p> 示例值：false
-         *
          * @param isAll
          * @return
          */
         public Builder isAll(Boolean isAll) {
-            this.isAll = isAll;
-            return this;
+             this.isAll = isAll;
+             return this;
         }
 
+    
 
         /**
          * 可见名单
          * <p> 示例值：
-         *
          * @param visibleList
          * @return
          */
         public Builder visibleList(AppVisibleList visibleList) {
-            this.visibleList = visibleList;
-            return this;
+             this.visibleList = visibleList;
+             return this;
         }
 
+    
 
         /**
          * 不可见名单
          * <p> 示例值：
-         *
          * @param invisibleList
          * @return
          */
         public Builder invisibleList(AppVisibleList invisibleList) {
-            this.invisibleList = invisibleList;
-            return this;
+             this.invisibleList = invisibleList;
+             return this;
         }
 
+    
+    
+    public ApplicationVisibility build(){
+        return new ApplicationVisibility(this);
+      }
+    }
 
-        public ApplicationVisibility build() {
-            return new ApplicationVisibility(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

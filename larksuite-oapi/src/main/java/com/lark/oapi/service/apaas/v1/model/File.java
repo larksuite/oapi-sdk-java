@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,47 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class File {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("Name")
     private String name;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("Content")
     private java.io.File content;
-
-    // builder 开始
-    public File() {
-    }
-
-    public File(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -77,42 +53,67 @@ public class File {
         this.content = content;
     }
 
+
+// builder 开始
+  public File(){}
+
+  public File(Builder builder){
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.content = builder.content;
+  }
+
     public static class Builder {
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String name;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private java.io.File content;
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param content
          * @return
          */
         public Builder content(java.io.File content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
+    
+    public File build(){
+        return new File(this);
+      }
+    }
 
-        public File build() {
-            return new File(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

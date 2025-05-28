@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SortChatMenuTreeReq {
-    /**
-     * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     */
+     /**
+      * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+      */
     @Path
     @SerializedName("chat_id")
     private String chatId;
-    @Body
-    private SortChatMenuTreeReqBody body;
-
-    // builder 开始
-    public SortChatMenuTreeReq() {
-    }
-
-    public SortChatMenuTreeReq(Builder builder) {
-        /**
-         * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.chatId = builder.chatId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getChatId() {
         return this.chatId;
     }
@@ -62,6 +38,9 @@ public class SortChatMenuTreeReq {
     public void setChatId(String chatId) {
         this.chatId = chatId;
     }
+
+    @Body
+    private SortChatMenuTreeReqBody body;
 
     public SortChatMenuTreeReqBody getSortChatMenuTreeReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class SortChatMenuTreeReq {
         this.body = body;
     }
 
+// builder 开始
+  public SortChatMenuTreeReq(){}
+
+  public SortChatMenuTreeReq(Builder builder){
+     /**
+      * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+      */
+       this.chatId = builder.chatId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String chatId; // 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
-        private SortChatMenuTreeReqBody body;
-
         /**
          * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`的群ID
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
          * @param chatId
          * @return
          */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
 
+    
+        private SortChatMenuTreeReqBody body;
+    
         public SortChatMenuTreeReqBody getSortChatMenuTreeReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder sortChatMenuTreeReqBody(SortChatMenuTreeReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public SortChatMenuTreeReq build(){
+        return new SortChatMenuTreeReq(this);
+      }
+    }
 
-        public SortChatMenuTreeReq build() {
-            return new SortChatMenuTreeReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

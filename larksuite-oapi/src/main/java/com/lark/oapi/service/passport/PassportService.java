@@ -23,14 +23,12 @@ public class PassportService {
     private final Session session; // 登录态
 
     public PassportService(Config config) {
-        this.v1 = new V1(config);
-        this.session = new Session(config);
+    this.v1 = new V1(config);
+    this.session = new Session(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public Session session() {
         return session;
     }

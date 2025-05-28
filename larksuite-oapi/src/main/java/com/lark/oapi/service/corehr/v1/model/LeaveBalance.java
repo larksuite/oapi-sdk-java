@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,181 +19,96 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LeaveBalance {
-    /**
-     * 假期类型ID
-     * <p> 示例值：4718803945687580505
-     */
+     /**
+      * 假期类型ID
+      * <p> 示例值：4718803945687580505
+      */
     @SerializedName("leave_type_id")
     private String leaveTypeId;
-    /**
-     * 假期类型名称
-     * <p> 示例值：
-     */
+     /**
+      * 假期类型名称
+      * <p> 示例值：
+      */
     @SerializedName("leave_type_name")
     private I18n[] leaveTypeName;
-    /**
-     * 结转的历史周期授予时长
-     * <p> 示例值：0
-     */
+     /**
+      * 结转的历史周期授予时长
+      * <p> 示例值：0
+      */
     @SerializedName("historical_cycles_left")
     private String historicalCyclesLeft;
-    /**
-     * 本周期授予时长
-     * <p> 示例值：0
-     */
+     /**
+      * 本周期授予时长
+      * <p> 示例值：0
+      */
     @SerializedName("this_cycle_total")
     private String thisCycleTotal;
-    /**
-     * 本周期已休时长
-     * <p> 示例值：0
-     */
+     /**
+      * 本周期已休时长
+      * <p> 示例值：0
+      */
     @SerializedName("this_cycle_taken")
     private String thisCycleTaken;
-    /**
-     * 假期余额
-     * <p> 示例值：0
-     */
+     /**
+      * 假期余额
+      * <p> 示例值：0
+      */
     @SerializedName("leave_balance")
     private String leaveBalance;
-    /**
-     * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
-     * <p> 示例值：1
-     */
+     /**
+      * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
+      * <p> 示例值：1
+      */
     @SerializedName("leave_duration_unit")
     private Integer leaveDurationUnit;
-    /**
-     * 历史结转发放
-     * <p> 示例值：0
-     */
+     /**
+      * 历史结转发放
+      * <p> 示例值：0
+      */
     @SerializedName("history_cycle_accrual")
     private String historyCycleAccrual;
-    /**
-     * 当前周期余额
-     * <p> 示例值：0
-     */
+     /**
+      * 当前周期余额
+      * <p> 示例值：0
+      */
     @SerializedName("balance_in_current_cycle")
     private String balanceInCurrentCycle;
-    /**
-     * 已休时长
-     * <p> 示例值：0
-     */
+     /**
+      * 已休时长
+      * <p> 示例值：0
+      */
     @SerializedName("taken")
     private String taken;
-    /**
-     * 历史周期已休时长
-     * <p> 示例值：0
-     */
+     /**
+      * 历史周期已休时长
+      * <p> 示例值：0
+      */
     @SerializedName("taken_history_cycle")
     private String takenHistoryCycle;
-    /**
-     * 余额（离职折算）
-     * <p> 示例值：0
-     */
+     /**
+      * 余额（离职折算）
+      * <p> 示例值：0
+      */
     @SerializedName("offboarding_balance")
     private String offboardingBalance;
-    /**
-     * 已休时长（截止当日）
-     * <p> 示例值：0
-     */
+     /**
+      * 已休时长（截止当日）
+      * <p> 示例值：0
+      */
     @SerializedName("taken_current_date")
     private String takenCurrentDate;
-    /**
-     * 本周期授予时长（离职折算）
-     * <p> 示例值：0
-     */
+     /**
+      * 本周期授予时长（离职折算）
+      * <p> 示例值：0
+      */
     @SerializedName("offboarding_granted")
     private String offboardingGranted;
-
-    // builder 开始
-    public LeaveBalance() {
-    }
-
-    public LeaveBalance(Builder builder) {
-        /**
-         * 假期类型ID
-         * <p> 示例值：4718803945687580505
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 假期类型名称
-         * <p> 示例值：
-         */
-        this.leaveTypeName = builder.leaveTypeName;
-        /**
-         * 结转的历史周期授予时长
-         * <p> 示例值：0
-         */
-        this.historicalCyclesLeft = builder.historicalCyclesLeft;
-        /**
-         * 本周期授予时长
-         * <p> 示例值：0
-         */
-        this.thisCycleTotal = builder.thisCycleTotal;
-        /**
-         * 本周期已休时长
-         * <p> 示例值：0
-         */
-        this.thisCycleTaken = builder.thisCycleTaken;
-        /**
-         * 假期余额
-         * <p> 示例值：0
-         */
-        this.leaveBalance = builder.leaveBalance;
-        /**
-         * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
-         * <p> 示例值：1
-         */
-        this.leaveDurationUnit = builder.leaveDurationUnit;
-        /**
-         * 历史结转发放
-         * <p> 示例值：0
-         */
-        this.historyCycleAccrual = builder.historyCycleAccrual;
-        /**
-         * 当前周期余额
-         * <p> 示例值：0
-         */
-        this.balanceInCurrentCycle = builder.balanceInCurrentCycle;
-        /**
-         * 已休时长
-         * <p> 示例值：0
-         */
-        this.taken = builder.taken;
-        /**
-         * 历史周期已休时长
-         * <p> 示例值：0
-         */
-        this.takenHistoryCycle = builder.takenHistoryCycle;
-        /**
-         * 余额（离职折算）
-         * <p> 示例值：0
-         */
-        this.offboardingBalance = builder.offboardingBalance;
-        /**
-         * 已休时长（截止当日）
-         * <p> 示例值：0
-         */
-        this.takenCurrentDate = builder.takenCurrentDate;
-        /**
-         * 本周期授予时长（离职折算）
-         * <p> 示例值：0
-         */
-        this.offboardingGranted = builder.offboardingGranted;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLeaveTypeId() {
         return this.leaveTypeId;
     }
@@ -307,262 +221,343 @@ public class LeaveBalance {
         this.offboardingGranted = offboardingGranted;
     }
 
+
+// builder 开始
+  public LeaveBalance(){}
+
+  public LeaveBalance(Builder builder){
+         /**
+          * 假期类型ID
+          * <p> 示例值：4718803945687580505
+          */
+      this.leaveTypeId = builder.leaveTypeId;
+         /**
+          * 假期类型名称
+          * <p> 示例值：
+          */
+      this.leaveTypeName = builder.leaveTypeName;
+         /**
+          * 结转的历史周期授予时长
+          * <p> 示例值：0
+          */
+      this.historicalCyclesLeft = builder.historicalCyclesLeft;
+         /**
+          * 本周期授予时长
+          * <p> 示例值：0
+          */
+      this.thisCycleTotal = builder.thisCycleTotal;
+         /**
+          * 本周期已休时长
+          * <p> 示例值：0
+          */
+      this.thisCycleTaken = builder.thisCycleTaken;
+         /**
+          * 假期余额
+          * <p> 示例值：0
+          */
+      this.leaveBalance = builder.leaveBalance;
+         /**
+          * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
+          * <p> 示例值：1
+          */
+      this.leaveDurationUnit = builder.leaveDurationUnit;
+         /**
+          * 历史结转发放
+          * <p> 示例值：0
+          */
+      this.historyCycleAccrual = builder.historyCycleAccrual;
+         /**
+          * 当前周期余额
+          * <p> 示例值：0
+          */
+      this.balanceInCurrentCycle = builder.balanceInCurrentCycle;
+         /**
+          * 已休时长
+          * <p> 示例值：0
+          */
+      this.taken = builder.taken;
+         /**
+          * 历史周期已休时长
+          * <p> 示例值：0
+          */
+      this.takenHistoryCycle = builder.takenHistoryCycle;
+         /**
+          * 余额（离职折算）
+          * <p> 示例值：0
+          */
+      this.offboardingBalance = builder.offboardingBalance;
+         /**
+          * 已休时长（截止当日）
+          * <p> 示例值：0
+          */
+      this.takenCurrentDate = builder.takenCurrentDate;
+         /**
+          * 本周期授予时长（离职折算）
+          * <p> 示例值：0
+          */
+      this.offboardingGranted = builder.offboardingGranted;
+  }
+
     public static class Builder {
-        /**
-         * 假期类型ID
-         * <p> 示例值：4718803945687580505
-         */
+     /**
+      * 假期类型ID
+      * <p> 示例值：4718803945687580505
+      */
         private String leaveTypeId;
-        /**
-         * 假期类型名称
-         * <p> 示例值：
-         */
+     /**
+      * 假期类型名称
+      * <p> 示例值：
+      */
         private I18n[] leaveTypeName;
-        /**
-         * 结转的历史周期授予时长
-         * <p> 示例值：0
-         */
+     /**
+      * 结转的历史周期授予时长
+      * <p> 示例值：0
+      */
         private String historicalCyclesLeft;
-        /**
-         * 本周期授予时长
-         * <p> 示例值：0
-         */
+     /**
+      * 本周期授予时长
+      * <p> 示例值：0
+      */
         private String thisCycleTotal;
-        /**
-         * 本周期已休时长
-         * <p> 示例值：0
-         */
+     /**
+      * 本周期已休时长
+      * <p> 示例值：0
+      */
         private String thisCycleTaken;
-        /**
-         * 假期余额
-         * <p> 示例值：0
-         */
+     /**
+      * 假期余额
+      * <p> 示例值：0
+      */
         private String leaveBalance;
-        /**
-         * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
-         * <p> 示例值：1
-         */
+     /**
+      * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
+      * <p> 示例值：1
+      */
         private Integer leaveDurationUnit;
-        /**
-         * 历史结转发放
-         * <p> 示例值：0
-         */
+     /**
+      * 历史结转发放
+      * <p> 示例值：0
+      */
         private String historyCycleAccrual;
-        /**
-         * 当前周期余额
-         * <p> 示例值：0
-         */
+     /**
+      * 当前周期余额
+      * <p> 示例值：0
+      */
         private String balanceInCurrentCycle;
-        /**
-         * 已休时长
-         * <p> 示例值：0
-         */
+     /**
+      * 已休时长
+      * <p> 示例值：0
+      */
         private String taken;
-        /**
-         * 历史周期已休时长
-         * <p> 示例值：0
-         */
+     /**
+      * 历史周期已休时长
+      * <p> 示例值：0
+      */
         private String takenHistoryCycle;
-        /**
-         * 余额（离职折算）
-         * <p> 示例值：0
-         */
+     /**
+      * 余额（离职折算）
+      * <p> 示例值：0
+      */
         private String offboardingBalance;
-        /**
-         * 已休时长（截止当日）
-         * <p> 示例值：0
-         */
+     /**
+      * 已休时长（截止当日）
+      * <p> 示例值：0
+      */
         private String takenCurrentDate;
-        /**
-         * 本周期授予时长（离职折算）
-         * <p> 示例值：0
-         */
+     /**
+      * 本周期授予时长（离职折算）
+      * <p> 示例值：0
+      */
         private String offboardingGranted;
 
         /**
          * 假期类型ID
          * <p> 示例值：4718803945687580505
-         *
          * @param leaveTypeId
          * @return
          */
         public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
+             this.leaveTypeId = leaveTypeId;
+             return this;
         }
 
+    
 
         /**
          * 假期类型名称
          * <p> 示例值：
-         *
          * @param leaveTypeName
          * @return
          */
         public Builder leaveTypeName(I18n[] leaveTypeName) {
-            this.leaveTypeName = leaveTypeName;
-            return this;
+             this.leaveTypeName = leaveTypeName;
+             return this;
         }
 
+    
 
         /**
          * 结转的历史周期授予时长
          * <p> 示例值：0
-         *
          * @param historicalCyclesLeft
          * @return
          */
         public Builder historicalCyclesLeft(String historicalCyclesLeft) {
-            this.historicalCyclesLeft = historicalCyclesLeft;
-            return this;
+             this.historicalCyclesLeft = historicalCyclesLeft;
+             return this;
         }
 
+    
 
         /**
          * 本周期授予时长
          * <p> 示例值：0
-         *
          * @param thisCycleTotal
          * @return
          */
         public Builder thisCycleTotal(String thisCycleTotal) {
-            this.thisCycleTotal = thisCycleTotal;
-            return this;
+             this.thisCycleTotal = thisCycleTotal;
+             return this;
         }
 
+    
 
         /**
          * 本周期已休时长
          * <p> 示例值：0
-         *
          * @param thisCycleTaken
          * @return
          */
         public Builder thisCycleTaken(String thisCycleTaken) {
-            this.thisCycleTaken = thisCycleTaken;
-            return this;
+             this.thisCycleTaken = thisCycleTaken;
+             return this;
         }
 
+    
 
         /**
          * 假期余额
          * <p> 示例值：0
-         *
          * @param leaveBalance
          * @return
          */
         public Builder leaveBalance(String leaveBalance) {
-            this.leaveBalance = leaveBalance;
-            return this;
+             this.leaveBalance = leaveBalance;
+             return this;
         }
 
+    
 
         /**
          * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
          * <p> 示例值：1
-         *
          * @param leaveDurationUnit
          * @return
          */
         public Builder leaveDurationUnit(Integer leaveDurationUnit) {
-            this.leaveDurationUnit = leaveDurationUnit;
-            return this;
+             this.leaveDurationUnit = leaveDurationUnit;
+             return this;
         }
 
+    
 
         /**
          * 历史结转发放
          * <p> 示例值：0
-         *
          * @param historyCycleAccrual
          * @return
          */
         public Builder historyCycleAccrual(String historyCycleAccrual) {
-            this.historyCycleAccrual = historyCycleAccrual;
-            return this;
+             this.historyCycleAccrual = historyCycleAccrual;
+             return this;
         }
 
+    
 
         /**
          * 当前周期余额
          * <p> 示例值：0
-         *
          * @param balanceInCurrentCycle
          * @return
          */
         public Builder balanceInCurrentCycle(String balanceInCurrentCycle) {
-            this.balanceInCurrentCycle = balanceInCurrentCycle;
-            return this;
+             this.balanceInCurrentCycle = balanceInCurrentCycle;
+             return this;
         }
 
+    
 
         /**
          * 已休时长
          * <p> 示例值：0
-         *
          * @param taken
          * @return
          */
         public Builder taken(String taken) {
-            this.taken = taken;
-            return this;
+             this.taken = taken;
+             return this;
         }
 
+    
 
         /**
          * 历史周期已休时长
          * <p> 示例值：0
-         *
          * @param takenHistoryCycle
          * @return
          */
         public Builder takenHistoryCycle(String takenHistoryCycle) {
-            this.takenHistoryCycle = takenHistoryCycle;
-            return this;
+             this.takenHistoryCycle = takenHistoryCycle;
+             return this;
         }
 
+    
 
         /**
          * 余额（离职折算）
          * <p> 示例值：0
-         *
          * @param offboardingBalance
          * @return
          */
         public Builder offboardingBalance(String offboardingBalance) {
-            this.offboardingBalance = offboardingBalance;
-            return this;
+             this.offboardingBalance = offboardingBalance;
+             return this;
         }
 
+    
 
         /**
          * 已休时长（截止当日）
          * <p> 示例值：0
-         *
          * @param takenCurrentDate
          * @return
          */
         public Builder takenCurrentDate(String takenCurrentDate) {
-            this.takenCurrentDate = takenCurrentDate;
-            return this;
+             this.takenCurrentDate = takenCurrentDate;
+             return this;
         }
 
+    
 
         /**
          * 本周期授予时长（离职折算）
          * <p> 示例值：0
-         *
          * @param offboardingGranted
          * @return
          */
         public Builder offboardingGranted(String offboardingGranted) {
-            this.offboardingGranted = offboardingGranted;
-            return this;
+             this.offboardingGranted = offboardingGranted;
+             return this;
         }
 
+    
+    
+    public LeaveBalance build(){
+        return new LeaveBalance(this);
+      }
+    }
 
-        public LeaveBalance build() {
-            return new LeaveBalance(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

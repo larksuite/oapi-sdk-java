@@ -17,16 +17,15 @@ package com.lark.oapi.service.search.v2.enums;
  * 搜索请求的接入方式
  */
 public enum DataSourceConnectTypeEnum {
-    DEFAULT(0), // 调用搜索请求时，使用的是飞书搜索接口
-    CALLBACK(1), // 调用搜索请求时，使用的是自定义回调函数的Uri
-    ;
-    private Integer value;
-
+     DEFAULT(0), // 调用搜索请求时，使用的是飞书搜索接口
+     CALLBACK(1), // 调用搜索请求时，使用的是自定义回调函数的Uri
+  ;
+   private Integer value;
     DataSourceConnectTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

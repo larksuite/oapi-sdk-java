@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,170 +19,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchProbationReqBody {
-    /**
-     * 雇佣 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 雇佣 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("employment_ids")
     private String[] employmentIds;
-    /**
-     * 部门 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 部门 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("department_ids")
     private String[] departmentIds;
-    /**
-     * 试用期开始日期 - 搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2022-05-18
-     */
+     /**
+      * 试用期开始日期 - 搜索范围开始，需要与搜索范围结束一同使用
+      * <p> 示例值：2022-05-18
+      */
     @SerializedName("probation_start_date_start")
     private String probationStartDateStart;
-    /**
-     * 试用期开始日期 - 搜索范围结束
-     * <p> 示例值：2022-05-20
-     */
+     /**
+      * 试用期开始日期 - 搜索范围结束
+      * <p> 示例值：2022-05-20
+      */
     @SerializedName("probation_start_date_end")
     private String probationStartDateEnd;
-    /**
-     * 试用期预计结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2022-06-20
-     */
+     /**
+      * 试用期预计结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
+      * <p> 示例值：2022-06-20
+      */
     @SerializedName("probation_expected_end_date_start")
     private String probationExpectedEndDateStart;
-    /**
-     * 试用期预计结束日期 - 搜索范围结束
-     * <p> 示例值：2022-07-20
-     */
+     /**
+      * 试用期预计结束日期 - 搜索范围结束
+      * <p> 示例值：2022-07-20
+      */
     @SerializedName("probation_expected_end_date_end")
     private String probationExpectedEndDateEnd;
-    /**
-     * 试用期实际结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2022-08-20
-     */
+     /**
+      * 试用期实际结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
+      * <p> 示例值：2022-08-20
+      */
     @SerializedName("actual_probation_end_date_start")
     private String actualProbationEndDateStart;
-    /**
-     * 试用期实际结束日期 - 搜索范围结束
-     * <p> 示例值：2022-09-20
-     */
+     /**
+      * 试用期实际结束日期 - 搜索范围结束
+      * <p> 示例值：2022-09-20
+      */
     @SerializedName("actual_probation_end_date_end")
     private String actualProbationEndDateEnd;
-    /**
-     * 转正发起日期 - 搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2022-10-20
-     */
+     /**
+      * 转正发起日期 - 搜索范围开始，需要与搜索范围结束一同使用
+      * <p> 示例值：2022-10-20
+      */
     @SerializedName("initiating_time_start")
     private String initiatingTimeStart;
-    /**
-     * 转正发起日期 - 搜索范围结束
-     * <p> 示例值：2022-11-20
-     */
+     /**
+      * 转正发起日期 - 搜索范围结束
+      * <p> 示例值：2022-11-20
+      */
     @SerializedName("initiating_time_end")
     private String initiatingTimeEnd;
-    /**
-     * 试用期状态
-     * <p> 示例值：approved
-     */
+     /**
+      * 试用期状态
+      * <p> 示例值：approved
+      */
     @SerializedName("probation_status")
     private String probationStatus;
-    /**
-     * 试用期最终考核结果
-     * <p> 示例值：approved
-     */
+     /**
+      * 试用期最终考核结果
+      * <p> 示例值：approved
+      */
     @SerializedName("final_assessment_result")
     private String finalAssessmentResult;
-    /**
-     * 试用期最终考核等级
-     * <p> 示例值：grade_a
-     */
+     /**
+      * 试用期最终考核等级
+      * <p> 示例值：grade_a
+      */
     @SerializedName("final_assessment_grade")
     private String finalAssessmentGrade;
-
-    // builder 开始
-    public SearchProbationReqBody() {
-    }
-
-    public SearchProbationReqBody(Builder builder) {
-        /**
-         * 雇佣 ID 列表
-         * <p> 示例值：
-         */
-        this.employmentIds = builder.employmentIds;
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 试用期开始日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-05-18
-         */
-        this.probationStartDateStart = builder.probationStartDateStart;
-        /**
-         * 试用期开始日期 - 搜索范围结束
-         * <p> 示例值：2022-05-20
-         */
-        this.probationStartDateEnd = builder.probationStartDateEnd;
-        /**
-         * 试用期预计结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-06-20
-         */
-        this.probationExpectedEndDateStart = builder.probationExpectedEndDateStart;
-        /**
-         * 试用期预计结束日期 - 搜索范围结束
-         * <p> 示例值：2022-07-20
-         */
-        this.probationExpectedEndDateEnd = builder.probationExpectedEndDateEnd;
-        /**
-         * 试用期实际结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-08-20
-         */
-        this.actualProbationEndDateStart = builder.actualProbationEndDateStart;
-        /**
-         * 试用期实际结束日期 - 搜索范围结束
-         * <p> 示例值：2022-09-20
-         */
-        this.actualProbationEndDateEnd = builder.actualProbationEndDateEnd;
-        /**
-         * 转正发起日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-10-20
-         */
-        this.initiatingTimeStart = builder.initiatingTimeStart;
-        /**
-         * 转正发起日期 - 搜索范围结束
-         * <p> 示例值：2022-11-20
-         */
-        this.initiatingTimeEnd = builder.initiatingTimeEnd;
-        /**
-         * 试用期状态
-         * <p> 示例值：approved
-         */
-        this.probationStatus = builder.probationStatus;
-        /**
-         * 试用期最终考核结果
-         * <p> 示例值：approved
-         */
-        this.finalAssessmentResult = builder.finalAssessmentResult;
-        /**
-         * 试用期最终考核等级
-         * <p> 示例值：grade_a
-         */
-        this.finalAssessmentGrade = builder.finalAssessmentGrade;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getEmploymentIds() {
         return this.employmentIds;
     }
@@ -288,268 +207,340 @@ public class SearchProbationReqBody {
         this.finalAssessmentGrade = finalAssessmentGrade;
     }
 
+
+// builder 开始
+  public SearchProbationReqBody(){}
+
+  public SearchProbationReqBody(Builder builder){
+         /**
+          * 雇佣 ID 列表
+          * <p> 示例值：
+          */
+      this.employmentIds = builder.employmentIds;
+         /**
+          * 部门 ID 列表
+          * <p> 示例值：
+          */
+      this.departmentIds = builder.departmentIds;
+         /**
+          * 试用期开始日期 - 搜索范围开始，需要与搜索范围结束一同使用
+          * <p> 示例值：2022-05-18
+          */
+      this.probationStartDateStart = builder.probationStartDateStart;
+         /**
+          * 试用期开始日期 - 搜索范围结束
+          * <p> 示例值：2022-05-20
+          */
+      this.probationStartDateEnd = builder.probationStartDateEnd;
+         /**
+          * 试用期预计结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
+          * <p> 示例值：2022-06-20
+          */
+      this.probationExpectedEndDateStart = builder.probationExpectedEndDateStart;
+         /**
+          * 试用期预计结束日期 - 搜索范围结束
+          * <p> 示例值：2022-07-20
+          */
+      this.probationExpectedEndDateEnd = builder.probationExpectedEndDateEnd;
+         /**
+          * 试用期实际结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
+          * <p> 示例值：2022-08-20
+          */
+      this.actualProbationEndDateStart = builder.actualProbationEndDateStart;
+         /**
+          * 试用期实际结束日期 - 搜索范围结束
+          * <p> 示例值：2022-09-20
+          */
+      this.actualProbationEndDateEnd = builder.actualProbationEndDateEnd;
+         /**
+          * 转正发起日期 - 搜索范围开始，需要与搜索范围结束一同使用
+          * <p> 示例值：2022-10-20
+          */
+      this.initiatingTimeStart = builder.initiatingTimeStart;
+         /**
+          * 转正发起日期 - 搜索范围结束
+          * <p> 示例值：2022-11-20
+          */
+      this.initiatingTimeEnd = builder.initiatingTimeEnd;
+         /**
+          * 试用期状态
+          * <p> 示例值：approved
+          */
+      this.probationStatus = builder.probationStatus;
+         /**
+          * 试用期最终考核结果
+          * <p> 示例值：approved
+          */
+      this.finalAssessmentResult = builder.finalAssessmentResult;
+         /**
+          * 试用期最终考核等级
+          * <p> 示例值：grade_a
+          */
+      this.finalAssessmentGrade = builder.finalAssessmentGrade;
+  }
+
     public static class Builder {
-        /**
-         * 雇佣 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 雇佣 ID 列表
+      * <p> 示例值：
+      */
         private String[] employmentIds;
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 部门 ID 列表
+      * <p> 示例值：
+      */
         private String[] departmentIds;
-        /**
-         * 试用期开始日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-05-18
-         */
+     /**
+      * 试用期开始日期 - 搜索范围开始，需要与搜索范围结束一同使用
+      * <p> 示例值：2022-05-18
+      */
         private String probationStartDateStart;
-        /**
-         * 试用期开始日期 - 搜索范围结束
-         * <p> 示例值：2022-05-20
-         */
+     /**
+      * 试用期开始日期 - 搜索范围结束
+      * <p> 示例值：2022-05-20
+      */
         private String probationStartDateEnd;
-        /**
-         * 试用期预计结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-06-20
-         */
+     /**
+      * 试用期预计结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
+      * <p> 示例值：2022-06-20
+      */
         private String probationExpectedEndDateStart;
-        /**
-         * 试用期预计结束日期 - 搜索范围结束
-         * <p> 示例值：2022-07-20
-         */
+     /**
+      * 试用期预计结束日期 - 搜索范围结束
+      * <p> 示例值：2022-07-20
+      */
         private String probationExpectedEndDateEnd;
-        /**
-         * 试用期实际结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-08-20
-         */
+     /**
+      * 试用期实际结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
+      * <p> 示例值：2022-08-20
+      */
         private String actualProbationEndDateStart;
-        /**
-         * 试用期实际结束日期 - 搜索范围结束
-         * <p> 示例值：2022-09-20
-         */
+     /**
+      * 试用期实际结束日期 - 搜索范围结束
+      * <p> 示例值：2022-09-20
+      */
         private String actualProbationEndDateEnd;
-        /**
-         * 转正发起日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-10-20
-         */
+     /**
+      * 转正发起日期 - 搜索范围开始，需要与搜索范围结束一同使用
+      * <p> 示例值：2022-10-20
+      */
         private String initiatingTimeStart;
-        /**
-         * 转正发起日期 - 搜索范围结束
-         * <p> 示例值：2022-11-20
-         */
+     /**
+      * 转正发起日期 - 搜索范围结束
+      * <p> 示例值：2022-11-20
+      */
         private String initiatingTimeEnd;
-        /**
-         * 试用期状态
-         * <p> 示例值：approved
-         */
+     /**
+      * 试用期状态
+      * <p> 示例值：approved
+      */
         private String probationStatus;
-        /**
-         * 试用期最终考核结果
-         * <p> 示例值：approved
-         */
+     /**
+      * 试用期最终考核结果
+      * <p> 示例值：approved
+      */
         private String finalAssessmentResult;
-        /**
-         * 试用期最终考核等级
-         * <p> 示例值：grade_a
-         */
+     /**
+      * 试用期最终考核等级
+      * <p> 示例值：grade_a
+      */
         private String finalAssessmentGrade;
 
         /**
          * 雇佣 ID 列表
          * <p> 示例值：
-         *
          * @param employmentIds
          * @return
          */
         public Builder employmentIds(String[] employmentIds) {
-            this.employmentIds = employmentIds;
-            return this;
+             this.employmentIds = employmentIds;
+             return this;
         }
 
+    
 
         /**
          * 部门 ID 列表
          * <p> 示例值：
-         *
          * @param departmentIds
          * @return
          */
         public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
+             this.departmentIds = departmentIds;
+             return this;
         }
 
+    
 
         /**
          * 试用期开始日期 - 搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2022-05-18
-         *
          * @param probationStartDateStart
          * @return
          */
         public Builder probationStartDateStart(String probationStartDateStart) {
-            this.probationStartDateStart = probationStartDateStart;
-            return this;
+             this.probationStartDateStart = probationStartDateStart;
+             return this;
         }
 
+    
 
         /**
          * 试用期开始日期 - 搜索范围结束
          * <p> 示例值：2022-05-20
-         *
          * @param probationStartDateEnd
          * @return
          */
         public Builder probationStartDateEnd(String probationStartDateEnd) {
-            this.probationStartDateEnd = probationStartDateEnd;
-            return this;
+             this.probationStartDateEnd = probationStartDateEnd;
+             return this;
         }
 
+    
 
         /**
          * 试用期预计结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2022-06-20
-         *
          * @param probationExpectedEndDateStart
          * @return
          */
         public Builder probationExpectedEndDateStart(String probationExpectedEndDateStart) {
-            this.probationExpectedEndDateStart = probationExpectedEndDateStart;
-            return this;
+             this.probationExpectedEndDateStart = probationExpectedEndDateStart;
+             return this;
         }
 
+    
 
         /**
          * 试用期预计结束日期 - 搜索范围结束
          * <p> 示例值：2022-07-20
-         *
          * @param probationExpectedEndDateEnd
          * @return
          */
         public Builder probationExpectedEndDateEnd(String probationExpectedEndDateEnd) {
-            this.probationExpectedEndDateEnd = probationExpectedEndDateEnd;
-            return this;
+             this.probationExpectedEndDateEnd = probationExpectedEndDateEnd;
+             return this;
         }
 
+    
 
         /**
          * 试用期实际结束日期 - 搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2022-08-20
-         *
          * @param actualProbationEndDateStart
          * @return
          */
         public Builder actualProbationEndDateStart(String actualProbationEndDateStart) {
-            this.actualProbationEndDateStart = actualProbationEndDateStart;
-            return this;
+             this.actualProbationEndDateStart = actualProbationEndDateStart;
+             return this;
         }
 
+    
 
         /**
          * 试用期实际结束日期 - 搜索范围结束
          * <p> 示例值：2022-09-20
-         *
          * @param actualProbationEndDateEnd
          * @return
          */
         public Builder actualProbationEndDateEnd(String actualProbationEndDateEnd) {
-            this.actualProbationEndDateEnd = actualProbationEndDateEnd;
-            return this;
+             this.actualProbationEndDateEnd = actualProbationEndDateEnd;
+             return this;
         }
 
+    
 
         /**
          * 转正发起日期 - 搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2022-10-20
-         *
          * @param initiatingTimeStart
          * @return
          */
         public Builder initiatingTimeStart(String initiatingTimeStart) {
-            this.initiatingTimeStart = initiatingTimeStart;
-            return this;
+             this.initiatingTimeStart = initiatingTimeStart;
+             return this;
         }
 
+    
 
         /**
          * 转正发起日期 - 搜索范围结束
          * <p> 示例值：2022-11-20
-         *
          * @param initiatingTimeEnd
          * @return
          */
         public Builder initiatingTimeEnd(String initiatingTimeEnd) {
-            this.initiatingTimeEnd = initiatingTimeEnd;
-            return this;
+             this.initiatingTimeEnd = initiatingTimeEnd;
+             return this;
         }
 
+    
 
         /**
          * 试用期状态
          * <p> 示例值：approved
-         *
          * @param probationStatus
          * @return
          */
         public Builder probationStatus(String probationStatus) {
-            this.probationStatus = probationStatus;
-            return this;
+             this.probationStatus = probationStatus;
+             return this;
         }
-
         /**
          * 试用期状态
          * <p> 示例值：approved
-         *
          * @param probationStatus {@link com.lark.oapi.service.corehr.v2.enums.SearchProbationProbationStatusEnum}
          * @return
          */
         public Builder probationStatus(com.lark.oapi.service.corehr.v2.enums.SearchProbationProbationStatusEnum probationStatus) {
-            this.probationStatus = probationStatus.getValue();
-            return this;
+             this.probationStatus = probationStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 试用期最终考核结果
          * <p> 示例值：approved
-         *
          * @param finalAssessmentResult
          * @return
          */
         public Builder finalAssessmentResult(String finalAssessmentResult) {
-            this.finalAssessmentResult = finalAssessmentResult;
-            return this;
+             this.finalAssessmentResult = finalAssessmentResult;
+             return this;
         }
-
         /**
          * 试用期最终考核结果
          * <p> 示例值：approved
-         *
          * @param finalAssessmentResult {@link com.lark.oapi.service.corehr.v2.enums.SearchProbationFinalAssessmentResultEnum}
          * @return
          */
         public Builder finalAssessmentResult(com.lark.oapi.service.corehr.v2.enums.SearchProbationFinalAssessmentResultEnum finalAssessmentResult) {
-            this.finalAssessmentResult = finalAssessmentResult.getValue();
-            return this;
+             this.finalAssessmentResult = finalAssessmentResult.getValue();
+             return this;
         }
 
+    
 
         /**
          * 试用期最终考核等级
          * <p> 示例值：grade_a
-         *
          * @param finalAssessmentGrade
          * @return
          */
         public Builder finalAssessmentGrade(String finalAssessmentGrade) {
-            this.finalAssessmentGrade = finalAssessmentGrade;
-            return this;
+             this.finalAssessmentGrade = finalAssessmentGrade;
+             return this;
         }
 
+    
+    
+    public SearchProbationReqBody build(){
+        return new SearchProbationReqBody(this);
+      }
+    }
 
-        public SearchProbationReqBody build() {
-            return new SearchProbationReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

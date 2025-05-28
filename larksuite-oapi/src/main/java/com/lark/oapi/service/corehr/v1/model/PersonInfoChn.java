@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PersonInfoChn {
-    /**
-     * 个人附加信息 ID
-     * <p> 示例值：6950635856373745165
-     */
+     /**
+      * 个人附加信息 ID
+      * <p> 示例值：6950635856373745165
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 籍贯 ID;- 枚举值可通过「查询单条省份/行政区信息」接口获取
-     * <p> 示例值：6863326263973512712
-     */
+     /**
+      * 籍贯 ID;- 枚举值可通过「查询单条省份/行政区信息」接口获取
+      * <p> 示例值：6863326263973512712
+      */
     @SerializedName("native_region")
     private String nativeRegion;
-    /**
-     * 政治面貌，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)政治面貌（political_affiliation）枚举定义部分获得
-     * <p> 示例值：
-     */
+     /**
+      * 政治面貌，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)政治面貌（political_affiliation）枚举定义部分获得
+      * <p> 示例值：
+      */
     @SerializedName("political_affiliation_list")
     private Enum[] politicalAffiliationList;
-    /**
-     * 户口类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)户口类型（hukou_type）枚举定义部分获得
-     * <p> 示例值：
-     */
+     /**
+      * 户口类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)户口类型（hukou_type）枚举定义部分获得
+      * <p> 示例值：
+      */
     @SerializedName("hukou_type")
     private Enum hukouType;
-    /**
-     * 户口所在地
-     * <p> 示例值：山东省平阴县
-     */
+     /**
+      * 户口所在地
+      * <p> 示例值：山东省平阴县
+      */
     @SerializedName("hukou_location")
     private String hukouLocation;
-    /**
-     * Person ID
-     * <p> 示例值：6919733647952053768
-     */
+     /**
+      * Person ID
+      * <p> 示例值：6919733647952053768
+      */
     @SerializedName("person_id")
     private String personId;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-    /**
-     * 工龄
-     * <p> 示例值：2
-     */
+     /**
+      * 工龄
+      * <p> 示例值：2
+      */
     @SerializedName("working_years")
     private Integer workingYears;
-
-    // builder 开始
-    public PersonInfoChn() {
-    }
-
-    public PersonInfoChn(Builder builder) {
-        /**
-         * 个人附加信息 ID
-         * <p> 示例值：6950635856373745165
-         */
-        this.id = builder.id;
-        /**
-         * 籍贯 ID;- 枚举值可通过「查询单条省份/行政区信息」接口获取
-         * <p> 示例值：6863326263973512712
-         */
-        this.nativeRegion = builder.nativeRegion;
-        /**
-         * 政治面貌，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)政治面貌（political_affiliation）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.politicalAffiliationList = builder.politicalAffiliationList;
-        /**
-         * 户口类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)户口类型（hukou_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.hukouType = builder.hukouType;
-        /**
-         * 户口所在地
-         * <p> 示例值：山东省平阴县
-         */
-        this.hukouLocation = builder.hukouLocation;
-        /**
-         * Person ID
-         * <p> 示例值：6919733647952053768
-         */
-        this.personId = builder.personId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 工龄
-         * <p> 示例值：2
-         */
-        this.workingYears = builder.workingYears;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -193,154 +137,205 @@ public class PersonInfoChn {
         this.workingYears = workingYears;
     }
 
+
+// builder 开始
+  public PersonInfoChn(){}
+
+  public PersonInfoChn(Builder builder){
+         /**
+          * 个人附加信息 ID
+          * <p> 示例值：6950635856373745165
+          */
+      this.id = builder.id;
+         /**
+          * 籍贯 ID;- 枚举值可通过「查询单条省份/行政区信息」接口获取
+          * <p> 示例值：6863326263973512712
+          */
+      this.nativeRegion = builder.nativeRegion;
+         /**
+          * 政治面貌，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)政治面貌（political_affiliation）枚举定义部分获得
+          * <p> 示例值：
+          */
+      this.politicalAffiliationList = builder.politicalAffiliationList;
+         /**
+          * 户口类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)户口类型（hukou_type）枚举定义部分获得
+          * <p> 示例值：
+          */
+      this.hukouType = builder.hukouType;
+         /**
+          * 户口所在地
+          * <p> 示例值：山东省平阴县
+          */
+      this.hukouLocation = builder.hukouLocation;
+         /**
+          * Person ID
+          * <p> 示例值：6919733647952053768
+          */
+      this.personId = builder.personId;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 工龄
+          * <p> 示例值：2
+          */
+      this.workingYears = builder.workingYears;
+  }
+
     public static class Builder {
-        /**
-         * 个人附加信息 ID
-         * <p> 示例值：6950635856373745165
-         */
+     /**
+      * 个人附加信息 ID
+      * <p> 示例值：6950635856373745165
+      */
         private String id;
-        /**
-         * 籍贯 ID;- 枚举值可通过「查询单条省份/行政区信息」接口获取
-         * <p> 示例值：6863326263973512712
-         */
+     /**
+      * 籍贯 ID;- 枚举值可通过「查询单条省份/行政区信息」接口获取
+      * <p> 示例值：6863326263973512712
+      */
         private String nativeRegion;
-        /**
-         * 政治面貌，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)政治面貌（political_affiliation）枚举定义部分获得
-         * <p> 示例值：
-         */
+     /**
+      * 政治面貌，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)政治面貌（political_affiliation）枚举定义部分获得
+      * <p> 示例值：
+      */
         private Enum[] politicalAffiliationList;
-        /**
-         * 户口类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)户口类型（hukou_type）枚举定义部分获得
-         * <p> 示例值：
-         */
+     /**
+      * 户口类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)户口类型（hukou_type）枚举定义部分获得
+      * <p> 示例值：
+      */
         private Enum hukouType;
-        /**
-         * 户口所在地
-         * <p> 示例值：山东省平阴县
-         */
+     /**
+      * 户口所在地
+      * <p> 示例值：山东省平阴县
+      */
         private String hukouLocation;
-        /**
-         * Person ID
-         * <p> 示例值：6919733647952053768
-         */
+     /**
+      * Person ID
+      * <p> 示例值：6919733647952053768
+      */
         private String personId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ObjectFieldData[] customFields;
-        /**
-         * 工龄
-         * <p> 示例值：2
-         */
+     /**
+      * 工龄
+      * <p> 示例值：2
+      */
         private Integer workingYears;
 
         /**
          * 个人附加信息 ID
          * <p> 示例值：6950635856373745165
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 籍贯 ID;- 枚举值可通过「查询单条省份/行政区信息」接口获取
          * <p> 示例值：6863326263973512712
-         *
          * @param nativeRegion
          * @return
          */
         public Builder nativeRegion(String nativeRegion) {
-            this.nativeRegion = nativeRegion;
-            return this;
+             this.nativeRegion = nativeRegion;
+             return this;
         }
 
+    
 
         /**
          * 政治面貌，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)政治面貌（political_affiliation）枚举定义部分获得
          * <p> 示例值：
-         *
          * @param politicalAffiliationList
          * @return
          */
         public Builder politicalAffiliationList(Enum[] politicalAffiliationList) {
-            this.politicalAffiliationList = politicalAffiliationList;
-            return this;
+             this.politicalAffiliationList = politicalAffiliationList;
+             return this;
         }
 
+    
 
         /**
          * 户口类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)户口类型（hukou_type）枚举定义部分获得
          * <p> 示例值：
-         *
          * @param hukouType
          * @return
          */
         public Builder hukouType(Enum hukouType) {
-            this.hukouType = hukouType;
-            return this;
+             this.hukouType = hukouType;
+             return this;
         }
 
+    
 
         /**
          * 户口所在地
          * <p> 示例值：山东省平阴县
-         *
          * @param hukouLocation
          * @return
          */
         public Builder hukouLocation(String hukouLocation) {
-            this.hukouLocation = hukouLocation;
-            return this;
+             this.hukouLocation = hukouLocation;
+             return this;
         }
 
+    
 
         /**
          * Person ID
          * <p> 示例值：6919733647952053768
-         *
          * @param personId
          * @return
          */
         public Builder personId(String personId) {
-            this.personId = personId;
-            return this;
+             this.personId = personId;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 工龄
          * <p> 示例值：2
-         *
          * @param workingYears
          * @return
          */
         public Builder workingYears(Integer workingYears) {
-            this.workingYears = workingYears;
-            return this;
+             this.workingYears = workingYears;
+             return this;
         }
 
+    
+    
+    public PersonInfoChn build(){
+        return new PersonInfoChn(this);
+      }
+    }
 
-        public PersonInfoChn build() {
-            return new PersonInfoChn(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

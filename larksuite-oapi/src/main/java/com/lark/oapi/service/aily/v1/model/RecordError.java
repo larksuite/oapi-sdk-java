@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RecordError {
-    /**
-     * 内部错误码
-     * <p> 示例值：k_mt_ec_001000
-     */
+     /**
+      * 内部错误码
+      * <p> 示例值：k_mt_ec_001000
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 错误文本
-     * <p> 示例值：权限不足
-     */
+     /**
+      * 错误文本
+      * <p> 示例值：权限不足
+      */
     @SerializedName("message")
     private String message;
-
-    // builder 开始
-    public RecordError() {
-    }
-
-    public RecordError(Builder builder) {
-        /**
-         * 内部错误码
-         * <p> 示例值：k_mt_ec_001000
-         */
-        this.code = builder.code;
-        /**
-         * 错误文本
-         * <p> 示例值：权限不足
-         */
-        this.message = builder.message;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCode() {
         return this.code;
     }
@@ -79,46 +53,67 @@ public class RecordError {
         this.message = message;
     }
 
+
+// builder 开始
+  public RecordError(){}
+
+  public RecordError(Builder builder){
+         /**
+          * 内部错误码
+          * <p> 示例值：k_mt_ec_001000
+          */
+      this.code = builder.code;
+         /**
+          * 错误文本
+          * <p> 示例值：权限不足
+          */
+      this.message = builder.message;
+  }
+
     public static class Builder {
-        /**
-         * 内部错误码
-         * <p> 示例值：k_mt_ec_001000
-         */
+     /**
+      * 内部错误码
+      * <p> 示例值：k_mt_ec_001000
+      */
         private String code;
-        /**
-         * 错误文本
-         * <p> 示例值：权限不足
-         */
+     /**
+      * 错误文本
+      * <p> 示例值：权限不足
+      */
         private String message;
 
         /**
          * 内部错误码
          * <p> 示例值：k_mt_ec_001000
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 错误文本
          * <p> 示例值：权限不足
-         *
          * @param message
          * @return
          */
         public Builder message(String message) {
-            this.message = message;
-            return this;
+             this.message = message;
+             return this;
         }
 
+    
+    
+    public RecordError build(){
+        return new RecordError(this);
+      }
+    }
 
-        public RecordError build() {
-            return new RecordError(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

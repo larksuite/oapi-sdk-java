@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchMessageReqBody {
-    /**
-     * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-     * <p> 示例值：参考链接
-     */
+     /**
+      * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+      * <p> 示例值：参考链接
+      */
     @SerializedName("content")
     private String content;
-
-    // builder 开始
-    public PatchMessageReqBody() {
-    }
-
-    public PatchMessageReqBody(Builder builder) {
-        /**
-         * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-         * <p> 示例值：参考链接
-         */
-        this.content = builder.content;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContent() {
         return this.content;
     }
@@ -60,28 +39,44 @@ public class PatchMessageReqBody {
         this.content = content;
     }
 
+
+// builder 开始
+  public PatchMessageReqBody(){}
+
+  public PatchMessageReqBody(Builder builder){
+         /**
+          * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+          * <p> 示例值：参考链接
+          */
+      this.content = builder.content;
+  }
+
     public static class Builder {
-        /**
-         * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-         * <p> 示例值：参考链接
-         */
+     /**
+      * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+      * <p> 示例值：参考链接
+      */
         private String content;
 
         /**
          * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
          * <p> 示例值：参考链接
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
+    
+    public PatchMessageReqBody build(){
+        return new PatchMessageReqBody(this);
+      }
+    }
 
-        public PatchMessageReqBody build() {
-            return new PatchMessageReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

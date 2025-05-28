@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchBasicInfoCountryRegionSubdivisionReqBody {
-    /**
-     * 国家/地区 ID 列表，可通过【查询国家/地区信息】接口获取
-     * <p> 示例值：
-     */
+     /**
+      * 国家/地区 ID 列表，可通过【查询国家/地区信息】接口获取
+      * <p> 示例值：
+      */
     @SerializedName("country_region_id_list")
     private String[] countryRegionIdList;
-    /**
-     * 省份/行政区 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 省份/行政区 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("country_region_subdivision_id_list")
     private String[] countryRegionSubdivisionIdList;
-    /**
-     * 状态列表
-     * <p> 示例值：
-     */
+     /**
+      * 状态列表
+      * <p> 示例值：
+      */
     @SerializedName("status_list")
     private Integer[] statusList;
-
-    // builder 开始
-    public SearchBasicInfoCountryRegionSubdivisionReqBody() {
-    }
-
-    public SearchBasicInfoCountryRegionSubdivisionReqBody(Builder builder) {
-        /**
-         * 国家/地区 ID 列表，可通过【查询国家/地区信息】接口获取
-         * <p> 示例值：
-         */
-        this.countryRegionIdList = builder.countryRegionIdList;
-        /**
-         * 省份/行政区 ID 列表
-         * <p> 示例值：
-         */
-        this.countryRegionSubdivisionIdList = builder.countryRegionSubdivisionIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        this.statusList = builder.statusList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getCountryRegionIdList() {
         return this.countryRegionIdList;
     }
@@ -98,64 +67,90 @@ public class SearchBasicInfoCountryRegionSubdivisionReqBody {
         this.statusList = statusList;
     }
 
+
+// builder 开始
+  public SearchBasicInfoCountryRegionSubdivisionReqBody(){}
+
+  public SearchBasicInfoCountryRegionSubdivisionReqBody(Builder builder){
+         /**
+          * 国家/地区 ID 列表，可通过【查询国家/地区信息】接口获取
+          * <p> 示例值：
+          */
+      this.countryRegionIdList = builder.countryRegionIdList;
+         /**
+          * 省份/行政区 ID 列表
+          * <p> 示例值：
+          */
+      this.countryRegionSubdivisionIdList = builder.countryRegionSubdivisionIdList;
+         /**
+          * 状态列表
+          * <p> 示例值：
+          */
+      this.statusList = builder.statusList;
+  }
+
     public static class Builder {
-        /**
-         * 国家/地区 ID 列表，可通过【查询国家/地区信息】接口获取
-         * <p> 示例值：
-         */
+     /**
+      * 国家/地区 ID 列表，可通过【查询国家/地区信息】接口获取
+      * <p> 示例值：
+      */
         private String[] countryRegionIdList;
-        /**
-         * 省份/行政区 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 省份/行政区 ID 列表
+      * <p> 示例值：
+      */
         private String[] countryRegionSubdivisionIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
+     /**
+      * 状态列表
+      * <p> 示例值：
+      */
         private Integer[] statusList;
 
         /**
          * 国家/地区 ID 列表，可通过【查询国家/地区信息】接口获取
          * <p> 示例值：
-         *
          * @param countryRegionIdList
          * @return
          */
         public Builder countryRegionIdList(String[] countryRegionIdList) {
-            this.countryRegionIdList = countryRegionIdList;
-            return this;
+             this.countryRegionIdList = countryRegionIdList;
+             return this;
         }
 
+    
 
         /**
          * 省份/行政区 ID 列表
          * <p> 示例值：
-         *
          * @param countryRegionSubdivisionIdList
          * @return
          */
         public Builder countryRegionSubdivisionIdList(String[] countryRegionSubdivisionIdList) {
-            this.countryRegionSubdivisionIdList = countryRegionSubdivisionIdList;
-            return this;
+             this.countryRegionSubdivisionIdList = countryRegionSubdivisionIdList;
+             return this;
         }
 
+    
 
         /**
          * 状态列表
          * <p> 示例值：
-         *
          * @param statusList
          * @return
          */
         public Builder statusList(Integer[] statusList) {
-            this.statusList = statusList;
-            return this;
+             this.statusList = statusList;
+             return this;
         }
 
+    
+    
+    public SearchBasicInfoCountryRegionSubdivisionReqBody build(){
+        return new SearchBasicInfoCountryRegionSubdivisionReqBody(this);
+      }
+    }
 
-        public SearchBasicInfoCountryRegionSubdivisionReqBody build() {
-            return new SearchBasicInfoCountryRegionSubdivisionReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

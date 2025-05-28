@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreatePersonReq {
-    /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
-     */
+     /**
+      * 根据client_token是否一致来判断是否为同一请求
+      * <p> 示例值：12454646
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    @Body
-    private PersonInfo body;
-
-    // builder 开始
-    public CreatePersonReq() {
-    }
-
-    public CreatePersonReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getClientToken() {
         return this.clientToken;
     }
@@ -62,6 +38,9 @@ public class CreatePersonReq {
     public void setClientToken(String clientToken) {
         this.clientToken = clientToken;
     }
+
+    @Body
+    private PersonInfo body;
 
     public PersonInfo getPersonInfo() {
         return this.body;
@@ -71,39 +50,54 @@ public class CreatePersonReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreatePersonReq(){}
+
+  public CreatePersonReq(Builder builder){
+         /**
+          * 根据client_token是否一致来判断是否为同一请求
+          * <p> 示例值：12454646
+          */
+       this.clientToken = builder.clientToken;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private PersonInfo body;
-
+    
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：12454646
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
+        private PersonInfo body;
+    
         public PersonInfo getPersonInfo() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder personInfo(PersonInfo body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreatePersonReq build(){
+        return new CreatePersonReq(this);
+      }
+    }
 
-        public CreatePersonReq build() {
-            return new CreatePersonReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

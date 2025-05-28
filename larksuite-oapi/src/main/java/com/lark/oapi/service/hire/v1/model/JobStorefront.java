@@ -12,122 +12,66 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobStorefront {
-    /**
-     * 门店ID
-     * <p> 示例值：6960663240925956547
-     */
+     /**
+      * 门店ID
+      * <p> 示例值：6960663240925956547
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 门店名称
-     * <p> 示例值：
-     */
+     /**
+      * 门店名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 启用状态
-     * <p> 示例值：1
-     */
+     /**
+      * 启用状态
+      * <p> 示例值：1
+      */
     @SerializedName("active_status")
     private Integer activeStatus;
-    /**
-     * 门店部门
-     * <p> 示例值：
-     */
+     /**
+      * 门店部门
+      * <p> 示例值：
+      */
     @SerializedName("department")
     private JobDepartmentSimple department;
-    /**
-     * 门店地址
-     * <p> 示例值：
-     */
+     /**
+      * 门店地址
+      * <p> 示例值：
+      */
     @SerializedName("address")
     private CommonAddress address;
-    /**
-     * 门店负责人
-     * <p> 示例值：
-     */
+     /**
+      * 门店负责人
+      * <p> 示例值：
+      */
     @SerializedName("manager")
     private JobUserInfo manager;
-    /**
-     * 创建时间，毫秒级时间戳
-     * <p> 示例值：1622484739955
-     */
+     /**
+      * 创建时间，毫秒级时间戳
+      * <p> 示例值：1622484739955
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 备注
-     * <p> 示例值：
-     */
+     /**
+      * 备注
+      * <p> 示例值：
+      */
     @SerializedName("remark")
     private I18n remark;
-
-    // builder 开始
-    public JobStorefront() {
-    }
-
-    public JobStorefront(Builder builder) {
-        /**
-         * 门店ID
-         * <p> 示例值：6960663240925956547
-         */
-        this.id = builder.id;
-        /**
-         * 门店名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 门店部门
-         * <p> 示例值：
-         */
-        this.department = builder.department;
-        /**
-         * 门店地址
-         * <p> 示例值：
-         */
-        this.address = builder.address;
-        /**
-         * 门店负责人
-         * <p> 示例值：
-         */
-        this.manager = builder.manager;
-        /**
-         * 创建时间，毫秒级时间戳
-         * <p> 示例值：1622484739955
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 备注
-         * <p> 示例值：
-         */
-        this.remark = builder.remark;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -192,154 +136,205 @@ public class JobStorefront {
         this.remark = remark;
     }
 
+
+// builder 开始
+  public JobStorefront(){}
+
+  public JobStorefront(Builder builder){
+         /**
+          * 门店ID
+          * <p> 示例值：6960663240925956547
+          */
+      this.id = builder.id;
+         /**
+          * 门店名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 启用状态
+          * <p> 示例值：1
+          */
+      this.activeStatus = builder.activeStatus;
+         /**
+          * 门店部门
+          * <p> 示例值：
+          */
+      this.department = builder.department;
+         /**
+          * 门店地址
+          * <p> 示例值：
+          */
+      this.address = builder.address;
+         /**
+          * 门店负责人
+          * <p> 示例值：
+          */
+      this.manager = builder.manager;
+         /**
+          * 创建时间，毫秒级时间戳
+          * <p> 示例值：1622484739955
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 备注
+          * <p> 示例值：
+          */
+      this.remark = builder.remark;
+  }
+
     public static class Builder {
-        /**
-         * 门店ID
-         * <p> 示例值：6960663240925956547
-         */
+     /**
+      * 门店ID
+      * <p> 示例值：6960663240925956547
+      */
         private String id;
-        /**
-         * 门店名称
-         * <p> 示例值：
-         */
+     /**
+      * 门店名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
+     /**
+      * 启用状态
+      * <p> 示例值：1
+      */
         private Integer activeStatus;
-        /**
-         * 门店部门
-         * <p> 示例值：
-         */
+     /**
+      * 门店部门
+      * <p> 示例值：
+      */
         private JobDepartmentSimple department;
-        /**
-         * 门店地址
-         * <p> 示例值：
-         */
+     /**
+      * 门店地址
+      * <p> 示例值：
+      */
         private CommonAddress address;
-        /**
-         * 门店负责人
-         * <p> 示例值：
-         */
+     /**
+      * 门店负责人
+      * <p> 示例值：
+      */
         private JobUserInfo manager;
-        /**
-         * 创建时间，毫秒级时间戳
-         * <p> 示例值：1622484739955
-         */
+     /**
+      * 创建时间，毫秒级时间戳
+      * <p> 示例值：1622484739955
+      */
         private String createTime;
-        /**
-         * 备注
-         * <p> 示例值：
-         */
+     /**
+      * 备注
+      * <p> 示例值：
+      */
         private I18n remark;
 
         /**
          * 门店ID
          * <p> 示例值：6960663240925956547
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 门店名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 启用状态
          * <p> 示例值：1
-         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
+             this.activeStatus = activeStatus;
+             return this;
         }
 
+    
 
         /**
          * 门店部门
          * <p> 示例值：
-         *
          * @param department
          * @return
          */
         public Builder department(JobDepartmentSimple department) {
-            this.department = department;
-            return this;
+             this.department = department;
+             return this;
         }
 
+    
 
         /**
          * 门店地址
          * <p> 示例值：
-         *
          * @param address
          * @return
          */
         public Builder address(CommonAddress address) {
-            this.address = address;
-            return this;
+             this.address = address;
+             return this;
         }
 
+    
 
         /**
          * 门店负责人
          * <p> 示例值：
-         *
          * @param manager
          * @return
          */
         public Builder manager(JobUserInfo manager) {
-            this.manager = manager;
-            return this;
+             this.manager = manager;
+             return this;
         }
 
+    
 
         /**
          * 创建时间，毫秒级时间戳
          * <p> 示例值：1622484739955
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 备注
          * <p> 示例值：
-         *
          * @param remark
          * @return
          */
         public Builder remark(I18n remark) {
-            this.remark = remark;
-            return this;
+             this.remark = remark;
+             return this;
         }
 
+    
+    
+    public JobStorefront build(){
+        return new JobStorefront(this);
+      }
+    }
 
-        public JobStorefront build() {
-            return new JobStorefront(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

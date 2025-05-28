@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.base.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.base.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,48 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TemplateInfo {
-    /**
-     * 是否是模板
-     * <p> 示例值：
-     */
+     /**
+      * 是否是模板
+      * <p> 示例值：
+      */
     @SerializedName("template_type")
     private Integer templateType;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("publish_flag")
     private Integer publishFlag;
-
-    // builder 开始
-    public TemplateInfo() {
-    }
-
-    public TemplateInfo(Builder builder) {
-        /**
-         * 是否是模板
-         * <p> 示例值：
-         */
-        this.templateType = builder.templateType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.publishFlag = builder.publishFlag;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getTemplateType() {
         return this.templateType;
     }
@@ -78,67 +53,87 @@ public class TemplateInfo {
         this.publishFlag = publishFlag;
     }
 
+
+// builder 开始
+  public TemplateInfo(){}
+
+  public TemplateInfo(Builder builder){
+         /**
+          * 是否是模板
+          * <p> 示例值：
+          */
+      this.templateType = builder.templateType;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.publishFlag = builder.publishFlag;
+  }
+
     public static class Builder {
-        /**
-         * 是否是模板
-         * <p> 示例值：
-         */
+     /**
+      * 是否是模板
+      * <p> 示例值：
+      */
         private Integer templateType;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private Integer publishFlag;
 
         /**
          * 是否是模板
          * <p> 示例值：
-         *
          * @param templateType
          * @return
          */
         public Builder templateType(Integer templateType) {
-            this.templateType = templateType;
-            return this;
+             this.templateType = templateType;
+             return this;
         }
-
         /**
          * 是否是模板
          * <p> 示例值：
-         *
          * @param templateType {@link com.lark.oapi.service.base.v2.enums.TemplateInfoObjTemplateTypeEnum}
          * @return
          */
         public Builder templateType(com.lark.oapi.service.base.v2.enums.TemplateInfoObjTemplateTypeEnum templateType) {
-            this.templateType = templateType.getValue();
-            return this;
+             this.templateType = templateType.getValue();
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param publishFlag
          * @return
          */
         public Builder publishFlag(Integer publishFlag) {
-            this.publishFlag = publishFlag;
-            return this;
+             this.publishFlag = publishFlag;
+             return this;
         }
-
         /**
+         * 
          * <p> 示例值：
-         *
          * @param publishFlag {@link com.lark.oapi.service.base.v2.enums.TemplateInfoObjTemplatePublishFlagEnum}
          * @return
          */
         public Builder publishFlag(com.lark.oapi.service.base.v2.enums.TemplateInfoObjTemplatePublishFlagEnum publishFlag) {
-            this.publishFlag = publishFlag.getValue();
-            return this;
+             this.publishFlag = publishFlag.getValue();
+             return this;
         }
 
+    
+    
+    public TemplateInfo build(){
+        return new TemplateInfo(this);
+      }
+    }
 
-        public TemplateInfo build() {
-            return new TemplateInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

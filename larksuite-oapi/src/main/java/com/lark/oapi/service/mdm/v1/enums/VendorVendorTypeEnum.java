@@ -17,16 +17,15 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 交易方类型（多个枚举时，采用逗号分隔）
  */
 public enum VendorVendorTypeEnum {
-    CLIENT("1"), // 客户
-    VENDOR("2"), // 供应商
-    ;
-    private String value;
-
+     CLIENT("1"), // 客户
+     VENDOR("2"), // 供应商
+  ;
+   private String value;
     VendorVendorTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

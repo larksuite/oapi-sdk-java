@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.minutes.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetMinuteMediaRespBody {
-    /**
-     * 妙记音视频文件下载链接
-     * <p> 示例值：https://internal-api-drive-stream.feishu-boe.cn/space/api/box/stream/download/authcode/?code=xxx
-     */
+     /**
+      * 妙记音视频文件下载链接
+      * <p> 示例值：https://internal-api-drive-stream.feishu-boe.cn/space/api/box/stream/download/authcode/?code=xxx
+      */
     @SerializedName("download_url")
     private String downloadUrl;
-
     public String getDownloadUrl() {
         return this.downloadUrl;
     }

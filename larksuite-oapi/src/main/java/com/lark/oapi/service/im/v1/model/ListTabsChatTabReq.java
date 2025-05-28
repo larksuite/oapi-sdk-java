@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListTabsChatTabReq {
-    /**
-     * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     */
+     /**
+      * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+      */
     @Path
     @SerializedName("chat_id")
     private String chatId;
-
-    // builder 开始
-    public ListTabsChatTabReq() {
-    }
-
-    public ListTabsChatTabReq(Builder builder) {
-        /**
-         * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.chatId = builder.chatId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getChatId() {
         return this.chatId;
     }
@@ -60,25 +39,39 @@ public class ListTabsChatTabReq {
         this.chatId = chatId;
     }
 
+
+// builder 开始
+  public ListTabsChatTabReq(){}
+
+  public ListTabsChatTabReq(Builder builder){
+     /**
+      * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+      */
+       this.chatId = builder.chatId;
+  }
+
     public static class Builder {
-
+    
         private String chatId; // 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
-
         /**
          * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
          * @param chatId
          * @return
          */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
 
+    
+    public ListTabsChatTabReq build(){
+        return new ListTabsChatTabReq(this);
+      }
+    }
 
-        public ListTabsChatTabReq build() {
-            return new ListTabsChatTabReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

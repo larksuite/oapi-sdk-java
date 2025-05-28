@@ -17,16 +17,15 @@ package com.lark.oapi.service.apaas.v1.enums;
  * 席位状态，枚举值：1. in_use 2. released
  */
 public enum SeatAssignmentAssignmentStatusEnum {
-    IN_USE("in_use"), // 席位生效中
-    RELEASED("released"), // 席位已释放
-    ;
-    private String value;
-
+     IN_USE("in_use"), // 席位生效中
+     RELEASED("released"), // 席位已释放
+  ;
+   private String value;
     SeatAssignmentAssignmentStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

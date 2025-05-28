@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AuditLogDeviceInfo {
-    /**
-     * 设备ID
-     * <p> 示例值：device_1234
-     */
+     /**
+      * 设备ID
+      * <p> 示例值：device_1234
+      */
     @SerializedName("device_id")
     private String deviceId;
-    /**
-     * web端设备ID
-     * <p> 示例值：webDevice_1234
-     */
+     /**
+      * web端设备ID
+      * <p> 示例值：webDevice_1234
+      */
     @SerializedName("web_device_id")
     private String webDeviceId;
-    /**
-     * 终端类型：13002-PC类型；13003-Web类型
-     * <p> 示例值：2
-     */
+     /**
+      * 终端类型：13002-PC类型；13003-Web类型
+      * <p> 示例值：2
+      */
     @SerializedName("terminal_type")
     private String terminalType;
-    /**
-     * 系统类型：14002-window；14001-未知
-     * <p> 示例值：14002
-     */
+     /**
+      * 系统类型：14002-window；14001-未知
+      * <p> 示例值：14002
+      */
     @SerializedName("os_type")
     private String osType;
-    /**
-     * 系统版本
-     * <p> 示例值：14.6
-     */
+     /**
+      * 系统版本
+      * <p> 示例值：14.6
+      */
     @SerializedName("os_version")
     private String osVersion;
-
-    // builder 开始
-    public AuditLogDeviceInfo() {
-    }
-
-    public AuditLogDeviceInfo(Builder builder) {
-        /**
-         * 设备ID
-         * <p> 示例值：device_1234
-         */
-        this.deviceId = builder.deviceId;
-        /**
-         * web端设备ID
-         * <p> 示例值：webDevice_1234
-         */
-        this.webDeviceId = builder.webDeviceId;
-        /**
-         * 终端类型：13002-PC类型；13003-Web类型
-         * <p> 示例值：2
-         */
-        this.terminalType = builder.terminalType;
-        /**
-         * 系统类型：14002-window；14001-未知
-         * <p> 示例值：14002
-         */
-        this.osType = builder.osType;
-        /**
-         * 系统版本
-         * <p> 示例值：14.6
-         */
-        this.osVersion = builder.osVersion;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDeviceId() {
         return this.deviceId;
     }
@@ -136,100 +95,136 @@ public class AuditLogDeviceInfo {
         this.osVersion = osVersion;
     }
 
+
+// builder 开始
+  public AuditLogDeviceInfo(){}
+
+  public AuditLogDeviceInfo(Builder builder){
+         /**
+          * 设备ID
+          * <p> 示例值：device_1234
+          */
+      this.deviceId = builder.deviceId;
+         /**
+          * web端设备ID
+          * <p> 示例值：webDevice_1234
+          */
+      this.webDeviceId = builder.webDeviceId;
+         /**
+          * 终端类型：13002-PC类型；13003-Web类型
+          * <p> 示例值：2
+          */
+      this.terminalType = builder.terminalType;
+         /**
+          * 系统类型：14002-window；14001-未知
+          * <p> 示例值：14002
+          */
+      this.osType = builder.osType;
+         /**
+          * 系统版本
+          * <p> 示例值：14.6
+          */
+      this.osVersion = builder.osVersion;
+  }
+
     public static class Builder {
-        /**
-         * 设备ID
-         * <p> 示例值：device_1234
-         */
+     /**
+      * 设备ID
+      * <p> 示例值：device_1234
+      */
         private String deviceId;
-        /**
-         * web端设备ID
-         * <p> 示例值：webDevice_1234
-         */
+     /**
+      * web端设备ID
+      * <p> 示例值：webDevice_1234
+      */
         private String webDeviceId;
-        /**
-         * 终端类型：13002-PC类型；13003-Web类型
-         * <p> 示例值：2
-         */
+     /**
+      * 终端类型：13002-PC类型；13003-Web类型
+      * <p> 示例值：2
+      */
         private String terminalType;
-        /**
-         * 系统类型：14002-window；14001-未知
-         * <p> 示例值：14002
-         */
+     /**
+      * 系统类型：14002-window；14001-未知
+      * <p> 示例值：14002
+      */
         private String osType;
-        /**
-         * 系统版本
-         * <p> 示例值：14.6
-         */
+     /**
+      * 系统版本
+      * <p> 示例值：14.6
+      */
         private String osVersion;
 
         /**
          * 设备ID
          * <p> 示例值：device_1234
-         *
          * @param deviceId
          * @return
          */
         public Builder deviceId(String deviceId) {
-            this.deviceId = deviceId;
-            return this;
+             this.deviceId = deviceId;
+             return this;
         }
 
+    
 
         /**
          * web端设备ID
          * <p> 示例值：webDevice_1234
-         *
          * @param webDeviceId
          * @return
          */
         public Builder webDeviceId(String webDeviceId) {
-            this.webDeviceId = webDeviceId;
-            return this;
+             this.webDeviceId = webDeviceId;
+             return this;
         }
 
+    
 
         /**
          * 终端类型：13002-PC类型；13003-Web类型
          * <p> 示例值：2
-         *
          * @param terminalType
          * @return
          */
         public Builder terminalType(String terminalType) {
-            this.terminalType = terminalType;
-            return this;
+             this.terminalType = terminalType;
+             return this;
         }
 
+    
 
         /**
          * 系统类型：14002-window；14001-未知
          * <p> 示例值：14002
-         *
          * @param osType
          * @return
          */
         public Builder osType(String osType) {
-            this.osType = osType;
-            return this;
+             this.osType = osType;
+             return this;
         }
 
+    
 
         /**
          * 系统版本
          * <p> 示例值：14.6
-         *
          * @param osVersion
          * @return
          */
         public Builder osVersion(String osVersion) {
-            this.osVersion = osVersion;
-            return this;
+             this.osVersion = osVersion;
+             return this;
         }
 
+    
+    
+    public AuditLogDeviceInfo build(){
+        return new AuditLogDeviceInfo(this);
+      }
+    }
 
-        public AuditLogDeviceInfo build() {
-            return new AuditLogDeviceInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

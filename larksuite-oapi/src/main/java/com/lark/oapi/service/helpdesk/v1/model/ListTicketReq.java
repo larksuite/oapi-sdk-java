@@ -12,238 +12,137 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListTicketReq {
-    /**
-     * 搜索条件：工单ID
-     * <p> 示例值：123456
-     */
+     /**
+      * 搜索条件：工单ID
+      * <p> 示例值：123456
+      */
     @Query
     @SerializedName("ticket_id")
     private String ticketId;
-    /**
-     * 搜索条件: 客服id
-     * <p> 示例值：ou_b5de90429xxx
-     */
+     /**
+      * 搜索条件: 客服id
+      * <p> 示例值：ou_b5de90429xxx
+      */
     @Query
     @SerializedName("agent_id")
     private String agentId;
-    /**
-     * 搜索条件: 关单客服id
-     * <p> 示例值：ou_b5de90429xxx
-     */
+     /**
+      * 搜索条件: 关单客服id
+      * <p> 示例值：ou_b5de90429xxx
+      */
     @Query
     @SerializedName("closed_by_id")
     private String closedById;
-    /**
-     * 搜索条件: 工单类型 1:bot 2:人工
-     * <p> 示例值：1
-     */
+     /**
+      * 搜索条件: 工单类型 1:bot 2:人工
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("type")
     private Integer type;
-    /**
-     * 搜索条件: 工单渠道
-     * <p> 示例值：0
-     */
+     /**
+      * 搜索条件: 工单渠道
+      * <p> 示例值：0
+      */
     @Query
     @SerializedName("channel")
     private Integer channel;
-    /**
-     * 搜索条件: 工单是否解决 1:没解决 2:已解决
-     * <p> 示例值：1
-     */
+     /**
+      * 搜索条件: 工单是否解决 1:没解决 2:已解决
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("solved")
     private Integer solved;
-    /**
-     * 搜索条件: 工单评分
-     * <p> 示例值：1
-     */
+     /**
+      * 搜索条件: 工单评分
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("score")
     private Integer score;
-    /**
-     * 搜索条件: 工单状态列表
-     * <p> 示例值：1
-     */
+     /**
+      * 搜索条件: 工单状态列表
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("status_list")
     private Integer[] statusList;
-    /**
-     * 搜索条件: 用户名称
-     * <p> 示例值：abc
-     */
+     /**
+      * 搜索条件: 用户名称
+      * <p> 示例值：abc
+      */
     @Query
     @SerializedName("guest_name")
     private String guestName;
-    /**
-     * 搜索条件: 用户id
-     * <p> 示例值：ou_b5de90429xxx
-     */
+     /**
+      * 搜索条件: 用户id
+      * <p> 示例值：ou_b5de90429xxx
+      */
     @Query
     @SerializedName("guest_id")
     private String guestId;
-    /**
-     * 搜索条件: 用户标签列表
-     * <p> 示例值：备注
-     */
+     /**
+      * 搜索条件: 用户标签列表
+      * <p> 示例值：备注
+      */
     @Query
     @SerializedName("tags")
     private String[] tags;
-    /**
-     * 页数, 从1开始, 默认为1
-     * <p> 示例值：1
-     */
+     /**
+      * 页数, 从1开始, 默认为1
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("page")
     private Integer page;
-    /**
-     * 当前页大小，最大为200， 默认为20。分页查询最多累计返回一万条数据，超过一万条请更改查询条件，推荐通过时间查询。
-     * <p> 示例值：20
-     */
+     /**
+      * 当前页大小，最大为200， 默认为20。分页查询最多累计返回一万条数据，超过一万条请更改查询条件，推荐通过时间查询。
+      * <p> 示例值：20
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 搜索条件: 工单创建起始时间 ms (也需要填上create_time_end)，相当于>=create_time_start
-     * <p> 示例值：1616920429000
-     */
+     /**
+      * 搜索条件: 工单创建起始时间 ms (也需要填上create_time_end)，相当于>=create_time_start
+      * <p> 示例值：1616920429000
+      */
     @Query
     @SerializedName("create_time_start")
     private Integer createTimeStart;
-    /**
-     * 搜索条件: 工单创建结束时间 ms (也需要填上create_time_start)，相当于<=create_time_end
-     * <p> 示例值：1616920429000
-     */
+     /**
+      * 搜索条件: 工单创建结束时间 ms (也需要填上create_time_start)，相当于<=create_time_end
+      * <p> 示例值：1616920429000
+      */
     @Query
     @SerializedName("create_time_end")
     private Integer createTimeEnd;
-    /**
-     * 搜索条件: 工单修改起始时间 ms (也需要填上update_time_end)
-     * <p> 示例值：1616920429000
-     */
+     /**
+      * 搜索条件: 工单修改起始时间 ms (也需要填上update_time_end)
+      * <p> 示例值：1616920429000
+      */
     @Query
     @SerializedName("update_time_start")
     private Integer updateTimeStart;
-    /**
-     * 搜索条件: 工单修改结束时间 ms(也需要填上update_time_start)
-     * <p> 示例值：1616920429000
-     */
+     /**
+      * 搜索条件: 工单修改结束时间 ms(也需要填上update_time_start)
+      * <p> 示例值：1616920429000
+      */
     @Query
     @SerializedName("update_time_end")
     private Integer updateTimeEnd;
-
-    // builder 开始
-    public ListTicketReq() {
-    }
-
-    public ListTicketReq(Builder builder) {
-        /**
-         * 搜索条件：工单ID
-         * <p> 示例值：123456
-         */
-        this.ticketId = builder.ticketId;
-        /**
-         * 搜索条件: 客服id
-         * <p> 示例值：ou_b5de90429xxx
-         */
-        this.agentId = builder.agentId;
-        /**
-         * 搜索条件: 关单客服id
-         * <p> 示例值：ou_b5de90429xxx
-         */
-        this.closedById = builder.closedById;
-        /**
-         * 搜索条件: 工单类型 1:bot 2:人工
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 搜索条件: 工单渠道
-         * <p> 示例值：0
-         */
-        this.channel = builder.channel;
-        /**
-         * 搜索条件: 工单是否解决 1:没解决 2:已解决
-         * <p> 示例值：1
-         */
-        this.solved = builder.solved;
-        /**
-         * 搜索条件: 工单评分
-         * <p> 示例值：1
-         */
-        this.score = builder.score;
-        /**
-         * 搜索条件: 工单状态列表
-         * <p> 示例值：1
-         */
-        this.statusList = builder.statusList;
-        /**
-         * 搜索条件: 用户名称
-         * <p> 示例值：abc
-         */
-        this.guestName = builder.guestName;
-        /**
-         * 搜索条件: 用户id
-         * <p> 示例值：ou_b5de90429xxx
-         */
-        this.guestId = builder.guestId;
-        /**
-         * 搜索条件: 用户标签列表
-         * <p> 示例值：备注
-         */
-        this.tags = builder.tags;
-        /**
-         * 页数, 从1开始, 默认为1
-         * <p> 示例值：1
-         */
-        this.page = builder.page;
-        /**
-         * 当前页大小，最大为200， 默认为20。分页查询最多累计返回一万条数据，超过一万条请更改查询条件，推荐通过时间查询。
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 搜索条件: 工单创建起始时间 ms (也需要填上create_time_end)，相当于>=create_time_start
-         * <p> 示例值：1616920429000
-         */
-        this.createTimeStart = builder.createTimeStart;
-        /**
-         * 搜索条件: 工单创建结束时间 ms (也需要填上create_time_start)，相当于<=create_time_end
-         * <p> 示例值：1616920429000
-         */
-        this.createTimeEnd = builder.createTimeEnd;
-        /**
-         * 搜索条件: 工单修改起始时间 ms (也需要填上update_time_end)
-         * <p> 示例值：1616920429000
-         */
-        this.updateTimeStart = builder.updateTimeStart;
-        /**
-         * 搜索条件: 工单修改结束时间 ms(也需要填上update_time_start)
-         * <p> 示例值：1616920429000
-         */
-        this.updateTimeEnd = builder.updateTimeEnd;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTicketId() {
         return this.ticketId;
     }
@@ -380,6 +279,98 @@ public class ListTicketReq {
         this.updateTimeEnd = updateTimeEnd;
     }
 
+
+// builder 开始
+  public ListTicketReq(){}
+
+  public ListTicketReq(Builder builder){
+         /**
+          * 搜索条件：工单ID
+          * <p> 示例值：123456
+          */
+       this.ticketId = builder.ticketId;
+         /**
+          * 搜索条件: 客服id
+          * <p> 示例值：ou_b5de90429xxx
+          */
+       this.agentId = builder.agentId;
+         /**
+          * 搜索条件: 关单客服id
+          * <p> 示例值：ou_b5de90429xxx
+          */
+       this.closedById = builder.closedById;
+         /**
+          * 搜索条件: 工单类型 1:bot 2:人工
+          * <p> 示例值：1
+          */
+       this.type = builder.type;
+         /**
+          * 搜索条件: 工单渠道
+          * <p> 示例值：0
+          */
+       this.channel = builder.channel;
+         /**
+          * 搜索条件: 工单是否解决 1:没解决 2:已解决
+          * <p> 示例值：1
+          */
+       this.solved = builder.solved;
+         /**
+          * 搜索条件: 工单评分
+          * <p> 示例值：1
+          */
+       this.score = builder.score;
+         /**
+          * 搜索条件: 工单状态列表
+          * <p> 示例值：1
+          */
+       this.statusList = builder.statusList;
+         /**
+          * 搜索条件: 用户名称
+          * <p> 示例值：abc
+          */
+       this.guestName = builder.guestName;
+         /**
+          * 搜索条件: 用户id
+          * <p> 示例值：ou_b5de90429xxx
+          */
+       this.guestId = builder.guestId;
+         /**
+          * 搜索条件: 用户标签列表
+          * <p> 示例值：备注
+          */
+       this.tags = builder.tags;
+         /**
+          * 页数, 从1开始, 默认为1
+          * <p> 示例值：1
+          */
+       this.page = builder.page;
+         /**
+          * 当前页大小，最大为200， 默认为20。分页查询最多累计返回一万条数据，超过一万条请更改查询条件，推荐通过时间查询。
+          * <p> 示例值：20
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 搜索条件: 工单创建起始时间 ms (也需要填上create_time_end)，相当于>=create_time_start
+          * <p> 示例值：1616920429000
+          */
+       this.createTimeStart = builder.createTimeStart;
+         /**
+          * 搜索条件: 工单创建结束时间 ms (也需要填上create_time_start)，相当于<=create_time_end
+          * <p> 示例值：1616920429000
+          */
+       this.createTimeEnd = builder.createTimeEnd;
+         /**
+          * 搜索条件: 工单修改起始时间 ms (也需要填上update_time_end)
+          * <p> 示例值：1616920429000
+          */
+       this.updateTimeStart = builder.updateTimeStart;
+         /**
+          * 搜索条件: 工单修改结束时间 ms(也需要填上update_time_start)
+          * <p> 示例值：1616920429000
+          */
+       this.updateTimeEnd = builder.updateTimeEnd;
+  }
+
     public static class Builder {
         private String ticketId; // 搜索条件：工单ID
         private String agentId; // 搜索条件: 客服id
@@ -398,230 +389,217 @@ public class ListTicketReq {
         private Integer createTimeEnd; // 搜索条件: 工单创建结束时间 ms (也需要填上create_time_start)，相当于<=create_time_end
         private Integer updateTimeStart; // 搜索条件: 工单修改起始时间 ms (也需要填上update_time_end)
         private Integer updateTimeEnd; // 搜索条件: 工单修改结束时间 ms(也需要填上update_time_start)
-
+    
         /**
          * 搜索条件：工单ID
          * <p> 示例值：123456
-         *
          * @param ticketId
          * @return
          */
-        public Builder ticketId(String ticketId) {
-            this.ticketId = ticketId;
-            return this;
-        }
+           public Builder ticketId(String ticketId) {
+                this.ticketId = ticketId;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 客服id
          * <p> 示例值：ou_b5de90429xxx
-         *
          * @param agentId
          * @return
          */
-        public Builder agentId(String agentId) {
-            this.agentId = agentId;
-            return this;
-        }
+           public Builder agentId(String agentId) {
+                this.agentId = agentId;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 关单客服id
          * <p> 示例值：ou_b5de90429xxx
-         *
          * @param closedById
          * @return
          */
-        public Builder closedById(String closedById) {
-            this.closedById = closedById;
-            return this;
-        }
+           public Builder closedById(String closedById) {
+                this.closedById = closedById;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 工单类型 1:bot 2:人工
          * <p> 示例值：1
-         *
          * @param type
          * @return
          */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
+           public Builder type(Integer type) {
+                this.type = type;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 工单渠道
          * <p> 示例值：0
-         *
          * @param channel
          * @return
          */
-        public Builder channel(Integer channel) {
-            this.channel = channel;
-            return this;
-        }
+           public Builder channel(Integer channel) {
+                this.channel = channel;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 工单是否解决 1:没解决 2:已解决
          * <p> 示例值：1
-         *
          * @param solved
          * @return
          */
-        public Builder solved(Integer solved) {
-            this.solved = solved;
-            return this;
-        }
+           public Builder solved(Integer solved) {
+                this.solved = solved;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 工单评分
          * <p> 示例值：1
-         *
          * @param score
          * @return
          */
-        public Builder score(Integer score) {
-            this.score = score;
-            return this;
-        }
+           public Builder score(Integer score) {
+                this.score = score;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 工单状态列表
          * <p> 示例值：1
-         *
          * @param statusList
          * @return
          */
-        public Builder statusList(Integer[] statusList) {
-            this.statusList = statusList;
-            return this;
-        }
+           public Builder statusList(Integer[] statusList) {
+                this.statusList = statusList;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 用户名称
          * <p> 示例值：abc
-         *
          * @param guestName
          * @return
          */
-        public Builder guestName(String guestName) {
-            this.guestName = guestName;
-            return this;
-        }
+           public Builder guestName(String guestName) {
+                this.guestName = guestName;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 用户id
          * <p> 示例值：ou_b5de90429xxx
-         *
          * @param guestId
          * @return
          */
-        public Builder guestId(String guestId) {
-            this.guestId = guestId;
-            return this;
-        }
+           public Builder guestId(String guestId) {
+                this.guestId = guestId;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 用户标签列表
          * <p> 示例值：备注
-         *
          * @param tags
          * @return
          */
-        public Builder tags(String[] tags) {
-            this.tags = tags;
-            return this;
-        }
+           public Builder tags(String[] tags) {
+                this.tags = tags;
+                return this;
+           }
 
-
+    
         /**
          * 页数, 从1开始, 默认为1
          * <p> 示例值：1
-         *
          * @param page
          * @return
          */
-        public Builder page(Integer page) {
-            this.page = page;
-            return this;
-        }
+           public Builder page(Integer page) {
+                this.page = page;
+                return this;
+           }
 
-
+    
         /**
          * 当前页大小，最大为200， 默认为20。分页查询最多累计返回一万条数据，超过一万条请更改查询条件，推荐通过时间查询。
          * <p> 示例值：20
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 工单创建起始时间 ms (也需要填上create_time_end)，相当于>=create_time_start
          * <p> 示例值：1616920429000
-         *
          * @param createTimeStart
          * @return
          */
-        public Builder createTimeStart(Integer createTimeStart) {
-            this.createTimeStart = createTimeStart;
-            return this;
-        }
+           public Builder createTimeStart(Integer createTimeStart) {
+                this.createTimeStart = createTimeStart;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 工单创建结束时间 ms (也需要填上create_time_start)，相当于<=create_time_end
          * <p> 示例值：1616920429000
-         *
          * @param createTimeEnd
          * @return
          */
-        public Builder createTimeEnd(Integer createTimeEnd) {
-            this.createTimeEnd = createTimeEnd;
-            return this;
-        }
+           public Builder createTimeEnd(Integer createTimeEnd) {
+                this.createTimeEnd = createTimeEnd;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 工单修改起始时间 ms (也需要填上update_time_end)
          * <p> 示例值：1616920429000
-         *
          * @param updateTimeStart
          * @return
          */
-        public Builder updateTimeStart(Integer updateTimeStart) {
-            this.updateTimeStart = updateTimeStart;
-            return this;
-        }
+           public Builder updateTimeStart(Integer updateTimeStart) {
+                this.updateTimeStart = updateTimeStart;
+                return this;
+           }
 
-
+    
         /**
          * 搜索条件: 工单修改结束时间 ms(也需要填上update_time_start)
          * <p> 示例值：1616920429000
-         *
          * @param updateTimeEnd
          * @return
          */
-        public Builder updateTimeEnd(Integer updateTimeEnd) {
-            this.updateTimeEnd = updateTimeEnd;
-            return this;
-        }
+           public Builder updateTimeEnd(Integer updateTimeEnd) {
+                this.updateTimeEnd = updateTimeEnd;
+                return this;
+           }
 
+    
+    public ListTicketReq build(){
+        return new ListTicketReq(this);
+      }
+    }
 
-        public ListTicketReq build() {
-            return new ListTicketReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

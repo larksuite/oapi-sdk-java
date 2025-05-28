@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,126 +19,66 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProgressItem {
-    /**
-     * 进度条项状态
-     * <p> 示例值：RUNNING
-     */
+     /**
+      * 进度条项状态
+      * <p> 示例值：RUNNING
+      */
     @SerializedName("progress_item_state")
     private String progressItemState;
-    /**
-     * 进度条项内容
-     * <p> 示例值：抽取字段
-     */
+     /**
+      * 进度条项内容
+      * <p> 示例值：抽取字段
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 选中的技能 id
-     * <p> 示例值：skill_43ec7b438a59
-     */
+     /**
+      * 选中的技能 id
+      * <p> 示例值：skill_43ec7b438a59
+      */
     @SerializedName("skill_id")
     private String skillId;
-    /**
-     * 节点 id
-     * <p> 示例值：7316877623309058067
-     */
+     /**
+      * 节点 id
+      * <p> 示例值：7316877623309058067
+      */
     @SerializedName("node_id")
     private String nodeId;
-    /**
-     * 节点类型
-     * <p> 示例值：skill-selector
-     */
+     /**
+      * 节点类型
+      * <p> 示例值：skill-selector
+      */
     @SerializedName("node_type")
     private String nodeType;
-    /**
-     * 节点输入，调试模式返回
-     * <p> 示例值：{}
-     */
+     /**
+      * 节点输入，调试模式返回
+      * <p> 示例值：{}
+      */
     @SerializedName("input")
     private String input;
-    /**
-     * 节点输出，调试模式返回
-     * <p> 示例值：{}
-     */
+     /**
+      * 节点输出，调试模式返回
+      * <p> 示例值：{}
+      */
     @SerializedName("output")
     private String output;
-    /**
-     * 节点的时间以及 Token 消耗
-     * <p> 示例值：
-     */
+     /**
+      * 节点的时间以及 Token 消耗
+      * <p> 示例值：
+      */
     @SerializedName("usages")
     private String[] usages;
-    /**
-     * 技能选择策略
-     * <p> 示例值：AUTO
-     */
+     /**
+      * 技能选择策略
+      * <p> 示例值：AUTO
+      */
     @SerializedName("skill_strategy")
     private String skillStrategy;
-
-    // builder 开始
-    public ProgressItem() {
-    }
-
-    public ProgressItem(Builder builder) {
-        /**
-         * 进度条项状态
-         * <p> 示例值：RUNNING
-         */
-        this.progressItemState = builder.progressItemState;
-        /**
-         * 进度条项内容
-         * <p> 示例值：抽取字段
-         */
-        this.content = builder.content;
-        /**
-         * 选中的技能 id
-         * <p> 示例值：skill_43ec7b438a59
-         */
-        this.skillId = builder.skillId;
-        /**
-         * 节点 id
-         * <p> 示例值：7316877623309058067
-         */
-        this.nodeId = builder.nodeId;
-        /**
-         * 节点类型
-         * <p> 示例值：skill-selector
-         */
-        this.nodeType = builder.nodeType;
-        /**
-         * 节点输入，调试模式返回
-         * <p> 示例值：{}
-         */
-        this.input = builder.input;
-        /**
-         * 节点输出，调试模式返回
-         * <p> 示例值：{}
-         */
-        this.output = builder.output;
-        /**
-         * 节点的时间以及 Token 消耗
-         * <p> 示例值：
-         */
-        this.usages = builder.usages;
-        /**
-         * 技能选择策略
-         * <p> 示例值：AUTO
-         */
-        this.skillStrategy = builder.skillStrategy;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getProgressItemState() {
         return this.progressItemState;
     }
@@ -212,196 +151,248 @@ public class ProgressItem {
         this.skillStrategy = skillStrategy;
     }
 
+
+// builder 开始
+  public ProgressItem(){}
+
+  public ProgressItem(Builder builder){
+         /**
+          * 进度条项状态
+          * <p> 示例值：RUNNING
+          */
+      this.progressItemState = builder.progressItemState;
+         /**
+          * 进度条项内容
+          * <p> 示例值：抽取字段
+          */
+      this.content = builder.content;
+         /**
+          * 选中的技能 id
+          * <p> 示例值：skill_43ec7b438a59
+          */
+      this.skillId = builder.skillId;
+         /**
+          * 节点 id
+          * <p> 示例值：7316877623309058067
+          */
+      this.nodeId = builder.nodeId;
+         /**
+          * 节点类型
+          * <p> 示例值：skill-selector
+          */
+      this.nodeType = builder.nodeType;
+         /**
+          * 节点输入，调试模式返回
+          * <p> 示例值：{}
+          */
+      this.input = builder.input;
+         /**
+          * 节点输出，调试模式返回
+          * <p> 示例值：{}
+          */
+      this.output = builder.output;
+         /**
+          * 节点的时间以及 Token 消耗
+          * <p> 示例值：
+          */
+      this.usages = builder.usages;
+         /**
+          * 技能选择策略
+          * <p> 示例值：AUTO
+          */
+      this.skillStrategy = builder.skillStrategy;
+  }
+
     public static class Builder {
-        /**
-         * 进度条项状态
-         * <p> 示例值：RUNNING
-         */
+     /**
+      * 进度条项状态
+      * <p> 示例值：RUNNING
+      */
         private String progressItemState;
-        /**
-         * 进度条项内容
-         * <p> 示例值：抽取字段
-         */
+     /**
+      * 进度条项内容
+      * <p> 示例值：抽取字段
+      */
         private String content;
-        /**
-         * 选中的技能 id
-         * <p> 示例值：skill_43ec7b438a59
-         */
+     /**
+      * 选中的技能 id
+      * <p> 示例值：skill_43ec7b438a59
+      */
         private String skillId;
-        /**
-         * 节点 id
-         * <p> 示例值：7316877623309058067
-         */
+     /**
+      * 节点 id
+      * <p> 示例值：7316877623309058067
+      */
         private String nodeId;
-        /**
-         * 节点类型
-         * <p> 示例值：skill-selector
-         */
+     /**
+      * 节点类型
+      * <p> 示例值：skill-selector
+      */
         private String nodeType;
-        /**
-         * 节点输入，调试模式返回
-         * <p> 示例值：{}
-         */
+     /**
+      * 节点输入，调试模式返回
+      * <p> 示例值：{}
+      */
         private String input;
-        /**
-         * 节点输出，调试模式返回
-         * <p> 示例值：{}
-         */
+     /**
+      * 节点输出，调试模式返回
+      * <p> 示例值：{}
+      */
         private String output;
-        /**
-         * 节点的时间以及 Token 消耗
-         * <p> 示例值：
-         */
+     /**
+      * 节点的时间以及 Token 消耗
+      * <p> 示例值：
+      */
         private String[] usages;
-        /**
-         * 技能选择策略
-         * <p> 示例值：AUTO
-         */
+     /**
+      * 技能选择策略
+      * <p> 示例值：AUTO
+      */
         private String skillStrategy;
 
         /**
          * 进度条项状态
          * <p> 示例值：RUNNING
-         *
          * @param progressItemState
          * @return
          */
         public Builder progressItemState(String progressItemState) {
-            this.progressItemState = progressItemState;
-            return this;
+             this.progressItemState = progressItemState;
+             return this;
         }
-
         /**
          * 进度条项状态
          * <p> 示例值：RUNNING
-         *
          * @param progressItemState {@link com.lark.oapi.service.aily.v1.enums.ProgressItemProgressItemStateEnum}
          * @return
          */
         public Builder progressItemState(com.lark.oapi.service.aily.v1.enums.ProgressItemProgressItemStateEnum progressItemState) {
-            this.progressItemState = progressItemState.getValue();
-            return this;
+             this.progressItemState = progressItemState.getValue();
+             return this;
         }
 
+    
 
         /**
          * 进度条项内容
          * <p> 示例值：抽取字段
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 选中的技能 id
          * <p> 示例值：skill_43ec7b438a59
-         *
          * @param skillId
          * @return
          */
         public Builder skillId(String skillId) {
-            this.skillId = skillId;
-            return this;
+             this.skillId = skillId;
+             return this;
         }
 
+    
 
         /**
          * 节点 id
          * <p> 示例值：7316877623309058067
-         *
          * @param nodeId
          * @return
          */
         public Builder nodeId(String nodeId) {
-            this.nodeId = nodeId;
-            return this;
+             this.nodeId = nodeId;
+             return this;
         }
 
+    
 
         /**
          * 节点类型
          * <p> 示例值：skill-selector
-         *
          * @param nodeType
          * @return
          */
         public Builder nodeType(String nodeType) {
-            this.nodeType = nodeType;
-            return this;
+             this.nodeType = nodeType;
+             return this;
         }
 
+    
 
         /**
          * 节点输入，调试模式返回
          * <p> 示例值：{}
-         *
          * @param input
          * @return
          */
         public Builder input(String input) {
-            this.input = input;
-            return this;
+             this.input = input;
+             return this;
         }
 
+    
 
         /**
          * 节点输出，调试模式返回
          * <p> 示例值：{}
-         *
          * @param output
          * @return
          */
         public Builder output(String output) {
-            this.output = output;
-            return this;
+             this.output = output;
+             return this;
         }
 
+    
 
         /**
          * 节点的时间以及 Token 消耗
          * <p> 示例值：
-         *
          * @param usages
          * @return
          */
         public Builder usages(String[] usages) {
-            this.usages = usages;
-            return this;
+             this.usages = usages;
+             return this;
         }
 
+    
 
         /**
          * 技能选择策略
          * <p> 示例值：AUTO
-         *
          * @param skillStrategy
          * @return
          */
         public Builder skillStrategy(String skillStrategy) {
-            this.skillStrategy = skillStrategy;
-            return this;
+             this.skillStrategy = skillStrategy;
+             return this;
         }
-
         /**
          * 技能选择策略
          * <p> 示例值：AUTO
-         *
          * @param skillStrategy {@link com.lark.oapi.service.aily.v1.enums.ProgressItemSkillSelectStrategyEnum}
          * @return
          */
         public Builder skillStrategy(com.lark.oapi.service.aily.v1.enums.ProgressItemSkillSelectStrategyEnum skillStrategy) {
-            this.skillStrategy = skillStrategy.getValue();
-            return this;
+             this.skillStrategy = skillStrategy.getValue();
+             return this;
         }
 
+    
+    
+    public ProgressItem build(){
+        return new ProgressItem(this);
+      }
+    }
 
-        public ProgressItem build() {
-            return new ProgressItem(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

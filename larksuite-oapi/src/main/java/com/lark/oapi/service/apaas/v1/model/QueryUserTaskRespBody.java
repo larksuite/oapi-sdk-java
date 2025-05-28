@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryUserTaskRespBody {
-    /**
-     * 总任务条数;
-     * <p> 示例值：10
-     */
+     /**
+      * 总任务条数;
+      * <p> 示例值：10
+      */
     @SerializedName("count")
     private String count;
-    /**
-     * 任务信息
-     * <p> 示例值：
-     */
+     /**
+      * 任务信息
+      * <p> 示例值：
+      */
     @SerializedName("tasks")
     private UserTask[] tasks;
-
     public String getCount() {
         return this.count;
     }

@@ -17,20 +17,19 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 组织架构调整流程状态
  */
 public enum ApprovalGroupApprovalGroupStatusEnum {
-    NEW("0"), // 待发起
-    APPROVING("1"), // 审批中
-    APPROVED("2"), // 审批通过
-    DONE("3"), // 已完成
-    REJECTED("4"), // 已拒绝
-    CANCELED("5"), // 已撤销
-    ;
-    private String value;
-
+     NEW("0"), // 待发起
+     APPROVING("1"), // 审批中
+     APPROVED("2"), // 审批通过
+     DONE("3"), // 已完成
+     REJECTED("4"), // 已拒绝
+     CANCELED("5"), // 已撤销
+  ;
+   private String value;
     ApprovalGroupApprovalGroupStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

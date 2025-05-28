@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TalentBasicInfoV2 {
-    /**
-     * 人才 ID
-     * <p> 示例值：6956499586395523359
-     */
+     /**
+      * 人才 ID
+      * <p> 示例值：6956499586395523359
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 人才名字
-     * <p> 示例值：小明
-     */
+     /**
+      * 人才名字
+      * <p> 示例值：小明
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 人才手机国家区号
-     * <p> 示例值：+86
-     */
+     /**
+      * 人才手机国家区号
+      * <p> 示例值：+86
+      */
     @SerializedName("mobile_code")
     private String mobileCode;
-    /**
-     * 人才手机号
-     * <p> 示例值：13563350751
-     */
+     /**
+      * 人才手机号
+      * <p> 示例值：13563350751
+      */
     @SerializedName("mobile_number")
     private String mobileNumber;
-    /**
-     * 人才邮箱
-     * <p> 示例值：xxx@bytedance.com
-     */
+     /**
+      * 人才邮箱
+      * <p> 示例值：xxx@bytedance.com
+      */
     @SerializedName("email")
     private String email;
-
-    // builder 开始
-    public TalentBasicInfoV2() {
-    }
-
-    public TalentBasicInfoV2(Builder builder) {
-        /**
-         * 人才 ID
-         * <p> 示例值：6956499586395523359
-         */
-        this.id = builder.id;
-        /**
-         * 人才名字
-         * <p> 示例值：小明
-         */
-        this.name = builder.name;
-        /**
-         * 人才手机国家区号
-         * <p> 示例值：+86
-         */
-        this.mobileCode = builder.mobileCode;
-        /**
-         * 人才手机号
-         * <p> 示例值：13563350751
-         */
-        this.mobileNumber = builder.mobileNumber;
-        /**
-         * 人才邮箱
-         * <p> 示例值：xxx@bytedance.com
-         */
-        this.email = builder.email;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -135,100 +94,136 @@ public class TalentBasicInfoV2 {
         this.email = email;
     }
 
+
+// builder 开始
+  public TalentBasicInfoV2(){}
+
+  public TalentBasicInfoV2(Builder builder){
+         /**
+          * 人才 ID
+          * <p> 示例值：6956499586395523359
+          */
+      this.id = builder.id;
+         /**
+          * 人才名字
+          * <p> 示例值：小明
+          */
+      this.name = builder.name;
+         /**
+          * 人才手机国家区号
+          * <p> 示例值：+86
+          */
+      this.mobileCode = builder.mobileCode;
+         /**
+          * 人才手机号
+          * <p> 示例值：13563350751
+          */
+      this.mobileNumber = builder.mobileNumber;
+         /**
+          * 人才邮箱
+          * <p> 示例值：xxx@bytedance.com
+          */
+      this.email = builder.email;
+  }
+
     public static class Builder {
-        /**
-         * 人才 ID
-         * <p> 示例值：6956499586395523359
-         */
+     /**
+      * 人才 ID
+      * <p> 示例值：6956499586395523359
+      */
         private String id;
-        /**
-         * 人才名字
-         * <p> 示例值：小明
-         */
+     /**
+      * 人才名字
+      * <p> 示例值：小明
+      */
         private String name;
-        /**
-         * 人才手机国家区号
-         * <p> 示例值：+86
-         */
+     /**
+      * 人才手机国家区号
+      * <p> 示例值：+86
+      */
         private String mobileCode;
-        /**
-         * 人才手机号
-         * <p> 示例值：13563350751
-         */
+     /**
+      * 人才手机号
+      * <p> 示例值：13563350751
+      */
         private String mobileNumber;
-        /**
-         * 人才邮箱
-         * <p> 示例值：xxx@bytedance.com
-         */
+     /**
+      * 人才邮箱
+      * <p> 示例值：xxx@bytedance.com
+      */
         private String email;
 
         /**
          * 人才 ID
          * <p> 示例值：6956499586395523359
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 人才名字
          * <p> 示例值：小明
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 人才手机国家区号
          * <p> 示例值：+86
-         *
          * @param mobileCode
          * @return
          */
         public Builder mobileCode(String mobileCode) {
-            this.mobileCode = mobileCode;
-            return this;
+             this.mobileCode = mobileCode;
+             return this;
         }
 
+    
 
         /**
          * 人才手机号
          * <p> 示例值：13563350751
-         *
          * @param mobileNumber
          * @return
          */
         public Builder mobileNumber(String mobileNumber) {
-            this.mobileNumber = mobileNumber;
-            return this;
+             this.mobileNumber = mobileNumber;
+             return this;
         }
 
+    
 
         /**
          * 人才邮箱
          * <p> 示例值：xxx@bytedance.com
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
+    
+    public TalentBasicInfoV2 build(){
+        return new TalentBasicInfoV2(this);
+      }
+    }
 
-        public TalentBasicInfoV2 build() {
-            return new TalentBasicInfoV2(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

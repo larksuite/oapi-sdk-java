@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AppTableViewProperty {
-    /**
-     * 过滤条件
-     * <p> 示例值：
-     */
+     /**
+      * 过滤条件
+      * <p> 示例值：
+      */
     @SerializedName("filter_info")
     private AppTableViewPropertyFilterInfo filterInfo;
-    /**
-     * 隐藏字段ID列表
-     * <p> 示例值：["fldCGzANXx", "fldCGzANXx"]
-     */
+     /**
+      * 隐藏字段ID列表
+      * <p> 示例值：["fldCGzANXx", "fldCGzANXx"]
+      */
     @SerializedName("hidden_fields")
     private String[] hiddenFields;
-    /**
-     * 表格视图层级结构设置
-     * <p> 示例值：
-     */
+     /**
+      * 表格视图层级结构设置
+      * <p> 示例值：
+      */
     @SerializedName("hierarchy_config")
     private AppTableViewPropertyHierarchyConfig hierarchyConfig;
-
-    // builder 开始
-    public AppTableViewProperty() {
-    }
-
-    public AppTableViewProperty(Builder builder) {
-        /**
-         * 过滤条件
-         * <p> 示例值：
-         */
-        this.filterInfo = builder.filterInfo;
-        /**
-         * 隐藏字段ID列表
-         * <p> 示例值：["fldCGzANXx", "fldCGzANXx"]
-         */
-        this.hiddenFields = builder.hiddenFields;
-        /**
-         * 表格视图层级结构设置
-         * <p> 示例值：
-         */
-        this.hierarchyConfig = builder.hierarchyConfig;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public AppTableViewPropertyFilterInfo getFilterInfo() {
         return this.filterInfo;
     }
@@ -98,64 +67,90 @@ public class AppTableViewProperty {
         this.hierarchyConfig = hierarchyConfig;
     }
 
+
+// builder 开始
+  public AppTableViewProperty(){}
+
+  public AppTableViewProperty(Builder builder){
+         /**
+          * 过滤条件
+          * <p> 示例值：
+          */
+      this.filterInfo = builder.filterInfo;
+         /**
+          * 隐藏字段ID列表
+          * <p> 示例值：["fldCGzANXx", "fldCGzANXx"]
+          */
+      this.hiddenFields = builder.hiddenFields;
+         /**
+          * 表格视图层级结构设置
+          * <p> 示例值：
+          */
+      this.hierarchyConfig = builder.hierarchyConfig;
+  }
+
     public static class Builder {
-        /**
-         * 过滤条件
-         * <p> 示例值：
-         */
+     /**
+      * 过滤条件
+      * <p> 示例值：
+      */
         private AppTableViewPropertyFilterInfo filterInfo;
-        /**
-         * 隐藏字段ID列表
-         * <p> 示例值：["fldCGzANXx", "fldCGzANXx"]
-         */
+     /**
+      * 隐藏字段ID列表
+      * <p> 示例值：["fldCGzANXx", "fldCGzANXx"]
+      */
         private String[] hiddenFields;
-        /**
-         * 表格视图层级结构设置
-         * <p> 示例值：
-         */
+     /**
+      * 表格视图层级结构设置
+      * <p> 示例值：
+      */
         private AppTableViewPropertyHierarchyConfig hierarchyConfig;
 
         /**
          * 过滤条件
          * <p> 示例值：
-         *
          * @param filterInfo
          * @return
          */
         public Builder filterInfo(AppTableViewPropertyFilterInfo filterInfo) {
-            this.filterInfo = filterInfo;
-            return this;
+             this.filterInfo = filterInfo;
+             return this;
         }
 
+    
 
         /**
          * 隐藏字段ID列表
          * <p> 示例值：["fldCGzANXx", "fldCGzANXx"]
-         *
          * @param hiddenFields
          * @return
          */
         public Builder hiddenFields(String[] hiddenFields) {
-            this.hiddenFields = hiddenFields;
-            return this;
+             this.hiddenFields = hiddenFields;
+             return this;
         }
 
+    
 
         /**
          * 表格视图层级结构设置
          * <p> 示例值：
-         *
          * @param hierarchyConfig
          * @return
          */
         public Builder hierarchyConfig(AppTableViewPropertyHierarchyConfig hierarchyConfig) {
-            this.hierarchyConfig = hierarchyConfig;
-            return this;
+             this.hierarchyConfig = hierarchyConfig;
+             return this;
         }
 
+    
+    
+    public AppTableViewProperty build(){
+        return new AppTableViewProperty(this);
+      }
+    }
 
-        public AppTableViewProperty build() {
-            return new AppTableViewProperty(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

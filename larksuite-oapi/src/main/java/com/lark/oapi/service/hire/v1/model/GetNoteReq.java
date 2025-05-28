@@ -12,57 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetNoteReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 备注ID
-     * <p> 示例值：6949805467799537964
-     */
-    @Path
-    @SerializedName("note_id")
-    private String noteId;
-
-    // builder 开始
-    public GetNoteReq() {
-    }
-
-    public GetNoteReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 备注ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.noteId = builder.noteId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -71,6 +38,13 @@ public class GetNoteReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 备注ID
+      * <p> 示例值：6949805467799537964
+      */
+    @Path
+    @SerializedName("note_id")
+    private String noteId;
     public String getNoteId() {
         return this.noteId;
     }
@@ -79,37 +53,57 @@ public class GetNoteReq {
         this.noteId = noteId;
     }
 
+
+// builder 开始
+  public GetNoteReq(){}
+
+  public GetNoteReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 备注ID
+      * <p> 示例值：6949805467799537964
+      */
+       this.noteId = builder.noteId;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String noteId; // 备注ID
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+        private String noteId; // 备注ID
         /**
          * 备注ID
          * <p> 示例值：6949805467799537964
-         *
          * @param noteId
          * @return
          */
-        public Builder noteId(String noteId) {
-            this.noteId = noteId;
-            return this;
-        }
+          public Builder noteId(String noteId) {
+               this.noteId = noteId;
+               return this;
+          }
 
+    
+    public GetNoteReq build(){
+        return new GetNoteReq(this);
+      }
+    }
 
-        public GetNoteReq build() {
-            return new GetNoteReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

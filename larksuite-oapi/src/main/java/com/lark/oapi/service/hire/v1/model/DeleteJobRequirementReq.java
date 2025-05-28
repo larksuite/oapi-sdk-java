@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteJobRequirementReq {
-    /**
-     * 招聘需求 ID
-     * <p> 示例值：1616161616
-     */
+     /**
+      * 招聘需求 ID
+      * <p> 示例值：1616161616
+      */
     @Path
     @SerializedName("job_requirement_id")
     private String jobRequirementId;
-
-    // builder 开始
-    public DeleteJobRequirementReq() {
-    }
-
-    public DeleteJobRequirementReq(Builder builder) {
-        /**
-         * 招聘需求 ID
-         * <p> 示例值：1616161616
-         */
-        this.jobRequirementId = builder.jobRequirementId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getJobRequirementId() {
         return this.jobRequirementId;
     }
@@ -59,25 +38,39 @@ public class DeleteJobRequirementReq {
         this.jobRequirementId = jobRequirementId;
     }
 
+
+// builder 开始
+  public DeleteJobRequirementReq(){}
+
+  public DeleteJobRequirementReq(Builder builder){
+     /**
+      * 招聘需求 ID
+      * <p> 示例值：1616161616
+      */
+       this.jobRequirementId = builder.jobRequirementId;
+  }
+
     public static class Builder {
-
+    
         private String jobRequirementId; // 招聘需求 ID
-
         /**
          * 招聘需求 ID
          * <p> 示例值：1616161616
-         *
          * @param jobRequirementId
          * @return
          */
-        public Builder jobRequirementId(String jobRequirementId) {
-            this.jobRequirementId = jobRequirementId;
-            return this;
-        }
+          public Builder jobRequirementId(String jobRequirementId) {
+               this.jobRequirementId = jobRequirementId;
+               return this;
+          }
 
+    
+    public DeleteJobRequirementReq build(){
+        return new DeleteJobRequirementReq(this);
+      }
+    }
 
-        public DeleteJobRequirementReq build() {
-            return new DeleteJobRequirementReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

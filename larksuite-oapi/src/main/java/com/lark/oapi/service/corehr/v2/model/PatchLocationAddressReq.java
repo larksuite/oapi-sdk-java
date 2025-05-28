@@ -51,6 +51,7 @@ public class PatchLocationAddressReq {
     private String addressId;
     @Body
     private LocationAddressUpdate body;
+
     // builder 开始
     public PatchLocationAddressReq() {
     }

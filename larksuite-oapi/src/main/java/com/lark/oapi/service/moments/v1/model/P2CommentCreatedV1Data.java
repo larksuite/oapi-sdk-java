@@ -12,65 +12,60 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2CommentCreatedV1Data {
-    /**
-     * 评论所属用户ID
-     * <p> 示例值：
-     */
+     /**
+      * 评论所属用户ID
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private UserId userId;
-    /**
-     * 评论 ID
-     * <p> 示例值："248381240"
-     */
+     /**
+      * 评论 ID
+      * <p> 示例值："248381240"
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 评论创建时间
-     * <p> 示例值："2022-05-23T00:00:00+08:00"
-     */
+     /**
+      * 评论创建时间
+      * <p> 示例值："2022-05-23T00:00:00+08:00"
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 评论所属帖子的ID
-     * <p> 示例值："248381241"
-     */
+     /**
+      * 评论所属帖子的ID
+      * <p> 示例值："248381241"
+      */
     @SerializedName("post_id")
     private String postId;
-    /**
-     * 回复的评论ID
-     * <p> 示例值：""
-     */
+     /**
+      * 回复的评论ID
+      * <p> 示例值：""
+      */
     @SerializedName("reply_comment_id")
     private String replyCommentId;
-    /**
-     * 根评论ID
-     * <p> 示例值：""
-     */
+     /**
+      * 根评论ID
+      * <p> 示例值：""
+      */
     @SerializedName("root_comment_id")
     private String rootCommentId;
-    /**
-     * 表情回复人类型
-     * <p> 示例值：1
-     */
+     /**
+      * 表情回复人类型
+      * <p> 示例值：1
+      */
     @SerializedName("user_type")
     private Integer userType;
-
     public UserId getUserId() {
         return this.userId;
     }

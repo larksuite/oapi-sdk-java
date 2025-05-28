@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OptionProperties {
-    /**
-     * 是否展示下拉按钮
-     * <p> 示例值：true
-     */
+     /**
+      * 是否展示下拉按钮
+      * <p> 示例值：true
+      */
     @SerializedName("show_dropdown_icon")
     private Boolean showDropdownIcon;
-
-    // builder 开始
-    public OptionProperties() {
-    }
-
-    public OptionProperties(Builder builder) {
-        /**
-         * 是否展示下拉按钮
-         * <p> 示例值：true
-         */
-        this.showDropdownIcon = builder.showDropdownIcon;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getShowDropdownIcon() {
         return this.showDropdownIcon;
     }
@@ -60,28 +39,44 @@ public class OptionProperties {
         this.showDropdownIcon = showDropdownIcon;
     }
 
+
+// builder 开始
+  public OptionProperties(){}
+
+  public OptionProperties(Builder builder){
+         /**
+          * 是否展示下拉按钮
+          * <p> 示例值：true
+          */
+      this.showDropdownIcon = builder.showDropdownIcon;
+  }
+
     public static class Builder {
-        /**
-         * 是否展示下拉按钮
-         * <p> 示例值：true
-         */
+     /**
+      * 是否展示下拉按钮
+      * <p> 示例值：true
+      */
         private Boolean showDropdownIcon;
 
         /**
          * 是否展示下拉按钮
          * <p> 示例值：true
-         *
          * @param showDropdownIcon
          * @return
          */
         public Builder showDropdownIcon(Boolean showDropdownIcon) {
-            this.showDropdownIcon = showDropdownIcon;
-            return this;
+             this.showDropdownIcon = showDropdownIcon;
+             return this;
         }
 
+    
+    
+    public OptionProperties build(){
+        return new OptionProperties(this);
+      }
+    }
 
-        public OptionProperties build() {
-            return new OptionProperties(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataAssetImportKnowledgeFile {
-    /**
-     * 文件标题
-     * <p> 示例值：文件标题
-     */
+     /**
+      * 文件标题
+      * <p> 示例值：文件标题
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 上传文件获取到的token。和content二选一，优先使用token。
-     * <p> 示例值：bb690637b49440b08f39459a2fdcd2ca
-     */
+     /**
+      * 上传文件获取到的token。和content二选一，优先使用token。
+      * <p> 示例值：bb690637b49440b08f39459a2fdcd2ca
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * 文件内容。和token二选一，优先使用token。有长度限制，大文件优先使用token方式。
-     * <p> 示例值：这是文件内容
-     */
+     /**
+      * 文件内容。和token二选一，优先使用token。有长度限制，大文件优先使用token方式。
+      * <p> 示例值：这是文件内容
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 文件内容对应的 MIME 类型，使用token方式必须填写
-     * <p> 示例值：.docx
-     */
+     /**
+      * 文件内容对应的 MIME 类型，使用token方式必须填写
+      * <p> 示例值：.docx
+      */
     @SerializedName("mime_type")
     private String mimeType;
-    /**
-     * 文件源的URL
-     * <p> 示例值：https://document.com/1
-     */
+     /**
+      * 文件源的URL
+      * <p> 示例值：https://document.com/1
+      */
     @SerializedName("url")
     private String url;
-
-    // builder 开始
-    public DataAssetImportKnowledgeFile() {
-    }
-
-    public DataAssetImportKnowledgeFile(Builder builder) {
-        /**
-         * 文件标题
-         * <p> 示例值：文件标题
-         */
-        this.title = builder.title;
-        /**
-         * 上传文件获取到的token。和content二选一，优先使用token。
-         * <p> 示例值：bb690637b49440b08f39459a2fdcd2ca
-         */
-        this.token = builder.token;
-        /**
-         * 文件内容。和token二选一，优先使用token。有长度限制，大文件优先使用token方式。
-         * <p> 示例值：这是文件内容
-         */
-        this.content = builder.content;
-        /**
-         * 文件内容对应的 MIME 类型，使用token方式必须填写
-         * <p> 示例值：.docx
-         */
-        this.mimeType = builder.mimeType;
-        /**
-         * 文件源的URL
-         * <p> 示例值：https://document.com/1
-         */
-        this.url = builder.url;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTitle() {
         return this.title;
     }
@@ -136,100 +95,136 @@ public class DataAssetImportKnowledgeFile {
         this.url = url;
     }
 
+
+// builder 开始
+  public DataAssetImportKnowledgeFile(){}
+
+  public DataAssetImportKnowledgeFile(Builder builder){
+         /**
+          * 文件标题
+          * <p> 示例值：文件标题
+          */
+      this.title = builder.title;
+         /**
+          * 上传文件获取到的token。和content二选一，优先使用token。
+          * <p> 示例值：bb690637b49440b08f39459a2fdcd2ca
+          */
+      this.token = builder.token;
+         /**
+          * 文件内容。和token二选一，优先使用token。有长度限制，大文件优先使用token方式。
+          * <p> 示例值：这是文件内容
+          */
+      this.content = builder.content;
+         /**
+          * 文件内容对应的 MIME 类型，使用token方式必须填写
+          * <p> 示例值：.docx
+          */
+      this.mimeType = builder.mimeType;
+         /**
+          * 文件源的URL
+          * <p> 示例值：https://document.com/1
+          */
+      this.url = builder.url;
+  }
+
     public static class Builder {
-        /**
-         * 文件标题
-         * <p> 示例值：文件标题
-         */
+     /**
+      * 文件标题
+      * <p> 示例值：文件标题
+      */
         private String title;
-        /**
-         * 上传文件获取到的token。和content二选一，优先使用token。
-         * <p> 示例值：bb690637b49440b08f39459a2fdcd2ca
-         */
+     /**
+      * 上传文件获取到的token。和content二选一，优先使用token。
+      * <p> 示例值：bb690637b49440b08f39459a2fdcd2ca
+      */
         private String token;
-        /**
-         * 文件内容。和token二选一，优先使用token。有长度限制，大文件优先使用token方式。
-         * <p> 示例值：这是文件内容
-         */
+     /**
+      * 文件内容。和token二选一，优先使用token。有长度限制，大文件优先使用token方式。
+      * <p> 示例值：这是文件内容
+      */
         private String content;
-        /**
-         * 文件内容对应的 MIME 类型，使用token方式必须填写
-         * <p> 示例值：.docx
-         */
+     /**
+      * 文件内容对应的 MIME 类型，使用token方式必须填写
+      * <p> 示例值：.docx
+      */
         private String mimeType;
-        /**
-         * 文件源的URL
-         * <p> 示例值：https://document.com/1
-         */
+     /**
+      * 文件源的URL
+      * <p> 示例值：https://document.com/1
+      */
         private String url;
 
         /**
          * 文件标题
          * <p> 示例值：文件标题
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 上传文件获取到的token。和content二选一，优先使用token。
          * <p> 示例值：bb690637b49440b08f39459a2fdcd2ca
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * 文件内容。和token二选一，优先使用token。有长度限制，大文件优先使用token方式。
          * <p> 示例值：这是文件内容
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 文件内容对应的 MIME 类型，使用token方式必须填写
          * <p> 示例值：.docx
-         *
          * @param mimeType
          * @return
          */
         public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
+             this.mimeType = mimeType;
+             return this;
         }
 
+    
 
         /**
          * 文件源的URL
          * <p> 示例值：https://document.com/1
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
+    
+    public DataAssetImportKnowledgeFile build(){
+        return new DataAssetImportKnowledgeFile(this);
+      }
+    }
 
-        public DataAssetImportKnowledgeFile build() {
-            return new DataAssetImportKnowledgeFile(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,67 +12,72 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TerminateApplicationReqBody {
-    /**
-     * 终止原因的类型
-     * <p> 示例值：1
-     */
+     /**
+      * 终止原因的类型
+      * <p> 示例值：1
+      */
     @SerializedName("termination_type")
     private Integer terminationType;
-    /**
-     * 终止的具体原因的id列表
-     * <p> 示例值：["6891560630172518670"]
-     */
+     /**
+      * 终止的具体原因的id列表
+      * <p> 示例值：["6891560630172518670"]
+      */
     @SerializedName("termination_reason_list")
     private String[] terminationReasonList;
-    /**
-     * 终止备注
-     * <p> 示例值：不符合期望
-     */
+     /**
+      * 终止备注
+      * <p> 示例值：不符合期望
+      */
     @SerializedName("termination_reason_note")
     private String terminationReasonNote;
-
-    // builder 开始
-    public TerminateApplicationReqBody() {
-    }
-
-    public TerminateApplicationReqBody(Builder builder) {
-        /**
-         * 终止原因的类型
-         * <p> 示例值：1
-         */
-        this.terminationType = builder.terminationType;
-        /**
-         * 终止的具体原因的id列表
-         * <p> 示例值：["6891560630172518670"]
-         */
-        this.terminationReasonList = builder.terminationReasonList;
-        /**
-         * 终止备注
-         * <p> 示例值：不符合期望
-         */
-        this.terminationReasonNote = builder.terminationReasonNote;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
+     /**
+      * 是否终止offer（撤销offer或者标记为候选人拒绝）
+      * <p> 示例值：false
+      */
+    @SerializedName("need_terminate_offer")
+    private Boolean needTerminateOffer;
+     /**
+      * 终止 Offer 操作类型
+      * <p> 示例值：1
+      */
+    @SerializedName("terminate_offer_operate_type")
+    private Integer terminateOfferOperateType;
+     /**
+      * 撤销offer的终止原因的类型
+      * <p> 示例值：1
+      */
+    @SerializedName("cancel_offer_termination_type")
+    private Integer cancelOfferTerminationType;
+     /**
+      * 撤销offer的终止的具体原因的id列表
+      * <p> 示例值：
+      */
+    @SerializedName("cancel_offer_termination_reason_list")
+    private String[] cancelOfferTerminationReasonList;
+     /**
+      * 候选人拒绝offer的终止的具体原因的id列表
+      * <p> 示例值：
+      */
+    @SerializedName("candidate_reject_offer_termination_reason_list")
+    private String[] candidateRejectOfferTerminationReasonList;
+     /**
+      * 是否撤回offer审批
+      * <p> 示例值：false
+      */
+    @SerializedName("need_withdraw_offer_approval")
+    private Boolean needWithdrawOfferApproval;
     public Integer getTerminationType() {
         return this.terminationType;
     }
@@ -97,64 +102,276 @@ public class TerminateApplicationReqBody {
         this.terminationReasonNote = terminationReasonNote;
     }
 
+    public Boolean getNeedTerminateOffer() {
+        return this.needTerminateOffer;
+    }
+
+    public void setNeedTerminateOffer(Boolean needTerminateOffer) {
+        this.needTerminateOffer = needTerminateOffer;
+    }
+
+    public Integer getTerminateOfferOperateType() {
+        return this.terminateOfferOperateType;
+    }
+
+    public void setTerminateOfferOperateType(Integer terminateOfferOperateType) {
+        this.terminateOfferOperateType = terminateOfferOperateType;
+    }
+
+    public Integer getCancelOfferTerminationType() {
+        return this.cancelOfferTerminationType;
+    }
+
+    public void setCancelOfferTerminationType(Integer cancelOfferTerminationType) {
+        this.cancelOfferTerminationType = cancelOfferTerminationType;
+    }
+
+    public String[] getCancelOfferTerminationReasonList() {
+        return this.cancelOfferTerminationReasonList;
+    }
+
+    public void setCancelOfferTerminationReasonList(String[] cancelOfferTerminationReasonList) {
+        this.cancelOfferTerminationReasonList = cancelOfferTerminationReasonList;
+    }
+
+    public String[] getCandidateRejectOfferTerminationReasonList() {
+        return this.candidateRejectOfferTerminationReasonList;
+    }
+
+    public void setCandidateRejectOfferTerminationReasonList(String[] candidateRejectOfferTerminationReasonList) {
+        this.candidateRejectOfferTerminationReasonList = candidateRejectOfferTerminationReasonList;
+    }
+
+    public Boolean getNeedWithdrawOfferApproval() {
+        return this.needWithdrawOfferApproval;
+    }
+
+    public void setNeedWithdrawOfferApproval(Boolean needWithdrawOfferApproval) {
+        this.needWithdrawOfferApproval = needWithdrawOfferApproval;
+    }
+
+
+// builder 开始
+  public TerminateApplicationReqBody(){}
+
+  public TerminateApplicationReqBody(Builder builder){
+         /**
+          * 终止原因的类型
+          * <p> 示例值：1
+          */
+      this.terminationType = builder.terminationType;
+         /**
+          * 终止的具体原因的id列表
+          * <p> 示例值：["6891560630172518670"]
+          */
+      this.terminationReasonList = builder.terminationReasonList;
+         /**
+          * 终止备注
+          * <p> 示例值：不符合期望
+          */
+      this.terminationReasonNote = builder.terminationReasonNote;
+         /**
+          * 是否终止offer（撤销offer或者标记为候选人拒绝）
+          * <p> 示例值：false
+          */
+      this.needTerminateOffer = builder.needTerminateOffer;
+         /**
+          * 终止 Offer 操作类型
+          * <p> 示例值：1
+          */
+      this.terminateOfferOperateType = builder.terminateOfferOperateType;
+         /**
+          * 撤销offer的终止原因的类型
+          * <p> 示例值：1
+          */
+      this.cancelOfferTerminationType = builder.cancelOfferTerminationType;
+         /**
+          * 撤销offer的终止的具体原因的id列表
+          * <p> 示例值：
+          */
+      this.cancelOfferTerminationReasonList = builder.cancelOfferTerminationReasonList;
+         /**
+          * 候选人拒绝offer的终止的具体原因的id列表
+          * <p> 示例值：
+          */
+      this.candidateRejectOfferTerminationReasonList = builder.candidateRejectOfferTerminationReasonList;
+         /**
+          * 是否撤回offer审批
+          * <p> 示例值：false
+          */
+      this.needWithdrawOfferApproval = builder.needWithdrawOfferApproval;
+  }
+
     public static class Builder {
-        /**
-         * 终止原因的类型
-         * <p> 示例值：1
-         */
+     /**
+      * 终止原因的类型
+      * <p> 示例值：1
+      */
         private Integer terminationType;
-        /**
-         * 终止的具体原因的id列表
-         * <p> 示例值：["6891560630172518670"]
-         */
+     /**
+      * 终止的具体原因的id列表
+      * <p> 示例值：["6891560630172518670"]
+      */
         private String[] terminationReasonList;
-        /**
-         * 终止备注
-         * <p> 示例值：不符合期望
-         */
+     /**
+      * 终止备注
+      * <p> 示例值：不符合期望
+      */
         private String terminationReasonNote;
+     /**
+      * 是否终止offer（撤销offer或者标记为候选人拒绝）
+      * <p> 示例值：false
+      */
+        private Boolean needTerminateOffer;
+     /**
+      * 终止 Offer 操作类型
+      * <p> 示例值：1
+      */
+        private Integer terminateOfferOperateType;
+     /**
+      * 撤销offer的终止原因的类型
+      * <p> 示例值：1
+      */
+        private Integer cancelOfferTerminationType;
+     /**
+      * 撤销offer的终止的具体原因的id列表
+      * <p> 示例值：
+      */
+        private String[] cancelOfferTerminationReasonList;
+     /**
+      * 候选人拒绝offer的终止的具体原因的id列表
+      * <p> 示例值：
+      */
+        private String[] candidateRejectOfferTerminationReasonList;
+     /**
+      * 是否撤回offer审批
+      * <p> 示例值：false
+      */
+        private Boolean needWithdrawOfferApproval;
 
         /**
          * 终止原因的类型
          * <p> 示例值：1
-         *
          * @param terminationType
          * @return
          */
         public Builder terminationType(Integer terminationType) {
-            this.terminationType = terminationType;
-            return this;
+             this.terminationType = terminationType;
+             return this;
         }
 
+    
 
         /**
          * 终止的具体原因的id列表
          * <p> 示例值：["6891560630172518670"]
-         *
          * @param terminationReasonList
          * @return
          */
         public Builder terminationReasonList(String[] terminationReasonList) {
-            this.terminationReasonList = terminationReasonList;
-            return this;
+             this.terminationReasonList = terminationReasonList;
+             return this;
         }
 
+    
 
         /**
          * 终止备注
          * <p> 示例值：不符合期望
-         *
          * @param terminationReasonNote
          * @return
          */
         public Builder terminationReasonNote(String terminationReasonNote) {
-            this.terminationReasonNote = terminationReasonNote;
-            return this;
+             this.terminationReasonNote = terminationReasonNote;
+             return this;
         }
 
+    
 
-        public TerminateApplicationReqBody build() {
-            return new TerminateApplicationReqBody(this);
+        /**
+         * 是否终止offer（撤销offer或者标记为候选人拒绝）
+         * <p> 示例值：false
+         * @param needTerminateOffer
+         * @return
+         */
+        public Builder needTerminateOffer(Boolean needTerminateOffer) {
+             this.needTerminateOffer = needTerminateOffer;
+             return this;
         }
+
+    
+
+        /**
+         * 终止 Offer 操作类型
+         * <p> 示例值：1
+         * @param terminateOfferOperateType
+         * @return
+         */
+        public Builder terminateOfferOperateType(Integer terminateOfferOperateType) {
+             this.terminateOfferOperateType = terminateOfferOperateType;
+             return this;
+        }
+
+    
+
+        /**
+         * 撤销offer的终止原因的类型
+         * <p> 示例值：1
+         * @param cancelOfferTerminationType
+         * @return
+         */
+        public Builder cancelOfferTerminationType(Integer cancelOfferTerminationType) {
+             this.cancelOfferTerminationType = cancelOfferTerminationType;
+             return this;
+        }
+
+    
+
+        /**
+         * 撤销offer的终止的具体原因的id列表
+         * <p> 示例值：
+         * @param cancelOfferTerminationReasonList
+         * @return
+         */
+        public Builder cancelOfferTerminationReasonList(String[] cancelOfferTerminationReasonList) {
+             this.cancelOfferTerminationReasonList = cancelOfferTerminationReasonList;
+             return this;
+        }
+
+    
+
+        /**
+         * 候选人拒绝offer的终止的具体原因的id列表
+         * <p> 示例值：
+         * @param candidateRejectOfferTerminationReasonList
+         * @return
+         */
+        public Builder candidateRejectOfferTerminationReasonList(String[] candidateRejectOfferTerminationReasonList) {
+             this.candidateRejectOfferTerminationReasonList = candidateRejectOfferTerminationReasonList;
+             return this;
+        }
+
+    
+
+        /**
+         * 是否撤回offer审批
+         * <p> 示例值：false
+         * @param needWithdrawOfferApproval
+         * @return
+         */
+        public Builder needWithdrawOfferApproval(Boolean needWithdrawOfferApproval) {
+             this.needWithdrawOfferApproval = needWithdrawOfferApproval;
+             return this;
+        }
+
+    
+    
+    public TerminateApplicationReqBody build(){
+        return new TerminateApplicationReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ArchiveItemValue {
-    /**
-     * 薪资项ID
-     * <p> 示例值：7244131355509917228
-     */
+     /**
+      * 薪资项ID
+      * <p> 示例值：7244131355509917228
+      */
     @SerializedName("item_id")
     private String itemId;
-    /**
-     * 薪资项的值
-     * <p> 示例值：200.00
-     */
+     /**
+      * 薪资项的值
+      * <p> 示例值：200.00
+      */
     @SerializedName("item_value")
     private String itemValue;
-    /**
-     * 员工转正后薪资项的值，仅用于开启试用期的薪资方案，以及员工处于实习期
-     * <p> 示例值：600.00
-     */
+     /**
+      * 员工转正后薪资项的值，仅用于开启试用期的薪资方案，以及员工处于实习期
+      * <p> 示例值：600.00
+      */
     @SerializedName("item_value_regular")
     private String itemValueRegular;
-
-    // builder 开始
-    public ArchiveItemValue() {
-    }
-
-    public ArchiveItemValue(Builder builder) {
-        /**
-         * 薪资项ID
-         * <p> 示例值：7244131355509917228
-         */
-        this.itemId = builder.itemId;
-        /**
-         * 薪资项的值
-         * <p> 示例值：200.00
-         */
-        this.itemValue = builder.itemValue;
-        /**
-         * 员工转正后薪资项的值，仅用于开启试用期的薪资方案，以及员工处于实习期
-         * <p> 示例值：600.00
-         */
-        this.itemValueRegular = builder.itemValueRegular;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getItemId() {
         return this.itemId;
     }
@@ -98,64 +67,90 @@ public class ArchiveItemValue {
         this.itemValueRegular = itemValueRegular;
     }
 
+
+// builder 开始
+  public ArchiveItemValue(){}
+
+  public ArchiveItemValue(Builder builder){
+         /**
+          * 薪资项ID
+          * <p> 示例值：7244131355509917228
+          */
+      this.itemId = builder.itemId;
+         /**
+          * 薪资项的值
+          * <p> 示例值：200.00
+          */
+      this.itemValue = builder.itemValue;
+         /**
+          * 员工转正后薪资项的值，仅用于开启试用期的薪资方案，以及员工处于实习期
+          * <p> 示例值：600.00
+          */
+      this.itemValueRegular = builder.itemValueRegular;
+  }
+
     public static class Builder {
-        /**
-         * 薪资项ID
-         * <p> 示例值：7244131355509917228
-         */
+     /**
+      * 薪资项ID
+      * <p> 示例值：7244131355509917228
+      */
         private String itemId;
-        /**
-         * 薪资项的值
-         * <p> 示例值：200.00
-         */
+     /**
+      * 薪资项的值
+      * <p> 示例值：200.00
+      */
         private String itemValue;
-        /**
-         * 员工转正后薪资项的值，仅用于开启试用期的薪资方案，以及员工处于实习期
-         * <p> 示例值：600.00
-         */
+     /**
+      * 员工转正后薪资项的值，仅用于开启试用期的薪资方案，以及员工处于实习期
+      * <p> 示例值：600.00
+      */
         private String itemValueRegular;
 
         /**
          * 薪资项ID
          * <p> 示例值：7244131355509917228
-         *
          * @param itemId
          * @return
          */
         public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
+             this.itemId = itemId;
+             return this;
         }
 
+    
 
         /**
          * 薪资项的值
          * <p> 示例值：200.00
-         *
          * @param itemValue
          * @return
          */
         public Builder itemValue(String itemValue) {
-            this.itemValue = itemValue;
-            return this;
+             this.itemValue = itemValue;
+             return this;
         }
 
+    
 
         /**
          * 员工转正后薪资项的值，仅用于开启试用期的薪资方案，以及员工处于实习期
          * <p> 示例值：600.00
-         *
          * @param itemValueRegular
          * @return
          */
         public Builder itemValueRegular(String itemValueRegular) {
-            this.itemValueRegular = itemValueRegular;
-            return this;
+             this.itemValueRegular = itemValueRegular;
+             return this;
         }
 
+    
+    
+    public ArchiveItemValue build(){
+        return new ArchiveItemValue(this);
+      }
+    }
 
-        public ArchiveItemValue build() {
-            return new ArchiveItemValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,70 +12,39 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListSeatAssignmentReq {
-    /**
-     * 席位类型，枚举值：1.平台席位 2. 应用访问席位
-     * <p> 示例值：per_user
-     */
+     /**
+      * 席位类型，枚举值：1.平台席位 2. 应用访问席位
+      * <p> 示例值：per_user
+      */
     @Query
     @SerializedName("seat_type")
     private String seatType;
-    /**
-     * 分页大小，范围：【0，500】
-     * <p> 示例值：10
-     */
+     /**
+      * 分页大小，范围：【0，500】
+      * <p> 示例值：10
+      */
     @Query
     @SerializedName("page_size")
     private String pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-
-    // builder 开始
-    public ListSeatAssignmentReq() {
-    }
-
-    public ListSeatAssignmentReq(Builder builder) {
-        /**
-         * 席位类型，枚举值：1.平台席位 2. 应用访问席位
-         * <p> 示例值：per_user
-         */
-        this.seatType = builder.seatType;
-        /**
-         * 分页大小，范围：【0，500】
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0
-         */
-        this.pageToken = builder.pageToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSeatType() {
         return this.seatType;
     }
@@ -100,64 +69,86 @@ public class ListSeatAssignmentReq {
         this.pageToken = pageToken;
     }
 
+
+// builder 开始
+  public ListSeatAssignmentReq(){}
+
+  public ListSeatAssignmentReq(Builder builder){
+         /**
+          * 席位类型，枚举值：1.平台席位 2. 应用访问席位
+          * <p> 示例值：per_user
+          */
+       this.seatType = builder.seatType;
+         /**
+          * 分页大小，范围：【0，500】
+          * <p> 示例值：10
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0
+          */
+       this.pageToken = builder.pageToken;
+  }
+
     public static class Builder {
         private String seatType; // 席位类型，枚举值：1.平台席位 2. 应用访问席位
         private String pageSize; // 分页大小，范围：【0，500】
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-
+    
         /**
          * 席位类型，枚举值：1.平台席位 2. 应用访问席位
          * <p> 示例值：per_user
-         *
          * @param seatType
          * @return
          */
-        public Builder seatType(String seatType) {
-            this.seatType = seatType;
-            return this;
-        }
+           public Builder seatType(String seatType) {
+                this.seatType = seatType;
+                return this;
+           }
 
         /**
          * 席位类型，枚举值：1.平台席位 2. 应用访问席位
          * <p> 示例值：per_user
-         *
          * @param seatType {@link com.lark.oapi.service.apaas.v1.enums.ListSeatAssignmentSeatTypeEnum}
          * @return
          */
-        public Builder seatType(com.lark.oapi.service.apaas.v1.enums.ListSeatAssignmentSeatTypeEnum seatType) {
-            this.seatType = seatType.getValue();
-            return this;
-        }
+          public Builder seatType(com.lark.oapi.service.apaas.v1.enums.ListSeatAssignmentSeatTypeEnum seatType) {
+               this.seatType = seatType.getValue();
+               return this;
+          }
 
-
+    
         /**
          * 分页大小，范围：【0，500】
          * <p> 示例值：10
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(String pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
+    public ListSeatAssignmentReq build(){
+        return new ListSeatAssignmentReq(this);
+      }
+    }
 
-        public ListSeatAssignmentReq build() {
-            return new ListSeatAssignmentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

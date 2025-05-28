@@ -17,21 +17,20 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 操作系统
  */
 public enum DeviceApplyRecordDeviceSystemEnum {
-    ANDROID("Android"), // Android
-    HARMONY("Harmony"), // Harmony
-    IOS("iOS"), // IOS
-    WINDOWS("Windows"), // Windows
-    LINUX("Linux"), // Linux
-    MACOS("MacOS"), // MacOS
-    OPENHARMONY("OpenHarmony"), // OpenHarmony
-    ;
-    private String value;
-
+     ANDROID("Android"), // Android
+     HARMONY("Harmony"), // Harmony
+     IOS("iOS"), // IOS
+     WINDOWS("Windows"), // Windows
+     LINUX("Linux"), // Linux
+     MACOS("MacOS"), // MacOS
+     OPENHARMONY("OpenHarmony"), // OpenHarmony
+  ;
+   private String value;
     DeviceApplyRecordDeviceSystemEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

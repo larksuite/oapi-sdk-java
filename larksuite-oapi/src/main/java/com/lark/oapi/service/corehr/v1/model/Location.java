@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,148 +19,78 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Location {
-    /**
-     * 地点 ID
-     * <p> 示例值：4718803945687580505
-     */
+     /**
+      * 地点 ID
+      * <p> 示例值：4718803945687580505
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 层级关系，内层字段见实体
-     * <p> 示例值：
-     */
+     /**
+      * 层级关系，内层字段见实体
+      * <p> 示例值：
+      */
     @SerializedName("hiberarchy_common")
     private HiberarchyCommon hiberarchyCommon;
-    /**
-     * 地点用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地点用途（location_usage）枚举定义部分获得
-     * <p> 示例值：
-     */
+     /**
+      * 地点用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地点用途（location_usage）枚举定义部分获得
+      * <p> 示例值：
+      */
     @SerializedName("location_usage_list")
     private Enum[] locationUsageList;
-    /**
-     * 地址
-     * <p> 示例值：
-     */
+     /**
+      * 地址
+      * <p> 示例值：
+      */
     @SerializedName("address")
     private Address[] address;
-    /**
-     * 工时制度 ID，枚举值可通过【批量查询工时制度】接口获取
-     * <p> 示例值：4690238309151997779
-     */
+     /**
+      * 工时制度 ID，枚举值可通过【批量查询工时制度】接口获取
+      * <p> 示例值：4690238309151997779
+      */
     @SerializedName("working_hours_type_id")
     private String workingHoursTypeId;
-    /**
-     * 生效时间
-     * <p> 示例值：2020-05-01 00:00:00
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 失效时间
-     * <p> 示例值：2020-05-02 00:00:00
-     */
+     /**
+      * 失效时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
     @SerializedName("expiration_time")
     private String expirationTime;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-    /**
-     * 区域设置，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)区域设置（locale）枚举定义部分获得
-     * <p> 示例值：zh_cn
-     */
+     /**
+      * 区域设置，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)区域设置（locale）枚举定义部分获得
+      * <p> 示例值：zh_cn
+      */
     @SerializedName("locale")
     private Enum locale;
-    /**
-     * 时区
-     * <p> 示例值：123456789
-     */
+     /**
+      * 时区
+      * <p> 示例值：123456789
+      */
     @SerializedName("time_zone_id")
     private String timeZoneId;
-    /**
-     * 默认显示语言
-     * <p> 示例值：123456789
-     */
+     /**
+      * 默认显示语言
+      * <p> 示例值：123456789
+      */
     @SerializedName("display_language_id")
     private String displayLanguageId;
-
-    // builder 开始
-    public Location() {
-    }
-
-    public Location(Builder builder) {
-        /**
-         * 地点 ID
-         * <p> 示例值：4718803945687580505
-         */
-        this.id = builder.id;
-        /**
-         * 层级关系，内层字段见实体
-         * <p> 示例值：
-         */
-        this.hiberarchyCommon = builder.hiberarchyCommon;
-        /**
-         * 地点用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地点用途（location_usage）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.locationUsageList = builder.locationUsageList;
-        /**
-         * 地址
-         * <p> 示例值：
-         */
-        this.address = builder.address;
-        /**
-         * 工时制度 ID，枚举值可通过【批量查询工时制度】接口获取
-         * <p> 示例值：4690238309151997779
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 区域设置，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)区域设置（locale）枚举定义部分获得
-         * <p> 示例值：zh_cn
-         */
-        this.locale = builder.locale;
-        /**
-         * 时区
-         * <p> 示例值：123456789
-         */
-        this.timeZoneId = builder.timeZoneId;
-        /**
-         * 默认显示语言
-         * <p> 示例值：123456789
-         */
-        this.displayLanguageId = builder.displayLanguageId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -250,208 +179,274 @@ public class Location {
         this.displayLanguageId = displayLanguageId;
     }
 
+
+// builder 开始
+  public Location(){}
+
+  public Location(Builder builder){
+         /**
+          * 地点 ID
+          * <p> 示例值：4718803945687580505
+          */
+      this.id = builder.id;
+         /**
+          * 层级关系，内层字段见实体
+          * <p> 示例值：
+          */
+      this.hiberarchyCommon = builder.hiberarchyCommon;
+         /**
+          * 地点用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地点用途（location_usage）枚举定义部分获得
+          * <p> 示例值：
+          */
+      this.locationUsageList = builder.locationUsageList;
+         /**
+          * 地址
+          * <p> 示例值：
+          */
+      this.address = builder.address;
+         /**
+          * 工时制度 ID，枚举值可通过【批量查询工时制度】接口获取
+          * <p> 示例值：4690238309151997779
+          */
+      this.workingHoursTypeId = builder.workingHoursTypeId;
+         /**
+          * 生效时间
+          * <p> 示例值：2020-05-01 00:00:00
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 失效时间
+          * <p> 示例值：2020-05-02 00:00:00
+          */
+      this.expirationTime = builder.expirationTime;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 区域设置，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)区域设置（locale）枚举定义部分获得
+          * <p> 示例值：zh_cn
+          */
+      this.locale = builder.locale;
+         /**
+          * 时区
+          * <p> 示例值：123456789
+          */
+      this.timeZoneId = builder.timeZoneId;
+         /**
+          * 默认显示语言
+          * <p> 示例值：123456789
+          */
+      this.displayLanguageId = builder.displayLanguageId;
+  }
+
     public static class Builder {
-        /**
-         * 地点 ID
-         * <p> 示例值：4718803945687580505
-         */
+     /**
+      * 地点 ID
+      * <p> 示例值：4718803945687580505
+      */
         private String id;
-        /**
-         * 层级关系，内层字段见实体
-         * <p> 示例值：
-         */
+     /**
+      * 层级关系，内层字段见实体
+      * <p> 示例值：
+      */
         private HiberarchyCommon hiberarchyCommon;
-        /**
-         * 地点用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地点用途（location_usage）枚举定义部分获得
-         * <p> 示例值：
-         */
+     /**
+      * 地点用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地点用途（location_usage）枚举定义部分获得
+      * <p> 示例值：
+      */
         private Enum[] locationUsageList;
-        /**
-         * 地址
-         * <p> 示例值：
-         */
+     /**
+      * 地址
+      * <p> 示例值：
+      */
         private Address[] address;
-        /**
-         * 工时制度 ID，枚举值可通过【批量查询工时制度】接口获取
-         * <p> 示例值：4690238309151997779
-         */
+     /**
+      * 工时制度 ID，枚举值可通过【批量查询工时制度】接口获取
+      * <p> 示例值：4690238309151997779
+      */
         private String workingHoursTypeId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
         private String effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
+     /**
+      * 失效时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
         private String expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ObjectFieldData[] customFields;
-        /**
-         * 区域设置，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)区域设置（locale）枚举定义部分获得
-         * <p> 示例值：zh_cn
-         */
+     /**
+      * 区域设置，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)区域设置（locale）枚举定义部分获得
+      * <p> 示例值：zh_cn
+      */
         private Enum locale;
-        /**
-         * 时区
-         * <p> 示例值：123456789
-         */
+     /**
+      * 时区
+      * <p> 示例值：123456789
+      */
         private String timeZoneId;
-        /**
-         * 默认显示语言
-         * <p> 示例值：123456789
-         */
+     /**
+      * 默认显示语言
+      * <p> 示例值：123456789
+      */
         private String displayLanguageId;
 
         /**
          * 地点 ID
          * <p> 示例值：4718803945687580505
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 层级关系，内层字段见实体
          * <p> 示例值：
-         *
          * @param hiberarchyCommon
          * @return
          */
         public Builder hiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
-            this.hiberarchyCommon = hiberarchyCommon;
-            return this;
+             this.hiberarchyCommon = hiberarchyCommon;
+             return this;
         }
 
+    
 
         /**
          * 地点用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地点用途（location_usage）枚举定义部分获得
          * <p> 示例值：
-         *
          * @param locationUsageList
          * @return
          */
         public Builder locationUsageList(Enum[] locationUsageList) {
-            this.locationUsageList = locationUsageList;
-            return this;
+             this.locationUsageList = locationUsageList;
+             return this;
         }
 
+    
 
         /**
          * 地址
          * <p> 示例值：
-         *
          * @param address
          * @return
          */
         public Builder address(Address[] address) {
-            this.address = address;
-            return this;
+             this.address = address;
+             return this;
         }
 
+    
 
         /**
          * 工时制度 ID，枚举值可通过【批量查询工时制度】接口获取
          * <p> 示例值：4690238309151997779
-         *
          * @param workingHoursTypeId
          * @return
          */
         public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
+             this.workingHoursTypeId = workingHoursTypeId;
+             return this;
         }
 
+    
 
         /**
          * 生效时间
          * <p> 示例值：2020-05-01 00:00:00
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 失效时间
          * <p> 示例值：2020-05-02 00:00:00
-         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
+             this.expirationTime = expirationTime;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 区域设置，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)区域设置（locale）枚举定义部分获得
          * <p> 示例值：zh_cn
-         *
          * @param locale
          * @return
          */
         public Builder locale(Enum locale) {
-            this.locale = locale;
-            return this;
+             this.locale = locale;
+             return this;
         }
 
+    
 
         /**
          * 时区
          * <p> 示例值：123456789
-         *
          * @param timeZoneId
          * @return
          */
         public Builder timeZoneId(String timeZoneId) {
-            this.timeZoneId = timeZoneId;
-            return this;
+             this.timeZoneId = timeZoneId;
+             return this;
         }
 
+    
 
         /**
          * 默认显示语言
          * <p> 示例值：123456789
-         *
          * @param displayLanguageId
          * @return
          */
         public Builder displayLanguageId(String displayLanguageId) {
-            this.displayLanguageId = displayLanguageId;
-            return this;
+             this.displayLanguageId = displayLanguageId;
+             return this;
         }
 
+    
+    
+    public Location build(){
+        return new Location(this);
+      }
+    }
 
-        public Location build() {
-            return new Location(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

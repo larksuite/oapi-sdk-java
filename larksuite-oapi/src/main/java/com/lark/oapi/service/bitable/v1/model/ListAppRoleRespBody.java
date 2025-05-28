@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListAppRoleRespBody {
-    /**
-     * 自定义角色列表
-     * <p> 示例值：
-     */
+     /**
+      * 自定义角色列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private AppRole[] items;
-    /**
-     * 下一页分页的token
-     * <p> 示例值：
-     */
+     /**
+      * 下一页分页的token
+      * <p> 示例值：
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否有下一页数据
-     * <p> 示例值：
-     */
+     /**
+      * 是否有下一页数据
+      * <p> 示例值：
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-    /**
-     * 总数
-     * <p> 示例值：10
-     */
+     /**
+      * 总数
+      * <p> 示例值：10
+      */
     @SerializedName("total")
     private Integer total;
-
     public AppRole[] getItems() {
         return this.items;
     }

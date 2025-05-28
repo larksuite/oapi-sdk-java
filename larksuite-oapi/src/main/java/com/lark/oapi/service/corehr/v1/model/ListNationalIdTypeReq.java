@@ -12,94 +12,53 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListNationalIdTypeReq {
-    /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：1231231987
-     */
+     /**
+      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+      * <p> 示例值：1231231987
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
-     */
+     /**
+      * 每页获取记录数量，最大100
+      * <p> 示例值：100
+      */
     @Query
     @SerializedName("page_size")
     private String pageSize;
-    /**
-     * 证件类型
-     * <p> 示例值：regular_passport
-     */
+     /**
+      * 证件类型
+      * <p> 示例值：regular_passport
+      */
     @Query
     @SerializedName("identification_type")
     private String identificationType;
-    /**
-     * 证件类型编码
-     * <p> 示例值：MYS-ID
-     */
+     /**
+      * 证件类型编码
+      * <p> 示例值：MYS-ID
+      */
     @Query
     @SerializedName("code")
     private String code;
-    /**
-     * 国家地区ID
-     * <p> 示例值：6862995749043439111
-     */
+     /**
+      * 国家地区ID
+      * <p> 示例值：6862995749043439111
+      */
     @Query
     @SerializedName("country_region_id")
     private String countryRegionId;
-
-    // builder 开始
-    public ListNationalIdTypeReq() {
-    }
-
-    public ListNationalIdTypeReq(Builder builder) {
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 证件类型
-         * <p> 示例值：regular_passport
-         */
-        this.identificationType = builder.identificationType;
-        /**
-         * 证件类型编码
-         * <p> 示例值：MYS-ID
-         */
-        this.code = builder.code;
-        /**
-         * 国家地区ID
-         * <p> 示例值：6862995749043439111
-         */
-        this.countryRegionId = builder.countryRegionId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPageToken() {
         return this.pageToken;
     }
@@ -140,80 +99,111 @@ public class ListNationalIdTypeReq {
         this.countryRegionId = countryRegionId;
     }
 
+
+// builder 开始
+  public ListNationalIdTypeReq(){}
+
+  public ListNationalIdTypeReq(Builder builder){
+         /**
+          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+          * <p> 示例值：1231231987
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 每页获取记录数量，最大100
+          * <p> 示例值：100
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 证件类型
+          * <p> 示例值：regular_passport
+          */
+       this.identificationType = builder.identificationType;
+         /**
+          * 证件类型编码
+          * <p> 示例值：MYS-ID
+          */
+       this.code = builder.code;
+         /**
+          * 国家地区ID
+          * <p> 示例值：6862995749043439111
+          */
+       this.countryRegionId = builder.countryRegionId;
+  }
+
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private String pageSize; // 每页获取记录数量，最大100
         private String identificationType; // 证件类型
         private String code; // 证件类型编码
         private String countryRegionId; // 国家地区ID
-
+    
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：1231231987
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 每页获取记录数量，最大100
          * <p> 示例值：100
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(String pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 证件类型
          * <p> 示例值：regular_passport
-         *
          * @param identificationType
          * @return
          */
-        public Builder identificationType(String identificationType) {
-            this.identificationType = identificationType;
-            return this;
-        }
+           public Builder identificationType(String identificationType) {
+                this.identificationType = identificationType;
+                return this;
+           }
 
-
+    
         /**
          * 证件类型编码
          * <p> 示例值：MYS-ID
-         *
          * @param code
          * @return
          */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
+           public Builder code(String code) {
+                this.code = code;
+                return this;
+           }
 
-
+    
         /**
          * 国家地区ID
          * <p> 示例值：6862995749043439111
-         *
          * @param countryRegionId
          * @return
          */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
+           public Builder countryRegionId(String countryRegionId) {
+                this.countryRegionId = countryRegionId;
+                return this;
+           }
 
+    
+    public ListNationalIdTypeReq build(){
+        return new ListNationalIdTypeReq(this);
+      }
+    }
 
-        public ListNationalIdTypeReq build() {
-            return new ListNationalIdTypeReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

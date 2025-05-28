@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteAppFeedCardBatchReqBody {
-    /**
-     * 应用消息卡片
-     * <p> 示例值：
-     */
+     /**
+      * 应用消息卡片
+      * <p> 示例值：
+      */
     @SerializedName("feed_cards")
     private UserOpenAppFeedCardDeleter[] feedCards;
-
-    // builder 开始
-    public DeleteAppFeedCardBatchReqBody() {
-    }
-
-    public DeleteAppFeedCardBatchReqBody(Builder builder) {
-        /**
-         * 应用消息卡片
-         * <p> 示例值：
-         */
-        this.feedCards = builder.feedCards;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public UserOpenAppFeedCardDeleter[] getFeedCards() {
         return this.feedCards;
     }
@@ -60,28 +39,44 @@ public class DeleteAppFeedCardBatchReqBody {
         this.feedCards = feedCards;
     }
 
+
+// builder 开始
+  public DeleteAppFeedCardBatchReqBody(){}
+
+  public DeleteAppFeedCardBatchReqBody(Builder builder){
+         /**
+          * 应用消息卡片
+          * <p> 示例值：
+          */
+      this.feedCards = builder.feedCards;
+  }
+
     public static class Builder {
-        /**
-         * 应用消息卡片
-         * <p> 示例值：
-         */
+     /**
+      * 应用消息卡片
+      * <p> 示例值：
+      */
         private UserOpenAppFeedCardDeleter[] feedCards;
 
         /**
          * 应用消息卡片
          * <p> 示例值：
-         *
          * @param feedCards
          * @return
          */
         public Builder feedCards(UserOpenAppFeedCardDeleter[] feedCards) {
-            this.feedCards = feedCards;
-            return this;
+             this.feedCards = feedCards;
+             return this;
         }
 
+    
+    
+    public DeleteAppFeedCardBatchReqBody build(){
+        return new DeleteAppFeedCardBatchReqBody(this);
+      }
+    }
 
-        public DeleteAppFeedCardBatchReqBody build() {
-            return new DeleteAppFeedCardBatchReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

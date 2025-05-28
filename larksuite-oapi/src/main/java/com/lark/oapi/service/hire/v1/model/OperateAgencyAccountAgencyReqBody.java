@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OperateAgencyAccountAgencyReqBody {
-    /**
-     * 操作类型
-     * <p> 示例值：
-     */
+     /**
+      * 操作类型
+      * <p> 示例值：
+      */
     @SerializedName("option")
     private Integer option;
-    /**
-     * 猎头 ID
-     * <p> 示例值：7398623155442682156
-     */
+     /**
+      * 猎头 ID
+      * <p> 示例值：7398623155442682156
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 禁用原因，仅当禁用操作时，必填
-     * <p> 示例值：这个人特别不负责
-     */
+     /**
+      * 禁用原因，仅当禁用操作时，必填
+      * <p> 示例值：这个人特别不负责
+      */
     @SerializedName("reason")
     private String reason;
-
-    // builder 开始
-    public OperateAgencyAccountAgencyReqBody() {
-    }
-
-    public OperateAgencyAccountAgencyReqBody(Builder builder) {
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        this.option = builder.option;
-        /**
-         * 猎头 ID
-         * <p> 示例值：7398623155442682156
-         */
-        this.id = builder.id;
-        /**
-         * 禁用原因，仅当禁用操作时，必填
-         * <p> 示例值：这个人特别不负责
-         */
-        this.reason = builder.reason;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getOption() {
         return this.option;
     }
@@ -97,64 +66,90 @@ public class OperateAgencyAccountAgencyReqBody {
         this.reason = reason;
     }
 
+
+// builder 开始
+  public OperateAgencyAccountAgencyReqBody(){}
+
+  public OperateAgencyAccountAgencyReqBody(Builder builder){
+         /**
+          * 操作类型
+          * <p> 示例值：
+          */
+      this.option = builder.option;
+         /**
+          * 猎头 ID
+          * <p> 示例值：7398623155442682156
+          */
+      this.id = builder.id;
+         /**
+          * 禁用原因，仅当禁用操作时，必填
+          * <p> 示例值：这个人特别不负责
+          */
+      this.reason = builder.reason;
+  }
+
     public static class Builder {
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
+     /**
+      * 操作类型
+      * <p> 示例值：
+      */
         private Integer option;
-        /**
-         * 猎头 ID
-         * <p> 示例值：7398623155442682156
-         */
+     /**
+      * 猎头 ID
+      * <p> 示例值：7398623155442682156
+      */
         private String id;
-        /**
-         * 禁用原因，仅当禁用操作时，必填
-         * <p> 示例值：这个人特别不负责
-         */
+     /**
+      * 禁用原因，仅当禁用操作时，必填
+      * <p> 示例值：这个人特别不负责
+      */
         private String reason;
 
         /**
          * 操作类型
          * <p> 示例值：
-         *
          * @param option
          * @return
          */
         public Builder option(Integer option) {
-            this.option = option;
-            return this;
+             this.option = option;
+             return this;
         }
 
+    
 
         /**
          * 猎头 ID
          * <p> 示例值：7398623155442682156
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 禁用原因，仅当禁用操作时，必填
          * <p> 示例值：这个人特别不负责
-         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
+             this.reason = reason;
+             return this;
         }
 
+    
+    
+    public OperateAgencyAccountAgencyReqBody build(){
+        return new OperateAgencyAccountAgencyReqBody(this);
+      }
+    }
 
-        public OperateAgencyAccountAgencyReqBody build() {
-            return new OperateAgencyAccountAgencyReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

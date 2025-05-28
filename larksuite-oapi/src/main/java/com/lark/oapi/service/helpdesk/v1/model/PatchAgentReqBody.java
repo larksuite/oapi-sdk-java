@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchAgentReqBody {
-    /**
-     * agent status
-     * <p> 示例值：1：在线；2：离线
-     */
+     /**
+      * agent status
+      * <p> 示例值：1：在线；2：离线
+      */
     @SerializedName("status")
     private Integer status;
-
-    // builder 开始
-    public PatchAgentReqBody() {
-    }
-
-    public PatchAgentReqBody(Builder builder) {
-        /**
-         * agent status
-         * <p> 示例值：1：在线；2：离线
-         */
-        this.status = builder.status;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getStatus() {
         return this.status;
     }
@@ -60,28 +39,44 @@ public class PatchAgentReqBody {
         this.status = status;
     }
 
+
+// builder 开始
+  public PatchAgentReqBody(){}
+
+  public PatchAgentReqBody(Builder builder){
+         /**
+          * agent status
+          * <p> 示例值：1：在线；2：离线
+          */
+      this.status = builder.status;
+  }
+
     public static class Builder {
-        /**
-         * agent status
-         * <p> 示例值：1：在线；2：离线
-         */
+     /**
+      * agent status
+      * <p> 示例值：1：在线；2：离线
+      */
         private Integer status;
 
         /**
          * agent status
          * <p> 示例值：1：在线；2：离线
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
 
+    
+    
+    public PatchAgentReqBody build(){
+        return new PatchAgentReqBody(this);
+      }
+    }
 
-        public PatchAgentReqBody build() {
-            return new PatchAgentReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

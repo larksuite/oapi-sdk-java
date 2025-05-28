@@ -17,16 +17,15 @@ package com.lark.oapi.service.contact.v3.enums;
  * 说明请求中department_id_list参数所使用的部门ID类型
  */
 public enum BatchDepartmentDepartmentIdTypeEnum {
-    OPEN_DEPARTMENT_ID("open_department_id"), // 指定使用open_department_id作为部门ID类型
-    DEPARTMENT_ID("department_id"), // 指定使用department_id作为部门ID类型
-    ;
-    private String value;
-
+     OPEN_DEPARTMENT_ID("open_department_id"), // 指定使用open_department_id作为部门ID类型
+     DEPARTMENT_ID("department_id"), // 指定使用department_id作为部门ID类型
+  ;
+   private String value;
     BatchDepartmentDepartmentIdTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

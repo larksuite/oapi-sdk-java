@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CooperationRole {
-    /**
-     * 评估人的项目角色。在未配置项目角色情况下，该字段为空值。
-     * <p> 示例值：
-     */
+     /**
+      * 评估人的项目角色。在未配置项目角色情况下，该字段为空值。
+      * <p> 示例值：
+      */
     @SerializedName("reviewer_role")
     private CooperationUserRole reviewerRole;
-    /**
-     * 被评估人的项目角色。在未配置项目角色情况下，该字段为空值。
-     * <p> 示例值：
-     */
+     /**
+      * 被评估人的项目角色。在未配置项目角色情况下，该字段为空值。
+      * <p> 示例值：
+      */
     @SerializedName("reviewee_role")
     private CooperationUserRole revieweeRole;
-
-    // builder 开始
-    public CooperationRole() {
-    }
-
-    public CooperationRole(Builder builder) {
-        /**
-         * 评估人的项目角色。在未配置项目角色情况下，该字段为空值。
-         * <p> 示例值：
-         */
-        this.reviewerRole = builder.reviewerRole;
-        /**
-         * 被评估人的项目角色。在未配置项目角色情况下，该字段为空值。
-         * <p> 示例值：
-         */
-        this.revieweeRole = builder.revieweeRole;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public CooperationUserRole getReviewerRole() {
         return this.reviewerRole;
     }
@@ -79,46 +53,67 @@ public class CooperationRole {
         this.revieweeRole = revieweeRole;
     }
 
+
+// builder 开始
+  public CooperationRole(){}
+
+  public CooperationRole(Builder builder){
+         /**
+          * 评估人的项目角色。在未配置项目角色情况下，该字段为空值。
+          * <p> 示例值：
+          */
+      this.reviewerRole = builder.reviewerRole;
+         /**
+          * 被评估人的项目角色。在未配置项目角色情况下，该字段为空值。
+          * <p> 示例值：
+          */
+      this.revieweeRole = builder.revieweeRole;
+  }
+
     public static class Builder {
-        /**
-         * 评估人的项目角色。在未配置项目角色情况下，该字段为空值。
-         * <p> 示例值：
-         */
+     /**
+      * 评估人的项目角色。在未配置项目角色情况下，该字段为空值。
+      * <p> 示例值：
+      */
         private CooperationUserRole reviewerRole;
-        /**
-         * 被评估人的项目角色。在未配置项目角色情况下，该字段为空值。
-         * <p> 示例值：
-         */
+     /**
+      * 被评估人的项目角色。在未配置项目角色情况下，该字段为空值。
+      * <p> 示例值：
+      */
         private CooperationUserRole revieweeRole;
 
         /**
          * 评估人的项目角色。在未配置项目角色情况下，该字段为空值。
          * <p> 示例值：
-         *
          * @param reviewerRole
          * @return
          */
         public Builder reviewerRole(CooperationUserRole reviewerRole) {
-            this.reviewerRole = reviewerRole;
-            return this;
+             this.reviewerRole = reviewerRole;
+             return this;
         }
 
+    
 
         /**
          * 被评估人的项目角色。在未配置项目角色情况下，该字段为空值。
          * <p> 示例值：
-         *
          * @param revieweeRole
          * @return
          */
         public Builder revieweeRole(CooperationUserRole revieweeRole) {
-            this.revieweeRole = revieweeRole;
-            return this;
+             this.revieweeRole = revieweeRole;
+             return this;
         }
 
+    
+    
+    public CooperationRole build(){
+        return new CooperationRole(this);
+      }
+    }
 
-        public CooperationRole build() {
-            return new CooperationRole(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

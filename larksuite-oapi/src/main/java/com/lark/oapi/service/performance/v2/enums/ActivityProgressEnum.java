@@ -17,19 +17,18 @@ package com.lark.oapi.service.performance.v2.enums;
  * 项目状态
  */
 public enum ActivityProgressEnum {
-    ACTIVITYPROGRESSCONFIGURABLE("configurable"), // 待完成配置
-    ACTIVITYPROGRESSUNABLE("unable"), // 未启动
-    ACTIVITYPROGRESSSTARTING("initiating"), // 启动中
-    ACTIVITYPROGRESSENABLED("enabled"), // 已启动
-    ACTIVITYPROGRESSFINISHED("finished"), // 已结束
-    ;
-    private String value;
-
+     ACTIVITYPROGRESSCONFIGURABLE("configurable"), // 待完成配置
+     ACTIVITYPROGRESSUNABLE("unable"), // 未启动
+     ACTIVITYPROGRESSSTARTING("initiating"), // 启动中
+     ACTIVITYPROGRESSENABLED("enabled"), // 已启动
+     ACTIVITYPROGRESSFINISHED("finished"), // 已结束
+  ;
+   private String value;
     ActivityProgressEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

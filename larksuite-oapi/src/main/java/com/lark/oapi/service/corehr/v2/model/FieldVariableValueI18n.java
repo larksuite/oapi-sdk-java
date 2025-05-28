@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FieldVariableValueI18n {
-    /**
-     * 中文值
-     * <p> 示例值：北京
-     */
+     /**
+      * 中文值
+      * <p> 示例值：北京
+      */
     @SerializedName("zh_cn")
     private String zhCn;
-    /**
-     * 英文值
-     * <p> 示例值：Beijing
-     */
+     /**
+      * 英文值
+      * <p> 示例值：Beijing
+      */
     @SerializedName("en_us")
     private String enUs;
-
-    // builder 开始
-    public FieldVariableValueI18n() {
-    }
-
-    public FieldVariableValueI18n(Builder builder) {
-        /**
-         * 中文值
-         * <p> 示例值：北京
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 英文值
-         * <p> 示例值：Beijing
-         */
-        this.enUs = builder.enUs;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getZhCn() {
         return this.zhCn;
     }
@@ -79,46 +53,67 @@ public class FieldVariableValueI18n {
         this.enUs = enUs;
     }
 
+
+// builder 开始
+  public FieldVariableValueI18n(){}
+
+  public FieldVariableValueI18n(Builder builder){
+         /**
+          * 中文值
+          * <p> 示例值：北京
+          */
+      this.zhCn = builder.zhCn;
+         /**
+          * 英文值
+          * <p> 示例值：Beijing
+          */
+      this.enUs = builder.enUs;
+  }
+
     public static class Builder {
-        /**
-         * 中文值
-         * <p> 示例值：北京
-         */
+     /**
+      * 中文值
+      * <p> 示例值：北京
+      */
         private String zhCn;
-        /**
-         * 英文值
-         * <p> 示例值：Beijing
-         */
+     /**
+      * 英文值
+      * <p> 示例值：Beijing
+      */
         private String enUs;
 
         /**
          * 中文值
          * <p> 示例值：北京
-         *
          * @param zhCn
          * @return
          */
         public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
+             this.zhCn = zhCn;
+             return this;
         }
 
+    
 
         /**
          * 英文值
          * <p> 示例值：Beijing
-         *
          * @param enUs
          * @return
          */
         public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
+             this.enUs = enUs;
+             return this;
         }
 
+    
+    
+    public FieldVariableValueI18n build(){
+        return new FieldVariableValueI18n(this);
+      }
+    }
 
-        public FieldVariableValueI18n build() {
-            return new FieldVariableValueI18n(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

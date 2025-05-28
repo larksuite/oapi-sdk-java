@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TaskStatistics {
-    /**
-     * 任务总数
-     * <p> 示例值：12
-     */
+     /**
+      * 任务总数
+      * <p> 示例值：12
+      */
     @SerializedName("total_tasks_count")
     private Integer totalTasksCount;
-    /**
-     * 已完成任务的数量
-     * <p> 示例值：5
-     */
+     /**
+      * 已完成任务的数量
+      * <p> 示例值：5
+      */
     @SerializedName("total_completed_tasks_count")
     private Integer totalCompletedTasksCount;
-    /**
-     * 未完成任务的数量
-     * <p> 示例值：7
-     */
+     /**
+      * 未完成任务的数量
+      * <p> 示例值：7
+      */
     @SerializedName("total_uncompleted_tasks_count")
     private Integer totalUncompletedTasksCount;
-
-    // builder 开始
-    public TaskStatistics() {
-    }
-
-    public TaskStatistics(Builder builder) {
-        /**
-         * 任务总数
-         * <p> 示例值：12
-         */
-        this.totalTasksCount = builder.totalTasksCount;
-        /**
-         * 已完成任务的数量
-         * <p> 示例值：5
-         */
-        this.totalCompletedTasksCount = builder.totalCompletedTasksCount;
-        /**
-         * 未完成任务的数量
-         * <p> 示例值：7
-         */
-        this.totalUncompletedTasksCount = builder.totalUncompletedTasksCount;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getTotalTasksCount() {
         return this.totalTasksCount;
     }
@@ -98,64 +67,90 @@ public class TaskStatistics {
         this.totalUncompletedTasksCount = totalUncompletedTasksCount;
     }
 
+
+// builder 开始
+  public TaskStatistics(){}
+
+  public TaskStatistics(Builder builder){
+         /**
+          * 任务总数
+          * <p> 示例值：12
+          */
+      this.totalTasksCount = builder.totalTasksCount;
+         /**
+          * 已完成任务的数量
+          * <p> 示例值：5
+          */
+      this.totalCompletedTasksCount = builder.totalCompletedTasksCount;
+         /**
+          * 未完成任务的数量
+          * <p> 示例值：7
+          */
+      this.totalUncompletedTasksCount = builder.totalUncompletedTasksCount;
+  }
+
     public static class Builder {
-        /**
-         * 任务总数
-         * <p> 示例值：12
-         */
+     /**
+      * 任务总数
+      * <p> 示例值：12
+      */
         private Integer totalTasksCount;
-        /**
-         * 已完成任务的数量
-         * <p> 示例值：5
-         */
+     /**
+      * 已完成任务的数量
+      * <p> 示例值：5
+      */
         private Integer totalCompletedTasksCount;
-        /**
-         * 未完成任务的数量
-         * <p> 示例值：7
-         */
+     /**
+      * 未完成任务的数量
+      * <p> 示例值：7
+      */
         private Integer totalUncompletedTasksCount;
 
         /**
          * 任务总数
          * <p> 示例值：12
-         *
          * @param totalTasksCount
          * @return
          */
         public Builder totalTasksCount(Integer totalTasksCount) {
-            this.totalTasksCount = totalTasksCount;
-            return this;
+             this.totalTasksCount = totalTasksCount;
+             return this;
         }
 
+    
 
         /**
          * 已完成任务的数量
          * <p> 示例值：5
-         *
          * @param totalCompletedTasksCount
          * @return
          */
         public Builder totalCompletedTasksCount(Integer totalCompletedTasksCount) {
-            this.totalCompletedTasksCount = totalCompletedTasksCount;
-            return this;
+             this.totalCompletedTasksCount = totalCompletedTasksCount;
+             return this;
         }
 
+    
 
         /**
          * 未完成任务的数量
          * <p> 示例值：7
-         *
          * @param totalUncompletedTasksCount
          * @return
          */
         public Builder totalUncompletedTasksCount(Integer totalUncompletedTasksCount) {
-            this.totalUncompletedTasksCount = totalUncompletedTasksCount;
-            return this;
+             this.totalUncompletedTasksCount = totalUncompletedTasksCount;
+             return this;
         }
 
+    
+    
+    public TaskStatistics build(){
+        return new TaskStatistics(this);
+      }
+    }
 
-        public TaskStatistics build() {
-            return new TaskStatistics(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

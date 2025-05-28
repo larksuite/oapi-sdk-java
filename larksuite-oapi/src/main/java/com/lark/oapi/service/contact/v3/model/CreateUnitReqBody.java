@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateUnitReqBody {
-    /**
-     * 单位ID。可自定义，不传时默认自动生成。1-64字节范围大小，需为数字字母
-     * <p> 示例值：BU121
-     */
+     /**
+      * 单位ID。可自定义，不传时默认自动生成。1-64字节范围大小，需为数字字母
+      * <p> 示例值：BU121
+      */
     @SerializedName("unit_id")
     private String unitId;
-    /**
-     * 单位的名字，长度范围为1-100个字符
-     * <p> 示例值：消费者事业部
-     */
+     /**
+      * 单位的名字，长度范围为1-100个字符
+      * <p> 示例值：消费者事业部
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 单位类型，长度范围为1-100个字符，创建后不可修改
-     * <p> 示例值：子公司
-     */
+     /**
+      * 单位类型，长度范围为1-100个字符，创建后不可修改
+      * <p> 示例值：子公司
+      */
     @SerializedName("unit_type")
     private String unitType;
-
-    // builder 开始
-    public CreateUnitReqBody() {
-    }
-
-    public CreateUnitReqBody(Builder builder) {
-        /**
-         * 单位ID。可自定义，不传时默认自动生成。1-64字节范围大小，需为数字字母
-         * <p> 示例值：BU121
-         */
-        this.unitId = builder.unitId;
-        /**
-         * 单位的名字，长度范围为1-100个字符
-         * <p> 示例值：消费者事业部
-         */
-        this.name = builder.name;
-        /**
-         * 单位类型，长度范围为1-100个字符，创建后不可修改
-         * <p> 示例值：子公司
-         */
-        this.unitType = builder.unitType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUnitId() {
         return this.unitId;
     }
@@ -98,64 +67,90 @@ public class CreateUnitReqBody {
         this.unitType = unitType;
     }
 
+
+// builder 开始
+  public CreateUnitReqBody(){}
+
+  public CreateUnitReqBody(Builder builder){
+         /**
+          * 单位ID。可自定义，不传时默认自动生成。1-64字节范围大小，需为数字字母
+          * <p> 示例值：BU121
+          */
+      this.unitId = builder.unitId;
+         /**
+          * 单位的名字，长度范围为1-100个字符
+          * <p> 示例值：消费者事业部
+          */
+      this.name = builder.name;
+         /**
+          * 单位类型，长度范围为1-100个字符，创建后不可修改
+          * <p> 示例值：子公司
+          */
+      this.unitType = builder.unitType;
+  }
+
     public static class Builder {
-        /**
-         * 单位ID。可自定义，不传时默认自动生成。1-64字节范围大小，需为数字字母
-         * <p> 示例值：BU121
-         */
+     /**
+      * 单位ID。可自定义，不传时默认自动生成。1-64字节范围大小，需为数字字母
+      * <p> 示例值：BU121
+      */
         private String unitId;
-        /**
-         * 单位的名字，长度范围为1-100个字符
-         * <p> 示例值：消费者事业部
-         */
+     /**
+      * 单位的名字，长度范围为1-100个字符
+      * <p> 示例值：消费者事业部
+      */
         private String name;
-        /**
-         * 单位类型，长度范围为1-100个字符，创建后不可修改
-         * <p> 示例值：子公司
-         */
+     /**
+      * 单位类型，长度范围为1-100个字符，创建后不可修改
+      * <p> 示例值：子公司
+      */
         private String unitType;
 
         /**
          * 单位ID。可自定义，不传时默认自动生成。1-64字节范围大小，需为数字字母
          * <p> 示例值：BU121
-         *
          * @param unitId
          * @return
          */
         public Builder unitId(String unitId) {
-            this.unitId = unitId;
-            return this;
+             this.unitId = unitId;
+             return this;
         }
 
+    
 
         /**
          * 单位的名字，长度范围为1-100个字符
          * <p> 示例值：消费者事业部
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 单位类型，长度范围为1-100个字符，创建后不可修改
          * <p> 示例值：子公司
-         *
          * @param unitType
          * @return
          */
         public Builder unitType(String unitType) {
-            this.unitType = unitType;
-            return this;
+             this.unitType = unitType;
+             return this;
         }
 
+    
+    
+    public CreateUnitReqBody build(){
+        return new CreateUnitReqBody(this);
+      }
+    }
 
-        public CreateUnitReqBody build() {
-            return new CreateUnitReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

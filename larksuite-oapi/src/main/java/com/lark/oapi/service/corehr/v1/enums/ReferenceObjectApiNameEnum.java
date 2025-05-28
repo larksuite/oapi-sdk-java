@@ -17,16 +17,15 @@ package com.lark.oapi.service.corehr.v1.enums;
  * cpst_item(项目)、 cpst_indicator(指标)
  */
 public enum ReferenceObjectApiNameEnum {
-    CPST_ITEM("cpst_item"), // 项目
-    CPST_INDICATOR("cpst_indicator"), // 指标
-    ;
-    private String value;
-
+     CPST_ITEM("cpst_item"), // 项目
+     CPST_INDICATOR("cpst_indicator"), // 指标
+  ;
+   private String value;
     ReferenceObjectApiNameEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

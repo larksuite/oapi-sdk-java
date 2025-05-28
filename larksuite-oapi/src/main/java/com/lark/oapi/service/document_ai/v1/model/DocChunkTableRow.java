@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DocChunkTableRow {
-    /**
-     * 表格解析单行数据
-     * <p> 示例值：
-     */
+     /**
+      * 表格解析单行数据
+      * <p> 示例值：
+      */
     @SerializedName("row_cells")
     private DocChunkTableCell[] rowCells;
-
-    // builder 开始
-    public DocChunkTableRow() {
-    }
-
-    public DocChunkTableRow(Builder builder) {
-        /**
-         * 表格解析单行数据
-         * <p> 示例值：
-         */
-        this.rowCells = builder.rowCells;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public DocChunkTableCell[] getRowCells() {
         return this.rowCells;
     }
@@ -60,28 +39,44 @@ public class DocChunkTableRow {
         this.rowCells = rowCells;
     }
 
+
+// builder 开始
+  public DocChunkTableRow(){}
+
+  public DocChunkTableRow(Builder builder){
+         /**
+          * 表格解析单行数据
+          * <p> 示例值：
+          */
+      this.rowCells = builder.rowCells;
+  }
+
     public static class Builder {
-        /**
-         * 表格解析单行数据
-         * <p> 示例值：
-         */
+     /**
+      * 表格解析单行数据
+      * <p> 示例值：
+      */
         private DocChunkTableCell[] rowCells;
 
         /**
          * 表格解析单行数据
          * <p> 示例值：
-         *
          * @param rowCells
          * @return
          */
         public Builder rowCells(DocChunkTableCell[] rowCells) {
-            this.rowCells = rowCells;
-            return this;
+             this.rowCells = rowCells;
+             return this;
         }
 
+    
+    
+    public DocChunkTableRow build(){
+        return new DocChunkTableRow(this);
+      }
+    }
 
-        public DocChunkTableRow build() {
-            return new DocChunkTableRow(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

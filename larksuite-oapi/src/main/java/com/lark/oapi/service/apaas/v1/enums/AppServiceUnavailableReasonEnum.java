@@ -17,16 +17,15 @@ package com.lark.oapi.service.apaas.v1.enums;
  * aPaaS 产品应用的停服原因
  */
 public enum AppServiceUnavailableReasonEnum {
-    FROM_ISV("from_isv"), // ISV服务商停服
-    ENTITLEMENT_EXPIRE("entitlement_expire"), // 租户权益到期停服
-    ;
-    private String value;
-
+     FROM_ISV("from_isv"), // ISV服务商停服
+     ENTITLEMENT_EXPIRE("entitlement_expire"), // 租户权益到期停服
+  ;
+   private String value;
     AppServiceUnavailableReasonEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

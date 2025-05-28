@@ -17,17 +17,16 @@ package com.lark.oapi.service.contact.v3.enums;
  * 用户 ID 类型
  */
 public enum GetFunctionalRoleMemberRoleMemberIDTypeEnum {
-    OPEN_ID("open_id"), // 用户的open_id
-    UNION_ID("union_id"), // 用户的union_id
-    USER_ID("user_id"), // 用户的user_id
-    ;
-    private String value;
-
+     OPEN_ID("open_id"), // 用户的open_id
+     UNION_ID("union_id"), // 用户的union_id
+     USER_ID("user_id"), // 用户的user_id
+  ;
+   private String value;
     GetFunctionalRoleMemberRoleMemberIDTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

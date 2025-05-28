@@ -12,36 +12,20 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateJobFamilyReq {
     @Body
     private JobFamily body;
-
-    // builder 开始
-    public CreateJobFamilyReq() {
-    }
-
-    public CreateJobFamilyReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public JobFamily getJobFamily() {
         return this.body;
@@ -51,27 +35,36 @@ public class CreateJobFamilyReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateJobFamilyReq(){}
+
+  public CreateJobFamilyReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private JobFamily body;
-
+    
         public JobFamily getJobFamily() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder jobFamily(JobFamily body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateJobFamilyReq build(){
+        return new CreateJobFamilyReq(this);
+      }
+    }
 
-        public CreateJobFamilyReq build() {
-            return new CreateJobFamilyReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

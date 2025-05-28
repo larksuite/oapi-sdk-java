@@ -17,43 +17,37 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.sheets.v3.resource.*;
 
 public class V3 {
-    private final Spreadsheet spreadsheet; // 表格
-    private final SpreadsheetSheet spreadsheetSheet; // 行列
-    private final SpreadsheetSheetFilter spreadsheetSheetFilter; // 筛选
-    private final SpreadsheetSheetFilterView spreadsheetSheetFilterView; // 筛选视图
-    private final SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition; // 筛选条件
-    private final SpreadsheetSheetFloatImage spreadsheetSheetFloatImage; // 浮动图片
+	private final Spreadsheet spreadsheet; // 表格
+	private final SpreadsheetSheet spreadsheetSheet; // 工作表
+	private final SpreadsheetSheetFilter spreadsheetSheetFilter; // 筛选
+	private final SpreadsheetSheetFilterView spreadsheetSheetFilterView; // 筛选视图
+	private final SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition; // 筛选条件
+	private final SpreadsheetSheetFloatImage spreadsheetSheetFloatImage; // 浮动图片
 
-    public V3(Config config) {
-        this.spreadsheet = new Spreadsheet(config);
-        this.spreadsheetSheet = new SpreadsheetSheet(config);
-        this.spreadsheetSheetFilter = new SpreadsheetSheetFilter(config);
-        this.spreadsheetSheetFilterView = new SpreadsheetSheetFilterView(config);
-        this.spreadsheetSheetFilterViewCondition = new SpreadsheetSheetFilterViewCondition(config);
-        this.spreadsheetSheetFloatImage = new SpreadsheetSheetFloatImage(config);
-    }
-
-    public Spreadsheet spreadsheet() {
-        return spreadsheet;
-    }
-
-    public SpreadsheetSheet spreadsheetSheet() {
-        return spreadsheetSheet;
-    }
-
-    public SpreadsheetSheetFilter spreadsheetSheetFilter() {
-        return spreadsheetSheetFilter;
-    }
-
-    public SpreadsheetSheetFilterView spreadsheetSheetFilterView() {
-        return spreadsheetSheetFilterView;
-    }
-
-    public SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition() {
-        return spreadsheetSheetFilterViewCondition;
-    }
-
-    public SpreadsheetSheetFloatImage spreadsheetSheetFloatImage() {
-        return spreadsheetSheetFloatImage;
-    }
+	public V3(Config config) {
+		this.spreadsheet = new Spreadsheet(config);
+		this.spreadsheetSheet = new SpreadsheetSheet(config);
+		this.spreadsheetSheetFilter = new SpreadsheetSheetFilter(config);
+		this.spreadsheetSheetFilterView = new SpreadsheetSheetFilterView(config);
+		this.spreadsheetSheetFilterViewCondition = new SpreadsheetSheetFilterViewCondition(config);
+		this.spreadsheetSheetFloatImage = new SpreadsheetSheetFloatImage(config);
+	}
+	public Spreadsheet spreadsheet() {
+		return spreadsheet;
+	}
+	public SpreadsheetSheet spreadsheetSheet() {
+		return spreadsheetSheet;
+	}
+	public SpreadsheetSheetFilter spreadsheetSheetFilter() {
+		return spreadsheetSheetFilter;
+	}
+	public SpreadsheetSheetFilterView spreadsheetSheetFilterView() {
+		return spreadsheetSheetFilterView;
+	}
+	public SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition() {
+		return spreadsheetSheetFilterViewCondition;
+	}
+	public SpreadsheetSheetFloatImage spreadsheetSheetFloatImage() {
+		return spreadsheetSheetFloatImage;
+	}
 }

@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateTitleSpaceNodeReq {
-    /**
-     * 知识空间ID
-     * <p> 示例值：6946843325487912356
-     */
+     /**
+      * 知识空间ID
+      * <p> 示例值：6946843325487912356
+      */
     @Path
     @SerializedName("space_id")
     private String spaceId;
-    /**
-     * 节点token
-     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
-     */
+     /**
+      * 节点token
+      * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+      */
     @Path
     @SerializedName("node_token")
     private String nodeToken;
-    @Body
-    private UpdateTitleSpaceNodeReqBody body;
-
-    // builder 开始
-    public UpdateTitleSpaceNodeReq() {
-    }
-
-    public UpdateTitleSpaceNodeReq(Builder builder) {
-        /**
-         * 知识空间ID
-         * <p> 示例值：6946843325487912356
-         */
-        this.spaceId = builder.spaceId;
-        /**
-         * 节点token
-         * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
-         */
-        this.nodeToken = builder.nodeToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSpaceId() {
         return this.spaceId;
     }
@@ -83,6 +54,9 @@ public class UpdateTitleSpaceNodeReq {
         this.nodeToken = nodeToken;
     }
 
+    @Body
+    private UpdateTitleSpaceNodeReqBody body;
+
     public UpdateTitleSpaceNodeReqBody getUpdateTitleSpaceNodeReqBody() {
         return this.body;
     }
@@ -91,53 +65,72 @@ public class UpdateTitleSpaceNodeReq {
         this.body = body;
     }
 
-    public static class Builder {
+// builder 开始
+  public UpdateTitleSpaceNodeReq(){}
 
+  public UpdateTitleSpaceNodeReq(Builder builder){
+     /**
+      * 知识空间ID
+      * <p> 示例值：6946843325487912356
+      */
+       this.spaceId = builder.spaceId;
+     /**
+      * 节点token
+      * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+      */
+       this.nodeToken = builder.nodeToken;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+    
         private String spaceId; // 知识空间ID
         private String nodeToken; // 节点token
-        private UpdateTitleSpaceNodeReqBody body;
-
         /**
          * 知识空间ID
          * <p> 示例值：6946843325487912356
-         *
          * @param spaceId
          * @return
          */
-        public Builder spaceId(String spaceId) {
-            this.spaceId = spaceId;
-            return this;
-        }
+          public Builder spaceId(String spaceId) {
+               this.spaceId = spaceId;
+               return this;
+          }
 
+    
         /**
          * 节点token
          * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
-         *
          * @param nodeToken
          * @return
          */
-        public Builder nodeToken(String nodeToken) {
-            this.nodeToken = nodeToken;
-            return this;
-        }
+          public Builder nodeToken(String nodeToken) {
+               this.nodeToken = nodeToken;
+               return this;
+          }
 
+    
+        private UpdateTitleSpaceNodeReqBody body;
+    
         public UpdateTitleSpaceNodeReqBody getUpdateTitleSpaceNodeReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder updateTitleSpaceNodeReqBody(UpdateTitleSpaceNodeReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UpdateTitleSpaceNodeReq build(){
+        return new UpdateTitleSpaceNodeReq(this);
+      }
+    }
 
-        public UpdateTitleSpaceNodeReq build() {
-            return new UpdateTitleSpaceNodeReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

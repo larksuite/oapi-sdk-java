@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CompanyIdAndName {
-    /**
-     * 所属公司的 ID
-     * <p> 示例值：sadasdasda
-     */
+     /**
+      * 所属公司的 ID
+      * <p> 示例值：sadasdasda
+      */
     @SerializedName("company_id")
     private String companyId;
-    /**
-     * 所属公司的名称
-     * <p> 示例值：
-     */
+     /**
+      * 所属公司的名称
+      * <p> 示例值：
+      */
     @SerializedName("company_name")
     private I18n[] companyName;
-
-    // builder 开始
-    public CompanyIdAndName() {
-    }
-
-    public CompanyIdAndName(Builder builder) {
-        /**
-         * 所属公司的 ID
-         * <p> 示例值：sadasdasda
-         */
-        this.companyId = builder.companyId;
-        /**
-         * 所属公司的名称
-         * <p> 示例值：
-         */
-        this.companyName = builder.companyName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCompanyId() {
         return this.companyId;
     }
@@ -79,46 +53,67 @@ public class CompanyIdAndName {
         this.companyName = companyName;
     }
 
+
+// builder 开始
+  public CompanyIdAndName(){}
+
+  public CompanyIdAndName(Builder builder){
+         /**
+          * 所属公司的 ID
+          * <p> 示例值：sadasdasda
+          */
+      this.companyId = builder.companyId;
+         /**
+          * 所属公司的名称
+          * <p> 示例值：
+          */
+      this.companyName = builder.companyName;
+  }
+
     public static class Builder {
-        /**
-         * 所属公司的 ID
-         * <p> 示例值：sadasdasda
-         */
+     /**
+      * 所属公司的 ID
+      * <p> 示例值：sadasdasda
+      */
         private String companyId;
-        /**
-         * 所属公司的名称
-         * <p> 示例值：
-         */
+     /**
+      * 所属公司的名称
+      * <p> 示例值：
+      */
         private I18n[] companyName;
 
         /**
          * 所属公司的 ID
          * <p> 示例值：sadasdasda
-         *
          * @param companyId
          * @return
          */
         public Builder companyId(String companyId) {
-            this.companyId = companyId;
-            return this;
+             this.companyId = companyId;
+             return this;
         }
 
+    
 
         /**
          * 所属公司的名称
          * <p> 示例值：
-         *
          * @param companyName
          * @return
          */
         public Builder companyName(I18n[] companyName) {
-            this.companyName = companyName;
-            return this;
+             this.companyName = companyName;
+             return this;
         }
 
+    
+    
+    public CompanyIdAndName build(){
+        return new CompanyIdAndName(this);
+      }
+    }
 
-        public CompanyIdAndName build() {
-            return new CompanyIdAndName(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

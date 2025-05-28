@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchBasicInfoBankReqBody {
-    /**
-     * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
-     * <p> 示例值：
-     */
+     /**
+      * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
+      * <p> 示例值：
+      */
     @SerializedName("bank_id_list")
     private String[] bankIdList;
-    /**
-     * 银行名称列表，支持对银行名称精确搜索
-     * <p> 示例值：
-     */
+     /**
+      * 银行名称列表，支持对银行名称精确搜索
+      * <p> 示例值：
+      */
     @SerializedName("bank_name_list")
     private String[] bankNameList;
-    /**
-     * 状态列表
-     * <p> 示例值：
-     */
+     /**
+      * 状态列表
+      * <p> 示例值：
+      */
     @SerializedName("status_list")
     private Integer[] statusList;
-    /**
-     * 最早更新时间
-     * <p> 示例值：2020-01-01 00:00:00
-     */
+     /**
+      * 最早更新时间
+      * <p> 示例值：2020-01-01 00:00:00
+      */
     @SerializedName("update_start_time")
     private String updateStartTime;
-    /**
-     * 最晚更新时间
-     * <p> 示例值：2024-01-01 00:00:00
-     */
+     /**
+      * 最晚更新时间
+      * <p> 示例值：2024-01-01 00:00:00
+      */
     @SerializedName("update_end_time")
     private String updateEndTime;
-
-    // builder 开始
-    public SearchBasicInfoBankReqBody() {
-    }
-
-    public SearchBasicInfoBankReqBody(Builder builder) {
-        /**
-         * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
-         * <p> 示例值：
-         */
-        this.bankIdList = builder.bankIdList;
-        /**
-         * 银行名称列表，支持对银行名称精确搜索
-         * <p> 示例值：
-         */
-        this.bankNameList = builder.bankNameList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        this.statusList = builder.statusList;
-        /**
-         * 最早更新时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
-        this.updateStartTime = builder.updateStartTime;
-        /**
-         * 最晚更新时间
-         * <p> 示例值：2024-01-01 00:00:00
-         */
-        this.updateEndTime = builder.updateEndTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getBankIdList() {
         return this.bankIdList;
     }
@@ -136,100 +95,136 @@ public class SearchBasicInfoBankReqBody {
         this.updateEndTime = updateEndTime;
     }
 
+
+// builder 开始
+  public SearchBasicInfoBankReqBody(){}
+
+  public SearchBasicInfoBankReqBody(Builder builder){
+         /**
+          * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
+          * <p> 示例值：
+          */
+      this.bankIdList = builder.bankIdList;
+         /**
+          * 银行名称列表，支持对银行名称精确搜索
+          * <p> 示例值：
+          */
+      this.bankNameList = builder.bankNameList;
+         /**
+          * 状态列表
+          * <p> 示例值：
+          */
+      this.statusList = builder.statusList;
+         /**
+          * 最早更新时间
+          * <p> 示例值：2020-01-01 00:00:00
+          */
+      this.updateStartTime = builder.updateStartTime;
+         /**
+          * 最晚更新时间
+          * <p> 示例值：2024-01-01 00:00:00
+          */
+      this.updateEndTime = builder.updateEndTime;
+  }
+
     public static class Builder {
-        /**
-         * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
-         * <p> 示例值：
-         */
+     /**
+      * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
+      * <p> 示例值：
+      */
         private String[] bankIdList;
-        /**
-         * 银行名称列表，支持对银行名称精确搜索
-         * <p> 示例值：
-         */
+     /**
+      * 银行名称列表，支持对银行名称精确搜索
+      * <p> 示例值：
+      */
         private String[] bankNameList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
+     /**
+      * 状态列表
+      * <p> 示例值：
+      */
         private Integer[] statusList;
-        /**
-         * 最早更新时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
+     /**
+      * 最早更新时间
+      * <p> 示例值：2020-01-01 00:00:00
+      */
         private String updateStartTime;
-        /**
-         * 最晚更新时间
-         * <p> 示例值：2024-01-01 00:00:00
-         */
+     /**
+      * 最晚更新时间
+      * <p> 示例值：2024-01-01 00:00:00
+      */
         private String updateEndTime;
 
         /**
          * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
          * <p> 示例值：
-         *
          * @param bankIdList
          * @return
          */
         public Builder bankIdList(String[] bankIdList) {
-            this.bankIdList = bankIdList;
-            return this;
+             this.bankIdList = bankIdList;
+             return this;
         }
 
+    
 
         /**
          * 银行名称列表，支持对银行名称精确搜索
          * <p> 示例值：
-         *
          * @param bankNameList
          * @return
          */
         public Builder bankNameList(String[] bankNameList) {
-            this.bankNameList = bankNameList;
-            return this;
+             this.bankNameList = bankNameList;
+             return this;
         }
 
+    
 
         /**
          * 状态列表
          * <p> 示例值：
-         *
          * @param statusList
          * @return
          */
         public Builder statusList(Integer[] statusList) {
-            this.statusList = statusList;
-            return this;
+             this.statusList = statusList;
+             return this;
         }
 
+    
 
         /**
          * 最早更新时间
          * <p> 示例值：2020-01-01 00:00:00
-         *
          * @param updateStartTime
          * @return
          */
         public Builder updateStartTime(String updateStartTime) {
-            this.updateStartTime = updateStartTime;
-            return this;
+             this.updateStartTime = updateStartTime;
+             return this;
         }
 
+    
 
         /**
          * 最晚更新时间
          * <p> 示例值：2024-01-01 00:00:00
-         *
          * @param updateEndTime
          * @return
          */
         public Builder updateEndTime(String updateEndTime) {
-            this.updateEndTime = updateEndTime;
-            return this;
+             this.updateEndTime = updateEndTime;
+             return this;
         }
 
+    
+    
+    public SearchBasicInfoBankReqBody build(){
+        return new SearchBasicInfoBankReqBody(this);
+      }
+    }
 
-        public SearchBasicInfoBankReqBody build() {
-            return new SearchBasicInfoBankReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

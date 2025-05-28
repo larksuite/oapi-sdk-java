@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReviewDataPermissionStage {
-    /**
-     * 环节 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 环节 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("stage_id")
     private String stageId;
-    /**
-     * 环节类型
-     * <p> 示例值：leader_review
-     */
+     /**
+      * 环节类型
+      * <p> 示例值：leader_review
+      */
     @SerializedName("stage_type")
     private String stageType;
-    /**
-     * 评估内容列表
-     * <p> 示例值：
-     */
+     /**
+      * 评估内容列表
+      * <p> 示例值：
+      */
     @SerializedName("units")
     private ReviewDataPermissionUnit[] units;
-
-    // builder 开始
-    public ReviewDataPermissionStage() {
-    }
-
-    public ReviewDataPermissionStage(Builder builder) {
-        /**
-         * 环节 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.stageId = builder.stageId;
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         */
-        this.stageType = builder.stageType;
-        /**
-         * 评估内容列表
-         * <p> 示例值：
-         */
-        this.units = builder.units;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStageId() {
         return this.stageId;
     }
@@ -98,64 +67,90 @@ public class ReviewDataPermissionStage {
         this.units = units;
     }
 
+
+// builder 开始
+  public ReviewDataPermissionStage(){}
+
+  public ReviewDataPermissionStage(Builder builder){
+         /**
+          * 环节 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.stageId = builder.stageId;
+         /**
+          * 环节类型
+          * <p> 示例值：leader_review
+          */
+      this.stageType = builder.stageType;
+         /**
+          * 评估内容列表
+          * <p> 示例值：
+          */
+      this.units = builder.units;
+  }
+
     public static class Builder {
-        /**
-         * 环节 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 环节 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String stageId;
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         */
+     /**
+      * 环节类型
+      * <p> 示例值：leader_review
+      */
         private String stageType;
-        /**
-         * 评估内容列表
-         * <p> 示例值：
-         */
+     /**
+      * 评估内容列表
+      * <p> 示例值：
+      */
         private ReviewDataPermissionUnit[] units;
 
         /**
          * 环节 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param stageId
          * @return
          */
         public Builder stageId(String stageId) {
-            this.stageId = stageId;
-            return this;
+             this.stageId = stageId;
+             return this;
         }
 
+    
 
         /**
          * 环节类型
          * <p> 示例值：leader_review
-         *
          * @param stageType
          * @return
          */
         public Builder stageType(String stageType) {
-            this.stageType = stageType;
-            return this;
+             this.stageType = stageType;
+             return this;
         }
 
+    
 
         /**
          * 评估内容列表
          * <p> 示例值：
-         *
          * @param units
          * @return
          */
         public Builder units(ReviewDataPermissionUnit[] units) {
-            this.units = units;
-            return this;
+             this.units = units;
+             return this;
         }
 
+    
+    
+    public ReviewDataPermissionStage build(){
+        return new ReviewDataPermissionStage(this);
+      }
+    }
 
-        public ReviewDataPermissionStage build() {
-            return new ReviewDataPermissionStage(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

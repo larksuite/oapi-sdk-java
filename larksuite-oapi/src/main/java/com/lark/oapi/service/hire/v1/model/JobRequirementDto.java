@@ -12,408 +12,222 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobRequirementDto {
-    /**
-     * 招聘需求 ID
-     * <p> 示例值：6949805467799537964
-     */
+     /**
+      * 招聘需求 ID
+      * <p> 示例值：6949805467799537964
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 招聘需求编号
-     * <p> 示例值：xx1
-     */
+     /**
+      * 招聘需求编号
+      * <p> 示例值：xx1
+      */
     @SerializedName("short_code")
     private String shortCode;
-    /**
-     * 需求名称
-     * <p> 示例值：test
-     */
+     /**
+      * 需求名称
+      * <p> 示例值：test
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 需求状态
-     * <p> 示例值：1
-     */
+     /**
+      * 需求状态
+      * <p> 示例值：1
+      */
     @SerializedName("display_progress")
     private Integer displayProgress;
-    /**
-     * 需求人数
-     * <p> 示例值：11
-     */
+     /**
+      * 需求人数
+      * <p> 示例值：11
+      */
     @SerializedName("head_count")
     private Integer headCount;
-    /**
-     * 职位性质
-     * <p> 示例值：
-     */
+     /**
+      * 职位性质
+      * <p> 示例值：
+      */
     @SerializedName("recruitment_type")
     private IdNameObject recruitmentType;
-    /**
-     * 人员类型
-     * <p> 示例值：
-     */
+     /**
+      * 人员类型
+      * <p> 示例值：
+      */
     @SerializedName("employee_type")
     private IdNameObject employeeType;
-    /**
-     * 最高职级
-     * <p> 示例值：
-     */
+     /**
+      * 最高职级
+      * <p> 示例值：
+      */
     @SerializedName("max_level")
     private IdNameObject maxLevel;
-    /**
-     * 最低职级
-     * <p> 示例值：
-     */
+     /**
+      * 最低职级
+      * <p> 示例值：
+      */
     @SerializedName("min_level")
     private IdNameObject minLevel;
-    /**
-     * 职位序列
-     * <p> 示例值：
-     */
+     /**
+      * 职位序列
+      * <p> 示例值：
+      */
     @SerializedName("sequence")
     private IdNameObject sequence;
-    /**
-     * 需求类型
-     * <p> 示例值：1
-     */
+     /**
+      * 需求类型
+      * <p> 示例值：1
+      */
     @SerializedName("category")
     private Integer category;
-    /**
-     * 需求部门
-     * <p> 示例值：
-     */
+     /**
+      * 需求部门
+      * <p> 示例值：
+      */
     @SerializedName("department")
     private IdNameObject department;
-    /**
-     * 需求负责人
-     * <p> 示例值：
-     */
+     /**
+      * 需求负责人
+      * <p> 示例值：
+      */
     @SerializedName("recruiter_list")
     private IdNameObject[] recruiterList;
-    /**
-     * 需求用人经理
-     * <p> 示例值：
-     */
+     /**
+      * 需求用人经理
+      * <p> 示例值：
+      */
     @SerializedName("jr_hiring_managers")
     private IdNameObject[] jrHiringManagers;
-    /**
-     * 直属上级
-     * <p> 示例值：
-     */
+     /**
+      * 直属上级
+      * <p> 示例值：
+      */
     @SerializedName("direct_leader_list")
     private IdNameObject[] directLeaderList;
-    /**
-     * 开始日期，毫秒级时间戳
-     * <p> 示例值：1625729379000
-     */
+     /**
+      * 开始日期，毫秒级时间戳
+      * <p> 示例值：1625729379000
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 预计完成日期，毫秒级时间戳
-     * <p> 示例值：1625729379000
-     */
+     /**
+      * 预计完成日期，毫秒级时间戳
+      * <p> 示例值：1625729379000
+      */
     @SerializedName("deadline")
     private String deadline;
-    /**
-     * 招聘优先级
-     * <p> 示例值：1
-     */
+     /**
+      * 招聘优先级
+      * <p> 示例值：1
+      */
     @SerializedName("priority")
     private Integer priority;
-    /**
-     * 学历要求
-     * <p> 示例值：1
-     */
+     /**
+      * 学历要求
+      * <p> 示例值：1
+      */
     @SerializedName("required_degree")
     private Integer requiredDegree;
-    /**
-     * 最高薪资
-     * <p> 示例值：123
-     */
+     /**
+      * 最高薪资
+      * <p> 示例值：123
+      */
     @SerializedName("max_salary")
     private String maxSalary;
-    /**
-     * 最低薪资
-     * <p> 示例值：11
-     */
+     /**
+      * 最低薪资
+      * <p> 示例值：11
+      */
     @SerializedName("min_salary")
     private String minSalary;
-    /**
-     * 工作地点
-     * <p> 示例值：
-     */
+     /**
+      * 工作地点
+      * <p> 示例值：
+      */
     @SerializedName("address")
     private IdNameObject address;
-    /**
-     * 需求描述
-     * <p> 示例值：11
-     */
+     /**
+      * 需求描述
+      * <p> 示例值：11
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("customized_data_list")
     private JobRequirementCustomizedDataDto[] customizedDataList;
-    /**
-     * 关联职位 ID
-     * <p> 示例值：
-     */
+     /**
+      * 关联职位 ID
+      * <p> 示例值：
+      */
     @SerializedName("job_id_list")
     private String[] jobIdList;
-    /**
-     * 招聘需求支持的招聘类型
-     * <p> 示例值：1
-     */
+     /**
+      * 招聘需求支持的招聘类型
+      * <p> 示例值：1
+      */
     @SerializedName("process_type")
     private Integer processType;
-    /**
-     * 职位类别
-     * <p> 示例值：
-     */
+     /**
+      * 职位类别
+      * <p> 示例值：
+      */
     @SerializedName("job_type")
     private JobTypeInfo jobType;
-    /**
-     * 创建时间,毫秒级时间戳
-     * <p> 示例值：1718856006000
-     */
+     /**
+      * 创建时间,毫秒级时间戳
+      * <p> 示例值：1718856006000
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 创建人ID
-     * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
-     */
+     /**
+      * 创建人ID
+      * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
+      */
     @SerializedName("creator_id")
     private String creatorId;
-    /**
-     * 更新时间,毫秒级时间戳
-     * <p> 示例值：1718856006000
-     */
+     /**
+      * 更新时间,毫秒级时间戳
+      * <p> 示例值：1718856006000
+      */
     @SerializedName("update_time")
     private String updateTime;
-    /**
-     * 职务 ID
-     * <p> 示例值：123
-     */
+     /**
+      * 职务 ID
+      * <p> 示例值：123
+      */
     @SerializedName("employment_job_id")
     private String employmentJobId;
-    /**
-     * 岗位 ID
-     * <p> 示例值：123
-     */
+     /**
+      * 岗位 ID
+      * <p> 示例值：123
+      */
     @SerializedName("position_id")
     private String positionId;
-    /**
-     * 完成时间，毫秒级时间戳
-     * <p> 示例值：1736846689278
-     */
+     /**
+      * 完成时间，毫秒级时间戳
+      * <p> 示例值：1736846689278
+      */
     @SerializedName("completion_time")
     private String completionTime;
-    /**
-     * 审批状态
-     * <p> 示例值：1
-     */
+     /**
+      * 审批状态
+      * <p> 示例值：1
+      */
     @SerializedName("approval_status")
     private Integer approvalStatus;
-
-    // builder 开始
-    public JobRequirementDto() {
-    }
-
-    public JobRequirementDto(Builder builder) {
-        /**
-         * 招聘需求 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 招聘需求编号
-         * <p> 示例值：xx1
-         */
-        this.shortCode = builder.shortCode;
-        /**
-         * 需求名称
-         * <p> 示例值：test
-         */
-        this.name = builder.name;
-        /**
-         * 需求状态
-         * <p> 示例值：1
-         */
-        this.displayProgress = builder.displayProgress;
-        /**
-         * 需求人数
-         * <p> 示例值：11
-         */
-        this.headCount = builder.headCount;
-        /**
-         * 职位性质
-         * <p> 示例值：
-         */
-        this.recruitmentType = builder.recruitmentType;
-        /**
-         * 人员类型
-         * <p> 示例值：
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 最高职级
-         * <p> 示例值：
-         */
-        this.maxLevel = builder.maxLevel;
-        /**
-         * 最低职级
-         * <p> 示例值：
-         */
-        this.minLevel = builder.minLevel;
-        /**
-         * 职位序列
-         * <p> 示例值：
-         */
-        this.sequence = builder.sequence;
-        /**
-         * 需求类型
-         * <p> 示例值：1
-         */
-        this.category = builder.category;
-        /**
-         * 需求部门
-         * <p> 示例值：
-         */
-        this.department = builder.department;
-        /**
-         * 需求负责人
-         * <p> 示例值：
-         */
-        this.recruiterList = builder.recruiterList;
-        /**
-         * 需求用人经理
-         * <p> 示例值：
-         */
-        this.jrHiringManagers = builder.jrHiringManagers;
-        /**
-         * 直属上级
-         * <p> 示例值：
-         */
-        this.directLeaderList = builder.directLeaderList;
-        /**
-         * 开始日期，毫秒级时间戳
-         * <p> 示例值：1625729379000
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 预计完成日期，毫秒级时间戳
-         * <p> 示例值：1625729379000
-         */
-        this.deadline = builder.deadline;
-        /**
-         * 招聘优先级
-         * <p> 示例值：1
-         */
-        this.priority = builder.priority;
-        /**
-         * 学历要求
-         * <p> 示例值：1
-         */
-        this.requiredDegree = builder.requiredDegree;
-        /**
-         * 最高薪资
-         * <p> 示例值：123
-         */
-        this.maxSalary = builder.maxSalary;
-        /**
-         * 最低薪资
-         * <p> 示例值：11
-         */
-        this.minSalary = builder.minSalary;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
-        this.address = builder.address;
-        /**
-         * 需求描述
-         * <p> 示例值：11
-         */
-        this.description = builder.description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedDataList = builder.customizedDataList;
-        /**
-         * 关联职位 ID
-         * <p> 示例值：
-         */
-        this.jobIdList = builder.jobIdList;
-        /**
-         * 招聘需求支持的招聘类型
-         * <p> 示例值：1
-         */
-        this.processType = builder.processType;
-        /**
-         * 职位类别
-         * <p> 示例值：
-         */
-        this.jobType = builder.jobType;
-        /**
-         * 创建时间,毫秒级时间戳
-         * <p> 示例值：1718856006000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 创建人ID
-         * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 更新时间,毫秒级时间戳
-         * <p> 示例值：1718856006000
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 职务 ID
-         * <p> 示例值：123
-         */
-        this.employmentJobId = builder.employmentJobId;
-        /**
-         * 岗位 ID
-         * <p> 示例值：123
-         */
-        this.positionId = builder.positionId;
-        /**
-         * 完成时间，毫秒级时间戳
-         * <p> 示例值：1736846689278
-         */
-        this.completionTime = builder.completionTime;
-        /**
-         * 审批状态
-         * <p> 示例值：1
-         */
-        this.approvalStatus = builder.approvalStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -686,622 +500,803 @@ public class JobRequirementDto {
         this.approvalStatus = approvalStatus;
     }
 
+
+// builder 开始
+  public JobRequirementDto(){}
+
+  public JobRequirementDto(Builder builder){
+         /**
+          * 招聘需求 ID
+          * <p> 示例值：6949805467799537964
+          */
+      this.id = builder.id;
+         /**
+          * 招聘需求编号
+          * <p> 示例值：xx1
+          */
+      this.shortCode = builder.shortCode;
+         /**
+          * 需求名称
+          * <p> 示例值：test
+          */
+      this.name = builder.name;
+         /**
+          * 需求状态
+          * <p> 示例值：1
+          */
+      this.displayProgress = builder.displayProgress;
+         /**
+          * 需求人数
+          * <p> 示例值：11
+          */
+      this.headCount = builder.headCount;
+         /**
+          * 职位性质
+          * <p> 示例值：
+          */
+      this.recruitmentType = builder.recruitmentType;
+         /**
+          * 人员类型
+          * <p> 示例值：
+          */
+      this.employeeType = builder.employeeType;
+         /**
+          * 最高职级
+          * <p> 示例值：
+          */
+      this.maxLevel = builder.maxLevel;
+         /**
+          * 最低职级
+          * <p> 示例值：
+          */
+      this.minLevel = builder.minLevel;
+         /**
+          * 职位序列
+          * <p> 示例值：
+          */
+      this.sequence = builder.sequence;
+         /**
+          * 需求类型
+          * <p> 示例值：1
+          */
+      this.category = builder.category;
+         /**
+          * 需求部门
+          * <p> 示例值：
+          */
+      this.department = builder.department;
+         /**
+          * 需求负责人
+          * <p> 示例值：
+          */
+      this.recruiterList = builder.recruiterList;
+         /**
+          * 需求用人经理
+          * <p> 示例值：
+          */
+      this.jrHiringManagers = builder.jrHiringManagers;
+         /**
+          * 直属上级
+          * <p> 示例值：
+          */
+      this.directLeaderList = builder.directLeaderList;
+         /**
+          * 开始日期，毫秒级时间戳
+          * <p> 示例值：1625729379000
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 预计完成日期，毫秒级时间戳
+          * <p> 示例值：1625729379000
+          */
+      this.deadline = builder.deadline;
+         /**
+          * 招聘优先级
+          * <p> 示例值：1
+          */
+      this.priority = builder.priority;
+         /**
+          * 学历要求
+          * <p> 示例值：1
+          */
+      this.requiredDegree = builder.requiredDegree;
+         /**
+          * 最高薪资
+          * <p> 示例值：123
+          */
+      this.maxSalary = builder.maxSalary;
+         /**
+          * 最低薪资
+          * <p> 示例值：11
+          */
+      this.minSalary = builder.minSalary;
+         /**
+          * 工作地点
+          * <p> 示例值：
+          */
+      this.address = builder.address;
+         /**
+          * 需求描述
+          * <p> 示例值：11
+          */
+      this.description = builder.description;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customizedDataList = builder.customizedDataList;
+         /**
+          * 关联职位 ID
+          * <p> 示例值：
+          */
+      this.jobIdList = builder.jobIdList;
+         /**
+          * 招聘需求支持的招聘类型
+          * <p> 示例值：1
+          */
+      this.processType = builder.processType;
+         /**
+          * 职位类别
+          * <p> 示例值：
+          */
+      this.jobType = builder.jobType;
+         /**
+          * 创建时间,毫秒级时间戳
+          * <p> 示例值：1718856006000
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 创建人ID
+          * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
+          */
+      this.creatorId = builder.creatorId;
+         /**
+          * 更新时间,毫秒级时间戳
+          * <p> 示例值：1718856006000
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 职务 ID
+          * <p> 示例值：123
+          */
+      this.employmentJobId = builder.employmentJobId;
+         /**
+          * 岗位 ID
+          * <p> 示例值：123
+          */
+      this.positionId = builder.positionId;
+         /**
+          * 完成时间，毫秒级时间戳
+          * <p> 示例值：1736846689278
+          */
+      this.completionTime = builder.completionTime;
+         /**
+          * 审批状态
+          * <p> 示例值：1
+          */
+      this.approvalStatus = builder.approvalStatus;
+  }
+
     public static class Builder {
-        /**
-         * 招聘需求 ID
-         * <p> 示例值：6949805467799537964
-         */
+     /**
+      * 招聘需求 ID
+      * <p> 示例值：6949805467799537964
+      */
         private String id;
-        /**
-         * 招聘需求编号
-         * <p> 示例值：xx1
-         */
+     /**
+      * 招聘需求编号
+      * <p> 示例值：xx1
+      */
         private String shortCode;
-        /**
-         * 需求名称
-         * <p> 示例值：test
-         */
+     /**
+      * 需求名称
+      * <p> 示例值：test
+      */
         private String name;
-        /**
-         * 需求状态
-         * <p> 示例值：1
-         */
+     /**
+      * 需求状态
+      * <p> 示例值：1
+      */
         private Integer displayProgress;
-        /**
-         * 需求人数
-         * <p> 示例值：11
-         */
+     /**
+      * 需求人数
+      * <p> 示例值：11
+      */
         private Integer headCount;
-        /**
-         * 职位性质
-         * <p> 示例值：
-         */
+     /**
+      * 职位性质
+      * <p> 示例值：
+      */
         private IdNameObject recruitmentType;
-        /**
-         * 人员类型
-         * <p> 示例值：
-         */
+     /**
+      * 人员类型
+      * <p> 示例值：
+      */
         private IdNameObject employeeType;
-        /**
-         * 最高职级
-         * <p> 示例值：
-         */
+     /**
+      * 最高职级
+      * <p> 示例值：
+      */
         private IdNameObject maxLevel;
-        /**
-         * 最低职级
-         * <p> 示例值：
-         */
+     /**
+      * 最低职级
+      * <p> 示例值：
+      */
         private IdNameObject minLevel;
-        /**
-         * 职位序列
-         * <p> 示例值：
-         */
+     /**
+      * 职位序列
+      * <p> 示例值：
+      */
         private IdNameObject sequence;
-        /**
-         * 需求类型
-         * <p> 示例值：1
-         */
+     /**
+      * 需求类型
+      * <p> 示例值：1
+      */
         private Integer category;
-        /**
-         * 需求部门
-         * <p> 示例值：
-         */
+     /**
+      * 需求部门
+      * <p> 示例值：
+      */
         private IdNameObject department;
-        /**
-         * 需求负责人
-         * <p> 示例值：
-         */
+     /**
+      * 需求负责人
+      * <p> 示例值：
+      */
         private IdNameObject[] recruiterList;
-        /**
-         * 需求用人经理
-         * <p> 示例值：
-         */
+     /**
+      * 需求用人经理
+      * <p> 示例值：
+      */
         private IdNameObject[] jrHiringManagers;
-        /**
-         * 直属上级
-         * <p> 示例值：
-         */
+     /**
+      * 直属上级
+      * <p> 示例值：
+      */
         private IdNameObject[] directLeaderList;
-        /**
-         * 开始日期，毫秒级时间戳
-         * <p> 示例值：1625729379000
-         */
+     /**
+      * 开始日期，毫秒级时间戳
+      * <p> 示例值：1625729379000
+      */
         private String startTime;
-        /**
-         * 预计完成日期，毫秒级时间戳
-         * <p> 示例值：1625729379000
-         */
+     /**
+      * 预计完成日期，毫秒级时间戳
+      * <p> 示例值：1625729379000
+      */
         private String deadline;
-        /**
-         * 招聘优先级
-         * <p> 示例值：1
-         */
+     /**
+      * 招聘优先级
+      * <p> 示例值：1
+      */
         private Integer priority;
-        /**
-         * 学历要求
-         * <p> 示例值：1
-         */
+     /**
+      * 学历要求
+      * <p> 示例值：1
+      */
         private Integer requiredDegree;
-        /**
-         * 最高薪资
-         * <p> 示例值：123
-         */
+     /**
+      * 最高薪资
+      * <p> 示例值：123
+      */
         private String maxSalary;
-        /**
-         * 最低薪资
-         * <p> 示例值：11
-         */
+     /**
+      * 最低薪资
+      * <p> 示例值：11
+      */
         private String minSalary;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
+     /**
+      * 工作地点
+      * <p> 示例值：
+      */
         private IdNameObject address;
-        /**
-         * 需求描述
-         * <p> 示例值：11
-         */
+     /**
+      * 需求描述
+      * <p> 示例值：11
+      */
         private String description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private JobRequirementCustomizedDataDto[] customizedDataList;
-        /**
-         * 关联职位 ID
-         * <p> 示例值：
-         */
+     /**
+      * 关联职位 ID
+      * <p> 示例值：
+      */
         private String[] jobIdList;
-        /**
-         * 招聘需求支持的招聘类型
-         * <p> 示例值：1
-         */
+     /**
+      * 招聘需求支持的招聘类型
+      * <p> 示例值：1
+      */
         private Integer processType;
-        /**
-         * 职位类别
-         * <p> 示例值：
-         */
+     /**
+      * 职位类别
+      * <p> 示例值：
+      */
         private JobTypeInfo jobType;
-        /**
-         * 创建时间,毫秒级时间戳
-         * <p> 示例值：1718856006000
-         */
+     /**
+      * 创建时间,毫秒级时间戳
+      * <p> 示例值：1718856006000
+      */
         private String createTime;
-        /**
-         * 创建人ID
-         * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
-         */
+     /**
+      * 创建人ID
+      * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
+      */
         private String creatorId;
-        /**
-         * 更新时间,毫秒级时间戳
-         * <p> 示例值：1718856006000
-         */
+     /**
+      * 更新时间,毫秒级时间戳
+      * <p> 示例值：1718856006000
+      */
         private String updateTime;
-        /**
-         * 职务 ID
-         * <p> 示例值：123
-         */
+     /**
+      * 职务 ID
+      * <p> 示例值：123
+      */
         private String employmentJobId;
-        /**
-         * 岗位 ID
-         * <p> 示例值：123
-         */
+     /**
+      * 岗位 ID
+      * <p> 示例值：123
+      */
         private String positionId;
-        /**
-         * 完成时间，毫秒级时间戳
-         * <p> 示例值：1736846689278
-         */
+     /**
+      * 完成时间，毫秒级时间戳
+      * <p> 示例值：1736846689278
+      */
         private String completionTime;
-        /**
-         * 审批状态
-         * <p> 示例值：1
-         */
+     /**
+      * 审批状态
+      * <p> 示例值：1
+      */
         private Integer approvalStatus;
 
         /**
          * 招聘需求 ID
          * <p> 示例值：6949805467799537964
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 招聘需求编号
          * <p> 示例值：xx1
-         *
          * @param shortCode
          * @return
          */
         public Builder shortCode(String shortCode) {
-            this.shortCode = shortCode;
-            return this;
+             this.shortCode = shortCode;
+             return this;
         }
 
+    
 
         /**
          * 需求名称
          * <p> 示例值：test
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 需求状态
          * <p> 示例值：1
-         *
          * @param displayProgress
          * @return
          */
         public Builder displayProgress(Integer displayProgress) {
-            this.displayProgress = displayProgress;
-            return this;
+             this.displayProgress = displayProgress;
+             return this;
         }
 
+    
 
         /**
          * 需求人数
          * <p> 示例值：11
-         *
          * @param headCount
          * @return
          */
         public Builder headCount(Integer headCount) {
-            this.headCount = headCount;
-            return this;
+             this.headCount = headCount;
+             return this;
         }
 
+    
 
         /**
          * 职位性质
          * <p> 示例值：
-         *
          * @param recruitmentType
          * @return
          */
         public Builder recruitmentType(IdNameObject recruitmentType) {
-            this.recruitmentType = recruitmentType;
-            return this;
+             this.recruitmentType = recruitmentType;
+             return this;
         }
 
+    
 
         /**
          * 人员类型
          * <p> 示例值：
-         *
          * @param employeeType
          * @return
          */
         public Builder employeeType(IdNameObject employeeType) {
-            this.employeeType = employeeType;
-            return this;
+             this.employeeType = employeeType;
+             return this;
         }
 
+    
 
         /**
          * 最高职级
          * <p> 示例值：
-         *
          * @param maxLevel
          * @return
          */
         public Builder maxLevel(IdNameObject maxLevel) {
-            this.maxLevel = maxLevel;
-            return this;
+             this.maxLevel = maxLevel;
+             return this;
         }
 
+    
 
         /**
          * 最低职级
          * <p> 示例值：
-         *
          * @param minLevel
          * @return
          */
         public Builder minLevel(IdNameObject minLevel) {
-            this.minLevel = minLevel;
-            return this;
+             this.minLevel = minLevel;
+             return this;
         }
 
+    
 
         /**
          * 职位序列
          * <p> 示例值：
-         *
          * @param sequence
          * @return
          */
         public Builder sequence(IdNameObject sequence) {
-            this.sequence = sequence;
-            return this;
+             this.sequence = sequence;
+             return this;
         }
 
+    
 
         /**
          * 需求类型
          * <p> 示例值：1
-         *
          * @param category
          * @return
          */
         public Builder category(Integer category) {
-            this.category = category;
-            return this;
+             this.category = category;
+             return this;
         }
 
+    
 
         /**
          * 需求部门
          * <p> 示例值：
-         *
          * @param department
          * @return
          */
         public Builder department(IdNameObject department) {
-            this.department = department;
-            return this;
+             this.department = department;
+             return this;
         }
 
+    
 
         /**
          * 需求负责人
          * <p> 示例值：
-         *
          * @param recruiterList
          * @return
          */
         public Builder recruiterList(IdNameObject[] recruiterList) {
-            this.recruiterList = recruiterList;
-            return this;
+             this.recruiterList = recruiterList;
+             return this;
         }
 
+    
 
         /**
          * 需求用人经理
          * <p> 示例值：
-         *
          * @param jrHiringManagers
          * @return
          */
         public Builder jrHiringManagers(IdNameObject[] jrHiringManagers) {
-            this.jrHiringManagers = jrHiringManagers;
-            return this;
+             this.jrHiringManagers = jrHiringManagers;
+             return this;
         }
 
+    
 
         /**
          * 直属上级
          * <p> 示例值：
-         *
          * @param directLeaderList
          * @return
          */
         public Builder directLeaderList(IdNameObject[] directLeaderList) {
-            this.directLeaderList = directLeaderList;
-            return this;
+             this.directLeaderList = directLeaderList;
+             return this;
         }
 
+    
 
         /**
          * 开始日期，毫秒级时间戳
          * <p> 示例值：1625729379000
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 预计完成日期，毫秒级时间戳
          * <p> 示例值：1625729379000
-         *
          * @param deadline
          * @return
          */
         public Builder deadline(String deadline) {
-            this.deadline = deadline;
-            return this;
+             this.deadline = deadline;
+             return this;
         }
 
+    
 
         /**
          * 招聘优先级
          * <p> 示例值：1
-         *
          * @param priority
          * @return
          */
         public Builder priority(Integer priority) {
-            this.priority = priority;
-            return this;
+             this.priority = priority;
+             return this;
         }
 
+    
 
         /**
          * 学历要求
          * <p> 示例值：1
-         *
          * @param requiredDegree
          * @return
          */
         public Builder requiredDegree(Integer requiredDegree) {
-            this.requiredDegree = requiredDegree;
-            return this;
+             this.requiredDegree = requiredDegree;
+             return this;
         }
 
+    
 
         /**
          * 最高薪资
          * <p> 示例值：123
-         *
          * @param maxSalary
          * @return
          */
         public Builder maxSalary(String maxSalary) {
-            this.maxSalary = maxSalary;
-            return this;
+             this.maxSalary = maxSalary;
+             return this;
         }
 
+    
 
         /**
          * 最低薪资
          * <p> 示例值：11
-         *
          * @param minSalary
          * @return
          */
         public Builder minSalary(String minSalary) {
-            this.minSalary = minSalary;
-            return this;
+             this.minSalary = minSalary;
+             return this;
         }
 
+    
 
         /**
          * 工作地点
          * <p> 示例值：
-         *
          * @param address
          * @return
          */
         public Builder address(IdNameObject address) {
-            this.address = address;
-            return this;
+             this.address = address;
+             return this;
         }
 
+    
 
         /**
          * 需求描述
          * <p> 示例值：11
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customizedDataList
          * @return
          */
         public Builder customizedDataList(JobRequirementCustomizedDataDto[] customizedDataList) {
-            this.customizedDataList = customizedDataList;
-            return this;
+             this.customizedDataList = customizedDataList;
+             return this;
         }
 
+    
 
         /**
          * 关联职位 ID
          * <p> 示例值：
-         *
          * @param jobIdList
          * @return
          */
         public Builder jobIdList(String[] jobIdList) {
-            this.jobIdList = jobIdList;
-            return this;
+             this.jobIdList = jobIdList;
+             return this;
         }
 
+    
 
         /**
          * 招聘需求支持的招聘类型
          * <p> 示例值：1
-         *
          * @param processType
          * @return
          */
         public Builder processType(Integer processType) {
-            this.processType = processType;
-            return this;
+             this.processType = processType;
+             return this;
         }
 
+    
 
         /**
          * 职位类别
          * <p> 示例值：
-         *
          * @param jobType
          * @return
          */
         public Builder jobType(JobTypeInfo jobType) {
-            this.jobType = jobType;
-            return this;
+             this.jobType = jobType;
+             return this;
         }
 
+    
 
         /**
          * 创建时间,毫秒级时间戳
          * <p> 示例值：1718856006000
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 创建人ID
          * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
-         *
          * @param creatorId
          * @return
          */
         public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
+             this.creatorId = creatorId;
+             return this;
         }
 
+    
 
         /**
          * 更新时间,毫秒级时间戳
          * <p> 示例值：1718856006000
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 职务 ID
          * <p> 示例值：123
-         *
          * @param employmentJobId
          * @return
          */
         public Builder employmentJobId(String employmentJobId) {
-            this.employmentJobId = employmentJobId;
-            return this;
+             this.employmentJobId = employmentJobId;
+             return this;
         }
 
+    
 
         /**
          * 岗位 ID
          * <p> 示例值：123
-         *
          * @param positionId
          * @return
          */
         public Builder positionId(String positionId) {
-            this.positionId = positionId;
-            return this;
+             this.positionId = positionId;
+             return this;
         }
 
+    
 
         /**
          * 完成时间，毫秒级时间戳
          * <p> 示例值：1736846689278
-         *
          * @param completionTime
          * @return
          */
         public Builder completionTime(String completionTime) {
-            this.completionTime = completionTime;
-            return this;
+             this.completionTime = completionTime;
+             return this;
         }
 
+    
 
         /**
          * 审批状态
          * <p> 示例值：1
-         *
          * @param approvalStatus
          * @return
          */
         public Builder approvalStatus(Integer approvalStatus) {
-            this.approvalStatus = approvalStatus;
-            return this;
+             this.approvalStatus = approvalStatus;
+             return this;
         }
 
+    
+    
+    public JobRequirementDto build(){
+        return new JobRequirementDto(this);
+      }
+    }
 
-        public JobRequirementDto build() {
-            return new JobRequirementDto(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

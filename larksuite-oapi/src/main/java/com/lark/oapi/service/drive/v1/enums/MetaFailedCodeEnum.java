@@ -17,17 +17,16 @@ package com.lark.oapi.service.drive.v1.enums;
  * 获取元数据失败的错误码
  */
 public enum MetaFailedCodeEnum {
-    INVALIDDOCTYPEERROR(970002), // Unsupported doc-type
-    NOPERMISSIONERROR(970003), // No permission to access meta
-    RECORDNOTFOUNDERROR(970005), // Record not found
-    ;
-    private Integer value;
-
+     INVALIDDOCTYPEERROR(970002), // Unsupported doc-type
+     NOPERMISSIONERROR(970003), // No permission to access meta
+     RECORDNOTFOUNDERROR(970005), // Record not found
+  ;
+   private Integer value;
     MetaFailedCodeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

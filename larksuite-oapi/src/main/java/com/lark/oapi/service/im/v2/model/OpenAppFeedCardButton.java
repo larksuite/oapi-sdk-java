@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,85 +19,43 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
-
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OpenAppFeedCardButton {
-    /**
-     * 跳转 URL
-     * <p> 示例值：
-     */
+     /**
+      * 跳转 URL
+      * <p> 示例值：
+      */
     @SerializedName("multi_url")
     private OpenAppFeedCardUrl multiUrl;
-    /**
-     * 交互类型
-     * <p> 示例值：url_page
-     */
+     /**
+      * 交互类型
+      * <p> 示例值：url_page
+      */
     @SerializedName("action_type")
     private String actionType;
-    /**
-     * 文字
-     * <p> 示例值：
-     */
+     /**
+      * 文字
+      * <p> 示例值：
+      */
     @SerializedName("text")
     private OpenAppFeedCardText text;
-    /**
-     * 按钮类型
-     * <p> 示例值：default
-     */
+     /**
+      * 按钮类型
+      * <p> 示例值：default
+      */
     @SerializedName("button_type")
     private String buttonType;
-    /**
-     * action 字典
-     * <p> 示例值：
-     */
+     /**
+      * action 字典
+      * <p> 示例值：
+      */
     @SerializedName("action_map")
     private Map<String, String> actionMap;
-
-    // builder 开始
-    public OpenAppFeedCardButton() {
-    }
-
-    public OpenAppFeedCardButton(Builder builder) {
-        /**
-         * 跳转 URL
-         * <p> 示例值：
-         */
-        this.multiUrl = builder.multiUrl;
-        /**
-         * 交互类型
-         * <p> 示例值：url_page
-         */
-        this.actionType = builder.actionType;
-        /**
-         * 文字
-         * <p> 示例值：
-         */
-        this.text = builder.text;
-        /**
-         * 按钮类型
-         * <p> 示例值：default
-         */
-        this.buttonType = builder.buttonType;
-        /**
-         * action 字典
-         * <p> 示例值：
-         */
-        this.actionMap = builder.actionMap;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public OpenAppFeedCardUrl getMultiUrl() {
         return this.multiUrl;
     }
@@ -139,124 +96,156 @@ public class OpenAppFeedCardButton {
         this.actionMap = actionMap;
     }
 
+
+// builder 开始
+  public OpenAppFeedCardButton(){}
+
+  public OpenAppFeedCardButton(Builder builder){
+         /**
+          * 跳转 URL
+          * <p> 示例值：
+          */
+      this.multiUrl = builder.multiUrl;
+         /**
+          * 交互类型
+          * <p> 示例值：url_page
+          */
+      this.actionType = builder.actionType;
+         /**
+          * 文字
+          * <p> 示例值：
+          */
+      this.text = builder.text;
+         /**
+          * 按钮类型
+          * <p> 示例值：default
+          */
+      this.buttonType = builder.buttonType;
+         /**
+          * action 字典
+          * <p> 示例值：
+          */
+      this.actionMap = builder.actionMap;
+  }
+
     public static class Builder {
-        /**
-         * 跳转 URL
-         * <p> 示例值：
-         */
+     /**
+      * 跳转 URL
+      * <p> 示例值：
+      */
         private OpenAppFeedCardUrl multiUrl;
-        /**
-         * 交互类型
-         * <p> 示例值：url_page
-         */
+     /**
+      * 交互类型
+      * <p> 示例值：url_page
+      */
         private String actionType;
-        /**
-         * 文字
-         * <p> 示例值：
-         */
+     /**
+      * 文字
+      * <p> 示例值：
+      */
         private OpenAppFeedCardText text;
-        /**
-         * 按钮类型
-         * <p> 示例值：default
-         */
+     /**
+      * 按钮类型
+      * <p> 示例值：default
+      */
         private String buttonType;
-        /**
-         * action 字典
-         * <p> 示例值：
-         */
+     /**
+      * action 字典
+      * <p> 示例值：
+      */
         private Map<String, String> actionMap;
 
         /**
          * 跳转 URL
          * <p> 示例值：
-         *
          * @param multiUrl
          * @return
          */
         public Builder multiUrl(OpenAppFeedCardUrl multiUrl) {
-            this.multiUrl = multiUrl;
-            return this;
+             this.multiUrl = multiUrl;
+             return this;
         }
 
+    
 
         /**
          * 交互类型
          * <p> 示例值：url_page
-         *
          * @param actionType
          * @return
          */
         public Builder actionType(String actionType) {
-            this.actionType = actionType;
-            return this;
+             this.actionType = actionType;
+             return this;
         }
-
         /**
          * 交互类型
          * <p> 示例值：url_page
-         *
          * @param actionType {@link com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonActionTypeEnum}
          * @return
          */
         public Builder actionType(com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonActionTypeEnum actionType) {
-            this.actionType = actionType.getValue();
-            return this;
+             this.actionType = actionType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 文字
          * <p> 示例值：
-         *
          * @param text
          * @return
          */
         public Builder text(OpenAppFeedCardText text) {
-            this.text = text;
-            return this;
+             this.text = text;
+             return this;
         }
 
+    
 
         /**
          * 按钮类型
          * <p> 示例值：default
-         *
          * @param buttonType
          * @return
          */
         public Builder buttonType(String buttonType) {
-            this.buttonType = buttonType;
-            return this;
+             this.buttonType = buttonType;
+             return this;
         }
-
         /**
          * 按钮类型
          * <p> 示例值：default
-         *
          * @param buttonType {@link com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonButtonTypeEnum}
          * @return
          */
         public Builder buttonType(com.lark.oapi.service.im.v2.enums.OpenAppFeedCardButtonButtonTypeEnum buttonType) {
-            this.buttonType = buttonType.getValue();
-            return this;
+             this.buttonType = buttonType.getValue();
+             return this;
         }
 
+    
 
         /**
          * action 字典
          * <p> 示例值：
-         *
          * @param actionMap
          * @return
          */
         public Builder actionMap(Map<String, String> actionMap) {
-            this.actionMap = actionMap;
-            return this;
+             this.actionMap = actionMap;
+             return this;
         }
 
+    
+    
+    public OpenAppFeedCardButton build(){
+        return new OpenAppFeedCardButton(this);
+      }
+    }
 
-        public OpenAppFeedCardButton build() {
-            return new OpenAppFeedCardButton(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

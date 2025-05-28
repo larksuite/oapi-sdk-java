@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2ChatAccessEventBotP2pChatEnteredV1Data {
-    /**
-     * 群组ID
-     * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
-     */
+     /**
+      * 群组ID
+      * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * 进入与机器人会话的操作人ID
-     * <p> 示例值：
-     */
+     /**
+      * 进入与机器人会话的操作人ID
+      * <p> 示例值：
+      */
     @SerializedName("operator_id")
     private UserId operatorId;
-    /**
-     * 会话内用户可见的最新消息ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
+     /**
+      * 会话内用户可见的最新消息ID
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
     @SerializedName("last_message_id")
     private String lastMessageId;
-    /**
-     * 会话内用户可见的最新消息发送时间，毫秒时间戳
-     * <p> 示例值：1615380573411
-     */
+     /**
+      * 会话内用户可见的最新消息发送时间，毫秒时间戳
+      * <p> 示例值：1615380573411
+      */
     @SerializedName("last_message_create_time")
     private String lastMessageCreateTime;
-
     public String getChatId() {
         return this.chatId;
     }

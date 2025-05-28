@@ -12,106 +12,60 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListAccessRecordReq {
-    /**
-     * 分页大小
-     * <p> 示例值：100
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：100
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 记录开始时间，单位秒
-     * <p> 示例值：1624520521
-     */
+     /**
+      * 记录开始时间，单位秒
+      * <p> 示例值：1624520521
+      */
     @Query
     @SerializedName("from")
     private Integer from;
-    /**
-     * 记录结束时间，单位秒，;时间跨度不能超过30天
-     * <p> 示例值：1624520521
-     */
+     /**
+      * 记录结束时间，单位秒，;时间跨度不能超过30天
+      * <p> 示例值：1624520521
+      */
     @Query
     @SerializedName("to")
     private Integer to;
-    /**
-     * 门禁设备 ID
-     * <p> 示例值：7091146989218002577
-     */
+     /**
+      * 门禁设备 ID
+      * <p> 示例值：7091146989218002577
+      */
     @Query
     @SerializedName("device_id")
     private String deviceId;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-
-    // builder 开始
-    public ListAccessRecordReq() {
-    }
-
-    public ListAccessRecordReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 记录开始时间，单位秒
-         * <p> 示例值：1624520521
-         */
-        this.from = builder.from;
-        /**
-         * 记录结束时间，单位秒，;时间跨度不能超过30天
-         * <p> 示例值：1624520521
-         */
-        this.to = builder.to;
-        /**
-         * 门禁设备 ID
-         * <p> 示例值：7091146989218002577
-         */
-        this.deviceId = builder.deviceId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -160,6 +114,43 @@ public class ListAccessRecordReq {
         this.userIdType = userIdType;
     }
 
+
+// builder 开始
+  public ListAccessRecordReq(){}
+
+  public ListAccessRecordReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：100
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 记录开始时间，单位秒
+          * <p> 示例值：1624520521
+          */
+       this.from = builder.from;
+         /**
+          * 记录结束时间，单位秒，;时间跨度不能超过30天
+          * <p> 示例值：1624520521
+          */
+       this.to = builder.to;
+         /**
+          * 门禁设备 ID
+          * <p> 示例值：7091146989218002577
+          */
+       this.deviceId = builder.deviceId;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
@@ -167,99 +158,96 @@ public class ListAccessRecordReq {
         private Integer to; // 记录结束时间，单位秒，;时间跨度不能超过30天
         private String deviceId; // 门禁设备 ID
         private String userIdType; // 此次调用中使用的用户ID的类型
-
+    
         /**
          * 分页大小
          * <p> 示例值：100
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 记录开始时间，单位秒
          * <p> 示例值：1624520521
-         *
          * @param from
          * @return
          */
-        public Builder from(Integer from) {
-            this.from = from;
-            return this;
-        }
+           public Builder from(Integer from) {
+                this.from = from;
+                return this;
+           }
 
-
+    
         /**
          * 记录结束时间，单位秒，;时间跨度不能超过30天
          * <p> 示例值：1624520521
-         *
          * @param to
          * @return
          */
-        public Builder to(Integer to) {
-            this.to = to;
-            return this;
-        }
+           public Builder to(Integer to) {
+                this.to = to;
+                return this;
+           }
 
-
+    
         /**
          * 门禁设备 ID
          * <p> 示例值：7091146989218002577
-         *
          * @param deviceId
          * @return
          */
-        public Builder deviceId(String deviceId) {
-            this.deviceId = deviceId;
-            return this;
-        }
+           public Builder deviceId(String deviceId) {
+                this.deviceId = deviceId;
+                return this;
+           }
 
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.ListAccessRecordUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.acs.v1.enums.ListAccessRecordUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.acs.v1.enums.ListAccessRecordUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+    public ListAccessRecordReq build(){
+        return new ListAccessRecordReq(this);
+      }
+    }
 
-        public ListAccessRecordReq build() {
-            return new ListAccessRecordReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

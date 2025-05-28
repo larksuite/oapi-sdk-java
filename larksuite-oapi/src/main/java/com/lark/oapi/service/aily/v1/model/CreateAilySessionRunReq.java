@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateAilySessionRunReq {
-    /**
-     * 会话 ID
-     * <p> 示例值：session_4dfunz7sp1g8m
-     */
+     /**
+      * 会话 ID
+      * <p> 示例值：session_4dfunz7sp1g8m
+      */
     @Path
     @SerializedName("aily_session_id")
     private String ailySessionId;
-    @Body
-    private CreateAilySessionRunReqBody body;
-
-    // builder 开始
-    public CreateAilySessionRunReq() {
-    }
-
-    public CreateAilySessionRunReq(Builder builder) {
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        this.ailySessionId = builder.ailySessionId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAilySessionId() {
         return this.ailySessionId;
     }
@@ -62,6 +38,9 @@ public class CreateAilySessionRunReq {
     public void setAilySessionId(String ailySessionId) {
         this.ailySessionId = ailySessionId;
     }
+
+    @Body
+    private CreateAilySessionRunReqBody body;
 
     public CreateAilySessionRunReqBody getCreateAilySessionRunReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class CreateAilySessionRunReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateAilySessionRunReq(){}
+
+  public CreateAilySessionRunReq(Builder builder){
+     /**
+      * 会话 ID
+      * <p> 示例值：session_4dfunz7sp1g8m
+      */
+       this.ailySessionId = builder.ailySessionId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String ailySessionId; // 会话 ID
-        private CreateAilySessionRunReqBody body;
-
         /**
          * 会话 ID
          * <p> 示例值：session_4dfunz7sp1g8m
-         *
          * @param ailySessionId
          * @return
          */
-        public Builder ailySessionId(String ailySessionId) {
-            this.ailySessionId = ailySessionId;
-            return this;
-        }
+          public Builder ailySessionId(String ailySessionId) {
+               this.ailySessionId = ailySessionId;
+               return this;
+          }
 
+    
+        private CreateAilySessionRunReqBody body;
+    
         public CreateAilySessionRunReqBody getCreateAilySessionRunReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder createAilySessionRunReqBody(CreateAilySessionRunReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateAilySessionRunReq build(){
+        return new CreateAilySessionRunReq(this);
+      }
+    }
 
-        public CreateAilySessionRunReq build() {
-            return new CreateAilySessionRunReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

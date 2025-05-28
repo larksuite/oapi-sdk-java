@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,214 +19,114 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataSource {
-    /**
-     * 数据源的唯一标识
-     * <p> 示例值：5577006791947779410
-     */
+     /**
+      * 数据源的唯一标识
+      * <p> 示例值：5577006791947779410
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * data_source的展示名称
-     * <p> 示例值：客服工单
-     */
+     /**
+      * data_source的展示名称
+      * <p> 示例值：客服工单
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
-     * <p> 示例值：0
-     */
+     /**
+      * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
+      * <p> 示例值：0
+      */
     @SerializedName("state")
     private Integer state;
-    /**
-     * 对于数据源的描述
-     * <p> 示例值：搜索客服工单数据
-     */
+     /**
+      * 对于数据源的描述
+      * <p> 示例值：搜索客服工单数据
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 创建时间，使用Unix时间戳，单位为“秒”
-     * <p> 示例值：1674309260
-     */
+     /**
+      * 创建时间，使用Unix时间戳，单位为“秒”
+      * <p> 示例值：1674309260
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 更新时间，使用Unix时间戳，单位为“秒”
-     * <p> 示例值：1674309260
-     */
+     /**
+      * 更新时间，使用Unix时间戳，单位为“秒”
+      * <p> 示例值：1674309260
+      */
     @SerializedName("update_time")
     private String updateTime;
-    /**
-     * 是否超限
-     * <p> 示例值：false
-     */
+     /**
+      * 是否超限
+      * <p> 示例值：false
+      */
     @SerializedName("is_exceed_quota")
     private Boolean isExceedQuota;
-    /**
-     * 数据源在 search tab 上的展示图标路径
-     * <p> 示例值：https://www.xxx.com/open.jpg
-     */
+     /**
+      * 数据源在 search tab 上的展示图标路径
+      * <p> 示例值：https://www.xxx.com/open.jpg
+      */
     @SerializedName("icon_url")
     private String iconUrl;
-    /**
-     * 数据源采用的展示模版名称
-     * <p> 示例值：search_common_card
-     */
+     /**
+      * 数据源采用的展示模版名称
+      * <p> 示例值：search_common_card
+      */
     @SerializedName("template")
     private String template;
-    /**
-     * 【已废弃，如有定制需要请使用“数据范式”接口】描述哪些字段可以被搜索
-     * <p> 示例值：【已废弃，如有定制需要请使用“数据范式”接口】["field1", "field2"]
-     */
+     /**
+      * 【已废弃，如有定制需要请使用“数据范式”接口】描述哪些字段可以被搜索
+      * <p> 示例值：【已废弃，如有定制需要请使用“数据范式”接口】["field1", "field2"]
+      */
     @SerializedName("searchable_fields")
     private String[] searchableFields;
-    /**
-     * 数据源的国际化展示名称
-     * <p> 示例值：
-     */
+     /**
+      * 数据源的国际化展示名称
+      * <p> 示例值：
+      */
     @SerializedName("i18n_name")
     private I18nMeta i18nName;
-    /**
-     * 数据源的国际化描述
-     * <p> 示例值：
-     */
+     /**
+      * 数据源的国际化描述
+      * <p> 示例值：
+      */
     @SerializedName("i18n_description")
     private I18nMeta i18nDescription;
-    /**
-     * 数据源关联的 schema 标识
-     * <p> 示例值：custom_schema
-     */
+     /**
+      * 数据源关联的 schema 标识
+      * <p> 示例值：custom_schema
+      */
     @SerializedName("schema_id")
     private String schemaId;
-    /**
-     * datasource对应的开放平台应用id
-     * <p> 示例值：cli_a1306bed4738d01b
-     */
+     /**
+      * datasource对应的开放平台应用id
+      * <p> 示例值：cli_a1306bed4738d01b
+      */
     @SerializedName("app_id")
     private String appId;
-    /**
-     * 搜索请求的接入方式
-     * <p> 示例值：1
-     */
+     /**
+      * 搜索请求的接入方式
+      * <p> 示例值：1
+      */
     @SerializedName("connect_type")
     private Integer connectType;
-    /**
-     * 根据连接器类型不同所需要提供的相关参数
-     * <p> 示例值：
-     */
+     /**
+      * 根据连接器类型不同所需要提供的相关参数
+      * <p> 示例值：
+      */
     @SerializedName("connector_param")
     private ConnectorParam connectorParam;
-    /**
-     * 是否使用问答服务
-     * <p> 示例值：false
-     */
+     /**
+      * 是否使用问答服务
+      * <p> 示例值：false
+      */
     @SerializedName("enable_answer")
     private Boolean enableAnswer;
-
-    // builder 开始
-    public DataSource() {
-    }
-
-    public DataSource(Builder builder) {
-        /**
-         * 数据源的唯一标识
-         * <p> 示例值：5577006791947779410
-         */
-        this.id = builder.id;
-        /**
-         * data_source的展示名称
-         * <p> 示例值：客服工单
-         */
-        this.name = builder.name;
-        /**
-         * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
-         * <p> 示例值：0
-         */
-        this.state = builder.state;
-        /**
-         * 对于数据源的描述
-         * <p> 示例值：搜索客服工单数据
-         */
-        this.description = builder.description;
-        /**
-         * 创建时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：1674309260
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：1674309260
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 是否超限
-         * <p> 示例值：false
-         */
-        this.isExceedQuota = builder.isExceedQuota;
-        /**
-         * 数据源在 search tab 上的展示图标路径
-         * <p> 示例值：https://www.xxx.com/open.jpg
-         */
-        this.iconUrl = builder.iconUrl;
-        /**
-         * 数据源采用的展示模版名称
-         * <p> 示例值：search_common_card
-         */
-        this.template = builder.template;
-        /**
-         * 【已废弃，如有定制需要请使用“数据范式”接口】描述哪些字段可以被搜索
-         * <p> 示例值：【已废弃，如有定制需要请使用“数据范式”接口】["field1", "field2"]
-         */
-        this.searchableFields = builder.searchableFields;
-        /**
-         * 数据源的国际化展示名称
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-        /**
-         * 数据源的国际化描述
-         * <p> 示例值：
-         */
-        this.i18nDescription = builder.i18nDescription;
-        /**
-         * 数据源关联的 schema 标识
-         * <p> 示例值：custom_schema
-         */
-        this.schemaId = builder.schemaId;
-        /**
-         * datasource对应的开放平台应用id
-         * <p> 示例值：cli_a1306bed4738d01b
-         */
-        this.appId = builder.appId;
-        /**
-         * 搜索请求的接入方式
-         * <p> 示例值：1
-         */
-        this.connectType = builder.connectType;
-        /**
-         * 根据连接器类型不同所需要提供的相关参数
-         * <p> 示例值：
-         */
-        this.connectorParam = builder.connectorParam;
-        /**
-         * 是否使用问答服务
-         * <p> 示例值：false
-         */
-        this.enableAnswer = builder.enableAnswer;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -364,340 +263,432 @@ public class DataSource {
         this.enableAnswer = enableAnswer;
     }
 
+
+// builder 开始
+  public DataSource(){}
+
+  public DataSource(Builder builder){
+         /**
+          * 数据源的唯一标识
+          * <p> 示例值：5577006791947779410
+          */
+      this.id = builder.id;
+         /**
+          * data_source的展示名称
+          * <p> 示例值：客服工单
+          */
+      this.name = builder.name;
+         /**
+          * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
+          * <p> 示例值：0
+          */
+      this.state = builder.state;
+         /**
+          * 对于数据源的描述
+          * <p> 示例值：搜索客服工单数据
+          */
+      this.description = builder.description;
+         /**
+          * 创建时间，使用Unix时间戳，单位为“秒”
+          * <p> 示例值：1674309260
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 更新时间，使用Unix时间戳，单位为“秒”
+          * <p> 示例值：1674309260
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 是否超限
+          * <p> 示例值：false
+          */
+      this.isExceedQuota = builder.isExceedQuota;
+         /**
+          * 数据源在 search tab 上的展示图标路径
+          * <p> 示例值：https://www.xxx.com/open.jpg
+          */
+      this.iconUrl = builder.iconUrl;
+         /**
+          * 数据源采用的展示模版名称
+          * <p> 示例值：search_common_card
+          */
+      this.template = builder.template;
+         /**
+          * 【已废弃，如有定制需要请使用“数据范式”接口】描述哪些字段可以被搜索
+          * <p> 示例值：【已废弃，如有定制需要请使用“数据范式”接口】["field1", "field2"]
+          */
+      this.searchableFields = builder.searchableFields;
+         /**
+          * 数据源的国际化展示名称
+          * <p> 示例值：
+          */
+      this.i18nName = builder.i18nName;
+         /**
+          * 数据源的国际化描述
+          * <p> 示例值：
+          */
+      this.i18nDescription = builder.i18nDescription;
+         /**
+          * 数据源关联的 schema 标识
+          * <p> 示例值：custom_schema
+          */
+      this.schemaId = builder.schemaId;
+         /**
+          * datasource对应的开放平台应用id
+          * <p> 示例值：cli_a1306bed4738d01b
+          */
+      this.appId = builder.appId;
+         /**
+          * 搜索请求的接入方式
+          * <p> 示例值：1
+          */
+      this.connectType = builder.connectType;
+         /**
+          * 根据连接器类型不同所需要提供的相关参数
+          * <p> 示例值：
+          */
+      this.connectorParam = builder.connectorParam;
+         /**
+          * 是否使用问答服务
+          * <p> 示例值：false
+          */
+      this.enableAnswer = builder.enableAnswer;
+  }
+
     public static class Builder {
-        /**
-         * 数据源的唯一标识
-         * <p> 示例值：5577006791947779410
-         */
+     /**
+      * 数据源的唯一标识
+      * <p> 示例值：5577006791947779410
+      */
         private String id;
-        /**
-         * data_source的展示名称
-         * <p> 示例值：客服工单
-         */
+     /**
+      * data_source的展示名称
+      * <p> 示例值：客服工单
+      */
         private String name;
-        /**
-         * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
-         * <p> 示例值：0
-         */
+     /**
+      * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
+      * <p> 示例值：0
+      */
         private Integer state;
-        /**
-         * 对于数据源的描述
-         * <p> 示例值：搜索客服工单数据
-         */
+     /**
+      * 对于数据源的描述
+      * <p> 示例值：搜索客服工单数据
+      */
         private String description;
-        /**
-         * 创建时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：1674309260
-         */
+     /**
+      * 创建时间，使用Unix时间戳，单位为“秒”
+      * <p> 示例值：1674309260
+      */
         private String createTime;
-        /**
-         * 更新时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：1674309260
-         */
+     /**
+      * 更新时间，使用Unix时间戳，单位为“秒”
+      * <p> 示例值：1674309260
+      */
         private String updateTime;
-        /**
-         * 是否超限
-         * <p> 示例值：false
-         */
+     /**
+      * 是否超限
+      * <p> 示例值：false
+      */
         private Boolean isExceedQuota;
-        /**
-         * 数据源在 search tab 上的展示图标路径
-         * <p> 示例值：https://www.xxx.com/open.jpg
-         */
+     /**
+      * 数据源在 search tab 上的展示图标路径
+      * <p> 示例值：https://www.xxx.com/open.jpg
+      */
         private String iconUrl;
-        /**
-         * 数据源采用的展示模版名称
-         * <p> 示例值：search_common_card
-         */
+     /**
+      * 数据源采用的展示模版名称
+      * <p> 示例值：search_common_card
+      */
         private String template;
-        /**
-         * 【已废弃，如有定制需要请使用“数据范式”接口】描述哪些字段可以被搜索
-         * <p> 示例值：【已废弃，如有定制需要请使用“数据范式”接口】["field1", "field2"]
-         */
+     /**
+      * 【已废弃，如有定制需要请使用“数据范式”接口】描述哪些字段可以被搜索
+      * <p> 示例值：【已废弃，如有定制需要请使用“数据范式”接口】["field1", "field2"]
+      */
         private String[] searchableFields;
-        /**
-         * 数据源的国际化展示名称
-         * <p> 示例值：
-         */
+     /**
+      * 数据源的国际化展示名称
+      * <p> 示例值：
+      */
         private I18nMeta i18nName;
-        /**
-         * 数据源的国际化描述
-         * <p> 示例值：
-         */
+     /**
+      * 数据源的国际化描述
+      * <p> 示例值：
+      */
         private I18nMeta i18nDescription;
-        /**
-         * 数据源关联的 schema 标识
-         * <p> 示例值：custom_schema
-         */
+     /**
+      * 数据源关联的 schema 标识
+      * <p> 示例值：custom_schema
+      */
         private String schemaId;
-        /**
-         * datasource对应的开放平台应用id
-         * <p> 示例值：cli_a1306bed4738d01b
-         */
+     /**
+      * datasource对应的开放平台应用id
+      * <p> 示例值：cli_a1306bed4738d01b
+      */
         private String appId;
-        /**
-         * 搜索请求的接入方式
-         * <p> 示例值：1
-         */
+     /**
+      * 搜索请求的接入方式
+      * <p> 示例值：1
+      */
         private Integer connectType;
-        /**
-         * 根据连接器类型不同所需要提供的相关参数
-         * <p> 示例值：
-         */
+     /**
+      * 根据连接器类型不同所需要提供的相关参数
+      * <p> 示例值：
+      */
         private ConnectorParam connectorParam;
-        /**
-         * 是否使用问答服务
-         * <p> 示例值：false
-         */
+     /**
+      * 是否使用问答服务
+      * <p> 示例值：false
+      */
         private Boolean enableAnswer;
 
         /**
          * 数据源的唯一标识
          * <p> 示例值：5577006791947779410
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * data_source的展示名称
          * <p> 示例值：客服工单
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
          * <p> 示例值：0
-         *
          * @param state
          * @return
          */
         public Builder state(Integer state) {
-            this.state = state;
-            return this;
+             this.state = state;
+             return this;
         }
-
         /**
          * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
          * <p> 示例值：0
-         *
          * @param state {@link com.lark.oapi.service.search.v2.enums.DataSourceStateEnum}
          * @return
          */
         public Builder state(com.lark.oapi.service.search.v2.enums.DataSourceStateEnum state) {
-            this.state = state.getValue();
-            return this;
+             this.state = state.getValue();
+             return this;
         }
 
+    
 
         /**
          * 对于数据源的描述
          * <p> 示例值：搜索客服工单数据
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 创建时间，使用Unix时间戳，单位为“秒”
          * <p> 示例值：1674309260
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 更新时间，使用Unix时间戳，单位为“秒”
          * <p> 示例值：1674309260
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 是否超限
          * <p> 示例值：false
-         *
          * @param isExceedQuota
          * @return
          */
         public Builder isExceedQuota(Boolean isExceedQuota) {
-            this.isExceedQuota = isExceedQuota;
-            return this;
+             this.isExceedQuota = isExceedQuota;
+             return this;
         }
 
+    
 
         /**
          * 数据源在 search tab 上的展示图标路径
          * <p> 示例值：https://www.xxx.com/open.jpg
-         *
          * @param iconUrl
          * @return
          */
         public Builder iconUrl(String iconUrl) {
-            this.iconUrl = iconUrl;
-            return this;
+             this.iconUrl = iconUrl;
+             return this;
         }
 
+    
 
         /**
          * 数据源采用的展示模版名称
          * <p> 示例值：search_common_card
-         *
          * @param template
          * @return
          */
         public Builder template(String template) {
-            this.template = template;
-            return this;
+             this.template = template;
+             return this;
         }
 
+    
 
         /**
          * 【已废弃，如有定制需要请使用“数据范式”接口】描述哪些字段可以被搜索
          * <p> 示例值：【已废弃，如有定制需要请使用“数据范式”接口】["field1", "field2"]
-         *
          * @param searchableFields
          * @return
          */
         public Builder searchableFields(String[] searchableFields) {
-            this.searchableFields = searchableFields;
-            return this;
+             this.searchableFields = searchableFields;
+             return this;
         }
 
+    
 
         /**
          * 数据源的国际化展示名称
          * <p> 示例值：
-         *
          * @param i18nName
          * @return
          */
         public Builder i18nName(I18nMeta i18nName) {
-            this.i18nName = i18nName;
-            return this;
+             this.i18nName = i18nName;
+             return this;
         }
 
+    
 
         /**
          * 数据源的国际化描述
          * <p> 示例值：
-         *
          * @param i18nDescription
          * @return
          */
         public Builder i18nDescription(I18nMeta i18nDescription) {
-            this.i18nDescription = i18nDescription;
-            return this;
+             this.i18nDescription = i18nDescription;
+             return this;
         }
 
+    
 
         /**
          * 数据源关联的 schema 标识
          * <p> 示例值：custom_schema
-         *
          * @param schemaId
          * @return
          */
         public Builder schemaId(String schemaId) {
-            this.schemaId = schemaId;
-            return this;
+             this.schemaId = schemaId;
+             return this;
         }
 
+    
 
         /**
          * datasource对应的开放平台应用id
          * <p> 示例值：cli_a1306bed4738d01b
-         *
          * @param appId
          * @return
          */
         public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
+             this.appId = appId;
+             return this;
         }
 
+    
 
         /**
          * 搜索请求的接入方式
          * <p> 示例值：1
-         *
          * @param connectType
          * @return
          */
         public Builder connectType(Integer connectType) {
-            this.connectType = connectType;
-            return this;
+             this.connectType = connectType;
+             return this;
         }
-
         /**
          * 搜索请求的接入方式
          * <p> 示例值：1
-         *
          * @param connectType {@link com.lark.oapi.service.search.v2.enums.DataSourceConnectTypeEnum}
          * @return
          */
         public Builder connectType(com.lark.oapi.service.search.v2.enums.DataSourceConnectTypeEnum connectType) {
-            this.connectType = connectType.getValue();
-            return this;
+             this.connectType = connectType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 根据连接器类型不同所需要提供的相关参数
          * <p> 示例值：
-         *
          * @param connectorParam
          * @return
          */
         public Builder connectorParam(ConnectorParam connectorParam) {
-            this.connectorParam = connectorParam;
-            return this;
+             this.connectorParam = connectorParam;
+             return this;
         }
 
+    
 
         /**
          * 是否使用问答服务
          * <p> 示例值：false
-         *
          * @param enableAnswer
          * @return
          */
         public Builder enableAnswer(Boolean enableAnswer) {
-            this.enableAnswer = enableAnswer;
-            return this;
+             this.enableAnswer = enableAnswer;
+             return this;
         }
 
+    
+    
+    public DataSource build(){
+        return new DataSource(this);
+      }
+    }
 
-        public DataSource build() {
-            return new DataSource(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

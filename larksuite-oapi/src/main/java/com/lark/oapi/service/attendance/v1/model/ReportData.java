@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,52 +19,25 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
-
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReportData {
-    /**
-     * 用户ID
-     * <p> 示例值：
-     */
+     /**
+      * 用户ID
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 字段对应的zhi
-     * <p> 示例值：
-     */
+     /**
+      * 字段对应的zhi
+      * <p> 示例值：
+      */
     @SerializedName("field_data")
     private Map<String, ReportValue> fieldData;
-
-    // builder 开始
-    public ReportData() {
-    }
-
-    public ReportData(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 字段对应的zhi
-         * <p> 示例值：
-         */
-        this.fieldData = builder.fieldData;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -82,46 +54,67 @@ public class ReportData {
         this.fieldData = fieldData;
     }
 
+
+// builder 开始
+  public ReportData(){}
+
+  public ReportData(Builder builder){
+         /**
+          * 用户ID
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * 字段对应的zhi
+          * <p> 示例值：
+          */
+      this.fieldData = builder.fieldData;
+  }
+
     public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
+     /**
+      * 用户ID
+      * <p> 示例值：
+      */
         private String userId;
-        /**
-         * 字段对应的zhi
-         * <p> 示例值：
-         */
+     /**
+      * 字段对应的zhi
+      * <p> 示例值：
+      */
         private Map<String, ReportValue> fieldData;
 
         /**
          * 用户ID
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 字段对应的zhi
          * <p> 示例值：
-         *
          * @param fieldData
          * @return
          */
         public Builder fieldData(Map<String, ReportValue> fieldData) {
-            this.fieldData = fieldData;
-            return this;
+             this.fieldData = fieldData;
+             return this;
         }
 
+    
+    
+    public ReportData build(){
+        return new ReportData(this);
+      }
+    }
 
-        public ReportData build() {
-            return new ReportData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

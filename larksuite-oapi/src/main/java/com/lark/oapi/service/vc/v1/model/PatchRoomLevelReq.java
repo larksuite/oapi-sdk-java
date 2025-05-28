@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchRoomLevelReq {
-    /**
-     * 层级ID
-     * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-     */
+     /**
+      * 层级ID
+      * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+      */
     @Path
     @SerializedName("room_level_id")
     private String roomLevelId;
-    @Body
-    private RoomLevel body;
-
-    // builder 开始
-    public PatchRoomLevelReq() {
-    }
-
-    public PatchRoomLevelReq(Builder builder) {
-        /**
-         * 层级ID
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
-        this.roomLevelId = builder.roomLevelId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoomLevelId() {
         return this.roomLevelId;
     }
@@ -62,6 +38,9 @@ public class PatchRoomLevelReq {
     public void setRoomLevelId(String roomLevelId) {
         this.roomLevelId = roomLevelId;
     }
+
+    @Body
+    private RoomLevel body;
 
     public RoomLevel getRoomLevel() {
         return this.body;
@@ -71,40 +50,54 @@ public class PatchRoomLevelReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchRoomLevelReq(){}
+
+  public PatchRoomLevelReq(Builder builder){
+     /**
+      * 层级ID
+      * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+      */
+       this.roomLevelId = builder.roomLevelId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String roomLevelId; // 层级ID
-        private RoomLevel body;
-
         /**
          * 层级ID
          * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         *
          * @param roomLevelId
          * @return
          */
-        public Builder roomLevelId(String roomLevelId) {
-            this.roomLevelId = roomLevelId;
-            return this;
-        }
+          public Builder roomLevelId(String roomLevelId) {
+               this.roomLevelId = roomLevelId;
+               return this;
+          }
 
+    
+        private RoomLevel body;
+    
         public RoomLevel getRoomLevel() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder roomLevel(RoomLevel body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchRoomLevelReq build(){
+        return new PatchRoomLevelReq(this);
+      }
+    }
 
-        public PatchRoomLevelReq build() {
-            return new PatchRoomLevelReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

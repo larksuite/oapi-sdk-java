@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MetricData {
-    /**
-     * 指标 ID，可以通过获取指标详情接口获取详细信息
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 指标 ID，可以通过获取指标详情接口获取详细信息
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 指标评分
-     * <p> 示例值：1.1
-     */
+     /**
+      * 指标评分
+      * <p> 示例值：1.1
+      */
     @SerializedName("score")
     private String score;
-
-    // builder 开始
-    public MetricData() {
-    }
-
-    public MetricData(Builder builder) {
-        /**
-         * 指标 ID，可以通过获取指标详情接口获取详细信息
-         * <p> 示例值：7343513161666707459
-         */
-        this.id = builder.id;
-        /**
-         * 指标评分
-         * <p> 示例值：1.1
-         */
-        this.score = builder.score;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -79,46 +53,67 @@ public class MetricData {
         this.score = score;
     }
 
+
+// builder 开始
+  public MetricData(){}
+
+  public MetricData(Builder builder){
+         /**
+          * 指标 ID，可以通过获取指标详情接口获取详细信息
+          * <p> 示例值：7343513161666707459
+          */
+      this.id = builder.id;
+         /**
+          * 指标评分
+          * <p> 示例值：1.1
+          */
+      this.score = builder.score;
+  }
+
     public static class Builder {
-        /**
-         * 指标 ID，可以通过获取指标详情接口获取详细信息
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 指标 ID，可以通过获取指标详情接口获取详细信息
+      * <p> 示例值：7343513161666707459
+      */
         private String id;
-        /**
-         * 指标评分
-         * <p> 示例值：1.1
-         */
+     /**
+      * 指标评分
+      * <p> 示例值：1.1
+      */
         private String score;
 
         /**
          * 指标 ID，可以通过获取指标详情接口获取详细信息
          * <p> 示例值：7343513161666707459
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 指标评分
          * <p> 示例值：1.1
-         *
          * @param score
          * @return
          */
         public Builder score(String score) {
-            this.score = score;
-            return this;
+             this.score = score;
+             return this;
         }
 
+    
+    
+    public MetricData build(){
+        return new MetricData(this);
+      }
+    }
 
-        public MetricData build() {
-            return new MetricData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

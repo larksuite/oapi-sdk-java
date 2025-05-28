@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CustomAttrOptions {
-    /**
-     * 默认选项id
-     * <p> 示例值：qasdefgr
-     */
+     /**
+      * 默认选项id
+      * <p> 示例值：qasdefgr
+      */
     @SerializedName("default_option_id")
     private String defaultOptionId;
-    /**
-     * 选项类型
-     * <p> 示例值：TEXT
-     */
+     /**
+      * 选项类型
+      * <p> 示例值：TEXT
+      */
     @SerializedName("option_type")
     private String optionType;
-    /**
-     * 选项列表
-     * <p> 示例值：[]
-     */
+     /**
+      * 选项列表
+      * <p> 示例值：[]
+      */
     @SerializedName("options")
     private CustomAttrOption[] options;
-
-    // builder 开始
-    public CustomAttrOptions() {
-    }
-
-    public CustomAttrOptions(Builder builder) {
-        /**
-         * 默认选项id
-         * <p> 示例值：qasdefgr
-         */
-        this.defaultOptionId = builder.defaultOptionId;
-        /**
-         * 选项类型
-         * <p> 示例值：TEXT
-         */
-        this.optionType = builder.optionType;
-        /**
-         * 选项列表
-         * <p> 示例值：[]
-         */
-        this.options = builder.options;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDefaultOptionId() {
         return this.defaultOptionId;
     }
@@ -98,76 +67,100 @@ public class CustomAttrOptions {
         this.options = options;
     }
 
+
+// builder 开始
+  public CustomAttrOptions(){}
+
+  public CustomAttrOptions(Builder builder){
+         /**
+          * 默认选项id
+          * <p> 示例值：qasdefgr
+          */
+      this.defaultOptionId = builder.defaultOptionId;
+         /**
+          * 选项类型
+          * <p> 示例值：TEXT
+          */
+      this.optionType = builder.optionType;
+         /**
+          * 选项列表
+          * <p> 示例值：[]
+          */
+      this.options = builder.options;
+  }
+
     public static class Builder {
-        /**
-         * 默认选项id
-         * <p> 示例值：qasdefgr
-         */
+     /**
+      * 默认选项id
+      * <p> 示例值：qasdefgr
+      */
         private String defaultOptionId;
-        /**
-         * 选项类型
-         * <p> 示例值：TEXT
-         */
+     /**
+      * 选项类型
+      * <p> 示例值：TEXT
+      */
         private String optionType;
-        /**
-         * 选项列表
-         * <p> 示例值：[]
-         */
+     /**
+      * 选项列表
+      * <p> 示例值：[]
+      */
         private CustomAttrOption[] options;
 
         /**
          * 默认选项id
          * <p> 示例值：qasdefgr
-         *
          * @param defaultOptionId
          * @return
          */
         public Builder defaultOptionId(String defaultOptionId) {
-            this.defaultOptionId = defaultOptionId;
-            return this;
+             this.defaultOptionId = defaultOptionId;
+             return this;
         }
 
+    
 
         /**
          * 选项类型
          * <p> 示例值：TEXT
-         *
          * @param optionType
          * @return
          */
         public Builder optionType(String optionType) {
-            this.optionType = optionType;
-            return this;
+             this.optionType = optionType;
+             return this;
         }
-
         /**
          * 选项类型
          * <p> 示例值：TEXT
-         *
          * @param optionType {@link com.lark.oapi.service.contact.v3.enums.CustomAttrOptionsOptionTypeEnum}
          * @return
          */
         public Builder optionType(com.lark.oapi.service.contact.v3.enums.CustomAttrOptionsOptionTypeEnum optionType) {
-            this.optionType = optionType.getValue();
-            return this;
+             this.optionType = optionType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 选项列表
          * <p> 示例值：[]
-         *
          * @param options
          * @return
          */
         public Builder options(CustomAttrOption[] options) {
-            this.options = options;
-            return this;
+             this.options = options;
+             return this;
         }
 
+    
+    
+    public CustomAttrOptions build(){
+        return new CustomAttrOptions(this);
+      }
+    }
 
-        public CustomAttrOptions build() {
-            return new CustomAttrOptions(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

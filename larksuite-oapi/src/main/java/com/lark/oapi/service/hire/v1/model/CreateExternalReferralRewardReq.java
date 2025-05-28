@@ -12,48 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateExternalReferralRewardReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    @Body
-    private ExternalReward body;
-
-    // builder 开始
-    public CreateExternalReferralRewardReq() {
-    }
-
-    public CreateExternalReferralRewardReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -61,6 +37,9 @@ public class CreateExternalReferralRewardReq {
     public void setUserIdType(String userIdType) {
         this.userIdType = userIdType;
     }
+
+    @Body
+    private ExternalReward body;
 
     public ExternalReward getExternalReward() {
         return this.body;
@@ -70,39 +49,54 @@ public class CreateExternalReferralRewardReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateExternalReferralRewardReq(){}
+
+  public CreateExternalReferralRewardReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private ExternalReward body;
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+        private ExternalReward body;
+    
         public ExternalReward getExternalReward() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder externalReward(ExternalReward body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateExternalReferralRewardReq build(){
+        return new CreateExternalReferralRewardReq(this);
+      }
+    }
 
-        public CreateExternalReferralRewardReq build() {
-            return new CreateExternalReferralRewardReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

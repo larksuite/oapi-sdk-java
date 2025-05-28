@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateTicketMessageReq {
-    /**
-     * 工单ID
-     * <p> 示例值：6948728206392295444
-     */
+     /**
+      * 工单ID
+      * <p> 示例值：6948728206392295444
+      */
     @Path
     @SerializedName("ticket_id")
     private String ticketId;
-    @Body
-    private CreateTicketMessageReqBody body;
-
-    // builder 开始
-    public CreateTicketMessageReq() {
-    }
-
-    public CreateTicketMessageReq(Builder builder) {
-        /**
-         * 工单ID
-         * <p> 示例值：6948728206392295444
-         */
-        this.ticketId = builder.ticketId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTicketId() {
         return this.ticketId;
     }
@@ -62,6 +38,9 @@ public class CreateTicketMessageReq {
     public void setTicketId(String ticketId) {
         this.ticketId = ticketId;
     }
+
+    @Body
+    private CreateTicketMessageReqBody body;
 
     public CreateTicketMessageReqBody getCreateTicketMessageReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class CreateTicketMessageReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateTicketMessageReq(){}
+
+  public CreateTicketMessageReq(Builder builder){
+     /**
+      * 工单ID
+      * <p> 示例值：6948728206392295444
+      */
+       this.ticketId = builder.ticketId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String ticketId; // 工单ID
-        private CreateTicketMessageReqBody body;
-
         /**
          * 工单ID
          * <p> 示例值：6948728206392295444
-         *
          * @param ticketId
          * @return
          */
-        public Builder ticketId(String ticketId) {
-            this.ticketId = ticketId;
-            return this;
-        }
+          public Builder ticketId(String ticketId) {
+               this.ticketId = ticketId;
+               return this;
+          }
 
+    
+        private CreateTicketMessageReqBody body;
+    
         public CreateTicketMessageReqBody getCreateTicketMessageReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder createTicketMessageReqBody(CreateTicketMessageReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateTicketMessageReq build(){
+        return new CreateTicketMessageReq(this);
+      }
+    }
 
-        public CreateTicketMessageReq build() {
-            return new CreateTicketMessageReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

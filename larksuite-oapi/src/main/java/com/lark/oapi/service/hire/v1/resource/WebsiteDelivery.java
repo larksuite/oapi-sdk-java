@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.hire.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.hire.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class WebsiteDelivery {
         this.config = config;
     }
 
-
+    
     /**
      * 根据简历附件解析创建官网投递，根据简历附件解析创建官网投递
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery/create_by_attachment">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery/create_by_attachment</a> ;
@@ -63,7 +58,7 @@ public class WebsiteDelivery {
                 , "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_attachment"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateByAttachmentWebsiteDeliveryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateByAttachmentWebsiteDeliveryResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class WebsiteDelivery {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_attachment"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class WebsiteDelivery {
                 , "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_attachment"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateByAttachmentWebsiteDeliveryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateByAttachmentWebsiteDeliveryResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class WebsiteDelivery {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_attachment"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 创建官网投递，创建官网投递。
      * <p> 对于自定义字段，若字段类型为单行文本，传值格式为"这是一个单行文本"；若字段类型为多行文本，传值格式为"这是一个多行文本"；若字段类型为单选，传值内容为选项的 ID，格式为"1";若字段类型为多选，传值内容为选项的ID 列表，格式为"["2", "3" ]"；若字段类型为时间段，传值格式为"["1609430400000", "1612108800000" ]"，单位是毫米级时间戳，结束时间是「至今」时，用「"-1"」表示；若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；若字段类型为数字，传值格式为"1" ;
@@ -130,7 +124,7 @@ public class WebsiteDelivery {
                 , "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_resume"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateByResumeWebsiteDeliveryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateByResumeWebsiteDeliveryResp.class);
         if (resp == null) {
@@ -138,14 +132,14 @@ public class WebsiteDelivery {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_resume"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -163,7 +157,7 @@ public class WebsiteDelivery {
                 , "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_resume"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateByResumeWebsiteDeliveryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateByResumeWebsiteDeliveryResp.class);
         if (resp == null) {
@@ -171,13 +165,13 @@ public class WebsiteDelivery {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_resume"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

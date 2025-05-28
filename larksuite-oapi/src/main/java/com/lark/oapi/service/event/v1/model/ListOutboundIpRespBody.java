@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.event.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListOutboundIpRespBody {
-    /**
-     * outbound ip
-     * <p> 示例值：1.1.1.1
-     */
+     /**
+      * outbound ip
+      * <p> 示例值：1.1.1.1
+      */
     @SerializedName("ip_list")
     private String[] ipList;
-    /**
-     * 分页下次调用的page_token值
-     * <p> 示例值：xxx
-     */
+     /**
+      * 分页下次调用的page_token值
+      * <p> 示例值：xxx
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否还有分页数据
-     * <p> 示例值：false
-     */
+     /**
+      * 是否还有分页数据
+      * <p> 示例值：false
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public String[] getIpList() {
         return this.ipList;
     }

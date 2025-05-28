@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,445 +19,240 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateTransferInfo {
-    /**
-     * 备注
-     * <p> 示例值：异动详情
-     */
+     /**
+      * 备注
+      * <p> 示例值：异动详情
+      */
     @SerializedName("remark")
     private String remark;
-    /**
-     * offer信息
-     * <p> 示例值：优质人才，加急处理
-     */
+     /**
+      * offer信息
+      * <p> 示例值：优质人才，加急处理
+      */
     @SerializedName("offer_info")
     private String offerInfo;
-    /**
-     * 是否撤销虚线上级
-     * <p> 示例值：true
-     */
+     /**
+      * 是否撤销虚线上级
+      * <p> 示例值：true
+      */
     @SerializedName("target_dotted_manager_clean")
     private Boolean targetDottedManagerClean;
-    /**
-     * 是否有试用期
-     * <p> 示例值：false
-     */
+     /**
+      * 是否有试用期
+      * <p> 示例值：false
+      */
     @SerializedName("probation_exist")
     private Boolean probationExist;
-    /**
-     * 新部门
-     * <p> 示例值：6966236933198579208
-     */
+     /**
+      * 新部门
+      * <p> 示例值：6966236933198579208
+      */
     @SerializedName("target_department")
     private String targetDepartment;
-    /**
-     * 新工作地点
-     * <p> 示例值：6967271100992587295
-     */
+     /**
+      * 新工作地点
+      * <p> 示例值：6967271100992587295
+      */
     @SerializedName("target_work_location")
     private String targetWorkLocation;
-    /**
-     * 新直属上级
-     * <p> 示例值：7013619729281713671
-     */
+     /**
+      * 新直属上级
+      * <p> 示例值：7013619729281713671
+      */
     @SerializedName("target_direct_manager")
     private String targetDirectManager;
-    /**
-     * 新虚线上级
-     * <p> 示例值：7013328578351842852
-     */
+     /**
+      * 新虚线上级
+      * <p> 示例值：7013328578351842852
+      */
     @SerializedName("target_dotted_manager")
     private String targetDottedManager;
-    /**
-     * 新职务
-     * <p> 示例值：6969469557836760606
-     */
+     /**
+      * 新职务
+      * <p> 示例值：6969469557836760606
+      */
     @SerializedName("target_job")
     private String targetJob;
-    /**
-     * 新序列
-     * <p> 示例值：6967287547462419975
-     */
+     /**
+      * 新序列
+      * <p> 示例值：6967287547462419975
+      */
     @SerializedName("target_job_family")
     private String targetJobFamily;
-    /**
-     * 新级别
-     * <p> 示例值：6972085707674355214
-     */
+     /**
+      * 新级别
+      * <p> 示例值：6972085707674355214
+      */
     @SerializedName("target_job_level")
     private String targetJobLevel;
-    /**
-     * 新人员类型
-     * <p> 示例值：7036268995372303885
-     */
+     /**
+      * 新人员类型
+      * <p> 示例值：7036268995372303885
+      */
     @SerializedName("target_workforce_type")
     private String targetWorkforceType;
-    /**
-     * 新人员子类型
-     * <p> 示例值：7036268995372303885
-     */
+     /**
+      * 新人员子类型
+      * <p> 示例值：7036268995372303885
+      */
     @SerializedName("target_employee_subtype")
     private String targetEmployeeSubtype;
-    /**
-     * 新公司
-     * <p> 示例值：6974659700705068581
-     */
+     /**
+      * 新公司
+      * <p> 示例值：6974659700705068581
+      */
     @SerializedName("target_company")
     private String targetCompany;
-    /**
-     * 新合同编号
-     * <p> 示例值：55333
-     */
+     /**
+      * 新合同编号
+      * <p> 示例值：55333
+      */
     @SerializedName("target_contract_number")
     private String targetContractNumber;
-    /**
-     * 新合同类型
-     * <p> 示例值：labor_contract
-     */
+     /**
+      * 新合同类型
+      * <p> 示例值：labor_contract
+      */
     @SerializedName("target_contract_type")
     private String targetContractType;
-    /**
-     * 新期限类型
-     * <p> 示例值：fixed_term
-     */
+     /**
+      * 新期限类型
+      * <p> 示例值：fixed_term
+      */
     @SerializedName("target_duration_type")
     private String targetDurationType;
-    /**
-     * 新签订类型
-     * <p> 示例值：new
-     */
+     /**
+      * 新签订类型
+      * <p> 示例值：new
+      */
     @SerializedName("target_signing_type")
     private String targetSigningType;
-    /**
-     * 新合同开始日期
-     * <p> 示例值：2021-07-01
-     */
+     /**
+      * 新合同开始日期
+      * <p> 示例值：2021-07-01
+      */
     @SerializedName("target_contract_start_date")
     private String targetContractStartDate;
-    /**
-     * 新合同结束日期
-     * <p> 示例值：2024-07-01
-     */
+     /**
+      * 新合同结束日期
+      * <p> 示例值：2024-07-01
+      */
     @SerializedName("target_contract_end_date")
     private String targetContractEndDate;
-    /**
-     * 新工时制度
-     * <p> 示例值：6969087376740206087
-     */
+     /**
+      * 新工时制度
+      * <p> 示例值：6969087376740206087
+      */
     @SerializedName("target_working_hours_type")
     private String targetWorkingHoursType;
-    /**
-     * 新工作日历
-     * <p> 示例值：6969087376740236087
-     */
+     /**
+      * 新工作日历
+      * <p> 示例值：6969087376740236087
+      */
     @SerializedName("target_working_calendar")
     private String targetWorkingCalendar;
-    /**
-     * 新试用期预计结束日期
-     * <p> 示例值：2021-11-17
-     */
+     /**
+      * 新试用期预计结束日期
+      * <p> 示例值：2021-11-17
+      */
     @SerializedName("target_probation_end_date")
     private String targetProbationEndDate;
-    /**
-     * 新周工作时长
-     * <p> 示例值：160
-     */
+     /**
+      * 新周工作时长
+      * <p> 示例值：160
+      */
     @SerializedName("target_weekly_working_hours")
     private String targetWeeklyWorkingHours;
-    /**
-     * 新排班
-     * <p> 示例值：non_work_shift
-     */
+     /**
+      * 新排班
+      * <p> 示例值：non_work_shift
+      */
     @SerializedName("target_work_shift")
     private String targetWorkShift;
-    /**
-     * 新成本中心分摊方式
-     * <p> 示例值：
-     */
+     /**
+      * 新成本中心分摊方式
+      * <p> 示例值：
+      */
     @SerializedName("target_cost_center_rates")
     private JobDataCostCenter[] targetCostCenterRates;
-    /**
-     * 新工作信息
-     * <p> 示例值：
-     */
+     /**
+      * 新工作信息
+      * <p> 示例值：
+      */
     @SerializedName("target_employment_change")
     private TranferEmploymentInfo targetEmploymentChange;
-    /**
-     * 新职等
-     * <p> 示例值：7289005963599693366
-     */
+     /**
+      * 新职等
+      * <p> 示例值：7289005963599693366
+      */
     @SerializedName("target_job_grade")
     private String targetJobGrade;
-    /**
-     * 新薪资类型
-     * <p> 示例值：salary
-     */
+     /**
+      * 新薪资类型
+      * <p> 示例值：salary
+      */
     @SerializedName("target_compensation_type")
     private String targetCompensationType;
-    /**
-     * 新任职公司
-     * <p> 示例值：7289005963599693368
-     */
+     /**
+      * 新任职公司
+      * <p> 示例值：7289005963599693368
+      */
     @SerializedName("target_service_company")
     private String targetServiceCompany;
-    /**
-     * 新岗位
-     * <p> 示例值：7289005963599693367
-     */
+     /**
+      * 新岗位
+      * <p> 示例值：7289005963599693367
+      */
     @SerializedName("target_position")
     private String targetPosition;
-    /**
-     * 新社保城市
-     * <p> 示例值：7289005963599693367
-     */
+     /**
+      * 新社保城市
+      * <p> 示例值：7289005963599693367
+      */
     @SerializedName("target_social_security_city")
     private String targetSocialSecurityCity;
-    /**
-     * 编制随人员一起调整
-     * <p> 示例值：false
-     */
+     /**
+      * 编制随人员一起调整
+      * <p> 示例值：false
+      */
     @SerializedName("is_transfer_with_workforce")
     private Boolean isTransferWithWorkforce;
-    /**
-     * 新通道
-     * <p> 示例值：7289005963599693368
-     */
+     /**
+      * 新通道
+      * <p> 示例值：7289005963599693368
+      */
     @SerializedName("target_pathway")
     private String targetPathway;
-    /**
-     * 新分摊生效时间
-     * <p> 示例值：2022-03-01
-     */
+     /**
+      * 新分摊生效时间
+      * <p> 示例值：2022-03-01
+      */
     @SerializedName("target_allocation_effective_time")
     private String targetAllocationEffectiveTime;
-    /**
-     * 新分摊失效时间
-     * <p> 示例值：2022-03-01
-     */
+     /**
+      * 新分摊失效时间
+      * <p> 示例值：2022-03-01
+      */
     @SerializedName("target_allocation_expiration_time")
     private String targetAllocationExpirationTime;
-    /**
-     * 新默认成本中心
-     * <p> 示例值：7380264299728602661
-     */
+     /**
+      * 新默认成本中心
+      * <p> 示例值：7380264299728602661
+      */
     @SerializedName("target_default_cost_center")
     private String targetDefaultCostCenter;
-    /**
-     * 新默认成本中心是否继承
-     * <p> 示例值：
-     */
+     /**
+      * 新默认成本中心是否继承
+      * <p> 示例值：
+      */
     @SerializedName("target_is_default_cost_center_inherited")
     private Boolean targetIsDefaultCostCenterInherited;
-
-    // builder 开始
-    public CreateTransferInfo() {
-    }
-
-    public CreateTransferInfo(Builder builder) {
-        /**
-         * 备注
-         * <p> 示例值：异动详情
-         */
-        this.remark = builder.remark;
-        /**
-         * offer信息
-         * <p> 示例值：优质人才，加急处理
-         */
-        this.offerInfo = builder.offerInfo;
-        /**
-         * 是否撤销虚线上级
-         * <p> 示例值：true
-         */
-        this.targetDottedManagerClean = builder.targetDottedManagerClean;
-        /**
-         * 是否有试用期
-         * <p> 示例值：false
-         */
-        this.probationExist = builder.probationExist;
-        /**
-         * 新部门
-         * <p> 示例值：6966236933198579208
-         */
-        this.targetDepartment = builder.targetDepartment;
-        /**
-         * 新工作地点
-         * <p> 示例值：6967271100992587295
-         */
-        this.targetWorkLocation = builder.targetWorkLocation;
-        /**
-         * 新直属上级
-         * <p> 示例值：7013619729281713671
-         */
-        this.targetDirectManager = builder.targetDirectManager;
-        /**
-         * 新虚线上级
-         * <p> 示例值：7013328578351842852
-         */
-        this.targetDottedManager = builder.targetDottedManager;
-        /**
-         * 新职务
-         * <p> 示例值：6969469557836760606
-         */
-        this.targetJob = builder.targetJob;
-        /**
-         * 新序列
-         * <p> 示例值：6967287547462419975
-         */
-        this.targetJobFamily = builder.targetJobFamily;
-        /**
-         * 新级别
-         * <p> 示例值：6972085707674355214
-         */
-        this.targetJobLevel = builder.targetJobLevel;
-        /**
-         * 新人员类型
-         * <p> 示例值：7036268995372303885
-         */
-        this.targetWorkforceType = builder.targetWorkforceType;
-        /**
-         * 新人员子类型
-         * <p> 示例值：7036268995372303885
-         */
-        this.targetEmployeeSubtype = builder.targetEmployeeSubtype;
-        /**
-         * 新公司
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetCompany = builder.targetCompany;
-        /**
-         * 新合同编号
-         * <p> 示例值：55333
-         */
-        this.targetContractNumber = builder.targetContractNumber;
-        /**
-         * 新合同类型
-         * <p> 示例值：labor_contract
-         */
-        this.targetContractType = builder.targetContractType;
-        /**
-         * 新期限类型
-         * <p> 示例值：fixed_term
-         */
-        this.targetDurationType = builder.targetDurationType;
-        /**
-         * 新签订类型
-         * <p> 示例值：new
-         */
-        this.targetSigningType = builder.targetSigningType;
-        /**
-         * 新合同开始日期
-         * <p> 示例值：2021-07-01
-         */
-        this.targetContractStartDate = builder.targetContractStartDate;
-        /**
-         * 新合同结束日期
-         * <p> 示例值：2024-07-01
-         */
-        this.targetContractEndDate = builder.targetContractEndDate;
-        /**
-         * 新工时制度
-         * <p> 示例值：6969087376740206087
-         */
-        this.targetWorkingHoursType = builder.targetWorkingHoursType;
-        /**
-         * 新工作日历
-         * <p> 示例值：6969087376740236087
-         */
-        this.targetWorkingCalendar = builder.targetWorkingCalendar;
-        /**
-         * 新试用期预计结束日期
-         * <p> 示例值：2021-11-17
-         */
-        this.targetProbationEndDate = builder.targetProbationEndDate;
-        /**
-         * 新周工作时长
-         * <p> 示例值：160
-         */
-        this.targetWeeklyWorkingHours = builder.targetWeeklyWorkingHours;
-        /**
-         * 新排班
-         * <p> 示例值：non_work_shift
-         */
-        this.targetWorkShift = builder.targetWorkShift;
-        /**
-         * 新成本中心分摊方式
-         * <p> 示例值：
-         */
-        this.targetCostCenterRates = builder.targetCostCenterRates;
-        /**
-         * 新工作信息
-         * <p> 示例值：
-         */
-        this.targetEmploymentChange = builder.targetEmploymentChange;
-        /**
-         * 新职等
-         * <p> 示例值：7289005963599693366
-         */
-        this.targetJobGrade = builder.targetJobGrade;
-        /**
-         * 新薪资类型
-         * <p> 示例值：salary
-         */
-        this.targetCompensationType = builder.targetCompensationType;
-        /**
-         * 新任职公司
-         * <p> 示例值：7289005963599693368
-         */
-        this.targetServiceCompany = builder.targetServiceCompany;
-        /**
-         * 新岗位
-         * <p> 示例值：7289005963599693367
-         */
-        this.targetPosition = builder.targetPosition;
-        /**
-         * 新社保城市
-         * <p> 示例值：7289005963599693367
-         */
-        this.targetSocialSecurityCity = builder.targetSocialSecurityCity;
-        /**
-         * 编制随人员一起调整
-         * <p> 示例值：false
-         */
-        this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
-        /**
-         * 新通道
-         * <p> 示例值：7289005963599693368
-         */
-        this.targetPathway = builder.targetPathway;
-        /**
-         * 新分摊生效时间
-         * <p> 示例值：2022-03-01
-         */
-        this.targetAllocationEffectiveTime = builder.targetAllocationEffectiveTime;
-        /**
-         * 新分摊失效时间
-         * <p> 示例值：2022-03-01
-         */
-        this.targetAllocationExpirationTime = builder.targetAllocationExpirationTime;
-        /**
-         * 新默认成本中心
-         * <p> 示例值：7380264299728602661
-         */
-        this.targetDefaultCostCenter = builder.targetDefaultCostCenter;
-        /**
-         * 新默认成本中心是否继承
-         * <p> 示例值：
-         */
-        this.targetIsDefaultCostCenterInherited = builder.targetIsDefaultCostCenterInherited;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRemark() {
         return this.remark;
     }
@@ -763,694 +557,895 @@ public class CreateTransferInfo {
         this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
     }
 
+
+// builder 开始
+  public CreateTransferInfo(){}
+
+  public CreateTransferInfo(Builder builder){
+         /**
+          * 备注
+          * <p> 示例值：异动详情
+          */
+      this.remark = builder.remark;
+         /**
+          * offer信息
+          * <p> 示例值：优质人才，加急处理
+          */
+      this.offerInfo = builder.offerInfo;
+         /**
+          * 是否撤销虚线上级
+          * <p> 示例值：true
+          */
+      this.targetDottedManagerClean = builder.targetDottedManagerClean;
+         /**
+          * 是否有试用期
+          * <p> 示例值：false
+          */
+      this.probationExist = builder.probationExist;
+         /**
+          * 新部门
+          * <p> 示例值：6966236933198579208
+          */
+      this.targetDepartment = builder.targetDepartment;
+         /**
+          * 新工作地点
+          * <p> 示例值：6967271100992587295
+          */
+      this.targetWorkLocation = builder.targetWorkLocation;
+         /**
+          * 新直属上级
+          * <p> 示例值：7013619729281713671
+          */
+      this.targetDirectManager = builder.targetDirectManager;
+         /**
+          * 新虚线上级
+          * <p> 示例值：7013328578351842852
+          */
+      this.targetDottedManager = builder.targetDottedManager;
+         /**
+          * 新职务
+          * <p> 示例值：6969469557836760606
+          */
+      this.targetJob = builder.targetJob;
+         /**
+          * 新序列
+          * <p> 示例值：6967287547462419975
+          */
+      this.targetJobFamily = builder.targetJobFamily;
+         /**
+          * 新级别
+          * <p> 示例值：6972085707674355214
+          */
+      this.targetJobLevel = builder.targetJobLevel;
+         /**
+          * 新人员类型
+          * <p> 示例值：7036268995372303885
+          */
+      this.targetWorkforceType = builder.targetWorkforceType;
+         /**
+          * 新人员子类型
+          * <p> 示例值：7036268995372303885
+          */
+      this.targetEmployeeSubtype = builder.targetEmployeeSubtype;
+         /**
+          * 新公司
+          * <p> 示例值：6974659700705068581
+          */
+      this.targetCompany = builder.targetCompany;
+         /**
+          * 新合同编号
+          * <p> 示例值：55333
+          */
+      this.targetContractNumber = builder.targetContractNumber;
+         /**
+          * 新合同类型
+          * <p> 示例值：labor_contract
+          */
+      this.targetContractType = builder.targetContractType;
+         /**
+          * 新期限类型
+          * <p> 示例值：fixed_term
+          */
+      this.targetDurationType = builder.targetDurationType;
+         /**
+          * 新签订类型
+          * <p> 示例值：new
+          */
+      this.targetSigningType = builder.targetSigningType;
+         /**
+          * 新合同开始日期
+          * <p> 示例值：2021-07-01
+          */
+      this.targetContractStartDate = builder.targetContractStartDate;
+         /**
+          * 新合同结束日期
+          * <p> 示例值：2024-07-01
+          */
+      this.targetContractEndDate = builder.targetContractEndDate;
+         /**
+          * 新工时制度
+          * <p> 示例值：6969087376740206087
+          */
+      this.targetWorkingHoursType = builder.targetWorkingHoursType;
+         /**
+          * 新工作日历
+          * <p> 示例值：6969087376740236087
+          */
+      this.targetWorkingCalendar = builder.targetWorkingCalendar;
+         /**
+          * 新试用期预计结束日期
+          * <p> 示例值：2021-11-17
+          */
+      this.targetProbationEndDate = builder.targetProbationEndDate;
+         /**
+          * 新周工作时长
+          * <p> 示例值：160
+          */
+      this.targetWeeklyWorkingHours = builder.targetWeeklyWorkingHours;
+         /**
+          * 新排班
+          * <p> 示例值：non_work_shift
+          */
+      this.targetWorkShift = builder.targetWorkShift;
+         /**
+          * 新成本中心分摊方式
+          * <p> 示例值：
+          */
+      this.targetCostCenterRates = builder.targetCostCenterRates;
+         /**
+          * 新工作信息
+          * <p> 示例值：
+          */
+      this.targetEmploymentChange = builder.targetEmploymentChange;
+         /**
+          * 新职等
+          * <p> 示例值：7289005963599693366
+          */
+      this.targetJobGrade = builder.targetJobGrade;
+         /**
+          * 新薪资类型
+          * <p> 示例值：salary
+          */
+      this.targetCompensationType = builder.targetCompensationType;
+         /**
+          * 新任职公司
+          * <p> 示例值：7289005963599693368
+          */
+      this.targetServiceCompany = builder.targetServiceCompany;
+         /**
+          * 新岗位
+          * <p> 示例值：7289005963599693367
+          */
+      this.targetPosition = builder.targetPosition;
+         /**
+          * 新社保城市
+          * <p> 示例值：7289005963599693367
+          */
+      this.targetSocialSecurityCity = builder.targetSocialSecurityCity;
+         /**
+          * 编制随人员一起调整
+          * <p> 示例值：false
+          */
+      this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
+         /**
+          * 新通道
+          * <p> 示例值：7289005963599693368
+          */
+      this.targetPathway = builder.targetPathway;
+         /**
+          * 新分摊生效时间
+          * <p> 示例值：2022-03-01
+          */
+      this.targetAllocationEffectiveTime = builder.targetAllocationEffectiveTime;
+         /**
+          * 新分摊失效时间
+          * <p> 示例值：2022-03-01
+          */
+      this.targetAllocationExpirationTime = builder.targetAllocationExpirationTime;
+         /**
+          * 新默认成本中心
+          * <p> 示例值：7380264299728602661
+          */
+      this.targetDefaultCostCenter = builder.targetDefaultCostCenter;
+         /**
+          * 新默认成本中心是否继承
+          * <p> 示例值：
+          */
+      this.targetIsDefaultCostCenterInherited = builder.targetIsDefaultCostCenterInherited;
+  }
+
     public static class Builder {
-        /**
-         * 备注
-         * <p> 示例值：异动详情
-         */
+     /**
+      * 备注
+      * <p> 示例值：异动详情
+      */
         private String remark;
-        /**
-         * offer信息
-         * <p> 示例值：优质人才，加急处理
-         */
+     /**
+      * offer信息
+      * <p> 示例值：优质人才，加急处理
+      */
         private String offerInfo;
-        /**
-         * 是否撤销虚线上级
-         * <p> 示例值：true
-         */
+     /**
+      * 是否撤销虚线上级
+      * <p> 示例值：true
+      */
         private Boolean targetDottedManagerClean;
-        /**
-         * 是否有试用期
-         * <p> 示例值：false
-         */
+     /**
+      * 是否有试用期
+      * <p> 示例值：false
+      */
         private Boolean probationExist;
-        /**
-         * 新部门
-         * <p> 示例值：6966236933198579208
-         */
+     /**
+      * 新部门
+      * <p> 示例值：6966236933198579208
+      */
         private String targetDepartment;
-        /**
-         * 新工作地点
-         * <p> 示例值：6967271100992587295
-         */
+     /**
+      * 新工作地点
+      * <p> 示例值：6967271100992587295
+      */
         private String targetWorkLocation;
-        /**
-         * 新直属上级
-         * <p> 示例值：7013619729281713671
-         */
+     /**
+      * 新直属上级
+      * <p> 示例值：7013619729281713671
+      */
         private String targetDirectManager;
-        /**
-         * 新虚线上级
-         * <p> 示例值：7013328578351842852
-         */
+     /**
+      * 新虚线上级
+      * <p> 示例值：7013328578351842852
+      */
         private String targetDottedManager;
-        /**
-         * 新职务
-         * <p> 示例值：6969469557836760606
-         */
+     /**
+      * 新职务
+      * <p> 示例值：6969469557836760606
+      */
         private String targetJob;
-        /**
-         * 新序列
-         * <p> 示例值：6967287547462419975
-         */
+     /**
+      * 新序列
+      * <p> 示例值：6967287547462419975
+      */
         private String targetJobFamily;
-        /**
-         * 新级别
-         * <p> 示例值：6972085707674355214
-         */
+     /**
+      * 新级别
+      * <p> 示例值：6972085707674355214
+      */
         private String targetJobLevel;
-        /**
-         * 新人员类型
-         * <p> 示例值：7036268995372303885
-         */
+     /**
+      * 新人员类型
+      * <p> 示例值：7036268995372303885
+      */
         private String targetWorkforceType;
-        /**
-         * 新人员子类型
-         * <p> 示例值：7036268995372303885
-         */
+     /**
+      * 新人员子类型
+      * <p> 示例值：7036268995372303885
+      */
         private String targetEmployeeSubtype;
-        /**
-         * 新公司
-         * <p> 示例值：6974659700705068581
-         */
+     /**
+      * 新公司
+      * <p> 示例值：6974659700705068581
+      */
         private String targetCompany;
-        /**
-         * 新合同编号
-         * <p> 示例值：55333
-         */
+     /**
+      * 新合同编号
+      * <p> 示例值：55333
+      */
         private String targetContractNumber;
-        /**
-         * 新合同类型
-         * <p> 示例值：labor_contract
-         */
+     /**
+      * 新合同类型
+      * <p> 示例值：labor_contract
+      */
         private String targetContractType;
-        /**
-         * 新期限类型
-         * <p> 示例值：fixed_term
-         */
+     /**
+      * 新期限类型
+      * <p> 示例值：fixed_term
+      */
         private String targetDurationType;
-        /**
-         * 新签订类型
-         * <p> 示例值：new
-         */
+     /**
+      * 新签订类型
+      * <p> 示例值：new
+      */
         private String targetSigningType;
-        /**
-         * 新合同开始日期
-         * <p> 示例值：2021-07-01
-         */
+     /**
+      * 新合同开始日期
+      * <p> 示例值：2021-07-01
+      */
         private String targetContractStartDate;
-        /**
-         * 新合同结束日期
-         * <p> 示例值：2024-07-01
-         */
+     /**
+      * 新合同结束日期
+      * <p> 示例值：2024-07-01
+      */
         private String targetContractEndDate;
-        /**
-         * 新工时制度
-         * <p> 示例值：6969087376740206087
-         */
+     /**
+      * 新工时制度
+      * <p> 示例值：6969087376740206087
+      */
         private String targetWorkingHoursType;
-        /**
-         * 新工作日历
-         * <p> 示例值：6969087376740236087
-         */
+     /**
+      * 新工作日历
+      * <p> 示例值：6969087376740236087
+      */
         private String targetWorkingCalendar;
-        /**
-         * 新试用期预计结束日期
-         * <p> 示例值：2021-11-17
-         */
+     /**
+      * 新试用期预计结束日期
+      * <p> 示例值：2021-11-17
+      */
         private String targetProbationEndDate;
-        /**
-         * 新周工作时长
-         * <p> 示例值：160
-         */
+     /**
+      * 新周工作时长
+      * <p> 示例值：160
+      */
         private String targetWeeklyWorkingHours;
-        /**
-         * 新排班
-         * <p> 示例值：non_work_shift
-         */
+     /**
+      * 新排班
+      * <p> 示例值：non_work_shift
+      */
         private String targetWorkShift;
-        /**
-         * 新成本中心分摊方式
-         * <p> 示例值：
-         */
+     /**
+      * 新成本中心分摊方式
+      * <p> 示例值：
+      */
         private JobDataCostCenter[] targetCostCenterRates;
-        /**
-         * 新工作信息
-         * <p> 示例值：
-         */
+     /**
+      * 新工作信息
+      * <p> 示例值：
+      */
         private TranferEmploymentInfo targetEmploymentChange;
-        /**
-         * 新职等
-         * <p> 示例值：7289005963599693366
-         */
+     /**
+      * 新职等
+      * <p> 示例值：7289005963599693366
+      */
         private String targetJobGrade;
-        /**
-         * 新薪资类型
-         * <p> 示例值：salary
-         */
+     /**
+      * 新薪资类型
+      * <p> 示例值：salary
+      */
         private String targetCompensationType;
-        /**
-         * 新任职公司
-         * <p> 示例值：7289005963599693368
-         */
+     /**
+      * 新任职公司
+      * <p> 示例值：7289005963599693368
+      */
         private String targetServiceCompany;
-        /**
-         * 新岗位
-         * <p> 示例值：7289005963599693367
-         */
+     /**
+      * 新岗位
+      * <p> 示例值：7289005963599693367
+      */
         private String targetPosition;
-        /**
-         * 新社保城市
-         * <p> 示例值：7289005963599693367
-         */
+     /**
+      * 新社保城市
+      * <p> 示例值：7289005963599693367
+      */
         private String targetSocialSecurityCity;
-        /**
-         * 编制随人员一起调整
-         * <p> 示例值：false
-         */
+     /**
+      * 编制随人员一起调整
+      * <p> 示例值：false
+      */
         private Boolean isTransferWithWorkforce;
-        /**
-         * 新通道
-         * <p> 示例值：7289005963599693368
-         */
+     /**
+      * 新通道
+      * <p> 示例值：7289005963599693368
+      */
         private String targetPathway;
-        /**
-         * 新分摊生效时间
-         * <p> 示例值：2022-03-01
-         */
+     /**
+      * 新分摊生效时间
+      * <p> 示例值：2022-03-01
+      */
         private String targetAllocationEffectiveTime;
-        /**
-         * 新分摊失效时间
-         * <p> 示例值：2022-03-01
-         */
+     /**
+      * 新分摊失效时间
+      * <p> 示例值：2022-03-01
+      */
         private String targetAllocationExpirationTime;
-        /**
-         * 新默认成本中心
-         * <p> 示例值：7380264299728602661
-         */
+     /**
+      * 新默认成本中心
+      * <p> 示例值：7380264299728602661
+      */
         private String targetDefaultCostCenter;
-        /**
-         * 新默认成本中心是否继承
-         * <p> 示例值：
-         */
+     /**
+      * 新默认成本中心是否继承
+      * <p> 示例值：
+      */
         private Boolean targetIsDefaultCostCenterInherited;
 
         /**
          * 备注
          * <p> 示例值：异动详情
-         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
+             this.remark = remark;
+             return this;
         }
 
+    
 
         /**
          * offer信息
          * <p> 示例值：优质人才，加急处理
-         *
          * @param offerInfo
          * @return
          */
         public Builder offerInfo(String offerInfo) {
-            this.offerInfo = offerInfo;
-            return this;
+             this.offerInfo = offerInfo;
+             return this;
         }
 
+    
 
         /**
          * 是否撤销虚线上级
          * <p> 示例值：true
-         *
          * @param targetDottedManagerClean
          * @return
          */
         public Builder targetDottedManagerClean(Boolean targetDottedManagerClean) {
-            this.targetDottedManagerClean = targetDottedManagerClean;
-            return this;
+             this.targetDottedManagerClean = targetDottedManagerClean;
+             return this;
         }
 
+    
 
         /**
          * 是否有试用期
          * <p> 示例值：false
-         *
          * @param probationExist
          * @return
          */
         public Builder probationExist(Boolean probationExist) {
-            this.probationExist = probationExist;
-            return this;
+             this.probationExist = probationExist;
+             return this;
         }
 
+    
 
         /**
          * 新部门
          * <p> 示例值：6966236933198579208
-         *
          * @param targetDepartment
          * @return
          */
         public Builder targetDepartment(String targetDepartment) {
-            this.targetDepartment = targetDepartment;
-            return this;
+             this.targetDepartment = targetDepartment;
+             return this;
         }
 
+    
 
         /**
          * 新工作地点
          * <p> 示例值：6967271100992587295
-         *
          * @param targetWorkLocation
          * @return
          */
         public Builder targetWorkLocation(String targetWorkLocation) {
-            this.targetWorkLocation = targetWorkLocation;
-            return this;
+             this.targetWorkLocation = targetWorkLocation;
+             return this;
         }
 
+    
 
         /**
          * 新直属上级
          * <p> 示例值：7013619729281713671
-         *
          * @param targetDirectManager
          * @return
          */
         public Builder targetDirectManager(String targetDirectManager) {
-            this.targetDirectManager = targetDirectManager;
-            return this;
+             this.targetDirectManager = targetDirectManager;
+             return this;
         }
 
+    
 
         /**
          * 新虚线上级
          * <p> 示例值：7013328578351842852
-         *
          * @param targetDottedManager
          * @return
          */
         public Builder targetDottedManager(String targetDottedManager) {
-            this.targetDottedManager = targetDottedManager;
-            return this;
+             this.targetDottedManager = targetDottedManager;
+             return this;
         }
 
+    
 
         /**
          * 新职务
          * <p> 示例值：6969469557836760606
-         *
          * @param targetJob
          * @return
          */
         public Builder targetJob(String targetJob) {
-            this.targetJob = targetJob;
-            return this;
+             this.targetJob = targetJob;
+             return this;
         }
 
+    
 
         /**
          * 新序列
          * <p> 示例值：6967287547462419975
-         *
          * @param targetJobFamily
          * @return
          */
         public Builder targetJobFamily(String targetJobFamily) {
-            this.targetJobFamily = targetJobFamily;
-            return this;
+             this.targetJobFamily = targetJobFamily;
+             return this;
         }
 
+    
 
         /**
          * 新级别
          * <p> 示例值：6972085707674355214
-         *
          * @param targetJobLevel
          * @return
          */
         public Builder targetJobLevel(String targetJobLevel) {
-            this.targetJobLevel = targetJobLevel;
-            return this;
+             this.targetJobLevel = targetJobLevel;
+             return this;
         }
 
+    
 
         /**
          * 新人员类型
          * <p> 示例值：7036268995372303885
-         *
          * @param targetWorkforceType
          * @return
          */
         public Builder targetWorkforceType(String targetWorkforceType) {
-            this.targetWorkforceType = targetWorkforceType;
-            return this;
+             this.targetWorkforceType = targetWorkforceType;
+             return this;
         }
 
+    
 
         /**
          * 新人员子类型
          * <p> 示例值：7036268995372303885
-         *
          * @param targetEmployeeSubtype
          * @return
          */
         public Builder targetEmployeeSubtype(String targetEmployeeSubtype) {
-            this.targetEmployeeSubtype = targetEmployeeSubtype;
-            return this;
+             this.targetEmployeeSubtype = targetEmployeeSubtype;
+             return this;
         }
 
+    
 
         /**
          * 新公司
          * <p> 示例值：6974659700705068581
-         *
          * @param targetCompany
          * @return
          */
         public Builder targetCompany(String targetCompany) {
-            this.targetCompany = targetCompany;
-            return this;
+             this.targetCompany = targetCompany;
+             return this;
         }
 
+    
 
         /**
          * 新合同编号
          * <p> 示例值：55333
-         *
          * @param targetContractNumber
          * @return
          */
         public Builder targetContractNumber(String targetContractNumber) {
-            this.targetContractNumber = targetContractNumber;
-            return this;
+             this.targetContractNumber = targetContractNumber;
+             return this;
         }
 
+    
 
         /**
          * 新合同类型
          * <p> 示例值：labor_contract
-         *
          * @param targetContractType
          * @return
          */
         public Builder targetContractType(String targetContractType) {
-            this.targetContractType = targetContractType;
-            return this;
+             this.targetContractType = targetContractType;
+             return this;
         }
 
+    
 
         /**
          * 新期限类型
          * <p> 示例值：fixed_term
-         *
          * @param targetDurationType
          * @return
          */
         public Builder targetDurationType(String targetDurationType) {
-            this.targetDurationType = targetDurationType;
-            return this;
+             this.targetDurationType = targetDurationType;
+             return this;
         }
 
+    
 
         /**
          * 新签订类型
          * <p> 示例值：new
-         *
          * @param targetSigningType
          * @return
          */
         public Builder targetSigningType(String targetSigningType) {
-            this.targetSigningType = targetSigningType;
-            return this;
+             this.targetSigningType = targetSigningType;
+             return this;
         }
 
+    
 
         /**
          * 新合同开始日期
          * <p> 示例值：2021-07-01
-         *
          * @param targetContractStartDate
          * @return
          */
         public Builder targetContractStartDate(String targetContractStartDate) {
-            this.targetContractStartDate = targetContractStartDate;
-            return this;
+             this.targetContractStartDate = targetContractStartDate;
+             return this;
         }
 
+    
 
         /**
          * 新合同结束日期
          * <p> 示例值：2024-07-01
-         *
          * @param targetContractEndDate
          * @return
          */
         public Builder targetContractEndDate(String targetContractEndDate) {
-            this.targetContractEndDate = targetContractEndDate;
-            return this;
+             this.targetContractEndDate = targetContractEndDate;
+             return this;
         }
 
+    
 
         /**
          * 新工时制度
          * <p> 示例值：6969087376740206087
-         *
          * @param targetWorkingHoursType
          * @return
          */
         public Builder targetWorkingHoursType(String targetWorkingHoursType) {
-            this.targetWorkingHoursType = targetWorkingHoursType;
-            return this;
+             this.targetWorkingHoursType = targetWorkingHoursType;
+             return this;
         }
 
+    
 
         /**
          * 新工作日历
          * <p> 示例值：6969087376740236087
-         *
          * @param targetWorkingCalendar
          * @return
          */
         public Builder targetWorkingCalendar(String targetWorkingCalendar) {
-            this.targetWorkingCalendar = targetWorkingCalendar;
-            return this;
+             this.targetWorkingCalendar = targetWorkingCalendar;
+             return this;
         }
 
+    
 
         /**
          * 新试用期预计结束日期
          * <p> 示例值：2021-11-17
-         *
          * @param targetProbationEndDate
          * @return
          */
         public Builder targetProbationEndDate(String targetProbationEndDate) {
-            this.targetProbationEndDate = targetProbationEndDate;
-            return this;
+             this.targetProbationEndDate = targetProbationEndDate;
+             return this;
         }
 
+    
 
         /**
          * 新周工作时长
          * <p> 示例值：160
-         *
          * @param targetWeeklyWorkingHours
          * @return
          */
         public Builder targetWeeklyWorkingHours(String targetWeeklyWorkingHours) {
-            this.targetWeeklyWorkingHours = targetWeeklyWorkingHours;
-            return this;
+             this.targetWeeklyWorkingHours = targetWeeklyWorkingHours;
+             return this;
         }
 
+    
 
         /**
          * 新排班
          * <p> 示例值：non_work_shift
-         *
          * @param targetWorkShift
          * @return
          */
         public Builder targetWorkShift(String targetWorkShift) {
-            this.targetWorkShift = targetWorkShift;
-            return this;
+             this.targetWorkShift = targetWorkShift;
+             return this;
         }
 
+    
 
         /**
          * 新成本中心分摊方式
          * <p> 示例值：
-         *
          * @param targetCostCenterRates
          * @return
          */
         public Builder targetCostCenterRates(JobDataCostCenter[] targetCostCenterRates) {
-            this.targetCostCenterRates = targetCostCenterRates;
-            return this;
+             this.targetCostCenterRates = targetCostCenterRates;
+             return this;
         }
 
+    
 
         /**
          * 新工作信息
          * <p> 示例值：
-         *
          * @param targetEmploymentChange
          * @return
          */
         public Builder targetEmploymentChange(TranferEmploymentInfo targetEmploymentChange) {
-            this.targetEmploymentChange = targetEmploymentChange;
-            return this;
+             this.targetEmploymentChange = targetEmploymentChange;
+             return this;
         }
 
+    
 
         /**
          * 新职等
          * <p> 示例值：7289005963599693366
-         *
          * @param targetJobGrade
          * @return
          */
         public Builder targetJobGrade(String targetJobGrade) {
-            this.targetJobGrade = targetJobGrade;
-            return this;
+             this.targetJobGrade = targetJobGrade;
+             return this;
         }
 
+    
 
         /**
          * 新薪资类型
          * <p> 示例值：salary
-         *
          * @param targetCompensationType
          * @return
          */
         public Builder targetCompensationType(String targetCompensationType) {
-            this.targetCompensationType = targetCompensationType;
-            return this;
+             this.targetCompensationType = targetCompensationType;
+             return this;
         }
 
+    
 
         /**
          * 新任职公司
          * <p> 示例值：7289005963599693368
-         *
          * @param targetServiceCompany
          * @return
          */
         public Builder targetServiceCompany(String targetServiceCompany) {
-            this.targetServiceCompany = targetServiceCompany;
-            return this;
+             this.targetServiceCompany = targetServiceCompany;
+             return this;
         }
 
+    
 
         /**
          * 新岗位
          * <p> 示例值：7289005963599693367
-         *
          * @param targetPosition
          * @return
          */
         public Builder targetPosition(String targetPosition) {
-            this.targetPosition = targetPosition;
-            return this;
+             this.targetPosition = targetPosition;
+             return this;
         }
 
+    
 
         /**
          * 新社保城市
          * <p> 示例值：7289005963599693367
-         *
          * @param targetSocialSecurityCity
          * @return
          */
         public Builder targetSocialSecurityCity(String targetSocialSecurityCity) {
-            this.targetSocialSecurityCity = targetSocialSecurityCity;
-            return this;
+             this.targetSocialSecurityCity = targetSocialSecurityCity;
+             return this;
         }
 
+    
 
         /**
          * 编制随人员一起调整
          * <p> 示例值：false
-         *
          * @param isTransferWithWorkforce
          * @return
          */
         public Builder isTransferWithWorkforce(Boolean isTransferWithWorkforce) {
-            this.isTransferWithWorkforce = isTransferWithWorkforce;
-            return this;
+             this.isTransferWithWorkforce = isTransferWithWorkforce;
+             return this;
         }
 
+    
 
         /**
          * 新通道
          * <p> 示例值：7289005963599693368
-         *
          * @param targetPathway
          * @return
          */
         public Builder targetPathway(String targetPathway) {
-            this.targetPathway = targetPathway;
-            return this;
+             this.targetPathway = targetPathway;
+             return this;
         }
 
+    
 
         /**
          * 新分摊生效时间
          * <p> 示例值：2022-03-01
-         *
          * @param targetAllocationEffectiveTime
          * @return
          */
         public Builder targetAllocationEffectiveTime(String targetAllocationEffectiveTime) {
-            this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
-            return this;
+             this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 新分摊失效时间
          * <p> 示例值：2022-03-01
-         *
          * @param targetAllocationExpirationTime
          * @return
          */
         public Builder targetAllocationExpirationTime(String targetAllocationExpirationTime) {
-            this.targetAllocationExpirationTime = targetAllocationExpirationTime;
-            return this;
+             this.targetAllocationExpirationTime = targetAllocationExpirationTime;
+             return this;
         }
 
+    
 
         /**
          * 新默认成本中心
          * <p> 示例值：7380264299728602661
-         *
          * @param targetDefaultCostCenter
          * @return
          */
         public Builder targetDefaultCostCenter(String targetDefaultCostCenter) {
-            this.targetDefaultCostCenter = targetDefaultCostCenter;
-            return this;
+             this.targetDefaultCostCenter = targetDefaultCostCenter;
+             return this;
         }
 
+    
 
         /**
          * 新默认成本中心是否继承
          * <p> 示例值：
-         *
          * @param targetIsDefaultCostCenterInherited
          * @return
          */
         public Builder targetIsDefaultCostCenterInherited(Boolean targetIsDefaultCostCenterInherited) {
-            this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
-            return this;
+             this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
+             return this;
         }
 
+    
+    
+    public CreateTransferInfo build(){
+        return new CreateTransferInfo(this);
+      }
+    }
 
-        public CreateTransferInfo build() {
-            return new CreateTransferInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

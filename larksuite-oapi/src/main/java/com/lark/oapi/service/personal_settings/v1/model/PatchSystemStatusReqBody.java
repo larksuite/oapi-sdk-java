@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.personal_settings.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchSystemStatusReqBody {
-    /**
-     * 系统状态
-     * <p> 示例值：
-     */
+     /**
+      * 系统状态
+      * <p> 示例值：
+      */
     @SerializedName("system_status")
     private SystemStatus systemStatus;
-    /**
-     * 需要更新的字段
-     * <p> 示例值：['TITLE']
-     */
+     /**
+      * 需要更新的字段
+      * <p> 示例值：['TITLE']
+      */
     @SerializedName("update_fields")
     private String[] updateFields;
-
-    // builder 开始
-    public PatchSystemStatusReqBody() {
-    }
-
-    public PatchSystemStatusReqBody(Builder builder) {
-        /**
-         * 系统状态
-         * <p> 示例值：
-         */
-        this.systemStatus = builder.systemStatus;
-        /**
-         * 需要更新的字段
-         * <p> 示例值：['TITLE']
-         */
-        this.updateFields = builder.updateFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public SystemStatus getSystemStatus() {
         return this.systemStatus;
     }
@@ -79,46 +53,67 @@ public class PatchSystemStatusReqBody {
         this.updateFields = updateFields;
     }
 
+
+// builder 开始
+  public PatchSystemStatusReqBody(){}
+
+  public PatchSystemStatusReqBody(Builder builder){
+         /**
+          * 系统状态
+          * <p> 示例值：
+          */
+      this.systemStatus = builder.systemStatus;
+         /**
+          * 需要更新的字段
+          * <p> 示例值：['TITLE']
+          */
+      this.updateFields = builder.updateFields;
+  }
+
     public static class Builder {
-        /**
-         * 系统状态
-         * <p> 示例值：
-         */
+     /**
+      * 系统状态
+      * <p> 示例值：
+      */
         private SystemStatus systemStatus;
-        /**
-         * 需要更新的字段
-         * <p> 示例值：['TITLE']
-         */
+     /**
+      * 需要更新的字段
+      * <p> 示例值：['TITLE']
+      */
         private String[] updateFields;
 
         /**
          * 系统状态
          * <p> 示例值：
-         *
          * @param systemStatus
          * @return
          */
         public Builder systemStatus(SystemStatus systemStatus) {
-            this.systemStatus = systemStatus;
-            return this;
+             this.systemStatus = systemStatus;
+             return this;
         }
 
+    
 
         /**
          * 需要更新的字段
          * <p> 示例值：['TITLE']
-         *
          * @param updateFields
          * @return
          */
         public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
+             this.updateFields = updateFields;
+             return this;
         }
 
+    
+    
+    public PatchSystemStatusReqBody build(){
+        return new PatchSystemStatusReqBody(this);
+      }
+    }
 
-        public PatchSystemStatusReqBody build() {
-            return new PatchSystemStatusReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

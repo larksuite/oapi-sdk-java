@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Enums {
-    /**
-     * 枚举名称
-     * <p> 示例值：overtime_date_type
-     */
+     /**
+      * 枚举名称
+      * <p> 示例值：overtime_date_type
+      */
     @SerializedName("enum_apiname")
     private String enumApiname;
-    /**
-     * 枚举值
-     * <p> 示例值：
-     */
+     /**
+      * 枚举值
+      * <p> 示例值：
+      */
     @SerializedName("enum_items")
     private EnumField[] enumItems;
-
-    // builder 开始
-    public Enums() {
-    }
-
-    public Enums(Builder builder) {
-        /**
-         * 枚举名称
-         * <p> 示例值：overtime_date_type
-         */
-        this.enumApiname = builder.enumApiname;
-        /**
-         * 枚举值
-         * <p> 示例值：
-         */
-        this.enumItems = builder.enumItems;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEnumApiname() {
         return this.enumApiname;
     }
@@ -79,46 +53,67 @@ public class Enums {
         this.enumItems = enumItems;
     }
 
+
+// builder 开始
+  public Enums(){}
+
+  public Enums(Builder builder){
+         /**
+          * 枚举名称
+          * <p> 示例值：overtime_date_type
+          */
+      this.enumApiname = builder.enumApiname;
+         /**
+          * 枚举值
+          * <p> 示例值：
+          */
+      this.enumItems = builder.enumItems;
+  }
+
     public static class Builder {
-        /**
-         * 枚举名称
-         * <p> 示例值：overtime_date_type
-         */
+     /**
+      * 枚举名称
+      * <p> 示例值：overtime_date_type
+      */
         private String enumApiname;
-        /**
-         * 枚举值
-         * <p> 示例值：
-         */
+     /**
+      * 枚举值
+      * <p> 示例值：
+      */
         private EnumField[] enumItems;
 
         /**
          * 枚举名称
          * <p> 示例值：overtime_date_type
-         *
          * @param enumApiname
          * @return
          */
         public Builder enumApiname(String enumApiname) {
-            this.enumApiname = enumApiname;
-            return this;
+             this.enumApiname = enumApiname;
+             return this;
         }
 
+    
 
         /**
          * 枚举值
          * <p> 示例值：
-         *
          * @param enumItems
          * @return
          */
         public Builder enumItems(EnumField[] enumItems) {
-            this.enumItems = enumItems;
-            return this;
+             this.enumItems = enumItems;
+             return this;
         }
 
+    
+    
+    public Enums build(){
+        return new Enums(this);
+      }
+    }
 
-        public Enums build() {
-            return new Enums(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

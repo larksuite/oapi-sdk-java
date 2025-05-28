@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FreeTime {
-    /**
-     * 空闲开始时间
-     * <p> 示例值：none
-     */
+     /**
+      * 空闲开始时间
+      * <p> 示例值：none
+      */
     @SerializedName("free_time_start")
     private String freeTimeStart;
-    /**
-     * 空闲结束时间
-     * <p> 示例值：none
-     */
+     /**
+      * 空闲结束时间
+      * <p> 示例值：none
+      */
     @SerializedName("free_time_end")
     private String freeTimeEnd;
-    /**
-     * 空闲时间列表
-     * <p> 示例值：none
-     */
+     /**
+      * 空闲时间列表
+      * <p> 示例值：none
+      */
     @SerializedName("free_time_list")
     private String freeTimeList;
-
-    // builder 开始
-    public FreeTime() {
-    }
-
-    public FreeTime(Builder builder) {
-        /**
-         * 空闲开始时间
-         * <p> 示例值：none
-         */
-        this.freeTimeStart = builder.freeTimeStart;
-        /**
-         * 空闲结束时间
-         * <p> 示例值：none
-         */
-        this.freeTimeEnd = builder.freeTimeEnd;
-        /**
-         * 空闲时间列表
-         * <p> 示例值：none
-         */
-        this.freeTimeList = builder.freeTimeList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFreeTimeStart() {
         return this.freeTimeStart;
     }
@@ -98,64 +67,90 @@ public class FreeTime {
         this.freeTimeList = freeTimeList;
     }
 
+
+// builder 开始
+  public FreeTime(){}
+
+  public FreeTime(Builder builder){
+         /**
+          * 空闲开始时间
+          * <p> 示例值：none
+          */
+      this.freeTimeStart = builder.freeTimeStart;
+         /**
+          * 空闲结束时间
+          * <p> 示例值：none
+          */
+      this.freeTimeEnd = builder.freeTimeEnd;
+         /**
+          * 空闲时间列表
+          * <p> 示例值：none
+          */
+      this.freeTimeList = builder.freeTimeList;
+  }
+
     public static class Builder {
-        /**
-         * 空闲开始时间
-         * <p> 示例值：none
-         */
+     /**
+      * 空闲开始时间
+      * <p> 示例值：none
+      */
         private String freeTimeStart;
-        /**
-         * 空闲结束时间
-         * <p> 示例值：none
-         */
+     /**
+      * 空闲结束时间
+      * <p> 示例值：none
+      */
         private String freeTimeEnd;
-        /**
-         * 空闲时间列表
-         * <p> 示例值：none
-         */
+     /**
+      * 空闲时间列表
+      * <p> 示例值：none
+      */
         private String freeTimeList;
 
         /**
          * 空闲开始时间
          * <p> 示例值：none
-         *
          * @param freeTimeStart
          * @return
          */
         public Builder freeTimeStart(String freeTimeStart) {
-            this.freeTimeStart = freeTimeStart;
-            return this;
+             this.freeTimeStart = freeTimeStart;
+             return this;
         }
 
+    
 
         /**
          * 空闲结束时间
          * <p> 示例值：none
-         *
          * @param freeTimeEnd
          * @return
          */
         public Builder freeTimeEnd(String freeTimeEnd) {
-            this.freeTimeEnd = freeTimeEnd;
-            return this;
+             this.freeTimeEnd = freeTimeEnd;
+             return this;
         }
 
+    
 
         /**
          * 空闲时间列表
          * <p> 示例值：none
-         *
          * @param freeTimeList
          * @return
          */
         public Builder freeTimeList(String freeTimeList) {
-            this.freeTimeList = freeTimeList;
-            return this;
+             this.freeTimeList = freeTimeList;
+             return this;
         }
 
+    
+    
+    public FreeTime build(){
+        return new FreeTime(this);
+      }
+    }
 
-        public FreeTime build() {
-            return new FreeTime(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

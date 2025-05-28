@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OkrComment {
-    /**
-     * 全局评论ID
-     * <p> 示例值：6976173067307927084
-     */
+     /**
+      * 全局评论ID
+      * <p> 示例值：6976173067307927084
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 全局评论内容
-     * <p> 示例值：well done
-     */
+     /**
+      * 全局评论内容
+      * <p> 示例值：well done
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 全局评论时间 毫秒
-     * <p> 示例值：1624267575928
-     */
+     /**
+      * 全局评论时间 毫秒
+      * <p> 示例值：1624267575928
+      */
     @SerializedName("comment_time")
     private Integer commentTime;
-    /**
-     * 评论人员
-     * <p> 示例值：
-     */
+     /**
+      * 评论人员
+      * <p> 示例值：
+      */
     @SerializedName("commentator")
     private OkrObjectiveAlignedObjectiveOwner commentator;
-    /**
-     * 修改评论的用户
-     * <p> 示例值：
-     */
+     /**
+      * 修改评论的用户
+      * <p> 示例值：
+      */
     @SerializedName("last_modifier")
     private OkrObjectiveAlignedObjectiveOwner lastModifier;
-    /**
-     * 评论的被修改时间  0 表示未被修改过， ms级别时间戳
-     * <p> 示例值：1624267575928
-     */
+     /**
+      * 评论的被修改时间  0 表示未被修改过， ms级别时间戳
+      * <p> 示例值：1624267575928
+      */
     @SerializedName("content_modify_time")
     private Integer contentModifyTime;
-    /**
-     * 评论被解决的时间   0 表示未解决过， ms级别时间戳
-     * <p> 示例值：1624267575928
-     */
+     /**
+      * 评论被解决的时间   0 表示未解决过， ms级别时间戳
+      * <p> 示例值：1624267575928
+      */
     @SerializedName("solved_time")
     private Integer solvedTime;
-
-    // builder 开始
-    public OkrComment() {
-    }
-
-    public OkrComment(Builder builder) {
-        /**
-         * 全局评论ID
-         * <p> 示例值：6976173067307927084
-         */
-        this.id = builder.id;
-        /**
-         * 全局评论内容
-         * <p> 示例值：well done
-         */
-        this.content = builder.content;
-        /**
-         * 全局评论时间 毫秒
-         * <p> 示例值：1624267575928
-         */
-        this.commentTime = builder.commentTime;
-        /**
-         * 评论人员
-         * <p> 示例值：
-         */
-        this.commentator = builder.commentator;
-        /**
-         * 修改评论的用户
-         * <p> 示例值：
-         */
-        this.lastModifier = builder.lastModifier;
-        /**
-         * 评论的被修改时间  0 表示未被修改过， ms级别时间戳
-         * <p> 示例值：1624267575928
-         */
-        this.contentModifyTime = builder.contentModifyTime;
-        /**
-         * 评论被解决的时间   0 表示未解决过， ms级别时间戳
-         * <p> 示例值：1624267575928
-         */
-        this.solvedTime = builder.solvedTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -174,136 +123,182 @@ public class OkrComment {
         this.solvedTime = solvedTime;
     }
 
+
+// builder 开始
+  public OkrComment(){}
+
+  public OkrComment(Builder builder){
+         /**
+          * 全局评论ID
+          * <p> 示例值：6976173067307927084
+          */
+      this.id = builder.id;
+         /**
+          * 全局评论内容
+          * <p> 示例值：well done
+          */
+      this.content = builder.content;
+         /**
+          * 全局评论时间 毫秒
+          * <p> 示例值：1624267575928
+          */
+      this.commentTime = builder.commentTime;
+         /**
+          * 评论人员
+          * <p> 示例值：
+          */
+      this.commentator = builder.commentator;
+         /**
+          * 修改评论的用户
+          * <p> 示例值：
+          */
+      this.lastModifier = builder.lastModifier;
+         /**
+          * 评论的被修改时间  0 表示未被修改过， ms级别时间戳
+          * <p> 示例值：1624267575928
+          */
+      this.contentModifyTime = builder.contentModifyTime;
+         /**
+          * 评论被解决的时间   0 表示未解决过， ms级别时间戳
+          * <p> 示例值：1624267575928
+          */
+      this.solvedTime = builder.solvedTime;
+  }
+
     public static class Builder {
-        /**
-         * 全局评论ID
-         * <p> 示例值：6976173067307927084
-         */
+     /**
+      * 全局评论ID
+      * <p> 示例值：6976173067307927084
+      */
         private String id;
-        /**
-         * 全局评论内容
-         * <p> 示例值：well done
-         */
+     /**
+      * 全局评论内容
+      * <p> 示例值：well done
+      */
         private String content;
-        /**
-         * 全局评论时间 毫秒
-         * <p> 示例值：1624267575928
-         */
+     /**
+      * 全局评论时间 毫秒
+      * <p> 示例值：1624267575928
+      */
         private Integer commentTime;
-        /**
-         * 评论人员
-         * <p> 示例值：
-         */
+     /**
+      * 评论人员
+      * <p> 示例值：
+      */
         private OkrObjectiveAlignedObjectiveOwner commentator;
-        /**
-         * 修改评论的用户
-         * <p> 示例值：
-         */
+     /**
+      * 修改评论的用户
+      * <p> 示例值：
+      */
         private OkrObjectiveAlignedObjectiveOwner lastModifier;
-        /**
-         * 评论的被修改时间  0 表示未被修改过， ms级别时间戳
-         * <p> 示例值：1624267575928
-         */
+     /**
+      * 评论的被修改时间  0 表示未被修改过， ms级别时间戳
+      * <p> 示例值：1624267575928
+      */
         private Integer contentModifyTime;
-        /**
-         * 评论被解决的时间   0 表示未解决过， ms级别时间戳
-         * <p> 示例值：1624267575928
-         */
+     /**
+      * 评论被解决的时间   0 表示未解决过， ms级别时间戳
+      * <p> 示例值：1624267575928
+      */
         private Integer solvedTime;
 
         /**
          * 全局评论ID
          * <p> 示例值：6976173067307927084
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 全局评论内容
          * <p> 示例值：well done
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 全局评论时间 毫秒
          * <p> 示例值：1624267575928
-         *
          * @param commentTime
          * @return
          */
         public Builder commentTime(Integer commentTime) {
-            this.commentTime = commentTime;
-            return this;
+             this.commentTime = commentTime;
+             return this;
         }
 
+    
 
         /**
          * 评论人员
          * <p> 示例值：
-         *
          * @param commentator
          * @return
          */
         public Builder commentator(OkrObjectiveAlignedObjectiveOwner commentator) {
-            this.commentator = commentator;
-            return this;
+             this.commentator = commentator;
+             return this;
         }
 
+    
 
         /**
          * 修改评论的用户
          * <p> 示例值：
-         *
          * @param lastModifier
          * @return
          */
         public Builder lastModifier(OkrObjectiveAlignedObjectiveOwner lastModifier) {
-            this.lastModifier = lastModifier;
-            return this;
+             this.lastModifier = lastModifier;
+             return this;
         }
 
+    
 
         /**
          * 评论的被修改时间  0 表示未被修改过， ms级别时间戳
          * <p> 示例值：1624267575928
-         *
          * @param contentModifyTime
          * @return
          */
         public Builder contentModifyTime(Integer contentModifyTime) {
-            this.contentModifyTime = contentModifyTime;
-            return this;
+             this.contentModifyTime = contentModifyTime;
+             return this;
         }
 
+    
 
         /**
          * 评论被解决的时间   0 表示未解决过， ms级别时间戳
          * <p> 示例值：1624267575928
-         *
          * @param solvedTime
          * @return
          */
         public Builder solvedTime(Integer solvedTime) {
-            this.solvedTime = solvedTime;
-            return this;
+             this.solvedTime = solvedTime;
+             return this;
         }
 
+    
+    
+    public OkrComment build(){
+        return new OkrComment(this);
+      }
+    }
 
-        public OkrComment build() {
-            return new OkrComment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

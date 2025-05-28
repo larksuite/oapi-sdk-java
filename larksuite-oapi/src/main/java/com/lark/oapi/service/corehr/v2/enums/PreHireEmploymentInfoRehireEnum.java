@@ -17,17 +17,16 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 是否离职重聘
  */
 public enum PreHireEmploymentInfoRehireEnum {
-    TOBECONFIRMED("to_be_confirmed"), // 待确认，系统会判断该员工是否存在历史雇佣记录，如果存在且需要二次确认时会调用失败，并返回历史雇佣记录
-    NO("no"), // 否，系统直接标为非离职重聘人员，不再做重复判断
-    YES("yes"), // 是，要求历史雇佣信息 ID 必填
-    ;
-    private String value;
-
+     TOBECONFIRMED("to_be_confirmed"), // 待确认，系统会判断该员工是否存在历史雇佣记录，如果存在且需要二次确认时会调用失败，并返回历史雇佣记录
+     NO("no"), // 否，系统直接标为非离职重聘人员，不再做重复判断
+     YES("yes"), // 是，要求历史雇佣信息 ID 必填
+  ;
+   private String value;
     PreHireEmploymentInfoRehireEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

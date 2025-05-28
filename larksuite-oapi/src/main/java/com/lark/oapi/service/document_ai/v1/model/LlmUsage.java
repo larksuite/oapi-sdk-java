@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LlmUsage {
-    /**
-     * 当前输入token的个数
-     * <p> 示例值：226
-     */
+     /**
+      * 当前输入token的个数
+      * <p> 示例值：226
+      */
     @SerializedName("prompt_tokens")
     private Integer promptTokens;
-    /**
-     * 当前输出token的个数
-     * <p> 示例值：115
-     */
+     /**
+      * 当前输出token的个数
+      * <p> 示例值：115
+      */
     @SerializedName("completion_tokens")
     private Integer completionTokens;
-    /**
-     * 输入+输出token的总个数
-     * <p> 示例值：341
-     */
+     /**
+      * 输入+输出token的总个数
+      * <p> 示例值：341
+      */
     @SerializedName("total_tokens")
     private Integer totalTokens;
-
-    // builder 开始
-    public LlmUsage() {
-    }
-
-    public LlmUsage(Builder builder) {
-        /**
-         * 当前输入token的个数
-         * <p> 示例值：226
-         */
-        this.promptTokens = builder.promptTokens;
-        /**
-         * 当前输出token的个数
-         * <p> 示例值：115
-         */
-        this.completionTokens = builder.completionTokens;
-        /**
-         * 输入+输出token的总个数
-         * <p> 示例值：341
-         */
-        this.totalTokens = builder.totalTokens;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPromptTokens() {
         return this.promptTokens;
     }
@@ -98,64 +67,90 @@ public class LlmUsage {
         this.totalTokens = totalTokens;
     }
 
+
+// builder 开始
+  public LlmUsage(){}
+
+  public LlmUsage(Builder builder){
+         /**
+          * 当前输入token的个数
+          * <p> 示例值：226
+          */
+      this.promptTokens = builder.promptTokens;
+         /**
+          * 当前输出token的个数
+          * <p> 示例值：115
+          */
+      this.completionTokens = builder.completionTokens;
+         /**
+          * 输入+输出token的总个数
+          * <p> 示例值：341
+          */
+      this.totalTokens = builder.totalTokens;
+  }
+
     public static class Builder {
-        /**
-         * 当前输入token的个数
-         * <p> 示例值：226
-         */
+     /**
+      * 当前输入token的个数
+      * <p> 示例值：226
+      */
         private Integer promptTokens;
-        /**
-         * 当前输出token的个数
-         * <p> 示例值：115
-         */
+     /**
+      * 当前输出token的个数
+      * <p> 示例值：115
+      */
         private Integer completionTokens;
-        /**
-         * 输入+输出token的总个数
-         * <p> 示例值：341
-         */
+     /**
+      * 输入+输出token的总个数
+      * <p> 示例值：341
+      */
         private Integer totalTokens;
 
         /**
          * 当前输入token的个数
          * <p> 示例值：226
-         *
          * @param promptTokens
          * @return
          */
         public Builder promptTokens(Integer promptTokens) {
-            this.promptTokens = promptTokens;
-            return this;
+             this.promptTokens = promptTokens;
+             return this;
         }
 
+    
 
         /**
          * 当前输出token的个数
          * <p> 示例值：115
-         *
          * @param completionTokens
          * @return
          */
         public Builder completionTokens(Integer completionTokens) {
-            this.completionTokens = completionTokens;
-            return this;
+             this.completionTokens = completionTokens;
+             return this;
         }
 
+    
 
         /**
          * 输入+输出token的总个数
          * <p> 示例值：341
-         *
          * @param totalTokens
          * @return
          */
         public Builder totalTokens(Integer totalTokens) {
-            this.totalTokens = totalTokens;
-            return this;
+             this.totalTokens = totalTokens;
+             return this;
         }
 
+    
+    
+    public LlmUsage build(){
+        return new LlmUsage(this);
+      }
+    }
 
-        public LlmUsage build() {
-            return new LlmUsage(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

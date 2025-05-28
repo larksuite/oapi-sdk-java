@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ImportTaskMountPoint {
-    /**
-     * 挂载类型
-     * <p> 示例值：1
-     */
+     /**
+      * 挂载类型
+      * <p> 示例值：1
+      */
     @SerializedName("mount_type")
     private Integer mountType;
-    /**
-     * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
-     * <p> 示例值：fldxxxxxxxx
-     */
+     /**
+      * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
+      * <p> 示例值：fldxxxxxxxx
+      */
     @SerializedName("mount_key")
     private String mountKey;
-
-    // builder 开始
-    public ImportTaskMountPoint() {
-    }
-
-    public ImportTaskMountPoint(Builder builder) {
-        /**
-         * 挂载类型
-         * <p> 示例值：1
-         */
-        this.mountType = builder.mountType;
-        /**
-         * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
-         * <p> 示例值：fldxxxxxxxx
-         */
-        this.mountKey = builder.mountKey;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getMountType() {
         return this.mountType;
     }
@@ -79,58 +53,77 @@ public class ImportTaskMountPoint {
         this.mountKey = mountKey;
     }
 
+
+// builder 开始
+  public ImportTaskMountPoint(){}
+
+  public ImportTaskMountPoint(Builder builder){
+         /**
+          * 挂载类型
+          * <p> 示例值：1
+          */
+      this.mountType = builder.mountType;
+         /**
+          * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
+          * <p> 示例值：fldxxxxxxxx
+          */
+      this.mountKey = builder.mountKey;
+  }
+
     public static class Builder {
-        /**
-         * 挂载类型
-         * <p> 示例值：1
-         */
+     /**
+      * 挂载类型
+      * <p> 示例值：1
+      */
         private Integer mountType;
-        /**
-         * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
-         * <p> 示例值：fldxxxxxxxx
-         */
+     /**
+      * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
+      * <p> 示例值：fldxxxxxxxx
+      */
         private String mountKey;
 
         /**
          * 挂载类型
          * <p> 示例值：1
-         *
          * @param mountType
          * @return
          */
         public Builder mountType(Integer mountType) {
-            this.mountType = mountType;
-            return this;
+             this.mountType = mountType;
+             return this;
         }
-
         /**
          * 挂载类型
          * <p> 示例值：1
-         *
          * @param mountType {@link com.lark.oapi.service.drive.v1.enums.ImportTaskMountPointMountTypeEnum}
          * @return
          */
         public Builder mountType(com.lark.oapi.service.drive.v1.enums.ImportTaskMountPointMountTypeEnum mountType) {
-            this.mountType = mountType.getValue();
-            return this;
+             this.mountType = mountType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
          * <p> 示例值：fldxxxxxxxx
-         *
          * @param mountKey
          * @return
          */
         public Builder mountKey(String mountKey) {
-            this.mountKey = mountKey;
-            return this;
+             this.mountKey = mountKey;
+             return this;
         }
 
+    
+    
+    public ImportTaskMountPoint build(){
+        return new ImportTaskMountPoint(this);
+      }
+    }
 
-        public ImportTaskMountPoint build() {
-            return new ImportTaskMountPoint(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

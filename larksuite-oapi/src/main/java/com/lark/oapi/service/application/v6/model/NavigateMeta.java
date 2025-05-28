@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class NavigateMeta {
-    /**
-     * 主导航小程序版本号
-     * <p> 示例值：1.0.0
-     */
+     /**
+      * 主导航小程序版本号
+      * <p> 示例值：1.0.0
+      */
     @SerializedName("version")
     private String version;
-    /**
-     * 默认图片 url
-     * <p> 示例值：https://www.example.com
-     */
+     /**
+      * 默认图片 url
+      * <p> 示例值：https://www.example.com
+      */
     @SerializedName("image_url")
     private String imageUrl;
-    /**
-     * 选中态图片 url
-     * <p> 示例值：https://www.example.com
-     */
+     /**
+      * 选中态图片 url
+      * <p> 示例值：https://www.example.com
+      */
     @SerializedName("hover_image_url")
     private String hoverImageUrl;
-
-    // builder 开始
-    public NavigateMeta() {
-    }
-
-    public NavigateMeta(Builder builder) {
-        /**
-         * 主导航小程序版本号
-         * <p> 示例值：1.0.0
-         */
-        this.version = builder.version;
-        /**
-         * 默认图片 url
-         * <p> 示例值：https://www.example.com
-         */
-        this.imageUrl = builder.imageUrl;
-        /**
-         * 选中态图片 url
-         * <p> 示例值：https://www.example.com
-         */
-        this.hoverImageUrl = builder.hoverImageUrl;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getVersion() {
         return this.version;
     }
@@ -98,64 +67,90 @@ public class NavigateMeta {
         this.hoverImageUrl = hoverImageUrl;
     }
 
+
+// builder 开始
+  public NavigateMeta(){}
+
+  public NavigateMeta(Builder builder){
+         /**
+          * 主导航小程序版本号
+          * <p> 示例值：1.0.0
+          */
+      this.version = builder.version;
+         /**
+          * 默认图片 url
+          * <p> 示例值：https://www.example.com
+          */
+      this.imageUrl = builder.imageUrl;
+         /**
+          * 选中态图片 url
+          * <p> 示例值：https://www.example.com
+          */
+      this.hoverImageUrl = builder.hoverImageUrl;
+  }
+
     public static class Builder {
-        /**
-         * 主导航小程序版本号
-         * <p> 示例值：1.0.0
-         */
+     /**
+      * 主导航小程序版本号
+      * <p> 示例值：1.0.0
+      */
         private String version;
-        /**
-         * 默认图片 url
-         * <p> 示例值：https://www.example.com
-         */
+     /**
+      * 默认图片 url
+      * <p> 示例值：https://www.example.com
+      */
         private String imageUrl;
-        /**
-         * 选中态图片 url
-         * <p> 示例值：https://www.example.com
-         */
+     /**
+      * 选中态图片 url
+      * <p> 示例值：https://www.example.com
+      */
         private String hoverImageUrl;
 
         /**
          * 主导航小程序版本号
          * <p> 示例值：1.0.0
-         *
          * @param version
          * @return
          */
         public Builder version(String version) {
-            this.version = version;
-            return this;
+             this.version = version;
+             return this;
         }
 
+    
 
         /**
          * 默认图片 url
          * <p> 示例值：https://www.example.com
-         *
          * @param imageUrl
          * @return
          */
         public Builder imageUrl(String imageUrl) {
-            this.imageUrl = imageUrl;
-            return this;
+             this.imageUrl = imageUrl;
+             return this;
         }
 
+    
 
         /**
          * 选中态图片 url
          * <p> 示例值：https://www.example.com
-         *
          * @param hoverImageUrl
          * @return
          */
         public Builder hoverImageUrl(String hoverImageUrl) {
-            this.hoverImageUrl = hoverImageUrl;
-            return this;
+             this.hoverImageUrl = hoverImageUrl;
+             return this;
         }
 
+    
+    
+    public NavigateMeta build(){
+        return new NavigateMeta(this);
+      }
+    }
 
-        public NavigateMeta build() {
-            return new NavigateMeta(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

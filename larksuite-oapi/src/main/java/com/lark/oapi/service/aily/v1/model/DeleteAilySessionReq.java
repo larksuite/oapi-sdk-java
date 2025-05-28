@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteAilySessionReq {
-    /**
-     * 会话 ID
-     * <p> 示例值：session_4dfunz7sp1g8m
-     */
+     /**
+      * 会话 ID
+      * <p> 示例值：session_4dfunz7sp1g8m
+      */
     @Path
     @SerializedName("aily_session_id")
     private String ailySessionId;
-
-    // builder 开始
-    public DeleteAilySessionReq() {
-    }
-
-    public DeleteAilySessionReq(Builder builder) {
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        this.ailySessionId = builder.ailySessionId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAilySessionId() {
         return this.ailySessionId;
     }
@@ -60,25 +39,39 @@ public class DeleteAilySessionReq {
         this.ailySessionId = ailySessionId;
     }
 
+
+// builder 开始
+  public DeleteAilySessionReq(){}
+
+  public DeleteAilySessionReq(Builder builder){
+     /**
+      * 会话 ID
+      * <p> 示例值：session_4dfunz7sp1g8m
+      */
+       this.ailySessionId = builder.ailySessionId;
+  }
+
     public static class Builder {
-
+    
         private String ailySessionId; // 会话 ID
-
         /**
          * 会话 ID
          * <p> 示例值：session_4dfunz7sp1g8m
-         *
          * @param ailySessionId
          * @return
          */
-        public Builder ailySessionId(String ailySessionId) {
-            this.ailySessionId = ailySessionId;
-            return this;
-        }
+          public Builder ailySessionId(String ailySessionId) {
+               this.ailySessionId = ailySessionId;
+               return this;
+          }
 
+    
+    public DeleteAilySessionReq build(){
+        return new DeleteAilySessionReq(this);
+      }
+    }
 
-        public DeleteAilySessionReq build() {
-            return new DeleteAilySessionReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

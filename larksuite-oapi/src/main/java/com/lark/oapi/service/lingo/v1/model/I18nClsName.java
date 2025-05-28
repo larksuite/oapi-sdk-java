@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class I18nClsName {
-    /**
-     * 语言类型
-     * <p> 示例值：1
-     */
+     /**
+      * 语言类型
+      * <p> 示例值：1
+      */
     @SerializedName("language")
     private Integer language;
-    /**
-     * 分类名
-     * <p> 示例值：词典分类
-     */
+     /**
+      * 分类名
+      * <p> 示例值：词典分类
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public I18nClsName() {
-    }
-
-    public I18nClsName(Builder builder) {
-        /**
-         * 语言类型
-         * <p> 示例值：1
-         */
-        this.language = builder.language;
-        /**
-         * 分类名
-         * <p> 示例值：词典分类
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getLanguage() {
         return this.language;
     }
@@ -79,58 +53,77 @@ public class I18nClsName {
         this.name = name;
     }
 
+
+// builder 开始
+  public I18nClsName(){}
+
+  public I18nClsName(Builder builder){
+         /**
+          * 语言类型
+          * <p> 示例值：1
+          */
+      this.language = builder.language;
+         /**
+          * 分类名
+          * <p> 示例值：词典分类
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 语言类型
-         * <p> 示例值：1
-         */
+     /**
+      * 语言类型
+      * <p> 示例值：1
+      */
         private Integer language;
-        /**
-         * 分类名
-         * <p> 示例值：词典分类
-         */
+     /**
+      * 分类名
+      * <p> 示例值：词典分类
+      */
         private String name;
 
         /**
          * 语言类型
          * <p> 示例值：1
-         *
          * @param language
          * @return
          */
         public Builder language(Integer language) {
-            this.language = language;
-            return this;
+             this.language = language;
+             return this;
         }
-
         /**
          * 语言类型
          * <p> 示例值：1
-         *
          * @param language {@link com.lark.oapi.service.lingo.v1.enums.I18nClsNameLanguageEnum}
          * @return
          */
         public Builder language(com.lark.oapi.service.lingo.v1.enums.I18nClsNameLanguageEnum language) {
-            this.language = language.getValue();
-            return this;
+             this.language = language.getValue();
+             return this;
         }
 
+    
 
         /**
          * 分类名
          * <p> 示例值：词典分类
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public I18nClsName build(){
+        return new I18nClsName(this);
+      }
+    }
 
-        public I18nClsName build() {
-            return new I18nClsName(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

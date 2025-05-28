@@ -12,48 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OnboardStatusTalentReq {
-    /**
-     * 人才ID
-     * <p> 示例值：6960663240925956661
-     */
+     /**
+      * 人才ID
+      * <p> 示例值：6960663240925956661
+      */
     @Path
     @SerializedName("talent_id")
     private String talentId;
-    @Body
-    private OnboardStatusTalentReqBody body;
-
-    // builder 开始
-    public OnboardStatusTalentReq() {
-    }
-
-    public OnboardStatusTalentReq(Builder builder) {
-        /**
-         * 人才ID
-         * <p> 示例值：6960663240925956661
-         */
-        this.talentId = builder.talentId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTalentId() {
         return this.talentId;
     }
@@ -61,6 +37,9 @@ public class OnboardStatusTalentReq {
     public void setTalentId(String talentId) {
         this.talentId = talentId;
     }
+
+    @Body
+    private OnboardStatusTalentReqBody body;
 
     public OnboardStatusTalentReqBody getOnboardStatusTalentReqBody() {
         return this.body;
@@ -70,40 +49,54 @@ public class OnboardStatusTalentReq {
         this.body = body;
     }
 
+// builder 开始
+  public OnboardStatusTalentReq(){}
+
+  public OnboardStatusTalentReq(Builder builder){
+     /**
+      * 人才ID
+      * <p> 示例值：6960663240925956661
+      */
+       this.talentId = builder.talentId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String talentId; // 人才ID
-        private OnboardStatusTalentReqBody body;
-
         /**
          * 人才ID
          * <p> 示例值：6960663240925956661
-         *
          * @param talentId
          * @return
          */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
+          public Builder talentId(String talentId) {
+               this.talentId = talentId;
+               return this;
+          }
 
+    
+        private OnboardStatusTalentReqBody body;
+    
         public OnboardStatusTalentReqBody getOnboardStatusTalentReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder onboardStatusTalentReqBody(OnboardStatusTalentReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public OnboardStatusTalentReq build(){
+        return new OnboardStatusTalentReq(this);
+      }
+    }
 
-        public OnboardStatusTalentReq build() {
-            return new OnboardStatusTalentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

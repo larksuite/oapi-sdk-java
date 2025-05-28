@@ -12,77 +12,72 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateJobChangeRespBody {
-    /**
-     * 异动记录 id
-     * <p> 示例值：6991776076699549697
-     */
+     /**
+      * 异动记录 id
+      * <p> 示例值：6991776076699549697
+      */
     @SerializedName("job_change_id")
     private String jobChangeId;
-    /**
-     * 雇员 id
-     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-     */
+     /**
+      * 雇员 id
+      * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 异动状态
-     * <p> 示例值：4
-     */
+     /**
+      * 异动状态
+      * <p> 示例值：4
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * 异动类型
-     * <p> 示例值：direct_leader_change
-     */
+     /**
+      * 异动类型
+      * <p> 示例值：direct_leader_change
+      */
     @SerializedName("transfer_type_unique_identifier")
     private String transferTypeUniqueIdentifier;
-    /**
-     * 异动原因
-     * <p> 示例值：involuntary_transfer
-     */
+     /**
+      * 异动原因
+      * <p> 示例值：involuntary_transfer
+      */
     @SerializedName("transfer_reason_unique_identifier")
     private String transferReasonUniqueIdentifier;
-    /**
-     * 异动流程 id
-     * <p> 示例值：6991776078461142564
-     */
+     /**
+      * 异动流程 id
+      * <p> 示例值：6991776078461142564
+      */
     @SerializedName("process_id")
     private String processId;
-    /**
-     * 生效时间
-     * <p> 示例值：2022-03-01
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：2022-03-01
+      */
     @SerializedName("effective_date")
     private String effectiveDate;
-    /**
-     * 创建时间
-     * <p> 示例值：1627899724000
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：1627899724000
+      */
     @SerializedName("created_time")
     private String createdTime;
-    /**
-     * 异动详细信息
-     * <p> 示例值：
-     */
+     /**
+      * 异动详细信息
+      * <p> 示例值：
+      */
     @SerializedName("transfer_info")
     private TransferInfo transferInfo;
-
     public String getJobChangeId() {
         return this.jobChangeId;
     }

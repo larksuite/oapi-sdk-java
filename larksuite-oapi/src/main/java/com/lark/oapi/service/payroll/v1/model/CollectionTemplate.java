@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,126 +19,66 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CollectionTemplate {
-    /**
-     * 填报模板ID
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 填报模板ID
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("template_id")
     private String templateId;
-    /**
-     * 填报模板名称
-     * <p> 示例值：
-     */
+     /**
+      * 填报模板名称
+      * <p> 示例值：
+      */
     @SerializedName("template_name")
     private I18n templateName;
-    /**
-     * 填报模板版本ID（主键ID）
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 填报模板版本ID（主键ID）
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("version_id")
     private String versionId;
-    /**
-     * 填报项列表
-     * <p> 示例值：
-     */
+     /**
+      * 填报项列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private CollectionItem[] items;
-    /**
-     * 国家地区多值列表
-     * <p> 示例值：
-     */
+     /**
+      * 国家地区多值列表
+      * <p> 示例值：
+      */
     @SerializedName("country_regions")
     private CountryRegion[] countryRegions;
-    /**
-     * 启停用状态
-     * <p> 示例值：true
-     */
+     /**
+      * 启停用状态
+      * <p> 示例值：true
+      */
     @SerializedName("is_active")
     private Boolean isActive;
-    /**
-     * 生效日期
-     * <p> 示例值：2022-01-01
-     */
+     /**
+      * 生效日期
+      * <p> 示例值：2022-01-01
+      */
     @SerializedName("effective_date")
     private String effectiveDate;
-    /**
-     * 模板创建时间，毫秒时间戳
-     * <p> 示例值：1723797063000
-     */
+     /**
+      * 模板创建时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
     @SerializedName("created_time")
     private String createdTime;
-    /**
-     * 模板更新时间，毫秒时间戳
-     * <p> 示例值：1723797063000
-     */
+     /**
+      * 模板更新时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
     @SerializedName("modified_time")
     private String modifiedTime;
-
-    // builder 开始
-    public CollectionTemplate() {
-    }
-
-    public CollectionTemplate(Builder builder) {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         */
-        this.templateName = builder.templateName;
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         */
-        this.items = builder.items;
-        /**
-         * 国家地区多值列表
-         * <p> 示例值：
-         */
-        this.countryRegions = builder.countryRegions;
-        /**
-         * 启停用状态
-         * <p> 示例值：true
-         */
-        this.isActive = builder.isActive;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 模板创建时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 模板更新时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        this.modifiedTime = builder.modifiedTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTemplateId() {
         return this.templateId;
     }
@@ -212,172 +151,228 @@ public class CollectionTemplate {
         this.modifiedTime = modifiedTime;
     }
 
+
+// builder 开始
+  public CollectionTemplate(){}
+
+  public CollectionTemplate(Builder builder){
+         /**
+          * 填报模板ID
+          * <p> 示例值：7202076988667019308
+          */
+      this.templateId = builder.templateId;
+         /**
+          * 填报模板名称
+          * <p> 示例值：
+          */
+      this.templateName = builder.templateName;
+         /**
+          * 填报模板版本ID（主键ID）
+          * <p> 示例值：7202076988667019308
+          */
+      this.versionId = builder.versionId;
+         /**
+          * 填报项列表
+          * <p> 示例值：
+          */
+      this.items = builder.items;
+         /**
+          * 国家地区多值列表
+          * <p> 示例值：
+          */
+      this.countryRegions = builder.countryRegions;
+         /**
+          * 启停用状态
+          * <p> 示例值：true
+          */
+      this.isActive = builder.isActive;
+         /**
+          * 生效日期
+          * <p> 示例值：2022-01-01
+          */
+      this.effectiveDate = builder.effectiveDate;
+         /**
+          * 模板创建时间，毫秒时间戳
+          * <p> 示例值：1723797063000
+          */
+      this.createdTime = builder.createdTime;
+         /**
+          * 模板更新时间，毫秒时间戳
+          * <p> 示例值：1723797063000
+          */
+      this.modifiedTime = builder.modifiedTime;
+  }
+
     public static class Builder {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 填报模板ID
+      * <p> 示例值：7202076988667019308
+      */
         private String templateId;
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         */
+     /**
+      * 填报模板名称
+      * <p> 示例值：
+      */
         private I18n templateName;
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 填报模板版本ID（主键ID）
+      * <p> 示例值：7202076988667019308
+      */
         private String versionId;
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         */
+     /**
+      * 填报项列表
+      * <p> 示例值：
+      */
         private CollectionItem[] items;
-        /**
-         * 国家地区多值列表
-         * <p> 示例值：
-         */
+     /**
+      * 国家地区多值列表
+      * <p> 示例值：
+      */
         private CountryRegion[] countryRegions;
-        /**
-         * 启停用状态
-         * <p> 示例值：true
-         */
+     /**
+      * 启停用状态
+      * <p> 示例值：true
+      */
         private Boolean isActive;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-01-01
-         */
+     /**
+      * 生效日期
+      * <p> 示例值：2022-01-01
+      */
         private String effectiveDate;
-        /**
-         * 模板创建时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
+     /**
+      * 模板创建时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
         private String createdTime;
-        /**
-         * 模板更新时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
+     /**
+      * 模板更新时间，毫秒时间戳
+      * <p> 示例值：1723797063000
+      */
         private String modifiedTime;
 
         /**
          * 填报模板ID
          * <p> 示例值：7202076988667019308
-         *
          * @param templateId
          * @return
          */
         public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
+             this.templateId = templateId;
+             return this;
         }
 
+    
 
         /**
          * 填报模板名称
          * <p> 示例值：
-         *
          * @param templateName
          * @return
          */
         public Builder templateName(I18n templateName) {
-            this.templateName = templateName;
-            return this;
+             this.templateName = templateName;
+             return this;
         }
 
+    
 
         /**
          * 填报模板版本ID（主键ID）
          * <p> 示例值：7202076988667019308
-         *
          * @param versionId
          * @return
          */
         public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
+             this.versionId = versionId;
+             return this;
         }
 
+    
 
         /**
          * 填报项列表
          * <p> 示例值：
-         *
          * @param items
          * @return
          */
         public Builder items(CollectionItem[] items) {
-            this.items = items;
-            return this;
+             this.items = items;
+             return this;
         }
 
+    
 
         /**
          * 国家地区多值列表
          * <p> 示例值：
-         *
          * @param countryRegions
          * @return
          */
         public Builder countryRegions(CountryRegion[] countryRegions) {
-            this.countryRegions = countryRegions;
-            return this;
+             this.countryRegions = countryRegions;
+             return this;
         }
 
+    
 
         /**
          * 启停用状态
          * <p> 示例值：true
-         *
          * @param isActive
          * @return
          */
         public Builder isActive(Boolean isActive) {
-            this.isActive = isActive;
-            return this;
+             this.isActive = isActive;
+             return this;
         }
 
+    
 
         /**
          * 生效日期
          * <p> 示例值：2022-01-01
-         *
          * @param effectiveDate
          * @return
          */
         public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
+             this.effectiveDate = effectiveDate;
+             return this;
         }
 
+    
 
         /**
          * 模板创建时间，毫秒时间戳
          * <p> 示例值：1723797063000
-         *
          * @param createdTime
          * @return
          */
         public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
+             this.createdTime = createdTime;
+             return this;
         }
 
+    
 
         /**
          * 模板更新时间，毫秒时间戳
          * <p> 示例值：1723797063000
-         *
          * @param modifiedTime
          * @return
          */
         public Builder modifiedTime(String modifiedTime) {
-            this.modifiedTime = modifiedTime;
-            return this;
+             this.modifiedTime = modifiedTime;
+             return this;
         }
 
+    
+    
+    public CollectionTemplate build(){
+        return new CollectionTemplate(this);
+      }
+    }
 
-        public CollectionTemplate build() {
-            return new CollectionTemplate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

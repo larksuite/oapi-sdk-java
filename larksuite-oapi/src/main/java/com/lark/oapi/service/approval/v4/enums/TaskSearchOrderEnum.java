@@ -17,18 +17,17 @@ package com.lark.oapi.service.approval.v4.enums;
  * 按任务时间排序
  */
 public enum TaskSearchOrderEnum {
-    UPDATETIMEDESC(0), // 按update_time倒排
-    UPDATETIMEASC(1), // 按update_time正排
-    STARTTIMEDESC(2), // 按start_time倒排
-    STARTTIMEASC(3), // 按start_time正排
-    ;
-    private Integer value;
-
+     UPDATETIMEDESC(0), // 按update_time倒排
+     UPDATETIMEASC(1), // 按update_time正排
+     STARTTIMEDESC(2), // 按start_time倒排
+     STARTTIMEASC(3), // 按start_time正排
+  ;
+   private Integer value;
     TaskSearchOrderEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

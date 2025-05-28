@@ -17,17 +17,16 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 文档状态
  */
 public enum DocumentDocumentStatusEnum {
-    EXIST(0), // 正常
-    TRASH(1), // 回收站
-    DISTROYED(2), // 已删除
-    ;
-    private Integer value;
-
+     EXIST(0), // 正常
+     TRASH(1), // 回收站
+     DISTROYED(2), // 已删除
+  ;
+   private Integer value;
     DocumentDocumentStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

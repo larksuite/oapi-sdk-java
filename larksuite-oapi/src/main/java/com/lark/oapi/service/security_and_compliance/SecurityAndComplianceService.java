@@ -23,14 +23,12 @@ public class SecurityAndComplianceService {
     private final OpenapiLog openapiLog; // openapi_log
 
     public SecurityAndComplianceService(Config config) {
-        this.v1 = new V1(config);
-        this.openapiLog = new OpenapiLog(config);
+    this.v1 = new V1(config);
+    this.openapiLog = new OpenapiLog(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public OpenapiLog openapiLog() {
         return openapiLog;
     }

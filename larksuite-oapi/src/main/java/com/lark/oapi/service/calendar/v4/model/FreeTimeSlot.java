@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FreeTimeSlot {
-    /**
-     * 空闲时间段的开始时间
-     * <p> 示例值：2023-09-01 15:00:00
-     */
+     /**
+      * 空闲时间段的开始时间
+      * <p> 示例值：2023-09-01 15:00:00
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 空闲时间段的结束时间
-     * <p> 示例值：2023-09-01 16:00:00
-     */
+     /**
+      * 空闲时间段的结束时间
+      * <p> 示例值：2023-09-01 16:00:00
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 空闲时间段长度，单位 s
-     * <p> 示例值：3600
-     */
+     /**
+      * 空闲时间段长度，单位 s
+      * <p> 示例值：3600
+      */
     @SerializedName("length")
     private Integer length;
-
-    // builder 开始
-    public FreeTimeSlot() {
-    }
-
-    public FreeTimeSlot(Builder builder) {
-        /**
-         * 空闲时间段的开始时间
-         * <p> 示例值：2023-09-01 15:00:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 空闲时间段的结束时间
-         * <p> 示例值：2023-09-01 16:00:00
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 空闲时间段长度，单位 s
-         * <p> 示例值：3600
-         */
-        this.length = builder.length;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStartTime() {
         return this.startTime;
     }
@@ -98,64 +67,90 @@ public class FreeTimeSlot {
         this.length = length;
     }
 
+
+// builder 开始
+  public FreeTimeSlot(){}
+
+  public FreeTimeSlot(Builder builder){
+         /**
+          * 空闲时间段的开始时间
+          * <p> 示例值：2023-09-01 15:00:00
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 空闲时间段的结束时间
+          * <p> 示例值：2023-09-01 16:00:00
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 空闲时间段长度，单位 s
+          * <p> 示例值：3600
+          */
+      this.length = builder.length;
+  }
+
     public static class Builder {
-        /**
-         * 空闲时间段的开始时间
-         * <p> 示例值：2023-09-01 15:00:00
-         */
+     /**
+      * 空闲时间段的开始时间
+      * <p> 示例值：2023-09-01 15:00:00
+      */
         private String startTime;
-        /**
-         * 空闲时间段的结束时间
-         * <p> 示例值：2023-09-01 16:00:00
-         */
+     /**
+      * 空闲时间段的结束时间
+      * <p> 示例值：2023-09-01 16:00:00
+      */
         private String endTime;
-        /**
-         * 空闲时间段长度，单位 s
-         * <p> 示例值：3600
-         */
+     /**
+      * 空闲时间段长度，单位 s
+      * <p> 示例值：3600
+      */
         private Integer length;
 
         /**
          * 空闲时间段的开始时间
          * <p> 示例值：2023-09-01 15:00:00
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 空闲时间段的结束时间
          * <p> 示例值：2023-09-01 16:00:00
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 空闲时间段长度，单位 s
          * <p> 示例值：3600
-         *
          * @param length
          * @return
          */
         public Builder length(Integer length) {
-            this.length = length;
-            return this;
+             this.length = length;
+             return this;
         }
 
+    
+    
+    public FreeTimeSlot build(){
+        return new FreeTimeSlot(this);
+      }
+    }
 
-        public FreeTimeSlot build() {
-            return new FreeTimeSlot(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,94 +12,39 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListAppTableViewReq {
-    /**
-     * 分页大小
-     * <p> 示例值：10
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：10
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：vewTpR1urY
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：vewTpR1urY
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
-    /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     */
-    @Path
-    @SerializedName("table_id")
-    private String tableId;
-
-    // builder 开始
-    public ListAppTableViewReq() {
-    }
-
-    public ListAppTableViewReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：vewTpR1urY
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         */
-        this.appToken = builder.appToken;
-        /**
-         * table id
-         * <p> 示例值：tblsRc9GRRXKqhvW
-         */
-        this.tableId = builder.tableId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -124,6 +69,20 @@ public class ListAppTableViewReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * bitable app token
+      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+      */
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
+     /**
+      * table id
+      * <p> 示例值：tblsRc9GRRXKqhvW
+      */
+    @Path
+    @SerializedName("table_id")
+    private String tableId;
     public String getAppToken() {
         return this.appToken;
     }
@@ -140,89 +99,122 @@ public class ListAppTableViewReq {
         this.tableId = tableId;
     }
 
+
+// builder 开始
+  public ListAppTableViewReq(){}
+
+  public ListAppTableViewReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：10
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：vewTpR1urY
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * bitable app token
+      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+      */
+       this.appToken = builder.appToken;
+     /**
+      * table id
+      * <p> 示例值：tblsRc9GRRXKqhvW
+      */
+       this.tableId = builder.tableId;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String appToken; // bitable app token
-        private String tableId; // table id
-
+    
         /**
          * 分页大小
          * <p> 示例值：10
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：vewTpR1urY
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.ListAppTableViewUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.ListAppTableViewUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.ListAppTableViewUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String appToken; // bitable app token
+        private String tableId; // table id
         /**
          * bitable app token
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         *
          * @param appToken
          * @return
          */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
 
-
+    
         /**
          * table id
          * <p> 示例值：tblsRc9GRRXKqhvW
-         *
          * @param tableId
          * @return
          */
-        public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
-        }
+          public Builder tableId(String tableId) {
+               this.tableId = tableId;
+               return this;
+          }
 
+    
+    public ListAppTableViewReq build(){
+        return new ListAppTableViewReq(this);
+      }
+    }
 
-        public ListAppTableViewReq build() {
-            return new ListAppTableViewReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

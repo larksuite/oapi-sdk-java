@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserTask {
-    /**
-     * 打卡记录 ID
-     * <p> 示例值：6709359313699356941
-     */
+     /**
+      * 打卡记录 ID
+      * <p> 示例值：6709359313699356941
+      */
     @SerializedName("result_id")
     private String resultId;
-    /**
-     * 用户 ID
-     * <p> 示例值：abd754f7
-     */
+     /**
+      * 用户 ID
+      * <p> 示例值：abd754f7
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 用户姓名
-     * <p> 示例值：张三
-     */
+     /**
+      * 用户姓名
+      * <p> 示例值：张三
+      */
     @SerializedName("employee_name")
     private String employeeName;
-    /**
-     * 日期
-     * <p> 示例值：20190819
-     */
+     /**
+      * 日期
+      * <p> 示例值：20190819
+      */
     @SerializedName("day")
     private Integer day;
-    /**
-     * 考勤组 ID
-     * <p> 示例值：6737202939523236110
-     */
+     /**
+      * 考勤组 ID
+      * <p> 示例值：6737202939523236110
+      */
     @SerializedName("group_id")
     private String groupId;
-    /**
-     * 班次 ID
-     * <p> 示例值：6753520403404030215
-     */
+     /**
+      * 班次 ID
+      * <p> 示例值：6753520403404030215
+      */
     @SerializedName("shift_id")
     private String shiftId;
-    /**
-     * 用户考勤记录
-     * <p> 示例值：
-     */
+     /**
+      * 用户考勤记录
+      * <p> 示例值：
+      */
     @SerializedName("records")
     private TaskResult[] records;
-
-    // builder 开始
-    public UserTask() {
-    }
-
-    public UserTask(Builder builder) {
-        /**
-         * 打卡记录 ID
-         * <p> 示例值：6709359313699356941
-         */
-        this.resultId = builder.resultId;
-        /**
-         * 用户 ID
-         * <p> 示例值：abd754f7
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
-        this.employeeName = builder.employeeName;
-        /**
-         * 日期
-         * <p> 示例值：20190819
-         */
-        this.day = builder.day;
-        /**
-         * 考勤组 ID
-         * <p> 示例值：6737202939523236110
-         */
-        this.groupId = builder.groupId;
-        /**
-         * 班次 ID
-         * <p> 示例值：6753520403404030215
-         */
-        this.shiftId = builder.shiftId;
-        /**
-         * 用户考勤记录
-         * <p> 示例值：
-         */
-        this.records = builder.records;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getResultId() {
         return this.resultId;
     }
@@ -174,136 +123,182 @@ public class UserTask {
         this.records = records;
     }
 
+
+// builder 开始
+  public UserTask(){}
+
+  public UserTask(Builder builder){
+         /**
+          * 打卡记录 ID
+          * <p> 示例值：6709359313699356941
+          */
+      this.resultId = builder.resultId;
+         /**
+          * 用户 ID
+          * <p> 示例值：abd754f7
+          */
+      this.userId = builder.userId;
+         /**
+          * 用户姓名
+          * <p> 示例值：张三
+          */
+      this.employeeName = builder.employeeName;
+         /**
+          * 日期
+          * <p> 示例值：20190819
+          */
+      this.day = builder.day;
+         /**
+          * 考勤组 ID
+          * <p> 示例值：6737202939523236110
+          */
+      this.groupId = builder.groupId;
+         /**
+          * 班次 ID
+          * <p> 示例值：6753520403404030215
+          */
+      this.shiftId = builder.shiftId;
+         /**
+          * 用户考勤记录
+          * <p> 示例值：
+          */
+      this.records = builder.records;
+  }
+
     public static class Builder {
-        /**
-         * 打卡记录 ID
-         * <p> 示例值：6709359313699356941
-         */
+     /**
+      * 打卡记录 ID
+      * <p> 示例值：6709359313699356941
+      */
         private String resultId;
-        /**
-         * 用户 ID
-         * <p> 示例值：abd754f7
-         */
+     /**
+      * 用户 ID
+      * <p> 示例值：abd754f7
+      */
         private String userId;
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
+     /**
+      * 用户姓名
+      * <p> 示例值：张三
+      */
         private String employeeName;
-        /**
-         * 日期
-         * <p> 示例值：20190819
-         */
+     /**
+      * 日期
+      * <p> 示例值：20190819
+      */
         private Integer day;
-        /**
-         * 考勤组 ID
-         * <p> 示例值：6737202939523236110
-         */
+     /**
+      * 考勤组 ID
+      * <p> 示例值：6737202939523236110
+      */
         private String groupId;
-        /**
-         * 班次 ID
-         * <p> 示例值：6753520403404030215
-         */
+     /**
+      * 班次 ID
+      * <p> 示例值：6753520403404030215
+      */
         private String shiftId;
-        /**
-         * 用户考勤记录
-         * <p> 示例值：
-         */
+     /**
+      * 用户考勤记录
+      * <p> 示例值：
+      */
         private TaskResult[] records;
 
         /**
          * 打卡记录 ID
          * <p> 示例值：6709359313699356941
-         *
          * @param resultId
          * @return
          */
         public Builder resultId(String resultId) {
-            this.resultId = resultId;
-            return this;
+             this.resultId = resultId;
+             return this;
         }
 
+    
 
         /**
          * 用户 ID
          * <p> 示例值：abd754f7
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 用户姓名
          * <p> 示例值：张三
-         *
          * @param employeeName
          * @return
          */
         public Builder employeeName(String employeeName) {
-            this.employeeName = employeeName;
-            return this;
+             this.employeeName = employeeName;
+             return this;
         }
 
+    
 
         /**
          * 日期
          * <p> 示例值：20190819
-         *
          * @param day
          * @return
          */
         public Builder day(Integer day) {
-            this.day = day;
-            return this;
+             this.day = day;
+             return this;
         }
 
+    
 
         /**
          * 考勤组 ID
          * <p> 示例值：6737202939523236110
-         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
+             this.groupId = groupId;
+             return this;
         }
 
+    
 
         /**
          * 班次 ID
          * <p> 示例值：6753520403404030215
-         *
          * @param shiftId
          * @return
          */
         public Builder shiftId(String shiftId) {
-            this.shiftId = shiftId;
-            return this;
+             this.shiftId = shiftId;
+             return this;
         }
 
+    
 
         /**
          * 用户考勤记录
          * <p> 示例值：
-         *
          * @param records
          * @return
          */
         public Builder records(TaskResult[] records) {
-            this.records = records;
-            return this;
+             this.records = records;
+             return this;
         }
 
+    
+    
+    public UserTask build(){
+        return new UserTask(this);
+      }
+    }
 
-        public UserTask build() {
-            return new UserTask(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

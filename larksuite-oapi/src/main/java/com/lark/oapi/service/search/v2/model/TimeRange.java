@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TimeRange {
-    /**
-     * 时间范围的起始时间戳
-     * <p> 示例值：1742348544
-     */
+     /**
+      * 时间范围的起始时间戳
+      * <p> 示例值：1742348544
+      */
     @SerializedName("start")
     private Integer start;
-    /**
-     * 时间范围的截止时间戳
-     * <p> 示例值：1742348544
-     */
+     /**
+      * 时间范围的截止时间戳
+      * <p> 示例值：1742348544
+      */
     @SerializedName("end")
     private Integer end;
-
-    // builder 开始
-    public TimeRange() {
-    }
-
-    public TimeRange(Builder builder) {
-        /**
-         * 时间范围的起始时间戳
-         * <p> 示例值：1742348544
-         */
-        this.start = builder.start;
-        /**
-         * 时间范围的截止时间戳
-         * <p> 示例值：1742348544
-         */
-        this.end = builder.end;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getStart() {
         return this.start;
     }
@@ -79,46 +53,67 @@ public class TimeRange {
         this.end = end;
     }
 
+
+// builder 开始
+  public TimeRange(){}
+
+  public TimeRange(Builder builder){
+         /**
+          * 时间范围的起始时间戳
+          * <p> 示例值：1742348544
+          */
+      this.start = builder.start;
+         /**
+          * 时间范围的截止时间戳
+          * <p> 示例值：1742348544
+          */
+      this.end = builder.end;
+  }
+
     public static class Builder {
-        /**
-         * 时间范围的起始时间戳
-         * <p> 示例值：1742348544
-         */
+     /**
+      * 时间范围的起始时间戳
+      * <p> 示例值：1742348544
+      */
         private Integer start;
-        /**
-         * 时间范围的截止时间戳
-         * <p> 示例值：1742348544
-         */
+     /**
+      * 时间范围的截止时间戳
+      * <p> 示例值：1742348544
+      */
         private Integer end;
 
         /**
          * 时间范围的起始时间戳
          * <p> 示例值：1742348544
-         *
          * @param start
          * @return
          */
         public Builder start(Integer start) {
-            this.start = start;
-            return this;
+             this.start = start;
+             return this;
         }
 
+    
 
         /**
          * 时间范围的截止时间戳
          * <p> 示例值：1742348544
-         *
          * @param end
          * @return
          */
         public Builder end(Integer end) {
-            this.end = end;
-            return this;
+             this.end = end;
+             return this;
         }
 
+    
+    
+    public TimeRange build(){
+        return new TimeRange(this);
+      }
+    }
 
-        public TimeRange build() {
-            return new TimeRange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

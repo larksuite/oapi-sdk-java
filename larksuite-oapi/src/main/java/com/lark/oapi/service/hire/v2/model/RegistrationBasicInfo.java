@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RegistrationBasicInfo {
-    /**
-     * ID
-     * <p> 示例值：6833685612520950030
-     */
+     /**
+      * ID
+      * <p> 示例值：6833685612520950030
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 创建时间
-     * <p> 示例值：1618494330932
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：1618494330932
+      */
     @SerializedName("registration_time")
     private Long registrationTime;
-    /**
-     * 下载链接
-     * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
-     */
+     /**
+      * 下载链接
+      * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+      */
     @SerializedName("download_url")
     private String downloadUrl;
-    /**
-     * 登记表场景
-     * <p> 示例值：5
-     */
+     /**
+      * 登记表场景
+      * <p> 示例值：5
+      */
     @SerializedName("scenario")
     private Integer scenario;
-
-    // builder 开始
-    public RegistrationBasicInfo() {
-    }
-
-    public RegistrationBasicInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6833685612520950030
-         */
-        this.id = builder.id;
-        /**
-         * 创建时间
-         * <p> 示例值：1618494330932
-         */
-        this.registrationTime = builder.registrationTime;
-        /**
-         * 下载链接
-         * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
-         */
-        this.downloadUrl = builder.downloadUrl;
-        /**
-         * 登记表场景
-         * <p> 示例值：5
-         */
-        this.scenario = builder.scenario;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -116,82 +80,113 @@ public class RegistrationBasicInfo {
         this.scenario = scenario;
     }
 
+
+// builder 开始
+  public RegistrationBasicInfo(){}
+
+  public RegistrationBasicInfo(Builder builder){
+         /**
+          * ID
+          * <p> 示例值：6833685612520950030
+          */
+      this.id = builder.id;
+         /**
+          * 创建时间
+          * <p> 示例值：1618494330932
+          */
+      this.registrationTime = builder.registrationTime;
+         /**
+          * 下载链接
+          * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+          */
+      this.downloadUrl = builder.downloadUrl;
+         /**
+          * 登记表场景
+          * <p> 示例值：5
+          */
+      this.scenario = builder.scenario;
+  }
+
     public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6833685612520950030
-         */
+     /**
+      * ID
+      * <p> 示例值：6833685612520950030
+      */
         private String id;
-        /**
-         * 创建时间
-         * <p> 示例值：1618494330932
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：1618494330932
+      */
         private Long registrationTime;
-        /**
-         * 下载链接
-         * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
-         */
+     /**
+      * 下载链接
+      * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+      */
         private String downloadUrl;
-        /**
-         * 登记表场景
-         * <p> 示例值：5
-         */
+     /**
+      * 登记表场景
+      * <p> 示例值：5
+      */
         private Integer scenario;
 
         /**
          * ID
          * <p> 示例值：6833685612520950030
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：1618494330932
-         *
          * @param registrationTime
          * @return
          */
         public Builder registrationTime(Long registrationTime) {
-            this.registrationTime = registrationTime;
-            return this;
+             this.registrationTime = registrationTime;
+             return this;
         }
 
+    
 
         /**
          * 下载链接
          * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
-         *
          * @param downloadUrl
          * @return
          */
         public Builder downloadUrl(String downloadUrl) {
-            this.downloadUrl = downloadUrl;
-            return this;
+             this.downloadUrl = downloadUrl;
+             return this;
         }
 
+    
 
         /**
          * 登记表场景
          * <p> 示例值：5
-         *
          * @param scenario
          * @return
          */
         public Builder scenario(Integer scenario) {
-            this.scenario = scenario;
-            return this;
+             this.scenario = scenario;
+             return this;
         }
 
+    
+    
+    public RegistrationBasicInfo build(){
+        return new RegistrationBasicInfo(this);
+      }
+    }
 
-        public RegistrationBasicInfo build() {
-            return new RegistrationBasicInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,187 +19,108 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Kctx {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("tenant_id")
     private String tenantId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("tenant_domain_name")
     private String tenantDomainName;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("user_setting")
     private String userSetting;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("lang_id")
     private Integer langId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("request_id")
     private String requestId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("host")
     private String host;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("tenantResourceRouteKey")
     private String tenantResourceRouteKey;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("namespace")
     private String namespace;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("tenant_type")
     private String tenantType;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("transaction_id")
     private String transactionId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("consistency_retry_type")
     private String consistencyRetryType;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("psm_link")
     private String psmLink;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("breakout_retry_psm")
     private String breakoutRetryPsm;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("credential_id")
     private String credentialId;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("authentication_type")
     private String authenticationType;
-
-    // builder 开始
-    public Kctx() {
-    }
-
-    public Kctx(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.tenantDomainName = builder.tenantDomainName;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userSetting = builder.userSetting;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.langId = builder.langId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.requestId = builder.requestId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.host = builder.host;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.tenantResourceRouteKey = builder.tenantResourceRouteKey;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.namespace = builder.namespace;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.tenantType = builder.tenantType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.transactionId = builder.transactionId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.consistencyRetryType = builder.consistencyRetryType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.psmLink = builder.psmLink;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.breakoutRetryPsm = builder.breakoutRetryPsm;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.credentialId = builder.credentialId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.authenticationType = builder.authenticationType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTenantId() {
         return this.tenantId;
     }
@@ -329,266 +249,389 @@ public class Kctx {
         this.authenticationType = authenticationType;
     }
 
+
+// builder 开始
+  public Kctx(){}
+
+  public Kctx(Builder builder){
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.tenantId = builder.tenantId;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.tenantDomainName = builder.tenantDomainName;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.userSetting = builder.userSetting;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.langId = builder.langId;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.requestId = builder.requestId;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.host = builder.host;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.tenantResourceRouteKey = builder.tenantResourceRouteKey;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.namespace = builder.namespace;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.tenantType = builder.tenantType;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.transactionId = builder.transactionId;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.consistencyRetryType = builder.consistencyRetryType;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.psmLink = builder.psmLink;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.breakoutRetryPsm = builder.breakoutRetryPsm;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.credentialId = builder.credentialId;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.authenticationType = builder.authenticationType;
+  }
+
     public static class Builder {
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String tenantId;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String userId;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String tenantDomainName;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String userSetting;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private Integer langId;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String requestId;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String host;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String tenantResourceRouteKey;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String namespace;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String tenantType;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String transactionId;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String consistencyRetryType;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String psmLink;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String breakoutRetryPsm;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String credentialId;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String authenticationType;
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param tenantId
          * @return
          */
         public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
+             this.tenantId = tenantId;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param tenantDomainName
          * @return
          */
         public Builder tenantDomainName(String tenantDomainName) {
-            this.tenantDomainName = tenantDomainName;
-            return this;
+             this.tenantDomainName = tenantDomainName;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param userSetting
          * @return
          */
         public Builder userSetting(String userSetting) {
-            this.userSetting = userSetting;
-            return this;
+             this.userSetting = userSetting;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param langId
          * @return
          */
         public Builder langId(Integer langId) {
-            this.langId = langId;
-            return this;
+             this.langId = langId;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param requestId
          * @return
          */
         public Builder requestId(String requestId) {
-            this.requestId = requestId;
-            return this;
+             this.requestId = requestId;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param host
          * @return
          */
         public Builder host(String host) {
-            this.host = host;
-            return this;
+             this.host = host;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param tenantResourceRouteKey
          * @return
          */
         public Builder tenantResourceRouteKey(String tenantResourceRouteKey) {
-            this.tenantResourceRouteKey = tenantResourceRouteKey;
-            return this;
+             this.tenantResourceRouteKey = tenantResourceRouteKey;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param namespace
          * @return
          */
         public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
+             this.namespace = namespace;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param tenantType
          * @return
          */
         public Builder tenantType(String tenantType) {
-            this.tenantType = tenantType;
-            return this;
+             this.tenantType = tenantType;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param transactionId
          * @return
          */
         public Builder transactionId(String transactionId) {
-            this.transactionId = transactionId;
-            return this;
+             this.transactionId = transactionId;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param consistencyRetryType
          * @return
          */
         public Builder consistencyRetryType(String consistencyRetryType) {
-            this.consistencyRetryType = consistencyRetryType;
-            return this;
+             this.consistencyRetryType = consistencyRetryType;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param psmLink
          * @return
          */
         public Builder psmLink(String psmLink) {
-            this.psmLink = psmLink;
-            return this;
+             this.psmLink = psmLink;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param breakoutRetryPsm
          * @return
          */
         public Builder breakoutRetryPsm(String breakoutRetryPsm) {
-            this.breakoutRetryPsm = breakoutRetryPsm;
-            return this;
+             this.breakoutRetryPsm = breakoutRetryPsm;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param credentialId
          * @return
          */
         public Builder credentialId(String credentialId) {
-            this.credentialId = credentialId;
-            return this;
+             this.credentialId = credentialId;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param authenticationType
          * @return
          */
         public Builder authenticationType(String authenticationType) {
-            this.authenticationType = authenticationType;
-            return this;
+             this.authenticationType = authenticationType;
+             return this;
         }
 
+    
+    
+    public Kctx build(){
+        return new Kctx(this);
+      }
+    }
 
-        public Kctx build() {
-            return new Kctx(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,77 +12,72 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SubmitOffboardingRespBody {
-    /**
-     * 离职记录 id
-     * <p> 示例值：7095671727698478604
-     */
+     /**
+      * 离职记录 id
+      * <p> 示例值：7095671727698478604
+      */
     @SerializedName("offboarding_id")
     private String offboardingId;
-    /**
-     * 雇员 id
-     * <p> 示例值：6982509313466189342
-     */
+     /**
+      * 雇员 id
+      * <p> 示例值：6982509313466189342
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 离职原因
-     * <p> 示例值：reason_for_offboarding_option8
-     */
+     /**
+      * 离职原因
+      * <p> 示例值：reason_for_offboarding_option8
+      */
     @SerializedName("offboarding_reason_unique_identifier")
     private String offboardingReasonUniqueIdentifier;
-    /**
-     * 离职日期
-     * <p> 示例值：2022-05-18
-     */
+     /**
+      * 离职日期
+      * <p> 示例值：2022-05-18
+      */
     @SerializedName("offboarding_date")
     private String offboardingDate;
-    /**
-     * 离职原因说明
-     * <p> 示例值：离职原因说明
-     */
+     /**
+      * 离职原因说明
+      * <p> 示例值：离职原因说明
+      */
     @SerializedName("offboarding_reason_explanation")
     private String offboardingReasonExplanation;
-    /**
-     * 是否加入离职屏蔽名单
-     * <p> 示例值：false
-     */
+     /**
+      * 是否加入离职屏蔽名单
+      * <p> 示例值：false
+      */
     @SerializedName("add_block_list")
     private Boolean addBlockList;
-    /**
-     * 屏蔽原因
-     * <p> 示例值：红线
-     */
+     /**
+      * 屏蔽原因
+      * <p> 示例值：红线
+      */
     @SerializedName("block_reason")
     private String blockReason;
-    /**
-     * 屏蔽原因说明
-     * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
-     */
+     /**
+      * 屏蔽原因说明
+      * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+      */
     @SerializedName("block_reason_explanation")
     private String blockReasonExplanation;
-    /**
-     * 创建时间
-     * <p> 示例值：2022-05-09 17:50:17
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：2022-05-09 17:50:17
+      */
     @SerializedName("created_time")
     private String createdTime;
-
     public String getOffboardingId() {
         return this.offboardingId;
     }

@@ -17,17 +17,16 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 同步频率
  */
 public enum AppConnectorSyncTypeEnum {
-    MANUAL(1), // 手动同步
-    PERIODIC(2), // 定时同步
-    EVENT(3), // 实时同步
-    ;
-    private Integer value;
-
+     MANUAL(1), // 手动同步
+     PERIODIC(2), // 定时同步
+     EVENT(3), // 实时同步
+  ;
+   private Integer value;
     AppConnectorSyncTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

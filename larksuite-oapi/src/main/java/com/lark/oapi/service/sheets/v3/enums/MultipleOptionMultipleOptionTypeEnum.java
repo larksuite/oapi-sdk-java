@@ -17,16 +17,15 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 多选类型
  */
 public enum MultipleOptionMultipleOptionTypeEnum {
-    MULTIPLEOFLIST("MultipleOfList"), // 列表中的多个
-    MULTIPLEOFRANGE("MultipleOfRange"), // 范围中的多个
-    ;
-    private String value;
-
+     MULTIPLEOFLIST("MultipleOfList"), // 列表中的多个
+     MULTIPLEOFRANGE("MultipleOfRange"), // 范围中的多个
+  ;
+   private String value;
     MultipleOptionMultipleOptionTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

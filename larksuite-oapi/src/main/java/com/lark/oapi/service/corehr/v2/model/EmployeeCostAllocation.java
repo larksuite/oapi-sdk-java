@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EmployeeCostAllocation {
-    /**
-     * 员工id
-     * <p> 示例值：7475686493613920050
-     */
+     /**
+      * 员工id
+      * <p> 示例值：7475686493613920050
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 成本分摊
-     * <p> 示例值：
-     */
+     /**
+      * 成本分摊
+      * <p> 示例值：
+      */
     @SerializedName("cost_allocations")
     private EmploymentCostAllocation[] costAllocations;
-
-    // builder 开始
-    public EmployeeCostAllocation() {
-    }
-
-    public EmployeeCostAllocation(Builder builder) {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
-        this.costAllocations = builder.costAllocations;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -79,46 +53,67 @@ public class EmployeeCostAllocation {
         this.costAllocations = costAllocations;
     }
 
+
+// builder 开始
+  public EmployeeCostAllocation(){}
+
+  public EmployeeCostAllocation(Builder builder){
+         /**
+          * 员工id
+          * <p> 示例值：7475686493613920050
+          */
+      this.employmentId = builder.employmentId;
+         /**
+          * 成本分摊
+          * <p> 示例值：
+          */
+      this.costAllocations = builder.costAllocations;
+  }
+
     public static class Builder {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
+     /**
+      * 员工id
+      * <p> 示例值：7475686493613920050
+      */
         private String employmentId;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
+     /**
+      * 成本分摊
+      * <p> 示例值：
+      */
         private EmploymentCostAllocation[] costAllocations;
 
         /**
          * 员工id
          * <p> 示例值：7475686493613920050
-         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
+             this.employmentId = employmentId;
+             return this;
         }
 
+    
 
         /**
          * 成本分摊
          * <p> 示例值：
-         *
          * @param costAllocations
          * @return
          */
         public Builder costAllocations(EmploymentCostAllocation[] costAllocations) {
-            this.costAllocations = costAllocations;
-            return this;
+             this.costAllocations = costAllocations;
+             return this;
         }
 
+    
+    
+    public EmployeeCostAllocation build(){
+        return new EmployeeCostAllocation(this);
+      }
+    }
 
-        public EmployeeCostAllocation build() {
-            return new EmployeeCostAllocation(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

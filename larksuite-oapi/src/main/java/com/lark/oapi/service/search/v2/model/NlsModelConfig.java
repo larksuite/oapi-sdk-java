@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class NlsModelConfig {
-    /**
-     * 模型名称
-     * <p> 示例值：lark-online
-     */
+     /**
+      * 模型名称
+      * <p> 示例值：lark-online
+      */
     @SerializedName("model_name")
     private String modelName;
-
-    // builder 开始
-    public NlsModelConfig() {
-    }
-
-    public NlsModelConfig(Builder builder) {
-        /**
-         * 模型名称
-         * <p> 示例值：lark-online
-         */
-        this.modelName = builder.modelName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getModelName() {
         return this.modelName;
     }
@@ -60,28 +39,44 @@ public class NlsModelConfig {
         this.modelName = modelName;
     }
 
+
+// builder 开始
+  public NlsModelConfig(){}
+
+  public NlsModelConfig(Builder builder){
+         /**
+          * 模型名称
+          * <p> 示例值：lark-online
+          */
+      this.modelName = builder.modelName;
+  }
+
     public static class Builder {
-        /**
-         * 模型名称
-         * <p> 示例值：lark-online
-         */
+     /**
+      * 模型名称
+      * <p> 示例值：lark-online
+      */
         private String modelName;
 
         /**
          * 模型名称
          * <p> 示例值：lark-online
-         *
          * @param modelName
          * @return
          */
         public Builder modelName(String modelName) {
-            this.modelName = modelName;
-            return this;
+             this.modelName = modelName;
+             return this;
         }
 
+    
+    
+    public NlsModelConfig build(){
+        return new NlsModelConfig(this);
+      }
+    }
 
-        public NlsModelConfig build() {
-            return new NlsModelConfig(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

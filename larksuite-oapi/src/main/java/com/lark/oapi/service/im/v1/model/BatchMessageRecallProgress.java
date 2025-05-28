@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchMessageRecallProgress {
-    /**
-     * 该条批量消息是否被执行过撤回操作
-     * <p> 示例值：true
-     */
+     /**
+      * 该条批量消息是否被执行过撤回操作
+      * <p> 示例值：true
+      */
     @SerializedName("recall")
     private Boolean recall;
-    /**
-     * 已经成功撤回的消息数量
-     * <p> 示例值：100
-     */
+     /**
+      * 已经成功撤回的消息数量
+      * <p> 示例值：100
+      */
     @SerializedName("recall_count")
     private Integer recallCount;
-
-    // builder 开始
-    public BatchMessageRecallProgress() {
-    }
-
-    public BatchMessageRecallProgress(Builder builder) {
-        /**
-         * 该条批量消息是否被执行过撤回操作
-         * <p> 示例值：true
-         */
-        this.recall = builder.recall;
-        /**
-         * 已经成功撤回的消息数量
-         * <p> 示例值：100
-         */
-        this.recallCount = builder.recallCount;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getRecall() {
         return this.recall;
     }
@@ -79,46 +53,67 @@ public class BatchMessageRecallProgress {
         this.recallCount = recallCount;
     }
 
+
+// builder 开始
+  public BatchMessageRecallProgress(){}
+
+  public BatchMessageRecallProgress(Builder builder){
+         /**
+          * 该条批量消息是否被执行过撤回操作
+          * <p> 示例值：true
+          */
+      this.recall = builder.recall;
+         /**
+          * 已经成功撤回的消息数量
+          * <p> 示例值：100
+          */
+      this.recallCount = builder.recallCount;
+  }
+
     public static class Builder {
-        /**
-         * 该条批量消息是否被执行过撤回操作
-         * <p> 示例值：true
-         */
+     /**
+      * 该条批量消息是否被执行过撤回操作
+      * <p> 示例值：true
+      */
         private Boolean recall;
-        /**
-         * 已经成功撤回的消息数量
-         * <p> 示例值：100
-         */
+     /**
+      * 已经成功撤回的消息数量
+      * <p> 示例值：100
+      */
         private Integer recallCount;
 
         /**
          * 该条批量消息是否被执行过撤回操作
          * <p> 示例值：true
-         *
          * @param recall
          * @return
          */
         public Builder recall(Boolean recall) {
-            this.recall = recall;
-            return this;
+             this.recall = recall;
+             return this;
         }
 
+    
 
         /**
          * 已经成功撤回的消息数量
          * <p> 示例值：100
-         *
          * @param recallCount
          * @return
          */
         public Builder recallCount(Integer recallCount) {
-            this.recallCount = recallCount;
-            return this;
+             this.recallCount = recallCount;
+             return this;
         }
 
+    
+    
+    public BatchMessageRecallProgress build(){
+        return new BatchMessageRecallProgress(this);
+      }
+    }
 
-        public BatchMessageRecallProgress build() {
-            return new BatchMessageRecallProgress(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

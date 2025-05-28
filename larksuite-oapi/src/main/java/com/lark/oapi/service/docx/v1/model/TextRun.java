@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TextRun {
-    /**
-     * 文本内容
-     * <p> 示例值：文本
-     */
+     /**
+      * 文本内容
+      * <p> 示例值：文本
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 文本局部样式
-     * <p> 示例值：
-     */
+     /**
+      * 文本局部样式
+      * <p> 示例值：
+      */
     @SerializedName("text_element_style")
     private TextElementStyle textElementStyle;
-
-    // builder 开始
-    public TextRun() {
-    }
-
-    public TextRun(Builder builder) {
-        /**
-         * 文本内容
-         * <p> 示例值：文本
-         */
-        this.content = builder.content;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        this.textElementStyle = builder.textElementStyle;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContent() {
         return this.content;
     }
@@ -79,46 +53,67 @@ public class TextRun {
         this.textElementStyle = textElementStyle;
     }
 
+
+// builder 开始
+  public TextRun(){}
+
+  public TextRun(Builder builder){
+         /**
+          * 文本内容
+          * <p> 示例值：文本
+          */
+      this.content = builder.content;
+         /**
+          * 文本局部样式
+          * <p> 示例值：
+          */
+      this.textElementStyle = builder.textElementStyle;
+  }
+
     public static class Builder {
-        /**
-         * 文本内容
-         * <p> 示例值：文本
-         */
+     /**
+      * 文本内容
+      * <p> 示例值：文本
+      */
         private String content;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
+     /**
+      * 文本局部样式
+      * <p> 示例值：
+      */
         private TextElementStyle textElementStyle;
 
         /**
          * 文本内容
          * <p> 示例值：文本
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 文本局部样式
          * <p> 示例值：
-         *
          * @param textElementStyle
          * @return
          */
         public Builder textElementStyle(TextElementStyle textElementStyle) {
-            this.textElementStyle = textElementStyle;
-            return this;
+             this.textElementStyle = textElementStyle;
+             return this;
         }
 
+    
+    
+    public TextRun build(){
+        return new TextRun(this);
+      }
+    }
 
-        public TextRun build() {
-            return new TextRun(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

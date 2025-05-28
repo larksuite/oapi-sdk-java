@@ -12,35 +12,19 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateExternalApplicationReq {
     @Body
     private ExternalApplication body;
-
-    // builder 开始
-    public CreateExternalApplicationReq() {
-    }
-
-    public CreateExternalApplicationReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public ExternalApplication getExternalApplication() {
         return this.body;
@@ -50,27 +34,36 @@ public class CreateExternalApplicationReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateExternalApplicationReq(){}
+
+  public CreateExternalApplicationReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private ExternalApplication body;
-
+    
         public ExternalApplication getExternalApplication() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder externalApplication(ExternalApplication body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateExternalApplicationReq build(){
+        return new CreateExternalApplicationReq(this);
+      }
+    }
 
-        public CreateExternalApplicationReq build() {
-            return new CreateExternalApplicationReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ModifyUserSettingReqBody {
-    /**
-     * 用户设置
-     * <p> 示例值：
-     */
+     /**
+      * 用户设置
+      * <p> 示例值：
+      */
     @SerializedName("user_setting")
     private UserSetting userSetting;
-
-    // builder 开始
-    public ModifyUserSettingReqBody() {
-    }
-
-    public ModifyUserSettingReqBody(Builder builder) {
-        /**
-         * 用户设置
-         * <p> 示例值：
-         */
-        this.userSetting = builder.userSetting;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public UserSetting getUserSetting() {
         return this.userSetting;
     }
@@ -60,28 +39,44 @@ public class ModifyUserSettingReqBody {
         this.userSetting = userSetting;
     }
 
+
+// builder 开始
+  public ModifyUserSettingReqBody(){}
+
+  public ModifyUserSettingReqBody(Builder builder){
+         /**
+          * 用户设置
+          * <p> 示例值：
+          */
+      this.userSetting = builder.userSetting;
+  }
+
     public static class Builder {
-        /**
-         * 用户设置
-         * <p> 示例值：
-         */
+     /**
+      * 用户设置
+      * <p> 示例值：
+      */
         private UserSetting userSetting;
 
         /**
          * 用户设置
          * <p> 示例值：
-         *
          * @param userSetting
          * @return
          */
         public Builder userSetting(UserSetting userSetting) {
-            this.userSetting = userSetting;
-            return this;
+             this.userSetting = userSetting;
+             return this;
         }
 
+    
+    
+    public ModifyUserSettingReqBody build(){
+        return new ModifyUserSettingReqBody(this);
+      }
+    }
 
-        public ModifyUserSettingReqBody build() {
-            return new ModifyUserSettingReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

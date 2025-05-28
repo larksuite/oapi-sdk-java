@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchFaqReq {
-    /**
-     * 知识库ID
-     * <p> 示例值：6856395634652479491
-     */
+     /**
+      * 知识库ID
+      * <p> 示例值：6856395634652479491
+      */
     @Path
     @SerializedName("id")
     private String id;
-    @Body
-    private PatchFaqReqBody body;
-
-    // builder 开始
-    public PatchFaqReq() {
-    }
-
-    public PatchFaqReq(Builder builder) {
-        /**
-         * 知识库ID
-         * <p> 示例值：6856395634652479491
-         */
-        this.id = builder.id;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -62,6 +38,9 @@ public class PatchFaqReq {
     public void setId(String id) {
         this.id = id;
     }
+
+    @Body
+    private PatchFaqReqBody body;
 
     public PatchFaqReqBody getPatchFaqReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class PatchFaqReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchFaqReq(){}
+
+  public PatchFaqReq(Builder builder){
+     /**
+      * 知识库ID
+      * <p> 示例值：6856395634652479491
+      */
+       this.id = builder.id;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String id; // 知识库ID
-        private PatchFaqReqBody body;
-
         /**
          * 知识库ID
          * <p> 示例值：6856395634652479491
-         *
          * @param id
          * @return
          */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
+          public Builder id(String id) {
+               this.id = id;
+               return this;
+          }
 
+    
+        private PatchFaqReqBody body;
+    
         public PatchFaqReqBody getPatchFaqReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder patchFaqReqBody(PatchFaqReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchFaqReq build(){
+        return new PatchFaqReq(this);
+      }
+    }
 
-        public PatchFaqReq build() {
-            return new PatchFaqReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

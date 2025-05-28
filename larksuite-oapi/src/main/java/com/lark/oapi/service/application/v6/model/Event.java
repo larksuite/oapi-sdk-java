@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Event {
-    /**
-     * 事件类型，事件唯一标识
-     * <p> 示例值：im.chat.updated_v1
-     */
+     /**
+      * 事件类型，事件唯一标识
+      * <p> 示例值：im.chat.updated_v1
+      */
     @SerializedName("event_type")
     private String eventType;
-    /**
-     * 事件名称
-     * <p> 示例值：群配置修改事件
-     */
+     /**
+      * 事件名称
+      * <p> 示例值：群配置修改事件
+      */
     @SerializedName("event_name")
     private String eventName;
-    /**
-     * 事件描述
-     * <p> 示例值：群聊名称、头像、描述以及群编辑权限、群分享权限等被修改时推送事件
-     */
+     /**
+      * 事件描述
+      * <p> 示例值：群聊名称、头像、描述以及群编辑权限、群分享权限等被修改时推送事件
+      */
     @SerializedName("event_description")
     private String eventDescription;
-
-    // builder 开始
-    public Event() {
-    }
-
-    public Event(Builder builder) {
-        /**
-         * 事件类型，事件唯一标识
-         * <p> 示例值：im.chat.updated_v1
-         */
-        this.eventType = builder.eventType;
-        /**
-         * 事件名称
-         * <p> 示例值：群配置修改事件
-         */
-        this.eventName = builder.eventName;
-        /**
-         * 事件描述
-         * <p> 示例值：群聊名称、头像、描述以及群编辑权限、群分享权限等被修改时推送事件
-         */
-        this.eventDescription = builder.eventDescription;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEventType() {
         return this.eventType;
     }
@@ -98,64 +67,90 @@ public class Event {
         this.eventDescription = eventDescription;
     }
 
+
+// builder 开始
+  public Event(){}
+
+  public Event(Builder builder){
+         /**
+          * 事件类型，事件唯一标识
+          * <p> 示例值：im.chat.updated_v1
+          */
+      this.eventType = builder.eventType;
+         /**
+          * 事件名称
+          * <p> 示例值：群配置修改事件
+          */
+      this.eventName = builder.eventName;
+         /**
+          * 事件描述
+          * <p> 示例值：群聊名称、头像、描述以及群编辑权限、群分享权限等被修改时推送事件
+          */
+      this.eventDescription = builder.eventDescription;
+  }
+
     public static class Builder {
-        /**
-         * 事件类型，事件唯一标识
-         * <p> 示例值：im.chat.updated_v1
-         */
+     /**
+      * 事件类型，事件唯一标识
+      * <p> 示例值：im.chat.updated_v1
+      */
         private String eventType;
-        /**
-         * 事件名称
-         * <p> 示例值：群配置修改事件
-         */
+     /**
+      * 事件名称
+      * <p> 示例值：群配置修改事件
+      */
         private String eventName;
-        /**
-         * 事件描述
-         * <p> 示例值：群聊名称、头像、描述以及群编辑权限、群分享权限等被修改时推送事件
-         */
+     /**
+      * 事件描述
+      * <p> 示例值：群聊名称、头像、描述以及群编辑权限、群分享权限等被修改时推送事件
+      */
         private String eventDescription;
 
         /**
          * 事件类型，事件唯一标识
          * <p> 示例值：im.chat.updated_v1
-         *
          * @param eventType
          * @return
          */
         public Builder eventType(String eventType) {
-            this.eventType = eventType;
-            return this;
+             this.eventType = eventType;
+             return this;
         }
 
+    
 
         /**
          * 事件名称
          * <p> 示例值：群配置修改事件
-         *
          * @param eventName
          * @return
          */
         public Builder eventName(String eventName) {
-            this.eventName = eventName;
-            return this;
+             this.eventName = eventName;
+             return this;
         }
 
+    
 
         /**
          * 事件描述
          * <p> 示例值：群聊名称、头像、描述以及群编辑权限、群分享权限等被修改时推送事件
-         *
          * @param eventDescription
          * @return
          */
         public Builder eventDescription(String eventDescription) {
-            this.eventDescription = eventDescription;
-            return this;
+             this.eventDescription = eventDescription;
+             return this;
         }
 
+    
+    
+    public Event build(){
+        return new Event(this);
+      }
+    }
 
-        public Event build() {
-            return new Event(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

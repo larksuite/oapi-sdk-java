@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EcoBackgroundCheckCustomFieldDataOption {
-    /**
-     * 选项的 key
-     * <p> 示例值：A
-     */
+     /**
+      * 选项的 key
+      * <p> 示例值：A
+      */
     @SerializedName("key")
     private String key;
-    /**
-     * 选项的名称
-     * <p> 示例值：
-     */
+     /**
+      * 选项的名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-
-    // builder 开始
-    public EcoBackgroundCheckCustomFieldDataOption() {
-    }
-
-    public EcoBackgroundCheckCustomFieldDataOption(Builder builder) {
-        /**
-         * 选项的 key
-         * <p> 示例值：A
-         */
-        this.key = builder.key;
-        /**
-         * 选项的名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKey() {
         return this.key;
     }
@@ -78,46 +52,67 @@ public class EcoBackgroundCheckCustomFieldDataOption {
         this.name = name;
     }
 
+
+// builder 开始
+  public EcoBackgroundCheckCustomFieldDataOption(){}
+
+  public EcoBackgroundCheckCustomFieldDataOption(Builder builder){
+         /**
+          * 选项的 key
+          * <p> 示例值：A
+          */
+      this.key = builder.key;
+         /**
+          * 选项的名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 选项的 key
-         * <p> 示例值：A
-         */
+     /**
+      * 选项的 key
+      * <p> 示例值：A
+      */
         private String key;
-        /**
-         * 选项的名称
-         * <p> 示例值：
-         */
+     /**
+      * 选项的名称
+      * <p> 示例值：
+      */
         private I18n name;
 
         /**
          * 选项的 key
          * <p> 示例值：A
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
 
         /**
          * 选项的名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public EcoBackgroundCheckCustomFieldDataOption build(){
+        return new EcoBackgroundCheckCustomFieldDataOption(this);
+      }
+    }
 
-        public EcoBackgroundCheckCustomFieldDataOption build() {
-            return new EcoBackgroundCheckCustomFieldDataOption(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

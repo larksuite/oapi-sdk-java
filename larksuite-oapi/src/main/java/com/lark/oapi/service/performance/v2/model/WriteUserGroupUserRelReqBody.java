@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WriteUserGroupUserRelReqBody {
-    /**
-     * 分组id key
-     * <p> 示例值：ABCDEFG
-     */
+     /**
+      * 分组id key
+      * <p> 示例值：ABCDEFG
+      */
     @SerializedName("group_id")
     private String groupId;
-    /**
-     * 人员组查看人员名单可见性配置
-     * <p> 示例值：1
-     */
+     /**
+      * 人员组查看人员名单可见性配置
+      * <p> 示例值：1
+      */
     @SerializedName("scope_visible_setting")
     private Integer scopeVisibleSetting;
-    /**
-     * 人员列表
-     * <p> 示例值：
-     */
+     /**
+      * 人员列表
+      * <p> 示例值：
+      */
     @SerializedName("user_ids")
     private String[] userIds;
-
-    // builder 开始
-    public WriteUserGroupUserRelReqBody() {
-    }
-
-    public WriteUserGroupUserRelReqBody(Builder builder) {
-        /**
-         * 分组id key
-         * <p> 示例值：ABCDEFG
-         */
-        this.groupId = builder.groupId;
-        /**
-         * 人员组查看人员名单可见性配置
-         * <p> 示例值：1
-         */
-        this.scopeVisibleSetting = builder.scopeVisibleSetting;
-        /**
-         * 人员列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getGroupId() {
         return this.groupId;
     }
@@ -98,76 +67,100 @@ public class WriteUserGroupUserRelReqBody {
         this.userIds = userIds;
     }
 
+
+// builder 开始
+  public WriteUserGroupUserRelReqBody(){}
+
+  public WriteUserGroupUserRelReqBody(Builder builder){
+         /**
+          * 分组id key
+          * <p> 示例值：ABCDEFG
+          */
+      this.groupId = builder.groupId;
+         /**
+          * 人员组查看人员名单可见性配置
+          * <p> 示例值：1
+          */
+      this.scopeVisibleSetting = builder.scopeVisibleSetting;
+         /**
+          * 人员列表
+          * <p> 示例值：
+          */
+      this.userIds = builder.userIds;
+  }
+
     public static class Builder {
-        /**
-         * 分组id key
-         * <p> 示例值：ABCDEFG
-         */
+     /**
+      * 分组id key
+      * <p> 示例值：ABCDEFG
+      */
         private String groupId;
-        /**
-         * 人员组查看人员名单可见性配置
-         * <p> 示例值：1
-         */
+     /**
+      * 人员组查看人员名单可见性配置
+      * <p> 示例值：1
+      */
         private Integer scopeVisibleSetting;
-        /**
-         * 人员列表
-         * <p> 示例值：
-         */
+     /**
+      * 人员列表
+      * <p> 示例值：
+      */
         private String[] userIds;
 
         /**
          * 分组id key
          * <p> 示例值：ABCDEFG
-         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
+             this.groupId = groupId;
+             return this;
         }
 
+    
 
         /**
          * 人员组查看人员名单可见性配置
          * <p> 示例值：1
-         *
          * @param scopeVisibleSetting
          * @return
          */
         public Builder scopeVisibleSetting(Integer scopeVisibleSetting) {
-            this.scopeVisibleSetting = scopeVisibleSetting;
-            return this;
+             this.scopeVisibleSetting = scopeVisibleSetting;
+             return this;
         }
-
         /**
          * 人员组查看人员名单可见性配置
          * <p> 示例值：1
-         *
          * @param scopeVisibleSetting {@link com.lark.oapi.service.performance.v2.enums.WriteUserGroupUserRelScopeVisibleSettingEnum}
          * @return
          */
         public Builder scopeVisibleSetting(com.lark.oapi.service.performance.v2.enums.WriteUserGroupUserRelScopeVisibleSettingEnum scopeVisibleSetting) {
-            this.scopeVisibleSetting = scopeVisibleSetting.getValue();
-            return this;
+             this.scopeVisibleSetting = scopeVisibleSetting.getValue();
+             return this;
         }
 
+    
 
         /**
          * 人员列表
          * <p> 示例值：
-         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
+             this.userIds = userIds;
+             return this;
         }
 
+    
+    
+    public WriteUserGroupUserRelReqBody build(){
+        return new WriteUserGroupUserRelReqBody(this);
+      }
+    }
 
-        public WriteUserGroupUserRelReqBody build() {
-            return new WriteUserGroupUserRelReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

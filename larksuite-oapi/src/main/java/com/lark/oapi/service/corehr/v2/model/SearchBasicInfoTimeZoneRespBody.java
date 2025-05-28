@@ -12,39 +12,36 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchBasicInfoTimeZoneRespBody {
-    /**
-     * 查询到的时区列表
-     * <p> 示例值：
-     */
+     /**
+      * 查询到的时区列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private TimeZone[] items;
-    /**
-     * <p> 示例值：6862995813451171342
-     */
+     /**
+      * 
+      * <p> 示例值：6862995813451171342
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public TimeZone[] getItems() {
         return this.items;
     }

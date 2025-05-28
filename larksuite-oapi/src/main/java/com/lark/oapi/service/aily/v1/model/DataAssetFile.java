@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataAssetFile {
-    /**
-     * 文件token
-     * <p> 示例值：file_token_abcd123
-     */
+     /**
+      * 文件token
+      * <p> 示例值：file_token_abcd123
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * 文件内容类型
-     * <p> 示例值：excel
-     */
+     /**
+      * 文件内容类型
+      * <p> 示例值：excel
+      */
     @SerializedName("mime_type")
     private String mimeType;
-
-    // builder 开始
-    public DataAssetFile() {
-    }
-
-    public DataAssetFile(Builder builder) {
-        /**
-         * 文件token
-         * <p> 示例值：file_token_abcd123
-         */
-        this.token = builder.token;
-        /**
-         * 文件内容类型
-         * <p> 示例值：excel
-         */
-        this.mimeType = builder.mimeType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getToken() {
         return this.token;
     }
@@ -79,46 +53,67 @@ public class DataAssetFile {
         this.mimeType = mimeType;
     }
 
+
+// builder 开始
+  public DataAssetFile(){}
+
+  public DataAssetFile(Builder builder){
+         /**
+          * 文件token
+          * <p> 示例值：file_token_abcd123
+          */
+      this.token = builder.token;
+         /**
+          * 文件内容类型
+          * <p> 示例值：excel
+          */
+      this.mimeType = builder.mimeType;
+  }
+
     public static class Builder {
-        /**
-         * 文件token
-         * <p> 示例值：file_token_abcd123
-         */
+     /**
+      * 文件token
+      * <p> 示例值：file_token_abcd123
+      */
         private String token;
-        /**
-         * 文件内容类型
-         * <p> 示例值：excel
-         */
+     /**
+      * 文件内容类型
+      * <p> 示例值：excel
+      */
         private String mimeType;
 
         /**
          * 文件token
          * <p> 示例值：file_token_abcd123
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * 文件内容类型
          * <p> 示例值：excel
-         *
          * @param mimeType
          * @return
          */
         public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
+             this.mimeType = mimeType;
+             return this;
         }
 
+    
+    
+    public DataAssetFile build(){
+        return new DataAssetFile(this);
+      }
+    }
 
-        public DataAssetFile build() {
-            return new DataAssetFile(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

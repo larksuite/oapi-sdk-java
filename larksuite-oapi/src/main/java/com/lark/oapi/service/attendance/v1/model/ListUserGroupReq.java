@@ -12,106 +12,53 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListUserGroupReq {
-    /**
-     * 用户 ID 的类型
-     * <p> 示例值：employee_id
-     */
+     /**
+      * 用户 ID 的类型
+      * <p> 示例值：employee_id
+      */
     @Query
     @SerializedName("employee_type")
     private String employeeType;
-    /**
-     * 部门 ID 的类型
-     * <p> 示例值：open_id
-     */
+     /**
+      * 部门 ID 的类型
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("dept_type")
     private String deptType;
-    /**
-     * 分页大小
-     * <p> 示例值：10
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：10
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
-     */
+     /**
+      * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 打卡类型
-     * <p> 示例值：1
-     */
+     /**
+      * 打卡类型
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("member_clock_type")
     private Integer memberClockType;
-    /**
-     * 考勤组id
-     * <p> 示例值：6919358128597097404
-     */
-    @Path
-    @SerializedName("group_id")
-    private String groupId;
-
-    // builder 开始
-    public ListUserGroupReq() {
-    }
-
-    public ListUserGroupReq(Builder builder) {
-        /**
-         * 用户 ID 的类型
-         * <p> 示例值：employee_id
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 部门 ID 的类型
-         * <p> 示例值：open_id
-         */
-        this.deptType = builder.deptType;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 打卡类型
-         * <p> 示例值：1
-         */
-        this.memberClockType = builder.memberClockType;
-        /**
-         * 考勤组id
-         * <p> 示例值：6919358128597097404
-         */
-        this.groupId = builder.groupId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEmployeeType() {
         return this.employeeType;
     }
@@ -152,6 +99,13 @@ public class ListUserGroupReq {
         this.memberClockType = memberClockType;
     }
 
+     /**
+      * 考勤组id
+      * <p> 示例值：6919358128597097404
+      */
+    @Path
+    @SerializedName("group_id")
+    private String groupId;
     public String getGroupId() {
         return this.groupId;
     }
@@ -160,89 +114,129 @@ public class ListUserGroupReq {
         this.groupId = groupId;
     }
 
+
+// builder 开始
+  public ListUserGroupReq(){}
+
+  public ListUserGroupReq(Builder builder){
+         /**
+          * 用户 ID 的类型
+          * <p> 示例值：employee_id
+          */
+       this.employeeType = builder.employeeType;
+         /**
+          * 部门 ID 的类型
+          * <p> 示例值：open_id
+          */
+       this.deptType = builder.deptType;
+         /**
+          * 分页大小
+          * <p> 示例值：10
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 打卡类型
+          * <p> 示例值：1
+          */
+       this.memberClockType = builder.memberClockType;
+     /**
+      * 考勤组id
+      * <p> 示例值：6919358128597097404
+      */
+       this.groupId = builder.groupId;
+  }
+
     public static class Builder {
         private String employeeType; // 用户 ID 的类型
         private String deptType; // 部门 ID 的类型
         private Integer pageSize; // 分页大小
         private String pageToken; // 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private Integer memberClockType; // 打卡类型
-        private String groupId; // 考勤组id
-
+    
         /**
          * 用户 ID 的类型
          * <p> 示例值：employee_id
-         *
          * @param employeeType
          * @return
          */
-        public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
+           public Builder employeeType(String employeeType) {
+                this.employeeType = employeeType;
+                return this;
+           }
 
+    
         /**
          * 部门 ID 的类型
          * <p> 示例值：open_id
-         *
          * @param deptType
          * @return
          */
-        public Builder deptType(String deptType) {
-            this.deptType = deptType;
-            return this;
-        }
+           public Builder deptType(String deptType) {
+                this.deptType = deptType;
+                return this;
+           }
 
+    
         /**
          * 分页大小
          * <p> 示例值：10
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
+    
         /**
          * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
         /**
          * 打卡类型
          * <p> 示例值：1
-         *
          * @param memberClockType
          * @return
          */
-        public Builder memberClockType(Integer memberClockType) {
-            this.memberClockType = memberClockType;
-            return this;
-        }
+           public Builder memberClockType(Integer memberClockType) {
+                this.memberClockType = memberClockType;
+                return this;
+           }
 
+    
+        private String groupId; // 考勤组id
         /**
          * 考勤组id
          * <p> 示例值：6919358128597097404
-         *
          * @param groupId
          * @return
          */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
+          public Builder groupId(String groupId) {
+               this.groupId = groupId;
+               return this;
+          }
 
+    
+    public ListUserGroupReq build(){
+        return new ListUserGroupReq(this);
+      }
+    }
 
-        public ListUserGroupReq build() {
-            return new ListUserGroupReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

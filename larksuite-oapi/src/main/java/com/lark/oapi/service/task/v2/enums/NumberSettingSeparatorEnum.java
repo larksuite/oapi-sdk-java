@@ -17,16 +17,15 @@ package com.lark.oapi.service.task.v2.enums;
  * 分隔符样式
  */
 public enum NumberSettingSeparatorEnum {
-    NONE("none"), // 无分隔符
-    THOUSAND("thousand"), // 千分位分隔符
-    ;
-    private String value;
-
+     NONE("none"), // 无分隔符
+     THOUSAND("thousand"), // 千分位分隔符
+  ;
+   private String value;
     NumberSettingSeparatorEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

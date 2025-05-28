@@ -17,21 +17,20 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批单当前状态
  */
 public enum OpenWidgetInstanceOpenWidgetInstanceStatusEnum {
-    PENDING("PENDING"), // 审批中，用户创建审批后会推送此状态
-    REJECTED("REJECTED"), // 已拒绝，任一审批人拒绝后，会推送此状态
-    CANCELED("CANCELED"), // 已撤回，发起人撤回审批后会推送此状态
-    DELETED("DELETED"), // 已删除，模板下存在审批中的审批实例，且审批定义本管理员删除后，会推送此状态
-    REVERTED("REVERTED"), // 已撤销，发起人撤销已通过的审批，会推送此状态
-    OVERTIMECLOSE("OVERTIME_CLOSE"), // 超时关闭，审批实例超时未处理被关闭，会推送此状态
-    OVERTIMEREVOVER("OVERTIME_RECOVER"), // 超时手动恢复，已超时的审批实例手动恢复后，会推送此状态
-    ;
-    private String value;
-
+     PENDING("PENDING"), // 审批中，用户创建审批后会推送此状态
+     REJECTED("REJECTED"), // 已拒绝，任一审批人拒绝后，会推送此状态
+     CANCELED("CANCELED"), // 已撤回，发起人撤回审批后会推送此状态
+     DELETED("DELETED"), // 已删除，模板下存在审批中的审批实例，且审批定义本管理员删除后，会推送此状态
+     REVERTED("REVERTED"), // 已撤销，发起人撤销已通过的审批，会推送此状态
+     OVERTIMECLOSE("OVERTIME_CLOSE"), // 超时关闭，审批实例超时未处理被关闭，会推送此状态
+     OVERTIMEREVOVER("OVERTIME_RECOVER"), // 超时手动恢复，已超时的审批实例手动恢复后，会推送此状态
+  ;
+   private String value;
     OpenWidgetInstanceOpenWidgetInstanceStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

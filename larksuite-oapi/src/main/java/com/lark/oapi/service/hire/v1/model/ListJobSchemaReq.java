@@ -12,69 +12,38 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListJobSchemaReq {
-    /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：1231231987
-     */
+     /**
+      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+      * <p> 示例值：1231231987
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
-     */
+     /**
+      * 每页获取记录数量，最大100
+      * <p> 示例值：100
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 职位模板类型
-     * <p> 示例值：1
-     */
+     /**
+      * 职位模板类型
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("scenario")
     private Integer scenario;
-
-    // builder 开始
-    public ListJobSchemaReq() {
-    }
-
-    public ListJobSchemaReq(Builder builder) {
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 职位模板类型
-         * <p> 示例值：1
-         */
-        this.scenario = builder.scenario;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPageToken() {
         return this.pageToken;
     }
@@ -99,52 +68,75 @@ public class ListJobSchemaReq {
         this.scenario = scenario;
     }
 
+
+// builder 开始
+  public ListJobSchemaReq(){}
+
+  public ListJobSchemaReq(Builder builder){
+         /**
+          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+          * <p> 示例值：1231231987
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 每页获取记录数量，最大100
+          * <p> 示例值：100
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 职位模板类型
+          * <p> 示例值：1
+          */
+       this.scenario = builder.scenario;
+  }
+
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private Integer pageSize; // 每页获取记录数量，最大100
         private Integer scenario; // 职位模板类型
-
+    
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：1231231987
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 每页获取记录数量，最大100
          * <p> 示例值：100
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 职位模板类型
          * <p> 示例值：1
-         *
          * @param scenario
          * @return
          */
-        public Builder scenario(Integer scenario) {
-            this.scenario = scenario;
-            return this;
-        }
+           public Builder scenario(Integer scenario) {
+                this.scenario = scenario;
+                return this;
+           }
 
+    
+    public ListJobSchemaReq build(){
+        return new ListJobSchemaReq(this);
+      }
+    }
 
-        public ListJobSchemaReq build() {
-            return new ListJobSchemaReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

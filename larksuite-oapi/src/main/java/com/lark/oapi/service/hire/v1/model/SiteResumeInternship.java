@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SiteResumeInternship {
-    /**
-     * 公司名
-     * <p> 示例值：
-     */
+     /**
+      * 公司名
+      * <p> 示例值：
+      */
     @SerializedName("company")
     private String company;
-    /**
-     * 职位名
-     * <p> 示例值：
-     */
+     /**
+      * 职位名
+      * <p> 示例值：
+      */
     @SerializedName("position")
     private String position;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 开始时间
-     * <p> 示例值：
-     */
+     /**
+      * 开始时间
+      * <p> 示例值：
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 结束时间
-     * <p> 示例值：
-     */
+     /**
+      * 结束时间
+      * <p> 示例值：
+      */
     @SerializedName("end_time")
     private String endTime;
-
-    // builder 开始
-    public SiteResumeInternship() {
-    }
-
-    public SiteResumeInternship(Builder builder) {
-        /**
-         * 公司名
-         * <p> 示例值：
-         */
-        this.company = builder.company;
-        /**
-         * 职位名
-         * <p> 示例值：
-         */
-        this.position = builder.position;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 开始时间
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：
-         */
-        this.endTime = builder.endTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCompany() {
         return this.company;
     }
@@ -135,100 +94,136 @@ public class SiteResumeInternship {
         this.endTime = endTime;
     }
 
+
+// builder 开始
+  public SiteResumeInternship(){}
+
+  public SiteResumeInternship(Builder builder){
+         /**
+          * 公司名
+          * <p> 示例值：
+          */
+      this.company = builder.company;
+         /**
+          * 职位名
+          * <p> 示例值：
+          */
+      this.position = builder.position;
+         /**
+          * 描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 开始时间
+          * <p> 示例值：
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 结束时间
+          * <p> 示例值：
+          */
+      this.endTime = builder.endTime;
+  }
+
     public static class Builder {
-        /**
-         * 公司名
-         * <p> 示例值：
-         */
+     /**
+      * 公司名
+      * <p> 示例值：
+      */
         private String company;
-        /**
-         * 职位名
-         * <p> 示例值：
-         */
+     /**
+      * 职位名
+      * <p> 示例值：
+      */
         private String position;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
         private String description;
-        /**
-         * 开始时间
-         * <p> 示例值：
-         */
+     /**
+      * 开始时间
+      * <p> 示例值：
+      */
         private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：
-         */
+     /**
+      * 结束时间
+      * <p> 示例值：
+      */
         private String endTime;
 
         /**
          * 公司名
          * <p> 示例值：
-         *
          * @param company
          * @return
          */
         public Builder company(String company) {
-            this.company = company;
-            return this;
+             this.company = company;
+             return this;
         }
 
+    
 
         /**
          * 职位名
          * <p> 示例值：
-         *
          * @param position
          * @return
          */
         public Builder position(String position) {
-            this.position = position;
-            return this;
+             this.position = position;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 开始时间
          * <p> 示例值：
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 结束时间
          * <p> 示例值：
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
+    
+    public SiteResumeInternship build(){
+        return new SiteResumeInternship(this);
+      }
+    }
 
-        public SiteResumeInternship build() {
-            return new SiteResumeInternship(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

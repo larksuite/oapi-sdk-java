@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class KeyPoint {
-    /**
-     * 关键点
-     * <p> 示例值：飞书
-     */
+     /**
+      * 关键点
+      * <p> 示例值：飞书
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 关键点描述
-     * <p> 示例值：字节跳动的IM软件
-     */
+     /**
+      * 关键点描述
+      * <p> 示例值：字节跳动的IM软件
+      */
     @SerializedName("description")
     private String description;
-
-    // builder 开始
-    public KeyPoint() {
-    }
-
-    public KeyPoint(Builder builder) {
-        /**
-         * 关键点
-         * <p> 示例值：飞书
-         */
-        this.name = builder.name;
-        /**
-         * 关键点描述
-         * <p> 示例值：字节跳动的IM软件
-         */
-        this.description = builder.description;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -79,46 +53,67 @@ public class KeyPoint {
         this.description = description;
     }
 
+
+// builder 开始
+  public KeyPoint(){}
+
+  public KeyPoint(Builder builder){
+         /**
+          * 关键点
+          * <p> 示例值：飞书
+          */
+      this.name = builder.name;
+         /**
+          * 关键点描述
+          * <p> 示例值：字节跳动的IM软件
+          */
+      this.description = builder.description;
+  }
+
     public static class Builder {
-        /**
-         * 关键点
-         * <p> 示例值：飞书
-         */
+     /**
+      * 关键点
+      * <p> 示例值：飞书
+      */
         private String name;
-        /**
-         * 关键点描述
-         * <p> 示例值：字节跳动的IM软件
-         */
+     /**
+      * 关键点描述
+      * <p> 示例值：字节跳动的IM软件
+      */
         private String description;
 
         /**
          * 关键点
          * <p> 示例值：飞书
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 关键点描述
          * <p> 示例值：字节跳动的IM软件
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
+    
+    public KeyPoint build(){
+        return new KeyPoint(this);
+      }
+    }
 
-        public KeyPoint build() {
-            return new KeyPoint(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,126 +19,66 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Definition {
-    /**
-     * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-     */
+     /**
+      * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+      */
     @SerializedName("approval_code")
     private String approvalCode;
-    /**
-     * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
-     * <p> 示例值：请假
-     */
+     /**
+      * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
+      * <p> 示例值：请假
+      */
     @SerializedName("approval_name")
     private String approvalName;
-    /**
-     * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
-     * <p> 示例值：分组名称
-     */
+     /**
+      * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
+      * <p> 示例值：分组名称
+      */
     @SerializedName("group_name")
     private String groupName;
-    /**
-     * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
-     * <p> 示例值：审批定义说明
-     */
+     /**
+      * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
+      * <p> 示例值：审批定义说明
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 审批图标链接
-     * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
-     */
+     /**
+      * 审批图标链接
+      * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
+      */
     @SerializedName("icon_url")
     private String iconUrl;
-    /**
-     * 审批定义所属审批分组
-     * <p> 示例值：work_group
-     */
+     /**
+      * 审批定义所属审批分组
+      * <p> 示例值：work_group
+      */
     @SerializedName("group_code")
     private String groupCode;
-    /**
-     * 是否为第三方审批
-     * <p> 示例值：false
-     */
+     /**
+      * 是否为第三方审批
+      * <p> 示例值：false
+      */
     @SerializedName("is_external")
     private Boolean isExternal;
-    /**
-     * PC端发起页链接
-     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
-     */
+     /**
+      * PC端发起页链接
+      * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
+      */
     @SerializedName("create_link_pc")
     private String createLinkPc;
-    /**
-     * 移动端发起页链接
-     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
-     */
+     /**
+      * 移动端发起页链接
+      * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
+      */
     @SerializedName("create_link_mobile")
     private String createLinkMobile;
-
-    // builder 开始
-    public Definition() {
-    }
-
-    public Definition(Builder builder) {
-        /**
-         * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
-         * <p> 示例值：请假
-         */
-        this.approvalName = builder.approvalName;
-        /**
-         * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
-         * <p> 示例值：分组名称
-         */
-        this.groupName = builder.groupName;
-        /**
-         * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
-         * <p> 示例值：审批定义说明
-         */
-        this.description = builder.description;
-        /**
-         * 审批图标链接
-         * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
-         */
-        this.iconUrl = builder.iconUrl;
-        /**
-         * 审批定义所属审批分组
-         * <p> 示例值：work_group
-         */
-        this.groupCode = builder.groupCode;
-        /**
-         * 是否为第三方审批
-         * <p> 示例值：false
-         */
-        this.isExternal = builder.isExternal;
-        /**
-         * PC端发起页链接
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
-         */
-        this.createLinkPc = builder.createLinkPc;
-        /**
-         * 移动端发起页链接
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
-         */
-        this.createLinkMobile = builder.createLinkMobile;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApprovalCode() {
         return this.approvalCode;
     }
@@ -212,172 +151,228 @@ public class Definition {
         this.createLinkMobile = createLinkMobile;
     }
 
+
+// builder 开始
+  public Definition(){}
+
+  public Definition(Builder builder){
+         /**
+          * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+          */
+      this.approvalCode = builder.approvalCode;
+         /**
+          * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
+          * <p> 示例值：请假
+          */
+      this.approvalName = builder.approvalName;
+         /**
+          * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
+          * <p> 示例值：分组名称
+          */
+      this.groupName = builder.groupName;
+         /**
+          * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
+          * <p> 示例值：审批定义说明
+          */
+      this.description = builder.description;
+         /**
+          * 审批图标链接
+          * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
+          */
+      this.iconUrl = builder.iconUrl;
+         /**
+          * 审批定义所属审批分组
+          * <p> 示例值：work_group
+          */
+      this.groupCode = builder.groupCode;
+         /**
+          * 是否为第三方审批
+          * <p> 示例值：false
+          */
+      this.isExternal = builder.isExternal;
+         /**
+          * PC端发起页链接
+          * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
+          */
+      this.createLinkPc = builder.createLinkPc;
+         /**
+          * 移动端发起页链接
+          * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
+          */
+      this.createLinkMobile = builder.createLinkMobile;
+  }
+
     public static class Builder {
-        /**
-         * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
+     /**
+      * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+      */
         private String approvalCode;
-        /**
-         * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
-         * <p> 示例值：请假
-         */
+     /**
+      * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
+      * <p> 示例值：请假
+      */
         private String approvalName;
-        /**
-         * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
-         * <p> 示例值：分组名称
-         */
+     /**
+      * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
+      * <p> 示例值：分组名称
+      */
         private String groupName;
-        /**
-         * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
-         * <p> 示例值：审批定义说明
-         */
+     /**
+      * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
+      * <p> 示例值：审批定义说明
+      */
         private String description;
-        /**
-         * 审批图标链接
-         * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
-         */
+     /**
+      * 审批图标链接
+      * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
+      */
         private String iconUrl;
-        /**
-         * 审批定义所属审批分组
-         * <p> 示例值：work_group
-         */
+     /**
+      * 审批定义所属审批分组
+      * <p> 示例值：work_group
+      */
         private String groupCode;
-        /**
-         * 是否为第三方审批
-         * <p> 示例值：false
-         */
+     /**
+      * 是否为第三方审批
+      * <p> 示例值：false
+      */
         private Boolean isExternal;
-        /**
-         * PC端发起页链接
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
-         */
+     /**
+      * PC端发起页链接
+      * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
+      */
         private String createLinkPc;
-        /**
-         * 移动端发起页链接
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
-         */
+     /**
+      * 移动端发起页链接
+      * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
+      */
         private String createLinkMobile;
 
         /**
          * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
          * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
          * @param approvalCode
          * @return
          */
         public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
+             this.approvalCode = approvalCode;
+             return this;
         }
 
+    
 
         /**
          * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
          * <p> 示例值：请假
-         *
          * @param approvalName
          * @return
          */
         public Builder approvalName(String approvalName) {
-            this.approvalName = approvalName;
-            return this;
+             this.approvalName = approvalName;
+             return this;
         }
 
+    
 
         /**
          * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
          * <p> 示例值：分组名称
-         *
          * @param groupName
          * @return
          */
         public Builder groupName(String groupName) {
-            this.groupName = groupName;
-            return this;
+             this.groupName = groupName;
+             return this;
         }
 
+    
 
         /**
          * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
          * <p> 示例值：审批定义说明
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 审批图标链接
          * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
-         *
          * @param iconUrl
          * @return
          */
         public Builder iconUrl(String iconUrl) {
-            this.iconUrl = iconUrl;
-            return this;
+             this.iconUrl = iconUrl;
+             return this;
         }
 
+    
 
         /**
          * 审批定义所属审批分组
          * <p> 示例值：work_group
-         *
          * @param groupCode
          * @return
          */
         public Builder groupCode(String groupCode) {
-            this.groupCode = groupCode;
-            return this;
+             this.groupCode = groupCode;
+             return this;
         }
 
+    
 
         /**
          * 是否为第三方审批
          * <p> 示例值：false
-         *
          * @param isExternal
          * @return
          */
         public Builder isExternal(Boolean isExternal) {
-            this.isExternal = isExternal;
-            return this;
+             this.isExternal = isExternal;
+             return this;
         }
 
+    
 
         /**
          * PC端发起页链接
          * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
-         *
          * @param createLinkPc
          * @return
          */
         public Builder createLinkPc(String createLinkPc) {
-            this.createLinkPc = createLinkPc;
-            return this;
+             this.createLinkPc = createLinkPc;
+             return this;
         }
 
+    
 
         /**
          * 移动端发起页链接
          * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
-         *
          * @param createLinkMobile
          * @return
          */
         public Builder createLinkMobile(String createLinkMobile) {
-            this.createLinkMobile = createLinkMobile;
-            return this;
+             this.createLinkMobile = createLinkMobile;
+             return this;
         }
 
+    
+    
+    public Definition build(){
+        return new Definition(this);
+      }
+    }
 
-        public Definition build() {
-            return new Definition(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

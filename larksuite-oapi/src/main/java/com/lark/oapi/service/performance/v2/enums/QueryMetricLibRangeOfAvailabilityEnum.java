@@ -17,16 +17,15 @@ package com.lark.oapi.service.performance.v2.enums;
  * 可用范围
  */
 public enum QueryMetricLibRangeOfAvailabilityEnum {
-    ADMINS_AND_REVIEWEES("admins_and_reviewees"), // 允许管理员下发和被评估人选用
-    ONLY_ADMINS("only_admins"), // 仅允许管理员下发
-    ;
-    private String value;
-
+     ADMINS_AND_REVIEWEES("admins_and_reviewees"), // 允许管理员下发和被评估人选用
+     ONLY_ADMINS("only_admins"), // 仅允许管理员下发
+  ;
+   private String value;
     QueryMetricLibRangeOfAvailabilityEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

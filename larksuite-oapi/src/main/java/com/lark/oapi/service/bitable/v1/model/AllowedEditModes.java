@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AllowedEditModes {
-    /**
-     * 是否允许手动录入
-     * <p> 示例值：true
-     */
+     /**
+      * 是否允许手动录入
+      * <p> 示例值：true
+      */
     @SerializedName("manual")
     private Boolean manual;
-    /**
-     * 是否允许移动端录入
-     * <p> 示例值：true
-     */
+     /**
+      * 是否允许移动端录入
+      * <p> 示例值：true
+      */
     @SerializedName("scan")
     private Boolean scan;
-
-    // builder 开始
-    public AllowedEditModes() {
-    }
-
-    public AllowedEditModes(Builder builder) {
-        /**
-         * 是否允许手动录入
-         * <p> 示例值：true
-         */
-        this.manual = builder.manual;
-        /**
-         * 是否允许移动端录入
-         * <p> 示例值：true
-         */
-        this.scan = builder.scan;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getManual() {
         return this.manual;
     }
@@ -79,46 +53,67 @@ public class AllowedEditModes {
         this.scan = scan;
     }
 
+
+// builder 开始
+  public AllowedEditModes(){}
+
+  public AllowedEditModes(Builder builder){
+         /**
+          * 是否允许手动录入
+          * <p> 示例值：true
+          */
+      this.manual = builder.manual;
+         /**
+          * 是否允许移动端录入
+          * <p> 示例值：true
+          */
+      this.scan = builder.scan;
+  }
+
     public static class Builder {
-        /**
-         * 是否允许手动录入
-         * <p> 示例值：true
-         */
+     /**
+      * 是否允许手动录入
+      * <p> 示例值：true
+      */
         private Boolean manual;
-        /**
-         * 是否允许移动端录入
-         * <p> 示例值：true
-         */
+     /**
+      * 是否允许移动端录入
+      * <p> 示例值：true
+      */
         private Boolean scan;
 
         /**
          * 是否允许手动录入
          * <p> 示例值：true
-         *
          * @param manual
          * @return
          */
         public Builder manual(Boolean manual) {
-            this.manual = manual;
-            return this;
+             this.manual = manual;
+             return this;
         }
 
+    
 
         /**
          * 是否允许移动端录入
          * <p> 示例值：true
-         *
          * @param scan
          * @return
          */
         public Builder scan(Boolean scan) {
-            this.scan = scan;
-            return this;
+             this.scan = scan;
+             return this;
         }
 
+    
+    
+    public AllowedEditModes build(){
+        return new AllowedEditModes(this);
+      }
+    }
 
-        public AllowedEditModes build() {
-            return new AllowedEditModes(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

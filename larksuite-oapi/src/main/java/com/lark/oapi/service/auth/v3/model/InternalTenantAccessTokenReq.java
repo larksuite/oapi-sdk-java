@@ -12,35 +12,19 @@
  */
 
 package com.lark.oapi.service.auth.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InternalTenantAccessTokenReq {
     @Body
     private InternalTenantAccessTokenReqBody body;
-
-    // builder 开始
-    public InternalTenantAccessTokenReq() {
-    }
-
-    public InternalTenantAccessTokenReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public InternalTenantAccessTokenReqBody getInternalTenantAccessTokenReqBody() {
         return this.body;
@@ -50,27 +34,36 @@ public class InternalTenantAccessTokenReq {
         this.body = body;
     }
 
+// builder 开始
+  public InternalTenantAccessTokenReq(){}
+
+  public InternalTenantAccessTokenReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private InternalTenantAccessTokenReqBody body;
-
+    
         public InternalTenantAccessTokenReqBody getInternalTenantAccessTokenReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder internalTenantAccessTokenReqBody(InternalTenantAccessTokenReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public InternalTenantAccessTokenReq build(){
+        return new InternalTenantAccessTokenReq(this);
+      }
+    }
 
-        public InternalTenantAccessTokenReq build() {
-            return new InternalTenantAccessTokenReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

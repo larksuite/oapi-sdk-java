@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListExternalTaskReqBody {
-    /**
-     * 审批定义 Code，用于指定只获取这些定义下的数据
-     * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-     */
+     /**
+      * 审批定义 Code，用于指定只获取这些定义下的数据
+      * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+      */
     @SerializedName("approval_codes")
     private String[] approvalCodes;
-    /**
-     * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
-     * <p> 示例值：oa_159160304
-     */
+     /**
+      * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
+      * <p> 示例值：oa_159160304
+      */
     @SerializedName("instance_ids")
     private String[] instanceIds;
-    /**
-     * 审批人 user_id，用于指定只获取这些用户的数据
-     * <p> 示例值：112321
-     */
+     /**
+      * 审批人 user_id，用于指定只获取这些用户的数据
+      * <p> 示例值：112321
+      */
     @SerializedName("user_ids")
     private String[] userIds;
-    /**
-     * 审批任务状态，用于指定获取该状态下的数据
-     * <p> 示例值：PENDING
-     */
+     /**
+      * 审批任务状态，用于指定获取该状态下的数据
+      * <p> 示例值：PENDING
+      */
     @SerializedName("status")
     private String status;
-
-    // builder 开始
-    public ListExternalTaskReqBody() {
-    }
-
-    public ListExternalTaskReqBody(Builder builder) {
-        /**
-         * 审批定义 Code，用于指定只获取这些定义下的数据
-         * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-         */
-        this.approvalCodes = builder.approvalCodes;
-        /**
-         * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
-         * <p> 示例值：oa_159160304
-         */
-        this.instanceIds = builder.instanceIds;
-        /**
-         * 审批人 user_id，用于指定只获取这些用户的数据
-         * <p> 示例值：112321
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 审批任务状态，用于指定获取该状态下的数据
-         * <p> 示例值：PENDING
-         */
-        this.status = builder.status;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getApprovalCodes() {
         return this.approvalCodes;
     }
@@ -117,94 +81,123 @@ public class ListExternalTaskReqBody {
         this.status = status;
     }
 
+
+// builder 开始
+  public ListExternalTaskReqBody(){}
+
+  public ListExternalTaskReqBody(Builder builder){
+         /**
+          * 审批定义 Code，用于指定只获取这些定义下的数据
+          * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+          */
+      this.approvalCodes = builder.approvalCodes;
+         /**
+          * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
+          * <p> 示例值：oa_159160304
+          */
+      this.instanceIds = builder.instanceIds;
+         /**
+          * 审批人 user_id，用于指定只获取这些用户的数据
+          * <p> 示例值：112321
+          */
+      this.userIds = builder.userIds;
+         /**
+          * 审批任务状态，用于指定获取该状态下的数据
+          * <p> 示例值：PENDING
+          */
+      this.status = builder.status;
+  }
+
     public static class Builder {
-        /**
-         * 审批定义 Code，用于指定只获取这些定义下的数据
-         * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-         */
+     /**
+      * 审批定义 Code，用于指定只获取这些定义下的数据
+      * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+      */
         private String[] approvalCodes;
-        /**
-         * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
-         * <p> 示例值：oa_159160304
-         */
+     /**
+      * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
+      * <p> 示例值：oa_159160304
+      */
         private String[] instanceIds;
-        /**
-         * 审批人 user_id，用于指定只获取这些用户的数据
-         * <p> 示例值：112321
-         */
+     /**
+      * 审批人 user_id，用于指定只获取这些用户的数据
+      * <p> 示例值：112321
+      */
         private String[] userIds;
-        /**
-         * 审批任务状态，用于指定获取该状态下的数据
-         * <p> 示例值：PENDING
-         */
+     /**
+      * 审批任务状态，用于指定获取该状态下的数据
+      * <p> 示例值：PENDING
+      */
         private String status;
 
         /**
          * 审批定义 Code，用于指定只获取这些定义下的数据
          * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-         *
          * @param approvalCodes
          * @return
          */
         public Builder approvalCodes(String[] approvalCodes) {
-            this.approvalCodes = approvalCodes;
-            return this;
+             this.approvalCodes = approvalCodes;
+             return this;
         }
 
+    
 
         /**
          * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
          * <p> 示例值：oa_159160304
-         *
          * @param instanceIds
          * @return
          */
         public Builder instanceIds(String[] instanceIds) {
-            this.instanceIds = instanceIds;
-            return this;
+             this.instanceIds = instanceIds;
+             return this;
         }
 
+    
 
         /**
          * 审批人 user_id，用于指定只获取这些用户的数据
          * <p> 示例值：112321
-         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
+             this.userIds = userIds;
+             return this;
         }
 
+    
 
         /**
          * 审批任务状态，用于指定获取该状态下的数据
          * <p> 示例值：PENDING
-         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 审批任务状态，用于指定获取该状态下的数据
          * <p> 示例值：PENDING
-         *
          * @param status {@link com.lark.oapi.service.approval.v4.enums.ListExternalTaskExternalTaskStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.approval.v4.enums.ListExternalTaskExternalTaskStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
+    
+    public ListExternalTaskReqBody build(){
+        return new ListExternalTaskReqBody(this);
+      }
+    }
 
-        public ListExternalTaskReqBody build() {
-            return new ListExternalTaskReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

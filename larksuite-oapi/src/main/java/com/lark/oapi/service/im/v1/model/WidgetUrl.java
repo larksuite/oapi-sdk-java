@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WidgetUrl {
-    /**
-     * 小组件的url
-     * <p> 示例值：https://open.feishu.cn/document/home/index
-     */
+     /**
+      * 小组件的url
+      * <p> 示例值：https://open.feishu.cn/document/home/index
+      */
     @SerializedName("url")
     private String url;
-
-    // builder 开始
-    public WidgetUrl() {
-    }
-
-    public WidgetUrl(Builder builder) {
-        /**
-         * 小组件的url
-         * <p> 示例值：https://open.feishu.cn/document/home/index
-         */
-        this.url = builder.url;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUrl() {
         return this.url;
     }
@@ -60,28 +39,44 @@ public class WidgetUrl {
         this.url = url;
     }
 
+
+// builder 开始
+  public WidgetUrl(){}
+
+  public WidgetUrl(Builder builder){
+         /**
+          * 小组件的url
+          * <p> 示例值：https://open.feishu.cn/document/home/index
+          */
+      this.url = builder.url;
+  }
+
     public static class Builder {
-        /**
-         * 小组件的url
-         * <p> 示例值：https://open.feishu.cn/document/home/index
-         */
+     /**
+      * 小组件的url
+      * <p> 示例值：https://open.feishu.cn/document/home/index
+      */
         private String url;
 
         /**
          * 小组件的url
          * <p> 示例值：https://open.feishu.cn/document/home/index
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
+    
+    public WidgetUrl build(){
+        return new WidgetUrl(this);
+      }
+    }
 
-        public WidgetUrl build() {
-            return new WidgetUrl(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

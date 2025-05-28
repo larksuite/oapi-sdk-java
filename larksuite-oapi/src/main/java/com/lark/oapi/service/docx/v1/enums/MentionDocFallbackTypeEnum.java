@@ -17,16 +17,15 @@ package com.lark.oapi.service.docx.v1.enums;
  * 无云文档阅读权限或云文档已删除时的降级方式
  */
 public enum MentionDocFallbackTypeEnum {
-    FALLBACKTOLINK("FallbackToLink"), // 降级为超链接形式写入，超链接的文本内容为当前传入的文档标题，链接为当前传入的云文档链接（需要 url_encode）
-    FALLBACKTOTEXT("FallbackToText"), // 降级为文本形式写入，文本内容为当前传入的云文档链接进行 URL 解码后的结果
-    ;
-    private String value;
-
+     FALLBACKTOLINK("FallbackToLink"), // 降级为超链接形式写入，超链接的文本内容为当前传入的文档标题，链接为当前传入的云文档链接（需要 url_encode）
+     FALLBACKTOTEXT("FallbackToText"), // 降级为文本形式写入，文本内容为当前传入的云文档链接进行 URL 解码后的结果
+  ;
+   private String value;
     MentionDocFallbackTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

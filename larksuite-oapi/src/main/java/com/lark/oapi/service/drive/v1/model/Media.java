@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Media {
-    /**
-     * 文件标识符
-     * <p> 示例值：
-     */
+     /**
+      * 文件标识符
+      * <p> 示例值：
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 文件名
-     * <p> 示例值：
-     */
+     /**
+      * 文件名
+      * <p> 示例值：
+      */
     @SerializedName("file_name")
     private String fileName;
-    /**
-     * 文件大小
-     * <p> 示例值：
-     */
+     /**
+      * 文件大小
+      * <p> 示例值：
+      */
     @SerializedName("size")
     private Integer size;
-    /**
-     * 文件MIME类型
-     * <p> 示例值：
-     */
+     /**
+      * 文件MIME类型
+      * <p> 示例值：
+      */
     @SerializedName("mime_type")
     private String mimeType;
-
-    // builder 开始
-    public Media() {
-    }
-
-    public Media(Builder builder) {
-        /**
-         * 文件标识符
-         * <p> 示例值：
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 文件名
-         * <p> 示例值：
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 文件大小
-         * <p> 示例值：
-         */
-        this.size = builder.size;
-        /**
-         * 文件MIME类型
-         * <p> 示例值：
-         */
-        this.mimeType = builder.mimeType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFileToken() {
         return this.fileToken;
     }
@@ -117,82 +81,113 @@ public class Media {
         this.mimeType = mimeType;
     }
 
+
+// builder 开始
+  public Media(){}
+
+  public Media(Builder builder){
+         /**
+          * 文件标识符
+          * <p> 示例值：
+          */
+      this.fileToken = builder.fileToken;
+         /**
+          * 文件名
+          * <p> 示例值：
+          */
+      this.fileName = builder.fileName;
+         /**
+          * 文件大小
+          * <p> 示例值：
+          */
+      this.size = builder.size;
+         /**
+          * 文件MIME类型
+          * <p> 示例值：
+          */
+      this.mimeType = builder.mimeType;
+  }
+
     public static class Builder {
-        /**
-         * 文件标识符
-         * <p> 示例值：
-         */
+     /**
+      * 文件标识符
+      * <p> 示例值：
+      */
         private String fileToken;
-        /**
-         * 文件名
-         * <p> 示例值：
-         */
+     /**
+      * 文件名
+      * <p> 示例值：
+      */
         private String fileName;
-        /**
-         * 文件大小
-         * <p> 示例值：
-         */
+     /**
+      * 文件大小
+      * <p> 示例值：
+      */
         private Integer size;
-        /**
-         * 文件MIME类型
-         * <p> 示例值：
-         */
+     /**
+      * 文件MIME类型
+      * <p> 示例值：
+      */
         private String mimeType;
 
         /**
          * 文件标识符
          * <p> 示例值：
-         *
          * @param fileToken
          * @return
          */
         public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
+             this.fileToken = fileToken;
+             return this;
         }
 
+    
 
         /**
          * 文件名
          * <p> 示例值：
-         *
          * @param fileName
          * @return
          */
         public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
+             this.fileName = fileName;
+             return this;
         }
 
+    
 
         /**
          * 文件大小
          * <p> 示例值：
-         *
          * @param size
          * @return
          */
         public Builder size(Integer size) {
-            this.size = size;
-            return this;
+             this.size = size;
+             return this;
         }
 
+    
 
         /**
          * 文件MIME类型
          * <p> 示例值：
-         *
          * @param mimeType
          * @return
          */
         public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
+             this.mimeType = mimeType;
+             return this;
         }
 
+    
+    
+    public Media build(){
+        return new Media(this);
+      }
+    }
 
-        public Media build() {
-            return new Media(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

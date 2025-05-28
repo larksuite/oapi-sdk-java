@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AppTableViewPropertyFilterInfoCondition {
-    /**
-     * 用于过滤的字段唯一ID
-     * <p> 示例值：单选
-     */
+     /**
+      * 用于过滤的字段唯一ID
+      * <p> 示例值：单选
+      */
     @SerializedName("field_id")
     private String fieldId;
-    /**
-     * 过滤操作的类型
-     * <p> 示例值：is
-     */
+     /**
+      * 过滤操作的类型
+      * <p> 示例值：is
+      */
     @SerializedName("operator")
     private String operator;
-    /**
-     * 筛选值
-     * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-     */
+     /**
+      * 筛选值
+      * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
+      */
     @SerializedName("value")
     private String value;
-    /**
-     * 过滤条件的唯一ID
-     * <p> 示例值：conNaOEK6O
-     */
+     /**
+      * 过滤条件的唯一ID
+      * <p> 示例值：conNaOEK6O
+      */
     @SerializedName("condition_id")
     private String conditionId;
-    /**
-     * 用于过滤的字段类型
-     * <p> 示例值：3
-     */
+     /**
+      * 用于过滤的字段类型
+      * <p> 示例值：3
+      */
     @SerializedName("field_type")
     private Integer fieldType;
-
-    // builder 开始
-    public AppTableViewPropertyFilterInfoCondition() {
-    }
-
-    public AppTableViewPropertyFilterInfoCondition(Builder builder) {
-        /**
-         * 用于过滤的字段唯一ID
-         * <p> 示例值：单选
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 过滤操作的类型
-         * <p> 示例值：is
-         */
-        this.operator = builder.operator;
-        /**
-         * 筛选值
-         * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-         */
-        this.value = builder.value;
-        /**
-         * 过滤条件的唯一ID
-         * <p> 示例值：conNaOEK6O
-         */
-        this.conditionId = builder.conditionId;
-        /**
-         * 用于过滤的字段类型
-         * <p> 示例值：3
-         */
-        this.fieldType = builder.fieldType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFieldId() {
         return this.fieldId;
     }
@@ -136,112 +95,146 @@ public class AppTableViewPropertyFilterInfoCondition {
         this.fieldType = fieldType;
     }
 
+
+// builder 开始
+  public AppTableViewPropertyFilterInfoCondition(){}
+
+  public AppTableViewPropertyFilterInfoCondition(Builder builder){
+         /**
+          * 用于过滤的字段唯一ID
+          * <p> 示例值：单选
+          */
+      this.fieldId = builder.fieldId;
+         /**
+          * 过滤操作的类型
+          * <p> 示例值：is
+          */
+      this.operator = builder.operator;
+         /**
+          * 筛选值
+          * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
+          */
+      this.value = builder.value;
+         /**
+          * 过滤条件的唯一ID
+          * <p> 示例值：conNaOEK6O
+          */
+      this.conditionId = builder.conditionId;
+         /**
+          * 用于过滤的字段类型
+          * <p> 示例值：3
+          */
+      this.fieldType = builder.fieldType;
+  }
+
     public static class Builder {
-        /**
-         * 用于过滤的字段唯一ID
-         * <p> 示例值：单选
-         */
+     /**
+      * 用于过滤的字段唯一ID
+      * <p> 示例值：单选
+      */
         private String fieldId;
-        /**
-         * 过滤操作的类型
-         * <p> 示例值：is
-         */
+     /**
+      * 过滤操作的类型
+      * <p> 示例值：is
+      */
         private String operator;
-        /**
-         * 筛选值
-         * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-         */
+     /**
+      * 筛选值
+      * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
+      */
         private String value;
-        /**
-         * 过滤条件的唯一ID
-         * <p> 示例值：conNaOEK6O
-         */
+     /**
+      * 过滤条件的唯一ID
+      * <p> 示例值：conNaOEK6O
+      */
         private String conditionId;
-        /**
-         * 用于过滤的字段类型
-         * <p> 示例值：3
-         */
+     /**
+      * 用于过滤的字段类型
+      * <p> 示例值：3
+      */
         private Integer fieldType;
 
         /**
          * 用于过滤的字段唯一ID
          * <p> 示例值：单选
-         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
+             this.fieldId = fieldId;
+             return this;
         }
 
+    
 
         /**
          * 过滤操作的类型
          * <p> 示例值：is
-         *
          * @param operator
          * @return
          */
         public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
+             this.operator = operator;
+             return this;
         }
-
         /**
          * 过滤操作的类型
          * <p> 示例值：is
-         *
          * @param operator {@link com.lark.oapi.service.bitable.v1.enums.AppTableViewPropertyFilterInfoConditionOperatorEnum}
          * @return
          */
         public Builder operator(com.lark.oapi.service.bitable.v1.enums.AppTableViewPropertyFilterInfoConditionOperatorEnum operator) {
-            this.operator = operator.getValue();
-            return this;
+             this.operator = operator.getValue();
+             return this;
         }
 
+    
 
         /**
          * 筛选值
          * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
 
         /**
          * 过滤条件的唯一ID
          * <p> 示例值：conNaOEK6O
-         *
          * @param conditionId
          * @return
          */
         public Builder conditionId(String conditionId) {
-            this.conditionId = conditionId;
-            return this;
+             this.conditionId = conditionId;
+             return this;
         }
 
+    
 
         /**
          * 用于过滤的字段类型
          * <p> 示例值：3
-         *
          * @param fieldType
          * @return
          */
         public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
+             this.fieldType = fieldType;
+             return this;
         }
 
+    
+    
+    public AppTableViewPropertyFilterInfoCondition build(){
+        return new AppTableViewPropertyFilterInfoCondition(this);
+      }
+    }
 
-        public AppTableViewPropertyFilterInfoCondition build() {
-            return new AppTableViewPropertyFilterInfoCondition(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

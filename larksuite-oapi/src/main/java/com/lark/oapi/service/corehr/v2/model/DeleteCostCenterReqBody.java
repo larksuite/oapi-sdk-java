@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteCostCenterReqBody {
-    /**
-     * 操作原因
-     * <p> 示例值：随着组织架构调整，该成本中心不再使用
-     */
+     /**
+      * 操作原因
+      * <p> 示例值：随着组织架构调整，该成本中心不再使用
+      */
     @SerializedName("operation_reason")
     private String operationReason;
-
-    // builder 开始
-    public DeleteCostCenterReqBody() {
-    }
-
-    public DeleteCostCenterReqBody(Builder builder) {
-        /**
-         * 操作原因
-         * <p> 示例值：随着组织架构调整，该成本中心不再使用
-         */
-        this.operationReason = builder.operationReason;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOperationReason() {
         return this.operationReason;
     }
@@ -60,28 +39,44 @@ public class DeleteCostCenterReqBody {
         this.operationReason = operationReason;
     }
 
+
+// builder 开始
+  public DeleteCostCenterReqBody(){}
+
+  public DeleteCostCenterReqBody(Builder builder){
+         /**
+          * 操作原因
+          * <p> 示例值：随着组织架构调整，该成本中心不再使用
+          */
+      this.operationReason = builder.operationReason;
+  }
+
     public static class Builder {
-        /**
-         * 操作原因
-         * <p> 示例值：随着组织架构调整，该成本中心不再使用
-         */
+     /**
+      * 操作原因
+      * <p> 示例值：随着组织架构调整，该成本中心不再使用
+      */
         private String operationReason;
 
         /**
          * 操作原因
          * <p> 示例值：随着组织架构调整，该成本中心不再使用
-         *
          * @param operationReason
          * @return
          */
         public Builder operationReason(String operationReason) {
-            this.operationReason = operationReason;
-            return this;
+             this.operationReason = operationReason;
+             return this;
         }
 
+    
+    
+    public DeleteCostCenterReqBody build(){
+        return new DeleteCostCenterReqBody(this);
+      }
+    }
 
-        public DeleteCostCenterReqBody build() {
-            return new DeleteCostCenterReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OvertimeApplyDetail {
-    /**
-     * 加班明细用户ID(根据date_type_id)
-     * <p> 示例值：7271137794704015379
-     */
+     /**
+      * 加班明细用户ID(根据date_type_id)
+      * <p> 示例值：7271137794704015379
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 加班日期
-     * <p> 示例值：2006-01-02
-     */
+     /**
+      * 加班日期
+      * <p> 示例值：2006-01-02
+      */
     @SerializedName("date")
     private String date;
-    /**
-     * 日期类型
-     * <p> 示例值：1
-     */
+     /**
+      * 日期类型
+      * <p> 示例值：1
+      */
     @SerializedName("date_type")
     private Integer dateType;
-    /**
-     * 加班时长，两位小数
-     * <p> 示例值：0.5
-     */
+     /**
+      * 加班时长，两位小数
+      * <p> 示例值：0.5
+      */
     @SerializedName("duration")
     private String duration;
-    /**
-     * 加班单位
-     * <p> 示例值：1
-     */
+     /**
+      * 加班单位
+      * <p> 示例值：1
+      */
     @SerializedName("unit")
     private Integer unit;
-    /**
-     * 是否是综合工时
-     * <p> 示例值：false
-     */
+     /**
+      * 是否是综合工时
+      * <p> 示例值：false
+      */
     @SerializedName("is_time_bank")
     private Boolean isTimeBank;
-    /**
-     * 添加更新数据时间
-     * <p> 示例值：2023-12-31 12:00:00
-     */
+     /**
+      * 添加更新数据时间
+      * <p> 示例值：2023-12-31 12:00:00
+      */
     @SerializedName("update_time")
     private String updateTime;
-
-    // builder 开始
-    public OvertimeApplyDetail() {
-    }
-
-    public OvertimeApplyDetail(Builder builder) {
-        /**
-         * 加班明细用户ID(根据date_type_id)
-         * <p> 示例值：7271137794704015379
-         */
-        this.userId = builder.userId;
-        /**
-         * 加班日期
-         * <p> 示例值：2006-01-02
-         */
-        this.date = builder.date;
-        /**
-         * 日期类型
-         * <p> 示例值：1
-         */
-        this.dateType = builder.dateType;
-        /**
-         * 加班时长，两位小数
-         * <p> 示例值：0.5
-         */
-        this.duration = builder.duration;
-        /**
-         * 加班单位
-         * <p> 示例值：1
-         */
-        this.unit = builder.unit;
-        /**
-         * 是否是综合工时
-         * <p> 示例值：false
-         */
-        this.isTimeBank = builder.isTimeBank;
-        /**
-         * 添加更新数据时间
-         * <p> 示例值：2023-12-31 12:00:00
-         */
-        this.updateTime = builder.updateTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -174,160 +123,202 @@ public class OvertimeApplyDetail {
         this.updateTime = updateTime;
     }
 
+
+// builder 开始
+  public OvertimeApplyDetail(){}
+
+  public OvertimeApplyDetail(Builder builder){
+         /**
+          * 加班明细用户ID(根据date_type_id)
+          * <p> 示例值：7271137794704015379
+          */
+      this.userId = builder.userId;
+         /**
+          * 加班日期
+          * <p> 示例值：2006-01-02
+          */
+      this.date = builder.date;
+         /**
+          * 日期类型
+          * <p> 示例值：1
+          */
+      this.dateType = builder.dateType;
+         /**
+          * 加班时长，两位小数
+          * <p> 示例值：0.5
+          */
+      this.duration = builder.duration;
+         /**
+          * 加班单位
+          * <p> 示例值：1
+          */
+      this.unit = builder.unit;
+         /**
+          * 是否是综合工时
+          * <p> 示例值：false
+          */
+      this.isTimeBank = builder.isTimeBank;
+         /**
+          * 添加更新数据时间
+          * <p> 示例值：2023-12-31 12:00:00
+          */
+      this.updateTime = builder.updateTime;
+  }
+
     public static class Builder {
-        /**
-         * 加班明细用户ID(根据date_type_id)
-         * <p> 示例值：7271137794704015379
-         */
+     /**
+      * 加班明细用户ID(根据date_type_id)
+      * <p> 示例值：7271137794704015379
+      */
         private String userId;
-        /**
-         * 加班日期
-         * <p> 示例值：2006-01-02
-         */
+     /**
+      * 加班日期
+      * <p> 示例值：2006-01-02
+      */
         private String date;
-        /**
-         * 日期类型
-         * <p> 示例值：1
-         */
+     /**
+      * 日期类型
+      * <p> 示例值：1
+      */
         private Integer dateType;
-        /**
-         * 加班时长，两位小数
-         * <p> 示例值：0.5
-         */
+     /**
+      * 加班时长，两位小数
+      * <p> 示例值：0.5
+      */
         private String duration;
-        /**
-         * 加班单位
-         * <p> 示例值：1
-         */
+     /**
+      * 加班单位
+      * <p> 示例值：1
+      */
         private Integer unit;
-        /**
-         * 是否是综合工时
-         * <p> 示例值：false
-         */
+     /**
+      * 是否是综合工时
+      * <p> 示例值：false
+      */
         private Boolean isTimeBank;
-        /**
-         * 添加更新数据时间
-         * <p> 示例值：2023-12-31 12:00:00
-         */
+     /**
+      * 添加更新数据时间
+      * <p> 示例值：2023-12-31 12:00:00
+      */
         private String updateTime;
 
         /**
          * 加班明细用户ID(根据date_type_id)
          * <p> 示例值：7271137794704015379
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 加班日期
          * <p> 示例值：2006-01-02
-         *
          * @param date
          * @return
          */
         public Builder date(String date) {
-            this.date = date;
-            return this;
+             this.date = date;
+             return this;
         }
 
+    
 
         /**
          * 日期类型
          * <p> 示例值：1
-         *
          * @param dateType
          * @return
          */
         public Builder dateType(Integer dateType) {
-            this.dateType = dateType;
-            return this;
+             this.dateType = dateType;
+             return this;
         }
-
         /**
          * 日期类型
          * <p> 示例值：1
-         *
          * @param dateType {@link com.lark.oapi.service.attendance.v1.enums.OvertimeApplyDetailOvertimeDateTypeEnum}
          * @return
          */
         public Builder dateType(com.lark.oapi.service.attendance.v1.enums.OvertimeApplyDetailOvertimeDateTypeEnum dateType) {
-            this.dateType = dateType.getValue();
-            return this;
+             this.dateType = dateType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 加班时长，两位小数
          * <p> 示例值：0.5
-         *
          * @param duration
          * @return
          */
         public Builder duration(String duration) {
-            this.duration = duration;
-            return this;
+             this.duration = duration;
+             return this;
         }
 
+    
 
         /**
          * 加班单位
          * <p> 示例值：1
-         *
          * @param unit
          * @return
          */
         public Builder unit(Integer unit) {
-            this.unit = unit;
-            return this;
+             this.unit = unit;
+             return this;
         }
-
         /**
          * 加班单位
          * <p> 示例值：1
-         *
          * @param unit {@link com.lark.oapi.service.attendance.v1.enums.OvertimeApplyDetailOvertimeUnitEnum}
          * @return
          */
         public Builder unit(com.lark.oapi.service.attendance.v1.enums.OvertimeApplyDetailOvertimeUnitEnum unit) {
-            this.unit = unit.getValue();
-            return this;
+             this.unit = unit.getValue();
+             return this;
         }
 
+    
 
         /**
          * 是否是综合工时
          * <p> 示例值：false
-         *
          * @param isTimeBank
          * @return
          */
         public Builder isTimeBank(Boolean isTimeBank) {
-            this.isTimeBank = isTimeBank;
-            return this;
+             this.isTimeBank = isTimeBank;
+             return this;
         }
 
+    
 
         /**
          * 添加更新数据时间
          * <p> 示例值：2023-12-31 12:00:00
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
+    
+    public OvertimeApplyDetail build(){
+        return new OvertimeApplyDetail(this);
+      }
+    }
 
-        public OvertimeApplyDetail build() {
-            return new OvertimeApplyDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

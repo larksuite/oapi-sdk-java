@@ -17,21 +17,20 @@ package com.lark.oapi.service.drive.v2.enums;
  * 链接分享设置
  */
 public enum PermissionPublicLinkShareEntityEnum {
-    TENANTREADABLE("tenant_readable"), // 组织内获得链接的人可阅读
-    TENANTEDITABLE("tenant_editable"), // 组织内获得链接的人可编辑
-    PARTNERTENANTREADABLE("partner_tenant_readable"), // 关联组织的人可阅读
-    PARTNERTENANTEDITABLE("partner_tenant_editable"), // 关联组织的人可编辑
-    ANYONEREADABLE("anyone_readable"), // 互联网上获得链接的任何人可阅读（仅external_access=“true”时有效）
-    ANYONEEDITABLE("anyone_editable"), // 互联网上获得链接的任何人可编辑（仅external_access=“true”时有效）
-    CLOSED("closed"), // 关闭链接分享
-    ;
-    private String value;
-
+     TENANTREADABLE("tenant_readable"), // 组织内获得链接的人可阅读
+     TENANTEDITABLE("tenant_editable"), // 组织内获得链接的人可编辑
+     PARTNERTENANTREADABLE("partner_tenant_readable"), // 关联组织的人可阅读
+     PARTNERTENANTEDITABLE("partner_tenant_editable"), // 关联组织的人可编辑
+     ANYONEREADABLE("anyone_readable"), // 互联网上获得链接的任何人可阅读（仅external_access=“true”时有效）
+     ANYONEEDITABLE("anyone_editable"), // 互联网上获得链接的任何人可编辑（仅external_access=“true”时有效）
+     CLOSED("closed"), // 关闭链接分享
+  ;
+   private String value;
     PermissionPublicLinkShareEntityEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

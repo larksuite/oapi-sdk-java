@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AppBadge {
-    /**
-     * 用户ID
-     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-     */
+     /**
+      * 用户ID
+      * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * badge数据版本号
-     * <p> 示例值：1664360599355
-     */
+     /**
+      * badge数据版本号
+      * <p> 示例值：1664360599355
+      */
     @SerializedName("version")
     private String version;
-    /**
-     * badge extra 信息
-     * <p> 示例值：{}
-     */
+     /**
+      * badge extra 信息
+      * <p> 示例值：{}
+      */
     @SerializedName("extra")
     private String extra;
-    /**
-     * pc端badge数量
-     * <p> 示例值：
-     */
+     /**
+      * pc端badge数量
+      * <p> 示例值：
+      */
     @SerializedName("pc")
     private ClientBadgeNum pc;
-    /**
-     * 移动端badge数量
-     * <p> 示例值：
-     */
+     /**
+      * 移动端badge数量
+      * <p> 示例值：
+      */
     @SerializedName("mobile")
     private ClientBadgeNum mobile;
-
-    // builder 开始
-    public AppBadge() {
-    }
-
-    public AppBadge(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-         */
-        this.userId = builder.userId;
-        /**
-         * badge数据版本号
-         * <p> 示例值：1664360599355
-         */
-        this.version = builder.version;
-        /**
-         * badge extra 信息
-         * <p> 示例值：{}
-         */
-        this.extra = builder.extra;
-        /**
-         * pc端badge数量
-         * <p> 示例值：
-         */
-        this.pc = builder.pc;
-        /**
-         * 移动端badge数量
-         * <p> 示例值：
-         */
-        this.mobile = builder.mobile;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -136,100 +95,136 @@ public class AppBadge {
         this.mobile = mobile;
     }
 
+
+// builder 开始
+  public AppBadge(){}
+
+  public AppBadge(Builder builder){
+         /**
+          * 用户ID
+          * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+          */
+      this.userId = builder.userId;
+         /**
+          * badge数据版本号
+          * <p> 示例值：1664360599355
+          */
+      this.version = builder.version;
+         /**
+          * badge extra 信息
+          * <p> 示例值：{}
+          */
+      this.extra = builder.extra;
+         /**
+          * pc端badge数量
+          * <p> 示例值：
+          */
+      this.pc = builder.pc;
+         /**
+          * 移动端badge数量
+          * <p> 示例值：
+          */
+      this.mobile = builder.mobile;
+  }
+
     public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-         */
+     /**
+      * 用户ID
+      * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+      */
         private String userId;
-        /**
-         * badge数据版本号
-         * <p> 示例值：1664360599355
-         */
+     /**
+      * badge数据版本号
+      * <p> 示例值：1664360599355
+      */
         private String version;
-        /**
-         * badge extra 信息
-         * <p> 示例值：{}
-         */
+     /**
+      * badge extra 信息
+      * <p> 示例值：{}
+      */
         private String extra;
-        /**
-         * pc端badge数量
-         * <p> 示例值：
-         */
+     /**
+      * pc端badge数量
+      * <p> 示例值：
+      */
         private ClientBadgeNum pc;
-        /**
-         * 移动端badge数量
-         * <p> 示例值：
-         */
+     /**
+      * 移动端badge数量
+      * <p> 示例值：
+      */
         private ClientBadgeNum mobile;
 
         /**
          * 用户ID
          * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * badge数据版本号
          * <p> 示例值：1664360599355
-         *
          * @param version
          * @return
          */
         public Builder version(String version) {
-            this.version = version;
-            return this;
+             this.version = version;
+             return this;
         }
 
+    
 
         /**
          * badge extra 信息
          * <p> 示例值：{}
-         *
          * @param extra
          * @return
          */
         public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
+             this.extra = extra;
+             return this;
         }
 
+    
 
         /**
          * pc端badge数量
          * <p> 示例值：
-         *
          * @param pc
          * @return
          */
         public Builder pc(ClientBadgeNum pc) {
-            this.pc = pc;
-            return this;
+             this.pc = pc;
+             return this;
         }
 
+    
 
         /**
          * 移动端badge数量
          * <p> 示例值：
-         *
          * @param mobile
          * @return
          */
         public Builder mobile(ClientBadgeNum mobile) {
-            this.mobile = mobile;
-            return this;
+             this.mobile = mobile;
+             return this;
         }
 
+    
+    
+    public AppBadge build(){
+        return new AppBadge(this);
+      }
+    }
 
-        public AppBadge build() {
-            return new AppBadge(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

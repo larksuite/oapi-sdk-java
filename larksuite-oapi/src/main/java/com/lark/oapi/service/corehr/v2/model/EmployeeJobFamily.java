@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EmployeeJobFamily {
-    /**
-     * 序列 ID，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
-     * <p> 示例值：4698019107896524633
-     */
+     /**
+      * 序列 ID，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
+      * <p> 示例值：4698019107896524633
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n[] name;
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 上级序列，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
-     * <p> 示例值：4698020757495316313
-     */
+     /**
+      * 上级序列，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
+      * <p> 示例值：4698020757495316313
+      */
     @SerializedName("parent_id")
     private String parentId;
-    /**
-     * 生效时间
-     * <p> 示例值：2020-05-01 00:00:00
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 失效时间
-     * <p> 示例值：2020-05-02 00:00:00
-     */
+     /**
+      * 失效时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
     @SerializedName("expiration_time")
     private String expirationTime;
-    /**
-     * 编码
-     * <p> 示例值：123456
-     */
+     /**
+      * 编码
+      * <p> 示例值：123456
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
-
-    // builder 开始
-    public EmployeeJobFamily() {
-    }
-
-    public EmployeeJobFamily(Builder builder) {
-        /**
-         * 序列 ID，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
-         * <p> 示例值：4698019107896524633
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 上级序列，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
-         * <p> 示例值：4698020757495316313
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 编码
-         * <p> 示例值：123456
-         */
-        this.code = builder.code;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -193,154 +137,205 @@ public class EmployeeJobFamily {
         this.customFields = customFields;
     }
 
+
+// builder 开始
+  public EmployeeJobFamily(){}
+
+  public EmployeeJobFamily(Builder builder){
+         /**
+          * 序列 ID，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
+          * <p> 示例值：4698019107896524633
+          */
+      this.id = builder.id;
+         /**
+          * 名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 上级序列，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
+          * <p> 示例值：4698020757495316313
+          */
+      this.parentId = builder.parentId;
+         /**
+          * 生效时间
+          * <p> 示例值：2020-05-01 00:00:00
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 失效时间
+          * <p> 示例值：2020-05-02 00:00:00
+          */
+      this.expirationTime = builder.expirationTime;
+         /**
+          * 编码
+          * <p> 示例值：123456
+          */
+      this.code = builder.code;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+  }
+
     public static class Builder {
-        /**
-         * 序列 ID，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
-         * <p> 示例值：4698019107896524633
-         */
+     /**
+      * 序列 ID，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
+      * <p> 示例值：4698019107896524633
+      */
         private String id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
         private I18n[] name;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 上级序列，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
-         * <p> 示例值：4698020757495316313
-         */
+     /**
+      * 上级序列，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
+      * <p> 示例值：4698020757495316313
+      */
         private String parentId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-05-01 00:00:00
+      */
         private String effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
+     /**
+      * 失效时间
+      * <p> 示例值：2020-05-02 00:00:00
+      */
         private String expirationTime;
-        /**
-         * 编码
-         * <p> 示例值：123456
-         */
+     /**
+      * 编码
+      * <p> 示例值：123456
+      */
         private String code;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private CustomFieldData[] customFields;
 
         /**
          * 序列 ID，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
          * <p> 示例值：4698019107896524633
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 上级序列，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息
          * <p> 示例值：4698020757495316313
-         *
          * @param parentId
          * @return
          */
         public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
+             this.parentId = parentId;
+             return this;
         }
 
+    
 
         /**
          * 生效时间
          * <p> 示例值：2020-05-01 00:00:00
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 失效时间
          * <p> 示例值：2020-05-02 00:00:00
-         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
+             this.expirationTime = expirationTime;
+             return this;
         }
 
+    
 
         /**
          * 编码
          * <p> 示例值：123456
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
+    
+    public EmployeeJobFamily build(){
+        return new EmployeeJobFamily(this);
+      }
+    }
 
-        public EmployeeJobFamily build() {
-            return new EmployeeJobFamily(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

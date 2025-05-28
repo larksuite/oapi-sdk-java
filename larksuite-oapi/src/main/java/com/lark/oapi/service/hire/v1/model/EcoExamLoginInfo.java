@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EcoExamLoginInfo {
-    /**
-     * 笔试链接
-     * <p> 示例值：https://xxxx/xxxx/xxxx
-     */
+     /**
+      * 笔试链接
+      * <p> 示例值：https://xxxx/xxxx/xxxx
+      */
     @SerializedName("exam_url")
     private String examUrl;
-    /**
-     * 用户名
-     * <p> 示例值：waxsdfbhg
-     */
+     /**
+      * 用户名
+      * <p> 示例值：waxsdfbhg
+      */
     @SerializedName("username")
     private String username;
-    /**
-     * 密码
-     * <p> 示例值：xxxxxx
-     */
+     /**
+      * 密码
+      * <p> 示例值：xxxxxx
+      */
     @SerializedName("password")
     private String password;
-
-    // builder 开始
-    public EcoExamLoginInfo() {
-    }
-
-    public EcoExamLoginInfo(Builder builder) {
-        /**
-         * 笔试链接
-         * <p> 示例值：https://xxxx/xxxx/xxxx
-         */
-        this.examUrl = builder.examUrl;
-        /**
-         * 用户名
-         * <p> 示例值：waxsdfbhg
-         */
-        this.username = builder.username;
-        /**
-         * 密码
-         * <p> 示例值：xxxxxx
-         */
-        this.password = builder.password;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getExamUrl() {
         return this.examUrl;
     }
@@ -97,64 +66,90 @@ public class EcoExamLoginInfo {
         this.password = password;
     }
 
+
+// builder 开始
+  public EcoExamLoginInfo(){}
+
+  public EcoExamLoginInfo(Builder builder){
+         /**
+          * 笔试链接
+          * <p> 示例值：https://xxxx/xxxx/xxxx
+          */
+      this.examUrl = builder.examUrl;
+         /**
+          * 用户名
+          * <p> 示例值：waxsdfbhg
+          */
+      this.username = builder.username;
+         /**
+          * 密码
+          * <p> 示例值：xxxxxx
+          */
+      this.password = builder.password;
+  }
+
     public static class Builder {
-        /**
-         * 笔试链接
-         * <p> 示例值：https://xxxx/xxxx/xxxx
-         */
+     /**
+      * 笔试链接
+      * <p> 示例值：https://xxxx/xxxx/xxxx
+      */
         private String examUrl;
-        /**
-         * 用户名
-         * <p> 示例值：waxsdfbhg
-         */
+     /**
+      * 用户名
+      * <p> 示例值：waxsdfbhg
+      */
         private String username;
-        /**
-         * 密码
-         * <p> 示例值：xxxxxx
-         */
+     /**
+      * 密码
+      * <p> 示例值：xxxxxx
+      */
         private String password;
 
         /**
          * 笔试链接
          * <p> 示例值：https://xxxx/xxxx/xxxx
-         *
          * @param examUrl
          * @return
          */
         public Builder examUrl(String examUrl) {
-            this.examUrl = examUrl;
-            return this;
+             this.examUrl = examUrl;
+             return this;
         }
 
+    
 
         /**
          * 用户名
          * <p> 示例值：waxsdfbhg
-         *
          * @param username
          * @return
          */
         public Builder username(String username) {
-            this.username = username;
-            return this;
+             this.username = username;
+             return this;
         }
 
+    
 
         /**
          * 密码
          * <p> 示例值：xxxxxx
-         *
          * @param password
          * @return
          */
         public Builder password(String password) {
-            this.password = password;
-            return this;
+             this.password = password;
+             return this;
         }
 
+    
+    
+    public EcoExamLoginInfo build(){
+        return new EcoExamLoginInfo(this);
+      }
+    }
 
-        public EcoExamLoginInfo build() {
-            return new EcoExamLoginInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

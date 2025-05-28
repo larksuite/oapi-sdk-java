@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Filter {
-    /**
-     * 筛选项 key
-     * <p> 示例值：degree
-     */
+     /**
+      * 筛选项 key
+      * <p> 示例值：degree
+      */
     @SerializedName("key")
     private String key;
-    /**
-     * 筛选项值类型
-     * <p> 示例值：1
-     */
+     /**
+      * 筛选项值类型
+      * <p> 示例值：1
+      */
     @SerializedName("value_type")
     private Integer valueType;
-    /**
-     * 筛选项值列表
-     * <p> 示例值：
-     */
+     /**
+      * 筛选项值列表
+      * <p> 示例值：
+      */
     @SerializedName("value_list")
     private String[] valueList;
-    /**
-     * 范围筛选
-     * <p> 示例值：
-     */
+     /**
+      * 范围筛选
+      * <p> 示例值：
+      */
     @SerializedName("range_filter")
     private RangeFilter rangeFilter;
-    /**
-     * 候选人标签筛选
-     * <p> 示例值：
-     */
+     /**
+      * 候选人标签筛选
+      * <p> 示例值：
+      */
     @SerializedName("candidate_tag_filter")
     private CandidateTagFilter candidateTagFilter;
-    /**
-     * 学历筛选
-     * <p> 示例值：
-     */
+     /**
+      * 学历筛选
+      * <p> 示例值：
+      */
     @SerializedName("degree_filter")
     private DegreeFilter degreeFilter;
-
-    // builder 开始
-    public Filter() {
-    }
-
-    public Filter(Builder builder) {
-        /**
-         * 筛选项 key
-         * <p> 示例值：degree
-         */
-        this.key = builder.key;
-        /**
-         * 筛选项值类型
-         * <p> 示例值：1
-         */
-        this.valueType = builder.valueType;
-        /**
-         * 筛选项值列表
-         * <p> 示例值：
-         */
-        this.valueList = builder.valueList;
-        /**
-         * 范围筛选
-         * <p> 示例值：
-         */
-        this.rangeFilter = builder.rangeFilter;
-        /**
-         * 候选人标签筛选
-         * <p> 示例值：
-         */
-        this.candidateTagFilter = builder.candidateTagFilter;
-        /**
-         * 学历筛选
-         * <p> 示例值：
-         */
-        this.degreeFilter = builder.degreeFilter;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKey() {
         return this.key;
     }
@@ -154,118 +108,159 @@ public class Filter {
         this.degreeFilter = degreeFilter;
     }
 
+
+// builder 开始
+  public Filter(){}
+
+  public Filter(Builder builder){
+         /**
+          * 筛选项 key
+          * <p> 示例值：degree
+          */
+      this.key = builder.key;
+         /**
+          * 筛选项值类型
+          * <p> 示例值：1
+          */
+      this.valueType = builder.valueType;
+         /**
+          * 筛选项值列表
+          * <p> 示例值：
+          */
+      this.valueList = builder.valueList;
+         /**
+          * 范围筛选
+          * <p> 示例值：
+          */
+      this.rangeFilter = builder.rangeFilter;
+         /**
+          * 候选人标签筛选
+          * <p> 示例值：
+          */
+      this.candidateTagFilter = builder.candidateTagFilter;
+         /**
+          * 学历筛选
+          * <p> 示例值：
+          */
+      this.degreeFilter = builder.degreeFilter;
+  }
+
     public static class Builder {
-        /**
-         * 筛选项 key
-         * <p> 示例值：degree
-         */
+     /**
+      * 筛选项 key
+      * <p> 示例值：degree
+      */
         private String key;
-        /**
-         * 筛选项值类型
-         * <p> 示例值：1
-         */
+     /**
+      * 筛选项值类型
+      * <p> 示例值：1
+      */
         private Integer valueType;
-        /**
-         * 筛选项值列表
-         * <p> 示例值：
-         */
+     /**
+      * 筛选项值列表
+      * <p> 示例值：
+      */
         private String[] valueList;
-        /**
-         * 范围筛选
-         * <p> 示例值：
-         */
+     /**
+      * 范围筛选
+      * <p> 示例值：
+      */
         private RangeFilter rangeFilter;
-        /**
-         * 候选人标签筛选
-         * <p> 示例值：
-         */
+     /**
+      * 候选人标签筛选
+      * <p> 示例值：
+      */
         private CandidateTagFilter candidateTagFilter;
-        /**
-         * 学历筛选
-         * <p> 示例值：
-         */
+     /**
+      * 学历筛选
+      * <p> 示例值：
+      */
         private DegreeFilter degreeFilter;
 
         /**
          * 筛选项 key
          * <p> 示例值：degree
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
 
         /**
          * 筛选项值类型
          * <p> 示例值：1
-         *
          * @param valueType
          * @return
          */
         public Builder valueType(Integer valueType) {
-            this.valueType = valueType;
-            return this;
+             this.valueType = valueType;
+             return this;
         }
 
+    
 
         /**
          * 筛选项值列表
          * <p> 示例值：
-         *
          * @param valueList
          * @return
          */
         public Builder valueList(String[] valueList) {
-            this.valueList = valueList;
-            return this;
+             this.valueList = valueList;
+             return this;
         }
 
+    
 
         /**
          * 范围筛选
          * <p> 示例值：
-         *
          * @param rangeFilter
          * @return
          */
         public Builder rangeFilter(RangeFilter rangeFilter) {
-            this.rangeFilter = rangeFilter;
-            return this;
+             this.rangeFilter = rangeFilter;
+             return this;
         }
 
+    
 
         /**
          * 候选人标签筛选
          * <p> 示例值：
-         *
          * @param candidateTagFilter
          * @return
          */
         public Builder candidateTagFilter(CandidateTagFilter candidateTagFilter) {
-            this.candidateTagFilter = candidateTagFilter;
-            return this;
+             this.candidateTagFilter = candidateTagFilter;
+             return this;
         }
 
+    
 
         /**
          * 学历筛选
          * <p> 示例值：
-         *
          * @param degreeFilter
          * @return
          */
         public Builder degreeFilter(DegreeFilter degreeFilter) {
-            this.degreeFilter = degreeFilter;
-            return this;
+             this.degreeFilter = degreeFilter;
+             return this;
         }
 
+    
+    
+    public Filter build(){
+        return new Filter(this);
+      }
+    }
 
-        public Filter build() {
-            return new Filter(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class VendorCompanyView {
-    /**
-     * 交易方公司视图id
-     * <p> 示例值：1453263653228318721
-     */
+     /**
+      * 交易方公司视图id
+      * <p> 示例值：1453263653228318721
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 公司代码
-     * <p> 示例值：1001
-     */
+     /**
+      * 公司代码
+      * <p> 示例值：1001
+      */
     @SerializedName("company_code")
     private String companyCode;
-    /**
-     * 总账科目
-     * <p> 示例值：22020101
-     */
+     /**
+      * 总账科目
+      * <p> 示例值：22020101
+      */
     @SerializedName("gl_account")
     private String glAccount;
-    /**
-     * 交易方sitecode
-     * <p> 示例值：999999
-     */
+     /**
+      * 交易方sitecode
+      * <p> 示例值：999999
+      */
     @SerializedName("vendor_site_code")
     private String vendorSiteCode;
-    /**
-     * 付款条件信息
-     * <p> 示例值：PT09
-     */
+     /**
+      * 付款条件信息
+      * <p> 示例值：PT09
+      */
     @SerializedName("payment_term")
     private String paymentTerm;
-    /**
-     * 预付条件
-     * <p> 示例值：PT08
-     */
+     /**
+      * 预付条件
+      * <p> 示例值：PT08
+      */
     @SerializedName("down_payment_term")
     private String downPaymentTerm;
-    /**
-     * 扩展字段相关信息列表
-     * <p> 示例值：
-     */
+     /**
+      * 扩展字段相关信息列表
+      * <p> 示例值：
+      */
     @SerializedName("extend_info")
     private ExtendField[] extendInfo;
-
-    // builder 开始
-    public VendorCompanyView() {
-    }
-
-    public VendorCompanyView(Builder builder) {
-        /**
-         * 交易方公司视图id
-         * <p> 示例值：1453263653228318721
-         */
-        this.id = builder.id;
-        /**
-         * 公司代码
-         * <p> 示例值：1001
-         */
-        this.companyCode = builder.companyCode;
-        /**
-         * 总账科目
-         * <p> 示例值：22020101
-         */
-        this.glAccount = builder.glAccount;
-        /**
-         * 交易方sitecode
-         * <p> 示例值：999999
-         */
-        this.vendorSiteCode = builder.vendorSiteCode;
-        /**
-         * 付款条件信息
-         * <p> 示例值：PT09
-         */
-        this.paymentTerm = builder.paymentTerm;
-        /**
-         * 预付条件
-         * <p> 示例值：PT08
-         */
-        this.downPaymentTerm = builder.downPaymentTerm;
-        /**
-         * 扩展字段相关信息列表
-         * <p> 示例值：
-         */
-        this.extendInfo = builder.extendInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -174,136 +123,182 @@ public class VendorCompanyView {
         this.extendInfo = extendInfo;
     }
 
+
+// builder 开始
+  public VendorCompanyView(){}
+
+  public VendorCompanyView(Builder builder){
+         /**
+          * 交易方公司视图id
+          * <p> 示例值：1453263653228318721
+          */
+      this.id = builder.id;
+         /**
+          * 公司代码
+          * <p> 示例值：1001
+          */
+      this.companyCode = builder.companyCode;
+         /**
+          * 总账科目
+          * <p> 示例值：22020101
+          */
+      this.glAccount = builder.glAccount;
+         /**
+          * 交易方sitecode
+          * <p> 示例值：999999
+          */
+      this.vendorSiteCode = builder.vendorSiteCode;
+         /**
+          * 付款条件信息
+          * <p> 示例值：PT09
+          */
+      this.paymentTerm = builder.paymentTerm;
+         /**
+          * 预付条件
+          * <p> 示例值：PT08
+          */
+      this.downPaymentTerm = builder.downPaymentTerm;
+         /**
+          * 扩展字段相关信息列表
+          * <p> 示例值：
+          */
+      this.extendInfo = builder.extendInfo;
+  }
+
     public static class Builder {
-        /**
-         * 交易方公司视图id
-         * <p> 示例值：1453263653228318721
-         */
+     /**
+      * 交易方公司视图id
+      * <p> 示例值：1453263653228318721
+      */
         private String id;
-        /**
-         * 公司代码
-         * <p> 示例值：1001
-         */
+     /**
+      * 公司代码
+      * <p> 示例值：1001
+      */
         private String companyCode;
-        /**
-         * 总账科目
-         * <p> 示例值：22020101
-         */
+     /**
+      * 总账科目
+      * <p> 示例值：22020101
+      */
         private String glAccount;
-        /**
-         * 交易方sitecode
-         * <p> 示例值：999999
-         */
+     /**
+      * 交易方sitecode
+      * <p> 示例值：999999
+      */
         private String vendorSiteCode;
-        /**
-         * 付款条件信息
-         * <p> 示例值：PT09
-         */
+     /**
+      * 付款条件信息
+      * <p> 示例值：PT09
+      */
         private String paymentTerm;
-        /**
-         * 预付条件
-         * <p> 示例值：PT08
-         */
+     /**
+      * 预付条件
+      * <p> 示例值：PT08
+      */
         private String downPaymentTerm;
-        /**
-         * 扩展字段相关信息列表
-         * <p> 示例值：
-         */
+     /**
+      * 扩展字段相关信息列表
+      * <p> 示例值：
+      */
         private ExtendField[] extendInfo;
 
         /**
          * 交易方公司视图id
          * <p> 示例值：1453263653228318721
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 公司代码
          * <p> 示例值：1001
-         *
          * @param companyCode
          * @return
          */
         public Builder companyCode(String companyCode) {
-            this.companyCode = companyCode;
-            return this;
+             this.companyCode = companyCode;
+             return this;
         }
 
+    
 
         /**
          * 总账科目
          * <p> 示例值：22020101
-         *
          * @param glAccount
          * @return
          */
         public Builder glAccount(String glAccount) {
-            this.glAccount = glAccount;
-            return this;
+             this.glAccount = glAccount;
+             return this;
         }
 
+    
 
         /**
          * 交易方sitecode
          * <p> 示例值：999999
-         *
          * @param vendorSiteCode
          * @return
          */
         public Builder vendorSiteCode(String vendorSiteCode) {
-            this.vendorSiteCode = vendorSiteCode;
-            return this;
+             this.vendorSiteCode = vendorSiteCode;
+             return this;
         }
 
+    
 
         /**
          * 付款条件信息
          * <p> 示例值：PT09
-         *
          * @param paymentTerm
          * @return
          */
         public Builder paymentTerm(String paymentTerm) {
-            this.paymentTerm = paymentTerm;
-            return this;
+             this.paymentTerm = paymentTerm;
+             return this;
         }
 
+    
 
         /**
          * 预付条件
          * <p> 示例值：PT08
-         *
          * @param downPaymentTerm
          * @return
          */
         public Builder downPaymentTerm(String downPaymentTerm) {
-            this.downPaymentTerm = downPaymentTerm;
-            return this;
+             this.downPaymentTerm = downPaymentTerm;
+             return this;
         }
 
+    
 
         /**
          * 扩展字段相关信息列表
          * <p> 示例值：
-         *
          * @param extendInfo
          * @return
          */
         public Builder extendInfo(ExtendField[] extendInfo) {
-            this.extendInfo = extendInfo;
-            return this;
+             this.extendInfo = extendInfo;
+             return this;
         }
 
+    
+    
+    public VendorCompanyView build(){
+        return new VendorCompanyView(this);
+      }
+    }
 
-        public VendorCompanyView build() {
-            return new VendorCompanyView(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

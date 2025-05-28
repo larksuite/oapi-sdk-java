@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,214 +19,114 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LocationAddressCreate {
-    /**
-     * 国家 / 地区
-     * <p> 示例值：6862995757234914824
-     */
+     /**
+      * 国家 / 地区
+      * <p> 示例值：6862995757234914824
+      */
     @SerializedName("country_region_id")
     private String countryRegionId;
-    /**
-     * 主要行政区
-     * <p> 示例值：6863326264296474119
-     */
+     /**
+      * 主要行政区
+      * <p> 示例值：6863326264296474119
+      */
     @SerializedName("region_id")
     private String regionId;
-    /**
-     * 城市
-     * <p> 示例值：6863333555859097096
-     */
+     /**
+      * 城市
+      * <p> 示例值：6863333555859097096
+      */
     @SerializedName("city_id")
     private String cityId;
-    /**
-     * 区 / 县
-     * <p> 示例值：6863333556291110408
-     */
+     /**
+      * 区 / 县
+      * <p> 示例值：6863333556291110408
+      */
     @SerializedName("distinct_id")
     private String distinctId;
-    /**
-     * 地址行 1（非拉丁语系的本地文字）
-     * <p> 示例值：丹佛测试地址-纽埃时区
-     */
+     /**
+      * 地址行 1（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
     @SerializedName("local_address_line1")
     private String localAddressLine1;
-    /**
-     * 地址行 2（非拉丁语系的本地文字）
-     * <p> 示例值：丹佛测试地址-纽埃时区
-     */
+     /**
+      * 地址行 2（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
     @SerializedName("local_address_line2")
     private String localAddressLine2;
-    /**
-     * 地址行 3（非拉丁语系的本地文字）
-     * <p> 示例值：丹佛测试地址-纽埃时区
-     */
+     /**
+      * 地址行 3（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
     @SerializedName("local_address_line3")
     private String localAddressLine3;
-    /**
-     * 地址行 4（非拉丁语系的本地文字）
-     * <p> 示例值：丹佛测试地址-纽埃时区
-     */
+     /**
+      * 地址行 4（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
     @SerializedName("local_address_line4")
     private String localAddressLine4;
-    /**
-     * 地址行 5（非拉丁语系的本地文字）
-     * <p> 示例值：丹佛测试地址-纽埃时区
-     */
+     /**
+      * 地址行 5（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
     @SerializedName("local_address_line5")
     private String localAddressLine5;
-    /**
-     * 地址行 6（非拉丁语系的本地文字）
-     * <p> 示例值：丹佛测试地址-纽埃时区
-     */
+     /**
+      * 地址行 6（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
     @SerializedName("local_address_line6")
     private String localAddressLine6;
-    /**
-     * 地址行 7（非拉丁语系的本地文字）
-     * <p> 示例值：丹佛测试地址-纽埃时区
-     */
+     /**
+      * 地址行 7（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
     @SerializedName("local_address_line7")
     private String localAddressLine7;
-    /**
-     * 地址行 8（非拉丁语系的本地文字）
-     * <p> 示例值：丹佛测试地址-纽埃时区
-     */
+     /**
+      * 地址行 8（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
     @SerializedName("local_address_line8")
     private String localAddressLine8;
-    /**
-     * 地址行 9（非拉丁语系的本地文字）
-     * <p> 示例值：丹佛测试地址-纽埃时区
-     */
+     /**
+      * 地址行 9（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
     @SerializedName("local_address_line9")
     private String localAddressLine9;
-    /**
-     * 邮政编码
-     * <p> 示例值：611530
-     */
+     /**
+      * 邮政编码
+      * <p> 示例值：611530
+      */
     @SerializedName("postal_code")
     private String postalCode;
-    /**
-     * 地址类型，枚举值及详细信息可通过【枚举常量介绍】查询获得
-     * <p> 示例值：
-     */
+     /**
+      * 地址类型，枚举值及详细信息可通过【枚举常量介绍】查询获得
+      * <p> 示例值：
+      */
     @SerializedName("address_types")
     private Enum[] addressTypes;
-    /**
-     * 是否主要地址
-     * <p> 示例值：true
-     */
+     /**
+      * 是否主要地址
+      * <p> 示例值：true
+      */
     @SerializedName("is_primary")
     private Boolean isPrimary;
-    /**
-     * 是否公开地址
-     * <p> 示例值：true
-     */
+     /**
+      * 是否公开地址
+      * <p> 示例值：true
+      */
     @SerializedName("is_public")
     private Boolean isPublic;
-
-    // builder 开始
-    public LocationAddressCreate() {
-    }
-
-    public LocationAddressCreate(Builder builder) {
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 主要行政区
-         * <p> 示例值：6863326264296474119
-         */
-        this.regionId = builder.regionId;
-        /**
-         * 城市
-         * <p> 示例值：6863333555859097096
-         */
-        this.cityId = builder.cityId;
-        /**
-         * 区 / 县
-         * <p> 示例值：6863333556291110408
-         */
-        this.distinctId = builder.distinctId;
-        /**
-         * 地址行 1（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
-        this.localAddressLine1 = builder.localAddressLine1;
-        /**
-         * 地址行 2（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
-        this.localAddressLine2 = builder.localAddressLine2;
-        /**
-         * 地址行 3（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
-        this.localAddressLine3 = builder.localAddressLine3;
-        /**
-         * 地址行 4（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
-        this.localAddressLine4 = builder.localAddressLine4;
-        /**
-         * 地址行 5（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
-        this.localAddressLine5 = builder.localAddressLine5;
-        /**
-         * 地址行 6（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
-        this.localAddressLine6 = builder.localAddressLine6;
-        /**
-         * 地址行 7（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
-        this.localAddressLine7 = builder.localAddressLine7;
-        /**
-         * 地址行 8（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
-        this.localAddressLine8 = builder.localAddressLine8;
-        /**
-         * 地址行 9（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
-        this.localAddressLine9 = builder.localAddressLine9;
-        /**
-         * 邮政编码
-         * <p> 示例值：611530
-         */
-        this.postalCode = builder.postalCode;
-        /**
-         * 地址类型，枚举值及详细信息可通过【枚举常量介绍】查询获得
-         * <p> 示例值：
-         */
-        this.addressTypes = builder.addressTypes;
-        /**
-         * 是否主要地址
-         * <p> 示例值：true
-         */
-        this.isPrimary = builder.isPrimary;
-        /**
-         * 是否公开地址
-         * <p> 示例值：true
-         */
-        this.isPublic = builder.isPublic;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCountryRegionId() {
         return this.countryRegionId;
     }
@@ -364,316 +263,412 @@ public class LocationAddressCreate {
         this.isPublic = isPublic;
     }
 
+
+// builder 开始
+  public LocationAddressCreate(){}
+
+  public LocationAddressCreate(Builder builder){
+         /**
+          * 国家 / 地区
+          * <p> 示例值：6862995757234914824
+          */
+      this.countryRegionId = builder.countryRegionId;
+         /**
+          * 主要行政区
+          * <p> 示例值：6863326264296474119
+          */
+      this.regionId = builder.regionId;
+         /**
+          * 城市
+          * <p> 示例值：6863333555859097096
+          */
+      this.cityId = builder.cityId;
+         /**
+          * 区 / 县
+          * <p> 示例值：6863333556291110408
+          */
+      this.distinctId = builder.distinctId;
+         /**
+          * 地址行 1（非拉丁语系的本地文字）
+          * <p> 示例值：丹佛测试地址-纽埃时区
+          */
+      this.localAddressLine1 = builder.localAddressLine1;
+         /**
+          * 地址行 2（非拉丁语系的本地文字）
+          * <p> 示例值：丹佛测试地址-纽埃时区
+          */
+      this.localAddressLine2 = builder.localAddressLine2;
+         /**
+          * 地址行 3（非拉丁语系的本地文字）
+          * <p> 示例值：丹佛测试地址-纽埃时区
+          */
+      this.localAddressLine3 = builder.localAddressLine3;
+         /**
+          * 地址行 4（非拉丁语系的本地文字）
+          * <p> 示例值：丹佛测试地址-纽埃时区
+          */
+      this.localAddressLine4 = builder.localAddressLine4;
+         /**
+          * 地址行 5（非拉丁语系的本地文字）
+          * <p> 示例值：丹佛测试地址-纽埃时区
+          */
+      this.localAddressLine5 = builder.localAddressLine5;
+         /**
+          * 地址行 6（非拉丁语系的本地文字）
+          * <p> 示例值：丹佛测试地址-纽埃时区
+          */
+      this.localAddressLine6 = builder.localAddressLine6;
+         /**
+          * 地址行 7（非拉丁语系的本地文字）
+          * <p> 示例值：丹佛测试地址-纽埃时区
+          */
+      this.localAddressLine7 = builder.localAddressLine7;
+         /**
+          * 地址行 8（非拉丁语系的本地文字）
+          * <p> 示例值：丹佛测试地址-纽埃时区
+          */
+      this.localAddressLine8 = builder.localAddressLine8;
+         /**
+          * 地址行 9（非拉丁语系的本地文字）
+          * <p> 示例值：丹佛测试地址-纽埃时区
+          */
+      this.localAddressLine9 = builder.localAddressLine9;
+         /**
+          * 邮政编码
+          * <p> 示例值：611530
+          */
+      this.postalCode = builder.postalCode;
+         /**
+          * 地址类型，枚举值及详细信息可通过【枚举常量介绍】查询获得
+          * <p> 示例值：
+          */
+      this.addressTypes = builder.addressTypes;
+         /**
+          * 是否主要地址
+          * <p> 示例值：true
+          */
+      this.isPrimary = builder.isPrimary;
+         /**
+          * 是否公开地址
+          * <p> 示例值：true
+          */
+      this.isPublic = builder.isPublic;
+  }
+
     public static class Builder {
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
+     /**
+      * 国家 / 地区
+      * <p> 示例值：6862995757234914824
+      */
         private String countryRegionId;
-        /**
-         * 主要行政区
-         * <p> 示例值：6863326264296474119
-         */
+     /**
+      * 主要行政区
+      * <p> 示例值：6863326264296474119
+      */
         private String regionId;
-        /**
-         * 城市
-         * <p> 示例值：6863333555859097096
-         */
+     /**
+      * 城市
+      * <p> 示例值：6863333555859097096
+      */
         private String cityId;
-        /**
-         * 区 / 县
-         * <p> 示例值：6863333556291110408
-         */
+     /**
+      * 区 / 县
+      * <p> 示例值：6863333556291110408
+      */
         private String distinctId;
-        /**
-         * 地址行 1（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
+     /**
+      * 地址行 1（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
         private String localAddressLine1;
-        /**
-         * 地址行 2（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
+     /**
+      * 地址行 2（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
         private String localAddressLine2;
-        /**
-         * 地址行 3（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
+     /**
+      * 地址行 3（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
         private String localAddressLine3;
-        /**
-         * 地址行 4（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
+     /**
+      * 地址行 4（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
         private String localAddressLine4;
-        /**
-         * 地址行 5（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
+     /**
+      * 地址行 5（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
         private String localAddressLine5;
-        /**
-         * 地址行 6（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
+     /**
+      * 地址行 6（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
         private String localAddressLine6;
-        /**
-         * 地址行 7（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
+     /**
+      * 地址行 7（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
         private String localAddressLine7;
-        /**
-         * 地址行 8（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
+     /**
+      * 地址行 8（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
         private String localAddressLine8;
-        /**
-         * 地址行 9（非拉丁语系的本地文字）
-         * <p> 示例值：丹佛测试地址-纽埃时区
-         */
+     /**
+      * 地址行 9（非拉丁语系的本地文字）
+      * <p> 示例值：丹佛测试地址-纽埃时区
+      */
         private String localAddressLine9;
-        /**
-         * 邮政编码
-         * <p> 示例值：611530
-         */
+     /**
+      * 邮政编码
+      * <p> 示例值：611530
+      */
         private String postalCode;
-        /**
-         * 地址类型，枚举值及详细信息可通过【枚举常量介绍】查询获得
-         * <p> 示例值：
-         */
+     /**
+      * 地址类型，枚举值及详细信息可通过【枚举常量介绍】查询获得
+      * <p> 示例值：
+      */
         private Enum[] addressTypes;
-        /**
-         * 是否主要地址
-         * <p> 示例值：true
-         */
+     /**
+      * 是否主要地址
+      * <p> 示例值：true
+      */
         private Boolean isPrimary;
-        /**
-         * 是否公开地址
-         * <p> 示例值：true
-         */
+     /**
+      * 是否公开地址
+      * <p> 示例值：true
+      */
         private Boolean isPublic;
 
         /**
          * 国家 / 地区
          * <p> 示例值：6862995757234914824
-         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
+             this.countryRegionId = countryRegionId;
+             return this;
         }
 
+    
 
         /**
          * 主要行政区
          * <p> 示例值：6863326264296474119
-         *
          * @param regionId
          * @return
          */
         public Builder regionId(String regionId) {
-            this.regionId = regionId;
-            return this;
+             this.regionId = regionId;
+             return this;
         }
 
+    
 
         /**
          * 城市
          * <p> 示例值：6863333555859097096
-         *
          * @param cityId
          * @return
          */
         public Builder cityId(String cityId) {
-            this.cityId = cityId;
-            return this;
+             this.cityId = cityId;
+             return this;
         }
 
+    
 
         /**
          * 区 / 县
          * <p> 示例值：6863333556291110408
-         *
          * @param distinctId
          * @return
          */
         public Builder distinctId(String distinctId) {
-            this.distinctId = distinctId;
-            return this;
+             this.distinctId = distinctId;
+             return this;
         }
 
+    
 
         /**
          * 地址行 1（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
-         *
          * @param localAddressLine1
          * @return
          */
         public Builder localAddressLine1(String localAddressLine1) {
-            this.localAddressLine1 = localAddressLine1;
-            return this;
+             this.localAddressLine1 = localAddressLine1;
+             return this;
         }
 
+    
 
         /**
          * 地址行 2（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
-         *
          * @param localAddressLine2
          * @return
          */
         public Builder localAddressLine2(String localAddressLine2) {
-            this.localAddressLine2 = localAddressLine2;
-            return this;
+             this.localAddressLine2 = localAddressLine2;
+             return this;
         }
 
+    
 
         /**
          * 地址行 3（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
-         *
          * @param localAddressLine3
          * @return
          */
         public Builder localAddressLine3(String localAddressLine3) {
-            this.localAddressLine3 = localAddressLine3;
-            return this;
+             this.localAddressLine3 = localAddressLine3;
+             return this;
         }
 
+    
 
         /**
          * 地址行 4（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
-         *
          * @param localAddressLine4
          * @return
          */
         public Builder localAddressLine4(String localAddressLine4) {
-            this.localAddressLine4 = localAddressLine4;
-            return this;
+             this.localAddressLine4 = localAddressLine4;
+             return this;
         }
 
+    
 
         /**
          * 地址行 5（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
-         *
          * @param localAddressLine5
          * @return
          */
         public Builder localAddressLine5(String localAddressLine5) {
-            this.localAddressLine5 = localAddressLine5;
-            return this;
+             this.localAddressLine5 = localAddressLine5;
+             return this;
         }
 
+    
 
         /**
          * 地址行 6（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
-         *
          * @param localAddressLine6
          * @return
          */
         public Builder localAddressLine6(String localAddressLine6) {
-            this.localAddressLine6 = localAddressLine6;
-            return this;
+             this.localAddressLine6 = localAddressLine6;
+             return this;
         }
 
+    
 
         /**
          * 地址行 7（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
-         *
          * @param localAddressLine7
          * @return
          */
         public Builder localAddressLine7(String localAddressLine7) {
-            this.localAddressLine7 = localAddressLine7;
-            return this;
+             this.localAddressLine7 = localAddressLine7;
+             return this;
         }
 
+    
 
         /**
          * 地址行 8（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
-         *
          * @param localAddressLine8
          * @return
          */
         public Builder localAddressLine8(String localAddressLine8) {
-            this.localAddressLine8 = localAddressLine8;
-            return this;
+             this.localAddressLine8 = localAddressLine8;
+             return this;
         }
 
+    
 
         /**
          * 地址行 9（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
-         *
          * @param localAddressLine9
          * @return
          */
         public Builder localAddressLine9(String localAddressLine9) {
-            this.localAddressLine9 = localAddressLine9;
-            return this;
+             this.localAddressLine9 = localAddressLine9;
+             return this;
         }
 
+    
 
         /**
          * 邮政编码
          * <p> 示例值：611530
-         *
          * @param postalCode
          * @return
          */
         public Builder postalCode(String postalCode) {
-            this.postalCode = postalCode;
-            return this;
+             this.postalCode = postalCode;
+             return this;
         }
 
+    
 
         /**
          * 地址类型，枚举值及详细信息可通过【枚举常量介绍】查询获得
          * <p> 示例值：
-         *
          * @param addressTypes
          * @return
          */
         public Builder addressTypes(Enum[] addressTypes) {
-            this.addressTypes = addressTypes;
-            return this;
+             this.addressTypes = addressTypes;
+             return this;
         }
 
+    
 
         /**
          * 是否主要地址
          * <p> 示例值：true
-         *
          * @param isPrimary
          * @return
          */
         public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = isPrimary;
-            return this;
+             this.isPrimary = isPrimary;
+             return this;
         }
 
+    
 
         /**
          * 是否公开地址
          * <p> 示例值：true
-         *
          * @param isPublic
          * @return
          */
         public Builder isPublic(Boolean isPublic) {
-            this.isPublic = isPublic;
-            return this;
+             this.isPublic = isPublic;
+             return this;
         }
 
+    
+    
+    public LocationAddressCreate build(){
+        return new LocationAddressCreate(this);
+      }
+    }
 
-        public LocationAddressCreate build() {
-            return new LocationAddressCreate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

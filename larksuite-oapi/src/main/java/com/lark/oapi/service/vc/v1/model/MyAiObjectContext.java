@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MyAiObjectContext {
-    /**
-     * 会话所在实体类型
-     * <p> 示例值：DOC
-     */
+     /**
+      * 会话所在实体类型
+      * <p> 示例值：DOC
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 业务资源 ID
-     * <p> 示例值：ou_xxx
-     */
+     /**
+      * 业务资源 ID
+      * <p> 示例值：ou_xxx
+      */
     @SerializedName("biz_id")
     private String bizId;
-
-    // builder 开始
-    public MyAiObjectContext() {
-    }
-
-    public MyAiObjectContext(Builder builder) {
-        /**
-         * 会话所在实体类型
-         * <p> 示例值：DOC
-         */
-        this.type = builder.type;
-        /**
-         * 业务资源 ID
-         * <p> 示例值：ou_xxx
-         */
-        this.bizId = builder.bizId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -79,58 +53,77 @@ public class MyAiObjectContext {
         this.bizId = bizId;
     }
 
+
+// builder 开始
+  public MyAiObjectContext(){}
+
+  public MyAiObjectContext(Builder builder){
+         /**
+          * 会话所在实体类型
+          * <p> 示例值：DOC
+          */
+      this.type = builder.type;
+         /**
+          * 业务资源 ID
+          * <p> 示例值：ou_xxx
+          */
+      this.bizId = builder.bizId;
+  }
+
     public static class Builder {
-        /**
-         * 会话所在实体类型
-         * <p> 示例值：DOC
-         */
+     /**
+      * 会话所在实体类型
+      * <p> 示例值：DOC
+      */
         private String type;
-        /**
-         * 业务资源 ID
-         * <p> 示例值：ou_xxx
-         */
+     /**
+      * 业务资源 ID
+      * <p> 示例值：ou_xxx
+      */
         private String bizId;
 
         /**
          * 会话所在实体类型
          * <p> 示例值：DOC
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 会话所在实体类型
          * <p> 示例值：DOC
-         *
          * @param type {@link com.lark.oapi.service.vc.v1.enums.MyAiObjectContextTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.vc.v1.enums.MyAiObjectContextTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 业务资源 ID
          * <p> 示例值：ou_xxx
-         *
          * @param bizId
          * @return
          */
         public Builder bizId(String bizId) {
-            this.bizId = bizId;
-            return this;
+             this.bizId = bizId;
+             return this;
         }
 
+    
+    
+    public MyAiObjectContext build(){
+        return new MyAiObjectContext(this);
+      }
+    }
 
-        public MyAiObjectContext build() {
-            return new MyAiObjectContext(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

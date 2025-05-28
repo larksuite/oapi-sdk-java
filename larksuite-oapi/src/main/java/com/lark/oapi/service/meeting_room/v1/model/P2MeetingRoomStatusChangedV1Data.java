@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.meeting_room.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2MeetingRoomStatusChangedV1Data {
-    /**
-     * 会议室名称
-     * <p> 示例值：room1
-     */
+     /**
+      * 会议室名称
+      * <p> 示例值：room1
+      */
     @SerializedName("room_name")
     private String roomName;
-    /**
-     * 会议室 ID
-     * <p> 示例值：omb_8d020b12fe49e82847c2af3c193d5754
-     */
+     /**
+      * 会议室 ID
+      * <p> 示例值：omb_8d020b12fe49e82847c2af3c193d5754
+      */
     @SerializedName("room_id")
     private String roomId;
-
     public String getRoomName() {
         return this.roomName;
     }

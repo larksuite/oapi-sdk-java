@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateSectionReq {
-    /**
-     * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
-     */
+     /**
+      * 表示user的ID的类型，支持open_id, user_id, union_id
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    @Body
-    private InputSection body;
-
-    // builder 开始
-    public CreateSectionReq() {
-    }
-
-    public CreateSectionReq(Builder builder) {
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -62,6 +38,9 @@ public class CreateSectionReq {
     public void setUserIdType(String userIdType) {
         this.userIdType = userIdType;
     }
+
+    @Body
+    private InputSection body;
 
     public InputSection getInputSection() {
         return this.body;
@@ -71,39 +50,54 @@ public class CreateSectionReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateSectionReq(){}
+
+  public CreateSectionReq(Builder builder){
+         /**
+          * 表示user的ID的类型，支持open_id, user_id, union_id
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private InputSection body;
-
+    
         /**
          * 表示user的ID的类型，支持open_id, user_id, union_id
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+        private InputSection body;
+    
         public InputSection getInputSection() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder inputSection(InputSection body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateSectionReq build(){
+        return new CreateSectionReq(this);
+      }
+    }
 
-        public CreateSectionReq build() {
-            return new CreateSectionReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

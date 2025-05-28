@@ -12,94 +12,46 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ContactsRangeConfigurationApplicationReq {
-    /**
-     * 分页大小
-     * <p> 示例值：20
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：20
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 返回值的部门ID的类型
-     * <p> 示例值：department_id
-     */
+     /**
+      * 返回值的部门ID的类型
+      * <p> 示例值：department_id
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 应用的 id
-     * <p> 示例值：cli_9b445f5258795107
-     */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-
-    // builder 开始
-    public ContactsRangeConfigurationApplicationReq() {
-    }
-
-    public ContactsRangeConfigurationApplicationReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 返回值的部门ID的类型
-         * <p> 示例值：department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用的 id
-         * <p> 示例值：cli_9b445f5258795107
-         */
-        this.appId = builder.appId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -132,6 +84,13 @@ public class ContactsRangeConfigurationApplicationReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 应用的 id
+      * <p> 示例值：cli_9b445f5258795107
+      */
+    @Path
+    @SerializedName("app_id")
+    private String appId;
     public String getAppId() {
         return this.appId;
     }
@@ -140,100 +99,133 @@ public class ContactsRangeConfigurationApplicationReq {
         this.appId = appId;
     }
 
+
+// builder 开始
+  public ContactsRangeConfigurationApplicationReq(){}
+
+  public ContactsRangeConfigurationApplicationReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：20
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 返回值的部门ID的类型
+          * <p> 示例值：department_id
+          */
+       this.departmentIdType = builder.departmentIdType;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 应用的 id
+      * <p> 示例值：cli_9b445f5258795107
+      */
+       this.appId = builder.appId;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String departmentIdType; // 返回值的部门ID的类型
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String appId; // 应用的 id
-
+    
         /**
          * 分页大小
          * <p> 示例值：20
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
         /**
          * 返回值的部门ID的类型
          * <p> 示例值：department_id
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
         /**
          * 返回值的部门ID的类型
          * <p> 示例值：department_id
-         *
          * @param departmentIdType {@link com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
+          public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationDepartmentIDTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
 
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationUserIDTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String appId; // 应用的 id
         /**
          * 应用的 id
          * <p> 示例值：cli_9b445f5258795107
-         *
          * @param appId
          * @return
          */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
 
+    
+    public ContactsRangeConfigurationApplicationReq build(){
+        return new ContactsRangeConfigurationApplicationReq(this);
+      }
+    }
 
-        public ContactsRangeConfigurationApplicationReq build() {
-            return new ContactsRangeConfigurationApplicationReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchEmployeesAdditionalJobReqBody {
-    /**
-     * 雇佣 ID
-     * <p> 示例值：
-     */
+     /**
+      * 雇佣 ID
+      * <p> 示例值：
+      */
     @SerializedName("employment_ids")
     private String[] employmentIds;
-    /**
-     * 兼职 ID
-     * <p> 示例值：
-     */
+     /**
+      * 兼职 ID
+      * <p> 示例值：
+      */
     @SerializedName("additional_job_ids")
     private String[] additionalJobIds;
-    /**
-     * 开始日期
-     * <p> 示例值：
-     */
+     /**
+      * 开始日期
+      * <p> 示例值：
+      */
     @SerializedName("start_date")
     private EmployeesAdditionalJobBatchReqDate startDate;
-    /**
-     * 结束日期
-     * <p> 示例值：
-     */
+     /**
+      * 结束日期
+      * <p> 示例值：
+      */
     @SerializedName("end_date")
     private EmployeesAdditionalJobBatchReqDate endDate;
-    /**
-     * 查看数据日期，默认当天
-     * <p> 示例值：2024-01-02
-     */
+     /**
+      * 查看数据日期，默认当天
+      * <p> 示例值：2024-01-02
+      */
     @SerializedName("data_date")
     private String dataDate;
-    /**
-     * 仅查询 【data_date】日期生效中的
-     * <p> 示例值：true
-     */
+     /**
+      * 仅查询 【data_date】日期生效中的
+      * <p> 示例值：true
+      */
     @SerializedName("is_effective")
     private Boolean isEffective;
-
-    // builder 开始
-    public BatchEmployeesAdditionalJobReqBody() {
-    }
-
-    public BatchEmployeesAdditionalJobReqBody(Builder builder) {
-        /**
-         * 雇佣 ID
-         * <p> 示例值：
-         */
-        this.employmentIds = builder.employmentIds;
-        /**
-         * 兼职 ID
-         * <p> 示例值：
-         */
-        this.additionalJobIds = builder.additionalJobIds;
-        /**
-         * 开始日期
-         * <p> 示例值：
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 结束日期
-         * <p> 示例值：
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 查看数据日期，默认当天
-         * <p> 示例值：2024-01-02
-         */
-        this.dataDate = builder.dataDate;
-        /**
-         * 仅查询 【data_date】日期生效中的
-         * <p> 示例值：true
-         */
-        this.isEffective = builder.isEffective;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getEmploymentIds() {
         return this.employmentIds;
     }
@@ -155,118 +109,159 @@ public class BatchEmployeesAdditionalJobReqBody {
         this.isEffective = isEffective;
     }
 
+
+// builder 开始
+  public BatchEmployeesAdditionalJobReqBody(){}
+
+  public BatchEmployeesAdditionalJobReqBody(Builder builder){
+         /**
+          * 雇佣 ID
+          * <p> 示例值：
+          */
+      this.employmentIds = builder.employmentIds;
+         /**
+          * 兼职 ID
+          * <p> 示例值：
+          */
+      this.additionalJobIds = builder.additionalJobIds;
+         /**
+          * 开始日期
+          * <p> 示例值：
+          */
+      this.startDate = builder.startDate;
+         /**
+          * 结束日期
+          * <p> 示例值：
+          */
+      this.endDate = builder.endDate;
+         /**
+          * 查看数据日期，默认当天
+          * <p> 示例值：2024-01-02
+          */
+      this.dataDate = builder.dataDate;
+         /**
+          * 仅查询 【data_date】日期生效中的
+          * <p> 示例值：true
+          */
+      this.isEffective = builder.isEffective;
+  }
+
     public static class Builder {
-        /**
-         * 雇佣 ID
-         * <p> 示例值：
-         */
+     /**
+      * 雇佣 ID
+      * <p> 示例值：
+      */
         private String[] employmentIds;
-        /**
-         * 兼职 ID
-         * <p> 示例值：
-         */
+     /**
+      * 兼职 ID
+      * <p> 示例值：
+      */
         private String[] additionalJobIds;
-        /**
-         * 开始日期
-         * <p> 示例值：
-         */
+     /**
+      * 开始日期
+      * <p> 示例值：
+      */
         private EmployeesAdditionalJobBatchReqDate startDate;
-        /**
-         * 结束日期
-         * <p> 示例值：
-         */
+     /**
+      * 结束日期
+      * <p> 示例值：
+      */
         private EmployeesAdditionalJobBatchReqDate endDate;
-        /**
-         * 查看数据日期，默认当天
-         * <p> 示例值：2024-01-02
-         */
+     /**
+      * 查看数据日期，默认当天
+      * <p> 示例值：2024-01-02
+      */
         private String dataDate;
-        /**
-         * 仅查询 【data_date】日期生效中的
-         * <p> 示例值：true
-         */
+     /**
+      * 仅查询 【data_date】日期生效中的
+      * <p> 示例值：true
+      */
         private Boolean isEffective;
 
         /**
          * 雇佣 ID
          * <p> 示例值：
-         *
          * @param employmentIds
          * @return
          */
         public Builder employmentIds(String[] employmentIds) {
-            this.employmentIds = employmentIds;
-            return this;
+             this.employmentIds = employmentIds;
+             return this;
         }
 
+    
 
         /**
          * 兼职 ID
          * <p> 示例值：
-         *
          * @param additionalJobIds
          * @return
          */
         public Builder additionalJobIds(String[] additionalJobIds) {
-            this.additionalJobIds = additionalJobIds;
-            return this;
+             this.additionalJobIds = additionalJobIds;
+             return this;
         }
 
+    
 
         /**
          * 开始日期
          * <p> 示例值：
-         *
          * @param startDate
          * @return
          */
         public Builder startDate(EmployeesAdditionalJobBatchReqDate startDate) {
-            this.startDate = startDate;
-            return this;
+             this.startDate = startDate;
+             return this;
         }
 
+    
 
         /**
          * 结束日期
          * <p> 示例值：
-         *
          * @param endDate
          * @return
          */
         public Builder endDate(EmployeesAdditionalJobBatchReqDate endDate) {
-            this.endDate = endDate;
-            return this;
+             this.endDate = endDate;
+             return this;
         }
 
+    
 
         /**
          * 查看数据日期，默认当天
          * <p> 示例值：2024-01-02
-         *
          * @param dataDate
          * @return
          */
         public Builder dataDate(String dataDate) {
-            this.dataDate = dataDate;
-            return this;
+             this.dataDate = dataDate;
+             return this;
         }
 
+    
 
         /**
          * 仅查询 【data_date】日期生效中的
          * <p> 示例值：true
-         *
          * @param isEffective
          * @return
          */
         public Builder isEffective(Boolean isEffective) {
-            this.isEffective = isEffective;
-            return this;
+             this.isEffective = isEffective;
+             return this;
         }
 
+    
+    
+    public BatchEmployeesAdditionalJobReqBody build(){
+        return new BatchEmployeesAdditionalJobReqBody(this);
+      }
+    }
 
-        public BatchEmployeesAdditionalJobReqBody build() {
-            return new BatchEmployeesAdditionalJobReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

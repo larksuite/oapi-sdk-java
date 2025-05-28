@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryAdditionalInformationReqBody {
-    /**
-     * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-     * <p> 示例值：7348736302176534547
-     */
+     /**
+      * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
+      * <p> 示例值：7348736302176534547
+      */
     @SerializedName("semester_id")
     private String semesterId;
-    /**
-     * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
-     * <p> 示例值：
-     */
+     /**
+      * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
+      * <p> 示例值：
+      */
     @SerializedName("item_ids")
     private String[] itemIds;
-    /**
-     * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
-     * <p> 示例值：
-     */
+     /**
+      * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
+      * <p> 示例值：
+      */
     @SerializedName("external_ids")
     private String[] externalIds;
-    /**
-     * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
-     * <p> 示例值：
-     */
+     /**
+      * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
+      * <p> 示例值：
+      */
     @SerializedName("reviewee_user_ids")
     private String[] revieweeUserIds;
-
-    // builder 开始
-    public QueryAdditionalInformationReqBody() {
-    }
-
-    public QueryAdditionalInformationReqBody(Builder builder) {
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
-         * <p> 示例值：
-         */
-        this.itemIds = builder.itemIds;
-        /**
-         * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         */
-        this.externalIds = builder.externalIds;
-        /**
-         * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         */
-        this.revieweeUserIds = builder.revieweeUserIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSemesterId() {
         return this.semesterId;
     }
@@ -117,82 +81,113 @@ public class QueryAdditionalInformationReqBody {
         this.revieweeUserIds = revieweeUserIds;
     }
 
+
+// builder 开始
+  public QueryAdditionalInformationReqBody(){}
+
+  public QueryAdditionalInformationReqBody(Builder builder){
+         /**
+          * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
+          * <p> 示例值：7348736302176534547
+          */
+      this.semesterId = builder.semesterId;
+         /**
+          * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
+          * <p> 示例值：
+          */
+      this.itemIds = builder.itemIds;
+         /**
+          * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
+          * <p> 示例值：
+          */
+      this.externalIds = builder.externalIds;
+         /**
+          * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
+          * <p> 示例值：
+          */
+      this.revieweeUserIds = builder.revieweeUserIds;
+  }
+
     public static class Builder {
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         */
+     /**
+      * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
+      * <p> 示例值：7348736302176534547
+      */
         private String semesterId;
-        /**
-         * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
-         * <p> 示例值：
-         */
+     /**
+      * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
+      * <p> 示例值：
+      */
         private String[] itemIds;
-        /**
-         * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         */
+     /**
+      * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
+      * <p> 示例值：
+      */
         private String[] externalIds;
-        /**
-         * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         */
+     /**
+      * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
+      * <p> 示例值：
+      */
         private String[] revieweeUserIds;
 
         /**
          * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
          * <p> 示例值：7348736302176534547
-         *
          * @param semesterId
          * @return
          */
         public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
+             this.semesterId = semesterId;
+             return this;
         }
 
+    
 
         /**
          * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
          * <p> 示例值：
-         *
          * @param itemIds
          * @return
          */
         public Builder itemIds(String[] itemIds) {
-            this.itemIds = itemIds;
-            return this;
+             this.itemIds = itemIds;
+             return this;
         }
 
+    
 
         /**
          * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
          * <p> 示例值：
-         *
          * @param externalIds
          * @return
          */
         public Builder externalIds(String[] externalIds) {
-            this.externalIds = externalIds;
-            return this;
+             this.externalIds = externalIds;
+             return this;
         }
 
+    
 
         /**
          * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
          * <p> 示例值：
-         *
          * @param revieweeUserIds
          * @return
          */
         public Builder revieweeUserIds(String[] revieweeUserIds) {
-            this.revieweeUserIds = revieweeUserIds;
-            return this;
+             this.revieweeUserIds = revieweeUserIds;
+             return this;
         }
 
+    
+    
+    public QueryAdditionalInformationReqBody build(){
+        return new QueryAdditionalInformationReqBody(this);
+      }
+    }
 
-        public QueryAdditionalInformationReqBody build() {
-            return new QueryAdditionalInformationReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

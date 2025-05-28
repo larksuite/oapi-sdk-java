@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,170 +19,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DocChunkResult {
-    /**
-     * 段落索引
-     * <p> 示例值：1
-     */
+     /**
+      * 段落索引
+      * <p> 示例值：1
+      */
     @SerializedName("id")
     private Integer id;
-    /**
-     * 该chunk属于哪一种文档元素
-     * <p> 示例值：title
-     */
+     /**
+      * 该chunk属于哪一种文档元素
+      * <p> 示例值：title
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * chunk的位置信息，pdf文档中会有bbox和page_no
-     * <p> 示例值：
-     */
+     /**
+      * chunk的位置信息，pdf文档中会有bbox和page_no
+      * <p> 示例值：
+      */
     @SerializedName("positions")
     private DocChunkPosition positions;
-    /**
-     * 段落文本内容
-     * <p> 示例值：设备采购合同...
-     */
+     /**
+      * 段落文本内容
+      * <p> 示例值：设备采购合同...
+      */
     @SerializedName("text")
     private String text;
-    /**
-     * 段落层级，类似飞书文档的Hn
-     * <p> 示例值：1
-     */
+     /**
+      * 段落层级，类似飞书文档的Hn
+      * <p> 示例值：1
+      */
     @SerializedName("level")
     private Integer level;
-    /**
-     * 当前段落父节点索引
-     * <p> 示例值：1
-     */
+     /**
+      * 当前段落父节点索引
+      * <p> 示例值：1
+      */
     @SerializedName("parent")
     private Integer parent;
-    /**
-     * 当前段落所有子节点索引
-     * <p> 示例值：
-     */
+     /**
+      * 当前段落所有子节点索引
+      * <p> 示例值：
+      */
     @SerializedName("children")
     private Integer[] children;
-    /**
-     * 段落的语义标签，（以论文为例，会有title, author, abstract, introduction, related works...）
-     * <p> 示例值：author
-     */
+     /**
+      * 段落的语义标签，（以论文为例，会有title, author, abstract, introduction, related works...）
+      * <p> 示例值：author
+      */
     @SerializedName("label")
     private String label;
-    /**
-     * 飞书文档的block_id字段
-     * <p> 示例值：123
-     */
+     /**
+      * 飞书文档的block_id字段
+      * <p> 示例值：123
+      */
     @SerializedName("block_id")
     private String blockId;
-    /**
-     * 如chunk=table，则此字段包含表格信息
-     * <p> 示例值：
-     */
+     /**
+      * 如chunk=table，则此字段包含表格信息
+      * <p> 示例值：
+      */
     @SerializedName("table_detail")
     private DocChunkTableDetail tableDetail;
-    /**
-     * 多模态返回的详细信息
-     * <p> 示例值：
-     */
+     /**
+      * 多模态返回的详细信息
+      * <p> 示例值：
+      */
     @SerializedName("llm_detail")
     private LlmDetail llmDetail;
-    /**
-     * 图片内容详细信息
-     * <p> 示例值：
-     */
+     /**
+      * 图片内容详细信息
+      * <p> 示例值：
+      */
     @SerializedName("image_detail")
     private ImageDetail imageDetail;
-    /**
-     * pptx文件里面的页码
-     * <p> 示例值：1
-     */
+     /**
+      * pptx文件里面的页码
+      * <p> 示例值：1
+      */
     @SerializedName("slide_index")
     private String slideIndex;
-
-    // builder 开始
-    public DocChunkResult() {
-    }
-
-    public DocChunkResult(Builder builder) {
-        /**
-         * 段落索引
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 该chunk属于哪一种文档元素
-         * <p> 示例值：title
-         */
-        this.type = builder.type;
-        /**
-         * chunk的位置信息，pdf文档中会有bbox和page_no
-         * <p> 示例值：
-         */
-        this.positions = builder.positions;
-        /**
-         * 段落文本内容
-         * <p> 示例值：设备采购合同...
-         */
-        this.text = builder.text;
-        /**
-         * 段落层级，类似飞书文档的Hn
-         * <p> 示例值：1
-         */
-        this.level = builder.level;
-        /**
-         * 当前段落父节点索引
-         * <p> 示例值：1
-         */
-        this.parent = builder.parent;
-        /**
-         * 当前段落所有子节点索引
-         * <p> 示例值：
-         */
-        this.children = builder.children;
-        /**
-         * 段落的语义标签，（以论文为例，会有title, author, abstract, introduction, related works...）
-         * <p> 示例值：author
-         */
-        this.label = builder.label;
-        /**
-         * 飞书文档的block_id字段
-         * <p> 示例值：123
-         */
-        this.blockId = builder.blockId;
-        /**
-         * 如chunk=table，则此字段包含表格信息
-         * <p> 示例值：
-         */
-        this.tableDetail = builder.tableDetail;
-        /**
-         * 多模态返回的详细信息
-         * <p> 示例值：
-         */
-        this.llmDetail = builder.llmDetail;
-        /**
-         * 图片内容详细信息
-         * <p> 示例值：
-         */
-        this.imageDetail = builder.imageDetail;
-        /**
-         * pptx文件里面的页码
-         * <p> 示例值：1
-         */
-        this.slideIndex = builder.slideIndex;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getId() {
         return this.id;
     }
@@ -288,256 +207,330 @@ public class DocChunkResult {
         this.slideIndex = slideIndex;
     }
 
+
+// builder 开始
+  public DocChunkResult(){}
+
+  public DocChunkResult(Builder builder){
+         /**
+          * 段落索引
+          * <p> 示例值：1
+          */
+      this.id = builder.id;
+         /**
+          * 该chunk属于哪一种文档元素
+          * <p> 示例值：title
+          */
+      this.type = builder.type;
+         /**
+          * chunk的位置信息，pdf文档中会有bbox和page_no
+          * <p> 示例值：
+          */
+      this.positions = builder.positions;
+         /**
+          * 段落文本内容
+          * <p> 示例值：设备采购合同...
+          */
+      this.text = builder.text;
+         /**
+          * 段落层级，类似飞书文档的Hn
+          * <p> 示例值：1
+          */
+      this.level = builder.level;
+         /**
+          * 当前段落父节点索引
+          * <p> 示例值：1
+          */
+      this.parent = builder.parent;
+         /**
+          * 当前段落所有子节点索引
+          * <p> 示例值：
+          */
+      this.children = builder.children;
+         /**
+          * 段落的语义标签，（以论文为例，会有title, author, abstract, introduction, related works...）
+          * <p> 示例值：author
+          */
+      this.label = builder.label;
+         /**
+          * 飞书文档的block_id字段
+          * <p> 示例值：123
+          */
+      this.blockId = builder.blockId;
+         /**
+          * 如chunk=table，则此字段包含表格信息
+          * <p> 示例值：
+          */
+      this.tableDetail = builder.tableDetail;
+         /**
+          * 多模态返回的详细信息
+          * <p> 示例值：
+          */
+      this.llmDetail = builder.llmDetail;
+         /**
+          * 图片内容详细信息
+          * <p> 示例值：
+          */
+      this.imageDetail = builder.imageDetail;
+         /**
+          * pptx文件里面的页码
+          * <p> 示例值：1
+          */
+      this.slideIndex = builder.slideIndex;
+  }
+
     public static class Builder {
-        /**
-         * 段落索引
-         * <p> 示例值：1
-         */
+     /**
+      * 段落索引
+      * <p> 示例值：1
+      */
         private Integer id;
-        /**
-         * 该chunk属于哪一种文档元素
-         * <p> 示例值：title
-         */
+     /**
+      * 该chunk属于哪一种文档元素
+      * <p> 示例值：title
+      */
         private String type;
-        /**
-         * chunk的位置信息，pdf文档中会有bbox和page_no
-         * <p> 示例值：
-         */
+     /**
+      * chunk的位置信息，pdf文档中会有bbox和page_no
+      * <p> 示例值：
+      */
         private DocChunkPosition positions;
-        /**
-         * 段落文本内容
-         * <p> 示例值：设备采购合同...
-         */
+     /**
+      * 段落文本内容
+      * <p> 示例值：设备采购合同...
+      */
         private String text;
-        /**
-         * 段落层级，类似飞书文档的Hn
-         * <p> 示例值：1
-         */
+     /**
+      * 段落层级，类似飞书文档的Hn
+      * <p> 示例值：1
+      */
         private Integer level;
-        /**
-         * 当前段落父节点索引
-         * <p> 示例值：1
-         */
+     /**
+      * 当前段落父节点索引
+      * <p> 示例值：1
+      */
         private Integer parent;
-        /**
-         * 当前段落所有子节点索引
-         * <p> 示例值：
-         */
+     /**
+      * 当前段落所有子节点索引
+      * <p> 示例值：
+      */
         private Integer[] children;
-        /**
-         * 段落的语义标签，（以论文为例，会有title, author, abstract, introduction, related works...）
-         * <p> 示例值：author
-         */
+     /**
+      * 段落的语义标签，（以论文为例，会有title, author, abstract, introduction, related works...）
+      * <p> 示例值：author
+      */
         private String label;
-        /**
-         * 飞书文档的block_id字段
-         * <p> 示例值：123
-         */
+     /**
+      * 飞书文档的block_id字段
+      * <p> 示例值：123
+      */
         private String blockId;
-        /**
-         * 如chunk=table，则此字段包含表格信息
-         * <p> 示例值：
-         */
+     /**
+      * 如chunk=table，则此字段包含表格信息
+      * <p> 示例值：
+      */
         private DocChunkTableDetail tableDetail;
-        /**
-         * 多模态返回的详细信息
-         * <p> 示例值：
-         */
+     /**
+      * 多模态返回的详细信息
+      * <p> 示例值：
+      */
         private LlmDetail llmDetail;
-        /**
-         * 图片内容详细信息
-         * <p> 示例值：
-         */
+     /**
+      * 图片内容详细信息
+      * <p> 示例值：
+      */
         private ImageDetail imageDetail;
-        /**
-         * pptx文件里面的页码
-         * <p> 示例值：1
-         */
+     /**
+      * pptx文件里面的页码
+      * <p> 示例值：1
+      */
         private String slideIndex;
 
         /**
          * 段落索引
          * <p> 示例值：1
-         *
          * @param id
          * @return
          */
         public Builder id(Integer id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 该chunk属于哪一种文档元素
          * <p> 示例值：title
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 该chunk属于哪一种文档元素
          * <p> 示例值：title
-         *
          * @param type {@link com.lark.oapi.service.document_ai.v1.enums.DocChunkResultDocChunkResultTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.document_ai.v1.enums.DocChunkResultDocChunkResultTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * chunk的位置信息，pdf文档中会有bbox和page_no
          * <p> 示例值：
-         *
          * @param positions
          * @return
          */
         public Builder positions(DocChunkPosition positions) {
-            this.positions = positions;
-            return this;
+             this.positions = positions;
+             return this;
         }
 
+    
 
         /**
          * 段落文本内容
          * <p> 示例值：设备采购合同...
-         *
          * @param text
          * @return
          */
         public Builder text(String text) {
-            this.text = text;
-            return this;
+             this.text = text;
+             return this;
         }
 
+    
 
         /**
          * 段落层级，类似飞书文档的Hn
          * <p> 示例值：1
-         *
          * @param level
          * @return
          */
         public Builder level(Integer level) {
-            this.level = level;
-            return this;
+             this.level = level;
+             return this;
         }
 
+    
 
         /**
          * 当前段落父节点索引
          * <p> 示例值：1
-         *
          * @param parent
          * @return
          */
         public Builder parent(Integer parent) {
-            this.parent = parent;
-            return this;
+             this.parent = parent;
+             return this;
         }
 
+    
 
         /**
          * 当前段落所有子节点索引
          * <p> 示例值：
-         *
          * @param children
          * @return
          */
         public Builder children(Integer[] children) {
-            this.children = children;
-            return this;
+             this.children = children;
+             return this;
         }
 
+    
 
         /**
          * 段落的语义标签，（以论文为例，会有title, author, abstract, introduction, related works...）
          * <p> 示例值：author
-         *
          * @param label
          * @return
          */
         public Builder label(String label) {
-            this.label = label;
-            return this;
+             this.label = label;
+             return this;
         }
 
+    
 
         /**
          * 飞书文档的block_id字段
          * <p> 示例值：123
-         *
          * @param blockId
          * @return
          */
         public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
+             this.blockId = blockId;
+             return this;
         }
 
+    
 
         /**
          * 如chunk=table，则此字段包含表格信息
          * <p> 示例值：
-         *
          * @param tableDetail
          * @return
          */
         public Builder tableDetail(DocChunkTableDetail tableDetail) {
-            this.tableDetail = tableDetail;
-            return this;
+             this.tableDetail = tableDetail;
+             return this;
         }
 
+    
 
         /**
          * 多模态返回的详细信息
          * <p> 示例值：
-         *
          * @param llmDetail
          * @return
          */
         public Builder llmDetail(LlmDetail llmDetail) {
-            this.llmDetail = llmDetail;
-            return this;
+             this.llmDetail = llmDetail;
+             return this;
         }
 
+    
 
         /**
          * 图片内容详细信息
          * <p> 示例值：
-         *
          * @param imageDetail
          * @return
          */
         public Builder imageDetail(ImageDetail imageDetail) {
-            this.imageDetail = imageDetail;
-            return this;
+             this.imageDetail = imageDetail;
+             return this;
         }
 
+    
 
         /**
          * pptx文件里面的页码
          * <p> 示例值：1
-         *
          * @param slideIndex
          * @return
          */
         public Builder slideIndex(String slideIndex) {
-            this.slideIndex = slideIndex;
-            return this;
+             this.slideIndex = slideIndex;
+             return this;
         }
 
+    
+    
+    public DocChunkResult build(){
+        return new DocChunkResult(this);
+      }
+    }
 
-        public DocChunkResult build() {
-            return new DocChunkResult(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

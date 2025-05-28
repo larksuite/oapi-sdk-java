@@ -25,19 +25,16 @@ public class BlockService {
     private final Message message; // 服务端 API
 
     public BlockService(Config config) {
-        this.v2 = new V2(config);
-        this.entity = new Entity(config);
-        this.message = new Message(config);
+    this.v2 = new V2(config);
+    this.entity = new Entity(config);
+    this.message = new Message(config);
     }
-
     public V2 v2() {
         return v2;
     }
-
     public Entity entity() {
         return entity;
     }
-
     public Message message() {
         return message;
     }

@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchUserMailboxFolderReq {
-    /**
-     * 用户邮箱地址 或 输入me代表当前调用接口用户
-     * <p> 示例值：user@xxx.xx 或 me
-     */
+     /**
+      * 用户邮箱地址 或 输入me代表当前调用接口用户
+      * <p> 示例值：user@xxx.xx 或 me
+      */
     @Path
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
-    /**
-     * 文件夹 id
-     * <p> 示例值：111111
-     */
+     /**
+      * 文件夹 id
+      * <p> 示例值：111111
+      */
     @Path
     @SerializedName("folder_id")
     private String folderId;
-    @Body
-    private Folder body;
-
-    // builder 开始
-    public PatchUserMailboxFolderReq() {
-    }
-
-    public PatchUserMailboxFolderReq(Builder builder) {
-        /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 文件夹 id
-         * <p> 示例值：111111
-         */
-        this.folderId = builder.folderId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -83,6 +54,9 @@ public class PatchUserMailboxFolderReq {
         this.folderId = folderId;
     }
 
+    @Body
+    private Folder body;
+
     public Folder getFolder() {
         return this.body;
     }
@@ -91,53 +65,72 @@ public class PatchUserMailboxFolderReq {
         this.body = body;
     }
 
-    public static class Builder {
+// builder 开始
+  public PatchUserMailboxFolderReq(){}
 
+  public PatchUserMailboxFolderReq(Builder builder){
+     /**
+      * 用户邮箱地址 或 输入me代表当前调用接口用户
+      * <p> 示例值：user@xxx.xx 或 me
+      */
+       this.userMailboxId = builder.userMailboxId;
+     /**
+      * 文件夹 id
+      * <p> 示例值：111111
+      */
+       this.folderId = builder.folderId;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+    
         private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
         private String folderId; // 文件夹 id
-        private Folder body;
-
         /**
          * 用户邮箱地址 或 输入me代表当前调用接口用户
          * <p> 示例值：user@xxx.xx 或 me
-         *
          * @param userMailboxId
          * @return
          */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
+          public Builder userMailboxId(String userMailboxId) {
+               this.userMailboxId = userMailboxId;
+               return this;
+          }
 
+    
         /**
          * 文件夹 id
          * <p> 示例值：111111
-         *
          * @param folderId
          * @return
          */
-        public Builder folderId(String folderId) {
-            this.folderId = folderId;
-            return this;
-        }
+          public Builder folderId(String folderId) {
+               this.folderId = folderId;
+               return this;
+          }
 
+    
+        private Folder body;
+    
         public Folder getFolder() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder folder(Folder body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchUserMailboxFolderReq build(){
+        return new PatchUserMailboxFolderReq(this);
+      }
+    }
 
-        public PatchUserMailboxFolderReq build() {
-            return new PatchUserMailboxFolderReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

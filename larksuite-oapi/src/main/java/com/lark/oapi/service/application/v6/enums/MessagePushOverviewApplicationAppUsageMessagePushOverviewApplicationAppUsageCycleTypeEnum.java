@@ -17,17 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 枚举值：day，week，month；week指自然周，返回当前日期所在周的数据；不满一周则从周一到当前日期算。month指自然月，返回当前日期所在月的数据。
  */
 public enum MessagePushOverviewApplicationAppUsageMessagePushOverviewApplicationAppUsageCycleTypeEnum {
-    DAY(1), // 日活
-    WEEK(2), // 周活， date字段应该填自然周周一的日期
-    MONTH(3), // 月活， date字段应该填自然月1号的日期
-    ;
-    private Integer value;
-
+     DAY(1), // 日活
+     WEEK(2), // 周活， date字段应该填自然周周一的日期
+     MONTH(3), // 月活， date字段应该填自然月1号的日期
+  ;
+   private Integer value;
     MessagePushOverviewApplicationAppUsageMessagePushOverviewApplicationAppUsageCycleTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

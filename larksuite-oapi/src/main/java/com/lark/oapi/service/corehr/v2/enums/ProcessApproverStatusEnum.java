@@ -17,16 +17,15 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 将审批任务修改为同意/拒绝
  */
 public enum ProcessApproverStatusEnum {
-    APPROVED(2), // 拒绝
-    REJECTED(3), // 通过
-    ;
-    private Integer value;
-
+     APPROVED(2), // 拒绝
+     REJECTED(3), // 通过
+  ;
+   private Integer value;
     ProcessApproverStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

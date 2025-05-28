@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PaymentActivityDetail {
-    /**
-     * 员工的唯一标识
-     * <p> 示例值：7202076988667019308
-     */
+     /**
+      * 员工的唯一标识
+      * <p> 示例值：7202076988667019308
+      */
     @SerializedName("employee_id")
     private String employeeId;
-    /**
-     * 发薪明细详情
-     * <p> 示例值：
-     */
+     /**
+      * 发薪明细详情
+      * <p> 示例值：
+      */
     @SerializedName("payment_details")
     private PaymentAccountingItem[] paymentDetails;
-
-    // builder 开始
-    public PaymentActivityDetail() {
-    }
-
-    public PaymentActivityDetail(Builder builder) {
-        /**
-         * 员工的唯一标识
-         * <p> 示例值：7202076988667019308
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 发薪明细详情
-         * <p> 示例值：
-         */
-        this.paymentDetails = builder.paymentDetails;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEmployeeId() {
         return this.employeeId;
     }
@@ -79,46 +53,67 @@ public class PaymentActivityDetail {
         this.paymentDetails = paymentDetails;
     }
 
+
+// builder 开始
+  public PaymentActivityDetail(){}
+
+  public PaymentActivityDetail(Builder builder){
+         /**
+          * 员工的唯一标识
+          * <p> 示例值：7202076988667019308
+          */
+      this.employeeId = builder.employeeId;
+         /**
+          * 发薪明细详情
+          * <p> 示例值：
+          */
+      this.paymentDetails = builder.paymentDetails;
+  }
+
     public static class Builder {
-        /**
-         * 员工的唯一标识
-         * <p> 示例值：7202076988667019308
-         */
+     /**
+      * 员工的唯一标识
+      * <p> 示例值：7202076988667019308
+      */
         private String employeeId;
-        /**
-         * 发薪明细详情
-         * <p> 示例值：
-         */
+     /**
+      * 发薪明细详情
+      * <p> 示例值：
+      */
         private PaymentAccountingItem[] paymentDetails;
 
         /**
          * 员工的唯一标识
          * <p> 示例值：7202076988667019308
-         *
          * @param employeeId
          * @return
          */
         public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
+             this.employeeId = employeeId;
+             return this;
         }
 
+    
 
         /**
          * 发薪明细详情
          * <p> 示例值：
-         *
          * @param paymentDetails
          * @return
          */
         public Builder paymentDetails(PaymentAccountingItem[] paymentDetails) {
-            this.paymentDetails = paymentDetails;
-            return this;
+             this.paymentDetails = paymentDetails;
+             return this;
         }
 
+    
+    
+    public PaymentActivityDetail build(){
+        return new PaymentActivityDetail(this);
+      }
+    }
 
-        public PaymentActivityDetail build() {
-            return new PaymentActivityDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

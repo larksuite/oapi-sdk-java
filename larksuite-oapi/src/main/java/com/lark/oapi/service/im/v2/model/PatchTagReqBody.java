@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchTagReqBody {
-    /**
-     * 编辑标签
-     * <p> 示例值：
-     */
+     /**
+      * 编辑标签
+      * <p> 示例值：
+      */
     @SerializedName("patch_tag")
     private PatchTag patchTag;
-    /**
-     * 机器人id
-     * <p> 示例值：716168xxxxx
-     */
+     /**
+      * 机器人id
+      * <p> 示例值：716168xxxxx
+      */
     @SerializedName("bot_id")
     private String botId;
-
-    // builder 开始
-    public PatchTagReqBody() {
-    }
-
-    public PatchTagReqBody(Builder builder) {
-        /**
-         * 编辑标签
-         * <p> 示例值：
-         */
-        this.patchTag = builder.patchTag;
-        /**
-         * 机器人id
-         * <p> 示例值：716168xxxxx
-         */
-        this.botId = builder.botId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public PatchTag getPatchTag() {
         return this.patchTag;
     }
@@ -79,46 +53,67 @@ public class PatchTagReqBody {
         this.botId = botId;
     }
 
+
+// builder 开始
+  public PatchTagReqBody(){}
+
+  public PatchTagReqBody(Builder builder){
+         /**
+          * 编辑标签
+          * <p> 示例值：
+          */
+      this.patchTag = builder.patchTag;
+         /**
+          * 机器人id
+          * <p> 示例值：716168xxxxx
+          */
+      this.botId = builder.botId;
+  }
+
     public static class Builder {
-        /**
-         * 编辑标签
-         * <p> 示例值：
-         */
+     /**
+      * 编辑标签
+      * <p> 示例值：
+      */
         private PatchTag patchTag;
-        /**
-         * 机器人id
-         * <p> 示例值：716168xxxxx
-         */
+     /**
+      * 机器人id
+      * <p> 示例值：716168xxxxx
+      */
         private String botId;
 
         /**
          * 编辑标签
          * <p> 示例值：
-         *
          * @param patchTag
          * @return
          */
         public Builder patchTag(PatchTag patchTag) {
-            this.patchTag = patchTag;
-            return this;
+             this.patchTag = patchTag;
+             return this;
         }
 
+    
 
         /**
          * 机器人id
          * <p> 示例值：716168xxxxx
-         *
          * @param botId
          * @return
          */
         public Builder botId(String botId) {
-            this.botId = botId;
-            return this;
+             this.botId = botId;
+             return this;
         }
 
+    
+    
+    public PatchTagReqBody build(){
+        return new PatchTagReqBody(this);
+      }
+    }
 
-        public PatchTagReqBody build() {
-            return new PatchTagReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

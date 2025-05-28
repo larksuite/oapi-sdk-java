@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InstanceComment {
-    /**
-     * 评论 id
-     * <p> 示例值：1234
-     */
+     /**
+      * 评论 id
+      * <p> 示例值：1234
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 发表评论用户
-     * <p> 示例值：f7cb567e
-     */
+     /**
+      * 发表评论用户
+      * <p> 示例值：f7cb567e
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 发表评论用户 open id
-     * <p> 示例值：ou_123456
-     */
+     /**
+      * 发表评论用户 open id
+      * <p> 示例值：ou_123456
+      */
     @SerializedName("open_id")
     private String openId;
-    /**
-     * 评论内容
-     * <p> 示例值：ok
-     */
+     /**
+      * 评论内容
+      * <p> 示例值：ok
+      */
     @SerializedName("comment")
     private String comment;
-    /**
-     * 1564590532967
-     * <p> 示例值：评论时间
-     */
+     /**
+      * 1564590532967
+      * <p> 示例值：评论时间
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 评论附件
-     * <p> 示例值：
-     */
+     /**
+      * 评论附件
+      * <p> 示例值：
+      */
     @SerializedName("files")
     private File[] files;
-
-    // builder 开始
-    public InstanceComment() {
-    }
-
-    public InstanceComment(Builder builder) {
-        /**
-         * 评论 id
-         * <p> 示例值：1234
-         */
-        this.id = builder.id;
-        /**
-         * 发表评论用户
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-        /**
-         * 发表评论用户 open id
-         * <p> 示例值：ou_123456
-         */
-        this.openId = builder.openId;
-        /**
-         * 评论内容
-         * <p> 示例值：ok
-         */
-        this.comment = builder.comment;
-        /**
-         * 1564590532967
-         * <p> 示例值：评论时间
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 评论附件
-         * <p> 示例值：
-         */
-        this.files = builder.files;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -155,118 +109,159 @@ public class InstanceComment {
         this.files = files;
     }
 
+
+// builder 开始
+  public InstanceComment(){}
+
+  public InstanceComment(Builder builder){
+         /**
+          * 评论 id
+          * <p> 示例值：1234
+          */
+      this.id = builder.id;
+         /**
+          * 发表评论用户
+          * <p> 示例值：f7cb567e
+          */
+      this.userId = builder.userId;
+         /**
+          * 发表评论用户 open id
+          * <p> 示例值：ou_123456
+          */
+      this.openId = builder.openId;
+         /**
+          * 评论内容
+          * <p> 示例值：ok
+          */
+      this.comment = builder.comment;
+         /**
+          * 1564590532967
+          * <p> 示例值：评论时间
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 评论附件
+          * <p> 示例值：
+          */
+      this.files = builder.files;
+  }
+
     public static class Builder {
-        /**
-         * 评论 id
-         * <p> 示例值：1234
-         */
+     /**
+      * 评论 id
+      * <p> 示例值：1234
+      */
         private String id;
-        /**
-         * 发表评论用户
-         * <p> 示例值：f7cb567e
-         */
+     /**
+      * 发表评论用户
+      * <p> 示例值：f7cb567e
+      */
         private String userId;
-        /**
-         * 发表评论用户 open id
-         * <p> 示例值：ou_123456
-         */
+     /**
+      * 发表评论用户 open id
+      * <p> 示例值：ou_123456
+      */
         private String openId;
-        /**
-         * 评论内容
-         * <p> 示例值：ok
-         */
+     /**
+      * 评论内容
+      * <p> 示例值：ok
+      */
         private String comment;
-        /**
-         * 1564590532967
-         * <p> 示例值：评论时间
-         */
+     /**
+      * 1564590532967
+      * <p> 示例值：评论时间
+      */
         private String createTime;
-        /**
-         * 评论附件
-         * <p> 示例值：
-         */
+     /**
+      * 评论附件
+      * <p> 示例值：
+      */
         private File[] files;
 
         /**
          * 评论 id
          * <p> 示例值：1234
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 发表评论用户
          * <p> 示例值：f7cb567e
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 发表评论用户 open id
          * <p> 示例值：ou_123456
-         *
          * @param openId
          * @return
          */
         public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
+             this.openId = openId;
+             return this;
         }
 
+    
 
         /**
          * 评论内容
          * <p> 示例值：ok
-         *
          * @param comment
          * @return
          */
         public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
+             this.comment = comment;
+             return this;
         }
 
+    
 
         /**
          * 1564590532967
          * <p> 示例值：评论时间
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 评论附件
          * <p> 示例值：
-         *
          * @param files
          * @return
          */
         public Builder files(File[] files) {
-            this.files = files;
-            return this;
+             this.files = files;
+             return this;
         }
 
+    
+    
+    public InstanceComment build(){
+        return new InstanceComment(this);
+      }
+    }
 
-        public InstanceComment build() {
-            return new InstanceComment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

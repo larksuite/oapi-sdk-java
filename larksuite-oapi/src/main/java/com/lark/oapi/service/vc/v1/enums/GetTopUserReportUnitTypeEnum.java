@@ -17,18 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 数据驻留地
  */
 public enum GetTopUserReportUnitTypeEnum {
-    CN(0), // 中国大陆
-    VA(1), // 美国
-    SG(2), // 新加坡
-    JP(3), // 日本
-    ;
-    private Integer value;
-
+     CN(0), // 中国大陆
+     VA(1), // 美国
+     SG(2), // 新加坡
+     JP(3), // 日本
+  ;
+   private Integer value;
     GetTopUserReportUnitTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

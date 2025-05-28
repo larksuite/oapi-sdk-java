@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetOfferApplicationFormReq {
-    /**
-     * offer申请表 ID
-     * <p> 示例值：237186812432
-     */
+     /**
+      * offer申请表 ID
+      * <p> 示例值：237186812432
+      */
     @Path
     @SerializedName("offer_application_form_id")
     private String offerApplicationFormId;
-
-    // builder 开始
-    public GetOfferApplicationFormReq() {
-    }
-
-    public GetOfferApplicationFormReq(Builder builder) {
-        /**
-         * offer申请表 ID
-         * <p> 示例值：237186812432
-         */
-        this.offerApplicationFormId = builder.offerApplicationFormId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getOfferApplicationFormId() {
         return this.offerApplicationFormId;
     }
@@ -59,25 +38,39 @@ public class GetOfferApplicationFormReq {
         this.offerApplicationFormId = offerApplicationFormId;
     }
 
+
+// builder 开始
+  public GetOfferApplicationFormReq(){}
+
+  public GetOfferApplicationFormReq(Builder builder){
+     /**
+      * offer申请表 ID
+      * <p> 示例值：237186812432
+      */
+       this.offerApplicationFormId = builder.offerApplicationFormId;
+  }
+
     public static class Builder {
-
+    
         private String offerApplicationFormId; // offer申请表 ID
-
         /**
          * offer申请表 ID
          * <p> 示例值：237186812432
-         *
          * @param offerApplicationFormId
          * @return
          */
-        public Builder offerApplicationFormId(String offerApplicationFormId) {
-            this.offerApplicationFormId = offerApplicationFormId;
-            return this;
-        }
+          public Builder offerApplicationFormId(String offerApplicationFormId) {
+               this.offerApplicationFormId = offerApplicationFormId;
+               return this;
+          }
 
+    
+    public GetOfferApplicationFormReq build(){
+        return new GetOfferApplicationFormReq(this);
+      }
+    }
 
-        public GetOfferApplicationFormReq build() {
-            return new GetOfferApplicationFormReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

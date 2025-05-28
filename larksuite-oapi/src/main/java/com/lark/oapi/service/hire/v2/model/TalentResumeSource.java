@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TalentResumeSource {
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     */
+     /**
+      * ID
+      * <p> 示例值：6891560630172518670
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 中文名
-     * <p> 示例值：猎头
-     */
+     /**
+      * 中文名
+      * <p> 示例值：猎头
+      */
     @SerializedName("zh_name")
     private String zhName;
-    /**
-     * 英文名
-     * <p> 示例值：Hunter
-     */
+     /**
+      * 英文名
+      * <p> 示例值：Hunter
+      */
     @SerializedName("en_name")
     private String enName;
-
-    // builder 开始
-    public TalentResumeSource() {
-    }
-
-    public TalentResumeSource(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 中文名
-         * <p> 示例值：猎头
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 英文名
-         * <p> 示例值：Hunter
-         */
-        this.enName = builder.enName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -97,64 +66,90 @@ public class TalentResumeSource {
         this.enName = enName;
     }
 
+
+// builder 开始
+  public TalentResumeSource(){}
+
+  public TalentResumeSource(Builder builder){
+         /**
+          * ID
+          * <p> 示例值：6891560630172518670
+          */
+      this.id = builder.id;
+         /**
+          * 中文名
+          * <p> 示例值：猎头
+          */
+      this.zhName = builder.zhName;
+         /**
+          * 英文名
+          * <p> 示例值：Hunter
+          */
+      this.enName = builder.enName;
+  }
+
     public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
+     /**
+      * ID
+      * <p> 示例值：6891560630172518670
+      */
         private String id;
-        /**
-         * 中文名
-         * <p> 示例值：猎头
-         */
+     /**
+      * 中文名
+      * <p> 示例值：猎头
+      */
         private String zhName;
-        /**
-         * 英文名
-         * <p> 示例值：Hunter
-         */
+     /**
+      * 英文名
+      * <p> 示例值：Hunter
+      */
         private String enName;
 
         /**
          * ID
          * <p> 示例值：6891560630172518670
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 中文名
          * <p> 示例值：猎头
-         *
          * @param zhName
          * @return
          */
         public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
+             this.zhName = zhName;
+             return this;
         }
 
+    
 
         /**
          * 英文名
          * <p> 示例值：Hunter
-         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
+             this.enName = enName;
+             return this;
         }
 
+    
+    
+    public TalentResumeSource build(){
+        return new TalentResumeSource(this);
+      }
+    }
 
-        public TalentResumeSource build() {
-            return new TalentResumeSource(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

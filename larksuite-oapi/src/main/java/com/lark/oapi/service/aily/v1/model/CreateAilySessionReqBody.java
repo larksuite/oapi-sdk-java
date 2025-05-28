@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateAilySessionReqBody {
-    /**
-     * 渠道上下文
-     * <p> 示例值：{}
-     */
+     /**
+      * 渠道上下文
+      * <p> 示例值：{}
+      */
     @SerializedName("channel_context")
     private String channelContext;
-    /**
-     * 其他透传信息
-     * <p> 示例值：{}
-     */
+     /**
+      * 其他透传信息
+      * <p> 示例值：{}
+      */
     @SerializedName("metadata")
     private String metadata;
-
-    // builder 开始
-    public CreateAilySessionReqBody() {
-    }
-
-    public CreateAilySessionReqBody(Builder builder) {
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         */
-        this.channelContext = builder.channelContext;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        this.metadata = builder.metadata;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getChannelContext() {
         return this.channelContext;
     }
@@ -79,46 +53,67 @@ public class CreateAilySessionReqBody {
         this.metadata = metadata;
     }
 
+
+// builder 开始
+  public CreateAilySessionReqBody(){}
+
+  public CreateAilySessionReqBody(Builder builder){
+         /**
+          * 渠道上下文
+          * <p> 示例值：{}
+          */
+      this.channelContext = builder.channelContext;
+         /**
+          * 其他透传信息
+          * <p> 示例值：{}
+          */
+      this.metadata = builder.metadata;
+  }
+
     public static class Builder {
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         */
+     /**
+      * 渠道上下文
+      * <p> 示例值：{}
+      */
         private String channelContext;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
+     /**
+      * 其他透传信息
+      * <p> 示例值：{}
+      */
         private String metadata;
 
         /**
          * 渠道上下文
          * <p> 示例值：{}
-         *
          * @param channelContext
          * @return
          */
         public Builder channelContext(String channelContext) {
-            this.channelContext = channelContext;
-            return this;
+             this.channelContext = channelContext;
+             return this;
         }
 
+    
 
         /**
          * 其他透传信息
          * <p> 示例值：{}
-         *
          * @param metadata
          * @return
          */
         public Builder metadata(String metadata) {
-            this.metadata = metadata;
-            return this;
+             this.metadata = metadata;
+             return this;
         }
 
+    
+    
+    public CreateAilySessionReqBody build(){
+        return new CreateAilySessionReqBody(this);
+      }
+    }
 
-        public CreateAilySessionReqBody build() {
-            return new CreateAilySessionReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

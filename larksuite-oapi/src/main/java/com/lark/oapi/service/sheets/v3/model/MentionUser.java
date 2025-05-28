@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MentionUser {
-    /**
-     * 用户名
-     * <p> 示例值：李四
-     */
+     /**
+      * 用户名
+      * <p> 示例值：李四
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 用户id
-     * <p> 示例值：ou_xxxxxxx
-     */
+     /**
+      * 用户id
+      * <p> 示例值：ou_xxxxxxx
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 是否通知用户
-     * <p> 示例值：true
-     */
+     /**
+      * 是否通知用户
+      * <p> 示例值：true
+      */
     @SerializedName("notify")
     private Boolean notify;
-    /**
-     * 局部样式
-     * <p> 示例值：
-     */
+     /**
+      * 局部样式
+      * <p> 示例值：
+      */
     @SerializedName("segment_style")
     private SegmentStyle segmentStyle;
-
-    // builder 开始
-    public MentionUser() {
-    }
-
-    public MentionUser(Builder builder) {
-        /**
-         * 用户名
-         * <p> 示例值：李四
-         */
-        this.name = builder.name;
-        /**
-         * 用户id
-         * <p> 示例值：ou_xxxxxxx
-         */
-        this.userId = builder.userId;
-        /**
-         * 是否通知用户
-         * <p> 示例值：true
-         */
-        this.notify = builder.notify;
-        /**
-         * 局部样式
-         * <p> 示例值：
-         */
-        this.segmentStyle = builder.segmentStyle;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -117,82 +81,113 @@ public class MentionUser {
         this.segmentStyle = segmentStyle;
     }
 
+
+// builder 开始
+  public MentionUser(){}
+
+  public MentionUser(Builder builder){
+         /**
+          * 用户名
+          * <p> 示例值：李四
+          */
+      this.name = builder.name;
+         /**
+          * 用户id
+          * <p> 示例值：ou_xxxxxxx
+          */
+      this.userId = builder.userId;
+         /**
+          * 是否通知用户
+          * <p> 示例值：true
+          */
+      this.notify = builder.notify;
+         /**
+          * 局部样式
+          * <p> 示例值：
+          */
+      this.segmentStyle = builder.segmentStyle;
+  }
+
     public static class Builder {
-        /**
-         * 用户名
-         * <p> 示例值：李四
-         */
+     /**
+      * 用户名
+      * <p> 示例值：李四
+      */
         private String name;
-        /**
-         * 用户id
-         * <p> 示例值：ou_xxxxxxx
-         */
+     /**
+      * 用户id
+      * <p> 示例值：ou_xxxxxxx
+      */
         private String userId;
-        /**
-         * 是否通知用户
-         * <p> 示例值：true
-         */
+     /**
+      * 是否通知用户
+      * <p> 示例值：true
+      */
         private Boolean notify;
-        /**
-         * 局部样式
-         * <p> 示例值：
-         */
+     /**
+      * 局部样式
+      * <p> 示例值：
+      */
         private SegmentStyle segmentStyle;
 
         /**
          * 用户名
          * <p> 示例值：李四
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 用户id
          * <p> 示例值：ou_xxxxxxx
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 是否通知用户
          * <p> 示例值：true
-         *
          * @param notify
          * @return
          */
         public Builder notify(Boolean notify) {
-            this.notify = notify;
-            return this;
+             this.notify = notify;
+             return this;
         }
 
+    
 
         /**
          * 局部样式
          * <p> 示例值：
-         *
          * @param segmentStyle
          * @return
          */
         public Builder segmentStyle(SegmentStyle segmentStyle) {
-            this.segmentStyle = segmentStyle;
-            return this;
+             this.segmentStyle = segmentStyle;
+             return this;
         }
 
+    
+    
+    public MentionUser build(){
+        return new MentionUser(this);
+      }
+    }
 
-        public MentionUser build() {
-            return new MentionUser(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SiteJobCity {
-    /**
-     * 地址code
-     * <p> 示例值：
-     */
+     /**
+      * 地址code
+      * <p> 示例值：
+      */
     @SerializedName("city_code")
     private String cityCode;
-    /**
-     * 地址名称
-     * <p> 示例值：
-     */
+     /**
+      * 地址名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private SiteName name;
-
-    // builder 开始
-    public SiteJobCity() {
-    }
-
-    public SiteJobCity(Builder builder) {
-        /**
-         * 地址code
-         * <p> 示例值：
-         */
-        this.cityCode = builder.cityCode;
-        /**
-         * 地址名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCityCode() {
         return this.cityCode;
     }
@@ -78,46 +52,67 @@ public class SiteJobCity {
         this.name = name;
     }
 
+
+// builder 开始
+  public SiteJobCity(){}
+
+  public SiteJobCity(Builder builder){
+         /**
+          * 地址code
+          * <p> 示例值：
+          */
+      this.cityCode = builder.cityCode;
+         /**
+          * 地址名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 地址code
-         * <p> 示例值：
-         */
+     /**
+      * 地址code
+      * <p> 示例值：
+      */
         private String cityCode;
-        /**
-         * 地址名称
-         * <p> 示例值：
-         */
+     /**
+      * 地址名称
+      * <p> 示例值：
+      */
         private SiteName name;
 
         /**
          * 地址code
          * <p> 示例值：
-         *
          * @param cityCode
          * @return
          */
         public Builder cityCode(String cityCode) {
-            this.cityCode = cityCode;
-            return this;
+             this.cityCode = cityCode;
+             return this;
         }
 
+    
 
         /**
          * 地址名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(SiteName name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public SiteJobCity build(){
+        return new SiteJobCity(this);
+      }
+    }
 
-        public SiteJobCity build() {
-            return new SiteJobCity(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

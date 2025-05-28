@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteJobFamilyReq {
-    /**
-     * 需要删除的职务序列 ID
-     * <p> 示例值：5425424525
-     */
+     /**
+      * 需要删除的职务序列 ID
+      * <p> 示例值：5425424525
+      */
     @Path
     @SerializedName("job_family_id")
     private String jobFamilyId;
-
-    // builder 开始
-    public DeleteJobFamilyReq() {
-    }
-
-    public DeleteJobFamilyReq(Builder builder) {
-        /**
-         * 需要删除的职务序列 ID
-         * <p> 示例值：5425424525
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getJobFamilyId() {
         return this.jobFamilyId;
     }
@@ -60,25 +39,39 @@ public class DeleteJobFamilyReq {
         this.jobFamilyId = jobFamilyId;
     }
 
+
+// builder 开始
+  public DeleteJobFamilyReq(){}
+
+  public DeleteJobFamilyReq(Builder builder){
+     /**
+      * 需要删除的职务序列 ID
+      * <p> 示例值：5425424525
+      */
+       this.jobFamilyId = builder.jobFamilyId;
+  }
+
     public static class Builder {
-
+    
         private String jobFamilyId; // 需要删除的职务序列 ID
-
         /**
          * 需要删除的职务序列 ID
          * <p> 示例值：5425424525
-         *
          * @param jobFamilyId
          * @return
          */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
+          public Builder jobFamilyId(String jobFamilyId) {
+               this.jobFamilyId = jobFamilyId;
+               return this;
+          }
 
+    
+    public DeleteJobFamilyReq build(){
+        return new DeleteJobFamilyReq(this);
+      }
+    }
 
-        public DeleteJobFamilyReq build() {
-            return new DeleteJobFamilyReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GroupEvent {
-    /**
-     * 用户组的自定义ID
-     * <p> 示例值：
-     */
+     /**
+      * 用户组的自定义ID
+      * <p> 示例值：
+      */
     @SerializedName("user_group_id")
     private String userGroupId;
-    /**
-     * 用户组的名称
-     * <p> 示例值：
-     */
+     /**
+      * 用户组的名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public GroupEvent() {
-    }
-
-    public GroupEvent(Builder builder) {
-        /**
-         * 用户组的自定义ID
-         * <p> 示例值：
-         */
-        this.userGroupId = builder.userGroupId;
-        /**
-         * 用户组的名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserGroupId() {
         return this.userGroupId;
     }
@@ -79,46 +53,67 @@ public class GroupEvent {
         this.name = name;
     }
 
+
+// builder 开始
+  public GroupEvent(){}
+
+  public GroupEvent(Builder builder){
+         /**
+          * 用户组的自定义ID
+          * <p> 示例值：
+          */
+      this.userGroupId = builder.userGroupId;
+         /**
+          * 用户组的名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 用户组的自定义ID
-         * <p> 示例值：
-         */
+     /**
+      * 用户组的自定义ID
+      * <p> 示例值：
+      */
         private String userGroupId;
-        /**
-         * 用户组的名称
-         * <p> 示例值：
-         */
+     /**
+      * 用户组的名称
+      * <p> 示例值：
+      */
         private String name;
 
         /**
          * 用户组的自定义ID
          * <p> 示例值：
-         *
          * @param userGroupId
          * @return
          */
         public Builder userGroupId(String userGroupId) {
-            this.userGroupId = userGroupId;
-            return this;
+             this.userGroupId = userGroupId;
+             return this;
         }
 
+    
 
         /**
          * 用户组的名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public GroupEvent build(){
+        return new GroupEvent(this);
+      }
+    }
 
-        public GroupEvent build() {
-            return new GroupEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class KaCardTemplateVariable {
-    /**
-     * 变量类型
-     * <p> 示例值：123
-     */
+     /**
+      * 变量类型
+      * <p> 示例值：123
+      */
     @SerializedName("variable_type")
     private String variableType;
-    /**
-     * 变量名
-     * <p> 示例值：123
-     */
+     /**
+      * 变量名
+      * <p> 示例值：123
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 变量描述信息
-     * <p> 示例值：123
-     */
+     /**
+      * 变量描述信息
+      * <p> 示例值：123
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 配置信息
-     * <p> 示例值：{}
-     */
+     /**
+      * 配置信息
+      * <p> 示例值：{}
+      */
     @SerializedName("config")
     private String config;
-
-    // builder 开始
-    public KaCardTemplateVariable() {
-    }
-
-    public KaCardTemplateVariable(Builder builder) {
-        /**
-         * 变量类型
-         * <p> 示例值：123
-         */
-        this.variableType = builder.variableType;
-        /**
-         * 变量名
-         * <p> 示例值：123
-         */
-        this.name = builder.name;
-        /**
-         * 变量描述信息
-         * <p> 示例值：123
-         */
-        this.description = builder.description;
-        /**
-         * 配置信息
-         * <p> 示例值：{}
-         */
-        this.config = builder.config;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getVariableType() {
         return this.variableType;
     }
@@ -117,82 +81,113 @@ public class KaCardTemplateVariable {
         this.config = config;
     }
 
+
+// builder 开始
+  public KaCardTemplateVariable(){}
+
+  public KaCardTemplateVariable(Builder builder){
+         /**
+          * 变量类型
+          * <p> 示例值：123
+          */
+      this.variableType = builder.variableType;
+         /**
+          * 变量名
+          * <p> 示例值：123
+          */
+      this.name = builder.name;
+         /**
+          * 变量描述信息
+          * <p> 示例值：123
+          */
+      this.description = builder.description;
+         /**
+          * 配置信息
+          * <p> 示例值：{}
+          */
+      this.config = builder.config;
+  }
+
     public static class Builder {
-        /**
-         * 变量类型
-         * <p> 示例值：123
-         */
+     /**
+      * 变量类型
+      * <p> 示例值：123
+      */
         private String variableType;
-        /**
-         * 变量名
-         * <p> 示例值：123
-         */
+     /**
+      * 变量名
+      * <p> 示例值：123
+      */
         private String name;
-        /**
-         * 变量描述信息
-         * <p> 示例值：123
-         */
+     /**
+      * 变量描述信息
+      * <p> 示例值：123
+      */
         private String description;
-        /**
-         * 配置信息
-         * <p> 示例值：{}
-         */
+     /**
+      * 配置信息
+      * <p> 示例值：{}
+      */
         private String config;
 
         /**
          * 变量类型
          * <p> 示例值：123
-         *
          * @param variableType
          * @return
          */
         public Builder variableType(String variableType) {
-            this.variableType = variableType;
-            return this;
+             this.variableType = variableType;
+             return this;
         }
 
+    
 
         /**
          * 变量名
          * <p> 示例值：123
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 变量描述信息
          * <p> 示例值：123
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 配置信息
          * <p> 示例值：{}
-         *
          * @param config
          * @return
          */
         public Builder config(String config) {
-            this.config = config;
-            return this;
+             this.config = config;
+             return this;
         }
 
+    
+    
+    public KaCardTemplateVariable build(){
+        return new KaCardTemplateVariable(this);
+      }
+    }
 
-        public KaCardTemplateVariable build() {
-            return new KaCardTemplateVariable(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

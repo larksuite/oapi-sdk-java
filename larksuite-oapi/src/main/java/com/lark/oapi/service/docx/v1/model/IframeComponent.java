@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class IframeComponent {
-    /**
-     * iframe 类型
-     * <p> 示例值：1
-     */
+     /**
+      * iframe 类型
+      * <p> 示例值：1
+      */
     @SerializedName("iframe_type")
     private Integer iframeType;
-    /**
-     * iframe 目标 url（需要进行 url_encode）
-     * <p> 示例值：https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1Hi4y1w7V7
-     */
+     /**
+      * iframe 目标 url（需要进行 url_encode）
+      * <p> 示例值：https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1Hi4y1w7V7
+      */
     @SerializedName("url")
     private String url;
-
-    // builder 开始
-    public IframeComponent() {
-    }
-
-    public IframeComponent(Builder builder) {
-        /**
-         * iframe 类型
-         * <p> 示例值：1
-         */
-        this.iframeType = builder.iframeType;
-        /**
-         * iframe 目标 url（需要进行 url_encode）
-         * <p> 示例值：https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1Hi4y1w7V7
-         */
-        this.url = builder.url;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getIframeType() {
         return this.iframeType;
     }
@@ -79,58 +53,77 @@ public class IframeComponent {
         this.url = url;
     }
 
+
+// builder 开始
+  public IframeComponent(){}
+
+  public IframeComponent(Builder builder){
+         /**
+          * iframe 类型
+          * <p> 示例值：1
+          */
+      this.iframeType = builder.iframeType;
+         /**
+          * iframe 目标 url（需要进行 url_encode）
+          * <p> 示例值：https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1Hi4y1w7V7
+          */
+      this.url = builder.url;
+  }
+
     public static class Builder {
-        /**
-         * iframe 类型
-         * <p> 示例值：1
-         */
+     /**
+      * iframe 类型
+      * <p> 示例值：1
+      */
         private Integer iframeType;
-        /**
-         * iframe 目标 url（需要进行 url_encode）
-         * <p> 示例值：https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1Hi4y1w7V7
-         */
+     /**
+      * iframe 目标 url（需要进行 url_encode）
+      * <p> 示例值：https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1Hi4y1w7V7
+      */
         private String url;
 
         /**
          * iframe 类型
          * <p> 示例值：1
-         *
          * @param iframeType
          * @return
          */
         public Builder iframeType(Integer iframeType) {
-            this.iframeType = iframeType;
-            return this;
+             this.iframeType = iframeType;
+             return this;
         }
-
         /**
          * iframe 类型
          * <p> 示例值：1
-         *
          * @param iframeType {@link com.lark.oapi.service.docx.v1.enums.IframeComponentIframeComponentTypeEnum}
          * @return
          */
         public Builder iframeType(com.lark.oapi.service.docx.v1.enums.IframeComponentIframeComponentTypeEnum iframeType) {
-            this.iframeType = iframeType.getValue();
-            return this;
+             this.iframeType = iframeType.getValue();
+             return this;
         }
 
+    
 
         /**
          * iframe 目标 url（需要进行 url_encode）
          * <p> 示例值：https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1Hi4y1w7V7
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
+    
+    public IframeComponent build(){
+        return new IframeComponent(this);
+      }
+    }
 
-        public IframeComponent build() {
-            return new IframeComponent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

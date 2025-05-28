@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.base.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.base.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateAppRoleReq {
-    /**
-     * 多维表格的唯一标识符
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     */
+     /**
+      * 多维表格的唯一标识符
+      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+      */
     @Path
     @SerializedName("app_token")
     private String appToken;
-    @Body
-    private Role body;
-
-    // builder 开始
-    public CreateAppRoleReq() {
-    }
-
-    public CreateAppRoleReq(Builder builder) {
-        /**
-         * 多维表格的唯一标识符
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         */
-        this.appToken = builder.appToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAppToken() {
         return this.appToken;
     }
@@ -62,6 +38,9 @@ public class CreateAppRoleReq {
     public void setAppToken(String appToken) {
         this.appToken = appToken;
     }
+
+    @Body
+    private Role body;
 
     public Role getRole() {
         return this.body;
@@ -71,40 +50,54 @@ public class CreateAppRoleReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateAppRoleReq(){}
+
+  public CreateAppRoleReq(Builder builder){
+     /**
+      * 多维表格的唯一标识符
+      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+      */
+       this.appToken = builder.appToken;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String appToken; // 多维表格的唯一标识符
-        private Role body;
-
         /**
          * 多维表格的唯一标识符
          * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         *
          * @param appToken
          * @return
          */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
 
+    
+        private Role body;
+    
         public Role getRole() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder role(Role body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateAppRoleReq build(){
+        return new CreateAppRoleReq(this);
+      }
+    }
 
-        public CreateAppRoleReq build() {
-            return new CreateAppRoleReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

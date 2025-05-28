@@ -12,73 +12,32 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchPersonReq {
-    /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
-     */
+     /**
+      * 根据client_token是否一致来判断是否为同一请求
+      * <p> 示例值：12454646
+      */
     @Query
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 根据no_need_query判断更新后是否做查询请求并返回个人信息
-     * <p> 示例值：false
-     */
+     /**
+      * 根据no_need_query判断更新后是否做查询请求并返回个人信息
+      * <p> 示例值：false
+      */
     @Query
     @SerializedName("no_need_query")
     private Boolean noNeedQuery;
-    /**
-     * person的ID
-     * <p> 示例值：12454646
-     */
-    @Path
-    @SerializedName("person_id")
-    private String personId;
-    @Body
-    private PersonInfo body;
-
-    // builder 开始
-    public PatchPersonReq() {
-    }
-
-    public PatchPersonReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 根据no_need_query判断更新后是否做查询请求并返回个人信息
-         * <p> 示例值：false
-         */
-        this.noNeedQuery = builder.noNeedQuery;
-        /**
-         * person的ID
-         * <p> 示例值：12454646
-         */
-        this.personId = builder.personId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getClientToken() {
         return this.clientToken;
     }
@@ -95,6 +54,13 @@ public class PatchPersonReq {
         this.noNeedQuery = noNeedQuery;
     }
 
+     /**
+      * person的ID
+      * <p> 示例值：12454646
+      */
+    @Path
+    @SerializedName("person_id")
+    private String personId;
     public String getPersonId() {
         return this.personId;
     }
@@ -102,6 +68,9 @@ public class PatchPersonReq {
     public void setPersonId(String personId) {
         this.personId = personId;
     }
+
+    @Body
+    private PersonInfo body;
 
     public PersonInfo getPersonInfo() {
         return this.body;
@@ -111,65 +80,90 @@ public class PatchPersonReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchPersonReq(){}
+
+  public PatchPersonReq(Builder builder){
+         /**
+          * 根据client_token是否一致来判断是否为同一请求
+          * <p> 示例值：12454646
+          */
+       this.clientToken = builder.clientToken;
+         /**
+          * 根据no_need_query判断更新后是否做查询请求并返回个人信息
+          * <p> 示例值：false
+          */
+       this.noNeedQuery = builder.noNeedQuery;
+     /**
+      * person的ID
+      * <p> 示例值：12454646
+      */
+       this.personId = builder.personId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
         private Boolean noNeedQuery; // 根据no_need_query判断更新后是否做查询请求并返回个人信息
-        private String personId; // person的ID
-        private PersonInfo body;
-
+    
         /**
          * 根据client_token是否一致来判断是否为同一请求
          * <p> 示例值：12454646
-         *
          * @param clientToken
          * @return
          */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
 
+    
         /**
          * 根据no_need_query判断更新后是否做查询请求并返回个人信息
          * <p> 示例值：false
-         *
          * @param noNeedQuery
          * @return
          */
-        public Builder noNeedQuery(Boolean noNeedQuery) {
-            this.noNeedQuery = noNeedQuery;
-            return this;
-        }
+           public Builder noNeedQuery(Boolean noNeedQuery) {
+                this.noNeedQuery = noNeedQuery;
+                return this;
+           }
 
+    
+        private String personId; // person的ID
         /**
          * person的ID
          * <p> 示例值：12454646
-         *
          * @param personId
          * @return
          */
-        public Builder personId(String personId) {
-            this.personId = personId;
-            return this;
-        }
+          public Builder personId(String personId) {
+               this.personId = personId;
+               return this;
+          }
 
+    
+        private PersonInfo body;
+    
         public PersonInfo getPersonInfo() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder personInfo(PersonInfo body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchPersonReq build(){
+        return new PatchPersonReq(this);
+      }
+    }
 
-        public PatchPersonReq build() {
-            return new PatchPersonReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

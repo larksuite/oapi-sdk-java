@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DelReportArchiveRuleReqBody {
-    /**
-     * 月份
-     * <p> 示例值：202409
-     */
+     /**
+      * 月份
+      * <p> 示例值：202409
+      */
     @SerializedName("month")
     private String month;
-    /**
-     * 操作者ID
-     * <p> 示例值：a111xd
-     */
+     /**
+      * 操作者ID
+      * <p> 示例值：a111xd
+      */
     @SerializedName("operator_id")
     private String operatorId;
-    /**
-     * 归档规则id
-     * <p> 示例值：1
-     */
+     /**
+      * 归档规则id
+      * <p> 示例值：1
+      */
     @SerializedName("archive_rule_id")
     private String archiveRuleId;
-    /**
-     * 用户id
-     * <p> 示例值：
-     */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
     @SerializedName("user_ids")
     private String[] userIds;
-
-    // builder 开始
-    public DelReportArchiveRuleReqBody() {
-    }
-
-    public DelReportArchiveRuleReqBody(Builder builder) {
-        /**
-         * 月份
-         * <p> 示例值：202409
-         */
-        this.month = builder.month;
-        /**
-         * 操作者ID
-         * <p> 示例值：a111xd
-         */
-        this.operatorId = builder.operatorId;
-        /**
-         * 归档规则id
-         * <p> 示例值：1
-         */
-        this.archiveRuleId = builder.archiveRuleId;
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMonth() {
         return this.month;
     }
@@ -117,82 +81,113 @@ public class DelReportArchiveRuleReqBody {
         this.userIds = userIds;
     }
 
+
+// builder 开始
+  public DelReportArchiveRuleReqBody(){}
+
+  public DelReportArchiveRuleReqBody(Builder builder){
+         /**
+          * 月份
+          * <p> 示例值：202409
+          */
+      this.month = builder.month;
+         /**
+          * 操作者ID
+          * <p> 示例值：a111xd
+          */
+      this.operatorId = builder.operatorId;
+         /**
+          * 归档规则id
+          * <p> 示例值：1
+          */
+      this.archiveRuleId = builder.archiveRuleId;
+         /**
+          * 用户id
+          * <p> 示例值：
+          */
+      this.userIds = builder.userIds;
+  }
+
     public static class Builder {
-        /**
-         * 月份
-         * <p> 示例值：202409
-         */
+     /**
+      * 月份
+      * <p> 示例值：202409
+      */
         private String month;
-        /**
-         * 操作者ID
-         * <p> 示例值：a111xd
-         */
+     /**
+      * 操作者ID
+      * <p> 示例值：a111xd
+      */
         private String operatorId;
-        /**
-         * 归档规则id
-         * <p> 示例值：1
-         */
+     /**
+      * 归档规则id
+      * <p> 示例值：1
+      */
         private String archiveRuleId;
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
+     /**
+      * 用户id
+      * <p> 示例值：
+      */
         private String[] userIds;
 
         /**
          * 月份
          * <p> 示例值：202409
-         *
          * @param month
          * @return
          */
         public Builder month(String month) {
-            this.month = month;
-            return this;
+             this.month = month;
+             return this;
         }
 
+    
 
         /**
          * 操作者ID
          * <p> 示例值：a111xd
-         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
+             this.operatorId = operatorId;
+             return this;
         }
 
+    
 
         /**
          * 归档规则id
          * <p> 示例值：1
-         *
          * @param archiveRuleId
          * @return
          */
         public Builder archiveRuleId(String archiveRuleId) {
-            this.archiveRuleId = archiveRuleId;
-            return this;
+             this.archiveRuleId = archiveRuleId;
+             return this;
         }
 
+    
 
         /**
          * 用户id
          * <p> 示例值：
-         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
+             this.userIds = userIds;
+             return this;
         }
 
+    
+    
+    public DelReportArchiveRuleReqBody build(){
+        return new DelReportArchiveRuleReqBody(this);
+      }
+    }
 
-        public DelReportArchiveRuleReqBody build() {
-            return new DelReportArchiveRuleReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EnvironmentVariableFilter {
-    /**
-     * 模糊查询关键词
-     * <p> 示例值：Sample Text
-     */
+     /**
+      * 模糊查询关键词
+      * <p> 示例值：Sample Text
+      */
     @SerializedName("quick_query")
     private String quickQuery;
-
-    // builder 开始
-    public EnvironmentVariableFilter() {
-    }
-
-    public EnvironmentVariableFilter(Builder builder) {
-        /**
-         * 模糊查询关键词
-         * <p> 示例值：Sample Text
-         */
-        this.quickQuery = builder.quickQuery;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getQuickQuery() {
         return this.quickQuery;
     }
@@ -60,28 +39,44 @@ public class EnvironmentVariableFilter {
         this.quickQuery = quickQuery;
     }
 
+
+// builder 开始
+  public EnvironmentVariableFilter(){}
+
+  public EnvironmentVariableFilter(Builder builder){
+         /**
+          * 模糊查询关键词
+          * <p> 示例值：Sample Text
+          */
+      this.quickQuery = builder.quickQuery;
+  }
+
     public static class Builder {
-        /**
-         * 模糊查询关键词
-         * <p> 示例值：Sample Text
-         */
+     /**
+      * 模糊查询关键词
+      * <p> 示例值：Sample Text
+      */
         private String quickQuery;
 
         /**
          * 模糊查询关键词
          * <p> 示例值：Sample Text
-         *
          * @param quickQuery
          * @return
          */
         public Builder quickQuery(String quickQuery) {
-            this.quickQuery = quickQuery;
-            return this;
+             this.quickQuery = quickQuery;
+             return this;
         }
 
+    
+    
+    public EnvironmentVariableFilter build(){
+        return new EnvironmentVariableFilter(this);
+      }
+    }
 
-        public EnvironmentVariableFilter build() {
-            return new EnvironmentVariableFilter(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

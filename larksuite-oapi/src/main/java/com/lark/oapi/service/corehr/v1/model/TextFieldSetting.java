@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TextFieldSetting {
-    /**
-     * 是否多语言
-     * <p> 示例值：true
-     */
+     /**
+      * 是否多语言
+      * <p> 示例值：true
+      */
     @SerializedName("is_multilingual")
     private Boolean isMultilingual;
-    /**
-     * 是否多行
-     * <p> 示例值：true
-     */
+     /**
+      * 是否多行
+      * <p> 示例值：true
+      */
     @SerializedName("is_multiline")
     private Boolean isMultiline;
-    /**
-     * 最大长度
-     * <p> 示例值：1
-     */
+     /**
+      * 最大长度
+      * <p> 示例值：1
+      */
     @SerializedName("max_length")
     private Integer maxLength;
-    /**
-     * 是否是URL类型
-     * <p> 示例值：true
-     */
+     /**
+      * 是否是URL类型
+      * <p> 示例值：true
+      */
     @SerializedName("is_url_type")
     private Boolean isUrlType;
-
-    // builder 开始
-    public TextFieldSetting() {
-    }
-
-    public TextFieldSetting(Builder builder) {
-        /**
-         * 是否多语言
-         * <p> 示例值：true
-         */
-        this.isMultilingual = builder.isMultilingual;
-        /**
-         * 是否多行
-         * <p> 示例值：true
-         */
-        this.isMultiline = builder.isMultiline;
-        /**
-         * 最大长度
-         * <p> 示例值：1
-         */
-        this.maxLength = builder.maxLength;
-        /**
-         * 是否是URL类型
-         * <p> 示例值：true
-         */
-        this.isUrlType = builder.isUrlType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getIsMultilingual() {
         return this.isMultilingual;
     }
@@ -117,82 +81,113 @@ public class TextFieldSetting {
         this.isUrlType = isUrlType;
     }
 
+
+// builder 开始
+  public TextFieldSetting(){}
+
+  public TextFieldSetting(Builder builder){
+         /**
+          * 是否多语言
+          * <p> 示例值：true
+          */
+      this.isMultilingual = builder.isMultilingual;
+         /**
+          * 是否多行
+          * <p> 示例值：true
+          */
+      this.isMultiline = builder.isMultiline;
+         /**
+          * 最大长度
+          * <p> 示例值：1
+          */
+      this.maxLength = builder.maxLength;
+         /**
+          * 是否是URL类型
+          * <p> 示例值：true
+          */
+      this.isUrlType = builder.isUrlType;
+  }
+
     public static class Builder {
-        /**
-         * 是否多语言
-         * <p> 示例值：true
-         */
+     /**
+      * 是否多语言
+      * <p> 示例值：true
+      */
         private Boolean isMultilingual;
-        /**
-         * 是否多行
-         * <p> 示例值：true
-         */
+     /**
+      * 是否多行
+      * <p> 示例值：true
+      */
         private Boolean isMultiline;
-        /**
-         * 最大长度
-         * <p> 示例值：1
-         */
+     /**
+      * 最大长度
+      * <p> 示例值：1
+      */
         private Integer maxLength;
-        /**
-         * 是否是URL类型
-         * <p> 示例值：true
-         */
+     /**
+      * 是否是URL类型
+      * <p> 示例值：true
+      */
         private Boolean isUrlType;
 
         /**
          * 是否多语言
          * <p> 示例值：true
-         *
          * @param isMultilingual
          * @return
          */
         public Builder isMultilingual(Boolean isMultilingual) {
-            this.isMultilingual = isMultilingual;
-            return this;
+             this.isMultilingual = isMultilingual;
+             return this;
         }
 
+    
 
         /**
          * 是否多行
          * <p> 示例值：true
-         *
          * @param isMultiline
          * @return
          */
         public Builder isMultiline(Boolean isMultiline) {
-            this.isMultiline = isMultiline;
-            return this;
+             this.isMultiline = isMultiline;
+             return this;
         }
 
+    
 
         /**
          * 最大长度
          * <p> 示例值：1
-         *
          * @param maxLength
          * @return
          */
         public Builder maxLength(Integer maxLength) {
-            this.maxLength = maxLength;
-            return this;
+             this.maxLength = maxLength;
+             return this;
         }
 
+    
 
         /**
          * 是否是URL类型
          * <p> 示例值：true
-         *
          * @param isUrlType
          * @return
          */
         public Builder isUrlType(Boolean isUrlType) {
-            this.isUrlType = isUrlType;
-            return this;
+             this.isUrlType = isUrlType;
+             return this;
         }
 
+    
+    
+    public TextFieldSetting build(){
+        return new TextFieldSetting(this);
+      }
+    }
 
-        public TextFieldSetting build() {
-            return new TextFieldSetting(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

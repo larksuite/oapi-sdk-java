@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,148 +19,78 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InternationalAssignment {
-    /**
-     * 当前生效的外派记录ID
-     * <p> 示例值：7046599238679447000
-     */
+     /**
+      * 当前生效的外派记录ID
+      * <p> 示例值：7046599238679447000
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 当前生效外派记录的外派城市（派驻地）ID
-     * <p> 示例值：7046599238679447084
-     */
+     /**
+      * 当前生效外派记录的外派城市（派驻地）ID
+      * <p> 示例值：7046599238679447084
+      */
     @SerializedName("assignment_city_id")
     private String assignmentCityId;
-    /**
-     * 当前生效外派记录的外派公司ID
-     * <p> 示例值：7046599238679447084
-     */
+     /**
+      * 当前生效外派记录的外派公司ID
+      * <p> 示例值：7046599238679447084
+      */
     @SerializedName("assignment_company_id")
     private String assignmentCompanyId;
-    /**
-     * 当前生效外派记录的外派国家ID
-     * <p> 示例值：7046599238679447084
-     */
+     /**
+      * 当前生效外派记录的外派国家ID
+      * <p> 示例值：7046599238679447084
+      */
     @SerializedName("assignment_country_id")
     private String assignmentCountryId;
-    /**
-     * 当前生效外派记录的外派原因
-     * <p> 示例值：
-     */
+     /**
+      * 当前生效外派记录的外派原因
+      * <p> 示例值：
+      */
     @SerializedName("assignment_reason")
     private I18n assignmentReason;
-    /**
-     * 当前生效外派记录的生效时间
-     * <p> 示例值：2023-08-29
-     */
+     /**
+      * 当前生效外派记录的生效时间
+      * <p> 示例值：2023-08-29
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 当前生效外派记录的开始外派流程 ID
-     * <p> 示例值：111111
-     */
+     /**
+      * 当前生效外派记录的开始外派流程 ID
+      * <p> 示例值：111111
+      */
     @SerializedName("start_assignment_process_id")
     private String startAssignmentProcessId;
-    /**
-     * 当前生效外派记录的结束外派流程 ID
-     * <p> 示例值：1111111
-     */
+     /**
+      * 当前生效外派记录的结束外派流程 ID
+      * <p> 示例值：1111111
+      */
     @SerializedName("end_assignment_process_id")
     private String endAssignmentProcessId;
-    /**
-     * 当前生效外派记录的失效时间
-     * <p> 示例值：2023-12-29
-     */
+     /**
+      * 当前生效外派记录的失效时间
+      * <p> 示例值：2023-12-29
+      */
     @SerializedName("expiration_time")
     private String expirationTime;
-    /**
-     * -| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
-     * <p> 示例值：
-     */
+     /**
+      * -| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
+      * <p> 示例值：
+      */
     @SerializedName("international_assignment_status")
     private Enum internationalAssignmentStatus;
-    /**
-     * -| 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
-     * <p> 示例值：
-     */
+     /**
+      * -| 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
+      * <p> 示例值：
+      */
     @SerializedName("international_assignment_type")
     private Enum internationalAssignmentType;
-
-    // builder 开始
-    public InternationalAssignment() {
-    }
-
-    public InternationalAssignment(Builder builder) {
-        /**
-         * 当前生效的外派记录ID
-         * <p> 示例值：7046599238679447000
-         */
-        this.id = builder.id;
-        /**
-         * 当前生效外派记录的外派城市（派驻地）ID
-         * <p> 示例值：7046599238679447084
-         */
-        this.assignmentCityId = builder.assignmentCityId;
-        /**
-         * 当前生效外派记录的外派公司ID
-         * <p> 示例值：7046599238679447084
-         */
-        this.assignmentCompanyId = builder.assignmentCompanyId;
-        /**
-         * 当前生效外派记录的外派国家ID
-         * <p> 示例值：7046599238679447084
-         */
-        this.assignmentCountryId = builder.assignmentCountryId;
-        /**
-         * 当前生效外派记录的外派原因
-         * <p> 示例值：
-         */
-        this.assignmentReason = builder.assignmentReason;
-        /**
-         * 当前生效外派记录的生效时间
-         * <p> 示例值：2023-08-29
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 当前生效外派记录的开始外派流程 ID
-         * <p> 示例值：111111
-         */
-        this.startAssignmentProcessId = builder.startAssignmentProcessId;
-        /**
-         * 当前生效外派记录的结束外派流程 ID
-         * <p> 示例值：1111111
-         */
-        this.endAssignmentProcessId = builder.endAssignmentProcessId;
-        /**
-         * 当前生效外派记录的失效时间
-         * <p> 示例值：2023-12-29
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * -| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
-         * <p> 示例值：
-         */
-        this.internationalAssignmentStatus = builder.internationalAssignmentStatus;
-        /**
-         * -| 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
-         * <p> 示例值：
-         */
-        this.internationalAssignmentType = builder.internationalAssignmentType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -250,208 +179,274 @@ public class InternationalAssignment {
         this.internationalAssignmentType = internationalAssignmentType;
     }
 
+
+// builder 开始
+  public InternationalAssignment(){}
+
+  public InternationalAssignment(Builder builder){
+         /**
+          * 当前生效的外派记录ID
+          * <p> 示例值：7046599238679447000
+          */
+      this.id = builder.id;
+         /**
+          * 当前生效外派记录的外派城市（派驻地）ID
+          * <p> 示例值：7046599238679447084
+          */
+      this.assignmentCityId = builder.assignmentCityId;
+         /**
+          * 当前生效外派记录的外派公司ID
+          * <p> 示例值：7046599238679447084
+          */
+      this.assignmentCompanyId = builder.assignmentCompanyId;
+         /**
+          * 当前生效外派记录的外派国家ID
+          * <p> 示例值：7046599238679447084
+          */
+      this.assignmentCountryId = builder.assignmentCountryId;
+         /**
+          * 当前生效外派记录的外派原因
+          * <p> 示例值：
+          */
+      this.assignmentReason = builder.assignmentReason;
+         /**
+          * 当前生效外派记录的生效时间
+          * <p> 示例值：2023-08-29
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 当前生效外派记录的开始外派流程 ID
+          * <p> 示例值：111111
+          */
+      this.startAssignmentProcessId = builder.startAssignmentProcessId;
+         /**
+          * 当前生效外派记录的结束外派流程 ID
+          * <p> 示例值：1111111
+          */
+      this.endAssignmentProcessId = builder.endAssignmentProcessId;
+         /**
+          * 当前生效外派记录的失效时间
+          * <p> 示例值：2023-12-29
+          */
+      this.expirationTime = builder.expirationTime;
+         /**
+          * -| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
+          * <p> 示例值：
+          */
+      this.internationalAssignmentStatus = builder.internationalAssignmentStatus;
+         /**
+          * -| 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
+          * <p> 示例值：
+          */
+      this.internationalAssignmentType = builder.internationalAssignmentType;
+  }
+
     public static class Builder {
-        /**
-         * 当前生效的外派记录ID
-         * <p> 示例值：7046599238679447000
-         */
+     /**
+      * 当前生效的外派记录ID
+      * <p> 示例值：7046599238679447000
+      */
         private String id;
-        /**
-         * 当前生效外派记录的外派城市（派驻地）ID
-         * <p> 示例值：7046599238679447084
-         */
+     /**
+      * 当前生效外派记录的外派城市（派驻地）ID
+      * <p> 示例值：7046599238679447084
+      */
         private String assignmentCityId;
-        /**
-         * 当前生效外派记录的外派公司ID
-         * <p> 示例值：7046599238679447084
-         */
+     /**
+      * 当前生效外派记录的外派公司ID
+      * <p> 示例值：7046599238679447084
+      */
         private String assignmentCompanyId;
-        /**
-         * 当前生效外派记录的外派国家ID
-         * <p> 示例值：7046599238679447084
-         */
+     /**
+      * 当前生效外派记录的外派国家ID
+      * <p> 示例值：7046599238679447084
+      */
         private String assignmentCountryId;
-        /**
-         * 当前生效外派记录的外派原因
-         * <p> 示例值：
-         */
+     /**
+      * 当前生效外派记录的外派原因
+      * <p> 示例值：
+      */
         private I18n assignmentReason;
-        /**
-         * 当前生效外派记录的生效时间
-         * <p> 示例值：2023-08-29
-         */
+     /**
+      * 当前生效外派记录的生效时间
+      * <p> 示例值：2023-08-29
+      */
         private String effectiveTime;
-        /**
-         * 当前生效外派记录的开始外派流程 ID
-         * <p> 示例值：111111
-         */
+     /**
+      * 当前生效外派记录的开始外派流程 ID
+      * <p> 示例值：111111
+      */
         private String startAssignmentProcessId;
-        /**
-         * 当前生效外派记录的结束外派流程 ID
-         * <p> 示例值：1111111
-         */
+     /**
+      * 当前生效外派记录的结束外派流程 ID
+      * <p> 示例值：1111111
+      */
         private String endAssignmentProcessId;
-        /**
-         * 当前生效外派记录的失效时间
-         * <p> 示例值：2023-12-29
-         */
+     /**
+      * 当前生效外派记录的失效时间
+      * <p> 示例值：2023-12-29
+      */
         private String expirationTime;
-        /**
-         * -| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
-         * <p> 示例值：
-         */
+     /**
+      * -| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
+      * <p> 示例值：
+      */
         private Enum internationalAssignmentStatus;
-        /**
-         * -| 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
-         * <p> 示例值：
-         */
+     /**
+      * -| 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
+      * <p> 示例值：
+      */
         private Enum internationalAssignmentType;
 
         /**
          * 当前生效的外派记录ID
          * <p> 示例值：7046599238679447000
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 当前生效外派记录的外派城市（派驻地）ID
          * <p> 示例值：7046599238679447084
-         *
          * @param assignmentCityId
          * @return
          */
         public Builder assignmentCityId(String assignmentCityId) {
-            this.assignmentCityId = assignmentCityId;
-            return this;
+             this.assignmentCityId = assignmentCityId;
+             return this;
         }
 
+    
 
         /**
          * 当前生效外派记录的外派公司ID
          * <p> 示例值：7046599238679447084
-         *
          * @param assignmentCompanyId
          * @return
          */
         public Builder assignmentCompanyId(String assignmentCompanyId) {
-            this.assignmentCompanyId = assignmentCompanyId;
-            return this;
+             this.assignmentCompanyId = assignmentCompanyId;
+             return this;
         }
 
+    
 
         /**
          * 当前生效外派记录的外派国家ID
          * <p> 示例值：7046599238679447084
-         *
          * @param assignmentCountryId
          * @return
          */
         public Builder assignmentCountryId(String assignmentCountryId) {
-            this.assignmentCountryId = assignmentCountryId;
-            return this;
+             this.assignmentCountryId = assignmentCountryId;
+             return this;
         }
 
+    
 
         /**
          * 当前生效外派记录的外派原因
          * <p> 示例值：
-         *
          * @param assignmentReason
          * @return
          */
         public Builder assignmentReason(I18n assignmentReason) {
-            this.assignmentReason = assignmentReason;
-            return this;
+             this.assignmentReason = assignmentReason;
+             return this;
         }
 
+    
 
         /**
          * 当前生效外派记录的生效时间
          * <p> 示例值：2023-08-29
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 当前生效外派记录的开始外派流程 ID
          * <p> 示例值：111111
-         *
          * @param startAssignmentProcessId
          * @return
          */
         public Builder startAssignmentProcessId(String startAssignmentProcessId) {
-            this.startAssignmentProcessId = startAssignmentProcessId;
-            return this;
+             this.startAssignmentProcessId = startAssignmentProcessId;
+             return this;
         }
 
+    
 
         /**
          * 当前生效外派记录的结束外派流程 ID
          * <p> 示例值：1111111
-         *
          * @param endAssignmentProcessId
          * @return
          */
         public Builder endAssignmentProcessId(String endAssignmentProcessId) {
-            this.endAssignmentProcessId = endAssignmentProcessId;
-            return this;
+             this.endAssignmentProcessId = endAssignmentProcessId;
+             return this;
         }
 
+    
 
         /**
          * 当前生效外派记录的失效时间
          * <p> 示例值：2023-12-29
-         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
+             this.expirationTime = expirationTime;
+             return this;
         }
 
+    
 
         /**
          * -| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment
          * <p> 示例值：
-         *
          * @param internationalAssignmentStatus
          * @return
          */
         public Builder internationalAssignmentStatus(Enum internationalAssignmentStatus) {
-            this.internationalAssignmentStatus = internationalAssignmentStatus;
-            return this;
+             this.internationalAssignmentStatus = internationalAssignmentStatus;
+             return this;
         }
 
+    
 
         /**
          * -| 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment
          * <p> 示例值：
-         *
          * @param internationalAssignmentType
          * @return
          */
         public Builder internationalAssignmentType(Enum internationalAssignmentType) {
-            this.internationalAssignmentType = internationalAssignmentType;
-            return this;
+             this.internationalAssignmentType = internationalAssignmentType;
+             return this;
         }
 
+    
+    
+    public InternationalAssignment build(){
+        return new InternationalAssignment(this);
+      }
+    }
 
-        public InternationalAssignment build() {
-            return new InternationalAssignment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

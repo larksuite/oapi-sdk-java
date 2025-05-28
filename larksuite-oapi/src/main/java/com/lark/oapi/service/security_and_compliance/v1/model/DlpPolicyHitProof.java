@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DlpPolicyHitProof {
-    /**
-     * dlp策略ID
-     * <p> 示例值：123123123123
-     */
+     /**
+      * dlp策略ID
+      * <p> 示例值：123123123123
+      */
     @SerializedName("policy_id")
     private String policyId;
-    /**
-     * 命中片段证据详情
-     * <p> 示例值：
-     */
+     /**
+      * 命中片段证据详情
+      * <p> 示例值：
+      */
     @SerializedName("detect_mode_proof_contexts")
     private DlpDetectModeProofContext[] detectModeProofContexts;
-
-    // builder 开始
-    public DlpPolicyHitProof() {
-    }
-
-    public DlpPolicyHitProof(Builder builder) {
-        /**
-         * dlp策略ID
-         * <p> 示例值：123123123123
-         */
-        this.policyId = builder.policyId;
-        /**
-         * 命中片段证据详情
-         * <p> 示例值：
-         */
-        this.detectModeProofContexts = builder.detectModeProofContexts;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPolicyId() {
         return this.policyId;
     }
@@ -79,46 +53,67 @@ public class DlpPolicyHitProof {
         this.detectModeProofContexts = detectModeProofContexts;
     }
 
+
+// builder 开始
+  public DlpPolicyHitProof(){}
+
+  public DlpPolicyHitProof(Builder builder){
+         /**
+          * dlp策略ID
+          * <p> 示例值：123123123123
+          */
+      this.policyId = builder.policyId;
+         /**
+          * 命中片段证据详情
+          * <p> 示例值：
+          */
+      this.detectModeProofContexts = builder.detectModeProofContexts;
+  }
+
     public static class Builder {
-        /**
-         * dlp策略ID
-         * <p> 示例值：123123123123
-         */
+     /**
+      * dlp策略ID
+      * <p> 示例值：123123123123
+      */
         private String policyId;
-        /**
-         * 命中片段证据详情
-         * <p> 示例值：
-         */
+     /**
+      * 命中片段证据详情
+      * <p> 示例值：
+      */
         private DlpDetectModeProofContext[] detectModeProofContexts;
 
         /**
          * dlp策略ID
          * <p> 示例值：123123123123
-         *
          * @param policyId
          * @return
          */
         public Builder policyId(String policyId) {
-            this.policyId = policyId;
-            return this;
+             this.policyId = policyId;
+             return this;
         }
 
+    
 
         /**
          * 命中片段证据详情
          * <p> 示例值：
-         *
          * @param detectModeProofContexts
          * @return
          */
         public Builder detectModeProofContexts(DlpDetectModeProofContext[] detectModeProofContexts) {
-            this.detectModeProofContexts = detectModeProofContexts;
-            return this;
+             this.detectModeProofContexts = detectModeProofContexts;
+             return this;
         }
 
+    
+    
+    public DlpPolicyHitProof build(){
+        return new DlpPolicyHitProof(this);
+      }
+    }
 
-        public DlpPolicyHitProof build() {
-            return new DlpPolicyHitProof(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

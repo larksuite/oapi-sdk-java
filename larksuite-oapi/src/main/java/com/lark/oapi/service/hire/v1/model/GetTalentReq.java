@@ -12,57 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetTalentReq {
-    /**
-     * 用户 ID 类型
-     * <p> 示例值：open_id
-     */
+     /**
+      * 用户 ID 类型
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 人才ID
-     * <p> 示例值：6891560630172518670
-     */
-    @Path
-    @SerializedName("talent_id")
-    private String talentId;
-
-    // builder 开始
-    public GetTalentReq() {
-    }
-
-    public GetTalentReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 人才ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.talentId = builder.talentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -71,6 +38,13 @@ public class GetTalentReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 人才ID
+      * <p> 示例值：6891560630172518670
+      */
+    @Path
+    @SerializedName("talent_id")
+    private String talentId;
     public String getTalentId() {
         return this.talentId;
     }
@@ -79,37 +53,57 @@ public class GetTalentReq {
         this.talentId = talentId;
     }
 
+
+// builder 开始
+  public GetTalentReq(){}
+
+  public GetTalentReq(Builder builder){
+         /**
+          * 用户 ID 类型
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 人才ID
+      * <p> 示例值：6891560630172518670
+      */
+       this.talentId = builder.talentId;
+  }
+
     public static class Builder {
         private String userIdType; // 用户 ID 类型
-        private String talentId; // 人才ID
-
+    
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+        private String talentId; // 人才ID
         /**
          * 人才ID
          * <p> 示例值：6891560630172518670
-         *
          * @param talentId
          * @return
          */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
+          public Builder talentId(String talentId) {
+               this.talentId = talentId;
+               return this;
+          }
 
+    
+    public GetTalentReq build(){
+        return new GetTalentReq(this);
+      }
+    }
 
-        public GetTalentReq build() {
-            return new GetTalentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

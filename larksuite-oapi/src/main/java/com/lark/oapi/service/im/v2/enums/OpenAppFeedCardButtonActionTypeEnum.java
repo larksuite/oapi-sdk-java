@@ -17,16 +17,15 @@ package com.lark.oapi.service.im.v2.enums;
  * 交互类型
  */
 public enum OpenAppFeedCardButtonActionTypeEnum {
-    URLPAGE("url_page"), // URL 页面
-    WEBHOOK("webhook"), // 回调
-    ;
-    private String value;
-
+     URLPAGE("url_page"), // URL 页面
+     WEBHOOK("webhook"), // 回调
+  ;
+   private String value;
     OpenAppFeedCardButtonActionTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

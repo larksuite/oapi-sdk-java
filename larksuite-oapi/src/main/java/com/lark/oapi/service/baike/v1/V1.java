@@ -17,31 +17,27 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.baike.v1.resource.*;
 
 public class V1 {
-    private final Classification classification; // 分类
-    private final Draft draft; // 草稿
-    private final Entity entity; // 词条
-    private final File file; // 文件
+	private final Classification classification; // 分类
+	private final Draft draft; // 草稿
+	private final Entity entity; // 词条
+	private final File file; // 文件
 
-    public V1(Config config) {
-        this.classification = new Classification(config);
-        this.draft = new Draft(config);
-        this.entity = new Entity(config);
-        this.file = new File(config);
-    }
-
-    public Classification classification() {
-        return classification;
-    }
-
-    public Draft draft() {
-        return draft;
-    }
-
-    public Entity entity() {
-        return entity;
-    }
-
-    public File file() {
-        return file;
-    }
+	public V1(Config config) {
+		this.classification = new Classification(config);
+		this.draft = new Draft(config);
+		this.entity = new Entity(config);
+		this.file = new File(config);
+	}
+	public Classification classification() {
+		return classification;
+	}
+	public Draft draft() {
+		return draft;
+	}
+	public Entity entity() {
+		return entity;
+	}
+	public File file() {
+		return file;
+	}
 }

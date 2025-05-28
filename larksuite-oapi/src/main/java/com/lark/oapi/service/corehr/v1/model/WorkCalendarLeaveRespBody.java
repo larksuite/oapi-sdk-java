@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WorkCalendarLeaveRespBody {
-    /**
-     * 工作日历列表
-     * <p> 示例值：
-     */
+     /**
+      * 工作日历列表
+      * <p> 示例值：
+      */
     @SerializedName("work_calendars")
     private WorkCalendarDetail[] workCalendars;
-    /**
-     * 入参count=true，则返回符合条件的工作日历总数
-     * <p> 示例值：20
-     */
+     /**
+      * 入参count=true，则返回符合条件的工作日历总数
+      * <p> 示例值：20
+      */
     @SerializedName("count")
     private Integer count;
-
     public WorkCalendarDetail[] getWorkCalendars() {
         return this.workCalendars;
     }

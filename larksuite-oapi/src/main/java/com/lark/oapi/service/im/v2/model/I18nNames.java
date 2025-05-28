@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class I18nNames {
-    /**
-     * 中文名称
-     * <p> 示例值：待办事项
-     */
+     /**
+      * 中文名称
+      * <p> 示例值：待办事项
+      */
     @SerializedName("zh_cn")
     private String zhCn;
-    /**
-     * 英文名称
-     * <p> 示例值：To-do items
-     */
+     /**
+      * 英文名称
+      * <p> 示例值：To-do items
+      */
     @SerializedName("en_us")
     private String enUs;
-    /**
-     * 日文名称
-     * <p> 示例值：To Do アイテム
-     */
+     /**
+      * 日文名称
+      * <p> 示例值：To Do アイテム
+      */
     @SerializedName("ja_jp")
     private String jaJp;
-
-    // builder 开始
-    public I18nNames() {
-    }
-
-    public I18nNames(Builder builder) {
-        /**
-         * 中文名称
-         * <p> 示例值：待办事项
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 英文名称
-         * <p> 示例值：To-do items
-         */
-        this.enUs = builder.enUs;
-        /**
-         * 日文名称
-         * <p> 示例值：To Do アイテム
-         */
-        this.jaJp = builder.jaJp;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getZhCn() {
         return this.zhCn;
     }
@@ -98,64 +67,90 @@ public class I18nNames {
         this.jaJp = jaJp;
     }
 
+
+// builder 开始
+  public I18nNames(){}
+
+  public I18nNames(Builder builder){
+         /**
+          * 中文名称
+          * <p> 示例值：待办事项
+          */
+      this.zhCn = builder.zhCn;
+         /**
+          * 英文名称
+          * <p> 示例值：To-do items
+          */
+      this.enUs = builder.enUs;
+         /**
+          * 日文名称
+          * <p> 示例值：To Do アイテム
+          */
+      this.jaJp = builder.jaJp;
+  }
+
     public static class Builder {
-        /**
-         * 中文名称
-         * <p> 示例值：待办事项
-         */
+     /**
+      * 中文名称
+      * <p> 示例值：待办事项
+      */
         private String zhCn;
-        /**
-         * 英文名称
-         * <p> 示例值：To-do items
-         */
+     /**
+      * 英文名称
+      * <p> 示例值：To-do items
+      */
         private String enUs;
-        /**
-         * 日文名称
-         * <p> 示例值：To Do アイテム
-         */
+     /**
+      * 日文名称
+      * <p> 示例值：To Do アイテム
+      */
         private String jaJp;
 
         /**
          * 中文名称
          * <p> 示例值：待办事项
-         *
          * @param zhCn
          * @return
          */
         public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
+             this.zhCn = zhCn;
+             return this;
         }
 
+    
 
         /**
          * 英文名称
          * <p> 示例值：To-do items
-         *
          * @param enUs
          * @return
          */
         public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
+             this.enUs = enUs;
+             return this;
         }
 
+    
 
         /**
          * 日文名称
          * <p> 示例值：To Do アイテム
-         *
          * @param jaJp
          * @return
          */
         public Builder jaJp(String jaJp) {
-            this.jaJp = jaJp;
-            return this;
+             this.jaJp = jaJp;
+             return this;
         }
 
+    
+    
+    public I18nNames build(){
+        return new I18nNames(this);
+      }
+    }
 
-        public I18nNames build() {
-            return new I18nNames(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

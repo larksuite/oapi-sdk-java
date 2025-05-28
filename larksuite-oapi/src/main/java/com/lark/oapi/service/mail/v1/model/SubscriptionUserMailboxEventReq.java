@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SubscriptionUserMailboxEventReq {
-    /**
-     * 用户邮箱地址，使用 user_access_token 时可使用 me
-     * <p> 示例值：user@xxx.xx 或 me
-     */
+     /**
+      * 用户邮箱地址，使用 user_access_token 时可使用 me
+      * <p> 示例值：user@xxx.xx 或 me
+      */
     @Path
     @SerializedName("user_mailbox_id")
     private String userMailboxId;
-
-    // builder 开始
-    public SubscriptionUserMailboxEventReq() {
-    }
-
-    public SubscriptionUserMailboxEventReq(Builder builder) {
-        /**
-         * 用户邮箱地址，使用 user_access_token 时可使用 me
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserMailboxId() {
         return this.userMailboxId;
     }
@@ -60,25 +39,39 @@ public class SubscriptionUserMailboxEventReq {
         this.userMailboxId = userMailboxId;
     }
 
+
+// builder 开始
+  public SubscriptionUserMailboxEventReq(){}
+
+  public SubscriptionUserMailboxEventReq(Builder builder){
+     /**
+      * 用户邮箱地址，使用 user_access_token 时可使用 me
+      * <p> 示例值：user@xxx.xx 或 me
+      */
+       this.userMailboxId = builder.userMailboxId;
+  }
+
     public static class Builder {
-
+    
         private String userMailboxId; // 用户邮箱地址，使用 user_access_token 时可使用 me
-
         /**
          * 用户邮箱地址，使用 user_access_token 时可使用 me
          * <p> 示例值：user@xxx.xx 或 me
-         *
          * @param userMailboxId
          * @return
          */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
+          public Builder userMailboxId(String userMailboxId) {
+               this.userMailboxId = userMailboxId;
+               return this;
+          }
 
+    
+    public SubscriptionUserMailboxEventReq build(){
+        return new SubscriptionUserMailboxEventReq(this);
+      }
+    }
 
-        public SubscriptionUserMailboxEventReq build() {
-            return new SubscriptionUserMailboxEventReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

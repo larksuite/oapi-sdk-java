@@ -17,16 +17,15 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 性别
  */
 public enum SystemFieldsGenderEnum {
-    MALE(1), // 男
-    FEMALE(2), // 女
-    ;
-    private Integer value;
-
+     MALE(1), // 男
+     FEMALE(2), // 女
+  ;
+   private Integer value;
     SystemFieldsGenderEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

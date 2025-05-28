@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MyAiCardValue {
-    /**
-     * body
-     * <p> 示例值：value body
-     */
+     /**
+      * body
+      * <p> 示例值：value body
+      */
     @SerializedName("body")
     private String body;
-    /**
-     * handle
-     * <p> 示例值：handle
-     */
+     /**
+      * handle
+      * <p> 示例值：handle
+      */
     @SerializedName("handle")
     private String handle;
-
-    // builder 开始
-    public MyAiCardValue() {
-    }
-
-    public MyAiCardValue(Builder builder) {
-        /**
-         * body
-         * <p> 示例值：value body
-         */
-        this.body = builder.body;
-        /**
-         * handle
-         * <p> 示例值：handle
-         */
-        this.handle = builder.handle;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBody() {
         return this.body;
     }
@@ -79,46 +53,67 @@ public class MyAiCardValue {
         this.handle = handle;
     }
 
+
+// builder 开始
+  public MyAiCardValue(){}
+
+  public MyAiCardValue(Builder builder){
+         /**
+          * body
+          * <p> 示例值：value body
+          */
+      this.body = builder.body;
+         /**
+          * handle
+          * <p> 示例值：handle
+          */
+      this.handle = builder.handle;
+  }
+
     public static class Builder {
-        /**
-         * body
-         * <p> 示例值：value body
-         */
+     /**
+      * body
+      * <p> 示例值：value body
+      */
         private String body;
-        /**
-         * handle
-         * <p> 示例值：handle
-         */
+     /**
+      * handle
+      * <p> 示例值：handle
+      */
         private String handle;
 
         /**
          * body
          * <p> 示例值：value body
-         *
          * @param body
          * @return
          */
         public Builder body(String body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
 
+    
 
         /**
          * handle
          * <p> 示例值：handle
-         *
          * @param handle
          * @return
          */
         public Builder handle(String handle) {
-            this.handle = handle;
-            return this;
+             this.handle = handle;
+             return this;
         }
 
+    
+    
+    public MyAiCardValue build(){
+        return new MyAiCardValue(this);
+      }
+    }
 
-        public MyAiCardValue build() {
-            return new MyAiCardValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteEmployeesAdditionalJobReq {
-    /**
-     * 兼职记录ID
-     * <p> 示例值：654637829201
-     */
+     /**
+      * 兼职记录ID
+      * <p> 示例值：654637829201
+      */
     @Path
     @SerializedName("additional_job_id")
     private String additionalJobId;
-
-    // builder 开始
-    public DeleteEmployeesAdditionalJobReq() {
-    }
-
-    public DeleteEmployeesAdditionalJobReq(Builder builder) {
-        /**
-         * 兼职记录ID
-         * <p> 示例值：654637829201
-         */
-        this.additionalJobId = builder.additionalJobId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAdditionalJobId() {
         return this.additionalJobId;
     }
@@ -60,25 +39,39 @@ public class DeleteEmployeesAdditionalJobReq {
         this.additionalJobId = additionalJobId;
     }
 
+
+// builder 开始
+  public DeleteEmployeesAdditionalJobReq(){}
+
+  public DeleteEmployeesAdditionalJobReq(Builder builder){
+     /**
+      * 兼职记录ID
+      * <p> 示例值：654637829201
+      */
+       this.additionalJobId = builder.additionalJobId;
+  }
+
     public static class Builder {
-
+    
         private String additionalJobId; // 兼职记录ID
-
         /**
          * 兼职记录ID
          * <p> 示例值：654637829201
-         *
          * @param additionalJobId
          * @return
          */
-        public Builder additionalJobId(String additionalJobId) {
-            this.additionalJobId = additionalJobId;
-            return this;
-        }
+          public Builder additionalJobId(String additionalJobId) {
+               this.additionalJobId = additionalJobId;
+               return this;
+          }
 
+    
+    public DeleteEmployeesAdditionalJobReq build(){
+        return new DeleteEmployeesAdditionalJobReq(this);
+      }
+    }
 
-        public DeleteEmployeesAdditionalJobReq build() {
-            return new DeleteEmployeesAdditionalJobReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

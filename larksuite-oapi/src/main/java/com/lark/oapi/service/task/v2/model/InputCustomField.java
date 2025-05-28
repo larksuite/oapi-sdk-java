@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InputCustomField {
-    /**
-     * 自定义字段归属的资源类型
-     * <p> 示例值：tasklist
-     */
+     /**
+      * 自定义字段归属的资源类型
+      * <p> 示例值：tasklist
+      */
     @SerializedName("resource_type")
     private String resourceType;
-    /**
-     * 自定义字段归属的资源id，目前必然是tasklist_guid
-     * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
-     */
+     /**
+      * 自定义字段归属的资源id，目前必然是tasklist_guid
+      * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
+      */
     @SerializedName("resource_id")
     private String resourceId;
-    /**
-     * 字段名称
-     * <p> 示例值：优先级
-     */
+     /**
+      * 字段名称
+      * <p> 示例值：优先级
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 字段类型
-     * <p> 示例值：number
-     */
+     /**
+      * 字段类型
+      * <p> 示例值：number
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 数字类型的字段设置
-     * <p> 示例值：
-     */
+     /**
+      * 数字类型的字段设置
+      * <p> 示例值：
+      */
     @SerializedName("number_setting")
     private NumberSetting numberSetting;
-    /**
-     * 人员类型的字段设置
-     * <p> 示例值：
-     */
+     /**
+      * 人员类型的字段设置
+      * <p> 示例值：
+      */
     @SerializedName("member_setting")
     private MemberSetting memberSetting;
-    /**
-     * 时间日期类型的字段设置
-     * <p> 示例值：
-     */
+     /**
+      * 时间日期类型的字段设置
+      * <p> 示例值：
+      */
     @SerializedName("datetime_setting")
     private DatetimeSetting datetimeSetting;
-    /**
-     * 单选类型的字段设置
-     * <p> 示例值：
-     */
+     /**
+      * 单选类型的字段设置
+      * <p> 示例值：
+      */
     @SerializedName("single_select_setting")
     private SelectSetting singleSelectSetting;
-    /**
-     * 多选类型的字段设置
-     * <p> 示例值：
-     */
+     /**
+      * 多选类型的字段设置
+      * <p> 示例值：
+      */
     @SerializedName("multi_select_setting")
     private SelectSetting multiSelectSetting;
-    /**
-     * 文本类型
-     * <p> 示例值：
-     */
+     /**
+      * 文本类型
+      * <p> 示例值：
+      */
     @SerializedName("text_setting")
     private TextSetting textSetting;
-
-    // builder 开始
-    public InputCustomField() {
-    }
-
-    public InputCustomField(Builder builder) {
-        /**
-         * 自定义字段归属的资源类型
-         * <p> 示例值：tasklist
-         */
-        this.resourceType = builder.resourceType;
-        /**
-         * 自定义字段归属的资源id，目前必然是tasklist_guid
-         * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
-         */
-        this.resourceId = builder.resourceId;
-        /**
-         * 字段名称
-         * <p> 示例值：优先级
-         */
-        this.name = builder.name;
-        /**
-         * 字段类型
-         * <p> 示例值：number
-         */
-        this.type = builder.type;
-        /**
-         * 数字类型的字段设置
-         * <p> 示例值：
-         */
-        this.numberSetting = builder.numberSetting;
-        /**
-         * 人员类型的字段设置
-         * <p> 示例值：
-         */
-        this.memberSetting = builder.memberSetting;
-        /**
-         * 时间日期类型的字段设置
-         * <p> 示例值：
-         */
-        this.datetimeSetting = builder.datetimeSetting;
-        /**
-         * 单选类型的字段设置
-         * <p> 示例值：
-         */
-        this.singleSelectSetting = builder.singleSelectSetting;
-        /**
-         * 多选类型的字段设置
-         * <p> 示例值：
-         */
-        this.multiSelectSetting = builder.multiSelectSetting;
-        /**
-         * 文本类型
-         * <p> 示例值：
-         */
-        this.textSetting = builder.textSetting;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getResourceType() {
         return this.resourceType;
     }
@@ -231,202 +165,261 @@ public class InputCustomField {
         this.textSetting = textSetting;
     }
 
+
+// builder 开始
+  public InputCustomField(){}
+
+  public InputCustomField(Builder builder){
+         /**
+          * 自定义字段归属的资源类型
+          * <p> 示例值：tasklist
+          */
+      this.resourceType = builder.resourceType;
+         /**
+          * 自定义字段归属的资源id，目前必然是tasklist_guid
+          * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
+          */
+      this.resourceId = builder.resourceId;
+         /**
+          * 字段名称
+          * <p> 示例值：优先级
+          */
+      this.name = builder.name;
+         /**
+          * 字段类型
+          * <p> 示例值：number
+          */
+      this.type = builder.type;
+         /**
+          * 数字类型的字段设置
+          * <p> 示例值：
+          */
+      this.numberSetting = builder.numberSetting;
+         /**
+          * 人员类型的字段设置
+          * <p> 示例值：
+          */
+      this.memberSetting = builder.memberSetting;
+         /**
+          * 时间日期类型的字段设置
+          * <p> 示例值：
+          */
+      this.datetimeSetting = builder.datetimeSetting;
+         /**
+          * 单选类型的字段设置
+          * <p> 示例值：
+          */
+      this.singleSelectSetting = builder.singleSelectSetting;
+         /**
+          * 多选类型的字段设置
+          * <p> 示例值：
+          */
+      this.multiSelectSetting = builder.multiSelectSetting;
+         /**
+          * 文本类型
+          * <p> 示例值：
+          */
+      this.textSetting = builder.textSetting;
+  }
+
     public static class Builder {
-        /**
-         * 自定义字段归属的资源类型
-         * <p> 示例值：tasklist
-         */
+     /**
+      * 自定义字段归属的资源类型
+      * <p> 示例值：tasklist
+      */
         private String resourceType;
-        /**
-         * 自定义字段归属的资源id，目前必然是tasklist_guid
-         * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
-         */
+     /**
+      * 自定义字段归属的资源id，目前必然是tasklist_guid
+      * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
+      */
         private String resourceId;
-        /**
-         * 字段名称
-         * <p> 示例值：优先级
-         */
+     /**
+      * 字段名称
+      * <p> 示例值：优先级
+      */
         private String name;
-        /**
-         * 字段类型
-         * <p> 示例值：number
-         */
+     /**
+      * 字段类型
+      * <p> 示例值：number
+      */
         private String type;
-        /**
-         * 数字类型的字段设置
-         * <p> 示例值：
-         */
+     /**
+      * 数字类型的字段设置
+      * <p> 示例值：
+      */
         private NumberSetting numberSetting;
-        /**
-         * 人员类型的字段设置
-         * <p> 示例值：
-         */
+     /**
+      * 人员类型的字段设置
+      * <p> 示例值：
+      */
         private MemberSetting memberSetting;
-        /**
-         * 时间日期类型的字段设置
-         * <p> 示例值：
-         */
+     /**
+      * 时间日期类型的字段设置
+      * <p> 示例值：
+      */
         private DatetimeSetting datetimeSetting;
-        /**
-         * 单选类型的字段设置
-         * <p> 示例值：
-         */
+     /**
+      * 单选类型的字段设置
+      * <p> 示例值：
+      */
         private SelectSetting singleSelectSetting;
-        /**
-         * 多选类型的字段设置
-         * <p> 示例值：
-         */
+     /**
+      * 多选类型的字段设置
+      * <p> 示例值：
+      */
         private SelectSetting multiSelectSetting;
-        /**
-         * 文本类型
-         * <p> 示例值：
-         */
+     /**
+      * 文本类型
+      * <p> 示例值：
+      */
         private TextSetting textSetting;
 
         /**
          * 自定义字段归属的资源类型
          * <p> 示例值：tasklist
-         *
          * @param resourceType
          * @return
          */
         public Builder resourceType(String resourceType) {
-            this.resourceType = resourceType;
-            return this;
+             this.resourceType = resourceType;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段归属的资源id，目前必然是tasklist_guid
          * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
-         *
          * @param resourceId
          * @return
          */
         public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
+             this.resourceId = resourceId;
+             return this;
         }
 
+    
 
         /**
          * 字段名称
          * <p> 示例值：优先级
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 字段类型
          * <p> 示例值：number
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 字段类型
          * <p> 示例值：number
-         *
          * @param type {@link com.lark.oapi.service.task.v2.enums.InputCustomFieldTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.task.v2.enums.InputCustomFieldTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 数字类型的字段设置
          * <p> 示例值：
-         *
          * @param numberSetting
          * @return
          */
         public Builder numberSetting(NumberSetting numberSetting) {
-            this.numberSetting = numberSetting;
-            return this;
+             this.numberSetting = numberSetting;
+             return this;
         }
 
+    
 
         /**
          * 人员类型的字段设置
          * <p> 示例值：
-         *
          * @param memberSetting
          * @return
          */
         public Builder memberSetting(MemberSetting memberSetting) {
-            this.memberSetting = memberSetting;
-            return this;
+             this.memberSetting = memberSetting;
+             return this;
         }
 
+    
 
         /**
          * 时间日期类型的字段设置
          * <p> 示例值：
-         *
          * @param datetimeSetting
          * @return
          */
         public Builder datetimeSetting(DatetimeSetting datetimeSetting) {
-            this.datetimeSetting = datetimeSetting;
-            return this;
+             this.datetimeSetting = datetimeSetting;
+             return this;
         }
 
+    
 
         /**
          * 单选类型的字段设置
          * <p> 示例值：
-         *
          * @param singleSelectSetting
          * @return
          */
         public Builder singleSelectSetting(SelectSetting singleSelectSetting) {
-            this.singleSelectSetting = singleSelectSetting;
-            return this;
+             this.singleSelectSetting = singleSelectSetting;
+             return this;
         }
 
+    
 
         /**
          * 多选类型的字段设置
          * <p> 示例值：
-         *
          * @param multiSelectSetting
          * @return
          */
         public Builder multiSelectSetting(SelectSetting multiSelectSetting) {
-            this.multiSelectSetting = multiSelectSetting;
-            return this;
+             this.multiSelectSetting = multiSelectSetting;
+             return this;
         }
 
+    
 
         /**
          * 文本类型
          * <p> 示例值：
-         *
          * @param textSetting
          * @return
          */
         public Builder textSetting(TextSetting textSetting) {
-            this.textSetting = textSetting;
-            return this;
+             this.textSetting = textSetting;
+             return this;
         }
 
+    
+    
+    public InputCustomField build(){
+        return new InputCustomField(this);
+      }
+    }
 
-        public InputCustomField build() {
-            return new InputCustomField(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

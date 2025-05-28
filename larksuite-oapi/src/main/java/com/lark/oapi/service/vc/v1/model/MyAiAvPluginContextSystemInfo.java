@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MyAiAvPluginContextSystemInfo {
-    /**
-     * 语言
-     * <p> 示例值：zh
-     */
+     /**
+      * 语言
+      * <p> 示例值：zh
+      */
     @SerializedName("lang")
     private String lang;
-    /**
-     * 品牌
-     * <p> 示例值：lark
-     */
+     /**
+      * 品牌
+      * <p> 示例值：lark
+      */
     @SerializedName("brand")
     private String brand;
-    /**
-     * 客户端语言
-     * <p> 示例值：zh_cn
-     */
+     /**
+      * 客户端语言
+      * <p> 示例值：zh_cn
+      */
     @SerializedName("locale")
     private String locale;
-    /**
-     * 会话ID
-     * <p> 示例值：7291019243332730998
-     */
+     /**
+      * 会话ID
+      * <p> 示例值：7291019243332730998
+      */
     @SerializedName("session_id")
     private String sessionId;
-    /**
-     * app version
-     * <p> 示例值：7.4.0
-     */
+     /**
+      * app version
+      * <p> 示例值：7.4.0
+      */
     @SerializedName("app_version")
     private String appVersion;
-
-    // builder 开始
-    public MyAiAvPluginContextSystemInfo() {
-    }
-
-    public MyAiAvPluginContextSystemInfo(Builder builder) {
-        /**
-         * 语言
-         * <p> 示例值：zh
-         */
-        this.lang = builder.lang;
-        /**
-         * 品牌
-         * <p> 示例值：lark
-         */
-        this.brand = builder.brand;
-        /**
-         * 客户端语言
-         * <p> 示例值：zh_cn
-         */
-        this.locale = builder.locale;
-        /**
-         * 会话ID
-         * <p> 示例值：7291019243332730998
-         */
-        this.sessionId = builder.sessionId;
-        /**
-         * app version
-         * <p> 示例值：7.4.0
-         */
-        this.appVersion = builder.appVersion;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLang() {
         return this.lang;
     }
@@ -136,100 +95,136 @@ public class MyAiAvPluginContextSystemInfo {
         this.appVersion = appVersion;
     }
 
+
+// builder 开始
+  public MyAiAvPluginContextSystemInfo(){}
+
+  public MyAiAvPluginContextSystemInfo(Builder builder){
+         /**
+          * 语言
+          * <p> 示例值：zh
+          */
+      this.lang = builder.lang;
+         /**
+          * 品牌
+          * <p> 示例值：lark
+          */
+      this.brand = builder.brand;
+         /**
+          * 客户端语言
+          * <p> 示例值：zh_cn
+          */
+      this.locale = builder.locale;
+         /**
+          * 会话ID
+          * <p> 示例值：7291019243332730998
+          */
+      this.sessionId = builder.sessionId;
+         /**
+          * app version
+          * <p> 示例值：7.4.0
+          */
+      this.appVersion = builder.appVersion;
+  }
+
     public static class Builder {
-        /**
-         * 语言
-         * <p> 示例值：zh
-         */
+     /**
+      * 语言
+      * <p> 示例值：zh
+      */
         private String lang;
-        /**
-         * 品牌
-         * <p> 示例值：lark
-         */
+     /**
+      * 品牌
+      * <p> 示例值：lark
+      */
         private String brand;
-        /**
-         * 客户端语言
-         * <p> 示例值：zh_cn
-         */
+     /**
+      * 客户端语言
+      * <p> 示例值：zh_cn
+      */
         private String locale;
-        /**
-         * 会话ID
-         * <p> 示例值：7291019243332730998
-         */
+     /**
+      * 会话ID
+      * <p> 示例值：7291019243332730998
+      */
         private String sessionId;
-        /**
-         * app version
-         * <p> 示例值：7.4.0
-         */
+     /**
+      * app version
+      * <p> 示例值：7.4.0
+      */
         private String appVersion;
 
         /**
          * 语言
          * <p> 示例值：zh
-         *
          * @param lang
          * @return
          */
         public Builder lang(String lang) {
-            this.lang = lang;
-            return this;
+             this.lang = lang;
+             return this;
         }
 
+    
 
         /**
          * 品牌
          * <p> 示例值：lark
-         *
          * @param brand
          * @return
          */
         public Builder brand(String brand) {
-            this.brand = brand;
-            return this;
+             this.brand = brand;
+             return this;
         }
 
+    
 
         /**
          * 客户端语言
          * <p> 示例值：zh_cn
-         *
          * @param locale
          * @return
          */
         public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
+             this.locale = locale;
+             return this;
         }
 
+    
 
         /**
          * 会话ID
          * <p> 示例值：7291019243332730998
-         *
          * @param sessionId
          * @return
          */
         public Builder sessionId(String sessionId) {
-            this.sessionId = sessionId;
-            return this;
+             this.sessionId = sessionId;
+             return this;
         }
 
+    
 
         /**
          * app version
          * <p> 示例值：7.4.0
-         *
          * @param appVersion
          * @return
          */
         public Builder appVersion(String appVersion) {
-            this.appVersion = appVersion;
-            return this;
+             this.appVersion = appVersion;
+             return this;
         }
 
+    
+    
+    public MyAiAvPluginContextSystemInfo build(){
+        return new MyAiAvPluginContextSystemInfo(this);
+      }
+    }
 
-        public MyAiAvPluginContextSystemInfo build() {
-            return new MyAiAvPluginContextSystemInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

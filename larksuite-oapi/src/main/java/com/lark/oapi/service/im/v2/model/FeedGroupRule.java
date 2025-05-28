@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FeedGroupRule {
-    /**
-     * 条件
-     * <p> 示例值：
-     */
+     /**
+      * 条件
+      * <p> 示例值：
+      */
     @SerializedName("condition")
     private FeedGroupRuleCond condition;
-    /**
-     * 动作
-     * <p> 示例值：add
-     */
+     /**
+      * 动作
+      * <p> 示例值：add
+      */
     @SerializedName("action")
     private String action;
-
-    // builder 开始
-    public FeedGroupRule() {
-    }
-
-    public FeedGroupRule(Builder builder) {
-        /**
-         * 条件
-         * <p> 示例值：
-         */
-        this.condition = builder.condition;
-        /**
-         * 动作
-         * <p> 示例值：add
-         */
-        this.action = builder.action;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public FeedGroupRuleCond getCondition() {
         return this.condition;
     }
@@ -79,58 +53,77 @@ public class FeedGroupRule {
         this.action = action;
     }
 
+
+// builder 开始
+  public FeedGroupRule(){}
+
+  public FeedGroupRule(Builder builder){
+         /**
+          * 条件
+          * <p> 示例值：
+          */
+      this.condition = builder.condition;
+         /**
+          * 动作
+          * <p> 示例值：add
+          */
+      this.action = builder.action;
+  }
+
     public static class Builder {
-        /**
-         * 条件
-         * <p> 示例值：
-         */
+     /**
+      * 条件
+      * <p> 示例值：
+      */
         private FeedGroupRuleCond condition;
-        /**
-         * 动作
-         * <p> 示例值：add
-         */
+     /**
+      * 动作
+      * <p> 示例值：add
+      */
         private String action;
 
         /**
          * 条件
          * <p> 示例值：
-         *
          * @param condition
          * @return
          */
         public Builder condition(FeedGroupRuleCond condition) {
-            this.condition = condition;
-            return this;
+             this.condition = condition;
+             return this;
         }
 
+    
 
         /**
          * 动作
          * <p> 示例值：add
-         *
          * @param action
          * @return
          */
         public Builder action(String action) {
-            this.action = action;
-            return this;
+             this.action = action;
+             return this;
         }
-
         /**
          * 动作
          * <p> 示例值：add
-         *
          * @param action {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleActionEnum}
          * @return
          */
         public Builder action(com.lark.oapi.service.im.v2.enums.FeedGroupRuleActionEnum action) {
-            this.action = action.getValue();
-            return this;
+             this.action = action.getValue();
+             return this;
         }
 
+    
+    
+    public FeedGroupRule build(){
+        return new FeedGroupRule(this);
+      }
+    }
 
-        public FeedGroupRule build() {
-            return new FeedGroupRule(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

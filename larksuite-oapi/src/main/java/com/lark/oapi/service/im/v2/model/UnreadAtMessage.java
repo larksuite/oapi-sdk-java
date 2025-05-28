@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UnreadAtMessage {
-    /**
-     * 消息id
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
+     /**
+      * 消息id
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
     @SerializedName("message_id")
     private String messageId;
-    /**
-     * 消息发送者
-     * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-     */
+     /**
+      * 消息发送者
+      * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
+      */
     @SerializedName("from_id")
     private String fromId;
-    /**
-     * 群组id
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
-     */
+     /**
+      * 群组id
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * 发送时间
-     * <p> 示例值：1704038400000
-     */
+     /**
+      * 发送时间
+      * <p> 示例值：1704038400000
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 发送时间毫秒
-     * <p> 示例值：1704038400000
-     */
+     /**
+      * 发送时间毫秒
+      * <p> 示例值：1704038400000
+      */
     @SerializedName("create_time_ms")
     private String createTimeMs;
-    /**
-     * 更新时间毫秒
-     * <p> 示例值：1704038400000
-     */
+     /**
+      * 更新时间毫秒
+      * <p> 示例值：1704038400000
+      */
     @SerializedName("update_time_ms")
     private String updateTimeMs;
-    /**
-     * 消息类型
-     * <p> 示例值：
-     */
+     /**
+      * 消息类型
+      * <p> 示例值：
+      */
     @SerializedName("type")
     private Integer type;
-    /**
-     * 是否为atall
-     * <p> 示例值：false
-     */
+     /**
+      * 是否为atall
+      * <p> 示例值：false
+      */
     @SerializedName("is_at_all")
     private Boolean isAtAll;
-
-    // builder 开始
-    public UnreadAtMessage() {
-    }
-
-    public UnreadAtMessage(Builder builder) {
-        /**
-         * 消息id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 消息发送者
-         * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-         */
-        this.fromId = builder.fromId;
-        /**
-         * 群组id
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 发送时间
-         * <p> 示例值：1704038400000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 发送时间毫秒
-         * <p> 示例值：1704038400000
-         */
-        this.createTimeMs = builder.createTimeMs;
-        /**
-         * 更新时间毫秒
-         * <p> 示例值：1704038400000
-         */
-        this.updateTimeMs = builder.updateTimeMs;
-        /**
-         * 消息类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 是否为atall
-         * <p> 示例值：false
-         */
-        this.isAtAll = builder.isAtAll;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMessageId() {
         return this.messageId;
     }
@@ -193,166 +137,215 @@ public class UnreadAtMessage {
         this.isAtAll = isAtAll;
     }
 
+
+// builder 开始
+  public UnreadAtMessage(){}
+
+  public UnreadAtMessage(Builder builder){
+         /**
+          * 消息id
+          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+          */
+      this.messageId = builder.messageId;
+         /**
+          * 消息发送者
+          * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
+          */
+      this.fromId = builder.fromId;
+         /**
+          * 群组id
+          * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
+          */
+      this.chatId = builder.chatId;
+         /**
+          * 发送时间
+          * <p> 示例值：1704038400000
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 发送时间毫秒
+          * <p> 示例值：1704038400000
+          */
+      this.createTimeMs = builder.createTimeMs;
+         /**
+          * 更新时间毫秒
+          * <p> 示例值：1704038400000
+          */
+      this.updateTimeMs = builder.updateTimeMs;
+         /**
+          * 消息类型
+          * <p> 示例值：
+          */
+      this.type = builder.type;
+         /**
+          * 是否为atall
+          * <p> 示例值：false
+          */
+      this.isAtAll = builder.isAtAll;
+  }
+
     public static class Builder {
-        /**
-         * 消息id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
+     /**
+      * 消息id
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
         private String messageId;
-        /**
-         * 消息发送者
-         * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-         */
+     /**
+      * 消息发送者
+      * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
+      */
         private String fromId;
-        /**
-         * 群组id
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
-         */
+     /**
+      * 群组id
+      * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
+      */
         private String chatId;
-        /**
-         * 发送时间
-         * <p> 示例值：1704038400000
-         */
+     /**
+      * 发送时间
+      * <p> 示例值：1704038400000
+      */
         private String createTime;
-        /**
-         * 发送时间毫秒
-         * <p> 示例值：1704038400000
-         */
+     /**
+      * 发送时间毫秒
+      * <p> 示例值：1704038400000
+      */
         private String createTimeMs;
-        /**
-         * 更新时间毫秒
-         * <p> 示例值：1704038400000
-         */
+     /**
+      * 更新时间毫秒
+      * <p> 示例值：1704038400000
+      */
         private String updateTimeMs;
-        /**
-         * 消息类型
-         * <p> 示例值：
-         */
+     /**
+      * 消息类型
+      * <p> 示例值：
+      */
         private Integer type;
-        /**
-         * 是否为atall
-         * <p> 示例值：false
-         */
+     /**
+      * 是否为atall
+      * <p> 示例值：false
+      */
         private Boolean isAtAll;
 
         /**
          * 消息id
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
          * @param messageId
          * @return
          */
         public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
+             this.messageId = messageId;
+             return this;
         }
 
+    
 
         /**
          * 消息发送者
          * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-         *
          * @param fromId
          * @return
          */
         public Builder fromId(String fromId) {
-            this.fromId = fromId;
-            return this;
+             this.fromId = fromId;
+             return this;
         }
 
+    
 
         /**
          * 群组id
          * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
-         *
          * @param chatId
          * @return
          */
         public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
+             this.chatId = chatId;
+             return this;
         }
 
+    
 
         /**
          * 发送时间
          * <p> 示例值：1704038400000
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 发送时间毫秒
          * <p> 示例值：1704038400000
-         *
          * @param createTimeMs
          * @return
          */
         public Builder createTimeMs(String createTimeMs) {
-            this.createTimeMs = createTimeMs;
-            return this;
+             this.createTimeMs = createTimeMs;
+             return this;
         }
 
+    
 
         /**
          * 更新时间毫秒
          * <p> 示例值：1704038400000
-         *
          * @param updateTimeMs
          * @return
          */
         public Builder updateTimeMs(String updateTimeMs) {
-            this.updateTimeMs = updateTimeMs;
-            return this;
+             this.updateTimeMs = updateTimeMs;
+             return this;
         }
 
+    
 
         /**
          * 消息类型
          * <p> 示例值：
-         *
          * @param type
          * @return
          */
         public Builder type(Integer type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 消息类型
          * <p> 示例值：
-         *
          * @param type {@link com.lark.oapi.service.im.v2.enums.UnreadAtMessageTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.im.v2.enums.UnreadAtMessageTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 是否为atall
          * <p> 示例值：false
-         *
          * @param isAtAll
          * @return
          */
         public Builder isAtAll(Boolean isAtAll) {
-            this.isAtAll = isAtAll;
-            return this;
+             this.isAtAll = isAtAll;
+             return this;
         }
 
+    
+    
+    public UnreadAtMessage build(){
+        return new UnreadAtMessage(this);
+      }
+    }
 
-        public UnreadAtMessage build() {
-            return new UnreadAtMessage(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

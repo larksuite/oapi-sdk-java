@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Assessment {
-    /**
-     * 考核结果 ID
-     * <p> 示例值：6893014061142064135
-     */
+     /**
+      * 考核结果 ID
+      * <p> 示例值：6893014061142064135
+      */
     @SerializedName("assessment_id")
     private String assessmentId;
-    /**
-     * 考核状态
-     * <p> 示例值：
-     */
+     /**
+      * 考核状态
+      * <p> 示例值：
+      */
     @SerializedName("assessment_status")
     private Enum assessmentStatus;
-    /**
-     * 试用期考核结果
-     * <p> 示例值：
-     */
+     /**
+      * 试用期考核结果
+      * <p> 示例值：
+      */
     @SerializedName("assessment_result")
     private Enum assessmentResult;
-    /**
-     * 考核得分
-     * <p> 示例值：99.9
-     */
+     /**
+      * 考核得分
+      * <p> 示例值：99.9
+      */
     @SerializedName("assessment_score")
     private Double assessmentScore;
-    /**
-     * 试用期考核等级
-     * <p> 示例值：
-     */
+     /**
+      * 试用期考核等级
+      * <p> 示例值：
+      */
     @SerializedName("assessment_grade")
     private Enum assessmentGrade;
-    /**
-     * 考核评语
-     * <p> 示例值：超出预期
-     */
+     /**
+      * 考核评语
+      * <p> 示例值：超出预期
+      */
     @SerializedName("assessment_comment")
     private String assessmentComment;
-    /**
-     * 考核结果页面超链接
-     * <p> 示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&recordPageId=171128122312
-     */
+     /**
+      * 考核结果页面超链接
+      * <p> 示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&recordPageId=171128122312
+      */
     @SerializedName("assessment_detail")
     private String assessmentDetail;
-    /**
-     * 是否为最终考核结果
-     * <p> 示例值：false
-     */
+     /**
+      * 是否为最终考核结果
+      * <p> 示例值：false
+      */
     @SerializedName("is_final_asssessment")
     private Boolean isFinalAsssessment;
-
-    // builder 开始
-    public Assessment() {
-    }
-
-    public Assessment(Builder builder) {
-        /**
-         * 考核结果 ID
-         * <p> 示例值：6893014061142064135
-         */
-        this.assessmentId = builder.assessmentId;
-        /**
-         * 考核状态
-         * <p> 示例值：
-         */
-        this.assessmentStatus = builder.assessmentStatus;
-        /**
-         * 试用期考核结果
-         * <p> 示例值：
-         */
-        this.assessmentResult = builder.assessmentResult;
-        /**
-         * 考核得分
-         * <p> 示例值：99.9
-         */
-        this.assessmentScore = builder.assessmentScore;
-        /**
-         * 试用期考核等级
-         * <p> 示例值：
-         */
-        this.assessmentGrade = builder.assessmentGrade;
-        /**
-         * 考核评语
-         * <p> 示例值：超出预期
-         */
-        this.assessmentComment = builder.assessmentComment;
-        /**
-         * 考核结果页面超链接
-         * <p> 示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&recordPageId=171128122312
-         */
-        this.assessmentDetail = builder.assessmentDetail;
-        /**
-         * 是否为最终考核结果
-         * <p> 示例值：false
-         */
-        this.isFinalAsssessment = builder.isFinalAsssessment;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAssessmentId() {
         return this.assessmentId;
     }
@@ -193,154 +137,205 @@ public class Assessment {
         this.isFinalAsssessment = isFinalAsssessment;
     }
 
+
+// builder 开始
+  public Assessment(){}
+
+  public Assessment(Builder builder){
+         /**
+          * 考核结果 ID
+          * <p> 示例值：6893014061142064135
+          */
+      this.assessmentId = builder.assessmentId;
+         /**
+          * 考核状态
+          * <p> 示例值：
+          */
+      this.assessmentStatus = builder.assessmentStatus;
+         /**
+          * 试用期考核结果
+          * <p> 示例值：
+          */
+      this.assessmentResult = builder.assessmentResult;
+         /**
+          * 考核得分
+          * <p> 示例值：99.9
+          */
+      this.assessmentScore = builder.assessmentScore;
+         /**
+          * 试用期考核等级
+          * <p> 示例值：
+          */
+      this.assessmentGrade = builder.assessmentGrade;
+         /**
+          * 考核评语
+          * <p> 示例值：超出预期
+          */
+      this.assessmentComment = builder.assessmentComment;
+         /**
+          * 考核结果页面超链接
+          * <p> 示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&recordPageId=171128122312
+          */
+      this.assessmentDetail = builder.assessmentDetail;
+         /**
+          * 是否为最终考核结果
+          * <p> 示例值：false
+          */
+      this.isFinalAsssessment = builder.isFinalAsssessment;
+  }
+
     public static class Builder {
-        /**
-         * 考核结果 ID
-         * <p> 示例值：6893014061142064135
-         */
+     /**
+      * 考核结果 ID
+      * <p> 示例值：6893014061142064135
+      */
         private String assessmentId;
-        /**
-         * 考核状态
-         * <p> 示例值：
-         */
+     /**
+      * 考核状态
+      * <p> 示例值：
+      */
         private Enum assessmentStatus;
-        /**
-         * 试用期考核结果
-         * <p> 示例值：
-         */
+     /**
+      * 试用期考核结果
+      * <p> 示例值：
+      */
         private Enum assessmentResult;
-        /**
-         * 考核得分
-         * <p> 示例值：99.9
-         */
+     /**
+      * 考核得分
+      * <p> 示例值：99.9
+      */
         private Double assessmentScore;
-        /**
-         * 试用期考核等级
-         * <p> 示例值：
-         */
+     /**
+      * 试用期考核等级
+      * <p> 示例值：
+      */
         private Enum assessmentGrade;
-        /**
-         * 考核评语
-         * <p> 示例值：超出预期
-         */
+     /**
+      * 考核评语
+      * <p> 示例值：超出预期
+      */
         private String assessmentComment;
-        /**
-         * 考核结果页面超链接
-         * <p> 示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&recordPageId=171128122312
-         */
+     /**
+      * 考核结果页面超链接
+      * <p> 示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&recordPageId=171128122312
+      */
         private String assessmentDetail;
-        /**
-         * 是否为最终考核结果
-         * <p> 示例值：false
-         */
+     /**
+      * 是否为最终考核结果
+      * <p> 示例值：false
+      */
         private Boolean isFinalAsssessment;
 
         /**
          * 考核结果 ID
          * <p> 示例值：6893014061142064135
-         *
          * @param assessmentId
          * @return
          */
         public Builder assessmentId(String assessmentId) {
-            this.assessmentId = assessmentId;
-            return this;
+             this.assessmentId = assessmentId;
+             return this;
         }
 
+    
 
         /**
          * 考核状态
          * <p> 示例值：
-         *
          * @param assessmentStatus
          * @return
          */
         public Builder assessmentStatus(Enum assessmentStatus) {
-            this.assessmentStatus = assessmentStatus;
-            return this;
+             this.assessmentStatus = assessmentStatus;
+             return this;
         }
 
+    
 
         /**
          * 试用期考核结果
          * <p> 示例值：
-         *
          * @param assessmentResult
          * @return
          */
         public Builder assessmentResult(Enum assessmentResult) {
-            this.assessmentResult = assessmentResult;
-            return this;
+             this.assessmentResult = assessmentResult;
+             return this;
         }
 
+    
 
         /**
          * 考核得分
          * <p> 示例值：99.9
-         *
          * @param assessmentScore
          * @return
          */
         public Builder assessmentScore(Double assessmentScore) {
-            this.assessmentScore = assessmentScore;
-            return this;
+             this.assessmentScore = assessmentScore;
+             return this;
         }
 
+    
 
         /**
          * 试用期考核等级
          * <p> 示例值：
-         *
          * @param assessmentGrade
          * @return
          */
         public Builder assessmentGrade(Enum assessmentGrade) {
-            this.assessmentGrade = assessmentGrade;
-            return this;
+             this.assessmentGrade = assessmentGrade;
+             return this;
         }
 
+    
 
         /**
          * 考核评语
          * <p> 示例值：超出预期
-         *
          * @param assessmentComment
          * @return
          */
         public Builder assessmentComment(String assessmentComment) {
-            this.assessmentComment = assessmentComment;
-            return this;
+             this.assessmentComment = assessmentComment;
+             return this;
         }
 
+    
 
         /**
          * 考核结果页面超链接
          * <p> 示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&recordPageId=171128122312
-         *
          * @param assessmentDetail
          * @return
          */
         public Builder assessmentDetail(String assessmentDetail) {
-            this.assessmentDetail = assessmentDetail;
-            return this;
+             this.assessmentDetail = assessmentDetail;
+             return this;
         }
 
+    
 
         /**
          * 是否为最终考核结果
          * <p> 示例值：false
-         *
          * @param isFinalAsssessment
          * @return
          */
         public Builder isFinalAsssessment(Boolean isFinalAsssessment) {
-            this.isFinalAsssessment = isFinalAsssessment;
-            return this;
+             this.isFinalAsssessment = isFinalAsssessment;
+             return this;
         }
 
+    
+    
+    public Assessment build(){
+        return new Assessment(this);
+      }
+    }
 
-        public Assessment build() {
-            return new Assessment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

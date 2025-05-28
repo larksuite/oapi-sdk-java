@@ -17,16 +17,15 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 试用期最终考核结果
  */
 public enum SearchProbationFinalAssessmentResultEnum {
-    APPROVED("approved"), // 通过
-    REJECTED("rejected"), // 不通过
-    ;
-    private String value;
-
+     APPROVED("approved"), // 通过
+     REJECTED("rejected"), // 不通过
+  ;
+   private String value;
     SearchProbationFinalAssessmentResultEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

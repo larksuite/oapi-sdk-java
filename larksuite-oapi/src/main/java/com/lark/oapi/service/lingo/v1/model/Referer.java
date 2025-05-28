@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Referer {
-    /**
-     * 数据 id
-     * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
-     */
+     /**
+      * 数据 id
+      * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 标题
-     * <p> 示例值：飞书官网
-     */
+     /**
+      * 标题
+      * <p> 示例值：飞书官网
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 链接地址
-     * <p> 示例值：https://www.feishu.cn/hc/zh-CN
-     */
+     /**
+      * 链接地址
+      * <p> 示例值：https://www.feishu.cn/hc/zh-CN
+      */
     @SerializedName("url")
     private String url;
-
-    // builder 开始
-    public Referer() {
-    }
-
-    public Referer(Builder builder) {
-        /**
-         * 数据 id
-         * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.id = builder.id;
-        /**
-         * 标题
-         * <p> 示例值：飞书官网
-         */
-        this.title = builder.title;
-        /**
-         * 链接地址
-         * <p> 示例值：https://www.feishu.cn/hc/zh-CN
-         */
-        this.url = builder.url;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -98,64 +67,90 @@ public class Referer {
         this.url = url;
     }
 
+
+// builder 开始
+  public Referer(){}
+
+  public Referer(Builder builder){
+         /**
+          * 数据 id
+          * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
+          */
+      this.id = builder.id;
+         /**
+          * 标题
+          * <p> 示例值：飞书官网
+          */
+      this.title = builder.title;
+         /**
+          * 链接地址
+          * <p> 示例值：https://www.feishu.cn/hc/zh-CN
+          */
+      this.url = builder.url;
+  }
+
     public static class Builder {
-        /**
-         * 数据 id
-         * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
-         */
+     /**
+      * 数据 id
+      * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
+      */
         private String id;
-        /**
-         * 标题
-         * <p> 示例值：飞书官网
-         */
+     /**
+      * 标题
+      * <p> 示例值：飞书官网
+      */
         private String title;
-        /**
-         * 链接地址
-         * <p> 示例值：https://www.feishu.cn/hc/zh-CN
-         */
+     /**
+      * 链接地址
+      * <p> 示例值：https://www.feishu.cn/hc/zh-CN
+      */
         private String url;
 
         /**
          * 数据 id
          * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 标题
          * <p> 示例值：飞书官网
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 链接地址
          * <p> 示例值：https://www.feishu.cn/hc/zh-CN
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
+    
+    public Referer build(){
+        return new Referer(this);
+      }
+    }
 
-        public Referer build() {
-            return new Referer(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

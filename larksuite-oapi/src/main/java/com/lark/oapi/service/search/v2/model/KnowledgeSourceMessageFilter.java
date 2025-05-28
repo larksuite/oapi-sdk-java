@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class KnowledgeSourceMessageFilter {
-    /**
-     * 会话 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 会话 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("chat_ids")
     private String[] chatIds;
-    /**
-     * 时间范围
-     * <p> 示例值：
-     */
+     /**
+      * 时间范围
+      * <p> 示例值：
+      */
     @SerializedName("time_range")
     private TimeRange timeRange;
-
-    // builder 开始
-    public KnowledgeSourceMessageFilter() {
-    }
-
-    public KnowledgeSourceMessageFilter(Builder builder) {
-        /**
-         * 会话 ID 列表
-         * <p> 示例值：
-         */
-        this.chatIds = builder.chatIds;
-        /**
-         * 时间范围
-         * <p> 示例值：
-         */
-        this.timeRange = builder.timeRange;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getChatIds() {
         return this.chatIds;
     }
@@ -79,46 +53,67 @@ public class KnowledgeSourceMessageFilter {
         this.timeRange = timeRange;
     }
 
+
+// builder 开始
+  public KnowledgeSourceMessageFilter(){}
+
+  public KnowledgeSourceMessageFilter(Builder builder){
+         /**
+          * 会话 ID 列表
+          * <p> 示例值：
+          */
+      this.chatIds = builder.chatIds;
+         /**
+          * 时间范围
+          * <p> 示例值：
+          */
+      this.timeRange = builder.timeRange;
+  }
+
     public static class Builder {
-        /**
-         * 会话 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 会话 ID 列表
+      * <p> 示例值：
+      */
         private String[] chatIds;
-        /**
-         * 时间范围
-         * <p> 示例值：
-         */
+     /**
+      * 时间范围
+      * <p> 示例值：
+      */
         private TimeRange timeRange;
 
         /**
          * 会话 ID 列表
          * <p> 示例值：
-         *
          * @param chatIds
          * @return
          */
         public Builder chatIds(String[] chatIds) {
-            this.chatIds = chatIds;
-            return this;
+             this.chatIds = chatIds;
+             return this;
         }
 
+    
 
         /**
          * 时间范围
          * <p> 示例值：
-         *
          * @param timeRange
          * @return
          */
         public Builder timeRange(TimeRange timeRange) {
-            this.timeRange = timeRange;
-            return this;
+             this.timeRange = timeRange;
+             return this;
         }
 
+    
+    
+    public KnowledgeSourceMessageFilter build(){
+        return new KnowledgeSourceMessageFilter(this);
+      }
+    }
 
-        public KnowledgeSourceMessageFilter build() {
-            return new KnowledgeSourceMessageFilter(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,17 +17,16 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批人类型
  */
 public enum ApproverRangeTypeEnum {
-    ALL("ALL"), // 全租户
-    PERSONAL("PERSONAL"), // 指定审批人
-    ROLE("ROLE"), // 指定角色
-    ;
-    private String value;
-
+     ALL("ALL"), // 全租户
+     PERSONAL("PERSONAL"), // 指定审批人
+     ROLE("ROLE"), // 指定角色
+  ;
+   private String value;
     ApproverRangeTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

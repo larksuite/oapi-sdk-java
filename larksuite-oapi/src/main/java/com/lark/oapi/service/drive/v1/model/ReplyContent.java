@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReplyContent {
-    /**
-     * 回复的内容
-     * <p> 示例值：
-     */
+     /**
+      * 回复的内容
+      * <p> 示例值：
+      */
     @SerializedName("elements")
     private ReplyElement[] elements;
-
-    // builder 开始
-    public ReplyContent() {
-    }
-
-    public ReplyContent(Builder builder) {
-        /**
-         * 回复的内容
-         * <p> 示例值：
-         */
-        this.elements = builder.elements;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ReplyElement[] getElements() {
         return this.elements;
     }
@@ -60,28 +39,44 @@ public class ReplyContent {
         this.elements = elements;
     }
 
+
+// builder 开始
+  public ReplyContent(){}
+
+  public ReplyContent(Builder builder){
+         /**
+          * 回复的内容
+          * <p> 示例值：
+          */
+      this.elements = builder.elements;
+  }
+
     public static class Builder {
-        /**
-         * 回复的内容
-         * <p> 示例值：
-         */
+     /**
+      * 回复的内容
+      * <p> 示例值：
+      */
         private ReplyElement[] elements;
 
         /**
          * 回复的内容
          * <p> 示例值：
-         *
          * @param elements
          * @return
          */
         public Builder elements(ReplyElement[] elements) {
-            this.elements = elements;
-            return this;
+             this.elements = elements;
+             return this;
         }
 
+    
+    
+    public ReplyContent build(){
+        return new ReplyContent(this);
+      }
+    }
 
-        public ReplyContent build() {
-            return new ReplyContent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

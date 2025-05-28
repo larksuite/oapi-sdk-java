@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EditEnumOptionCommonDataMetaDataReqBody {
-    /**
-     * 所属对象 API name，可通过[获取飞书人事对象列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口中返回的 `object_api_name` 字段获取
-     * <p> 示例值：probation_management
-     */
+     /**
+      * 所属对象 API name，可通过[获取飞书人事对象列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口中返回的 `object_api_name` 字段获取
+      * <p> 示例值：probation_management
+      */
     @SerializedName("object_api_name")
     private String objectApiName;
-    /**
-     * 枚举字段 API name，可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口中返回的 `custom_api_name` 字段获取
-     * <p> 示例值：final_assessment_grade
-     */
+     /**
+      * 枚举字段 API name，可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口中返回的 `custom_api_name` 字段获取
+      * <p> 示例值：final_assessment_grade
+      */
     @SerializedName("enum_field_api_name")
     private String enumFieldApiName;
-    /**
-     * 枚举选项
-     * <p> 示例值：
-     */
+     /**
+      * 枚举选项
+      * <p> 示例值：
+      */
     @SerializedName("enum_field_option")
     private EnumFieldOption enumFieldOption;
-
-    // builder 开始
-    public EditEnumOptionCommonDataMetaDataReqBody() {
-    }
-
-    public EditEnumOptionCommonDataMetaDataReqBody(Builder builder) {
-        /**
-         * 所属对象 API name，可通过[获取飞书人事对象列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口中返回的 `object_api_name` 字段获取
-         * <p> 示例值：probation_management
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 枚举字段 API name，可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口中返回的 `custom_api_name` 字段获取
-         * <p> 示例值：final_assessment_grade
-         */
-        this.enumFieldApiName = builder.enumFieldApiName;
-        /**
-         * 枚举选项
-         * <p> 示例值：
-         */
-        this.enumFieldOption = builder.enumFieldOption;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getObjectApiName() {
         return this.objectApiName;
     }
@@ -98,64 +67,90 @@ public class EditEnumOptionCommonDataMetaDataReqBody {
         this.enumFieldOption = enumFieldOption;
     }
 
+
+// builder 开始
+  public EditEnumOptionCommonDataMetaDataReqBody(){}
+
+  public EditEnumOptionCommonDataMetaDataReqBody(Builder builder){
+         /**
+          * 所属对象 API name，可通过[获取飞书人事对象列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口中返回的 `object_api_name` 字段获取
+          * <p> 示例值：probation_management
+          */
+      this.objectApiName = builder.objectApiName;
+         /**
+          * 枚举字段 API name，可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口中返回的 `custom_api_name` 字段获取
+          * <p> 示例值：final_assessment_grade
+          */
+      this.enumFieldApiName = builder.enumFieldApiName;
+         /**
+          * 枚举选项
+          * <p> 示例值：
+          */
+      this.enumFieldOption = builder.enumFieldOption;
+  }
+
     public static class Builder {
-        /**
-         * 所属对象 API name，可通过[获取飞书人事对象列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口中返回的 `object_api_name` 字段获取
-         * <p> 示例值：probation_management
-         */
+     /**
+      * 所属对象 API name，可通过[获取飞书人事对象列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口中返回的 `object_api_name` 字段获取
+      * <p> 示例值：probation_management
+      */
         private String objectApiName;
-        /**
-         * 枚举字段 API name，可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口中返回的 `custom_api_name` 字段获取
-         * <p> 示例值：final_assessment_grade
-         */
+     /**
+      * 枚举字段 API name，可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口中返回的 `custom_api_name` 字段获取
+      * <p> 示例值：final_assessment_grade
+      */
         private String enumFieldApiName;
-        /**
-         * 枚举选项
-         * <p> 示例值：
-         */
+     /**
+      * 枚举选项
+      * <p> 示例值：
+      */
         private EnumFieldOption enumFieldOption;
 
         /**
          * 所属对象 API name，可通过[获取飞书人事对象列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口中返回的 `object_api_name` 字段获取
          * <p> 示例值：probation_management
-         *
          * @param objectApiName
          * @return
          */
         public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
+             this.objectApiName = objectApiName;
+             return this;
         }
 
+    
 
         /**
          * 枚举字段 API name，可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口中返回的 `custom_api_name` 字段获取
          * <p> 示例值：final_assessment_grade
-         *
          * @param enumFieldApiName
          * @return
          */
         public Builder enumFieldApiName(String enumFieldApiName) {
-            this.enumFieldApiName = enumFieldApiName;
-            return this;
+             this.enumFieldApiName = enumFieldApiName;
+             return this;
         }
 
+    
 
         /**
          * 枚举选项
          * <p> 示例值：
-         *
          * @param enumFieldOption
          * @return
          */
         public Builder enumFieldOption(EnumFieldOption enumFieldOption) {
-            this.enumFieldOption = enumFieldOption;
-            return this;
+             this.enumFieldOption = enumFieldOption;
+             return this;
         }
 
+    
+    
+    public EditEnumOptionCommonDataMetaDataReqBody build(){
+        return new EditEnumOptionCommonDataMetaDataReqBody(this);
+      }
+    }
 
-        public EditEnumOptionCommonDataMetaDataReqBody build() {
-            return new EditEnumOptionCommonDataMetaDataReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

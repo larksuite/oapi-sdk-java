@@ -17,18 +17,17 @@ package com.lark.oapi.service.aily.v1.enums;
  * 飞书云文档类型
  */
 public enum AilyKnowledgeDocsTypeEnum {
-    DOCX("docx"), // 新版文档
-    SHEETS("sheets"), // 表格
-    BASE("base"), // 多维表格
-    WIKI("wiki"), // 知识库文档
-    ;
-    private String value;
-
+     DOCX("docx"), // 新版文档
+     SHEETS("sheets"), // 表格
+     BASE("base"), // 多维表格
+     WIKI("wiki"), // 知识库文档
+  ;
+   private String value;
     AilyKnowledgeDocsTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

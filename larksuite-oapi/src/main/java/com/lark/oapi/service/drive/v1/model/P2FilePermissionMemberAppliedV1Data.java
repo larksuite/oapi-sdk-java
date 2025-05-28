@@ -12,77 +12,78 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2FilePermissionMemberAppliedV1Data {
-    /**
-     * 文件对应的类型
-     * <p> 示例值：docx
-     */
+     /**
+      * 文件对应的类型
+      * <p> 示例值：docx
+      */
     @SerializedName("file_type")
     private String fileType;
-    /**
-     * 文件的 Token
-     * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
-     */
+     /**
+      * 文件的 Token
+      * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 操作者 ID
-     * <p> 示例值：
-     */
+     /**
+      * 操作者 ID
+      * <p> 示例值：
+      */
     @SerializedName("operator_id")
     private UserId operatorId;
-    /**
-     * 收到申请处理审批的用户 ID
-     * <p> 示例值：
-     */
+     /**
+      * 收到申请处理审批的用户 ID
+      * <p> 示例值：
+      */
     @SerializedName("approver_id")
     private UserId approverId;
-    /**
-     * 申请授权的用户 ID 列表
-     * <p> 示例值：ou_12345
-     */
+     /**
+      * 申请授权的用户 ID 列表
+      * <p> 示例值：ou_12345
+      */
     @SerializedName("application_user_list")
     private UserId[] applicationUserList;
-    /**
-     * 申请授权的群 ID 列表
-     * <p> 示例值：oc_12345
-     */
+     /**
+      * 申请授权的群 ID 列表
+      * <p> 示例值：oc_12345
+      */
     @SerializedName("application_chat_list")
     private String[] applicationChatList;
-    /**
-     * 申请授权的组织架构 ID 列表
-     * <p> 示例值：od_12345
-     */
+     /**
+      * 申请授权的组织架构 ID 列表
+      * <p> 示例值：od_12345
+      */
     @SerializedName("application_department_list")
     private String[] applicationDepartmentList;
-    /**
-     * 需要申请的权限
-     * <p> 示例值：view
-     */
+     /**
+      * 权限申请备注
+      * <p> 示例值：xxxxx
+      */
+    @SerializedName("application_remark")
+    private String applicationRemark;
+     /**
+      * 需要申请的权限
+      * <p> 示例值：view
+      */
     @SerializedName("permission")
     private String permission;
-    /**
-     * 订阅用户 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 订阅用户 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("subscriber_ids")
     private UserId[] subscriberIds;
-
     public String getFileType() {
         return this.fileType;
     }
@@ -137,6 +138,14 @@ public class P2FilePermissionMemberAppliedV1Data {
 
     public void setApplicationDepartmentList(String[] applicationDepartmentList) {
         this.applicationDepartmentList = applicationDepartmentList;
+    }
+
+    public String getApplicationRemark() {
+        return this.applicationRemark;
+    }
+
+    public void setApplicationRemark(String applicationRemark) {
+        this.applicationRemark = applicationRemark;
     }
 
     public String getPermission() {

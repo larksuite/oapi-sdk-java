@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Style {
-    /**
-     * 范围
-     * <p> 示例值：aokNvv
-     */
+     /**
+      * 范围
+      * <p> 示例值：aokNvv
+      */
     @SerializedName("range")
     private String range;
-    /**
-     * 单元格样式
-     * <p> 示例值：
-     */
+     /**
+      * 单元格样式
+      * <p> 示例值：
+      */
     @SerializedName("styles")
     private CellStyle[][] styles;
-
-    // builder 开始
-    public Style() {
-    }
-
-    public Style(Builder builder) {
-        /**
-         * 范围
-         * <p> 示例值：aokNvv
-         */
-        this.range = builder.range;
-        /**
-         * 单元格样式
-         * <p> 示例值：
-         */
-        this.styles = builder.styles;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRange() {
         return this.range;
     }
@@ -79,46 +53,67 @@ public class Style {
         this.styles = styles;
     }
 
+
+// builder 开始
+  public Style(){}
+
+  public Style(Builder builder){
+         /**
+          * 范围
+          * <p> 示例值：aokNvv
+          */
+      this.range = builder.range;
+         /**
+          * 单元格样式
+          * <p> 示例值：
+          */
+      this.styles = builder.styles;
+  }
+
     public static class Builder {
-        /**
-         * 范围
-         * <p> 示例值：aokNvv
-         */
+     /**
+      * 范围
+      * <p> 示例值：aokNvv
+      */
         private String range;
-        /**
-         * 单元格样式
-         * <p> 示例值：
-         */
+     /**
+      * 单元格样式
+      * <p> 示例值：
+      */
         private CellStyle[][] styles;
 
         /**
          * 范围
          * <p> 示例值：aokNvv
-         *
          * @param range
          * @return
          */
         public Builder range(String range) {
-            this.range = range;
-            return this;
+             this.range = range;
+             return this;
         }
 
+    
 
         /**
          * 单元格样式
          * <p> 示例值：
-         *
          * @param styles
          * @return
          */
         public Builder styles(CellStyle[][] styles) {
-            this.styles = styles;
-            return this;
+             this.styles = styles;
+             return this;
         }
 
+    
+    
+    public Style build(){
+        return new Style(this);
+      }
+    }
 
-        public Style build() {
-            return new Style(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,170 +19,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FormFieldVariableListObject {
-    /**
-     * 文本变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 文本变量对象
+      * <p> 示例值：
+      */
     @SerializedName("text_value")
     private FormFieldVariableTextValue textValue;
-    /**
-     * 数值变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 数值变量对象
+      * <p> 示例值：
+      */
     @SerializedName("number_value")
     private FormFieldVariableNumberValue numberValue;
-    /**
-     * 日期变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 日期变量对象
+      * <p> 示例值：
+      */
     @SerializedName("date_value")
     private FormFieldVariableDateValue dateValue;
-    /**
-     * 员工变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 员工变量对象
+      * <p> 示例值：
+      */
     @SerializedName("employment_value")
     private FormFieldVariableEmploymentValue employmentValue;
-    /**
-     * 日期时间变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 日期时间变量对象
+      * <p> 示例值：
+      */
     @SerializedName("date_time_value")
     private FormFieldVariableDatetimeValue dateTimeValue;
-    /**
-     * 枚举变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 枚举变量对象
+      * <p> 示例值：
+      */
     @SerializedName("enum_value")
     private FormFieldVariableEnumValue enumValue;
-    /**
-     * 空变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 空变量对象
+      * <p> 示例值：
+      */
     @SerializedName("null_value")
     private FormFieldVariableNullValue nullValue;
-    /**
-     * 布尔变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 布尔变量对象
+      * <p> 示例值：
+      */
     @SerializedName("bool_value")
     private FormFieldVariableBoolValue boolValue;
-    /**
-     * 部门变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 部门变量对象
+      * <p> 示例值：
+      */
     @SerializedName("department_value")
     private FormFieldVariableDepartmentValue departmentValue;
-    /**
-     * 文件变量对象
-     * <p> 示例值：
-     */
+     /**
+      * 文件变量对象
+      * <p> 示例值：
+      */
     @SerializedName("file_value")
     private FormFieldVariableFileValue fileValue;
-    /**
-     * i18n变量对象
-     * <p> 示例值：
-     */
+     /**
+      * i18n变量对象
+      * <p> 示例值：
+      */
     @SerializedName("i18n_value")
     private FormFieldVariableI18nValue i18nValue;
-    /**
-     * 对象变量
-     * <p> 示例值：
-     */
+     /**
+      * 对象变量
+      * <p> 示例值：
+      */
     @SerializedName("object_value")
     private FormFieldVariableObjectValue objectValue;
-    /**
-     * 记录对象
-     * <p> 示例值：
-     */
+     /**
+      * 记录对象
+      * <p> 示例值：
+      */
     @SerializedName("record_value")
     private FormFieldVariableRecordValue recordValue;
-
-    // builder 开始
-    public FormFieldVariableListObject() {
-    }
-
-    public FormFieldVariableListObject(Builder builder) {
-        /**
-         * 文本变量对象
-         * <p> 示例值：
-         */
-        this.textValue = builder.textValue;
-        /**
-         * 数值变量对象
-         * <p> 示例值：
-         */
-        this.numberValue = builder.numberValue;
-        /**
-         * 日期变量对象
-         * <p> 示例值：
-         */
-        this.dateValue = builder.dateValue;
-        /**
-         * 员工变量对象
-         * <p> 示例值：
-         */
-        this.employmentValue = builder.employmentValue;
-        /**
-         * 日期时间变量对象
-         * <p> 示例值：
-         */
-        this.dateTimeValue = builder.dateTimeValue;
-        /**
-         * 枚举变量对象
-         * <p> 示例值：
-         */
-        this.enumValue = builder.enumValue;
-        /**
-         * 空变量对象
-         * <p> 示例值：
-         */
-        this.nullValue = builder.nullValue;
-        /**
-         * 布尔变量对象
-         * <p> 示例值：
-         */
-        this.boolValue = builder.boolValue;
-        /**
-         * 部门变量对象
-         * <p> 示例值：
-         */
-        this.departmentValue = builder.departmentValue;
-        /**
-         * 文件变量对象
-         * <p> 示例值：
-         */
-        this.fileValue = builder.fileValue;
-        /**
-         * i18n变量对象
-         * <p> 示例值：
-         */
-        this.i18nValue = builder.i18nValue;
-        /**
-         * 对象变量
-         * <p> 示例值：
-         */
-        this.objectValue = builder.objectValue;
-        /**
-         * 记录对象
-         * <p> 示例值：
-         */
-        this.recordValue = builder.recordValue;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public FormFieldVariableTextValue getTextValue() {
         return this.textValue;
     }
@@ -288,244 +207,320 @@ public class FormFieldVariableListObject {
         this.recordValue = recordValue;
     }
 
+
+// builder 开始
+  public FormFieldVariableListObject(){}
+
+  public FormFieldVariableListObject(Builder builder){
+         /**
+          * 文本变量对象
+          * <p> 示例值：
+          */
+      this.textValue = builder.textValue;
+         /**
+          * 数值变量对象
+          * <p> 示例值：
+          */
+      this.numberValue = builder.numberValue;
+         /**
+          * 日期变量对象
+          * <p> 示例值：
+          */
+      this.dateValue = builder.dateValue;
+         /**
+          * 员工变量对象
+          * <p> 示例值：
+          */
+      this.employmentValue = builder.employmentValue;
+         /**
+          * 日期时间变量对象
+          * <p> 示例值：
+          */
+      this.dateTimeValue = builder.dateTimeValue;
+         /**
+          * 枚举变量对象
+          * <p> 示例值：
+          */
+      this.enumValue = builder.enumValue;
+         /**
+          * 空变量对象
+          * <p> 示例值：
+          */
+      this.nullValue = builder.nullValue;
+         /**
+          * 布尔变量对象
+          * <p> 示例值：
+          */
+      this.boolValue = builder.boolValue;
+         /**
+          * 部门变量对象
+          * <p> 示例值：
+          */
+      this.departmentValue = builder.departmentValue;
+         /**
+          * 文件变量对象
+          * <p> 示例值：
+          */
+      this.fileValue = builder.fileValue;
+         /**
+          * i18n变量对象
+          * <p> 示例值：
+          */
+      this.i18nValue = builder.i18nValue;
+         /**
+          * 对象变量
+          * <p> 示例值：
+          */
+      this.objectValue = builder.objectValue;
+         /**
+          * 记录对象
+          * <p> 示例值：
+          */
+      this.recordValue = builder.recordValue;
+  }
+
     public static class Builder {
-        /**
-         * 文本变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 文本变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableTextValue textValue;
-        /**
-         * 数值变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 数值变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableNumberValue numberValue;
-        /**
-         * 日期变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 日期变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableDateValue dateValue;
-        /**
-         * 员工变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 员工变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableEmploymentValue employmentValue;
-        /**
-         * 日期时间变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 日期时间变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableDatetimeValue dateTimeValue;
-        /**
-         * 枚举变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 枚举变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableEnumValue enumValue;
-        /**
-         * 空变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 空变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableNullValue nullValue;
-        /**
-         * 布尔变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 布尔变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableBoolValue boolValue;
-        /**
-         * 部门变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 部门变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableDepartmentValue departmentValue;
-        /**
-         * 文件变量对象
-         * <p> 示例值：
-         */
+     /**
+      * 文件变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableFileValue fileValue;
-        /**
-         * i18n变量对象
-         * <p> 示例值：
-         */
+     /**
+      * i18n变量对象
+      * <p> 示例值：
+      */
         private FormFieldVariableI18nValue i18nValue;
-        /**
-         * 对象变量
-         * <p> 示例值：
-         */
+     /**
+      * 对象变量
+      * <p> 示例值：
+      */
         private FormFieldVariableObjectValue objectValue;
-        /**
-         * 记录对象
-         * <p> 示例值：
-         */
+     /**
+      * 记录对象
+      * <p> 示例值：
+      */
         private FormFieldVariableRecordValue recordValue;
 
         /**
          * 文本变量对象
          * <p> 示例值：
-         *
          * @param textValue
          * @return
          */
         public Builder textValue(FormFieldVariableTextValue textValue) {
-            this.textValue = textValue;
-            return this;
+             this.textValue = textValue;
+             return this;
         }
 
+    
 
         /**
          * 数值变量对象
          * <p> 示例值：
-         *
          * @param numberValue
          * @return
          */
         public Builder numberValue(FormFieldVariableNumberValue numberValue) {
-            this.numberValue = numberValue;
-            return this;
+             this.numberValue = numberValue;
+             return this;
         }
 
+    
 
         /**
          * 日期变量对象
          * <p> 示例值：
-         *
          * @param dateValue
          * @return
          */
         public Builder dateValue(FormFieldVariableDateValue dateValue) {
-            this.dateValue = dateValue;
-            return this;
+             this.dateValue = dateValue;
+             return this;
         }
 
+    
 
         /**
          * 员工变量对象
          * <p> 示例值：
-         *
          * @param employmentValue
          * @return
          */
         public Builder employmentValue(FormFieldVariableEmploymentValue employmentValue) {
-            this.employmentValue = employmentValue;
-            return this;
+             this.employmentValue = employmentValue;
+             return this;
         }
 
+    
 
         /**
          * 日期时间变量对象
          * <p> 示例值：
-         *
          * @param dateTimeValue
          * @return
          */
         public Builder dateTimeValue(FormFieldVariableDatetimeValue dateTimeValue) {
-            this.dateTimeValue = dateTimeValue;
-            return this;
+             this.dateTimeValue = dateTimeValue;
+             return this;
         }
 
+    
 
         /**
          * 枚举变量对象
          * <p> 示例值：
-         *
          * @param enumValue
          * @return
          */
         public Builder enumValue(FormFieldVariableEnumValue enumValue) {
-            this.enumValue = enumValue;
-            return this;
+             this.enumValue = enumValue;
+             return this;
         }
 
+    
 
         /**
          * 空变量对象
          * <p> 示例值：
-         *
          * @param nullValue
          * @return
          */
         public Builder nullValue(FormFieldVariableNullValue nullValue) {
-            this.nullValue = nullValue;
-            return this;
+             this.nullValue = nullValue;
+             return this;
         }
 
+    
 
         /**
          * 布尔变量对象
          * <p> 示例值：
-         *
          * @param boolValue
          * @return
          */
         public Builder boolValue(FormFieldVariableBoolValue boolValue) {
-            this.boolValue = boolValue;
-            return this;
+             this.boolValue = boolValue;
+             return this;
         }
 
+    
 
         /**
          * 部门变量对象
          * <p> 示例值：
-         *
          * @param departmentValue
          * @return
          */
         public Builder departmentValue(FormFieldVariableDepartmentValue departmentValue) {
-            this.departmentValue = departmentValue;
-            return this;
+             this.departmentValue = departmentValue;
+             return this;
         }
 
+    
 
         /**
          * 文件变量对象
          * <p> 示例值：
-         *
          * @param fileValue
          * @return
          */
         public Builder fileValue(FormFieldVariableFileValue fileValue) {
-            this.fileValue = fileValue;
-            return this;
+             this.fileValue = fileValue;
+             return this;
         }
 
+    
 
         /**
          * i18n变量对象
          * <p> 示例值：
-         *
          * @param i18nValue
          * @return
          */
         public Builder i18nValue(FormFieldVariableI18nValue i18nValue) {
-            this.i18nValue = i18nValue;
-            return this;
+             this.i18nValue = i18nValue;
+             return this;
         }
 
+    
 
         /**
          * 对象变量
          * <p> 示例值：
-         *
          * @param objectValue
          * @return
          */
         public Builder objectValue(FormFieldVariableObjectValue objectValue) {
-            this.objectValue = objectValue;
-            return this;
+             this.objectValue = objectValue;
+             return this;
         }
 
+    
 
         /**
          * 记录对象
          * <p> 示例值：
-         *
          * @param recordValue
          * @return
          */
         public Builder recordValue(FormFieldVariableRecordValue recordValue) {
-            this.recordValue = recordValue;
-            return this;
+             this.recordValue = recordValue;
+             return this;
         }
 
+    
+    
+    public FormFieldVariableListObject build(){
+        return new FormFieldVariableListObject(this);
+      }
+    }
 
-        public FormFieldVariableListObject build() {
-            return new FormFieldVariableListObject(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

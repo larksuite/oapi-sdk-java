@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ItemMetadata {
-    /**
-     * 该条数据记录对应的标题
-     * <p> 示例值：工单：无法创建文章
-     */
+     /**
+      * 该条数据记录对应的标题
+      * <p> 示例值：工单：无法创建文章
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 该条数据记录对应的跳转url
-     * <p> 示例值：http://www.abc.com.cn
-     */
+     /**
+      * 该条数据记录对应的跳转url
+      * <p> 示例值：http://www.abc.com.cn
+      */
     @SerializedName("source_url")
     private String sourceUrl;
-    /**
-     * 数据项的创建时间。Unix 时间，单位为秒
-     * <p> 示例值：1618831236
-     */
+     /**
+      * 数据项的创建时间。Unix 时间，单位为秒
+      * <p> 示例值：1618831236
+      */
     @SerializedName("create_time")
     private Integer createTime;
-    /**
-     * 数据项的更新时间。Unix 时间，单位为秒
-     * <p> 示例值：1618831236
-     */
+     /**
+      * 数据项的更新时间。Unix 时间，单位为秒
+      * <p> 示例值：1618831236
+      */
     @SerializedName("update_time")
     private Integer updateTime;
-    /**
-     * 移动端搜索命中的跳转地址。如果您PC端和移动端有不同的跳转地址，可以在这里写入移动端专用的url，我们会在搜索时为您选择合适的地址
-     * <p> 示例值：https://www.feishu.cn
-     */
+     /**
+      * 移动端搜索命中的跳转地址。如果您PC端和移动端有不同的跳转地址，可以在这里写入移动端专用的url，我们会在搜索时为您选择合适的地址
+      * <p> 示例值：https://www.feishu.cn
+      */
     @SerializedName("source_url_mobile")
     private String sourceUrlMobile;
-
-    // builder 开始
-    public ItemMetadata() {
-    }
-
-    public ItemMetadata(Builder builder) {
-        /**
-         * 该条数据记录对应的标题
-         * <p> 示例值：工单：无法创建文章
-         */
-        this.title = builder.title;
-        /**
-         * 该条数据记录对应的跳转url
-         * <p> 示例值：http://www.abc.com.cn
-         */
-        this.sourceUrl = builder.sourceUrl;
-        /**
-         * 数据项的创建时间。Unix 时间，单位为秒
-         * <p> 示例值：1618831236
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 数据项的更新时间。Unix 时间，单位为秒
-         * <p> 示例值：1618831236
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 移动端搜索命中的跳转地址。如果您PC端和移动端有不同的跳转地址，可以在这里写入移动端专用的url，我们会在搜索时为您选择合适的地址
-         * <p> 示例值：https://www.feishu.cn
-         */
-        this.sourceUrlMobile = builder.sourceUrlMobile;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTitle() {
         return this.title;
     }
@@ -136,100 +95,136 @@ public class ItemMetadata {
         this.sourceUrlMobile = sourceUrlMobile;
     }
 
+
+// builder 开始
+  public ItemMetadata(){}
+
+  public ItemMetadata(Builder builder){
+         /**
+          * 该条数据记录对应的标题
+          * <p> 示例值：工单：无法创建文章
+          */
+      this.title = builder.title;
+         /**
+          * 该条数据记录对应的跳转url
+          * <p> 示例值：http://www.abc.com.cn
+          */
+      this.sourceUrl = builder.sourceUrl;
+         /**
+          * 数据项的创建时间。Unix 时间，单位为秒
+          * <p> 示例值：1618831236
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 数据项的更新时间。Unix 时间，单位为秒
+          * <p> 示例值：1618831236
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 移动端搜索命中的跳转地址。如果您PC端和移动端有不同的跳转地址，可以在这里写入移动端专用的url，我们会在搜索时为您选择合适的地址
+          * <p> 示例值：https://www.feishu.cn
+          */
+      this.sourceUrlMobile = builder.sourceUrlMobile;
+  }
+
     public static class Builder {
-        /**
-         * 该条数据记录对应的标题
-         * <p> 示例值：工单：无法创建文章
-         */
+     /**
+      * 该条数据记录对应的标题
+      * <p> 示例值：工单：无法创建文章
+      */
         private String title;
-        /**
-         * 该条数据记录对应的跳转url
-         * <p> 示例值：http://www.abc.com.cn
-         */
+     /**
+      * 该条数据记录对应的跳转url
+      * <p> 示例值：http://www.abc.com.cn
+      */
         private String sourceUrl;
-        /**
-         * 数据项的创建时间。Unix 时间，单位为秒
-         * <p> 示例值：1618831236
-         */
+     /**
+      * 数据项的创建时间。Unix 时间，单位为秒
+      * <p> 示例值：1618831236
+      */
         private Integer createTime;
-        /**
-         * 数据项的更新时间。Unix 时间，单位为秒
-         * <p> 示例值：1618831236
-         */
+     /**
+      * 数据项的更新时间。Unix 时间，单位为秒
+      * <p> 示例值：1618831236
+      */
         private Integer updateTime;
-        /**
-         * 移动端搜索命中的跳转地址。如果您PC端和移动端有不同的跳转地址，可以在这里写入移动端专用的url，我们会在搜索时为您选择合适的地址
-         * <p> 示例值：https://www.feishu.cn
-         */
+     /**
+      * 移动端搜索命中的跳转地址。如果您PC端和移动端有不同的跳转地址，可以在这里写入移动端专用的url，我们会在搜索时为您选择合适的地址
+      * <p> 示例值：https://www.feishu.cn
+      */
         private String sourceUrlMobile;
 
         /**
          * 该条数据记录对应的标题
          * <p> 示例值：工单：无法创建文章
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 该条数据记录对应的跳转url
          * <p> 示例值：http://www.abc.com.cn
-         *
          * @param sourceUrl
          * @return
          */
         public Builder sourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-            return this;
+             this.sourceUrl = sourceUrl;
+             return this;
         }
 
+    
 
         /**
          * 数据项的创建时间。Unix 时间，单位为秒
          * <p> 示例值：1618831236
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(Integer createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 数据项的更新时间。Unix 时间，单位为秒
          * <p> 示例值：1618831236
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 移动端搜索命中的跳转地址。如果您PC端和移动端有不同的跳转地址，可以在这里写入移动端专用的url，我们会在搜索时为您选择合适的地址
          * <p> 示例值：https://www.feishu.cn
-         *
          * @param sourceUrlMobile
          * @return
          */
         public Builder sourceUrlMobile(String sourceUrlMobile) {
-            this.sourceUrlMobile = sourceUrlMobile;
-            return this;
+             this.sourceUrlMobile = sourceUrlMobile;
+             return this;
         }
 
+    
+    
+    public ItemMetadata build(){
+        return new ItemMetadata(this);
+      }
+    }
 
-        public ItemMetadata build() {
-            return new ItemMetadata(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

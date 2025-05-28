@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MgetRoomReqBody {
-    /**
-     * 会议室id列表
-     * <p> 示例值：["omm_4de32cf10a4358788ff4e09e37ebbf9b","omm_3c5dd7e09bac0c1758fcf9511bd1a771"]
-     */
+     /**
+      * 会议室id列表
+      * <p> 示例值：["omm_4de32cf10a4358788ff4e09e37ebbf9b","omm_3c5dd7e09bac0c1758fcf9511bd1a771"]
+      */
     @SerializedName("room_ids")
     private String[] roomIds;
-
-    // builder 开始
-    public MgetRoomReqBody() {
-    }
-
-    public MgetRoomReqBody(Builder builder) {
-        /**
-         * 会议室id列表
-         * <p> 示例值：["omm_4de32cf10a4358788ff4e09e37ebbf9b","omm_3c5dd7e09bac0c1758fcf9511bd1a771"]
-         */
-        this.roomIds = builder.roomIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getRoomIds() {
         return this.roomIds;
     }
@@ -60,28 +39,44 @@ public class MgetRoomReqBody {
         this.roomIds = roomIds;
     }
 
+
+// builder 开始
+  public MgetRoomReqBody(){}
+
+  public MgetRoomReqBody(Builder builder){
+         /**
+          * 会议室id列表
+          * <p> 示例值：["omm_4de32cf10a4358788ff4e09e37ebbf9b","omm_3c5dd7e09bac0c1758fcf9511bd1a771"]
+          */
+      this.roomIds = builder.roomIds;
+  }
+
     public static class Builder {
-        /**
-         * 会议室id列表
-         * <p> 示例值：["omm_4de32cf10a4358788ff4e09e37ebbf9b","omm_3c5dd7e09bac0c1758fcf9511bd1a771"]
-         */
+     /**
+      * 会议室id列表
+      * <p> 示例值：["omm_4de32cf10a4358788ff4e09e37ebbf9b","omm_3c5dd7e09bac0c1758fcf9511bd1a771"]
+      */
         private String[] roomIds;
 
         /**
          * 会议室id列表
          * <p> 示例值：["omm_4de32cf10a4358788ff4e09e37ebbf9b","omm_3c5dd7e09bac0c1758fcf9511bd1a771"]
-         *
          * @param roomIds
          * @return
          */
         public Builder roomIds(String[] roomIds) {
-            this.roomIds = roomIds;
-            return this;
+             this.roomIds = roomIds;
+             return this;
         }
 
+    
+    
+    public MgetRoomReqBody build(){
+        return new MgetRoomReqBody(this);
+      }
+    }
 
-        public MgetRoomReqBody build() {
-            return new MgetRoomReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

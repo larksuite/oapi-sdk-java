@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Interview {
-    /**
-     * 面试id
-     * <p> 示例值：6949805467799537964
-     */
+     /**
+      * 面试id
+      * <p> 示例值：6949805467799537964
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 面试开始时间（ms）
-     * <p> 示例值：1618899376474
-     */
+     /**
+      * 面试开始时间（ms）
+      * <p> 示例值：1618899376474
+      */
     @SerializedName("begin_time")
     private Long beginTime;
-    /**
-     * 面试结束时间（ms）
-     * <p> 示例值：1618999376474
-     */
+     /**
+      * 面试结束时间（ms）
+      * <p> 示例值：1618999376474
+      */
     @SerializedName("end_time")
     private Long endTime;
-    /**
-     * 面试轮次（从0开始计数）
-     * <p> 示例值：0
-     */
+     /**
+      * 面试轮次（从0开始计数）
+      * <p> 示例值：0
+      */
     @SerializedName("round")
     private Integer round;
-    /**
-     * 面试关联的投递阶段
-     * <p> 示例值：634324253532232
-     */
+     /**
+      * 面试关联的投递阶段
+      * <p> 示例值：634324253532232
+      */
     @SerializedName("stage_id")
     private String stageId;
-    /**
-     * 面试官记录列表
-     * <p> 示例值：
-     */
+     /**
+      * 面试官记录列表
+      * <p> 示例值：
+      */
     @SerializedName("interview_record_list")
     private InterviewRecord[] interviewRecordList;
-
-    // builder 开始
-    public Interview() {
-    }
-
-    public Interview(Builder builder) {
-        /**
-         * 面试id
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 面试开始时间（ms）
-         * <p> 示例值：1618899376474
-         */
-        this.beginTime = builder.beginTime;
-        /**
-         * 面试结束时间（ms）
-         * <p> 示例值：1618999376474
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 面试轮次（从0开始计数）
-         * <p> 示例值：0
-         */
-        this.round = builder.round;
-        /**
-         * 面试关联的投递阶段
-         * <p> 示例值：634324253532232
-         */
-        this.stageId = builder.stageId;
-        /**
-         * 面试官记录列表
-         * <p> 示例值：
-         */
-        this.interviewRecordList = builder.interviewRecordList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -154,118 +108,159 @@ public class Interview {
         this.interviewRecordList = interviewRecordList;
     }
 
+
+// builder 开始
+  public Interview(){}
+
+  public Interview(Builder builder){
+         /**
+          * 面试id
+          * <p> 示例值：6949805467799537964
+          */
+      this.id = builder.id;
+         /**
+          * 面试开始时间（ms）
+          * <p> 示例值：1618899376474
+          */
+      this.beginTime = builder.beginTime;
+         /**
+          * 面试结束时间（ms）
+          * <p> 示例值：1618999376474
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 面试轮次（从0开始计数）
+          * <p> 示例值：0
+          */
+      this.round = builder.round;
+         /**
+          * 面试关联的投递阶段
+          * <p> 示例值：634324253532232
+          */
+      this.stageId = builder.stageId;
+         /**
+          * 面试官记录列表
+          * <p> 示例值：
+          */
+      this.interviewRecordList = builder.interviewRecordList;
+  }
+
     public static class Builder {
-        /**
-         * 面试id
-         * <p> 示例值：6949805467799537964
-         */
+     /**
+      * 面试id
+      * <p> 示例值：6949805467799537964
+      */
         private String id;
-        /**
-         * 面试开始时间（ms）
-         * <p> 示例值：1618899376474
-         */
+     /**
+      * 面试开始时间（ms）
+      * <p> 示例值：1618899376474
+      */
         private Long beginTime;
-        /**
-         * 面试结束时间（ms）
-         * <p> 示例值：1618999376474
-         */
+     /**
+      * 面试结束时间（ms）
+      * <p> 示例值：1618999376474
+      */
         private Long endTime;
-        /**
-         * 面试轮次（从0开始计数）
-         * <p> 示例值：0
-         */
+     /**
+      * 面试轮次（从0开始计数）
+      * <p> 示例值：0
+      */
         private Integer round;
-        /**
-         * 面试关联的投递阶段
-         * <p> 示例值：634324253532232
-         */
+     /**
+      * 面试关联的投递阶段
+      * <p> 示例值：634324253532232
+      */
         private String stageId;
-        /**
-         * 面试官记录列表
-         * <p> 示例值：
-         */
+     /**
+      * 面试官记录列表
+      * <p> 示例值：
+      */
         private InterviewRecord[] interviewRecordList;
 
         /**
          * 面试id
          * <p> 示例值：6949805467799537964
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 面试开始时间（ms）
          * <p> 示例值：1618899376474
-         *
          * @param beginTime
          * @return
          */
         public Builder beginTime(Long beginTime) {
-            this.beginTime = beginTime;
-            return this;
+             this.beginTime = beginTime;
+             return this;
         }
 
+    
 
         /**
          * 面试结束时间（ms）
          * <p> 示例值：1618999376474
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(Long endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 面试轮次（从0开始计数）
          * <p> 示例值：0
-         *
          * @param round
          * @return
          */
         public Builder round(Integer round) {
-            this.round = round;
-            return this;
+             this.round = round;
+             return this;
         }
 
+    
 
         /**
          * 面试关联的投递阶段
          * <p> 示例值：634324253532232
-         *
          * @param stageId
          * @return
          */
         public Builder stageId(String stageId) {
-            this.stageId = stageId;
-            return this;
+             this.stageId = stageId;
+             return this;
         }
 
+    
 
         /**
          * 面试官记录列表
          * <p> 示例值：
-         *
          * @param interviewRecordList
          * @return
          */
         public Builder interviewRecordList(InterviewRecord[] interviewRecordList) {
-            this.interviewRecordList = interviewRecordList;
-            return this;
+             this.interviewRecordList = interviewRecordList;
+             return this;
         }
 
+    
+    
+    public Interview build(){
+        return new Interview(this);
+      }
+    }
 
-        public Interview build() {
-            return new Interview(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

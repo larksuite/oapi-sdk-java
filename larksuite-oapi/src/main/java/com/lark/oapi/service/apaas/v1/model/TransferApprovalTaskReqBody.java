@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TransferApprovalTaskReqBody {
-    /**
-     * 操作人id
-     * <p> 示例值：
-     */
+     /**
+      * 操作人id
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 原审批人id
-     * <p> 示例值：
-     */
+     /**
+      * 原审批人id
+      * <p> 示例值：
+      */
     @SerializedName("from_user_ids")
     private String[] fromUserIds;
-    /**
-     * 新审批人id
-     * <p> 示例值：
-     */
+     /**
+      * 新审批人id
+      * <p> 示例值：
+      */
     @SerializedName("to_user_ids")
     private String[] toUserIds;
-    /**
-     * 审批意见
-     * <p> 示例值：转交
-     */
+     /**
+      * 审批意见
+      * <p> 示例值：转交
+      */
     @SerializedName("opinion")
     private String opinion;
-
-    // builder 开始
-    public TransferApprovalTaskReqBody() {
-    }
-
-    public TransferApprovalTaskReqBody(Builder builder) {
-        /**
-         * 操作人id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 原审批人id
-         * <p> 示例值：
-         */
-        this.fromUserIds = builder.fromUserIds;
-        /**
-         * 新审批人id
-         * <p> 示例值：
-         */
-        this.toUserIds = builder.toUserIds;
-        /**
-         * 审批意见
-         * <p> 示例值：转交
-         */
-        this.opinion = builder.opinion;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -117,82 +81,113 @@ public class TransferApprovalTaskReqBody {
         this.opinion = opinion;
     }
 
+
+// builder 开始
+  public TransferApprovalTaskReqBody(){}
+
+  public TransferApprovalTaskReqBody(Builder builder){
+         /**
+          * 操作人id
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * 原审批人id
+          * <p> 示例值：
+          */
+      this.fromUserIds = builder.fromUserIds;
+         /**
+          * 新审批人id
+          * <p> 示例值：
+          */
+      this.toUserIds = builder.toUserIds;
+         /**
+          * 审批意见
+          * <p> 示例值：转交
+          */
+      this.opinion = builder.opinion;
+  }
+
     public static class Builder {
-        /**
-         * 操作人id
-         * <p> 示例值：
-         */
+     /**
+      * 操作人id
+      * <p> 示例值：
+      */
         private String userId;
-        /**
-         * 原审批人id
-         * <p> 示例值：
-         */
+     /**
+      * 原审批人id
+      * <p> 示例值：
+      */
         private String[] fromUserIds;
-        /**
-         * 新审批人id
-         * <p> 示例值：
-         */
+     /**
+      * 新审批人id
+      * <p> 示例值：
+      */
         private String[] toUserIds;
-        /**
-         * 审批意见
-         * <p> 示例值：转交
-         */
+     /**
+      * 审批意见
+      * <p> 示例值：转交
+      */
         private String opinion;
 
         /**
          * 操作人id
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 原审批人id
          * <p> 示例值：
-         *
          * @param fromUserIds
          * @return
          */
         public Builder fromUserIds(String[] fromUserIds) {
-            this.fromUserIds = fromUserIds;
-            return this;
+             this.fromUserIds = fromUserIds;
+             return this;
         }
 
+    
 
         /**
          * 新审批人id
          * <p> 示例值：
-         *
          * @param toUserIds
          * @return
          */
         public Builder toUserIds(String[] toUserIds) {
-            this.toUserIds = toUserIds;
-            return this;
+             this.toUserIds = toUserIds;
+             return this;
         }
 
+    
 
         /**
          * 审批意见
          * <p> 示例值：转交
-         *
          * @param opinion
          * @return
          */
         public Builder opinion(String opinion) {
-            this.opinion = opinion;
-            return this;
+             this.opinion = opinion;
+             return this;
         }
 
+    
+    
+    public TransferApprovalTaskReqBody build(){
+        return new TransferApprovalTaskReqBody(this);
+      }
+    }
 
-        public TransferApprovalTaskReqBody build() {
-            return new TransferApprovalTaskReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

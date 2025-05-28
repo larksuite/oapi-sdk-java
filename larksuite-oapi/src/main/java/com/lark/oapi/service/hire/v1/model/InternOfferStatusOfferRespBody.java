@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InternOfferStatusOfferRespBody {
-    /**
-     * Offer ID
-     * <p> 示例值：6949805467799537964
-     */
+     /**
+      * Offer ID
+      * <p> 示例值：6949805467799537964
+      */
     @SerializedName("offer_id")
     private String offerId;
-    /**
-     * 更新入/离职状态的操作
-     * <p> 示例值：confirm_onboarding
-     */
+     /**
+      * 更新入/离职状态的操作
+      * <p> 示例值：confirm_onboarding
+      */
     @SerializedName("operation")
     private String operation;
-    /**
-     * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
-     * <p> 示例值：
-     */
+     /**
+      * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
+      * <p> 示例值：
+      */
     @SerializedName("onboarding_info")
     private InternOfferOnboardingInfo onboardingInfo;
-    /**
-     * 离职表单信息（当 operation 为 offboard 时，该字段必填）
-     * <p> 示例值：
-     */
+     /**
+      * 离职表单信息（当 operation 为 offboard 时，该字段必填）
+      * <p> 示例值：
+      */
     @SerializedName("offboarding_info")
     private InternOfferOffboardingInfo offboardingInfo;
-
     public String getOfferId() {
         return this.offerId;
     }

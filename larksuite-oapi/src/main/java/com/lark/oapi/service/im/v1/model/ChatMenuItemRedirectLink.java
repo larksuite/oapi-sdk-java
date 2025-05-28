@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ChatMenuItemRedirectLink {
-    /**
-     * 公用跳转链接，必须以http开头。
-     * <p> 示例值：https://open.feishu.cn/
-     */
+     /**
+      * 公用跳转链接，必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
     @SerializedName("common_url")
     private String commonUrl;
-    /**
-     * IOS端跳转链接，当该字段不设置时，IOS端会使用common_url。必须以http开头。
-     * <p> 示例值：https://open.feishu.cn/
-     */
+     /**
+      * IOS端跳转链接，当该字段不设置时，IOS端会使用common_url。必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
     @SerializedName("ios_url")
     private String iosUrl;
-    /**
-     * Android端跳转链接，当该字段不设置时，Android端会使用common_url。必须以http开头。
-     * <p> 示例值：https://open.feishu.cn/
-     */
+     /**
+      * Android端跳转链接，当该字段不设置时，Android端会使用common_url。必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
     @SerializedName("android_url")
     private String androidUrl;
-    /**
-     * PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。
-     * <p> 示例值：https://open.feishu.cn/
-     */
+     /**
+      * PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
     @SerializedName("pc_url")
     private String pcUrl;
-    /**
-     * Web端跳转链接，当该字段不设置时，Web端会使用common_url。必须以http开头。
-     * <p> 示例值：https://open.feishu.cn/
-     */
+     /**
+      * Web端跳转链接，当该字段不设置时，Web端会使用common_url。必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
     @SerializedName("web_url")
     private String webUrl;
-
-    // builder 开始
-    public ChatMenuItemRedirectLink() {
-    }
-
-    public ChatMenuItemRedirectLink(Builder builder) {
-        /**
-         * 公用跳转链接，必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        this.commonUrl = builder.commonUrl;
-        /**
-         * IOS端跳转链接，当该字段不设置时，IOS端会使用common_url。必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        this.iosUrl = builder.iosUrl;
-        /**
-         * Android端跳转链接，当该字段不设置时，Android端会使用common_url。必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        this.androidUrl = builder.androidUrl;
-        /**
-         * PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        this.pcUrl = builder.pcUrl;
-        /**
-         * Web端跳转链接，当该字段不设置时，Web端会使用common_url。必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        this.webUrl = builder.webUrl;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCommonUrl() {
         return this.commonUrl;
     }
@@ -136,100 +95,136 @@ public class ChatMenuItemRedirectLink {
         this.webUrl = webUrl;
     }
 
+
+// builder 开始
+  public ChatMenuItemRedirectLink(){}
+
+  public ChatMenuItemRedirectLink(Builder builder){
+         /**
+          * 公用跳转链接，必须以http开头。
+          * <p> 示例值：https://open.feishu.cn/
+          */
+      this.commonUrl = builder.commonUrl;
+         /**
+          * IOS端跳转链接，当该字段不设置时，IOS端会使用common_url。必须以http开头。
+          * <p> 示例值：https://open.feishu.cn/
+          */
+      this.iosUrl = builder.iosUrl;
+         /**
+          * Android端跳转链接，当该字段不设置时，Android端会使用common_url。必须以http开头。
+          * <p> 示例值：https://open.feishu.cn/
+          */
+      this.androidUrl = builder.androidUrl;
+         /**
+          * PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。
+          * <p> 示例值：https://open.feishu.cn/
+          */
+      this.pcUrl = builder.pcUrl;
+         /**
+          * Web端跳转链接，当该字段不设置时，Web端会使用common_url。必须以http开头。
+          * <p> 示例值：https://open.feishu.cn/
+          */
+      this.webUrl = builder.webUrl;
+  }
+
     public static class Builder {
-        /**
-         * 公用跳转链接，必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
+     /**
+      * 公用跳转链接，必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
         private String commonUrl;
-        /**
-         * IOS端跳转链接，当该字段不设置时，IOS端会使用common_url。必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
+     /**
+      * IOS端跳转链接，当该字段不设置时，IOS端会使用common_url。必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
         private String iosUrl;
-        /**
-         * Android端跳转链接，当该字段不设置时，Android端会使用common_url。必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
+     /**
+      * Android端跳转链接，当该字段不设置时，Android端会使用common_url。必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
         private String androidUrl;
-        /**
-         * PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
+     /**
+      * PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
         private String pcUrl;
-        /**
-         * Web端跳转链接，当该字段不设置时，Web端会使用common_url。必须以http开头。
-         * <p> 示例值：https://open.feishu.cn/
-         */
+     /**
+      * Web端跳转链接，当该字段不设置时，Web端会使用common_url。必须以http开头。
+      * <p> 示例值：https://open.feishu.cn/
+      */
         private String webUrl;
 
         /**
          * 公用跳转链接，必须以http开头。
          * <p> 示例值：https://open.feishu.cn/
-         *
          * @param commonUrl
          * @return
          */
         public Builder commonUrl(String commonUrl) {
-            this.commonUrl = commonUrl;
-            return this;
+             this.commonUrl = commonUrl;
+             return this;
         }
 
+    
 
         /**
          * IOS端跳转链接，当该字段不设置时，IOS端会使用common_url。必须以http开头。
          * <p> 示例值：https://open.feishu.cn/
-         *
          * @param iosUrl
          * @return
          */
         public Builder iosUrl(String iosUrl) {
-            this.iosUrl = iosUrl;
-            return this;
+             this.iosUrl = iosUrl;
+             return this;
         }
 
+    
 
         /**
          * Android端跳转链接，当该字段不设置时，Android端会使用common_url。必须以http开头。
          * <p> 示例值：https://open.feishu.cn/
-         *
          * @param androidUrl
          * @return
          */
         public Builder androidUrl(String androidUrl) {
-            this.androidUrl = androidUrl;
-            return this;
+             this.androidUrl = androidUrl;
+             return this;
         }
 
+    
 
         /**
          * PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。
          * <p> 示例值：https://open.feishu.cn/
-         *
          * @param pcUrl
          * @return
          */
         public Builder pcUrl(String pcUrl) {
-            this.pcUrl = pcUrl;
-            return this;
+             this.pcUrl = pcUrl;
+             return this;
         }
 
+    
 
         /**
          * Web端跳转链接，当该字段不设置时，Web端会使用common_url。必须以http开头。
          * <p> 示例值：https://open.feishu.cn/
-         *
          * @param webUrl
          * @return
          */
         public Builder webUrl(String webUrl) {
-            this.webUrl = webUrl;
-            return this;
+             this.webUrl = webUrl;
+             return this;
         }
 
+    
+    
+    public ChatMenuItemRedirectLink build(){
+        return new ChatMenuItemRedirectLink(this);
+      }
+    }
 
-        public ChatMenuItemRedirectLink build() {
-            return new ChatMenuItemRedirectLink(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

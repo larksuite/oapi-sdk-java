@@ -17,30 +17,29 @@ package com.lark.oapi.service.wiki.v2.enums;
  * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
  */
 public enum ListSpaceShowLanguageEnum {
-    LANGZH("zh"), // 简体中文
-    LANGID("id"), // 印尼语
-    LANGDE("de"), // 德语
-    LANGEN("en"), // 英语
-    LANGES("es"), // 西班牙语
-    LANGFR("fr"), // 法语
-    LANGIT("it"), // 意大利语
-    LANGPT("pt"), // 葡萄牙语
-    LANGVI("vi"), // 越南语
-    LANGRU("ru"), // 俄语
-    LANGHI("hi"), // 印地语
-    LANGTH("th"), // 泰语
-    LANGKO("ko"), // 韩语
-    LANGJA("ja"), // 日语
-    LANGZHHK("zh-HK"), // 繁体中文（中国香港）
-    LANGZHTW("zh-TW"), // 繁体中文（中国台湾）
-    ;
-    private String value;
-
+     LANGZH("zh"), // 简体中文
+     LANGID("id"), // 印尼语
+     LANGDE("de"), // 德语
+     LANGEN("en"), // 英语
+     LANGES("es"), // 西班牙语
+     LANGFR("fr"), // 法语
+     LANGIT("it"), // 意大利语
+     LANGPT("pt"), // 葡萄牙语
+     LANGVI("vi"), // 越南语
+     LANGRU("ru"), // 俄语
+     LANGHI("hi"), // 印地语
+     LANGTH("th"), // 泰语
+     LANGKO("ko"), // 韩语
+     LANGJA("ja"), // 日语
+     LANGZHHK("zh-HK"), // 繁体中文（中国香港）
+     LANGZHTW("zh-TW"), // 繁体中文（中国台湾）
+  ;
+   private String value;
     ListSpaceShowLanguageEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

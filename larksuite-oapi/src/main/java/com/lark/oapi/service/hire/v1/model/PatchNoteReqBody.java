@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchNoteReqBody {
-    /**
-     * 备注内容
-     * <p> 示例值：111
-     */
+     /**
+      * 备注内容
+      * <p> 示例值：111
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 更新人 ID
-     * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-     */
+     /**
+      * 更新人 ID
+      * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+      */
     @SerializedName("operator_id")
     private String operatorId;
-    /**
-     * 是否通知被@的用户
-     * <p> 示例值：false
-     */
+     /**
+      * 是否通知被@的用户
+      * <p> 示例值：false
+      */
     @SerializedName("notify_mentioned_user")
     private Boolean notifyMentionedUser;
-    /**
-     * 被@用户列表
-     * <p> 示例值：
-     */
+     /**
+      * 被@用户列表
+      * <p> 示例值：
+      */
     @SerializedName("mention_entity_list")
     private MentionEntity[] mentionEntityList;
-
-    // builder 开始
-    public PatchNoteReqBody() {
-    }
-
-    public PatchNoteReqBody(Builder builder) {
-        /**
-         * 备注内容
-         * <p> 示例值：111
-         */
-        this.content = builder.content;
-        /**
-         * 更新人 ID
-         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-         */
-        this.operatorId = builder.operatorId;
-        /**
-         * 是否通知被@的用户
-         * <p> 示例值：false
-         */
-        this.notifyMentionedUser = builder.notifyMentionedUser;
-        /**
-         * 被@用户列表
-         * <p> 示例值：
-         */
-        this.mentionEntityList = builder.mentionEntityList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContent() {
         return this.content;
     }
@@ -116,82 +80,113 @@ public class PatchNoteReqBody {
         this.mentionEntityList = mentionEntityList;
     }
 
+
+// builder 开始
+  public PatchNoteReqBody(){}
+
+  public PatchNoteReqBody(Builder builder){
+         /**
+          * 备注内容
+          * <p> 示例值：111
+          */
+      this.content = builder.content;
+         /**
+          * 更新人 ID
+          * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+          */
+      this.operatorId = builder.operatorId;
+         /**
+          * 是否通知被@的用户
+          * <p> 示例值：false
+          */
+      this.notifyMentionedUser = builder.notifyMentionedUser;
+         /**
+          * 被@用户列表
+          * <p> 示例值：
+          */
+      this.mentionEntityList = builder.mentionEntityList;
+  }
+
     public static class Builder {
-        /**
-         * 备注内容
-         * <p> 示例值：111
-         */
+     /**
+      * 备注内容
+      * <p> 示例值：111
+      */
         private String content;
-        /**
-         * 更新人 ID
-         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-         */
+     /**
+      * 更新人 ID
+      * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+      */
         private String operatorId;
-        /**
-         * 是否通知被@的用户
-         * <p> 示例值：false
-         */
+     /**
+      * 是否通知被@的用户
+      * <p> 示例值：false
+      */
         private Boolean notifyMentionedUser;
-        /**
-         * 被@用户列表
-         * <p> 示例值：
-         */
+     /**
+      * 被@用户列表
+      * <p> 示例值：
+      */
         private MentionEntity[] mentionEntityList;
 
         /**
          * 备注内容
          * <p> 示例值：111
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 更新人 ID
          * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-         *
          * @param operatorId
          * @return
          */
         public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
+             this.operatorId = operatorId;
+             return this;
         }
 
+    
 
         /**
          * 是否通知被@的用户
          * <p> 示例值：false
-         *
          * @param notifyMentionedUser
          * @return
          */
         public Builder notifyMentionedUser(Boolean notifyMentionedUser) {
-            this.notifyMentionedUser = notifyMentionedUser;
-            return this;
+             this.notifyMentionedUser = notifyMentionedUser;
+             return this;
         }
 
+    
 
         /**
          * 被@用户列表
          * <p> 示例值：
-         *
          * @param mentionEntityList
          * @return
          */
         public Builder mentionEntityList(MentionEntity[] mentionEntityList) {
-            this.mentionEntityList = mentionEntityList;
-            return this;
+             this.mentionEntityList = mentionEntityList;
+             return this;
         }
 
+    
+    
+    public PatchNoteReqBody build(){
+        return new PatchNoteReqBody(this);
+      }
+    }
 
-        public PatchNoteReqBody build() {
-            return new PatchNoteReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

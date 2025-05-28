@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetExportRespBody {
-    /**
-     * 任务状态
-     * <p> 示例值：3
-     */
+     /**
+      * 任务状态
+      * <p> 示例值：3
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * 文件下载地址
-     * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
-     */
+     /**
+      * 文件下载地址
+      * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+      */
     @SerializedName("url")
     private String url;
-    /**
-     * 文件token
-     * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
-     */
+     /**
+      * 文件token
+      * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 失败信息
-     * <p> 示例值：no permission
-     */
+     /**
+      * 失败信息
+      * <p> 示例值：no permission
+      */
     @SerializedName("fail_msg")
     private String failMsg;
-
     public Integer getStatus() {
         return this.status;
     }

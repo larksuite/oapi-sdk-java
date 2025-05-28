@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProfileSettingProbationInfo {
-    /**
-     * 试用期开始日期
-     * <p> 示例值：2021-01-01
-     */
+     /**
+      * 试用期开始日期
+      * <p> 示例值：2021-01-01
+      */
     @SerializedName("probation_start_date")
     private String probationStartDate;
-    /**
-     * 试用期预计结束日期
-     * <p> 示例值：2021-02-01
-     */
+     /**
+      * 试用期预计结束日期
+      * <p> 示例值：2021-02-01
+      */
     @SerializedName("probation_expected_end_date")
     private String probationExpectedEndDate;
-    /**
-     * 试用期实际结束日期
-     * <p> 示例值：2021-02-01
-     */
+     /**
+      * 试用期实际结束日期
+      * <p> 示例值：2021-02-01
+      */
     @SerializedName("actual_probation_end_date")
     private String actualProbationEndDate;
-
-    // builder 开始
-    public ProfileSettingProbationInfo() {
-    }
-
-    public ProfileSettingProbationInfo(Builder builder) {
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2021-01-01
-         */
-        this.probationStartDate = builder.probationStartDate;
-        /**
-         * 试用期预计结束日期
-         * <p> 示例值：2021-02-01
-         */
-        this.probationExpectedEndDate = builder.probationExpectedEndDate;
-        /**
-         * 试用期实际结束日期
-         * <p> 示例值：2021-02-01
-         */
-        this.actualProbationEndDate = builder.actualProbationEndDate;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getProbationStartDate() {
         return this.probationStartDate;
     }
@@ -98,64 +67,90 @@ public class ProfileSettingProbationInfo {
         this.actualProbationEndDate = actualProbationEndDate;
     }
 
+
+// builder 开始
+  public ProfileSettingProbationInfo(){}
+
+  public ProfileSettingProbationInfo(Builder builder){
+         /**
+          * 试用期开始日期
+          * <p> 示例值：2021-01-01
+          */
+      this.probationStartDate = builder.probationStartDate;
+         /**
+          * 试用期预计结束日期
+          * <p> 示例值：2021-02-01
+          */
+      this.probationExpectedEndDate = builder.probationExpectedEndDate;
+         /**
+          * 试用期实际结束日期
+          * <p> 示例值：2021-02-01
+          */
+      this.actualProbationEndDate = builder.actualProbationEndDate;
+  }
+
     public static class Builder {
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2021-01-01
-         */
+     /**
+      * 试用期开始日期
+      * <p> 示例值：2021-01-01
+      */
         private String probationStartDate;
-        /**
-         * 试用期预计结束日期
-         * <p> 示例值：2021-02-01
-         */
+     /**
+      * 试用期预计结束日期
+      * <p> 示例值：2021-02-01
+      */
         private String probationExpectedEndDate;
-        /**
-         * 试用期实际结束日期
-         * <p> 示例值：2021-02-01
-         */
+     /**
+      * 试用期实际结束日期
+      * <p> 示例值：2021-02-01
+      */
         private String actualProbationEndDate;
 
         /**
          * 试用期开始日期
          * <p> 示例值：2021-01-01
-         *
          * @param probationStartDate
          * @return
          */
         public Builder probationStartDate(String probationStartDate) {
-            this.probationStartDate = probationStartDate;
-            return this;
+             this.probationStartDate = probationStartDate;
+             return this;
         }
 
+    
 
         /**
          * 试用期预计结束日期
          * <p> 示例值：2021-02-01
-         *
          * @param probationExpectedEndDate
          * @return
          */
         public Builder probationExpectedEndDate(String probationExpectedEndDate) {
-            this.probationExpectedEndDate = probationExpectedEndDate;
-            return this;
+             this.probationExpectedEndDate = probationExpectedEndDate;
+             return this;
         }
 
+    
 
         /**
          * 试用期实际结束日期
          * <p> 示例值：2021-02-01
-         *
          * @param actualProbationEndDate
          * @return
          */
         public Builder actualProbationEndDate(String actualProbationEndDate) {
-            this.actualProbationEndDate = actualProbationEndDate;
-            return this;
+             this.actualProbationEndDate = actualProbationEndDate;
+             return this;
         }
 
+    
+    
+    public ProfileSettingProbationInfo build(){
+        return new ProfileSettingProbationInfo(this);
+      }
+    }
 
-        public ProfileSettingProbationInfo build() {
-            return new ProfileSettingProbationInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

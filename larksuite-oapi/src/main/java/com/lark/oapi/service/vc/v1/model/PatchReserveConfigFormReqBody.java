@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchReserveConfigFormReqBody {
-    /**
-     * 1代表层级，2代表会议室
-     * <p> 示例值：2
-     */
+     /**
+      * 1代表层级，2代表会议室
+      * <p> 示例值：2
+      */
     @SerializedName("scope_type")
     private Integer scopeType;
-    /**
-     * 预定表单设置
-     * <p> 示例值：
-     */
+     /**
+      * 预定表单设置
+      * <p> 示例值：
+      */
     @SerializedName("reserve_form_config")
     private ReserveFormConfig reserveFormConfig;
-
-    // builder 开始
-    public PatchReserveConfigFormReqBody() {
-    }
-
-    public PatchReserveConfigFormReqBody(Builder builder) {
-        /**
-         * 1代表层级，2代表会议室
-         * <p> 示例值：2
-         */
-        this.scopeType = builder.scopeType;
-        /**
-         * 预定表单设置
-         * <p> 示例值：
-         */
-        this.reserveFormConfig = builder.reserveFormConfig;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getScopeType() {
         return this.scopeType;
     }
@@ -79,46 +53,67 @@ public class PatchReserveConfigFormReqBody {
         this.reserveFormConfig = reserveFormConfig;
     }
 
+
+// builder 开始
+  public PatchReserveConfigFormReqBody(){}
+
+  public PatchReserveConfigFormReqBody(Builder builder){
+         /**
+          * 1代表层级，2代表会议室
+          * <p> 示例值：2
+          */
+      this.scopeType = builder.scopeType;
+         /**
+          * 预定表单设置
+          * <p> 示例值：
+          */
+      this.reserveFormConfig = builder.reserveFormConfig;
+  }
+
     public static class Builder {
-        /**
-         * 1代表层级，2代表会议室
-         * <p> 示例值：2
-         */
+     /**
+      * 1代表层级，2代表会议室
+      * <p> 示例值：2
+      */
         private Integer scopeType;
-        /**
-         * 预定表单设置
-         * <p> 示例值：
-         */
+     /**
+      * 预定表单设置
+      * <p> 示例值：
+      */
         private ReserveFormConfig reserveFormConfig;
 
         /**
          * 1代表层级，2代表会议室
          * <p> 示例值：2
-         *
          * @param scopeType
          * @return
          */
         public Builder scopeType(Integer scopeType) {
-            this.scopeType = scopeType;
-            return this;
+             this.scopeType = scopeType;
+             return this;
         }
 
+    
 
         /**
          * 预定表单设置
          * <p> 示例值：
-         *
          * @param reserveFormConfig
          * @return
          */
         public Builder reserveFormConfig(ReserveFormConfig reserveFormConfig) {
-            this.reserveFormConfig = reserveFormConfig;
-            return this;
+             this.reserveFormConfig = reserveFormConfig;
+             return this;
         }
 
+    
+    
+    public PatchReserveConfigFormReqBody build(){
+        return new PatchReserveConfigFormReqBody(this);
+      }
+    }
 
-        public PatchReserveConfigFormReqBody build() {
-            return new PatchReserveConfigFormReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

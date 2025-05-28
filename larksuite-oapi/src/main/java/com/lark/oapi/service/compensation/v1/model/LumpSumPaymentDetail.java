@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,170 +19,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LumpSumPaymentDetail {
-    /**
-     * 一次性支付记录明细id
-     * <p> 示例值：7395133551102200876
-     */
+     /**
+      * 一次性支付记录明细id
+      * <p> 示例值：7395133551102200876
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 一次性支付记录id
-     * <p> 示例值：7395133551102168108
-     */
+     /**
+      * 一次性支付记录id
+      * <p> 示例值：7395133551102168108
+      */
     @SerializedName("record_id")
     private String recordId;
-    /**
-     * 员工id，具体类型由入参中的 user_id_type 指定
-     * <p> 示例值：7337149697626801708
-     */
+     /**
+      * 员工id，具体类型由入参中的 user_id_type 指定
+      * <p> 示例值：7337149697626801708
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 一次性支付明细发放金额，可转数字的字符串
-     * <p> 示例值：2000.00
-     */
+     /**
+      * 一次性支付明细发放金额，可转数字的字符串
+      * <p> 示例值：2000.00
+      */
     @SerializedName("issuance_amount")
     private String issuanceAmount;
-    /**
-     * 发放状态
-     * <p> 示例值：to_be_issued
-     */
+     /**
+      * 发放状态
+      * <p> 示例值：to_be_issued
+      */
     @SerializedName("issuance_status")
     private String issuanceStatus;
-    /**
-     * 发放方式
-     * <p> 示例值：with_salary
-     */
+     /**
+      * 发放方式
+      * <p> 示例值：with_salary
+      */
     @SerializedName("issuance_way")
     private String issuanceWay;
-    /**
-     * 发放日期
-     * <p> 示例值：2024-08-01
-     */
+     /**
+      * 发放日期
+      * <p> 示例值：2024-08-01
+      */
     @SerializedName("issuance_time")
     private String issuanceTime;
-    /**
-     * 币种id
-     * <p> 示例值：6863329932261459464
-     */
+     /**
+      * 币种id
+      * <p> 示例值：6863329932261459464
+      */
     @SerializedName("currency_id")
     private String currencyId;
-    /**
-     * 申请发放日期
-     * <p> 示例值：2025-01-20
-     */
+     /**
+      * 申请发放日期
+      * <p> 示例值：2025-01-20
+      */
     @SerializedName("belong_time")
     private String belongTime;
-    /**
-     * 创建时间
-     * <p> 示例值：2024-08-01 12:34:56
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：2024-08-01 12:34:56
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 更新时间
-     * <p> 示例值：2024-08-01 12:34:56
-     */
+     /**
+      * 更新时间
+      * <p> 示例值：2024-08-01 12:34:56
+      */
     @SerializedName("modify_time")
     private String modifyTime;
-    /**
-     * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-     * <p> 示例值：6862995757234914824
-     */
+     /**
+      * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+      * <p> 示例值：6862995757234914824
+      */
     @SerializedName("issuance_country_region_id")
     private String issuanceCountryRegionId;
-    /**
-     * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
-     * <p> 示例值：6862995757234914824
-     */
+     /**
+      * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
+      * <p> 示例值：6862995757234914824
+      */
     @SerializedName("issuance_pay_group_id")
     private String issuancePayGroupId;
-
-    // builder 开始
-    public LumpSumPaymentDetail() {
-    }
-
-    public LumpSumPaymentDetail(Builder builder) {
-        /**
-         * 一次性支付记录明细id
-         * <p> 示例值：7395133551102200876
-         */
-        this.id = builder.id;
-        /**
-         * 一次性支付记录id
-         * <p> 示例值：7395133551102168108
-         */
-        this.recordId = builder.recordId;
-        /**
-         * 员工id，具体类型由入参中的 user_id_type 指定
-         * <p> 示例值：7337149697626801708
-         */
-        this.userId = builder.userId;
-        /**
-         * 一次性支付明细发放金额，可转数字的字符串
-         * <p> 示例值：2000.00
-         */
-        this.issuanceAmount = builder.issuanceAmount;
-        /**
-         * 发放状态
-         * <p> 示例值：to_be_issued
-         */
-        this.issuanceStatus = builder.issuanceStatus;
-        /**
-         * 发放方式
-         * <p> 示例值：with_salary
-         */
-        this.issuanceWay = builder.issuanceWay;
-        /**
-         * 发放日期
-         * <p> 示例值：2024-08-01
-         */
-        this.issuanceTime = builder.issuanceTime;
-        /**
-         * 币种id
-         * <p> 示例值：6863329932261459464
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 申请发放日期
-         * <p> 示例值：2025-01-20
-         */
-        this.belongTime = builder.belongTime;
-        /**
-         * 创建时间
-         * <p> 示例值：2024-08-01 12:34:56
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2024-08-01 12:34:56
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-         * <p> 示例值：6862995757234914824
-         */
-        this.issuanceCountryRegionId = builder.issuanceCountryRegionId;
-        /**
-         * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
-         * <p> 示例值：6862995757234914824
-         */
-        this.issuancePayGroupId = builder.issuancePayGroupId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -288,268 +207,340 @@ public class LumpSumPaymentDetail {
         this.issuancePayGroupId = issuancePayGroupId;
     }
 
+
+// builder 开始
+  public LumpSumPaymentDetail(){}
+
+  public LumpSumPaymentDetail(Builder builder){
+         /**
+          * 一次性支付记录明细id
+          * <p> 示例值：7395133551102200876
+          */
+      this.id = builder.id;
+         /**
+          * 一次性支付记录id
+          * <p> 示例值：7395133551102168108
+          */
+      this.recordId = builder.recordId;
+         /**
+          * 员工id，具体类型由入参中的 user_id_type 指定
+          * <p> 示例值：7337149697626801708
+          */
+      this.userId = builder.userId;
+         /**
+          * 一次性支付明细发放金额，可转数字的字符串
+          * <p> 示例值：2000.00
+          */
+      this.issuanceAmount = builder.issuanceAmount;
+         /**
+          * 发放状态
+          * <p> 示例值：to_be_issued
+          */
+      this.issuanceStatus = builder.issuanceStatus;
+         /**
+          * 发放方式
+          * <p> 示例值：with_salary
+          */
+      this.issuanceWay = builder.issuanceWay;
+         /**
+          * 发放日期
+          * <p> 示例值：2024-08-01
+          */
+      this.issuanceTime = builder.issuanceTime;
+         /**
+          * 币种id
+          * <p> 示例值：6863329932261459464
+          */
+      this.currencyId = builder.currencyId;
+         /**
+          * 申请发放日期
+          * <p> 示例值：2025-01-20
+          */
+      this.belongTime = builder.belongTime;
+         /**
+          * 创建时间
+          * <p> 示例值：2024-08-01 12:34:56
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 更新时间
+          * <p> 示例值：2024-08-01 12:34:56
+          */
+      this.modifyTime = builder.modifyTime;
+         /**
+          * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+          * <p> 示例值：6862995757234914824
+          */
+      this.issuanceCountryRegionId = builder.issuanceCountryRegionId;
+         /**
+          * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
+          * <p> 示例值：6862995757234914824
+          */
+      this.issuancePayGroupId = builder.issuancePayGroupId;
+  }
+
     public static class Builder {
-        /**
-         * 一次性支付记录明细id
-         * <p> 示例值：7395133551102200876
-         */
+     /**
+      * 一次性支付记录明细id
+      * <p> 示例值：7395133551102200876
+      */
         private String id;
-        /**
-         * 一次性支付记录id
-         * <p> 示例值：7395133551102168108
-         */
+     /**
+      * 一次性支付记录id
+      * <p> 示例值：7395133551102168108
+      */
         private String recordId;
-        /**
-         * 员工id，具体类型由入参中的 user_id_type 指定
-         * <p> 示例值：7337149697626801708
-         */
+     /**
+      * 员工id，具体类型由入参中的 user_id_type 指定
+      * <p> 示例值：7337149697626801708
+      */
         private String userId;
-        /**
-         * 一次性支付明细发放金额，可转数字的字符串
-         * <p> 示例值：2000.00
-         */
+     /**
+      * 一次性支付明细发放金额，可转数字的字符串
+      * <p> 示例值：2000.00
+      */
         private String issuanceAmount;
-        /**
-         * 发放状态
-         * <p> 示例值：to_be_issued
-         */
+     /**
+      * 发放状态
+      * <p> 示例值：to_be_issued
+      */
         private String issuanceStatus;
-        /**
-         * 发放方式
-         * <p> 示例值：with_salary
-         */
+     /**
+      * 发放方式
+      * <p> 示例值：with_salary
+      */
         private String issuanceWay;
-        /**
-         * 发放日期
-         * <p> 示例值：2024-08-01
-         */
+     /**
+      * 发放日期
+      * <p> 示例值：2024-08-01
+      */
         private String issuanceTime;
-        /**
-         * 币种id
-         * <p> 示例值：6863329932261459464
-         */
+     /**
+      * 币种id
+      * <p> 示例值：6863329932261459464
+      */
         private String currencyId;
-        /**
-         * 申请发放日期
-         * <p> 示例值：2025-01-20
-         */
+     /**
+      * 申请发放日期
+      * <p> 示例值：2025-01-20
+      */
         private String belongTime;
-        /**
-         * 创建时间
-         * <p> 示例值：2024-08-01 12:34:56
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：2024-08-01 12:34:56
+      */
         private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2024-08-01 12:34:56
-         */
+     /**
+      * 更新时间
+      * <p> 示例值：2024-08-01 12:34:56
+      */
         private String modifyTime;
-        /**
-         * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-         * <p> 示例值：6862995757234914824
-         */
+     /**
+      * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+      * <p> 示例值：6862995757234914824
+      */
         private String issuanceCountryRegionId;
-        /**
-         * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
-         * <p> 示例值：6862995757234914824
-         */
+     /**
+      * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
+      * <p> 示例值：6862995757234914824
+      */
         private String issuancePayGroupId;
 
         /**
          * 一次性支付记录明细id
          * <p> 示例值：7395133551102200876
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 一次性支付记录id
          * <p> 示例值：7395133551102168108
-         *
          * @param recordId
          * @return
          */
         public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
+             this.recordId = recordId;
+             return this;
         }
 
+    
 
         /**
          * 员工id，具体类型由入参中的 user_id_type 指定
          * <p> 示例值：7337149697626801708
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 一次性支付明细发放金额，可转数字的字符串
          * <p> 示例值：2000.00
-         *
          * @param issuanceAmount
          * @return
          */
         public Builder issuanceAmount(String issuanceAmount) {
-            this.issuanceAmount = issuanceAmount;
-            return this;
+             this.issuanceAmount = issuanceAmount;
+             return this;
         }
 
+    
 
         /**
          * 发放状态
          * <p> 示例值：to_be_issued
-         *
          * @param issuanceStatus
          * @return
          */
         public Builder issuanceStatus(String issuanceStatus) {
-            this.issuanceStatus = issuanceStatus;
-            return this;
+             this.issuanceStatus = issuanceStatus;
+             return this;
         }
-
         /**
          * 发放状态
          * <p> 示例值：to_be_issued
-         *
          * @param issuanceStatus {@link com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailIssuanceStatusEnum}
          * @return
          */
         public Builder issuanceStatus(com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailIssuanceStatusEnum issuanceStatus) {
-            this.issuanceStatus = issuanceStatus.getValue();
-            return this;
+             this.issuanceStatus = issuanceStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 发放方式
          * <p> 示例值：with_salary
-         *
          * @param issuanceWay
          * @return
          */
         public Builder issuanceWay(String issuanceWay) {
-            this.issuanceWay = issuanceWay;
-            return this;
+             this.issuanceWay = issuanceWay;
+             return this;
         }
-
         /**
          * 发放方式
          * <p> 示例值：with_salary
-         *
          * @param issuanceWay {@link com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailIssuanceWayEnum}
          * @return
          */
         public Builder issuanceWay(com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailIssuanceWayEnum issuanceWay) {
-            this.issuanceWay = issuanceWay.getValue();
-            return this;
+             this.issuanceWay = issuanceWay.getValue();
+             return this;
         }
 
+    
 
         /**
          * 发放日期
          * <p> 示例值：2024-08-01
-         *
          * @param issuanceTime
          * @return
          */
         public Builder issuanceTime(String issuanceTime) {
-            this.issuanceTime = issuanceTime;
-            return this;
+             this.issuanceTime = issuanceTime;
+             return this;
         }
 
+    
 
         /**
          * 币种id
          * <p> 示例值：6863329932261459464
-         *
          * @param currencyId
          * @return
          */
         public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
+             this.currencyId = currencyId;
+             return this;
         }
 
+    
 
         /**
          * 申请发放日期
          * <p> 示例值：2025-01-20
-         *
          * @param belongTime
          * @return
          */
         public Builder belongTime(String belongTime) {
-            this.belongTime = belongTime;
-            return this;
+             this.belongTime = belongTime;
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：2024-08-01 12:34:56
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 更新时间
          * <p> 示例值：2024-08-01 12:34:56
-         *
          * @param modifyTime
          * @return
          */
         public Builder modifyTime(String modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
+             this.modifyTime = modifyTime;
+             return this;
         }
 
+    
 
         /**
          * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
          * <p> 示例值：6862995757234914824
-         *
          * @param issuanceCountryRegionId
          * @return
          */
         public Builder issuanceCountryRegionId(String issuanceCountryRegionId) {
-            this.issuanceCountryRegionId = issuanceCountryRegionId;
-            return this;
+             this.issuanceCountryRegionId = issuanceCountryRegionId;
+             return this;
         }
 
+    
 
         /**
          * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
          * <p> 示例值：6862995757234914824
-         *
          * @param issuancePayGroupId
          * @return
          */
         public Builder issuancePayGroupId(String issuancePayGroupId) {
-            this.issuancePayGroupId = issuancePayGroupId;
-            return this;
+             this.issuancePayGroupId = issuancePayGroupId;
+             return this;
         }
 
+    
+    
+    public LumpSumPaymentDetail build(){
+        return new LumpSumPaymentDetail(this);
+      }
+    }
 
-        public LumpSumPaymentDetail build() {
-            return new LumpSumPaymentDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,159 +19,84 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Comment {
-    /**
-     * 评论所属用户ID
-     * <p> 示例值："ou_xxxxx"
-     */
+     /**
+      * 评论所属用户ID
+      * <p> 示例值："ou_xxxxx"
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 评论内容
-     * <p> 示例值："[[{\"tag\":\"text\",\"text\":\"豪华中型车…………\"},{\"tag\":\"a\",\"text\":\"查看原文\",\"href\":\"https://www.autohome.com.cn/advice/202204/1244455.html\"}]]"
-     */
+     /**
+      * 评论内容
+      * <p> 示例值："[[{\"tag\":\"text\",\"text\":\"豪华中型车…………\"},{\"tag\":\"a\",\"text\":\"查看原文\",\"href\":\"https://www.autohome.com.cn/advice/202204/1244455.html\"}]]"
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 评论图片的key
-     * <p> 示例值："img_v2_xxxxxx"
-     */
+     /**
+      * 评论图片的key
+      * <p> 示例值："img_v2_xxxxxx"
+      */
     @SerializedName("image_key")
     private String imageKey;
-    /**
-     * 是否热评
-     * <p> 示例值：false
-     */
+     /**
+      * 是否热评
+      * <p> 示例值：false
+      */
     @SerializedName("is_hot")
     private Boolean isHot;
-    /**
-     * 评论 reactions
-     * <p> 示例值：
-     */
+     /**
+      * 评论 reactions
+      * <p> 示例值：
+      */
     @SerializedName("reaction_set")
     private ReactionSet reactionSet;
-    /**
-     * 评论 ID
-     * <p> 示例值："248381240"
-     */
+     /**
+      * 评论 ID
+      * <p> 示例值："248381240"
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 评论创建时间
-     * <p> 示例值："2022-05-23T00:00:00+08:00"
-     */
+     /**
+      * 评论创建时间
+      * <p> 示例值："2022-05-23T00:00:00+08:00"
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 评论所属实体的ID
-     * <p> 示例值："248381241"
-     */
+     /**
+      * 评论所属实体的ID
+      * <p> 示例值："248381241"
+      */
     @SerializedName("post_id")
     private String postId;
-    /**
-     * 回复的评论ID
-     * <p> 示例值：""
-     */
+     /**
+      * 回复的评论ID
+      * <p> 示例值：""
+      */
     @SerializedName("reply_comment_id")
     private String replyCommentId;
-    /**
-     * 根评论ID
-     * <p> 示例值：""
-     */
+     /**
+      * 根评论ID
+      * <p> 示例值：""
+      */
     @SerializedName("root_comment_id")
     private String rootCommentId;
-    /**
-     * 创建评论时去重
-     * <p> 示例值："generate-a-uuid-here"
-     */
+     /**
+      * 创建评论时去重
+      * <p> 示例值："generate-a-uuid-here"
+      */
     @SerializedName("cid")
     private String cid;
-    /**
-     * 表情回复人类型
-     * <p> 示例值：1
-     */
+     /**
+      * 表情回复人类型
+      * <p> 示例值：1
+      */
     @SerializedName("user_type")
     private Integer userType;
-
-    // builder 开始
-    public Comment() {
-    }
-
-    public Comment(Builder builder) {
-        /**
-         * 评论所属用户ID
-         * <p> 示例值："ou_xxxxx"
-         */
-        this.userId = builder.userId;
-        /**
-         * 评论内容
-         * <p> 示例值："[[{\"tag\":\"text\",\"text\":\"豪华中型车…………\"},{\"tag\":\"a\",\"text\":\"查看原文\",\"href\":\"https://www.autohome.com.cn/advice/202204/1244455.html\"}]]"
-         */
-        this.content = builder.content;
-        /**
-         * 评论图片的key
-         * <p> 示例值："img_v2_xxxxxx"
-         */
-        this.imageKey = builder.imageKey;
-        /**
-         * 是否热评
-         * <p> 示例值：false
-         */
-        this.isHot = builder.isHot;
-        /**
-         * 评论 reactions
-         * <p> 示例值：
-         */
-        this.reactionSet = builder.reactionSet;
-        /**
-         * 评论 ID
-         * <p> 示例值："248381240"
-         */
-        this.id = builder.id;
-        /**
-         * 评论创建时间
-         * <p> 示例值："2022-05-23T00:00:00+08:00"
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 评论所属实体的ID
-         * <p> 示例值："248381241"
-         */
-        this.postId = builder.postId;
-        /**
-         * 回复的评论ID
-         * <p> 示例值：""
-         */
-        this.replyCommentId = builder.replyCommentId;
-        /**
-         * 根评论ID
-         * <p> 示例值：""
-         */
-        this.rootCommentId = builder.rootCommentId;
-        /**
-         * 创建评论时去重
-         * <p> 示例值："generate-a-uuid-here"
-         */
-        this.cid = builder.cid;
-        /**
-         * 表情回复人类型
-         * <p> 示例值：1
-         */
-        this.userType = builder.userType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -269,238 +193,307 @@ public class Comment {
         this.userType = userType;
     }
 
+
+// builder 开始
+  public Comment(){}
+
+  public Comment(Builder builder){
+         /**
+          * 评论所属用户ID
+          * <p> 示例值："ou_xxxxx"
+          */
+      this.userId = builder.userId;
+         /**
+          * 评论内容
+          * <p> 示例值："[[{\"tag\":\"text\",\"text\":\"豪华中型车…………\"},{\"tag\":\"a\",\"text\":\"查看原文\",\"href\":\"https://www.autohome.com.cn/advice/202204/1244455.html\"}]]"
+          */
+      this.content = builder.content;
+         /**
+          * 评论图片的key
+          * <p> 示例值："img_v2_xxxxxx"
+          */
+      this.imageKey = builder.imageKey;
+         /**
+          * 是否热评
+          * <p> 示例值：false
+          */
+      this.isHot = builder.isHot;
+         /**
+          * 评论 reactions
+          * <p> 示例值：
+          */
+      this.reactionSet = builder.reactionSet;
+         /**
+          * 评论 ID
+          * <p> 示例值："248381240"
+          */
+      this.id = builder.id;
+         /**
+          * 评论创建时间
+          * <p> 示例值："2022-05-23T00:00:00+08:00"
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 评论所属实体的ID
+          * <p> 示例值："248381241"
+          */
+      this.postId = builder.postId;
+         /**
+          * 回复的评论ID
+          * <p> 示例值：""
+          */
+      this.replyCommentId = builder.replyCommentId;
+         /**
+          * 根评论ID
+          * <p> 示例值：""
+          */
+      this.rootCommentId = builder.rootCommentId;
+         /**
+          * 创建评论时去重
+          * <p> 示例值："generate-a-uuid-here"
+          */
+      this.cid = builder.cid;
+         /**
+          * 表情回复人类型
+          * <p> 示例值：1
+          */
+      this.userType = builder.userType;
+  }
+
     public static class Builder {
-        /**
-         * 评论所属用户ID
-         * <p> 示例值："ou_xxxxx"
-         */
+     /**
+      * 评论所属用户ID
+      * <p> 示例值："ou_xxxxx"
+      */
         private String userId;
-        /**
-         * 评论内容
-         * <p> 示例值："[[{\"tag\":\"text\",\"text\":\"豪华中型车…………\"},{\"tag\":\"a\",\"text\":\"查看原文\",\"href\":\"https://www.autohome.com.cn/advice/202204/1244455.html\"}]]"
-         */
+     /**
+      * 评论内容
+      * <p> 示例值："[[{\"tag\":\"text\",\"text\":\"豪华中型车…………\"},{\"tag\":\"a\",\"text\":\"查看原文\",\"href\":\"https://www.autohome.com.cn/advice/202204/1244455.html\"}]]"
+      */
         private String content;
-        /**
-         * 评论图片的key
-         * <p> 示例值："img_v2_xxxxxx"
-         */
+     /**
+      * 评论图片的key
+      * <p> 示例值："img_v2_xxxxxx"
+      */
         private String imageKey;
-        /**
-         * 是否热评
-         * <p> 示例值：false
-         */
+     /**
+      * 是否热评
+      * <p> 示例值：false
+      */
         private Boolean isHot;
-        /**
-         * 评论 reactions
-         * <p> 示例值：
-         */
+     /**
+      * 评论 reactions
+      * <p> 示例值：
+      */
         private ReactionSet reactionSet;
-        /**
-         * 评论 ID
-         * <p> 示例值："248381240"
-         */
+     /**
+      * 评论 ID
+      * <p> 示例值："248381240"
+      */
         private String id;
-        /**
-         * 评论创建时间
-         * <p> 示例值："2022-05-23T00:00:00+08:00"
-         */
+     /**
+      * 评论创建时间
+      * <p> 示例值："2022-05-23T00:00:00+08:00"
+      */
         private String createTime;
-        /**
-         * 评论所属实体的ID
-         * <p> 示例值："248381241"
-         */
+     /**
+      * 评论所属实体的ID
+      * <p> 示例值："248381241"
+      */
         private String postId;
-        /**
-         * 回复的评论ID
-         * <p> 示例值：""
-         */
+     /**
+      * 回复的评论ID
+      * <p> 示例值：""
+      */
         private String replyCommentId;
-        /**
-         * 根评论ID
-         * <p> 示例值：""
-         */
+     /**
+      * 根评论ID
+      * <p> 示例值：""
+      */
         private String rootCommentId;
-        /**
-         * 创建评论时去重
-         * <p> 示例值："generate-a-uuid-here"
-         */
+     /**
+      * 创建评论时去重
+      * <p> 示例值："generate-a-uuid-here"
+      */
         private String cid;
-        /**
-         * 表情回复人类型
-         * <p> 示例值：1
-         */
+     /**
+      * 表情回复人类型
+      * <p> 示例值：1
+      */
         private Integer userType;
 
         /**
          * 评论所属用户ID
          * <p> 示例值："ou_xxxxx"
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 评论内容
          * <p> 示例值："[[{\"tag\":\"text\",\"text\":\"豪华中型车…………\"},{\"tag\":\"a\",\"text\":\"查看原文\",\"href\":\"https://www.autohome.com.cn/advice/202204/1244455.html\"}]]"
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 评论图片的key
          * <p> 示例值："img_v2_xxxxxx"
-         *
          * @param imageKey
          * @return
          */
         public Builder imageKey(String imageKey) {
-            this.imageKey = imageKey;
-            return this;
+             this.imageKey = imageKey;
+             return this;
         }
 
+    
 
         /**
          * 是否热评
          * <p> 示例值：false
-         *
          * @param isHot
          * @return
          */
         public Builder isHot(Boolean isHot) {
-            this.isHot = isHot;
-            return this;
+             this.isHot = isHot;
+             return this;
         }
 
+    
 
         /**
          * 评论 reactions
          * <p> 示例值：
-         *
          * @param reactionSet
          * @return
          */
         public Builder reactionSet(ReactionSet reactionSet) {
-            this.reactionSet = reactionSet;
-            return this;
+             this.reactionSet = reactionSet;
+             return this;
         }
 
+    
 
         /**
          * 评论 ID
          * <p> 示例值："248381240"
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 评论创建时间
          * <p> 示例值："2022-05-23T00:00:00+08:00"
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 评论所属实体的ID
          * <p> 示例值："248381241"
-         *
          * @param postId
          * @return
          */
         public Builder postId(String postId) {
-            this.postId = postId;
-            return this;
+             this.postId = postId;
+             return this;
         }
 
+    
 
         /**
          * 回复的评论ID
          * <p> 示例值：""
-         *
          * @param replyCommentId
          * @return
          */
         public Builder replyCommentId(String replyCommentId) {
-            this.replyCommentId = replyCommentId;
-            return this;
+             this.replyCommentId = replyCommentId;
+             return this;
         }
 
+    
 
         /**
          * 根评论ID
          * <p> 示例值：""
-         *
          * @param rootCommentId
          * @return
          */
         public Builder rootCommentId(String rootCommentId) {
-            this.rootCommentId = rootCommentId;
-            return this;
+             this.rootCommentId = rootCommentId;
+             return this;
         }
 
+    
 
         /**
          * 创建评论时去重
          * <p> 示例值："generate-a-uuid-here"
-         *
          * @param cid
          * @return
          */
         public Builder cid(String cid) {
-            this.cid = cid;
-            return this;
+             this.cid = cid;
+             return this;
         }
 
+    
 
         /**
          * 表情回复人类型
          * <p> 示例值：1
-         *
          * @param userType
          * @return
          */
         public Builder userType(Integer userType) {
-            this.userType = userType;
-            return this;
+             this.userType = userType;
+             return this;
         }
-
         /**
          * 表情回复人类型
          * <p> 示例值：1
-         *
          * @param userType {@link com.lark.oapi.service.moments.v1.enums.CommentUserTypeEnum}
          * @return
          */
         public Builder userType(com.lark.oapi.service.moments.v1.enums.CommentUserTypeEnum userType) {
-            this.userType = userType.getValue();
-            return this;
+             this.userType = userType.getValue();
+             return this;
         }
 
+    
+    
+    public Comment build(){
+        return new Comment(this);
+      }
+    }
 
-        public Comment build() {
-            return new Comment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

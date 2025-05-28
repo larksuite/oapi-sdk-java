@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MatchCompensationStandardRespBody {
-    /**
-     * 薪资标准表ID
-     * <p> 示例值：7174758593538295340
-     */
+     /**
+      * 薪资标准表ID
+      * <p> 示例值：7174758593538295340
+      */
     @SerializedName("standard_id")
     private String standardId;
-    /**
-     * 薪资等级
-     * <p> 示例值：
-     */
+     /**
+      * 薪资等级
+      * <p> 示例值：
+      */
     @SerializedName("grade")
     private CpstGrade grade;
-    /**
-     * 生效时间
-     * <p> 示例值：1660924800000
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：1660924800000
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-
     public String getStandardId() {
         return this.standardId;
     }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ContentBlock {
-    /**
-     * 文档结构是按行排列的，每行内容是一个 Block
-     * <p> 示例值：
-     */
+     /**
+      * 文档结构是按行排列的，每行内容是一个 Block
+      * <p> 示例值：
+      */
     @SerializedName("blocks")
     private ContentBlockElement[] blocks;
-
-    // builder 开始
-    public ContentBlock() {
-    }
-
-    public ContentBlock(Builder builder) {
-        /**
-         * 文档结构是按行排列的，每行内容是一个 Block
-         * <p> 示例值：
-         */
-        this.blocks = builder.blocks;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ContentBlockElement[] getBlocks() {
         return this.blocks;
     }
@@ -60,28 +39,44 @@ public class ContentBlock {
         this.blocks = blocks;
     }
 
+
+// builder 开始
+  public ContentBlock(){}
+
+  public ContentBlock(Builder builder){
+         /**
+          * 文档结构是按行排列的，每行内容是一个 Block
+          * <p> 示例值：
+          */
+      this.blocks = builder.blocks;
+  }
+
     public static class Builder {
-        /**
-         * 文档结构是按行排列的，每行内容是一个 Block
-         * <p> 示例值：
-         */
+     /**
+      * 文档结构是按行排列的，每行内容是一个 Block
+      * <p> 示例值：
+      */
         private ContentBlockElement[] blocks;
 
         /**
          * 文档结构是按行排列的，每行内容是一个 Block
          * <p> 示例值：
-         *
          * @param blocks
          * @return
          */
         public Builder blocks(ContentBlockElement[] blocks) {
-            this.blocks = blocks;
-            return this;
+             this.blocks = blocks;
+             return this;
         }
 
+    
+    
+    public ContentBlock build(){
+        return new ContentBlock(this);
+      }
+    }
 
-        public ContentBlock build() {
-            return new ContentBlock(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

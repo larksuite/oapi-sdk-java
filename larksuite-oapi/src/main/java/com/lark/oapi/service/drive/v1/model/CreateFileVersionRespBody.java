@@ -12,83 +12,78 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateFileVersionRespBody {
-    /**
-     * 版本文档标题，最大长度 1024 个Unicode 码点。通常情况下，一个英文或中文字符对应一个码点，但是某些特殊符号可能会对应多个码点。例如，家庭组合「👨‍👩‍👧」这个表情符号对应5个码点。
-     * <p> 示例值：文档标题
-     */
+     /**
+      * 版本文档标题，最大长度 1024 个Unicode 码点。通常情况下，一个英文或中文字符对应一个码点，但是某些特殊符号可能会对应多个码点。例如，家庭组合「👨‍👩‍👧」这个表情符号对应5个码点。
+      * <p> 示例值：文档标题
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 版本文档版本号
-     * <p> 示例值：version1
-     */
+     /**
+      * 版本文档版本号
+      * <p> 示例值：version1
+      */
     @SerializedName("version")
     private String version;
-    /**
-     * 源文档token
-     * <p> 示例值：doxcnMycg4ryxQofSeoKkJuXYOb
-     */
+     /**
+      * 源文档token
+      * <p> 示例值：doxcnMycg4ryxQofSeoKkJuXYOb
+      */
     @SerializedName("parent_token")
     private String parentToken;
-    /**
-     * 版本文档所有者id
-     * <p> 示例值：694699009591869450
-     */
+     /**
+      * 版本文档所有者id
+      * <p> 示例值：694699009591869450
+      */
     @SerializedName("owner_id")
     private String ownerId;
-    /**
-     * 版本文档创建者id
-     * <p> 示例值：694699009591869451
-     */
+     /**
+      * 版本文档创建者id
+      * <p> 示例值：694699009591869451
+      */
     @SerializedName("creator_id")
     private String creatorId;
-    /**
-     * 版本文档创建时间
-     * <p> 示例值：1660708537
-     */
+     /**
+      * 版本文档创建时间
+      * <p> 示例值：1660708537
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 版本文档更新时间
-     * <p> 示例值：1660708537
-     */
+     /**
+      * 版本文档更新时间
+      * <p> 示例值：1660708537
+      */
     @SerializedName("update_time")
     private String updateTime;
-    /**
-     * 版本文档状态
-     * <p> 示例值：0，1，2
-     */
+     /**
+      * 版本文档状态
+      * <p> 示例值：0，1，2
+      */
     @SerializedName("status")
     private String status;
-    /**
-     * 版本文档类型
-     * <p> 示例值：docx
-     */
+     /**
+      * 版本文档类型
+      * <p> 示例值：docx
+      */
     @SerializedName("obj_type")
     private String objType;
-    /**
-     * 源文档类型
-     * <p> 示例值：docx
-     */
+     /**
+      * 源文档类型
+      * <p> 示例值：docx
+      */
     @SerializedName("parent_type")
     private String parentType;
-
     public String getName() {
         return this.name;
     }

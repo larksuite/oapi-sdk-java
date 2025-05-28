@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Comments {
-    /**
-     * 备注
-     * <p> 示例值：备注内容
-     */
+     /**
+      * 备注
+      * <p> 示例值：备注内容
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 备注时间，单位毫秒
-     * <p> 示例值：备注时间
-     */
+     /**
+      * 备注时间，单位毫秒
+      * <p> 示例值：备注时间
+      */
     @SerializedName("created_at")
     private Integer createdAt;
-    /**
-     * 备注ID
-     * <p> 示例值：备注id
-     */
+     /**
+      * 备注ID
+      * <p> 示例值：备注id
+      */
     @SerializedName("id")
     private Integer id;
-    /**
-     * 备注人头像
-     * <p> 示例值：备注人头像
-     */
+     /**
+      * 备注人头像
+      * <p> 示例值：备注人头像
+      */
     @SerializedName("user_avatar_url")
     private String userAvatarUrl;
-    /**
-     * 备注人姓名
-     * <p> 示例值：备注人姓名
-     */
+     /**
+      * 备注人姓名
+      * <p> 示例值：备注人姓名
+      */
     @SerializedName("user_name")
     private String userName;
-    /**
-     * 备注人ID
-     * <p> 示例值：备注人id
-     */
+     /**
+      * 备注人ID
+      * <p> 示例值：备注人id
+      */
     @SerializedName("user_id")
     private Integer userId;
-
-    // builder 开始
-    public Comments() {
-    }
-
-    public Comments(Builder builder) {
-        /**
-         * 备注
-         * <p> 示例值：备注内容
-         */
-        this.content = builder.content;
-        /**
-         * 备注时间，单位毫秒
-         * <p> 示例值：备注时间
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 备注ID
-         * <p> 示例值：备注id
-         */
-        this.id = builder.id;
-        /**
-         * 备注人头像
-         * <p> 示例值：备注人头像
-         */
-        this.userAvatarUrl = builder.userAvatarUrl;
-        /**
-         * 备注人姓名
-         * <p> 示例值：备注人姓名
-         */
-        this.userName = builder.userName;
-        /**
-         * 备注人ID
-         * <p> 示例值：备注人id
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getContent() {
         return this.content;
     }
@@ -155,118 +109,159 @@ public class Comments {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public Comments(){}
+
+  public Comments(Builder builder){
+         /**
+          * 备注
+          * <p> 示例值：备注内容
+          */
+      this.content = builder.content;
+         /**
+          * 备注时间，单位毫秒
+          * <p> 示例值：备注时间
+          */
+      this.createdAt = builder.createdAt;
+         /**
+          * 备注ID
+          * <p> 示例值：备注id
+          */
+      this.id = builder.id;
+         /**
+          * 备注人头像
+          * <p> 示例值：备注人头像
+          */
+      this.userAvatarUrl = builder.userAvatarUrl;
+         /**
+          * 备注人姓名
+          * <p> 示例值：备注人姓名
+          */
+      this.userName = builder.userName;
+         /**
+          * 备注人ID
+          * <p> 示例值：备注人id
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * 备注
-         * <p> 示例值：备注内容
-         */
+     /**
+      * 备注
+      * <p> 示例值：备注内容
+      */
         private String content;
-        /**
-         * 备注时间，单位毫秒
-         * <p> 示例值：备注时间
-         */
+     /**
+      * 备注时间，单位毫秒
+      * <p> 示例值：备注时间
+      */
         private Integer createdAt;
-        /**
-         * 备注ID
-         * <p> 示例值：备注id
-         */
+     /**
+      * 备注ID
+      * <p> 示例值：备注id
+      */
         private Integer id;
-        /**
-         * 备注人头像
-         * <p> 示例值：备注人头像
-         */
+     /**
+      * 备注人头像
+      * <p> 示例值：备注人头像
+      */
         private String userAvatarUrl;
-        /**
-         * 备注人姓名
-         * <p> 示例值：备注人姓名
-         */
+     /**
+      * 备注人姓名
+      * <p> 示例值：备注人姓名
+      */
         private String userName;
-        /**
-         * 备注人ID
-         * <p> 示例值：备注人id
-         */
+     /**
+      * 备注人ID
+      * <p> 示例值：备注人id
+      */
         private Integer userId;
 
         /**
          * 备注
          * <p> 示例值：备注内容
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 备注时间，单位毫秒
          * <p> 示例值：备注时间
-         *
          * @param createdAt
          * @return
          */
         public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
+             this.createdAt = createdAt;
+             return this;
         }
 
+    
 
         /**
          * 备注ID
          * <p> 示例值：备注id
-         *
          * @param id
          * @return
          */
         public Builder id(Integer id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 备注人头像
          * <p> 示例值：备注人头像
-         *
          * @param userAvatarUrl
          * @return
          */
         public Builder userAvatarUrl(String userAvatarUrl) {
-            this.userAvatarUrl = userAvatarUrl;
-            return this;
+             this.userAvatarUrl = userAvatarUrl;
+             return this;
         }
 
+    
 
         /**
          * 备注人姓名
          * <p> 示例值：备注人姓名
-         *
          * @param userName
          * @return
          */
         public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
+             this.userName = userName;
+             return this;
         }
 
+    
 
         /**
          * 备注人ID
          * <p> 示例值：备注人id
-         *
          * @param userId
          * @return
          */
         public Builder userId(Integer userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public Comments build(){
+        return new Comments(this);
+      }
+    }
 
-        public Comments build() {
-            return new Comments(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

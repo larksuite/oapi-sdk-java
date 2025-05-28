@@ -12,58 +12,25 @@
  */
 
 package com.lark.oapi.service.moments.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetPostReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * post的id
-     * <p> 示例值：6934510454161014804
-     */
-    @Path
-    @SerializedName("post_id")
-    private String postId;
-
-    // builder 开始
-    public GetPostReq() {
-    }
-
-    public GetPostReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * post的id
-         * <p> 示例值：6934510454161014804
-         */
-        this.postId = builder.postId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -72,6 +39,13 @@ public class GetPostReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * post的id
+      * <p> 示例值：6934510454161014804
+      */
+    @Path
+    @SerializedName("post_id")
+    private String postId;
     public String getPostId() {
         return this.postId;
     }
@@ -80,49 +54,68 @@ public class GetPostReq {
         this.postId = postId;
     }
 
+
+// builder 开始
+  public GetPostReq(){}
+
+  public GetPostReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * post的id
+      * <p> 示例值：6934510454161014804
+      */
+       this.postId = builder.postId;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String postId; // post的id
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.moments.v1.enums.GetPostUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.moments.v1.enums.GetPostUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.moments.v1.enums.GetPostUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String postId; // post的id
         /**
          * post的id
          * <p> 示例值：6934510454161014804
-         *
          * @param postId
          * @return
          */
-        public Builder postId(String postId) {
-            this.postId = postId;
-            return this;
-        }
+          public Builder postId(String postId) {
+               this.postId = postId;
+               return this;
+          }
 
+    
+    public GetPostReq build(){
+        return new GetPostReq(this);
+      }
+    }
 
-        public GetPostReq build() {
-            return new GetPostReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

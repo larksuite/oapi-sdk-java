@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PushFollowUpMessageReqBody {
-    /**
-     * follow up列表
-     * <p> 示例值：
-     */
+     /**
+      * follow up列表
+      * <p> 示例值：
+      */
     @SerializedName("follow_ups")
     private FollowUp[] followUps;
-
-    // builder 开始
-    public PushFollowUpMessageReqBody() {
-    }
-
-    public PushFollowUpMessageReqBody(Builder builder) {
-        /**
-         * follow up列表
-         * <p> 示例值：
-         */
-        this.followUps = builder.followUps;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public FollowUp[] getFollowUps() {
         return this.followUps;
     }
@@ -60,28 +39,44 @@ public class PushFollowUpMessageReqBody {
         this.followUps = followUps;
     }
 
+
+// builder 开始
+  public PushFollowUpMessageReqBody(){}
+
+  public PushFollowUpMessageReqBody(Builder builder){
+         /**
+          * follow up列表
+          * <p> 示例值：
+          */
+      this.followUps = builder.followUps;
+  }
+
     public static class Builder {
-        /**
-         * follow up列表
-         * <p> 示例值：
-         */
+     /**
+      * follow up列表
+      * <p> 示例值：
+      */
         private FollowUp[] followUps;
 
         /**
          * follow up列表
          * <p> 示例值：
-         *
          * @param followUps
          * @return
          */
         public Builder followUps(FollowUp[] followUps) {
-            this.followUps = followUps;
-            return this;
+             this.followUps = followUps;
+             return this;
         }
 
+    
+    
+    public PushFollowUpMessageReqBody build(){
+        return new PushFollowUpMessageReqBody(this);
+      }
+    }
 
-        public PushFollowUpMessageReqBody build() {
-            return new PushFollowUpMessageReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchAgentSkillReqBody {
-    /**
-     * 更新技能
-     * <p> 示例值：
-     */
+     /**
+      * 更新技能
+      * <p> 示例值：
+      */
     @SerializedName("agent_skill")
     private AgentSkill agentSkill;
-
-    // builder 开始
-    public PatchAgentSkillReqBody() {
-    }
-
-    public PatchAgentSkillReqBody(Builder builder) {
-        /**
-         * 更新技能
-         * <p> 示例值：
-         */
-        this.agentSkill = builder.agentSkill;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public AgentSkill getAgentSkill() {
         return this.agentSkill;
     }
@@ -60,28 +39,44 @@ public class PatchAgentSkillReqBody {
         this.agentSkill = agentSkill;
     }
 
+
+// builder 开始
+  public PatchAgentSkillReqBody(){}
+
+  public PatchAgentSkillReqBody(Builder builder){
+         /**
+          * 更新技能
+          * <p> 示例值：
+          */
+      this.agentSkill = builder.agentSkill;
+  }
+
     public static class Builder {
-        /**
-         * 更新技能
-         * <p> 示例值：
-         */
+     /**
+      * 更新技能
+      * <p> 示例值：
+      */
         private AgentSkill agentSkill;
 
         /**
          * 更新技能
          * <p> 示例值：
-         *
          * @param agentSkill
          * @return
          */
         public Builder agentSkill(AgentSkill agentSkill) {
-            this.agentSkill = agentSkill;
-            return this;
+             this.agentSkill = agentSkill;
+             return this;
         }
 
+    
+    
+    public PatchAgentSkillReqBody build(){
+        return new PatchAgentSkillReqBody(this);
+      }
+    }
 
-        public PatchAgentSkillReqBody build() {
-            return new PatchAgentSkillReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

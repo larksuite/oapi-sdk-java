@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OkrObjective {
-    /**
-     * Objective ID
-     * <p> 示例值：7073360513731690515
-     */
+     /**
+      * Objective ID
+      * <p> 示例值：7073360513731690515
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * Objective 内容
-     * <p> 示例值：需求@刘三
-     */
+     /**
+      * Objective 内容
+      * <p> 示例值：需求@刘三
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * Objective 分数（0 - 100）
-     * <p> 示例值：100
-     */
+     /**
+      * Objective 分数（0 - 100）
+      * <p> 示例值：100
+      */
     @SerializedName("score")
     private Integer score;
-    /**
-     * Objective的权重（0 - 100）
-     * <p> 示例值：40
-     */
+     /**
+      * Objective的权重（0 - 100）
+      * <p> 示例值：40
+      */
     @SerializedName("weight")
     private Double weight;
-    /**
-     * Objective进度
-     * <p> 示例值：
-     */
+     /**
+      * Objective进度
+      * <p> 示例值：
+      */
     @SerializedName("progress_rate")
     private OkrProgressRate progressRate;
-    /**
-     * Objective KeyResult 列表
-     * <p> 示例值：
-     */
+     /**
+      * Objective KeyResult 列表
+      * <p> 示例值：
+      */
     @SerializedName("key_results")
     private OkrObjectiveKr[] keyResults;
-    /**
-     * OKR 分类 ID
-     * <p> 示例值：7436592808418344995
-     */
+     /**
+      * OKR 分类 ID
+      * <p> 示例值：7436592808418344995
+      */
     @SerializedName("category_id")
     private String categoryId;
-
-    // builder 开始
-    public OkrObjective() {
-    }
-
-    public OkrObjective(Builder builder) {
-        /**
-         * Objective ID
-         * <p> 示例值：7073360513731690515
-         */
-        this.id = builder.id;
-        /**
-         * Objective 内容
-         * <p> 示例值：需求@刘三
-         */
-        this.content = builder.content;
-        /**
-         * Objective 分数（0 - 100）
-         * <p> 示例值：100
-         */
-        this.score = builder.score;
-        /**
-         * Objective的权重（0 - 100）
-         * <p> 示例值：40
-         */
-        this.weight = builder.weight;
-        /**
-         * Objective进度
-         * <p> 示例值：
-         */
-        this.progressRate = builder.progressRate;
-        /**
-         * Objective KeyResult 列表
-         * <p> 示例值：
-         */
-        this.keyResults = builder.keyResults;
-        /**
-         * OKR 分类 ID
-         * <p> 示例值：7436592808418344995
-         */
-        this.categoryId = builder.categoryId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -174,136 +123,182 @@ public class OkrObjective {
         this.categoryId = categoryId;
     }
 
+
+// builder 开始
+  public OkrObjective(){}
+
+  public OkrObjective(Builder builder){
+         /**
+          * Objective ID
+          * <p> 示例值：7073360513731690515
+          */
+      this.id = builder.id;
+         /**
+          * Objective 内容
+          * <p> 示例值：需求@刘三
+          */
+      this.content = builder.content;
+         /**
+          * Objective 分数（0 - 100）
+          * <p> 示例值：100
+          */
+      this.score = builder.score;
+         /**
+          * Objective的权重（0 - 100）
+          * <p> 示例值：40
+          */
+      this.weight = builder.weight;
+         /**
+          * Objective进度
+          * <p> 示例值：
+          */
+      this.progressRate = builder.progressRate;
+         /**
+          * Objective KeyResult 列表
+          * <p> 示例值：
+          */
+      this.keyResults = builder.keyResults;
+         /**
+          * OKR 分类 ID
+          * <p> 示例值：7436592808418344995
+          */
+      this.categoryId = builder.categoryId;
+  }
+
     public static class Builder {
-        /**
-         * Objective ID
-         * <p> 示例值：7073360513731690515
-         */
+     /**
+      * Objective ID
+      * <p> 示例值：7073360513731690515
+      */
         private String id;
-        /**
-         * Objective 内容
-         * <p> 示例值：需求@刘三
-         */
+     /**
+      * Objective 内容
+      * <p> 示例值：需求@刘三
+      */
         private String content;
-        /**
-         * Objective 分数（0 - 100）
-         * <p> 示例值：100
-         */
+     /**
+      * Objective 分数（0 - 100）
+      * <p> 示例值：100
+      */
         private Integer score;
-        /**
-         * Objective的权重（0 - 100）
-         * <p> 示例值：40
-         */
+     /**
+      * Objective的权重（0 - 100）
+      * <p> 示例值：40
+      */
         private Double weight;
-        /**
-         * Objective进度
-         * <p> 示例值：
-         */
+     /**
+      * Objective进度
+      * <p> 示例值：
+      */
         private OkrProgressRate progressRate;
-        /**
-         * Objective KeyResult 列表
-         * <p> 示例值：
-         */
+     /**
+      * Objective KeyResult 列表
+      * <p> 示例值：
+      */
         private OkrObjectiveKr[] keyResults;
-        /**
-         * OKR 分类 ID
-         * <p> 示例值：7436592808418344995
-         */
+     /**
+      * OKR 分类 ID
+      * <p> 示例值：7436592808418344995
+      */
         private String categoryId;
 
         /**
          * Objective ID
          * <p> 示例值：7073360513731690515
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * Objective 内容
          * <p> 示例值：需求@刘三
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * Objective 分数（0 - 100）
          * <p> 示例值：100
-         *
          * @param score
          * @return
          */
         public Builder score(Integer score) {
-            this.score = score;
-            return this;
+             this.score = score;
+             return this;
         }
 
+    
 
         /**
          * Objective的权重（0 - 100）
          * <p> 示例值：40
-         *
          * @param weight
          * @return
          */
         public Builder weight(Double weight) {
-            this.weight = weight;
-            return this;
+             this.weight = weight;
+             return this;
         }
 
+    
 
         /**
          * Objective进度
          * <p> 示例值：
-         *
          * @param progressRate
          * @return
          */
         public Builder progressRate(OkrProgressRate progressRate) {
-            this.progressRate = progressRate;
-            return this;
+             this.progressRate = progressRate;
+             return this;
         }
 
+    
 
         /**
          * Objective KeyResult 列表
          * <p> 示例值：
-         *
          * @param keyResults
          * @return
          */
         public Builder keyResults(OkrObjectiveKr[] keyResults) {
-            this.keyResults = keyResults;
-            return this;
+             this.keyResults = keyResults;
+             return this;
         }
 
+    
 
         /**
          * OKR 分类 ID
          * <p> 示例值：7436592808418344995
-         *
          * @param categoryId
          * @return
          */
         public Builder categoryId(String categoryId) {
-            this.categoryId = categoryId;
-            return this;
+             this.categoryId = categoryId;
+             return this;
         }
 
+    
+    
+    public OkrObjective build(){
+        return new OkrObjective(this);
+      }
+    }
 
-        public OkrObjective build() {
-            return new OkrObjective(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

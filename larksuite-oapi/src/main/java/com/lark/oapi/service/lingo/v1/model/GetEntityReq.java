@@ -12,82 +12,39 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetEntityReq {
-    /**
-     * 数据提供方（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-     * <p> 示例值：星云
-     */
+     /**
+      * 数据提供方（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+      * <p> 示例值：星云
+      */
     @Query
     @SerializedName("provider")
     private String provider;
-    /**
-     * 外部唯一 id（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-     * <p> 示例值：123aaa
-     */
+     /**
+      * 外部唯一 id（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+      * <p> 示例值：123aaa
+      */
     @Query
     @SerializedName("outer_id")
     private String outerId;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 实体词 id
-     * <p> 示例值：enterprise_0
-     */
-    @Path
-    @SerializedName("entity_id")
-    private String entityId;
-
-    // builder 开始
-    public GetEntityReq() {
-    }
-
-    public GetEntityReq(Builder builder) {
-        /**
-         * 数据提供方（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-         * <p> 示例值：星云
-         */
-        this.provider = builder.provider;
-        /**
-         * 外部唯一 id（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-         * <p> 示例值：123aaa
-         */
-        this.outerId = builder.outerId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 实体词 id
-         * <p> 示例值：enterprise_0
-         */
-        this.entityId = builder.entityId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getProvider() {
         return this.provider;
     }
@@ -112,6 +69,13 @@ public class GetEntityReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 实体词 id
+      * <p> 示例值：enterprise_0
+      */
+    @Path
+    @SerializedName("entity_id")
+    private String entityId;
     public String getEntityId() {
         return this.entityId;
     }
@@ -120,75 +84,104 @@ public class GetEntityReq {
         this.entityId = entityId;
     }
 
+
+// builder 开始
+  public GetEntityReq(){}
+
+  public GetEntityReq(Builder builder){
+         /**
+          * 数据提供方（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+          * <p> 示例值：星云
+          */
+       this.provider = builder.provider;
+         /**
+          * 外部唯一 id（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+          * <p> 示例值：123aaa
+          */
+       this.outerId = builder.outerId;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 实体词 id
+      * <p> 示例值：enterprise_0
+      */
+       this.entityId = builder.entityId;
+  }
+
     public static class Builder {
         private String provider; // 数据提供方（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
         private String outerId; // 外部唯一 id（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String entityId; // 实体词 id
-
+    
         /**
          * 数据提供方（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
          * <p> 示例值：星云
-         *
          * @param provider
          * @return
          */
-        public Builder provider(String provider) {
-            this.provider = provider;
-            return this;
-        }
+           public Builder provider(String provider) {
+                this.provider = provider;
+                return this;
+           }
 
+    
         /**
          * 外部唯一 id（使用时需要将路径中的实体词 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
          * <p> 示例值：123aaa
-         *
          * @param outerId
          * @return
          */
-        public Builder outerId(String outerId) {
-            this.outerId = outerId;
-            return this;
-        }
+           public Builder outerId(String outerId) {
+                this.outerId = outerId;
+                return this;
+           }
 
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.lingo.v1.enums.GetEntityUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.lingo.v1.enums.GetEntityUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.lingo.v1.enums.GetEntityUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String entityId; // 实体词 id
         /**
          * 实体词 id
          * <p> 示例值：enterprise_0
-         *
          * @param entityId
          * @return
          */
-        public Builder entityId(String entityId) {
-            this.entityId = entityId;
-            return this;
-        }
+          public Builder entityId(String entityId) {
+               this.entityId = entityId;
+               return this;
+          }
 
+    
+    public GetEntityReq build(){
+        return new GetEntityReq(this);
+      }
+    }
 
-        public GetEntityReq build() {
-            return new GetEntityReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ManageableInstanceItem {
-    /**
-     * 审批实例信息
-     * <p> 示例值：
-     */
+     /**
+      * 审批实例信息
+      * <p> 示例值：
+      */
     @SerializedName("instance")
     private ManageableInstanceNode instance;
-
-    // builder 开始
-    public ManageableInstanceItem() {
-    }
-
-    public ManageableInstanceItem(Builder builder) {
-        /**
-         * 审批实例信息
-         * <p> 示例值：
-         */
-        this.instance = builder.instance;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ManageableInstanceNode getInstance() {
         return this.instance;
     }
@@ -60,28 +39,44 @@ public class ManageableInstanceItem {
         this.instance = instance;
     }
 
+
+// builder 开始
+  public ManageableInstanceItem(){}
+
+  public ManageableInstanceItem(Builder builder){
+         /**
+          * 审批实例信息
+          * <p> 示例值：
+          */
+      this.instance = builder.instance;
+  }
+
     public static class Builder {
-        /**
-         * 审批实例信息
-         * <p> 示例值：
-         */
+     /**
+      * 审批实例信息
+      * <p> 示例值：
+      */
         private ManageableInstanceNode instance;
 
         /**
          * 审批实例信息
          * <p> 示例值：
-         *
          * @param instance
          * @return
          */
         public Builder instance(ManageableInstanceNode instance) {
-            this.instance = instance;
-            return this;
+             this.instance = instance;
+             return this;
         }
 
+    
+    
+    public ManageableInstanceItem build(){
+        return new ManageableInstanceItem(this);
+      }
+    }
 
-        public ManageableInstanceItem build() {
-            return new ManageableInstanceItem(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

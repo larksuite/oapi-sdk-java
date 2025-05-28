@@ -12,85 +12,32 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdatePermissionMemberReq {
-    /**
-     * 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
-     * <p> 示例值：false
-     */
+     /**
+      * 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
+      * <p> 示例值：false
+      */
     @Query
     @SerializedName("need_notification")
     private Boolean needNotification;
-    /**
-     * 文件类型，需要与文件的 token 相匹配
-     * <p> 示例值：doc
-     */
+     /**
+      * 文件类型，需要与文件的 token 相匹配
+      * <p> 示例值：doc
+      */
     @Query
     @SerializedName("type")
     private String type;
-    /**
-     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
-     */
-    @Path
-    @SerializedName("token")
-    private String token;
-    /**
-     * 协作者 ID，与协作者 ID 类型需要对应
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     */
-    @Path
-    @SerializedName("member_id")
-    private String memberId;
-    @Body
-    private BaseMember body;
-
-    // builder 开始
-    public UpdatePermissionMemberReq() {
-    }
-
-    public UpdatePermissionMemberReq(Builder builder) {
-        /**
-         * 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
-         * <p> 示例值：false
-         */
-        this.needNotification = builder.needNotification;
-        /**
-         * 文件类型，需要与文件的 token 相匹配
-         * <p> 示例值：doc
-         */
-        this.type = builder.type;
-        /**
-         * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-         * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
-         */
-        this.token = builder.token;
-        /**
-         * 协作者 ID，与协作者 ID 类型需要对应
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.memberId = builder.memberId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getNeedNotification() {
         return this.needNotification;
     }
@@ -107,6 +54,20 @@ public class UpdatePermissionMemberReq {
         this.type = type;
     }
 
+     /**
+      * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+      */
+    @Path
+    @SerializedName("token")
+    private String token;
+     /**
+      * 协作者 ID，与协作者 ID 类型需要对应
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
+    @Path
+    @SerializedName("member_id")
+    private String memberId;
     public String getToken() {
         return this.token;
     }
@@ -123,6 +84,9 @@ public class UpdatePermissionMemberReq {
         this.memberId = memberId;
     }
 
+    @Body
+    private BaseMember body;
+
     public BaseMember getBaseMember() {
         return this.body;
     }
@@ -131,90 +95,119 @@ public class UpdatePermissionMemberReq {
         this.body = body;
     }
 
+// builder 开始
+  public UpdatePermissionMemberReq(){}
+
+  public UpdatePermissionMemberReq(Builder builder){
+         /**
+          * 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
+          * <p> 示例值：false
+          */
+       this.needNotification = builder.needNotification;
+         /**
+          * 文件类型，需要与文件的 token 相匹配
+          * <p> 示例值：doc
+          */
+       this.type = builder.type;
+     /**
+      * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+      */
+       this.token = builder.token;
+     /**
+      * 协作者 ID，与协作者 ID 类型需要对应
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
+       this.memberId = builder.memberId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private Boolean needNotification; // 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
         private String type; // 文件类型，需要与文件的 token 相匹配
-        private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-        private String memberId; // 协作者 ID，与协作者 ID 类型需要对应
-        private BaseMember body;
-
+    
         /**
          * 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
          * <p> 示例值：false
-         *
          * @param needNotification
          * @return
          */
-        public Builder needNotification(Boolean needNotification) {
-            this.needNotification = needNotification;
-            return this;
-        }
+           public Builder needNotification(Boolean needNotification) {
+                this.needNotification = needNotification;
+                return this;
+           }
 
+    
         /**
          * 文件类型，需要与文件的 token 相匹配
          * <p> 示例值：doc
-         *
          * @param type
          * @return
          */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
+           public Builder type(String type) {
+                this.type = type;
+                return this;
+           }
 
         /**
          * 文件类型，需要与文件的 token 相匹配
          * <p> 示例值：doc
-         *
          * @param type {@link com.lark.oapi.service.drive.v1.enums.UpdatePermissionMemberTokenTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.drive.v1.enums.UpdatePermissionMemberTokenTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
+          public Builder type(com.lark.oapi.service.drive.v1.enums.UpdatePermissionMemberTokenTypeEnum type) {
+               this.type = type.getValue();
+               return this;
+          }
 
+    
+        private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+        private String memberId; // 协作者 ID，与协作者 ID 类型需要对应
         /**
          * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
          * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
-         *
          * @param token
          * @return
          */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
+          public Builder token(String token) {
+               this.token = token;
+               return this;
+          }
 
+    
         /**
          * 协作者 ID，与协作者 ID 类型需要对应
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
          * @param memberId
          * @return
          */
-        public Builder memberId(String memberId) {
-            this.memberId = memberId;
-            return this;
-        }
+          public Builder memberId(String memberId) {
+               this.memberId = memberId;
+               return this;
+          }
 
+    
+        private BaseMember body;
+    
         public BaseMember getBaseMember() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder baseMember(BaseMember body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UpdatePermissionMemberReq build(){
+        return new UpdatePermissionMemberReq(this);
+      }
+    }
 
-        public UpdatePermissionMemberReq build() {
-            return new UpdatePermissionMemberReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

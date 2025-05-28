@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DocUser {
-    /**
-     * 用户ID
-     * <p> 示例值：ou_xxxxxxx
-     */
+     /**
+      * 用户ID
+      * <p> 示例值：ou_xxxxxxx
+      */
     @SerializedName("user_id")
     private String userId;
-
-    // builder 开始
-    public DocUser() {
-    }
-
-    public DocUser(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_xxxxxxx
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -60,28 +39,44 @@ public class DocUser {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public DocUser(){}
+
+  public DocUser(Builder builder){
+         /**
+          * 用户ID
+          * <p> 示例值：ou_xxxxxxx
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_xxxxxxx
-         */
+     /**
+      * 用户ID
+      * <p> 示例值：ou_xxxxxxx
+      */
         private String userId;
 
         /**
          * 用户ID
          * <p> 示例值：ou_xxxxxxx
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public DocUser build(){
+        return new DocUser(this);
+      }
+    }
 
-        public DocUser build() {
-            return new DocUser(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

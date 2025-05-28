@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateDepartmentIdDepartmentReqBody {
-    /**
-     * 本部门的自定义部门新ID
-     * <p> 示例值：
-     */
+     /**
+      * 本部门的自定义部门新ID
+      * <p> 示例值：
+      */
     @SerializedName("new_department_id")
     private String newDepartmentId;
-
-    // builder 开始
-    public UpdateDepartmentIdDepartmentReqBody() {
-    }
-
-    public UpdateDepartmentIdDepartmentReqBody(Builder builder) {
-        /**
-         * 本部门的自定义部门新ID
-         * <p> 示例值：
-         */
-        this.newDepartmentId = builder.newDepartmentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNewDepartmentId() {
         return this.newDepartmentId;
     }
@@ -60,28 +39,44 @@ public class UpdateDepartmentIdDepartmentReqBody {
         this.newDepartmentId = newDepartmentId;
     }
 
+
+// builder 开始
+  public UpdateDepartmentIdDepartmentReqBody(){}
+
+  public UpdateDepartmentIdDepartmentReqBody(Builder builder){
+         /**
+          * 本部门的自定义部门新ID
+          * <p> 示例值：
+          */
+      this.newDepartmentId = builder.newDepartmentId;
+  }
+
     public static class Builder {
-        /**
-         * 本部门的自定义部门新ID
-         * <p> 示例值：
-         */
+     /**
+      * 本部门的自定义部门新ID
+      * <p> 示例值：
+      */
         private String newDepartmentId;
 
         /**
          * 本部门的自定义部门新ID
          * <p> 示例值：
-         *
          * @param newDepartmentId
          * @return
          */
         public Builder newDepartmentId(String newDepartmentId) {
-            this.newDepartmentId = newDepartmentId;
-            return this;
+             this.newDepartmentId = newDepartmentId;
+             return this;
         }
 
+    
+    
+    public UpdateDepartmentIdDepartmentReqBody build(){
+        return new UpdateDepartmentIdDepartmentReqBody(this);
+      }
+    }
 
-        public UpdateDepartmentIdDepartmentReqBody build() {
-            return new UpdateDepartmentIdDepartmentReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

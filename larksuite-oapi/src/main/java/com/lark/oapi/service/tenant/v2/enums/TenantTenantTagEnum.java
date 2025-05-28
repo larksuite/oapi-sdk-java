@@ -17,16 +17,15 @@ package com.lark.oapi.service.tenant.v2.enums;
  * 个人版/团队版标志
  */
 public enum TenantTenantTagEnum {
-    STANDARD(0), // 团队版
-    SIMPLE(2), // 个人版
-    ;
-    private Integer value;
-
+     STANDARD(0), // 团队版
+     SIMPLE(2), // 个人版
+  ;
+   private Integer value;
     TenantTenantTagEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

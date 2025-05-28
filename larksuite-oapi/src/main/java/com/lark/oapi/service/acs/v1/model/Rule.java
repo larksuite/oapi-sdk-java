@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Rule {
-    /**
-     * 权限组id
-     * <p> 示例值：34252345234523
-     */
+     /**
+      * 权限组id
+      * <p> 示例值：34252345234523
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 权限组名称
-     * <p> 示例值：南门
-     */
+     /**
+      * 权限组名称
+      * <p> 示例值：南门
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 权限组包含的设备
-     * <p> 示例值：
-     */
+     /**
+      * 权限组包含的设备
+      * <p> 示例值：
+      */
     @SerializedName("devices")
     private DeviceExternal[] devices;
-    /**
-     * 权限组包含的员工个数
-     * <p> 示例值：3
-     */
+     /**
+      * 权限组包含的员工个数
+      * <p> 示例值：3
+      */
     @SerializedName("user_count")
     private String userCount;
-    /**
-     * 权限组包含的员工列表
-     * <p> 示例值：
-     */
+     /**
+      * 权限组包含的员工列表
+      * <p> 示例值：
+      */
     @SerializedName("users")
     private UserExternal[] users;
-    /**
-     * 权限组包含的访客个数
-     * <p> 示例值：3
-     */
+     /**
+      * 权限组包含的访客个数
+      * <p> 示例值：3
+      */
     @SerializedName("visitor_count")
     private String visitorCount;
-    /**
-     * 权限组包含的访客列表
-     * <p> 示例值：
-     */
+     /**
+      * 权限组包含的访客列表
+      * <p> 示例值：
+      */
     @SerializedName("visitors")
     private UserExternal[] visitors;
-    /**
-     * 是否通知人员录入
-     * <p> 示例值：false
-     */
+     /**
+      * 是否通知人员录入
+      * <p> 示例值：false
+      */
     @SerializedName("remind_face")
     private Boolean remindFace;
-    /**
-     * 开门时间段
-     * <p> 示例值：
-     */
+     /**
+      * 开门时间段
+      * <p> 示例值：
+      */
     @SerializedName("opening_time")
     private OpeningTimeExternal openingTime;
-    /**
-     * 是否为临时权限组
-     * <p> 示例值：false
-     */
+     /**
+      * 是否为临时权限组
+      * <p> 示例值：false
+      */
     @SerializedName("is_temp")
     private Boolean isTemp;
-
-    // builder 开始
-    public Rule() {
-    }
-
-    public Rule(Builder builder) {
-        /**
-         * 权限组id
-         * <p> 示例值：34252345234523
-         */
-        this.id = builder.id;
-        /**
-         * 权限组名称
-         * <p> 示例值：南门
-         */
-        this.name = builder.name;
-        /**
-         * 权限组包含的设备
-         * <p> 示例值：
-         */
-        this.devices = builder.devices;
-        /**
-         * 权限组包含的员工个数
-         * <p> 示例值：3
-         */
-        this.userCount = builder.userCount;
-        /**
-         * 权限组包含的员工列表
-         * <p> 示例值：
-         */
-        this.users = builder.users;
-        /**
-         * 权限组包含的访客个数
-         * <p> 示例值：3
-         */
-        this.visitorCount = builder.visitorCount;
-        /**
-         * 权限组包含的访客列表
-         * <p> 示例值：
-         */
-        this.visitors = builder.visitors;
-        /**
-         * 是否通知人员录入
-         * <p> 示例值：false
-         */
-        this.remindFace = builder.remindFace;
-        /**
-         * 开门时间段
-         * <p> 示例值：
-         */
-        this.openingTime = builder.openingTime;
-        /**
-         * 是否为临时权限组
-         * <p> 示例值：false
-         */
-        this.isTemp = builder.isTemp;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -231,190 +165,251 @@ public class Rule {
         this.isTemp = isTemp;
     }
 
+
+// builder 开始
+  public Rule(){}
+
+  public Rule(Builder builder){
+         /**
+          * 权限组id
+          * <p> 示例值：34252345234523
+          */
+      this.id = builder.id;
+         /**
+          * 权限组名称
+          * <p> 示例值：南门
+          */
+      this.name = builder.name;
+         /**
+          * 权限组包含的设备
+          * <p> 示例值：
+          */
+      this.devices = builder.devices;
+         /**
+          * 权限组包含的员工个数
+          * <p> 示例值：3
+          */
+      this.userCount = builder.userCount;
+         /**
+          * 权限组包含的员工列表
+          * <p> 示例值：
+          */
+      this.users = builder.users;
+         /**
+          * 权限组包含的访客个数
+          * <p> 示例值：3
+          */
+      this.visitorCount = builder.visitorCount;
+         /**
+          * 权限组包含的访客列表
+          * <p> 示例值：
+          */
+      this.visitors = builder.visitors;
+         /**
+          * 是否通知人员录入
+          * <p> 示例值：false
+          */
+      this.remindFace = builder.remindFace;
+         /**
+          * 开门时间段
+          * <p> 示例值：
+          */
+      this.openingTime = builder.openingTime;
+         /**
+          * 是否为临时权限组
+          * <p> 示例值：false
+          */
+      this.isTemp = builder.isTemp;
+  }
+
     public static class Builder {
-        /**
-         * 权限组id
-         * <p> 示例值：34252345234523
-         */
+     /**
+      * 权限组id
+      * <p> 示例值：34252345234523
+      */
         private String id;
-        /**
-         * 权限组名称
-         * <p> 示例值：南门
-         */
+     /**
+      * 权限组名称
+      * <p> 示例值：南门
+      */
         private String name;
-        /**
-         * 权限组包含的设备
-         * <p> 示例值：
-         */
+     /**
+      * 权限组包含的设备
+      * <p> 示例值：
+      */
         private DeviceExternal[] devices;
-        /**
-         * 权限组包含的员工个数
-         * <p> 示例值：3
-         */
+     /**
+      * 权限组包含的员工个数
+      * <p> 示例值：3
+      */
         private String userCount;
-        /**
-         * 权限组包含的员工列表
-         * <p> 示例值：
-         */
+     /**
+      * 权限组包含的员工列表
+      * <p> 示例值：
+      */
         private UserExternal[] users;
-        /**
-         * 权限组包含的访客个数
-         * <p> 示例值：3
-         */
+     /**
+      * 权限组包含的访客个数
+      * <p> 示例值：3
+      */
         private String visitorCount;
-        /**
-         * 权限组包含的访客列表
-         * <p> 示例值：
-         */
+     /**
+      * 权限组包含的访客列表
+      * <p> 示例值：
+      */
         private UserExternal[] visitors;
-        /**
-         * 是否通知人员录入
-         * <p> 示例值：false
-         */
+     /**
+      * 是否通知人员录入
+      * <p> 示例值：false
+      */
         private Boolean remindFace;
-        /**
-         * 开门时间段
-         * <p> 示例值：
-         */
+     /**
+      * 开门时间段
+      * <p> 示例值：
+      */
         private OpeningTimeExternal openingTime;
-        /**
-         * 是否为临时权限组
-         * <p> 示例值：false
-         */
+     /**
+      * 是否为临时权限组
+      * <p> 示例值：false
+      */
         private Boolean isTemp;
 
         /**
          * 权限组id
          * <p> 示例值：34252345234523
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 权限组名称
          * <p> 示例值：南门
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 权限组包含的设备
          * <p> 示例值：
-         *
          * @param devices
          * @return
          */
         public Builder devices(DeviceExternal[] devices) {
-            this.devices = devices;
-            return this;
+             this.devices = devices;
+             return this;
         }
 
+    
 
         /**
          * 权限组包含的员工个数
          * <p> 示例值：3
-         *
          * @param userCount
          * @return
          */
         public Builder userCount(String userCount) {
-            this.userCount = userCount;
-            return this;
+             this.userCount = userCount;
+             return this;
         }
 
+    
 
         /**
          * 权限组包含的员工列表
          * <p> 示例值：
-         *
          * @param users
          * @return
          */
         public Builder users(UserExternal[] users) {
-            this.users = users;
-            return this;
+             this.users = users;
+             return this;
         }
 
+    
 
         /**
          * 权限组包含的访客个数
          * <p> 示例值：3
-         *
          * @param visitorCount
          * @return
          */
         public Builder visitorCount(String visitorCount) {
-            this.visitorCount = visitorCount;
-            return this;
+             this.visitorCount = visitorCount;
+             return this;
         }
 
+    
 
         /**
          * 权限组包含的访客列表
          * <p> 示例值：
-         *
          * @param visitors
          * @return
          */
         public Builder visitors(UserExternal[] visitors) {
-            this.visitors = visitors;
-            return this;
+             this.visitors = visitors;
+             return this;
         }
 
+    
 
         /**
          * 是否通知人员录入
          * <p> 示例值：false
-         *
          * @param remindFace
          * @return
          */
         public Builder remindFace(Boolean remindFace) {
-            this.remindFace = remindFace;
-            return this;
+             this.remindFace = remindFace;
+             return this;
         }
 
+    
 
         /**
          * 开门时间段
          * <p> 示例值：
-         *
          * @param openingTime
          * @return
          */
         public Builder openingTime(OpeningTimeExternal openingTime) {
-            this.openingTime = openingTime;
-            return this;
+             this.openingTime = openingTime;
+             return this;
         }
 
+    
 
         /**
          * 是否为临时权限组
          * <p> 示例值：false
-         *
          * @param isTemp
          * @return
          */
         public Builder isTemp(Boolean isTemp) {
-            this.isTemp = isTemp;
-            return this;
+             this.isTemp = isTemp;
+             return this;
         }
 
+    
+    
+    public Rule build(){
+        return new Rule(this);
+      }
+    }
 
-        public Rule build() {
-            return new Rule(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

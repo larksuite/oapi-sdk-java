@@ -12,36 +12,20 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MgetRoomLevelReq {
     @Body
     private MgetRoomLevelReqBody body;
-
-    // builder 开始
-    public MgetRoomLevelReq() {
-    }
-
-    public MgetRoomLevelReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public MgetRoomLevelReqBody getMgetRoomLevelReqBody() {
         return this.body;
@@ -51,27 +35,36 @@ public class MgetRoomLevelReq {
         this.body = body;
     }
 
+// builder 开始
+  public MgetRoomLevelReq(){}
+
+  public MgetRoomLevelReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private MgetRoomLevelReqBody body;
-
+    
         public MgetRoomLevelReqBody getMgetRoomLevelReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder mgetRoomLevelReqBody(MgetRoomLevelReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public MgetRoomLevelReq build(){
+        return new MgetRoomLevelReq(this);
+      }
+    }
 
-        public MgetRoomLevelReq build() {
-            return new MgetRoomLevelReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

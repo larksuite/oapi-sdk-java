@@ -12,82 +12,32 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ContactsRangeSuggestApplicationAppVersionReq {
-    /**
-     * 返回值的部门ID的类型
-     * <p> 示例值：department_id
-     */
+     /**
+      * 返回值的部门ID的类型
+      * <p> 示例值：department_id
+      */
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 应用 id
-     * <p> 示例值：cli_9f3ca975326b501b
-     */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    /**
-     * 唯一标识应用版本的 ID
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-     */
-    @Path
-    @SerializedName("version_id")
-    private String versionId;
-
-    // builder 开始
-    public ContactsRangeSuggestApplicationAppVersionReq() {
-    }
-
-    public ContactsRangeSuggestApplicationAppVersionReq(Builder builder) {
-        /**
-         * 返回值的部门ID的类型
-         * <p> 示例值：department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用 id
-         * <p> 示例值：cli_9f3ca975326b501b
-         */
-        this.appId = builder.appId;
-        /**
-         * 唯一标识应用版本的 ID
-         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         */
-        this.versionId = builder.versionId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDepartmentIdType() {
         return this.departmentIdType;
     }
@@ -104,6 +54,20 @@ public class ContactsRangeSuggestApplicationAppVersionReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 应用 id
+      * <p> 示例值：cli_9f3ca975326b501b
+      */
+    @Path
+    @SerializedName("app_id")
+    private String appId;
+     /**
+      * 唯一标识应用版本的 ID
+      * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+      */
+    @Path
+    @SerializedName("version_id")
+    private String versionId;
     public String getAppId() {
         return this.appId;
     }
@@ -120,88 +84,115 @@ public class ContactsRangeSuggestApplicationAppVersionReq {
         this.versionId = versionId;
     }
 
+
+// builder 开始
+  public ContactsRangeSuggestApplicationAppVersionReq(){}
+
+  public ContactsRangeSuggestApplicationAppVersionReq(Builder builder){
+         /**
+          * 返回值的部门ID的类型
+          * <p> 示例值：department_id
+          */
+       this.departmentIdType = builder.departmentIdType;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 应用 id
+      * <p> 示例值：cli_9f3ca975326b501b
+      */
+       this.appId = builder.appId;
+     /**
+      * 唯一标识应用版本的 ID
+      * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+      */
+       this.versionId = builder.versionId;
+  }
+
     public static class Builder {
         private String departmentIdType; // 返回值的部门ID的类型
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String appId; // 应用 id
-        private String versionId; // 唯一标识应用版本的 ID
-
+    
         /**
          * 返回值的部门ID的类型
          * <p> 示例值：department_id
-         *
          * @param departmentIdType
          * @return
          */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
 
         /**
          * 返回值的部门ID的类型
          * <p> 示例值：department_id
-         *
          * @param departmentIdType {@link com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
+          public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
 
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeUserIDTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String appId; // 应用 id
+        private String versionId; // 唯一标识应用版本的 ID
         /**
          * 应用 id
          * <p> 示例值：cli_9f3ca975326b501b
-         *
          * @param appId
          * @return
          */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
 
-
+    
         /**
          * 唯一标识应用版本的 ID
          * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         *
          * @param versionId
          * @return
          */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
+          public Builder versionId(String versionId) {
+               this.versionId = versionId;
+               return this;
+          }
 
+    
+    public ContactsRangeSuggestApplicationAppVersionReq build(){
+        return new ContactsRangeSuggestApplicationAppVersionReq(this);
+      }
+    }
 
-        public ContactsRangeSuggestApplicationAppVersionReq build() {
-            return new ContactsRangeSuggestApplicationAppVersionReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

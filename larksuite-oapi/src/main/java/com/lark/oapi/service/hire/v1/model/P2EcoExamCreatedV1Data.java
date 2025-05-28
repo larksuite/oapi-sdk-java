@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2EcoExamCreatedV1Data {
-    /**
-     * 笔试 ID，招聘系统内唯一
-     * <p> 示例值：7147998241542539527
-     */
+     /**
+      * 笔试 ID，招聘系统内唯一
+      * <p> 示例值：7147998241542539527
+      */
     @SerializedName("exam_id")
     private String examId;
-    /**
-     * 账号 ID，招聘系统内唯一
-     * <p> 示例值：7147998241542539527
-     */
+     /**
+      * 账号 ID，招聘系统内唯一
+      * <p> 示例值：7147998241542539527
+      */
     @SerializedName("account_id")
     private String accountId;
-    /**
-     * 试卷 ID
-     * <p> 示例值：paper001
-     */
+     /**
+      * 试卷 ID
+      * <p> 示例值：paper001
+      */
     @SerializedName("paper_id")
     private String paperId;
-    /**
-     * 候选人信息
-     * <p> 示例值：
-     */
+     /**
+      * 候选人信息
+      * <p> 示例值：
+      */
     @SerializedName("candidate_info")
     private EcoExamCreateEventCandidateInfo candidateInfo;
-
     public String getExamId() {
         return this.examId;
     }

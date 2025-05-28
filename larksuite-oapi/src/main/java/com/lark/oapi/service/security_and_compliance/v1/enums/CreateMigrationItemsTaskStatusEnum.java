@@ -17,17 +17,16 @@ package com.lark.oapi.service.security_and_compliance.v1.enums;
  * 任务状态。任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
  */
 public enum CreateMigrationItemsTaskStatusEnum {
-    CREATE("create"), // 迁移创建完成
-    COMPLETE("complete"), // 迁移已完成
-    STOP("stop"), // 迁移已停止
-    ;
-    private String value;
-
+     CREATE("create"), // 迁移创建完成
+     COMPLETE("complete"), // 迁移已完成
+     STOP("stop"), // 迁移已停止
+  ;
+   private String value;
     CreateMigrationItemsTaskStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

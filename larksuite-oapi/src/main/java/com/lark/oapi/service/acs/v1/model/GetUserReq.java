@@ -12,58 +12,25 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetUserReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 用户 ID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     */
-    @Path
-    @SerializedName("user_id")
-    private String userId;
-
-    // builder 开始
-    public GetUserReq() {
-    }
-
-    public GetUserReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -72,6 +39,13 @@ public class GetUserReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 用户 ID
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
+    @Path
+    @SerializedName("user_id")
+    private String userId;
     public String getUserId() {
         return this.userId;
     }
@@ -80,49 +54,68 @@ public class GetUserReq {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public GetUserReq(){}
+
+  public GetUserReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 用户 ID
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
+       this.userId = builder.userId;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String userId; // 用户 ID
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.GetUserUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.acs.v1.enums.GetUserUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.acs.v1.enums.GetUserUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String userId; // 用户 ID
         /**
          * 用户 ID
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
          * @param userId
          * @return
          */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
+          public Builder userId(String userId) {
+               this.userId = userId;
+               return this;
+          }
 
+    
+    public GetUserReq build(){
+        return new GetUserReq(this);
+      }
+    }
 
-        public GetUserReq build() {
-            return new GetUserReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

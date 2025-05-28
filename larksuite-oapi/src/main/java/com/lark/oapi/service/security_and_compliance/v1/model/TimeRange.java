@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TimeRange {
-    /**
-     * 开始时间(秒)
-     * <p> 示例值：1644854400
-     */
+     /**
+      * 开始时间(秒)
+      * <p> 示例值：1644854400
+      */
     @SerializedName("start")
     private String start;
-    /**
-     * 结束时间(秒)
-     * <p> 示例值：1645459199
-     */
+     /**
+      * 结束时间(秒)
+      * <p> 示例值：1645459199
+      */
     @SerializedName("end")
     private String end;
-
-    // builder 开始
-    public TimeRange() {
-    }
-
-    public TimeRange(Builder builder) {
-        /**
-         * 开始时间(秒)
-         * <p> 示例值：1644854400
-         */
-        this.start = builder.start;
-        /**
-         * 结束时间(秒)
-         * <p> 示例值：1645459199
-         */
-        this.end = builder.end;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStart() {
         return this.start;
     }
@@ -79,46 +53,67 @@ public class TimeRange {
         this.end = end;
     }
 
+
+// builder 开始
+  public TimeRange(){}
+
+  public TimeRange(Builder builder){
+         /**
+          * 开始时间(秒)
+          * <p> 示例值：1644854400
+          */
+      this.start = builder.start;
+         /**
+          * 结束时间(秒)
+          * <p> 示例值：1645459199
+          */
+      this.end = builder.end;
+  }
+
     public static class Builder {
-        /**
-         * 开始时间(秒)
-         * <p> 示例值：1644854400
-         */
+     /**
+      * 开始时间(秒)
+      * <p> 示例值：1644854400
+      */
         private String start;
-        /**
-         * 结束时间(秒)
-         * <p> 示例值：1645459199
-         */
+     /**
+      * 结束时间(秒)
+      * <p> 示例值：1645459199
+      */
         private String end;
 
         /**
          * 开始时间(秒)
          * <p> 示例值：1644854400
-         *
          * @param start
          * @return
          */
         public Builder start(String start) {
-            this.start = start;
-            return this;
+             this.start = start;
+             return this;
         }
 
+    
 
         /**
          * 结束时间(秒)
          * <p> 示例值：1645459199
-         *
          * @param end
          * @return
          */
         public Builder end(String end) {
-            this.end = end;
-            return this;
+             this.end = end;
+             return this;
         }
 
+    
+    
+    public TimeRange build(){
+        return new TimeRange(this);
+      }
+    }
 
-        public TimeRange build() {
-            return new TimeRange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

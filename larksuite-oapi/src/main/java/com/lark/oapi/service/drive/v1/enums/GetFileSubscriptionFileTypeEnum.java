@@ -17,17 +17,16 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文档类型
  */
 public enum GetFileSubscriptionFileTypeEnum {
-    DOCS("doc"), // 旧版文档
-    UPGRADEDDOCS("docx"), // 新版文档
-    WIKI("wiki"), // 云空间
-    ;
-    private String value;
-
+     DOCS("doc"), // 旧版文档
+     UPGRADEDDOCS("docx"), // 新版文档
+     WIKI("wiki"), // 云空间
+  ;
+   private String value;
     GetFileSubscriptionFileTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

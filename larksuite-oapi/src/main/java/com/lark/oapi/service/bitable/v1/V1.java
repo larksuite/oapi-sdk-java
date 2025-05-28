@@ -17,73 +17,62 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.bitable.v1.resource.*;
 
 public class V1 {
-    private final App app; // 多维表格
-    private final AppDashboard appDashboard; // 仪表盘
-    private final AppRole appRole; // 自定义角色
-    private final AppRoleMember appRoleMember; // 协作者
-    private final AppTable appTable; // 数据表
-    private final AppTableField appTableField; // 字段
-    private final AppTableForm appTableForm; // 表单
-    private final AppTableFormField appTableFormField; // 表单
-    private final AppTableRecord appTableRecord; // 记录
-    private final AppTableView appTableView; // 视图
-    private final AppWorkflow appWorkflow; // app.workflow
+	private final App app; // 多维表格
+	private final AppDashboard appDashboard; // 仪表盘
+	private final AppRole appRole; // 自定义角色
+	private final AppRoleMember appRoleMember; // 协作者
+	private final AppTable appTable; // 数据表
+	private final AppTableField appTableField; // 字段
+	private final AppTableForm appTableForm; // 表单
+	private final AppTableFormField appTableFormField; // 表单
+	private final AppTableRecord appTableRecord; // 记录
+	private final AppTableView appTableView; // 视图
+	private final AppWorkflow appWorkflow; // app.workflow
 
-    public V1(Config config) {
-        this.app = new App(config);
-        this.appDashboard = new AppDashboard(config);
-        this.appRole = new AppRole(config);
-        this.appRoleMember = new AppRoleMember(config);
-        this.appTable = new AppTable(config);
-        this.appTableField = new AppTableField(config);
-        this.appTableForm = new AppTableForm(config);
-        this.appTableFormField = new AppTableFormField(config);
-        this.appTableRecord = new AppTableRecord(config);
-        this.appTableView = new AppTableView(config);
-        this.appWorkflow = new AppWorkflow(config);
-    }
-
-    public App app() {
-        return app;
-    }
-
-    public AppDashboard appDashboard() {
-        return appDashboard;
-    }
-
-    public AppRole appRole() {
-        return appRole;
-    }
-
-    public AppRoleMember appRoleMember() {
-        return appRoleMember;
-    }
-
-    public AppTable appTable() {
-        return appTable;
-    }
-
-    public AppTableField appTableField() {
-        return appTableField;
-    }
-
-    public AppTableForm appTableForm() {
-        return appTableForm;
-    }
-
-    public AppTableFormField appTableFormField() {
-        return appTableFormField;
-    }
-
-    public AppTableRecord appTableRecord() {
-        return appTableRecord;
-    }
-
-    public AppTableView appTableView() {
-        return appTableView;
-    }
-
-    public AppWorkflow appWorkflow() {
-        return appWorkflow;
-    }
+	public V1(Config config) {
+		this.app = new App(config);
+		this.appDashboard = new AppDashboard(config);
+		this.appRole = new AppRole(config);
+		this.appRoleMember = new AppRoleMember(config);
+		this.appTable = new AppTable(config);
+		this.appTableField = new AppTableField(config);
+		this.appTableForm = new AppTableForm(config);
+		this.appTableFormField = new AppTableFormField(config);
+		this.appTableRecord = new AppTableRecord(config);
+		this.appTableView = new AppTableView(config);
+		this.appWorkflow = new AppWorkflow(config);
+	}
+	public App app() {
+		return app;
+	}
+	public AppDashboard appDashboard() {
+		return appDashboard;
+	}
+	public AppRole appRole() {
+		return appRole;
+	}
+	public AppRoleMember appRoleMember() {
+		return appRoleMember;
+	}
+	public AppTable appTable() {
+		return appTable;
+	}
+	public AppTableField appTableField() {
+		return appTableField;
+	}
+	public AppTableForm appTableForm() {
+		return appTableForm;
+	}
+	public AppTableFormField appTableFormField() {
+		return appTableFormField;
+	}
+	public AppTableRecord appTableRecord() {
+		return appTableRecord;
+	}
+	public AppTableView appTableView() {
+		return appTableView;
+	}
+	public AppWorkflow appWorkflow() {
+		return appWorkflow;
+	}
 }

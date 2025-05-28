@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateFileCommentReplyReqBody {
-    /**
-     * 回复内容
-     * <p> 示例值：
-     */
+     /**
+      * 回复内容
+      * <p> 示例值：
+      */
     @SerializedName("content")
     private ReplyContent content;
-
-    // builder 开始
-    public UpdateFileCommentReplyReqBody() {
-    }
-
-    public UpdateFileCommentReplyReqBody(Builder builder) {
-        /**
-         * 回复内容
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ReplyContent getContent() {
         return this.content;
     }
@@ -60,28 +39,44 @@ public class UpdateFileCommentReplyReqBody {
         this.content = content;
     }
 
+
+// builder 开始
+  public UpdateFileCommentReplyReqBody(){}
+
+  public UpdateFileCommentReplyReqBody(Builder builder){
+         /**
+          * 回复内容
+          * <p> 示例值：
+          */
+      this.content = builder.content;
+  }
+
     public static class Builder {
-        /**
-         * 回复内容
-         * <p> 示例值：
-         */
+     /**
+      * 回复内容
+      * <p> 示例值：
+      */
         private ReplyContent content;
 
         /**
          * 回复内容
          * <p> 示例值：
-         *
          * @param content
          * @return
          */
         public Builder content(ReplyContent content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
+    
+    public UpdateFileCommentReplyReqBody build(){
+        return new UpdateFileCommentReplyReqBody(this);
+      }
+    }
 
-        public UpdateFileCommentReplyReqBody build() {
-            return new UpdateFileCommentReplyReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

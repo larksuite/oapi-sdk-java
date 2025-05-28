@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AilyKnowledgeFolder {
-    /**
-     * 文件夹标题
-     * <p> 示例值：title
-     */
+     /**
+      * 文件夹标题
+      * <p> 示例值：title
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 文件夹标识
-     * <p> 示例值：xxx
-     */
+     /**
+      * 文件夹标识
+      * <p> 示例值：xxx
+      */
     @SerializedName("token")
     private String token;
-    /**
-     * 链接
-     * <p> 示例值：xxx
-     */
+     /**
+      * 链接
+      * <p> 示例值：xxx
+      */
     @SerializedName("url")
     private String url;
-
-    // builder 开始
-    public AilyKnowledgeFolder() {
-    }
-
-    public AilyKnowledgeFolder(Builder builder) {
-        /**
-         * 文件夹标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-        /**
-         * 文件夹标识
-         * <p> 示例值：xxx
-         */
-        this.token = builder.token;
-        /**
-         * 链接
-         * <p> 示例值：xxx
-         */
-        this.url = builder.url;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTitle() {
         return this.title;
     }
@@ -98,64 +67,90 @@ public class AilyKnowledgeFolder {
         this.url = url;
     }
 
+
+// builder 开始
+  public AilyKnowledgeFolder(){}
+
+  public AilyKnowledgeFolder(Builder builder){
+         /**
+          * 文件夹标题
+          * <p> 示例值：title
+          */
+      this.title = builder.title;
+         /**
+          * 文件夹标识
+          * <p> 示例值：xxx
+          */
+      this.token = builder.token;
+         /**
+          * 链接
+          * <p> 示例值：xxx
+          */
+      this.url = builder.url;
+  }
+
     public static class Builder {
-        /**
-         * 文件夹标题
-         * <p> 示例值：title
-         */
+     /**
+      * 文件夹标题
+      * <p> 示例值：title
+      */
         private String title;
-        /**
-         * 文件夹标识
-         * <p> 示例值：xxx
-         */
+     /**
+      * 文件夹标识
+      * <p> 示例值：xxx
+      */
         private String token;
-        /**
-         * 链接
-         * <p> 示例值：xxx
-         */
+     /**
+      * 链接
+      * <p> 示例值：xxx
+      */
         private String url;
 
         /**
          * 文件夹标题
          * <p> 示例值：title
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 文件夹标识
          * <p> 示例值：xxx
-         *
          * @param token
          * @return
          */
         public Builder token(String token) {
-            this.token = token;
-            return this;
+             this.token = token;
+             return this;
         }
 
+    
 
         /**
          * 链接
          * <p> 示例值：xxx
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
+    
+    public AilyKnowledgeFolder build(){
+        return new AilyKnowledgeFolder(this);
+      }
+    }
 
-        public AilyKnowledgeFolder build() {
-            return new AilyKnowledgeFolder(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

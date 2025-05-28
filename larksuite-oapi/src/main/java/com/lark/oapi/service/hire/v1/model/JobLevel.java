@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobLevel {
-    /**
-     * 职级 ID
-     * <p> 示例值：6301
-     */
+     /**
+      * 职级 ID
+      * <p> 示例值：6301
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 职级中文名称
-     * <p> 示例值：级别-2
-     */
+     /**
+      * 职级中文名称
+      * <p> 示例值：级别-2
+      */
     @SerializedName("zh_name")
     private String zhName;
-    /**
-     * 职级英文名称
-     * <p> 示例值：level-2
-     */
+     /**
+      * 职级英文名称
+      * <p> 示例值：level-2
+      */
     @SerializedName("en_name")
     private String enName;
-    /**
-     * 职级启用状态
-     * <p> 示例值：1
-     */
+     /**
+      * 职级启用状态
+      * <p> 示例值：1
+      */
     @SerializedName("active_status")
     private Integer activeStatus;
-
-    // builder 开始
-    public JobLevel() {
-    }
-
-    public JobLevel(Builder builder) {
-        /**
-         * 职级 ID
-         * <p> 示例值：6301
-         */
-        this.id = builder.id;
-        /**
-         * 职级中文名称
-         * <p> 示例值：级别-2
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 职级英文名称
-         * <p> 示例值：level-2
-         */
-        this.enName = builder.enName;
-        /**
-         * 职级启用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -116,82 +80,113 @@ public class JobLevel {
         this.activeStatus = activeStatus;
     }
 
+
+// builder 开始
+  public JobLevel(){}
+
+  public JobLevel(Builder builder){
+         /**
+          * 职级 ID
+          * <p> 示例值：6301
+          */
+      this.id = builder.id;
+         /**
+          * 职级中文名称
+          * <p> 示例值：级别-2
+          */
+      this.zhName = builder.zhName;
+         /**
+          * 职级英文名称
+          * <p> 示例值：level-2
+          */
+      this.enName = builder.enName;
+         /**
+          * 职级启用状态
+          * <p> 示例值：1
+          */
+      this.activeStatus = builder.activeStatus;
+  }
+
     public static class Builder {
-        /**
-         * 职级 ID
-         * <p> 示例值：6301
-         */
+     /**
+      * 职级 ID
+      * <p> 示例值：6301
+      */
         private String id;
-        /**
-         * 职级中文名称
-         * <p> 示例值：级别-2
-         */
+     /**
+      * 职级中文名称
+      * <p> 示例值：级别-2
+      */
         private String zhName;
-        /**
-         * 职级英文名称
-         * <p> 示例值：level-2
-         */
+     /**
+      * 职级英文名称
+      * <p> 示例值：level-2
+      */
         private String enName;
-        /**
-         * 职级启用状态
-         * <p> 示例值：1
-         */
+     /**
+      * 职级启用状态
+      * <p> 示例值：1
+      */
         private Integer activeStatus;
 
         /**
          * 职级 ID
          * <p> 示例值：6301
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 职级中文名称
          * <p> 示例值：级别-2
-         *
          * @param zhName
          * @return
          */
         public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
+             this.zhName = zhName;
+             return this;
         }
 
+    
 
         /**
          * 职级英文名称
          * <p> 示例值：level-2
-         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
+             this.enName = enName;
+             return this;
         }
 
+    
 
         /**
          * 职级启用状态
          * <p> 示例值：1
-         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
+             this.activeStatus = activeStatus;
+             return this;
         }
 
+    
+    
+    public JobLevel build(){
+        return new JobLevel(this);
+      }
+    }
 
-        public JobLevel build() {
-            return new JobLevel(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

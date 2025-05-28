@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FieldVariableValueToRecord {
-    /**
-     * 变量唯一标识
-     * <p> 示例值：city_v2
-     */
+     /**
+      * 变量唯一标识
+      * <p> 示例值：city_v2
+      */
     @SerializedName("variable_api_name")
     private String variableApiName;
-    /**
-     * 变量值，对应subValues中的key
-     * <p> 示例值：key1
-     */
+     /**
+      * 变量值，对应subValues中的key
+      * <p> 示例值：key1
+      */
     @SerializedName("sub_value_key")
     private String subValueKey;
-    /**
-     * 记录唯一ID
-     * <p> 示例值：6863326263210149383
-     */
+     /**
+      * 记录唯一ID
+      * <p> 示例值：6863326263210149383
+      */
     @SerializedName("record_id")
     private String recordId;
-
-    // builder 开始
-    public FieldVariableValueToRecord() {
-    }
-
-    public FieldVariableValueToRecord(Builder builder) {
-        /**
-         * 变量唯一标识
-         * <p> 示例值：city_v2
-         */
-        this.variableApiName = builder.variableApiName;
-        /**
-         * 变量值，对应subValues中的key
-         * <p> 示例值：key1
-         */
-        this.subValueKey = builder.subValueKey;
-        /**
-         * 记录唯一ID
-         * <p> 示例值：6863326263210149383
-         */
-        this.recordId = builder.recordId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getVariableApiName() {
         return this.variableApiName;
     }
@@ -98,64 +67,90 @@ public class FieldVariableValueToRecord {
         this.recordId = recordId;
     }
 
+
+// builder 开始
+  public FieldVariableValueToRecord(){}
+
+  public FieldVariableValueToRecord(Builder builder){
+         /**
+          * 变量唯一标识
+          * <p> 示例值：city_v2
+          */
+      this.variableApiName = builder.variableApiName;
+         /**
+          * 变量值，对应subValues中的key
+          * <p> 示例值：key1
+          */
+      this.subValueKey = builder.subValueKey;
+         /**
+          * 记录唯一ID
+          * <p> 示例值：6863326263210149383
+          */
+      this.recordId = builder.recordId;
+  }
+
     public static class Builder {
-        /**
-         * 变量唯一标识
-         * <p> 示例值：city_v2
-         */
+     /**
+      * 变量唯一标识
+      * <p> 示例值：city_v2
+      */
         private String variableApiName;
-        /**
-         * 变量值，对应subValues中的key
-         * <p> 示例值：key1
-         */
+     /**
+      * 变量值，对应subValues中的key
+      * <p> 示例值：key1
+      */
         private String subValueKey;
-        /**
-         * 记录唯一ID
-         * <p> 示例值：6863326263210149383
-         */
+     /**
+      * 记录唯一ID
+      * <p> 示例值：6863326263210149383
+      */
         private String recordId;
 
         /**
          * 变量唯一标识
          * <p> 示例值：city_v2
-         *
          * @param variableApiName
          * @return
          */
         public Builder variableApiName(String variableApiName) {
-            this.variableApiName = variableApiName;
-            return this;
+             this.variableApiName = variableApiName;
+             return this;
         }
 
+    
 
         /**
          * 变量值，对应subValues中的key
          * <p> 示例值：key1
-         *
          * @param subValueKey
          * @return
          */
         public Builder subValueKey(String subValueKey) {
-            this.subValueKey = subValueKey;
-            return this;
+             this.subValueKey = subValueKey;
+             return this;
         }
 
+    
 
         /**
          * 记录唯一ID
          * <p> 示例值：6863326263210149383
-         *
          * @param recordId
          * @return
          */
         public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
+             this.recordId = recordId;
+             return this;
         }
 
+    
+    
+    public FieldVariableValueToRecord build(){
+        return new FieldVariableValueToRecord(this);
+      }
+    }
 
-        public FieldVariableValueToRecord build() {
-            return new FieldVariableValueToRecord(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

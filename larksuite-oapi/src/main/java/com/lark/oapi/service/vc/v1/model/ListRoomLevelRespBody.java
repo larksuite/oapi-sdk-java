@@ -12,39 +12,36 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListRoomLevelRespBody {
-    /**
-     * 会议室层级列表
-     * <p> 示例值：
-     */
+     /**
+      * 会议室层级列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private RoomLevel[] items;
-    /**
-     * <p> 示例值：10
-     */
+     /**
+      * 
+      * <p> 示例值：10
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * <p> 示例值：true
-     */
+     /**
+      * 
+      * <p> 示例值：true
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public RoomLevel[] getItems() {
         return this.items;
     }

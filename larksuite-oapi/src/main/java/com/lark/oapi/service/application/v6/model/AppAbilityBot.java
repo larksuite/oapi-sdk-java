@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AppAbilityBot {
-    /**
-     * 是否开启
-     * <p> 示例值：true
-     */
+     /**
+      * 是否开启
+      * <p> 示例值：true
+      */
     @SerializedName("enable")
     private Boolean enable;
-    /**
-     * 消息卡片的回调地址
-     * <p> 示例值：https://open.feishu.cn
-     */
+     /**
+      * 消息卡片的回调地址
+      * <p> 示例值：https://open.feishu.cn
+      */
     @SerializedName("message_card_callback_url")
     private String messageCardCallbackUrl;
-    /**
-     * 国际化内容
-     * <p> 示例值：
-     */
+     /**
+      * 国际化内容
+      * <p> 示例值：
+      */
     @SerializedName("i18ns")
     private AppAbilityBotI18n[] i18ns;
-
-    // builder 开始
-    public AppAbilityBot() {
-    }
-
-    public AppAbilityBot(Builder builder) {
-        /**
-         * 是否开启
-         * <p> 示例值：true
-         */
-        this.enable = builder.enable;
-        /**
-         * 消息卡片的回调地址
-         * <p> 示例值：https://open.feishu.cn
-         */
-        this.messageCardCallbackUrl = builder.messageCardCallbackUrl;
-        /**
-         * 国际化内容
-         * <p> 示例值：
-         */
-        this.i18ns = builder.i18ns;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getEnable() {
         return this.enable;
     }
@@ -98,64 +67,90 @@ public class AppAbilityBot {
         this.i18ns = i18ns;
     }
 
+
+// builder 开始
+  public AppAbilityBot(){}
+
+  public AppAbilityBot(Builder builder){
+         /**
+          * 是否开启
+          * <p> 示例值：true
+          */
+      this.enable = builder.enable;
+         /**
+          * 消息卡片的回调地址
+          * <p> 示例值：https://open.feishu.cn
+          */
+      this.messageCardCallbackUrl = builder.messageCardCallbackUrl;
+         /**
+          * 国际化内容
+          * <p> 示例值：
+          */
+      this.i18ns = builder.i18ns;
+  }
+
     public static class Builder {
-        /**
-         * 是否开启
-         * <p> 示例值：true
-         */
+     /**
+      * 是否开启
+      * <p> 示例值：true
+      */
         private Boolean enable;
-        /**
-         * 消息卡片的回调地址
-         * <p> 示例值：https://open.feishu.cn
-         */
+     /**
+      * 消息卡片的回调地址
+      * <p> 示例值：https://open.feishu.cn
+      */
         private String messageCardCallbackUrl;
-        /**
-         * 国际化内容
-         * <p> 示例值：
-         */
+     /**
+      * 国际化内容
+      * <p> 示例值：
+      */
         private AppAbilityBotI18n[] i18ns;
 
         /**
          * 是否开启
          * <p> 示例值：true
-         *
          * @param enable
          * @return
          */
         public Builder enable(Boolean enable) {
-            this.enable = enable;
-            return this;
+             this.enable = enable;
+             return this;
         }
 
+    
 
         /**
          * 消息卡片的回调地址
          * <p> 示例值：https://open.feishu.cn
-         *
          * @param messageCardCallbackUrl
          * @return
          */
         public Builder messageCardCallbackUrl(String messageCardCallbackUrl) {
-            this.messageCardCallbackUrl = messageCardCallbackUrl;
-            return this;
+             this.messageCardCallbackUrl = messageCardCallbackUrl;
+             return this;
         }
 
+    
 
         /**
          * 国际化内容
          * <p> 示例值：
-         *
          * @param i18ns
          * @return
          */
         public Builder i18ns(AppAbilityBotI18n[] i18ns) {
-            this.i18ns = i18ns;
-            return this;
+             this.i18ns = i18ns;
+             return this;
         }
 
+    
+    
+    public AppAbilityBot build(){
+        return new AppAbilityBot(this);
+      }
+    }
 
-        public AppAbilityBot build() {
-            return new AppAbilityBot(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

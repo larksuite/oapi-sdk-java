@@ -17,18 +17,17 @@ package com.lark.oapi.service.aily.v1.enums;
  * 学习状态
  */
 public enum KnowledgeAilyKnowledgeStatusEnum {
-    LEARNED("learned"), // 已学习
-    LEARNING("learning"), // 学习中
-    FAILED("failed"), // 学习失败
-    PARTIALLY("partially"), // 部分学习
-    ;
-    private String value;
-
+     LEARNED("learned"), // 已学习
+     LEARNING("learning"), // 学习中
+     FAILED("failed"), // 学习失败
+     PARTIALLY("partially"), // 部分学习
+  ;
+   private String value;
     KnowledgeAilyKnowledgeStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

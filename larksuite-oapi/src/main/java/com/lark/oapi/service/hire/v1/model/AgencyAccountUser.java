@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AgencyAccountUser {
-    /**
-     * 用户ID
-     * <p> 示例值：7398623155442682156
-     */
+     /**
+      * 用户ID
+      * <p> 示例值：7398623155442682156
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 用户名称
-     * <p> 示例值：
-     */
+     /**
+      * 用户名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 用户邮箱
-     * <p> 示例值：27188272xxxx1.com
-     */
+     /**
+      * 用户邮箱
+      * <p> 示例值：27188272xxxx1.com
+      */
     @SerializedName("email")
     private String email;
-    /**
-     * 用户手机
-     * <p> 示例值：1879087xxx8
-     */
+     /**
+      * 用户手机
+      * <p> 示例值：1879087xxx8
+      */
     @SerializedName("mobile")
     private String mobile;
-
-    // builder 开始
-    public AgencyAccountUser() {
-    }
-
-    public AgencyAccountUser(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：7398623155442682156
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 用户邮箱
-         * <p> 示例值：27188272xxxx1.com
-         */
-        this.email = builder.email;
-        /**
-         * 用户手机
-         * <p> 示例值：1879087xxx8
-         */
-        this.mobile = builder.mobile;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -116,82 +80,113 @@ public class AgencyAccountUser {
         this.mobile = mobile;
     }
 
+
+// builder 开始
+  public AgencyAccountUser(){}
+
+  public AgencyAccountUser(Builder builder){
+         /**
+          * 用户ID
+          * <p> 示例值：7398623155442682156
+          */
+      this.userId = builder.userId;
+         /**
+          * 用户名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 用户邮箱
+          * <p> 示例值：27188272xxxx1.com
+          */
+      this.email = builder.email;
+         /**
+          * 用户手机
+          * <p> 示例值：1879087xxx8
+          */
+      this.mobile = builder.mobile;
+  }
+
     public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：7398623155442682156
-         */
+     /**
+      * 用户ID
+      * <p> 示例值：7398623155442682156
+      */
         private String userId;
-        /**
-         * 用户名称
-         * <p> 示例值：
-         */
+     /**
+      * 用户名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 用户邮箱
-         * <p> 示例值：27188272xxxx1.com
-         */
+     /**
+      * 用户邮箱
+      * <p> 示例值：27188272xxxx1.com
+      */
         private String email;
-        /**
-         * 用户手机
-         * <p> 示例值：1879087xxx8
-         */
+     /**
+      * 用户手机
+      * <p> 示例值：1879087xxx8
+      */
         private String mobile;
 
         /**
          * 用户ID
          * <p> 示例值：7398623155442682156
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 用户名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 用户邮箱
          * <p> 示例值：27188272xxxx1.com
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
 
         /**
          * 用户手机
          * <p> 示例值：1879087xxx8
-         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
+             this.mobile = mobile;
+             return this;
         }
 
+    
+    
+    public AgencyAccountUser build(){
+        return new AgencyAccountUser(this);
+      }
+    }
 
-        public AgencyAccountUser build() {
-            return new AgencyAccountUser(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

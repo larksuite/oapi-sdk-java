@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateAgentSkillReqBody {
-    /**
-     * 技能名
-     * <p> 示例值：test-skill
-     */
+     /**
+      * 技能名
+      * <p> 示例值：test-skill
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 技能rules
-     * <p> 示例值：
-     */
+     /**
+      * 技能rules
+      * <p> 示例值：
+      */
     @SerializedName("rules")
     private AgentSkillRule[] rules;
-    /**
-     * 客服 ids
-     * <p> 示例值：["客服ID"]
-     */
+     /**
+      * 客服 ids
+      * <p> 示例值：["客服ID"]
+      */
     @SerializedName("agent_ids")
     private String[] agentIds;
-
-    // builder 开始
-    public CreateAgentSkillReqBody() {
-    }
-
-    public CreateAgentSkillReqBody(Builder builder) {
-        /**
-         * 技能名
-         * <p> 示例值：test-skill
-         */
-        this.name = builder.name;
-        /**
-         * 技能rules
-         * <p> 示例值：
-         */
-        this.rules = builder.rules;
-        /**
-         * 客服 ids
-         * <p> 示例值：["客服ID"]
-         */
-        this.agentIds = builder.agentIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -98,64 +67,90 @@ public class CreateAgentSkillReqBody {
         this.agentIds = agentIds;
     }
 
+
+// builder 开始
+  public CreateAgentSkillReqBody(){}
+
+  public CreateAgentSkillReqBody(Builder builder){
+         /**
+          * 技能名
+          * <p> 示例值：test-skill
+          */
+      this.name = builder.name;
+         /**
+          * 技能rules
+          * <p> 示例值：
+          */
+      this.rules = builder.rules;
+         /**
+          * 客服 ids
+          * <p> 示例值：["客服ID"]
+          */
+      this.agentIds = builder.agentIds;
+  }
+
     public static class Builder {
-        /**
-         * 技能名
-         * <p> 示例值：test-skill
-         */
+     /**
+      * 技能名
+      * <p> 示例值：test-skill
+      */
         private String name;
-        /**
-         * 技能rules
-         * <p> 示例值：
-         */
+     /**
+      * 技能rules
+      * <p> 示例值：
+      */
         private AgentSkillRule[] rules;
-        /**
-         * 客服 ids
-         * <p> 示例值：["客服ID"]
-         */
+     /**
+      * 客服 ids
+      * <p> 示例值：["客服ID"]
+      */
         private String[] agentIds;
 
         /**
          * 技能名
          * <p> 示例值：test-skill
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 技能rules
          * <p> 示例值：
-         *
          * @param rules
          * @return
          */
         public Builder rules(AgentSkillRule[] rules) {
-            this.rules = rules;
-            return this;
+             this.rules = rules;
+             return this;
         }
 
+    
 
         /**
          * 客服 ids
          * <p> 示例值：["客服ID"]
-         *
          * @param agentIds
          * @return
          */
         public Builder agentIds(String[] agentIds) {
-            this.agentIds = agentIds;
-            return this;
+             this.agentIds = agentIds;
+             return this;
         }
 
+    
+    
+    public CreateAgentSkillReqBody build(){
+        return new CreateAgentSkillReqBody(this);
+      }
+    }
 
-        public CreateAgentSkillReqBody build() {
-            return new CreateAgentSkillReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

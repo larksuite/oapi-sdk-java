@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,151 +19,79 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
-
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Dataset {
-    /**
-     * 应用的命名空间
-     * <p> 示例值：package_test__c
-     */
+     /**
+      * 应用的命名空间
+      * <p> 示例值：package_test__c
+      */
     @SerializedName("namespace")
     private String namespace;
-    /**
-     * 数据集 API ID
-     * <p> 示例值：package_test__c_dataset_adefa
-     */
+     /**
+      * 数据集 API ID
+      * <p> 示例值：package_test__c_dataset_adefa
+      */
     @SerializedName("api_id")
     private String apiId;
-    /**
-     * 数据集的 API 名称
-     * <p> 示例值：myDataset
-     */
+     /**
+      * 数据集的 API 名称
+      * <p> 示例值：myDataset
+      */
     @SerializedName("api_name")
     private String apiName;
-    /**
-     * 数据集的名称
-     * <p> 示例值：
-     */
+     /**
+      * 数据集的名称
+      * <p> 示例值：
+      */
     @SerializedName("label")
     private Map<String, String> label;
-    /**
-     * 数据来源
-     * <p> 示例值：
-     */
+     /**
+      * 数据来源
+      * <p> 示例值：
+      */
     @SerializedName("source")
     private DatasetSource source;
-    /**
-     * 数据集字段
-     * <p> 示例值：
-     */
+     /**
+      * 数据集字段
+      * <p> 示例值：
+      */
     @SerializedName("fields")
     private DatasetField[] fields;
-    /**
-     * 数据最近更新时间（毫秒时间戳）
-     * <p> 示例值：1681876208309
-     */
+     /**
+      * 数据最近更新时间（毫秒时间戳）
+      * <p> 示例值：1681876208309
+      */
     @SerializedName("data_refresh_time")
     private Integer dataRefreshTime;
-    /**
-     * 创建时间（毫秒时间戳）
-     * <p> 示例值：1681876208313
-     */
+     /**
+      * 创建时间（毫秒时间戳）
+      * <p> 示例值：1681876208313
+      */
     @SerializedName("create_time")
     private Integer createTime;
-    /**
-     * 创建人
-     * <p> 示例值：
-     */
+     /**
+      * 创建人
+      * <p> 示例值：
+      */
     @SerializedName("created_by")
     private DatasetLookupUser createdBy;
-    /**
-     * 更新时间（毫秒时间戳）
-     * <p> 示例值：1681876208313
-     */
+     /**
+      * 更新时间（毫秒时间戳）
+      * <p> 示例值：1681876208313
+      */
     @SerializedName("update_time")
     private Integer updateTime;
-    /**
-     * 更新人
-     * <p> 示例值：
-     */
+     /**
+      * 更新人
+      * <p> 示例值：
+      */
     @SerializedName("updated_by")
     private DatasetLookupUser updatedBy;
-
-    // builder 开始
-    public Dataset() {
-    }
-
-    public Dataset(Builder builder) {
-        /**
-         * 应用的命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 数据集 API ID
-         * <p> 示例值：package_test__c_dataset_adefa
-         */
-        this.apiId = builder.apiId;
-        /**
-         * 数据集的 API 名称
-         * <p> 示例值：myDataset
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 数据集的名称
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        this.source = builder.source;
-        /**
-         * 数据集字段
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 数据最近更新时间（毫秒时间戳）
-         * <p> 示例值：1681876208309
-         */
-        this.dataRefreshTime = builder.dataRefreshTime;
-        /**
-         * 创建时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 更新时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 更新人
-         * <p> 示例值：
-         */
-        this.updatedBy = builder.updatedBy;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNamespace() {
         return this.namespace;
     }
@@ -253,208 +180,274 @@ public class Dataset {
         this.updatedBy = updatedBy;
     }
 
+
+// builder 开始
+  public Dataset(){}
+
+  public Dataset(Builder builder){
+         /**
+          * 应用的命名空间
+          * <p> 示例值：package_test__c
+          */
+      this.namespace = builder.namespace;
+         /**
+          * 数据集 API ID
+          * <p> 示例值：package_test__c_dataset_adefa
+          */
+      this.apiId = builder.apiId;
+         /**
+          * 数据集的 API 名称
+          * <p> 示例值：myDataset
+          */
+      this.apiName = builder.apiName;
+         /**
+          * 数据集的名称
+          * <p> 示例值：
+          */
+      this.label = builder.label;
+         /**
+          * 数据来源
+          * <p> 示例值：
+          */
+      this.source = builder.source;
+         /**
+          * 数据集字段
+          * <p> 示例值：
+          */
+      this.fields = builder.fields;
+         /**
+          * 数据最近更新时间（毫秒时间戳）
+          * <p> 示例值：1681876208309
+          */
+      this.dataRefreshTime = builder.dataRefreshTime;
+         /**
+          * 创建时间（毫秒时间戳）
+          * <p> 示例值：1681876208313
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 创建人
+          * <p> 示例值：
+          */
+      this.createdBy = builder.createdBy;
+         /**
+          * 更新时间（毫秒时间戳）
+          * <p> 示例值：1681876208313
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 更新人
+          * <p> 示例值：
+          */
+      this.updatedBy = builder.updatedBy;
+  }
+
     public static class Builder {
-        /**
-         * 应用的命名空间
-         * <p> 示例值：package_test__c
-         */
+     /**
+      * 应用的命名空间
+      * <p> 示例值：package_test__c
+      */
         private String namespace;
-        /**
-         * 数据集 API ID
-         * <p> 示例值：package_test__c_dataset_adefa
-         */
+     /**
+      * 数据集 API ID
+      * <p> 示例值：package_test__c_dataset_adefa
+      */
         private String apiId;
-        /**
-         * 数据集的 API 名称
-         * <p> 示例值：myDataset
-         */
+     /**
+      * 数据集的 API 名称
+      * <p> 示例值：myDataset
+      */
         private String apiName;
-        /**
-         * 数据集的名称
-         * <p> 示例值：
-         */
+     /**
+      * 数据集的名称
+      * <p> 示例值：
+      */
         private Map<String, String> label;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
+     /**
+      * 数据来源
+      * <p> 示例值：
+      */
         private DatasetSource source;
-        /**
-         * 数据集字段
-         * <p> 示例值：
-         */
+     /**
+      * 数据集字段
+      * <p> 示例值：
+      */
         private DatasetField[] fields;
-        /**
-         * 数据最近更新时间（毫秒时间戳）
-         * <p> 示例值：1681876208309
-         */
+     /**
+      * 数据最近更新时间（毫秒时间戳）
+      * <p> 示例值：1681876208309
+      */
         private Integer dataRefreshTime;
-        /**
-         * 创建时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         */
+     /**
+      * 创建时间（毫秒时间戳）
+      * <p> 示例值：1681876208313
+      */
         private Integer createTime;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
+     /**
+      * 创建人
+      * <p> 示例值：
+      */
         private DatasetLookupUser createdBy;
-        /**
-         * 更新时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         */
+     /**
+      * 更新时间（毫秒时间戳）
+      * <p> 示例值：1681876208313
+      */
         private Integer updateTime;
-        /**
-         * 更新人
-         * <p> 示例值：
-         */
+     /**
+      * 更新人
+      * <p> 示例值：
+      */
         private DatasetLookupUser updatedBy;
 
         /**
          * 应用的命名空间
          * <p> 示例值：package_test__c
-         *
          * @param namespace
          * @return
          */
         public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
+             this.namespace = namespace;
+             return this;
         }
 
+    
 
         /**
          * 数据集 API ID
          * <p> 示例值：package_test__c_dataset_adefa
-         *
          * @param apiId
          * @return
          */
         public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
+             this.apiId = apiId;
+             return this;
         }
 
+    
 
         /**
          * 数据集的 API 名称
          * <p> 示例值：myDataset
-         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
+             this.apiName = apiName;
+             return this;
         }
 
+    
 
         /**
          * 数据集的名称
          * <p> 示例值：
-         *
          * @param label
          * @return
          */
         public Builder label(Map<String, String> label) {
-            this.label = label;
-            return this;
+             this.label = label;
+             return this;
         }
 
+    
 
         /**
          * 数据来源
          * <p> 示例值：
-         *
          * @param source
          * @return
          */
         public Builder source(DatasetSource source) {
-            this.source = source;
-            return this;
+             this.source = source;
+             return this;
         }
 
+    
 
         /**
          * 数据集字段
          * <p> 示例值：
-         *
          * @param fields
          * @return
          */
         public Builder fields(DatasetField[] fields) {
-            this.fields = fields;
-            return this;
+             this.fields = fields;
+             return this;
         }
 
+    
 
         /**
          * 数据最近更新时间（毫秒时间戳）
          * <p> 示例值：1681876208309
-         *
          * @param dataRefreshTime
          * @return
          */
         public Builder dataRefreshTime(Integer dataRefreshTime) {
-            this.dataRefreshTime = dataRefreshTime;
-            return this;
+             this.dataRefreshTime = dataRefreshTime;
+             return this;
         }
 
+    
 
         /**
          * 创建时间（毫秒时间戳）
          * <p> 示例值：1681876208313
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(Integer createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 创建人
          * <p> 示例值：
-         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(DatasetLookupUser createdBy) {
-            this.createdBy = createdBy;
-            return this;
+             this.createdBy = createdBy;
+             return this;
         }
 
+    
 
         /**
          * 更新时间（毫秒时间戳）
          * <p> 示例值：1681876208313
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 更新人
          * <p> 示例值：
-         *
          * @param updatedBy
          * @return
          */
         public Builder updatedBy(DatasetLookupUser updatedBy) {
-            this.updatedBy = updatedBy;
-            return this;
+             this.updatedBy = updatedBy;
+             return this;
         }
 
+    
+    
+    public Dataset build(){
+        return new Dataset(this);
+      }
+    }
 
-        public Dataset build() {
-            return new Dataset(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

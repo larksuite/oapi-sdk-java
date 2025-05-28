@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2LocationUpdatedV2Data {
-    /**
-     * 地点ID
-     * <p> 示例值："201571101"
-     */
+     /**
+      * 地点ID
+      * <p> 示例值："201571101"
+      */
     @SerializedName("location_id")
     private String locationId;
-    /**
-     * 发生变更的字段
-     * <p> 示例值：
-     */
+     /**
+      * 发生变更的字段
+      * <p> 示例值：
+      */
     @SerializedName("field_changes")
     private String[] fieldChanges;
-    /**
-     * 子变更事件
-     * <p> 示例值：
-     */
+     /**
+      * 子变更事件
+      * <p> 示例值：
+      */
     @SerializedName("sub_events")
     private OrganizationDomainEventData[] subEvents;
-
     public String getLocationId() {
         return this.locationId;
     }

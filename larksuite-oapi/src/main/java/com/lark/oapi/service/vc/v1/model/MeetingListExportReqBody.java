@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MeetingListExportReqBody {
-    /**
-     * 查询开始时间（unix时间，单位sec）
-     * <p> 示例值：1655276858
-     */
+     /**
+      * 查询开始时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 查询结束时间（unix时间，单位sec）
-     * <p> 示例值：1655276858
-     */
+     /**
+      * 查询结束时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 会议状态（不传默认为已结束会议）
-     * <p> 示例值：2
-     */
+     /**
+      * 会议状态（不传默认为已结束会议）
+      * <p> 示例值：2
+      */
     @SerializedName("meeting_status")
     private Integer meetingStatus;
-    /**
-     * 按9位会议号筛选（最多一个筛选条件）
-     * <p> 示例值：123456789
-     */
+     /**
+      * 按9位会议号筛选（最多一个筛选条件）
+      * <p> 示例值：123456789
+      */
     @SerializedName("meeting_no")
     private String meetingNo;
-    /**
-     * 按参会Lark用户筛选（最多一个筛选条件）
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-     */
+     /**
+      * 按参会Lark用户筛选（最多一个筛选条件）
+      * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 按参会Rooms筛选（最多一个筛选条件）
-     * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-     */
+     /**
+      * 按参会Rooms筛选（最多一个筛选条件）
+      * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
+      */
     @SerializedName("room_id")
     private String roomId;
-    /**
-     * 按会议类型筛选（最多一个筛选条件）
-     * <p> 示例值：2
-     */
+     /**
+      * 按会议类型筛选（最多一个筛选条件）
+      * <p> 示例值：2
+      */
     @SerializedName("meeting_type")
     private Integer meetingType;
-
-    // builder 开始
-    public MeetingListExportReqBody() {
-    }
-
-    public MeetingListExportReqBody(Builder builder) {
-        /**
-         * 查询开始时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 查询结束时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 会议状态（不传默认为已结束会议）
-         * <p> 示例值：2
-         */
-        this.meetingStatus = builder.meetingStatus;
-        /**
-         * 按9位会议号筛选（最多一个筛选条件）
-         * <p> 示例值：123456789
-         */
-        this.meetingNo = builder.meetingNo;
-        /**
-         * 按参会Lark用户筛选（最多一个筛选条件）
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        this.userId = builder.userId;
-        /**
-         * 按参会Rooms筛选（最多一个筛选条件）
-         * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-         */
-        this.roomId = builder.roomId;
-        /**
-         * 按会议类型筛选（最多一个筛选条件）
-         * <p> 示例值：2
-         */
-        this.meetingType = builder.meetingType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStartTime() {
         return this.startTime;
     }
@@ -174,160 +123,202 @@ public class MeetingListExportReqBody {
         this.meetingType = meetingType;
     }
 
+
+// builder 开始
+  public MeetingListExportReqBody(){}
+
+  public MeetingListExportReqBody(Builder builder){
+         /**
+          * 查询开始时间（unix时间，单位sec）
+          * <p> 示例值：1655276858
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 查询结束时间（unix时间，单位sec）
+          * <p> 示例值：1655276858
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 会议状态（不传默认为已结束会议）
+          * <p> 示例值：2
+          */
+      this.meetingStatus = builder.meetingStatus;
+         /**
+          * 按9位会议号筛选（最多一个筛选条件）
+          * <p> 示例值：123456789
+          */
+      this.meetingNo = builder.meetingNo;
+         /**
+          * 按参会Lark用户筛选（最多一个筛选条件）
+          * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+          */
+      this.userId = builder.userId;
+         /**
+          * 按参会Rooms筛选（最多一个筛选条件）
+          * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
+          */
+      this.roomId = builder.roomId;
+         /**
+          * 按会议类型筛选（最多一个筛选条件）
+          * <p> 示例值：2
+          */
+      this.meetingType = builder.meetingType;
+  }
+
     public static class Builder {
-        /**
-         * 查询开始时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
+     /**
+      * 查询开始时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
         private String startTime;
-        /**
-         * 查询结束时间（unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
+     /**
+      * 查询结束时间（unix时间，单位sec）
+      * <p> 示例值：1655276858
+      */
         private String endTime;
-        /**
-         * 会议状态（不传默认为已结束会议）
-         * <p> 示例值：2
-         */
+     /**
+      * 会议状态（不传默认为已结束会议）
+      * <p> 示例值：2
+      */
         private Integer meetingStatus;
-        /**
-         * 按9位会议号筛选（最多一个筛选条件）
-         * <p> 示例值：123456789
-         */
+     /**
+      * 按9位会议号筛选（最多一个筛选条件）
+      * <p> 示例值：123456789
+      */
         private String meetingNo;
-        /**
-         * 按参会Lark用户筛选（最多一个筛选条件）
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
+     /**
+      * 按参会Lark用户筛选（最多一个筛选条件）
+      * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+      */
         private String userId;
-        /**
-         * 按参会Rooms筛选（最多一个筛选条件）
-         * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-         */
+     /**
+      * 按参会Rooms筛选（最多一个筛选条件）
+      * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
+      */
         private String roomId;
-        /**
-         * 按会议类型筛选（最多一个筛选条件）
-         * <p> 示例值：2
-         */
+     /**
+      * 按会议类型筛选（最多一个筛选条件）
+      * <p> 示例值：2
+      */
         private Integer meetingType;
 
         /**
          * 查询开始时间（unix时间，单位sec）
          * <p> 示例值：1655276858
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 查询结束时间（unix时间，单位sec）
          * <p> 示例值：1655276858
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 会议状态（不传默认为已结束会议）
          * <p> 示例值：2
-         *
          * @param meetingStatus
          * @return
          */
         public Builder meetingStatus(Integer meetingStatus) {
-            this.meetingStatus = meetingStatus;
-            return this;
+             this.meetingStatus = meetingStatus;
+             return this;
         }
-
         /**
          * 会议状态（不传默认为已结束会议）
          * <p> 示例值：2
-         *
          * @param meetingStatus {@link com.lark.oapi.service.vc.v1.enums.MeetingListExportMeetingStatusTypeEnum}
          * @return
          */
         public Builder meetingStatus(com.lark.oapi.service.vc.v1.enums.MeetingListExportMeetingStatusTypeEnum meetingStatus) {
-            this.meetingStatus = meetingStatus.getValue();
-            return this;
+             this.meetingStatus = meetingStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 按9位会议号筛选（最多一个筛选条件）
          * <p> 示例值：123456789
-         *
          * @param meetingNo
          * @return
          */
         public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
+             this.meetingNo = meetingNo;
+             return this;
         }
 
+    
 
         /**
          * 按参会Lark用户筛选（最多一个筛选条件）
          * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 按参会Rooms筛选（最多一个筛选条件）
          * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-         *
          * @param roomId
          * @return
          */
         public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
+             this.roomId = roomId;
+             return this;
         }
 
+    
 
         /**
          * 按会议类型筛选（最多一个筛选条件）
          * <p> 示例值：2
-         *
          * @param meetingType
          * @return
          */
         public Builder meetingType(Integer meetingType) {
-            this.meetingType = meetingType;
-            return this;
+             this.meetingType = meetingType;
+             return this;
         }
-
         /**
          * 按会议类型筛选（最多一个筛选条件）
          * <p> 示例值：2
-         *
          * @param meetingType {@link com.lark.oapi.service.vc.v1.enums.MeetingListExportMeetingTypeEnum}
          * @return
          */
         public Builder meetingType(com.lark.oapi.service.vc.v1.enums.MeetingListExportMeetingTypeEnum meetingType) {
-            this.meetingType = meetingType.getValue();
-            return this;
+             this.meetingType = meetingType.getValue();
+             return this;
         }
 
+    
+    
+    public MeetingListExportReqBody build(){
+        return new MeetingListExportReqBody(this);
+      }
+    }
 
-        public MeetingListExportReqBody build() {
-            return new MeetingListExportReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

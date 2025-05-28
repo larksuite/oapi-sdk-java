@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,522 +19,282 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserReport2024 {
-    /**
-     * 用户ID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     */
+     /**
+      * 用户ID
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 所在租户目前的总人数(已激活、未离职)
-     * <p> 示例值：6888
-     */
+     /**
+      * 所在租户目前的总人数(已激活、未离职)
+      * <p> 示例值：6888
+      */
     @SerializedName("tenant_all_cnt")
     private String tenantAllCnt;
-    /**
-     * 用户的飞书激活日期(yyyyMMdd,201909之前的用户可能是空)
-     * <p> 示例值：20180808
-     */
+     /**
+      * 用户的飞书激活日期(yyyyMMdd,201909之前的用户可能是空)
+      * <p> 示例值：20180808
+      */
     @SerializedName("user_register_date")
     private String userRegisterDate;
-    /**
-     * 飞书使用天数(激活日期到现在的天数)。
-     * <p> 示例值：8889
-     */
+     /**
+      * 飞书使用天数(激活日期到现在的天数)。
+      * <p> 示例值：8889
+      */
     @SerializedName("feishu_day_cnt")
     private String feishuDayCnt;
-    /**
-     * 全年总活跃时长(格式0.01h,包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-     */
+     /**
+      * 全年总活跃时长(格式0.01h,包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
+      */
     @SerializedName("duration_cnt_2")
     private AnnualReportMapFloat[] durationCnt2;
-    /**
-     * 全年发出消息数(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 全年发出消息数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("im_send_msg_cnt_2")
     private AnnualReportMapInt[] imSendMsgCnt2;
-    /**
-     * 全年工作日日均发消息数(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-     */
+     /**
+      * 全年工作日日均发消息数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
+      */
     @SerializedName("avg_im_send_msg_cnt_2")
     private AnnualReportMapFloat[] avgImSendMsgCnt2;
-    /**
-     * 2024年内,发过言的群组数
-     * <p> 示例值：168
-     */
+     /**
+      * 2024年内,发过言的群组数
+      * <p> 示例值：168
+      */
     @SerializedName("im_talked_chat_cnt")
     private String imTalkedChatCnt;
-    /**
-     * 2024年内,私聊过的个人数(本人发过消息)。
-     * <p> 示例值：168
-     */
+     /**
+      * 2024年内,私聊过的个人数(本人发过消息)。
+      * <p> 示例值：168
+      */
     @SerializedName("im_private_chat_cnt")
     private String imPrivateChatCnt;
-    /**
-     * 2024年内,消息对话中使用次数最多的表情。
-     * <p> 示例值：thumbsup
-     */
+     /**
+      * 2024年内,消息对话中使用次数最多的表情。
+      * <p> 示例值：thumbsup
+      */
     @SerializedName("im_emoji_top1")
     private String imEmojiTop1;
-    /**
-     * 使用次数第一多表情计数(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 使用次数第一多表情计数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("im_emoji_top1_cnt_2")
     private AnnualReportMapInt[] imEmojiTop1Cnt2;
-    /**
-     * 2024年内,消息对话中使用次数第二多的表情。
-     * <p> 示例值：jiayi
-     */
+     /**
+      * 2024年内,消息对话中使用次数第二多的表情。
+      * <p> 示例值：jiayi
+      */
     @SerializedName("im_emoji_top2")
     private String imEmojiTop2;
-    /**
-     * 使用次数第二多表情计数(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 使用次数第二多表情计数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("im_emoji_top2_cnt_2")
     private AnnualReportMapInt[] imEmojiTop2Cnt2;
-    /**
-     * 2024年内,消息对话中使用次数第三多的表情。
-     * <p> 示例值：love
-     */
+     /**
+      * 2024年内,消息对话中使用次数第三多的表情。
+      * <p> 示例值：love
+      */
     @SerializedName("im_emoji_top3")
     private String imEmojiTop3;
-    /**
-     * 使用次数第三多表情计数(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 使用次数第三多表情计数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("im_emoji_top3_cnt_2")
     private AnnualReportMapInt[] imEmojiTop3Cnt2;
-    /**
-     * 全年在消息中收到他人点赞的数量(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 全年在消息中收到他人点赞的数量(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("im_positive_reaction_cnt_2")
     private AnnualReportMapInt[] imPositiveReactionCnt2;
-    /**
-     * 2024年内,收到点赞的数量,在租户内的排名。
-     * <p> 示例值：168
-     */
+     /**
+      * 2024年内,收到点赞的数量,在租户内的排名。
+      * <p> 示例值：168
+      */
     @SerializedName("im_positive_reaction_cnt_rank")
     private String imPositiveReactionCntRank;
-    /**
-     * 2024年内,收到点赞排名的分母(已激活未离职人员中,此指标大于0的人数)。
-     * <p> 示例值：168
-     */
+     /**
+      * 2024年内,收到点赞排名的分母(已激活未离职人员中,此指标大于0的人数)。
+      * <p> 示例值：168
+      */
     @SerializedName("im_positive_reaction_cnt_denominator")
     private String imPositiveReactionCntDenominator;
-    /**
-     * 2024年内,处理消息最多的一天(yyyyMMdd)。
-     * <p> 示例值：20240808
-     */
+     /**
+      * 2024年内,处理消息最多的一天(yyyyMMdd)。
+      * <p> 示例值：20240808
+      */
     @SerializedName("busy_day")
     private String busyDay;
-    /**
-     * 2024年内,一天最多处理了多少条消息。
-     * <p> 示例值：888
-     */
+     /**
+      * 2024年内,一天最多处理了多少条消息。
+      * <p> 示例值：888
+      */
     @SerializedName("busy_day_send_msg_cnt")
     private String busyDaySendMsgCnt;
-    /**
-     * 全年创建文档数(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 全年创建文档数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("ccm_create_cnt_2")
     private AnnualReportMapInt[] ccmCreateCnt2;
-    /**
-     * 2024年内,本人创建的文档被多少人浏览。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建的文档被多少人浏览。
+      * <p> 示例值：88
+      */
     @SerializedName("ccm_create_viewed_ucnt")
     private String ccmCreateViewedUcnt;
-    /**
-     * 2024年内,本人创建的文档被点赞的合计次数。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建的文档被点赞的合计次数。
+      * <p> 示例值：88
+      */
     @SerializedName("ccm_create_liked_cnt")
     private String ccmCreateLikedCnt;
-    /**
-     * 2024年内,本人创建的文档被点赞的次数最大值。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建的文档被点赞的次数最大值。
+      * <p> 示例值：88
+      */
     @SerializedName("ccm_create_liked_max_cnt")
     private String ccmCreateLikedMaxCnt;
-    /**
-     * 2024年内,本人参与过的视频会议数(包含本人、非本人发起)。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人参与过的视频会议数(包含本人、非本人发起)。
+      * <p> 示例值：88
+      */
     @SerializedName("vc_join_meeting_cnt")
     private String vcJoinMeetingCnt;
-    /**
-     * 本人参与会议的总时长(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-     */
+     /**
+      * 本人参与会议的总时长(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
+      */
     @SerializedName("vc_all_meeting_duration_2")
     private AnnualReportMapFloat[] vcAllMeetingDuration2;
-    /**
-     * 2024年内,本人参与会议的去重参会人数(不含本人)。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人参与会议的去重参会人数(不含本人)。
+      * <p> 示例值：88
+      */
     @SerializedName("vc_join_meeting_all_user_cnt")
     private String vcJoinMeetingAllUserCnt;
-    /**
-     * 2024年内,最晚一次会议结束的时间(yyyyMMdd HH:mm,5点之前数据计入前一天)。
-     * <p> 示例值：20240808 23:00
-     */
+     /**
+      * 2024年内,最晚一次会议结束的时间(yyyyMMdd HH:mm,5点之前数据计入前一天)。
+      * <p> 示例值：20240808 23:00
+      */
     @SerializedName("vc_last_meeting_time")
     private String vcLastMeetingTime;
-    /**
-     * 本人全年创建的多维表格数量(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 本人全年创建的多维表格数量(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("base_create_fcnt_2")
     private AnnualReportMapInt[] baseCreateFcnt2;
-    /**
-     * 2024年内,本人创建的多维表格被多少人访问过。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建的多维表格被多少人访问过。
+      * <p> 示例值：88
+      */
     @SerializedName("base_view_fcnt")
     private String baseViewFcnt;
-    /**
-     * 2024年内,本人创建的仪表盘数量。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建的仪表盘数量。
+      * <p> 示例值：88
+      */
     @SerializedName("base_create_dashboard_cnt")
     private String baseCreateDashboardCnt;
-    /**
-     * 2024年内,本人创建仪表盘数量,在租户内的排名。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建仪表盘数量,在租户内的排名。
+      * <p> 示例值：88
+      */
     @SerializedName("base_create_dashboard_rank")
     private String baseCreateDashboardRank;
-    /**
-     * 2024年内,本人创建仪表盘数量,在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建仪表盘数量,在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
+      * <p> 示例值：88
+      */
     @SerializedName("base_create_dashboard_rank_ucnt")
     private String baseCreateDashboardRankUcnt;
-    /**
-     * 2024年内,本人创建的仪表盘内的图表总数量。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建的仪表盘内的图表总数量。
+      * <p> 示例值：88
+      */
     @SerializedName("base_create_chat_cnt")
     private String baseCreateChatCnt;
-    /**
-     * 2024年内,本人创建的多维表格自动化流程总运行次数。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建的多维表格自动化流程总运行次数。
+      * <p> 示例值：88
+      */
     @SerializedName("base_workflow_ins_cnt")
     private String baseWorkflowInsCnt;
-    /**
-     * 2024年内,本人创建的多维表格自动化流程,总运行次数在租户内的排名。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人创建的多维表格自动化流程,总运行次数在租户内的排名。
+      * <p> 示例值：88
+      */
     @SerializedName("base_workflow_ins_rank")
     private String baseWorkflowInsRank;
-    /**
-     * 2024年内,自动化流程运行次数排名的分母(已激活未离职人员中,此指标大于0的人数)。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,自动化流程运行次数排名的分母(已激活未离职人员中,此指标大于0的人数)。
+      * <p> 示例值：88
+      */
     @SerializedName("base_workflow_ins_rank_ucnt")
     private String baseWorkflowInsRankUcnt;
-    /**
-     * 2024年内,本人阅读智能会议纪要的篇数。
-     * <p> 示例值：188
-     */
+     /**
+      * 2024年内,本人阅读智能会议纪要的篇数。
+      * <p> 示例值：188
+      */
     @SerializedName("vc_all_read_notes_cnt")
     private String vcAllReadNotesCnt;
-    /**
-     * 本人全年参与过的项目数量(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 本人全年参与过的项目数量(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("meego_role_wi_cnt_v2")
     private AnnualReportMapInt[] meegoRoleWiCntV2;
-    /**
-     * 2024年内,本人参与过的项目的合作人数
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人参与过的项目的合作人数
+      * <p> 示例值：88
+      */
     @SerializedName("meego_common_wi_ucnt")
     private String meegoCommonWiUcnt;
-    /**
-     * 2024年内,本人流转过的节点/状态对应的实例数。
-     * <p> 示例值：288
-     */
+     /**
+      * 2024年内,本人流转过的节点/状态对应的实例数。
+      * <p> 示例值：288
+      */
     @SerializedName("meego_workflow_wi_cnt")
     private String meegoWorkflowWiCnt;
-    /**
-     * 本人全年面试场次(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 本人全年面试场次(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("people_interview_num_2")
     private AnnualReportMapInt[] peopleInterviewNum2;
-    /**
-     * 2024年内,本人面试场次在租户内的排名。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人面试场次在租户内的排名。
+      * <p> 示例值：88
+      */
     @SerializedName("people_interview_num_rank")
     private String peopleInterviewNumRank;
-    /**
-     * 2024年内,本人面试场次在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
-     * <p> 示例值：88
-     */
+     /**
+      * 2024年内,本人面试场次在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
+      * <p> 示例值：88
+      */
     @SerializedName("people_interview_num_rank_ucnt")
     private String peopleInterviewNumRankUcnt;
-    /**
-     * 本人面试之后成功发出offer的数量(包含2023、2024各年统计数据)。
-     * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-     */
+     /**
+      * 本人面试之后成功发出offer的数量(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
     @SerializedName("people_interview_offer_num_2")
     private AnnualReportMapInt[] peopleInterviewOfferNum2;
-
-    // builder 开始
-    public UserReport2024() {
-    }
-
-    public UserReport2024(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.userId = builder.userId;
-        /**
-         * 所在租户目前的总人数(已激活、未离职)
-         * <p> 示例值：6888
-         */
-        this.tenantAllCnt = builder.tenantAllCnt;
-        /**
-         * 用户的飞书激活日期(yyyyMMdd,201909之前的用户可能是空)
-         * <p> 示例值：20180808
-         */
-        this.userRegisterDate = builder.userRegisterDate;
-        /**
-         * 飞书使用天数(激活日期到现在的天数)。
-         * <p> 示例值：8889
-         */
-        this.feishuDayCnt = builder.feishuDayCnt;
-        /**
-         * 全年总活跃时长(格式0.01h,包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-         */
-        this.durationCnt2 = builder.durationCnt2;
-        /**
-         * 全年发出消息数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.imSendMsgCnt2 = builder.imSendMsgCnt2;
-        /**
-         * 全年工作日日均发消息数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-         */
-        this.avgImSendMsgCnt2 = builder.avgImSendMsgCnt2;
-        /**
-         * 2024年内,发过言的群组数
-         * <p> 示例值：168
-         */
-        this.imTalkedChatCnt = builder.imTalkedChatCnt;
-        /**
-         * 2024年内,私聊过的个人数(本人发过消息)。
-         * <p> 示例值：168
-         */
-        this.imPrivateChatCnt = builder.imPrivateChatCnt;
-        /**
-         * 2024年内,消息对话中使用次数最多的表情。
-         * <p> 示例值：thumbsup
-         */
-        this.imEmojiTop1 = builder.imEmojiTop1;
-        /**
-         * 使用次数第一多表情计数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.imEmojiTop1Cnt2 = builder.imEmojiTop1Cnt2;
-        /**
-         * 2024年内,消息对话中使用次数第二多的表情。
-         * <p> 示例值：jiayi
-         */
-        this.imEmojiTop2 = builder.imEmojiTop2;
-        /**
-         * 使用次数第二多表情计数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.imEmojiTop2Cnt2 = builder.imEmojiTop2Cnt2;
-        /**
-         * 2024年内,消息对话中使用次数第三多的表情。
-         * <p> 示例值：love
-         */
-        this.imEmojiTop3 = builder.imEmojiTop3;
-        /**
-         * 使用次数第三多表情计数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.imEmojiTop3Cnt2 = builder.imEmojiTop3Cnt2;
-        /**
-         * 全年在消息中收到他人点赞的数量(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.imPositiveReactionCnt2 = builder.imPositiveReactionCnt2;
-        /**
-         * 2024年内,收到点赞的数量,在租户内的排名。
-         * <p> 示例值：168
-         */
-        this.imPositiveReactionCntRank = builder.imPositiveReactionCntRank;
-        /**
-         * 2024年内,收到点赞排名的分母(已激活未离职人员中,此指标大于0的人数)。
-         * <p> 示例值：168
-         */
-        this.imPositiveReactionCntDenominator = builder.imPositiveReactionCntDenominator;
-        /**
-         * 2024年内,处理消息最多的一天(yyyyMMdd)。
-         * <p> 示例值：20240808
-         */
-        this.busyDay = builder.busyDay;
-        /**
-         * 2024年内,一天最多处理了多少条消息。
-         * <p> 示例值：888
-         */
-        this.busyDaySendMsgCnt = builder.busyDaySendMsgCnt;
-        /**
-         * 全年创建文档数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.ccmCreateCnt2 = builder.ccmCreateCnt2;
-        /**
-         * 2024年内,本人创建的文档被多少人浏览。
-         * <p> 示例值：88
-         */
-        this.ccmCreateViewedUcnt = builder.ccmCreateViewedUcnt;
-        /**
-         * 2024年内,本人创建的文档被点赞的合计次数。
-         * <p> 示例值：88
-         */
-        this.ccmCreateLikedCnt = builder.ccmCreateLikedCnt;
-        /**
-         * 2024年内,本人创建的文档被点赞的次数最大值。
-         * <p> 示例值：88
-         */
-        this.ccmCreateLikedMaxCnt = builder.ccmCreateLikedMaxCnt;
-        /**
-         * 2024年内,本人参与过的视频会议数(包含本人、非本人发起)。
-         * <p> 示例值：88
-         */
-        this.vcJoinMeetingCnt = builder.vcJoinMeetingCnt;
-        /**
-         * 本人参与会议的总时长(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-         */
-        this.vcAllMeetingDuration2 = builder.vcAllMeetingDuration2;
-        /**
-         * 2024年内,本人参与会议的去重参会人数(不含本人)。
-         * <p> 示例值：88
-         */
-        this.vcJoinMeetingAllUserCnt = builder.vcJoinMeetingAllUserCnt;
-        /**
-         * 2024年内,最晚一次会议结束的时间(yyyyMMdd HH:mm,5点之前数据计入前一天)。
-         * <p> 示例值：20240808 23:00
-         */
-        this.vcLastMeetingTime = builder.vcLastMeetingTime;
-        /**
-         * 本人全年创建的多维表格数量(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.baseCreateFcnt2 = builder.baseCreateFcnt2;
-        /**
-         * 2024年内,本人创建的多维表格被多少人访问过。
-         * <p> 示例值：88
-         */
-        this.baseViewFcnt = builder.baseViewFcnt;
-        /**
-         * 2024年内,本人创建的仪表盘数量。
-         * <p> 示例值：88
-         */
-        this.baseCreateDashboardCnt = builder.baseCreateDashboardCnt;
-        /**
-         * 2024年内,本人创建仪表盘数量,在租户内的排名。
-         * <p> 示例值：88
-         */
-        this.baseCreateDashboardRank = builder.baseCreateDashboardRank;
-        /**
-         * 2024年内,本人创建仪表盘数量,在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
-         * <p> 示例值：88
-         */
-        this.baseCreateDashboardRankUcnt = builder.baseCreateDashboardRankUcnt;
-        /**
-         * 2024年内,本人创建的仪表盘内的图表总数量。
-         * <p> 示例值：88
-         */
-        this.baseCreateChatCnt = builder.baseCreateChatCnt;
-        /**
-         * 2024年内,本人创建的多维表格自动化流程总运行次数。
-         * <p> 示例值：88
-         */
-        this.baseWorkflowInsCnt = builder.baseWorkflowInsCnt;
-        /**
-         * 2024年内,本人创建的多维表格自动化流程,总运行次数在租户内的排名。
-         * <p> 示例值：88
-         */
-        this.baseWorkflowInsRank = builder.baseWorkflowInsRank;
-        /**
-         * 2024年内,自动化流程运行次数排名的分母(已激活未离职人员中,此指标大于0的人数)。
-         * <p> 示例值：88
-         */
-        this.baseWorkflowInsRankUcnt = builder.baseWorkflowInsRankUcnt;
-        /**
-         * 2024年内,本人阅读智能会议纪要的篇数。
-         * <p> 示例值：188
-         */
-        this.vcAllReadNotesCnt = builder.vcAllReadNotesCnt;
-        /**
-         * 本人全年参与过的项目数量(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.meegoRoleWiCntV2 = builder.meegoRoleWiCntV2;
-        /**
-         * 2024年内,本人参与过的项目的合作人数
-         * <p> 示例值：88
-         */
-        this.meegoCommonWiUcnt = builder.meegoCommonWiUcnt;
-        /**
-         * 2024年内,本人流转过的节点/状态对应的实例数。
-         * <p> 示例值：288
-         */
-        this.meegoWorkflowWiCnt = builder.meegoWorkflowWiCnt;
-        /**
-         * 本人全年面试场次(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.peopleInterviewNum2 = builder.peopleInterviewNum2;
-        /**
-         * 2024年内,本人面试场次在租户内的排名。
-         * <p> 示例值：88
-         */
-        this.peopleInterviewNumRank = builder.peopleInterviewNumRank;
-        /**
-         * 2024年内,本人面试场次在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
-         * <p> 示例值：88
-         */
-        this.peopleInterviewNumRankUcnt = builder.peopleInterviewNumRankUcnt;
-        /**
-         * 本人面试之后成功发出offer的数量(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
-        this.peopleInterviewOfferNum2 = builder.peopleInterviewOfferNum2;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -896,820 +655,1056 @@ public class UserReport2024 {
         this.peopleInterviewOfferNum2 = peopleInterviewOfferNum2;
     }
 
+
+// builder 开始
+  public UserReport2024(){}
+
+  public UserReport2024(Builder builder){
+         /**
+          * 用户ID
+          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+          */
+      this.userId = builder.userId;
+         /**
+          * 所在租户目前的总人数(已激活、未离职)
+          * <p> 示例值：6888
+          */
+      this.tenantAllCnt = builder.tenantAllCnt;
+         /**
+          * 用户的飞书激活日期(yyyyMMdd,201909之前的用户可能是空)
+          * <p> 示例值：20180808
+          */
+      this.userRegisterDate = builder.userRegisterDate;
+         /**
+          * 飞书使用天数(激活日期到现在的天数)。
+          * <p> 示例值：8889
+          */
+      this.feishuDayCnt = builder.feishuDayCnt;
+         /**
+          * 全年总活跃时长(格式0.01h,包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
+          */
+      this.durationCnt2 = builder.durationCnt2;
+         /**
+          * 全年发出消息数(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.imSendMsgCnt2 = builder.imSendMsgCnt2;
+         /**
+          * 全年工作日日均发消息数(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
+          */
+      this.avgImSendMsgCnt2 = builder.avgImSendMsgCnt2;
+         /**
+          * 2024年内,发过言的群组数
+          * <p> 示例值：168
+          */
+      this.imTalkedChatCnt = builder.imTalkedChatCnt;
+         /**
+          * 2024年内,私聊过的个人数(本人发过消息)。
+          * <p> 示例值：168
+          */
+      this.imPrivateChatCnt = builder.imPrivateChatCnt;
+         /**
+          * 2024年内,消息对话中使用次数最多的表情。
+          * <p> 示例值：thumbsup
+          */
+      this.imEmojiTop1 = builder.imEmojiTop1;
+         /**
+          * 使用次数第一多表情计数(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.imEmojiTop1Cnt2 = builder.imEmojiTop1Cnt2;
+         /**
+          * 2024年内,消息对话中使用次数第二多的表情。
+          * <p> 示例值：jiayi
+          */
+      this.imEmojiTop2 = builder.imEmojiTop2;
+         /**
+          * 使用次数第二多表情计数(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.imEmojiTop2Cnt2 = builder.imEmojiTop2Cnt2;
+         /**
+          * 2024年内,消息对话中使用次数第三多的表情。
+          * <p> 示例值：love
+          */
+      this.imEmojiTop3 = builder.imEmojiTop3;
+         /**
+          * 使用次数第三多表情计数(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.imEmojiTop3Cnt2 = builder.imEmojiTop3Cnt2;
+         /**
+          * 全年在消息中收到他人点赞的数量(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.imPositiveReactionCnt2 = builder.imPositiveReactionCnt2;
+         /**
+          * 2024年内,收到点赞的数量,在租户内的排名。
+          * <p> 示例值：168
+          */
+      this.imPositiveReactionCntRank = builder.imPositiveReactionCntRank;
+         /**
+          * 2024年内,收到点赞排名的分母(已激活未离职人员中,此指标大于0的人数)。
+          * <p> 示例值：168
+          */
+      this.imPositiveReactionCntDenominator = builder.imPositiveReactionCntDenominator;
+         /**
+          * 2024年内,处理消息最多的一天(yyyyMMdd)。
+          * <p> 示例值：20240808
+          */
+      this.busyDay = builder.busyDay;
+         /**
+          * 2024年内,一天最多处理了多少条消息。
+          * <p> 示例值：888
+          */
+      this.busyDaySendMsgCnt = builder.busyDaySendMsgCnt;
+         /**
+          * 全年创建文档数(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.ccmCreateCnt2 = builder.ccmCreateCnt2;
+         /**
+          * 2024年内,本人创建的文档被多少人浏览。
+          * <p> 示例值：88
+          */
+      this.ccmCreateViewedUcnt = builder.ccmCreateViewedUcnt;
+         /**
+          * 2024年内,本人创建的文档被点赞的合计次数。
+          * <p> 示例值：88
+          */
+      this.ccmCreateLikedCnt = builder.ccmCreateLikedCnt;
+         /**
+          * 2024年内,本人创建的文档被点赞的次数最大值。
+          * <p> 示例值：88
+          */
+      this.ccmCreateLikedMaxCnt = builder.ccmCreateLikedMaxCnt;
+         /**
+          * 2024年内,本人参与过的视频会议数(包含本人、非本人发起)。
+          * <p> 示例值：88
+          */
+      this.vcJoinMeetingCnt = builder.vcJoinMeetingCnt;
+         /**
+          * 本人参与会议的总时长(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
+          */
+      this.vcAllMeetingDuration2 = builder.vcAllMeetingDuration2;
+         /**
+          * 2024年内,本人参与会议的去重参会人数(不含本人)。
+          * <p> 示例值：88
+          */
+      this.vcJoinMeetingAllUserCnt = builder.vcJoinMeetingAllUserCnt;
+         /**
+          * 2024年内,最晚一次会议结束的时间(yyyyMMdd HH:mm,5点之前数据计入前一天)。
+          * <p> 示例值：20240808 23:00
+          */
+      this.vcLastMeetingTime = builder.vcLastMeetingTime;
+         /**
+          * 本人全年创建的多维表格数量(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.baseCreateFcnt2 = builder.baseCreateFcnt2;
+         /**
+          * 2024年内,本人创建的多维表格被多少人访问过。
+          * <p> 示例值：88
+          */
+      this.baseViewFcnt = builder.baseViewFcnt;
+         /**
+          * 2024年内,本人创建的仪表盘数量。
+          * <p> 示例值：88
+          */
+      this.baseCreateDashboardCnt = builder.baseCreateDashboardCnt;
+         /**
+          * 2024年内,本人创建仪表盘数量,在租户内的排名。
+          * <p> 示例值：88
+          */
+      this.baseCreateDashboardRank = builder.baseCreateDashboardRank;
+         /**
+          * 2024年内,本人创建仪表盘数量,在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
+          * <p> 示例值：88
+          */
+      this.baseCreateDashboardRankUcnt = builder.baseCreateDashboardRankUcnt;
+         /**
+          * 2024年内,本人创建的仪表盘内的图表总数量。
+          * <p> 示例值：88
+          */
+      this.baseCreateChatCnt = builder.baseCreateChatCnt;
+         /**
+          * 2024年内,本人创建的多维表格自动化流程总运行次数。
+          * <p> 示例值：88
+          */
+      this.baseWorkflowInsCnt = builder.baseWorkflowInsCnt;
+         /**
+          * 2024年内,本人创建的多维表格自动化流程,总运行次数在租户内的排名。
+          * <p> 示例值：88
+          */
+      this.baseWorkflowInsRank = builder.baseWorkflowInsRank;
+         /**
+          * 2024年内,自动化流程运行次数排名的分母(已激活未离职人员中,此指标大于0的人数)。
+          * <p> 示例值：88
+          */
+      this.baseWorkflowInsRankUcnt = builder.baseWorkflowInsRankUcnt;
+         /**
+          * 2024年内,本人阅读智能会议纪要的篇数。
+          * <p> 示例值：188
+          */
+      this.vcAllReadNotesCnt = builder.vcAllReadNotesCnt;
+         /**
+          * 本人全年参与过的项目数量(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.meegoRoleWiCntV2 = builder.meegoRoleWiCntV2;
+         /**
+          * 2024年内,本人参与过的项目的合作人数
+          * <p> 示例值：88
+          */
+      this.meegoCommonWiUcnt = builder.meegoCommonWiUcnt;
+         /**
+          * 2024年内,本人流转过的节点/状态对应的实例数。
+          * <p> 示例值：288
+          */
+      this.meegoWorkflowWiCnt = builder.meegoWorkflowWiCnt;
+         /**
+          * 本人全年面试场次(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.peopleInterviewNum2 = builder.peopleInterviewNum2;
+         /**
+          * 2024年内,本人面试场次在租户内的排名。
+          * <p> 示例值：88
+          */
+      this.peopleInterviewNumRank = builder.peopleInterviewNumRank;
+         /**
+          * 2024年内,本人面试场次在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
+          * <p> 示例值：88
+          */
+      this.peopleInterviewNumRankUcnt = builder.peopleInterviewNumRankUcnt;
+         /**
+          * 本人面试之后成功发出offer的数量(包含2023、2024各年统计数据)。
+          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+          */
+      this.peopleInterviewOfferNum2 = builder.peopleInterviewOfferNum2;
+  }
+
     public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
+     /**
+      * 用户ID
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
         private String userId;
-        /**
-         * 所在租户目前的总人数(已激活、未离职)
-         * <p> 示例值：6888
-         */
+     /**
+      * 所在租户目前的总人数(已激活、未离职)
+      * <p> 示例值：6888
+      */
         private String tenantAllCnt;
-        /**
-         * 用户的飞书激活日期(yyyyMMdd,201909之前的用户可能是空)
-         * <p> 示例值：20180808
-         */
+     /**
+      * 用户的飞书激活日期(yyyyMMdd,201909之前的用户可能是空)
+      * <p> 示例值：20180808
+      */
         private String userRegisterDate;
-        /**
-         * 飞书使用天数(激活日期到现在的天数)。
-         * <p> 示例值：8889
-         */
+     /**
+      * 飞书使用天数(激活日期到现在的天数)。
+      * <p> 示例值：8889
+      */
         private String feishuDayCnt;
-        /**
-         * 全年总活跃时长(格式0.01h,包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-         */
+     /**
+      * 全年总活跃时长(格式0.01h,包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
+      */
         private AnnualReportMapFloat[] durationCnt2;
-        /**
-         * 全年发出消息数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 全年发出消息数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] imSendMsgCnt2;
-        /**
-         * 全年工作日日均发消息数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-         */
+     /**
+      * 全年工作日日均发消息数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
+      */
         private AnnualReportMapFloat[] avgImSendMsgCnt2;
-        /**
-         * 2024年内,发过言的群组数
-         * <p> 示例值：168
-         */
+     /**
+      * 2024年内,发过言的群组数
+      * <p> 示例值：168
+      */
         private String imTalkedChatCnt;
-        /**
-         * 2024年内,私聊过的个人数(本人发过消息)。
-         * <p> 示例值：168
-         */
+     /**
+      * 2024年内,私聊过的个人数(本人发过消息)。
+      * <p> 示例值：168
+      */
         private String imPrivateChatCnt;
-        /**
-         * 2024年内,消息对话中使用次数最多的表情。
-         * <p> 示例值：thumbsup
-         */
+     /**
+      * 2024年内,消息对话中使用次数最多的表情。
+      * <p> 示例值：thumbsup
+      */
         private String imEmojiTop1;
-        /**
-         * 使用次数第一多表情计数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 使用次数第一多表情计数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] imEmojiTop1Cnt2;
-        /**
-         * 2024年内,消息对话中使用次数第二多的表情。
-         * <p> 示例值：jiayi
-         */
+     /**
+      * 2024年内,消息对话中使用次数第二多的表情。
+      * <p> 示例值：jiayi
+      */
         private String imEmojiTop2;
-        /**
-         * 使用次数第二多表情计数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 使用次数第二多表情计数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] imEmojiTop2Cnt2;
-        /**
-         * 2024年内,消息对话中使用次数第三多的表情。
-         * <p> 示例值：love
-         */
+     /**
+      * 2024年内,消息对话中使用次数第三多的表情。
+      * <p> 示例值：love
+      */
         private String imEmojiTop3;
-        /**
-         * 使用次数第三多表情计数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 使用次数第三多表情计数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] imEmojiTop3Cnt2;
-        /**
-         * 全年在消息中收到他人点赞的数量(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 全年在消息中收到他人点赞的数量(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] imPositiveReactionCnt2;
-        /**
-         * 2024年内,收到点赞的数量,在租户内的排名。
-         * <p> 示例值：168
-         */
+     /**
+      * 2024年内,收到点赞的数量,在租户内的排名。
+      * <p> 示例值：168
+      */
         private String imPositiveReactionCntRank;
-        /**
-         * 2024年内,收到点赞排名的分母(已激活未离职人员中,此指标大于0的人数)。
-         * <p> 示例值：168
-         */
+     /**
+      * 2024年内,收到点赞排名的分母(已激活未离职人员中,此指标大于0的人数)。
+      * <p> 示例值：168
+      */
         private String imPositiveReactionCntDenominator;
-        /**
-         * 2024年内,处理消息最多的一天(yyyyMMdd)。
-         * <p> 示例值：20240808
-         */
+     /**
+      * 2024年内,处理消息最多的一天(yyyyMMdd)。
+      * <p> 示例值：20240808
+      */
         private String busyDay;
-        /**
-         * 2024年内,一天最多处理了多少条消息。
-         * <p> 示例值：888
-         */
+     /**
+      * 2024年内,一天最多处理了多少条消息。
+      * <p> 示例值：888
+      */
         private String busyDaySendMsgCnt;
-        /**
-         * 全年创建文档数(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 全年创建文档数(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] ccmCreateCnt2;
-        /**
-         * 2024年内,本人创建的文档被多少人浏览。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建的文档被多少人浏览。
+      * <p> 示例值：88
+      */
         private String ccmCreateViewedUcnt;
-        /**
-         * 2024年内,本人创建的文档被点赞的合计次数。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建的文档被点赞的合计次数。
+      * <p> 示例值：88
+      */
         private String ccmCreateLikedCnt;
-        /**
-         * 2024年内,本人创建的文档被点赞的次数最大值。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建的文档被点赞的次数最大值。
+      * <p> 示例值：88
+      */
         private String ccmCreateLikedMaxCnt;
-        /**
-         * 2024年内,本人参与过的视频会议数(包含本人、非本人发起)。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人参与过的视频会议数(包含本人、非本人发起)。
+      * <p> 示例值：88
+      */
         private String vcJoinMeetingCnt;
-        /**
-         * 本人参与会议的总时长(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-         */
+     /**
+      * 本人参与会议的总时长(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
+      */
         private AnnualReportMapFloat[] vcAllMeetingDuration2;
-        /**
-         * 2024年内,本人参与会议的去重参会人数(不含本人)。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人参与会议的去重参会人数(不含本人)。
+      * <p> 示例值：88
+      */
         private String vcJoinMeetingAllUserCnt;
-        /**
-         * 2024年内,最晚一次会议结束的时间(yyyyMMdd HH:mm,5点之前数据计入前一天)。
-         * <p> 示例值：20240808 23:00
-         */
+     /**
+      * 2024年内,最晚一次会议结束的时间(yyyyMMdd HH:mm,5点之前数据计入前一天)。
+      * <p> 示例值：20240808 23:00
+      */
         private String vcLastMeetingTime;
-        /**
-         * 本人全年创建的多维表格数量(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 本人全年创建的多维表格数量(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] baseCreateFcnt2;
-        /**
-         * 2024年内,本人创建的多维表格被多少人访问过。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建的多维表格被多少人访问过。
+      * <p> 示例值：88
+      */
         private String baseViewFcnt;
-        /**
-         * 2024年内,本人创建的仪表盘数量。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建的仪表盘数量。
+      * <p> 示例值：88
+      */
         private String baseCreateDashboardCnt;
-        /**
-         * 2024年内,本人创建仪表盘数量,在租户内的排名。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建仪表盘数量,在租户内的排名。
+      * <p> 示例值：88
+      */
         private String baseCreateDashboardRank;
-        /**
-         * 2024年内,本人创建仪表盘数量,在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建仪表盘数量,在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
+      * <p> 示例值：88
+      */
         private String baseCreateDashboardRankUcnt;
-        /**
-         * 2024年内,本人创建的仪表盘内的图表总数量。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建的仪表盘内的图表总数量。
+      * <p> 示例值：88
+      */
         private String baseCreateChatCnt;
-        /**
-         * 2024年内,本人创建的多维表格自动化流程总运行次数。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建的多维表格自动化流程总运行次数。
+      * <p> 示例值：88
+      */
         private String baseWorkflowInsCnt;
-        /**
-         * 2024年内,本人创建的多维表格自动化流程,总运行次数在租户内的排名。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人创建的多维表格自动化流程,总运行次数在租户内的排名。
+      * <p> 示例值：88
+      */
         private String baseWorkflowInsRank;
-        /**
-         * 2024年内,自动化流程运行次数排名的分母(已激活未离职人员中,此指标大于0的人数)。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,自动化流程运行次数排名的分母(已激活未离职人员中,此指标大于0的人数)。
+      * <p> 示例值：88
+      */
         private String baseWorkflowInsRankUcnt;
-        /**
-         * 2024年内,本人阅读智能会议纪要的篇数。
-         * <p> 示例值：188
-         */
+     /**
+      * 2024年内,本人阅读智能会议纪要的篇数。
+      * <p> 示例值：188
+      */
         private String vcAllReadNotesCnt;
-        /**
-         * 本人全年参与过的项目数量(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 本人全年参与过的项目数量(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] meegoRoleWiCntV2;
-        /**
-         * 2024年内,本人参与过的项目的合作人数
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人参与过的项目的合作人数
+      * <p> 示例值：88
+      */
         private String meegoCommonWiUcnt;
-        /**
-         * 2024年内,本人流转过的节点/状态对应的实例数。
-         * <p> 示例值：288
-         */
+     /**
+      * 2024年内,本人流转过的节点/状态对应的实例数。
+      * <p> 示例值：288
+      */
         private String meegoWorkflowWiCnt;
-        /**
-         * 本人全年面试场次(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 本人全年面试场次(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] peopleInterviewNum2;
-        /**
-         * 2024年内,本人面试场次在租户内的排名。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人面试场次在租户内的排名。
+      * <p> 示例值：88
+      */
         private String peopleInterviewNumRank;
-        /**
-         * 2024年内,本人面试场次在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
-         * <p> 示例值：88
-         */
+     /**
+      * 2024年内,本人面试场次在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
+      * <p> 示例值：88
+      */
         private String peopleInterviewNumRankUcnt;
-        /**
-         * 本人面试之后成功发出offer的数量(包含2023、2024各年统计数据)。
-         * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         */
+     /**
+      * 本人面试之后成功发出offer的数量(包含2023、2024各年统计数据)。
+      * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
+      */
         private AnnualReportMapInt[] peopleInterviewOfferNum2;
 
         /**
          * 用户ID
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 所在租户目前的总人数(已激活、未离职)
          * <p> 示例值：6888
-         *
          * @param tenantAllCnt
          * @return
          */
         public Builder tenantAllCnt(String tenantAllCnt) {
-            this.tenantAllCnt = tenantAllCnt;
-            return this;
+             this.tenantAllCnt = tenantAllCnt;
+             return this;
         }
 
+    
 
         /**
          * 用户的飞书激活日期(yyyyMMdd,201909之前的用户可能是空)
          * <p> 示例值：20180808
-         *
          * @param userRegisterDate
          * @return
          */
         public Builder userRegisterDate(String userRegisterDate) {
-            this.userRegisterDate = userRegisterDate;
-            return this;
+             this.userRegisterDate = userRegisterDate;
+             return this;
         }
 
+    
 
         /**
          * 飞书使用天数(激活日期到现在的天数)。
          * <p> 示例值：8889
-         *
          * @param feishuDayCnt
          * @return
          */
         public Builder feishuDayCnt(String feishuDayCnt) {
-            this.feishuDayCnt = feishuDayCnt;
-            return this;
+             this.feishuDayCnt = feishuDayCnt;
+             return this;
         }
 
+    
 
         /**
          * 全年总活跃时长(格式0.01h,包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-         *
          * @param durationCnt2
          * @return
          */
         public Builder durationCnt2(AnnualReportMapFloat[] durationCnt2) {
-            this.durationCnt2 = durationCnt2;
-            return this;
+             this.durationCnt2 = durationCnt2;
+             return this;
         }
 
+    
 
         /**
          * 全年发出消息数(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param imSendMsgCnt2
          * @return
          */
         public Builder imSendMsgCnt2(AnnualReportMapInt[] imSendMsgCnt2) {
-            this.imSendMsgCnt2 = imSendMsgCnt2;
-            return this;
+             this.imSendMsgCnt2 = imSendMsgCnt2;
+             return this;
         }
 
+    
 
         /**
          * 全年工作日日均发消息数(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-         *
          * @param avgImSendMsgCnt2
          * @return
          */
         public Builder avgImSendMsgCnt2(AnnualReportMapFloat[] avgImSendMsgCnt2) {
-            this.avgImSendMsgCnt2 = avgImSendMsgCnt2;
-            return this;
+             this.avgImSendMsgCnt2 = avgImSendMsgCnt2;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,发过言的群组数
          * <p> 示例值：168
-         *
          * @param imTalkedChatCnt
          * @return
          */
         public Builder imTalkedChatCnt(String imTalkedChatCnt) {
-            this.imTalkedChatCnt = imTalkedChatCnt;
-            return this;
+             this.imTalkedChatCnt = imTalkedChatCnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,私聊过的个人数(本人发过消息)。
          * <p> 示例值：168
-         *
          * @param imPrivateChatCnt
          * @return
          */
         public Builder imPrivateChatCnt(String imPrivateChatCnt) {
-            this.imPrivateChatCnt = imPrivateChatCnt;
-            return this;
+             this.imPrivateChatCnt = imPrivateChatCnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,消息对话中使用次数最多的表情。
          * <p> 示例值：thumbsup
-         *
          * @param imEmojiTop1
          * @return
          */
         public Builder imEmojiTop1(String imEmojiTop1) {
-            this.imEmojiTop1 = imEmojiTop1;
-            return this;
+             this.imEmojiTop1 = imEmojiTop1;
+             return this;
         }
 
+    
 
         /**
          * 使用次数第一多表情计数(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param imEmojiTop1Cnt2
          * @return
          */
         public Builder imEmojiTop1Cnt2(AnnualReportMapInt[] imEmojiTop1Cnt2) {
-            this.imEmojiTop1Cnt2 = imEmojiTop1Cnt2;
-            return this;
+             this.imEmojiTop1Cnt2 = imEmojiTop1Cnt2;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,消息对话中使用次数第二多的表情。
          * <p> 示例值：jiayi
-         *
          * @param imEmojiTop2
          * @return
          */
         public Builder imEmojiTop2(String imEmojiTop2) {
-            this.imEmojiTop2 = imEmojiTop2;
-            return this;
+             this.imEmojiTop2 = imEmojiTop2;
+             return this;
         }
 
+    
 
         /**
          * 使用次数第二多表情计数(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param imEmojiTop2Cnt2
          * @return
          */
         public Builder imEmojiTop2Cnt2(AnnualReportMapInt[] imEmojiTop2Cnt2) {
-            this.imEmojiTop2Cnt2 = imEmojiTop2Cnt2;
-            return this;
+             this.imEmojiTop2Cnt2 = imEmojiTop2Cnt2;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,消息对话中使用次数第三多的表情。
          * <p> 示例值：love
-         *
          * @param imEmojiTop3
          * @return
          */
         public Builder imEmojiTop3(String imEmojiTop3) {
-            this.imEmojiTop3 = imEmojiTop3;
-            return this;
+             this.imEmojiTop3 = imEmojiTop3;
+             return this;
         }
 
+    
 
         /**
          * 使用次数第三多表情计数(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param imEmojiTop3Cnt2
          * @return
          */
         public Builder imEmojiTop3Cnt2(AnnualReportMapInt[] imEmojiTop3Cnt2) {
-            this.imEmojiTop3Cnt2 = imEmojiTop3Cnt2;
-            return this;
+             this.imEmojiTop3Cnt2 = imEmojiTop3Cnt2;
+             return this;
         }
 
+    
 
         /**
          * 全年在消息中收到他人点赞的数量(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param imPositiveReactionCnt2
          * @return
          */
         public Builder imPositiveReactionCnt2(AnnualReportMapInt[] imPositiveReactionCnt2) {
-            this.imPositiveReactionCnt2 = imPositiveReactionCnt2;
-            return this;
+             this.imPositiveReactionCnt2 = imPositiveReactionCnt2;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,收到点赞的数量,在租户内的排名。
          * <p> 示例值：168
-         *
          * @param imPositiveReactionCntRank
          * @return
          */
         public Builder imPositiveReactionCntRank(String imPositiveReactionCntRank) {
-            this.imPositiveReactionCntRank = imPositiveReactionCntRank;
-            return this;
+             this.imPositiveReactionCntRank = imPositiveReactionCntRank;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,收到点赞排名的分母(已激活未离职人员中,此指标大于0的人数)。
          * <p> 示例值：168
-         *
          * @param imPositiveReactionCntDenominator
          * @return
          */
         public Builder imPositiveReactionCntDenominator(String imPositiveReactionCntDenominator) {
-            this.imPositiveReactionCntDenominator = imPositiveReactionCntDenominator;
-            return this;
+             this.imPositiveReactionCntDenominator = imPositiveReactionCntDenominator;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,处理消息最多的一天(yyyyMMdd)。
          * <p> 示例值：20240808
-         *
          * @param busyDay
          * @return
          */
         public Builder busyDay(String busyDay) {
-            this.busyDay = busyDay;
-            return this;
+             this.busyDay = busyDay;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,一天最多处理了多少条消息。
          * <p> 示例值：888
-         *
          * @param busyDaySendMsgCnt
          * @return
          */
         public Builder busyDaySendMsgCnt(String busyDaySendMsgCnt) {
-            this.busyDaySendMsgCnt = busyDaySendMsgCnt;
-            return this;
+             this.busyDaySendMsgCnt = busyDaySendMsgCnt;
+             return this;
         }
 
+    
 
         /**
          * 全年创建文档数(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param ccmCreateCnt2
          * @return
          */
         public Builder ccmCreateCnt2(AnnualReportMapInt[] ccmCreateCnt2) {
-            this.ccmCreateCnt2 = ccmCreateCnt2;
-            return this;
+             this.ccmCreateCnt2 = ccmCreateCnt2;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建的文档被多少人浏览。
          * <p> 示例值：88
-         *
          * @param ccmCreateViewedUcnt
          * @return
          */
         public Builder ccmCreateViewedUcnt(String ccmCreateViewedUcnt) {
-            this.ccmCreateViewedUcnt = ccmCreateViewedUcnt;
-            return this;
+             this.ccmCreateViewedUcnt = ccmCreateViewedUcnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建的文档被点赞的合计次数。
          * <p> 示例值：88
-         *
          * @param ccmCreateLikedCnt
          * @return
          */
         public Builder ccmCreateLikedCnt(String ccmCreateLikedCnt) {
-            this.ccmCreateLikedCnt = ccmCreateLikedCnt;
-            return this;
+             this.ccmCreateLikedCnt = ccmCreateLikedCnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建的文档被点赞的次数最大值。
          * <p> 示例值：88
-         *
          * @param ccmCreateLikedMaxCnt
          * @return
          */
         public Builder ccmCreateLikedMaxCnt(String ccmCreateLikedMaxCnt) {
-            this.ccmCreateLikedMaxCnt = ccmCreateLikedMaxCnt;
-            return this;
+             this.ccmCreateLikedMaxCnt = ccmCreateLikedMaxCnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人参与过的视频会议数(包含本人、非本人发起)。
          * <p> 示例值：88
-         *
          * @param vcJoinMeetingCnt
          * @return
          */
         public Builder vcJoinMeetingCnt(String vcJoinMeetingCnt) {
-            this.vcJoinMeetingCnt = vcJoinMeetingCnt;
-            return this;
+             this.vcJoinMeetingCnt = vcJoinMeetingCnt;
+             return this;
         }
 
+    
 
         /**
          * 本人参与会议的总时长(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66.66},{"year":"2024","num":88.88}]
-         *
          * @param vcAllMeetingDuration2
          * @return
          */
         public Builder vcAllMeetingDuration2(AnnualReportMapFloat[] vcAllMeetingDuration2) {
-            this.vcAllMeetingDuration2 = vcAllMeetingDuration2;
-            return this;
+             this.vcAllMeetingDuration2 = vcAllMeetingDuration2;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人参与会议的去重参会人数(不含本人)。
          * <p> 示例值：88
-         *
          * @param vcJoinMeetingAllUserCnt
          * @return
          */
         public Builder vcJoinMeetingAllUserCnt(String vcJoinMeetingAllUserCnt) {
-            this.vcJoinMeetingAllUserCnt = vcJoinMeetingAllUserCnt;
-            return this;
+             this.vcJoinMeetingAllUserCnt = vcJoinMeetingAllUserCnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,最晚一次会议结束的时间(yyyyMMdd HH:mm,5点之前数据计入前一天)。
          * <p> 示例值：20240808 23:00
-         *
          * @param vcLastMeetingTime
          * @return
          */
         public Builder vcLastMeetingTime(String vcLastMeetingTime) {
-            this.vcLastMeetingTime = vcLastMeetingTime;
-            return this;
+             this.vcLastMeetingTime = vcLastMeetingTime;
+             return this;
         }
 
+    
 
         /**
          * 本人全年创建的多维表格数量(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param baseCreateFcnt2
          * @return
          */
         public Builder baseCreateFcnt2(AnnualReportMapInt[] baseCreateFcnt2) {
-            this.baseCreateFcnt2 = baseCreateFcnt2;
-            return this;
+             this.baseCreateFcnt2 = baseCreateFcnt2;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建的多维表格被多少人访问过。
          * <p> 示例值：88
-         *
          * @param baseViewFcnt
          * @return
          */
         public Builder baseViewFcnt(String baseViewFcnt) {
-            this.baseViewFcnt = baseViewFcnt;
-            return this;
+             this.baseViewFcnt = baseViewFcnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建的仪表盘数量。
          * <p> 示例值：88
-         *
          * @param baseCreateDashboardCnt
          * @return
          */
         public Builder baseCreateDashboardCnt(String baseCreateDashboardCnt) {
-            this.baseCreateDashboardCnt = baseCreateDashboardCnt;
-            return this;
+             this.baseCreateDashboardCnt = baseCreateDashboardCnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建仪表盘数量,在租户内的排名。
          * <p> 示例值：88
-         *
          * @param baseCreateDashboardRank
          * @return
          */
         public Builder baseCreateDashboardRank(String baseCreateDashboardRank) {
-            this.baseCreateDashboardRank = baseCreateDashboardRank;
-            return this;
+             this.baseCreateDashboardRank = baseCreateDashboardRank;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建仪表盘数量,在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
          * <p> 示例值：88
-         *
          * @param baseCreateDashboardRankUcnt
          * @return
          */
         public Builder baseCreateDashboardRankUcnt(String baseCreateDashboardRankUcnt) {
-            this.baseCreateDashboardRankUcnt = baseCreateDashboardRankUcnt;
-            return this;
+             this.baseCreateDashboardRankUcnt = baseCreateDashboardRankUcnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建的仪表盘内的图表总数量。
          * <p> 示例值：88
-         *
          * @param baseCreateChatCnt
          * @return
          */
         public Builder baseCreateChatCnt(String baseCreateChatCnt) {
-            this.baseCreateChatCnt = baseCreateChatCnt;
-            return this;
+             this.baseCreateChatCnt = baseCreateChatCnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建的多维表格自动化流程总运行次数。
          * <p> 示例值：88
-         *
          * @param baseWorkflowInsCnt
          * @return
          */
         public Builder baseWorkflowInsCnt(String baseWorkflowInsCnt) {
-            this.baseWorkflowInsCnt = baseWorkflowInsCnt;
-            return this;
+             this.baseWorkflowInsCnt = baseWorkflowInsCnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人创建的多维表格自动化流程,总运行次数在租户内的排名。
          * <p> 示例值：88
-         *
          * @param baseWorkflowInsRank
          * @return
          */
         public Builder baseWorkflowInsRank(String baseWorkflowInsRank) {
-            this.baseWorkflowInsRank = baseWorkflowInsRank;
-            return this;
+             this.baseWorkflowInsRank = baseWorkflowInsRank;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,自动化流程运行次数排名的分母(已激活未离职人员中,此指标大于0的人数)。
          * <p> 示例值：88
-         *
          * @param baseWorkflowInsRankUcnt
          * @return
          */
         public Builder baseWorkflowInsRankUcnt(String baseWorkflowInsRankUcnt) {
-            this.baseWorkflowInsRankUcnt = baseWorkflowInsRankUcnt;
-            return this;
+             this.baseWorkflowInsRankUcnt = baseWorkflowInsRankUcnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人阅读智能会议纪要的篇数。
          * <p> 示例值：188
-         *
          * @param vcAllReadNotesCnt
          * @return
          */
         public Builder vcAllReadNotesCnt(String vcAllReadNotesCnt) {
-            this.vcAllReadNotesCnt = vcAllReadNotesCnt;
-            return this;
+             this.vcAllReadNotesCnt = vcAllReadNotesCnt;
+             return this;
         }
 
+    
 
         /**
          * 本人全年参与过的项目数量(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param meegoRoleWiCntV2
          * @return
          */
         public Builder meegoRoleWiCntV2(AnnualReportMapInt[] meegoRoleWiCntV2) {
-            this.meegoRoleWiCntV2 = meegoRoleWiCntV2;
-            return this;
+             this.meegoRoleWiCntV2 = meegoRoleWiCntV2;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人参与过的项目的合作人数
          * <p> 示例值：88
-         *
          * @param meegoCommonWiUcnt
          * @return
          */
         public Builder meegoCommonWiUcnt(String meegoCommonWiUcnt) {
-            this.meegoCommonWiUcnt = meegoCommonWiUcnt;
-            return this;
+             this.meegoCommonWiUcnt = meegoCommonWiUcnt;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人流转过的节点/状态对应的实例数。
          * <p> 示例值：288
-         *
          * @param meegoWorkflowWiCnt
          * @return
          */
         public Builder meegoWorkflowWiCnt(String meegoWorkflowWiCnt) {
-            this.meegoWorkflowWiCnt = meegoWorkflowWiCnt;
-            return this;
+             this.meegoWorkflowWiCnt = meegoWorkflowWiCnt;
+             return this;
         }
 
+    
 
         /**
          * 本人全年面试场次(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param peopleInterviewNum2
          * @return
          */
         public Builder peopleInterviewNum2(AnnualReportMapInt[] peopleInterviewNum2) {
-            this.peopleInterviewNum2 = peopleInterviewNum2;
-            return this;
+             this.peopleInterviewNum2 = peopleInterviewNum2;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人面试场次在租户内的排名。
          * <p> 示例值：88
-         *
          * @param peopleInterviewNumRank
          * @return
          */
         public Builder peopleInterviewNumRank(String peopleInterviewNumRank) {
-            this.peopleInterviewNumRank = peopleInterviewNumRank;
-            return this;
+             this.peopleInterviewNumRank = peopleInterviewNumRank;
+             return this;
         }
 
+    
 
         /**
          * 2024年内,本人面试场次在租户内排名的分母(已激活未离职人员中,此指标大于0的人数)。
          * <p> 示例值：88
-         *
          * @param peopleInterviewNumRankUcnt
          * @return
          */
         public Builder peopleInterviewNumRankUcnt(String peopleInterviewNumRankUcnt) {
-            this.peopleInterviewNumRankUcnt = peopleInterviewNumRankUcnt;
-            return this;
+             this.peopleInterviewNumRankUcnt = peopleInterviewNumRankUcnt;
+             return this;
         }
 
+    
 
         /**
          * 本人面试之后成功发出offer的数量(包含2023、2024各年统计数据)。
          * <p> 示例值：[{"year":"2023","num",66},{"year":"2024","num":88}]
-         *
          * @param peopleInterviewOfferNum2
          * @return
          */
         public Builder peopleInterviewOfferNum2(AnnualReportMapInt[] peopleInterviewOfferNum2) {
-            this.peopleInterviewOfferNum2 = peopleInterviewOfferNum2;
-            return this;
+             this.peopleInterviewOfferNum2 = peopleInterviewOfferNum2;
+             return this;
         }
 
+    
+    
+    public UserReport2024 build(){
+        return new UserReport2024(this);
+      }
+    }
 
-        public UserReport2024 build() {
-            return new UserReport2024(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,36 +12,20 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RecognizeDrivingLicenseReq {
     @Body
     private RecognizeDrivingLicenseReqBody body;
-
-    // builder 开始
-    public RecognizeDrivingLicenseReq() {
-    }
-
-    public RecognizeDrivingLicenseReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public RecognizeDrivingLicenseReqBody getRecognizeDrivingLicenseReqBody() {
         return this.body;
@@ -51,27 +35,36 @@ public class RecognizeDrivingLicenseReq {
         this.body = body;
     }
 
+// builder 开始
+  public RecognizeDrivingLicenseReq(){}
+
+  public RecognizeDrivingLicenseReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private RecognizeDrivingLicenseReqBody body;
-
+    
         public RecognizeDrivingLicenseReqBody getRecognizeDrivingLicenseReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder recognizeDrivingLicenseReqBody(RecognizeDrivingLicenseReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public RecognizeDrivingLicenseReq build(){
+        return new RecognizeDrivingLicenseReq(this);
+      }
+    }
 
-        public RecognizeDrivingLicenseReq build() {
-            return new RecognizeDrivingLicenseReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

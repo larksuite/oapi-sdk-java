@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class I18nEntryDesc {
-    /**
-     * 语言类型
-     * <p> 示例值：1
-     */
+     /**
+      * 语言类型
+      * <p> 示例值：1
+      */
     @SerializedName("language")
     private Integer language;
-    /**
-     * 纯文本释义
-     * <p> 示例值：词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
-     */
+     /**
+      * 纯文本释义
+      * <p> 示例值：词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 富文本描述
-     * <p> 示例值：<p><span>词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通</span></p>
-     */
+     /**
+      * 富文本描述
+      * <p> 示例值：<p><span>词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通</span></p>
+      */
     @SerializedName("rich_text")
     private String richText;
-
-    // builder 开始
-    public I18nEntryDesc() {
-    }
-
-    public I18nEntryDesc(Builder builder) {
-        /**
-         * 语言类型
-         * <p> 示例值：1
-         */
-        this.language = builder.language;
-        /**
-         * 纯文本释义
-         * <p> 示例值：词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
-         */
-        this.description = builder.description;
-        /**
-         * 富文本描述
-         * <p> 示例值：<p><span>词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通</span></p>
-         */
-        this.richText = builder.richText;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getLanguage() {
         return this.language;
     }
@@ -98,76 +67,100 @@ public class I18nEntryDesc {
         this.richText = richText;
     }
 
+
+// builder 开始
+  public I18nEntryDesc(){}
+
+  public I18nEntryDesc(Builder builder){
+         /**
+          * 语言类型
+          * <p> 示例值：1
+          */
+      this.language = builder.language;
+         /**
+          * 纯文本释义
+          * <p> 示例值：词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
+          */
+      this.description = builder.description;
+         /**
+          * 富文本描述
+          * <p> 示例值：<p><span>词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通</span></p>
+          */
+      this.richText = builder.richText;
+  }
+
     public static class Builder {
-        /**
-         * 语言类型
-         * <p> 示例值：1
-         */
+     /**
+      * 语言类型
+      * <p> 示例值：1
+      */
         private Integer language;
-        /**
-         * 纯文本释义
-         * <p> 示例值：词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
-         */
+     /**
+      * 纯文本释义
+      * <p> 示例值：词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
+      */
         private String description;
-        /**
-         * 富文本描述
-         * <p> 示例值：<p><span>词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通</span></p>
-         */
+     /**
+      * 富文本描述
+      * <p> 示例值：<p><span>词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通</span></p>
+      */
         private String richText;
 
         /**
          * 语言类型
          * <p> 示例值：1
-         *
          * @param language
          * @return
          */
         public Builder language(Integer language) {
-            this.language = language;
-            return this;
+             this.language = language;
+             return this;
         }
-
         /**
          * 语言类型
          * <p> 示例值：1
-         *
          * @param language {@link com.lark.oapi.service.lingo.v1.enums.I18nEntryDescLanguageEnum}
          * @return
          */
         public Builder language(com.lark.oapi.service.lingo.v1.enums.I18nEntryDescLanguageEnum language) {
-            this.language = language.getValue();
-            return this;
+             this.language = language.getValue();
+             return this;
         }
 
+    
 
         /**
          * 纯文本释义
          * <p> 示例值：词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 富文本描述
          * <p> 示例值：<p><span>词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通</span></p>
-         *
          * @param richText
          * @return
          */
         public Builder richText(String richText) {
-            this.richText = richText;
-            return this;
+             this.richText = richText;
+             return this;
         }
 
+    
+    
+    public I18nEntryDesc build(){
+        return new I18nEntryDesc(this);
+      }
+    }
 
-        public I18nEntryDesc build() {
-            return new I18nEntryDesc(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,181 +19,96 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Message {
-    /**
-     * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
+     /**
+      * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
     @SerializedName("message_id")
     private String messageId;
-    /**
-     * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-     */
+     /**
+      * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
+      */
     @SerializedName("root_id")
     private String rootId;
-    /**
-     * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
-     */
+     /**
+      * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
+      */
     @SerializedName("parent_id")
     private String parentId;
-    /**
-     * 消息所属的话题 ID
-     * <p> 示例值：omt_d4be107c616a
-     */
+     /**
+      * 消息所属的话题 ID
+      * <p> 示例值：omt_d4be107c616a
+      */
     @SerializedName("thread_id")
     private String threadId;
-    /**
-     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
-     * <p> 示例值：card
-     */
+     /**
+      * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
+      * <p> 示例值：card
+      */
     @SerializedName("msg_type")
     private String msgType;
-    /**
-     * 消息生成的时间戳（毫秒）
-     * <p> 示例值：1615380573411
-     */
+     /**
+      * 消息生成的时间戳（毫秒）
+      * <p> 示例值：1615380573411
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 消息更新的时间戳（毫秒）
-     * <p> 示例值：1615380573411
-     */
+     /**
+      * 消息更新的时间戳（毫秒）
+      * <p> 示例值：1615380573411
+      */
     @SerializedName("update_time")
     private String updateTime;
-    /**
-     * 消息是否被撤回
-     * <p> 示例值：false
-     */
+     /**
+      * 消息是否被撤回
+      * <p> 示例值：false
+      */
     @SerializedName("deleted")
     private Boolean deleted;
-    /**
-     * 消息是否被更新
-     * <p> 示例值：false
-     */
+     /**
+      * 消息是否被更新
+      * <p> 示例值：false
+      */
     @SerializedName("updated")
     private Boolean updated;
-    /**
-     * 所属的群
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
-     */
+     /**
+      * 所属的群
+      * <p> 示例值：oc_5ad11d72b830411d72b836c20
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * 发送者，可以是用户或应用
-     * <p> 示例值：object
-     */
+     /**
+      * 发送者，可以是用户或应用
+      * <p> 示例值：object
+      */
     @SerializedName("sender")
     private Sender sender;
-    /**
-     * 消息内容
-     * <p> 示例值：json结构
-     */
+     /**
+      * 消息内容
+      * <p> 示例值：json结构
+      */
     @SerializedName("body")
     private MessageBody body;
-    /**
-     * 被@的用户或机器人的id列表
-     * <p> 示例值：
-     */
+     /**
+      * 被@的用户或机器人的id列表
+      * <p> 示例值：
+      */
     @SerializedName("mentions")
     private Mention[] mentions;
-    /**
-     * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-     */
+     /**
+      * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
+      */
     @SerializedName("upper_message_id")
     private String upperMessageId;
-
-    // builder 开始
-    public Message() {
-    }
-
-    public Message(Builder builder) {
-        /**
-         * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-         */
-        this.rootId = builder.rootId;
-        /**
-         * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 消息所属的话题 ID
-         * <p> 示例值：omt_d4be107c616a
-         */
-        this.threadId = builder.threadId;
-        /**
-         * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
-         * <p> 示例值：card
-         */
-        this.msgType = builder.msgType;
-        /**
-         * 消息生成的时间戳（毫秒）
-         * <p> 示例值：1615380573411
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 消息更新的时间戳（毫秒）
-         * <p> 示例值：1615380573411
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 消息是否被撤回
-         * <p> 示例值：false
-         */
-        this.deleted = builder.deleted;
-        /**
-         * 消息是否被更新
-         * <p> 示例值：false
-         */
-        this.updated = builder.updated;
-        /**
-         * 所属的群
-         * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 发送者，可以是用户或应用
-         * <p> 示例值：object
-         */
-        this.sender = builder.sender;
-        /**
-         * 消息内容
-         * <p> 示例值：json结构
-         */
-        this.body = builder.body;
-        /**
-         * 被@的用户或机器人的id列表
-         * <p> 示例值：
-         */
-        this.mentions = builder.mentions;
-        /**
-         * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-         */
-        this.upperMessageId = builder.upperMessageId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMessageId() {
         return this.messageId;
     }
@@ -307,262 +221,343 @@ public class Message {
         this.upperMessageId = upperMessageId;
     }
 
+
+// builder 开始
+  public Message(){}
+
+  public Message(Builder builder){
+         /**
+          * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+          */
+      this.messageId = builder.messageId;
+         /**
+          * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+          * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
+          */
+      this.rootId = builder.rootId;
+         /**
+          * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+          * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
+          */
+      this.parentId = builder.parentId;
+         /**
+          * 消息所属的话题 ID
+          * <p> 示例值：omt_d4be107c616a
+          */
+      this.threadId = builder.threadId;
+         /**
+          * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
+          * <p> 示例值：card
+          */
+      this.msgType = builder.msgType;
+         /**
+          * 消息生成的时间戳（毫秒）
+          * <p> 示例值：1615380573411
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 消息更新的时间戳（毫秒）
+          * <p> 示例值：1615380573411
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 消息是否被撤回
+          * <p> 示例值：false
+          */
+      this.deleted = builder.deleted;
+         /**
+          * 消息是否被更新
+          * <p> 示例值：false
+          */
+      this.updated = builder.updated;
+         /**
+          * 所属的群
+          * <p> 示例值：oc_5ad11d72b830411d72b836c20
+          */
+      this.chatId = builder.chatId;
+         /**
+          * 发送者，可以是用户或应用
+          * <p> 示例值：object
+          */
+      this.sender = builder.sender;
+         /**
+          * 消息内容
+          * <p> 示例值：json结构
+          */
+      this.body = builder.body;
+         /**
+          * 被@的用户或机器人的id列表
+          * <p> 示例值：
+          */
+      this.mentions = builder.mentions;
+         /**
+          * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+          * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
+          */
+      this.upperMessageId = builder.upperMessageId;
+  }
+
     public static class Builder {
-        /**
-         * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
+     /**
+      * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
         private String messageId;
-        /**
-         * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-         */
+     /**
+      * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
+      */
         private String rootId;
-        /**
-         * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
-         */
+     /**
+      * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
+      */
         private String parentId;
-        /**
-         * 消息所属的话题 ID
-         * <p> 示例值：omt_d4be107c616a
-         */
+     /**
+      * 消息所属的话题 ID
+      * <p> 示例值：omt_d4be107c616a
+      */
         private String threadId;
-        /**
-         * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
-         * <p> 示例值：card
-         */
+     /**
+      * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
+      * <p> 示例值：card
+      */
         private String msgType;
-        /**
-         * 消息生成的时间戳（毫秒）
-         * <p> 示例值：1615380573411
-         */
+     /**
+      * 消息生成的时间戳（毫秒）
+      * <p> 示例值：1615380573411
+      */
         private String createTime;
-        /**
-         * 消息更新的时间戳（毫秒）
-         * <p> 示例值：1615380573411
-         */
+     /**
+      * 消息更新的时间戳（毫秒）
+      * <p> 示例值：1615380573411
+      */
         private String updateTime;
-        /**
-         * 消息是否被撤回
-         * <p> 示例值：false
-         */
+     /**
+      * 消息是否被撤回
+      * <p> 示例值：false
+      */
         private Boolean deleted;
-        /**
-         * 消息是否被更新
-         * <p> 示例值：false
-         */
+     /**
+      * 消息是否被更新
+      * <p> 示例值：false
+      */
         private Boolean updated;
-        /**
-         * 所属的群
-         * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         */
+     /**
+      * 所属的群
+      * <p> 示例值：oc_5ad11d72b830411d72b836c20
+      */
         private String chatId;
-        /**
-         * 发送者，可以是用户或应用
-         * <p> 示例值：object
-         */
+     /**
+      * 发送者，可以是用户或应用
+      * <p> 示例值：object
+      */
         private Sender sender;
-        /**
-         * 消息内容
-         * <p> 示例值：json结构
-         */
+     /**
+      * 消息内容
+      * <p> 示例值：json结构
+      */
         private MessageBody body;
-        /**
-         * 被@的用户或机器人的id列表
-         * <p> 示例值：
-         */
+     /**
+      * 被@的用户或机器人的id列表
+      * <p> 示例值：
+      */
         private Mention[] mentions;
-        /**
-         * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-         */
+     /**
+      * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
+      */
         private String upperMessageId;
 
         /**
          * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
          * @param messageId
          * @return
          */
         public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
+             this.messageId = messageId;
+             return this;
         }
 
+    
 
         /**
          * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
          * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-         *
          * @param rootId
          * @return
          */
         public Builder rootId(String rootId) {
-            this.rootId = rootId;
-            return this;
+             this.rootId = rootId;
+             return this;
         }
 
+    
 
         /**
          * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
          * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
-         *
          * @param parentId
          * @return
          */
         public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
+             this.parentId = parentId;
+             return this;
         }
 
+    
 
         /**
          * 消息所属的话题 ID
          * <p> 示例值：omt_d4be107c616a
-         *
          * @param threadId
          * @return
          */
         public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
+             this.threadId = threadId;
+             return this;
         }
 
+    
 
         /**
          * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
          * <p> 示例值：card
-         *
          * @param msgType
          * @return
          */
         public Builder msgType(String msgType) {
-            this.msgType = msgType;
-            return this;
+             this.msgType = msgType;
+             return this;
         }
 
+    
 
         /**
          * 消息生成的时间戳（毫秒）
          * <p> 示例值：1615380573411
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 消息更新的时间戳（毫秒）
          * <p> 示例值：1615380573411
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 消息是否被撤回
          * <p> 示例值：false
-         *
          * @param deleted
          * @return
          */
         public Builder deleted(Boolean deleted) {
-            this.deleted = deleted;
-            return this;
+             this.deleted = deleted;
+             return this;
         }
 
+    
 
         /**
          * 消息是否被更新
          * <p> 示例值：false
-         *
          * @param updated
          * @return
          */
         public Builder updated(Boolean updated) {
-            this.updated = updated;
-            return this;
+             this.updated = updated;
+             return this;
         }
 
+    
 
         /**
          * 所属的群
          * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         *
          * @param chatId
          * @return
          */
         public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
+             this.chatId = chatId;
+             return this;
         }
 
+    
 
         /**
          * 发送者，可以是用户或应用
          * <p> 示例值：object
-         *
          * @param sender
          * @return
          */
         public Builder sender(Sender sender) {
-            this.sender = sender;
-            return this;
+             this.sender = sender;
+             return this;
         }
 
+    
 
         /**
          * 消息内容
          * <p> 示例值：json结构
-         *
          * @param body
          * @return
          */
         public Builder body(MessageBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
 
+    
 
         /**
          * 被@的用户或机器人的id列表
          * <p> 示例值：
-         *
          * @param mentions
          * @return
          */
         public Builder mentions(Mention[] mentions) {
-            this.mentions = mentions;
-            return this;
+             this.mentions = mentions;
+             return this;
         }
 
+    
 
         /**
          * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
          * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-         *
          * @param upperMessageId
          * @return
          */
         public Builder upperMessageId(String upperMessageId) {
-            this.upperMessageId = upperMessageId;
-            return this;
+             this.upperMessageId = upperMessageId;
+             return this;
         }
 
+    
+    
+    public Message build(){
+        return new Message(this);
+      }
+    }
 
-        public Message build() {
-            return new Message(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

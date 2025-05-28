@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BackgroundCheckFeedbackInfo {
-    /**
-     * 背调报告ID
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 背调报告ID
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("feedback_id")
     private String feedbackId;
-    /**
-     * 背调信息附件下载链接
-     * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-     */
+     /**
+      * 背调信息附件下载链接
+      * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+      */
     @SerializedName("attachment_url")
     private String attachmentUrl;
-    /**
-     * 背调结果：红灯、黄灯、绿灯
-     * <p> 示例值：红灯
-     */
+     /**
+      * 背调结果：红灯、黄灯、绿灯
+      * <p> 示例值：红灯
+      */
     @SerializedName("result")
     private String result;
-
-    // builder 开始
-    public BackgroundCheckFeedbackInfo() {
-    }
-
-    public BackgroundCheckFeedbackInfo(Builder builder) {
-        /**
-         * 背调报告ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.feedbackId = builder.feedbackId;
-        /**
-         * 背调信息附件下载链接
-         * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-         */
-        this.attachmentUrl = builder.attachmentUrl;
-        /**
-         * 背调结果：红灯、黄灯、绿灯
-         * <p> 示例值：红灯
-         */
-        this.result = builder.result;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFeedbackId() {
         return this.feedbackId;
     }
@@ -97,64 +66,90 @@ public class BackgroundCheckFeedbackInfo {
         this.result = result;
     }
 
+
+// builder 开始
+  public BackgroundCheckFeedbackInfo(){}
+
+  public BackgroundCheckFeedbackInfo(Builder builder){
+         /**
+          * 背调报告ID
+          * <p> 示例值：6930815272790114324
+          */
+      this.feedbackId = builder.feedbackId;
+         /**
+          * 背调信息附件下载链接
+          * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+          */
+      this.attachmentUrl = builder.attachmentUrl;
+         /**
+          * 背调结果：红灯、黄灯、绿灯
+          * <p> 示例值：红灯
+          */
+      this.result = builder.result;
+  }
+
     public static class Builder {
-        /**
-         * 背调报告ID
-         * <p> 示例值：6930815272790114324
-         */
+     /**
+      * 背调报告ID
+      * <p> 示例值：6930815272790114324
+      */
         private String feedbackId;
-        /**
-         * 背调信息附件下载链接
-         * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-         */
+     /**
+      * 背调信息附件下载链接
+      * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+      */
         private String attachmentUrl;
-        /**
-         * 背调结果：红灯、黄灯、绿灯
-         * <p> 示例值：红灯
-         */
+     /**
+      * 背调结果：红灯、黄灯、绿灯
+      * <p> 示例值：红灯
+      */
         private String result;
 
         /**
          * 背调报告ID
          * <p> 示例值：6930815272790114324
-         *
          * @param feedbackId
          * @return
          */
         public Builder feedbackId(String feedbackId) {
-            this.feedbackId = feedbackId;
-            return this;
+             this.feedbackId = feedbackId;
+             return this;
         }
 
+    
 
         /**
          * 背调信息附件下载链接
          * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-         *
          * @param attachmentUrl
          * @return
          */
         public Builder attachmentUrl(String attachmentUrl) {
-            this.attachmentUrl = attachmentUrl;
-            return this;
+             this.attachmentUrl = attachmentUrl;
+             return this;
         }
 
+    
 
         /**
          * 背调结果：红灯、黄灯、绿灯
          * <p> 示例值：红灯
-         *
          * @param result
          * @return
          */
         public Builder result(String result) {
-            this.result = result;
-            return this;
+             this.result = result;
+             return this;
         }
 
+    
+    
+    public BackgroundCheckFeedbackInfo build(){
+        return new BackgroundCheckFeedbackInfo(this);
+      }
+    }
 
-        public BackgroundCheckFeedbackInfo build() {
-            return new BackgroundCheckFeedbackInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

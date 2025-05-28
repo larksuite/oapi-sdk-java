@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.personal_settings.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListSystemStatusRespBody {
-    /**
-     * 租户系统状态
-     * <p> 示例值：
-     */
+     /**
+      * 租户系统状态
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private SystemStatus[] items;
-    /**
-     * 分页token
-     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-     */
+     /**
+      * 分页token
+      * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 是否存在更多
-     * <p> 示例值：true
-     */
+     /**
+      * 是否存在更多
+      * <p> 示例值：true
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-
     public SystemStatus[] getItems() {
         return this.items;
     }

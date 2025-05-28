@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OperatorName {
-    /**
-     * 操作人默认名
-     * <p> 示例值：11
-     */
+     /**
+      * 操作人默认名
+      * <p> 示例值：11
+      */
     @SerializedName("default_name")
     private String defaultName;
-    /**
-     * 操作人 i18n 名字 map
-     * <p> 示例值：
-     */
+     /**
+      * 操作人 i18n 名字 map
+      * <p> 示例值：
+      */
     @SerializedName("i18n_value")
     private I18n i18nValue;
-
-    // builder 开始
-    public OperatorName() {
-    }
-
-    public OperatorName(Builder builder) {
-        /**
-         * 操作人默认名
-         * <p> 示例值：11
-         */
-        this.defaultName = builder.defaultName;
-        /**
-         * 操作人 i18n 名字 map
-         * <p> 示例值：
-         */
-        this.i18nValue = builder.i18nValue;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDefaultName() {
         return this.defaultName;
     }
@@ -79,46 +53,67 @@ public class OperatorName {
         this.i18nValue = i18nValue;
     }
 
+
+// builder 开始
+  public OperatorName(){}
+
+  public OperatorName(Builder builder){
+         /**
+          * 操作人默认名
+          * <p> 示例值：11
+          */
+      this.defaultName = builder.defaultName;
+         /**
+          * 操作人 i18n 名字 map
+          * <p> 示例值：
+          */
+      this.i18nValue = builder.i18nValue;
+  }
+
     public static class Builder {
-        /**
-         * 操作人默认名
-         * <p> 示例值：11
-         */
+     /**
+      * 操作人默认名
+      * <p> 示例值：11
+      */
         private String defaultName;
-        /**
-         * 操作人 i18n 名字 map
-         * <p> 示例值：
-         */
+     /**
+      * 操作人 i18n 名字 map
+      * <p> 示例值：
+      */
         private I18n i18nValue;
 
         /**
          * 操作人默认名
          * <p> 示例值：11
-         *
          * @param defaultName
          * @return
          */
         public Builder defaultName(String defaultName) {
-            this.defaultName = defaultName;
-            return this;
+             this.defaultName = defaultName;
+             return this;
         }
 
+    
 
         /**
          * 操作人 i18n 名字 map
          * <p> 示例值：
-         *
          * @param i18nValue
          * @return
          */
         public Builder i18nValue(I18n i18nValue) {
-            this.i18nValue = i18nValue;
-            return this;
+             this.i18nValue = i18nValue;
+             return this;
         }
 
+    
+    
+    public OperatorName build(){
+        return new OperatorName(this);
+      }
+    }
 
-        public OperatorName build() {
-            return new OperatorName(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

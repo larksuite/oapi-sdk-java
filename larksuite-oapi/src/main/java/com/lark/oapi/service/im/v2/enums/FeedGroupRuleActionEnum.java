@@ -17,16 +17,15 @@ package com.lark.oapi.service.im.v2.enums;
  * 动作
  */
 public enum FeedGroupRuleActionEnum {
-    ADD("add"), // 添加
-    REMOVE("remove"), // 移除
-    ;
-    private String value;
-
+     ADD("add"), // 添加
+     REMOVE("remove"), // 移除
+  ;
+   private String value;
     FeedGroupRuleActionEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

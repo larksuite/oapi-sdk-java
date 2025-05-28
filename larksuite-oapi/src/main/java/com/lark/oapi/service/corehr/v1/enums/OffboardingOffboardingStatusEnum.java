@@ -17,20 +17,19 @@ package com.lark.oapi.service.corehr.v1.enums;
  * 离职状态
  */
 public enum OffboardingOffboardingStatusEnum {
-    APPROVING("Approving"), // 审批中
-    APPROVED("Approved"), // 审批通过
-    OFFBOARDED("Offboarded"), // 已离职
-    REJECTED("Rejected"), // 已拒绝
-    WITHDRAWN("Withdrawn"), // 已撤销
-    NONEEDAPPROVAL("NoNeedApproval"), // 无需审批
-    ;
-    private String value;
-
+     APPROVING("Approving"), // 审批中
+     APPROVED("Approved"), // 审批通过
+     OFFBOARDED("Offboarded"), // 已离职
+     REJECTED("Rejected"), // 已拒绝
+     WITHDRAWN("Withdrawn"), // 已撤销
+     NONEEDAPPROVAL("NoNeedApproval"), // 无需审批
+  ;
+   private String value;
     OffboardingOffboardingStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ScopeValue {
-    /**
-     * 标识Key
-     * <p> 示例值：CH
-     */
+     /**
+      *  标识Key
+      * <p> 示例值：CH
+      */
     @SerializedName("key")
     private String key;
-    /**
-     * 名称
-     * <p> 示例值：中国大陆
-     */
+     /**
+      * 名称
+      * <p> 示例值：中国大陆
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public ScopeValue() {
-    }
-
-    public ScopeValue(Builder builder) {
-        /**
-         *  标识Key
-         * <p> 示例值：CH
-         */
-        this.key = builder.key;
-        /**
-         * 名称
-         * <p> 示例值：中国大陆
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKey() {
         return this.key;
     }
@@ -79,46 +53,67 @@ public class ScopeValue {
         this.name = name;
     }
 
+
+// builder 开始
+  public ScopeValue(){}
+
+  public ScopeValue(Builder builder){
+         /**
+          *  标识Key
+          * <p> 示例值：CH
+          */
+      this.key = builder.key;
+         /**
+          * 名称
+          * <p> 示例值：中国大陆
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 标识Key
-         * <p> 示例值：CH
-         */
+     /**
+      *  标识Key
+      * <p> 示例值：CH
+      */
         private String key;
-        /**
-         * 名称
-         * <p> 示例值：中国大陆
-         */
+     /**
+      * 名称
+      * <p> 示例值：中国大陆
+      */
         private String name;
 
         /**
-         * 标识Key
+         *  标识Key
          * <p> 示例值：CH
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：中国大陆
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public ScopeValue build(){
+        return new ScopeValue(this);
+      }
+    }
 
-        public ScopeValue build() {
-            return new ScopeValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

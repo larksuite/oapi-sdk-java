@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,192 +19,102 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Alert {
-    /**
-     * 告警ID
-     * <p> 示例值：7115030004018184212
-     */
+     /**
+      * 告警ID
+      * <p> 示例值：7115030004018184212
+      */
     @SerializedName("alert_id")
     private String alertId;
-    /**
-     * 触发告警规则的会议室/服务器具体的名称
-     * <p> 示例值：XX层级
-     */
+     /**
+      * 触发告警规则的会议室/服务器具体的名称
+      * <p> 示例值：XX层级
+      */
     @SerializedName("resource_scope")
     private String resourceScope;
-    /**
-     * 触发告警规则的监控对象
-     * <p> 示例值：2
-     */
+     /**
+      * 触发告警规则的监控对象
+      * <p> 示例值：2
+      */
     @SerializedName("monitor_target")
     private Integer monitorTarget;
-    /**
-     * 告警规则的规则描述
-     * <p> 示例值：连续1个周期（共1分钟），控制器电量 < 50%，则告警
-     */
+     /**
+      * 告警规则的规则描述
+      * <p> 示例值：连续1个周期（共1分钟），控制器电量 < 50%，则告警
+      */
     @SerializedName("alert_strategy")
     private String alertStrategy;
-    /**
-     * 告警通知发生时间（unix时间，单位sec）
-     * <p> 示例值：1656914944
-     */
+     /**
+      * 告警通知发生时间（unix时间，单位sec）
+      * <p> 示例值：1656914944
+      */
     @SerializedName("alert_time")
     private String alertTime;
-    /**
-     * 告警等级：严重/警告/提醒
-     * <p> 示例值：2
-     */
+     /**
+      * 告警等级：严重/警告/提醒
+      * <p> 示例值：2
+      */
     @SerializedName("alert_level")
     private Integer alertLevel;
-    /**
-     * 告警联系人
-     * <p> 示例值：
-     */
+     /**
+      * 告警联系人
+      * <p> 示例值：
+      */
     @SerializedName("contacts")
     private Contact[] contacts;
-    /**
-     * 通知方式
-     * <p> 示例值：[0,1]
-     */
+     /**
+      * 通知方式
+      * <p> 示例值：[0,1]
+      */
     @SerializedName("notifyMethods")
     private Integer[] notifyMethods;
-    /**
-     * 规则名称
-     * <p> 示例值：签到板断开连接
-     */
+     /**
+      * 规则名称
+      * <p> 示例值：签到板断开连接
+      */
     @SerializedName("alertRule")
     private String alertRule;
-    /**
-     * 处理时间
-     * <p> 示例值：1656914944
-     */
+     /**
+      * 处理时间
+      * <p> 示例值：1656914944
+      */
     @SerializedName("process_time")
     private String processTime;
-    /**
-     * 恢复时间
-     * <p> 示例值：1656914944
-     */
+     /**
+      * 恢复时间
+      * <p> 示例值：1656914944
+      */
     @SerializedName("recover_time")
     private String recoverTime;
-    /**
-     * 处理状态：待处理/处理中/已恢复
-     * <p> 示例值：2
-     */
+     /**
+      * 处理状态：待处理/处理中/已恢复
+      * <p> 示例值：2
+      */
     @SerializedName("process_status")
     private Integer processStatus;
-    /**
-     * 告警规则ID
-     * <p> 示例值：100
-     */
+     /**
+      * 告警规则ID
+      * <p> 示例值：100
+      */
     @SerializedName("alert_rule_id")
     private String alertRuleId;
-    /**
-     * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
-     * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-     */
+     /**
+      * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
+      * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+      */
     @SerializedName("monitor_target_room_id")
     private String monitorTargetRoomId;
-    /**
-     * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
-     * <p> 示例值：52:60:19:9c:97:21
-     */
+     /**
+      * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
+      * <p> 示例值：52:60:19:9c:97:21
+      */
     @SerializedName("monitor_target_room_mac")
     private String monitorTargetRoomMac;
-
-    // builder 开始
-    public Alert() {
-    }
-
-    public Alert(Builder builder) {
-        /**
-         * 告警ID
-         * <p> 示例值：7115030004018184212
-         */
-        this.alertId = builder.alertId;
-        /**
-         * 触发告警规则的会议室/服务器具体的名称
-         * <p> 示例值：XX层级
-         */
-        this.resourceScope = builder.resourceScope;
-        /**
-         * 触发告警规则的监控对象
-         * <p> 示例值：2
-         */
-        this.monitorTarget = builder.monitorTarget;
-        /**
-         * 告警规则的规则描述
-         * <p> 示例值：连续1个周期（共1分钟），控制器电量 < 50%，则告警
-         */
-        this.alertStrategy = builder.alertStrategy;
-        /**
-         * 告警通知发生时间（unix时间，单位sec）
-         * <p> 示例值：1656914944
-         */
-        this.alertTime = builder.alertTime;
-        /**
-         * 告警等级：严重/警告/提醒
-         * <p> 示例值：2
-         */
-        this.alertLevel = builder.alertLevel;
-        /**
-         * 告警联系人
-         * <p> 示例值：
-         */
-        this.contacts = builder.contacts;
-        /**
-         * 通知方式
-         * <p> 示例值：[0,1]
-         */
-        this.notifyMethods = builder.notifyMethods;
-        /**
-         * 规则名称
-         * <p> 示例值：签到板断开连接
-         */
-        this.alertRule = builder.alertRule;
-        /**
-         * 处理时间
-         * <p> 示例值：1656914944
-         */
-        this.processTime = builder.processTime;
-        /**
-         * 恢复时间
-         * <p> 示例值：1656914944
-         */
-        this.recoverTime = builder.recoverTime;
-        /**
-         * 处理状态：待处理/处理中/已恢复
-         * <p> 示例值：2
-         */
-        this.processStatus = builder.processStatus;
-        /**
-         * 告警规则ID
-         * <p> 示例值：100
-         */
-        this.alertRuleId = builder.alertRuleId;
-        /**
-         * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         */
-        this.monitorTargetRoomId = builder.monitorTargetRoomId;
-        /**
-         * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
-         * <p> 示例值：52:60:19:9c:97:21
-         */
-        this.monitorTargetRoomMac = builder.monitorTargetRoomMac;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAlertId() {
         return this.alertId;
     }
@@ -326,316 +235,396 @@ public class Alert {
         this.monitorTargetRoomMac = monitorTargetRoomMac;
     }
 
+
+// builder 开始
+  public Alert(){}
+
+  public Alert(Builder builder){
+         /**
+          * 告警ID
+          * <p> 示例值：7115030004018184212
+          */
+      this.alertId = builder.alertId;
+         /**
+          * 触发告警规则的会议室/服务器具体的名称
+          * <p> 示例值：XX层级
+          */
+      this.resourceScope = builder.resourceScope;
+         /**
+          * 触发告警规则的监控对象
+          * <p> 示例值：2
+          */
+      this.monitorTarget = builder.monitorTarget;
+         /**
+          * 告警规则的规则描述
+          * <p> 示例值：连续1个周期（共1分钟），控制器电量 < 50%，则告警
+          */
+      this.alertStrategy = builder.alertStrategy;
+         /**
+          * 告警通知发生时间（unix时间，单位sec）
+          * <p> 示例值：1656914944
+          */
+      this.alertTime = builder.alertTime;
+         /**
+          * 告警等级：严重/警告/提醒
+          * <p> 示例值：2
+          */
+      this.alertLevel = builder.alertLevel;
+         /**
+          * 告警联系人
+          * <p> 示例值：
+          */
+      this.contacts = builder.contacts;
+         /**
+          * 通知方式
+          * <p> 示例值：[0,1]
+          */
+      this.notifyMethods = builder.notifyMethods;
+         /**
+          * 规则名称
+          * <p> 示例值：签到板断开连接
+          */
+      this.alertRule = builder.alertRule;
+         /**
+          * 处理时间
+          * <p> 示例值：1656914944
+          */
+      this.processTime = builder.processTime;
+         /**
+          * 恢复时间
+          * <p> 示例值：1656914944
+          */
+      this.recoverTime = builder.recoverTime;
+         /**
+          * 处理状态：待处理/处理中/已恢复
+          * <p> 示例值：2
+          */
+      this.processStatus = builder.processStatus;
+         /**
+          * 告警规则ID
+          * <p> 示例值：100
+          */
+      this.alertRuleId = builder.alertRuleId;
+         /**
+          * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
+          * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+          */
+      this.monitorTargetRoomId = builder.monitorTargetRoomId;
+         /**
+          * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
+          * <p> 示例值：52:60:19:9c:97:21
+          */
+      this.monitorTargetRoomMac = builder.monitorTargetRoomMac;
+  }
+
     public static class Builder {
-        /**
-         * 告警ID
-         * <p> 示例值：7115030004018184212
-         */
+     /**
+      * 告警ID
+      * <p> 示例值：7115030004018184212
+      */
         private String alertId;
-        /**
-         * 触发告警规则的会议室/服务器具体的名称
-         * <p> 示例值：XX层级
-         */
+     /**
+      * 触发告警规则的会议室/服务器具体的名称
+      * <p> 示例值：XX层级
+      */
         private String resourceScope;
-        /**
-         * 触发告警规则的监控对象
-         * <p> 示例值：2
-         */
+     /**
+      * 触发告警规则的监控对象
+      * <p> 示例值：2
+      */
         private Integer monitorTarget;
-        /**
-         * 告警规则的规则描述
-         * <p> 示例值：连续1个周期（共1分钟），控制器电量 < 50%，则告警
-         */
+     /**
+      * 告警规则的规则描述
+      * <p> 示例值：连续1个周期（共1分钟），控制器电量 < 50%，则告警
+      */
         private String alertStrategy;
-        /**
-         * 告警通知发生时间（unix时间，单位sec）
-         * <p> 示例值：1656914944
-         */
+     /**
+      * 告警通知发生时间（unix时间，单位sec）
+      * <p> 示例值：1656914944
+      */
         private String alertTime;
-        /**
-         * 告警等级：严重/警告/提醒
-         * <p> 示例值：2
-         */
+     /**
+      * 告警等级：严重/警告/提醒
+      * <p> 示例值：2
+      */
         private Integer alertLevel;
-        /**
-         * 告警联系人
-         * <p> 示例值：
-         */
+     /**
+      * 告警联系人
+      * <p> 示例值：
+      */
         private Contact[] contacts;
-        /**
-         * 通知方式
-         * <p> 示例值：[0,1]
-         */
+     /**
+      * 通知方式
+      * <p> 示例值：[0,1]
+      */
         private Integer[] notifyMethods;
-        /**
-         * 规则名称
-         * <p> 示例值：签到板断开连接
-         */
+     /**
+      * 规则名称
+      * <p> 示例值：签到板断开连接
+      */
         private String alertRule;
-        /**
-         * 处理时间
-         * <p> 示例值：1656914944
-         */
+     /**
+      * 处理时间
+      * <p> 示例值：1656914944
+      */
         private String processTime;
-        /**
-         * 恢复时间
-         * <p> 示例值：1656914944
-         */
+     /**
+      * 恢复时间
+      * <p> 示例值：1656914944
+      */
         private String recoverTime;
-        /**
-         * 处理状态：待处理/处理中/已恢复
-         * <p> 示例值：2
-         */
+     /**
+      * 处理状态：待处理/处理中/已恢复
+      * <p> 示例值：2
+      */
         private Integer processStatus;
-        /**
-         * 告警规则ID
-         * <p> 示例值：100
-         */
+     /**
+      * 告警规则ID
+      * <p> 示例值：100
+      */
         private String alertRuleId;
-        /**
-         * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         */
+     /**
+      * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
+      * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+      */
         private String monitorTargetRoomId;
-        /**
-         * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
-         * <p> 示例值：52:60:19:9c:97:21
-         */
+     /**
+      * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
+      * <p> 示例值：52:60:19:9c:97:21
+      */
         private String monitorTargetRoomMac;
 
         /**
          * 告警ID
          * <p> 示例值：7115030004018184212
-         *
          * @param alertId
          * @return
          */
         public Builder alertId(String alertId) {
-            this.alertId = alertId;
-            return this;
+             this.alertId = alertId;
+             return this;
         }
 
+    
 
         /**
          * 触发告警规则的会议室/服务器具体的名称
          * <p> 示例值：XX层级
-         *
          * @param resourceScope
          * @return
          */
         public Builder resourceScope(String resourceScope) {
-            this.resourceScope = resourceScope;
-            return this;
+             this.resourceScope = resourceScope;
+             return this;
         }
 
+    
 
         /**
          * 触发告警规则的监控对象
          * <p> 示例值：2
-         *
          * @param monitorTarget
          * @return
          */
         public Builder monitorTarget(Integer monitorTarget) {
-            this.monitorTarget = monitorTarget;
-            return this;
+             this.monitorTarget = monitorTarget;
+             return this;
         }
-
         /**
          * 触发告警规则的监控对象
          * <p> 示例值：2
-         *
          * @param monitorTarget {@link com.lark.oapi.service.vc.v1.enums.AlertMonitorTargetEnum}
          * @return
          */
         public Builder monitorTarget(com.lark.oapi.service.vc.v1.enums.AlertMonitorTargetEnum monitorTarget) {
-            this.monitorTarget = monitorTarget.getValue();
-            return this;
+             this.monitorTarget = monitorTarget.getValue();
+             return this;
         }
 
+    
 
         /**
          * 告警规则的规则描述
          * <p> 示例值：连续1个周期（共1分钟），控制器电量 < 50%，则告警
-         *
          * @param alertStrategy
          * @return
          */
         public Builder alertStrategy(String alertStrategy) {
-            this.alertStrategy = alertStrategy;
-            return this;
+             this.alertStrategy = alertStrategy;
+             return this;
         }
 
+    
 
         /**
          * 告警通知发生时间（unix时间，单位sec）
          * <p> 示例值：1656914944
-         *
          * @param alertTime
          * @return
          */
         public Builder alertTime(String alertTime) {
-            this.alertTime = alertTime;
-            return this;
+             this.alertTime = alertTime;
+             return this;
         }
 
+    
 
         /**
          * 告警等级：严重/警告/提醒
          * <p> 示例值：2
-         *
          * @param alertLevel
          * @return
          */
         public Builder alertLevel(Integer alertLevel) {
-            this.alertLevel = alertLevel;
-            return this;
+             this.alertLevel = alertLevel;
+             return this;
         }
-
         /**
          * 告警等级：严重/警告/提醒
          * <p> 示例值：2
-         *
          * @param alertLevel {@link com.lark.oapi.service.vc.v1.enums.AlertAlertLevelEnum}
          * @return
          */
         public Builder alertLevel(com.lark.oapi.service.vc.v1.enums.AlertAlertLevelEnum alertLevel) {
-            this.alertLevel = alertLevel.getValue();
-            return this;
+             this.alertLevel = alertLevel.getValue();
+             return this;
         }
 
+    
 
         /**
          * 告警联系人
          * <p> 示例值：
-         *
          * @param contacts
          * @return
          */
         public Builder contacts(Contact[] contacts) {
-            this.contacts = contacts;
-            return this;
+             this.contacts = contacts;
+             return this;
         }
 
+    
 
         /**
          * 通知方式
          * <p> 示例值：[0,1]
-         *
          * @param notifyMethods
          * @return
          */
         public Builder notifyMethods(Integer[] notifyMethods) {
-            this.notifyMethods = notifyMethods;
-            return this;
+             this.notifyMethods = notifyMethods;
+             return this;
         }
 
+    
 
         /**
          * 规则名称
          * <p> 示例值：签到板断开连接
-         *
          * @param alertRule
          * @return
          */
         public Builder alertRule(String alertRule) {
-            this.alertRule = alertRule;
-            return this;
+             this.alertRule = alertRule;
+             return this;
         }
 
+    
 
         /**
          * 处理时间
          * <p> 示例值：1656914944
-         *
          * @param processTime
          * @return
          */
         public Builder processTime(String processTime) {
-            this.processTime = processTime;
-            return this;
+             this.processTime = processTime;
+             return this;
         }
 
+    
 
         /**
          * 恢复时间
          * <p> 示例值：1656914944
-         *
          * @param recoverTime
          * @return
          */
         public Builder recoverTime(String recoverTime) {
-            this.recoverTime = recoverTime;
-            return this;
+             this.recoverTime = recoverTime;
+             return this;
         }
 
+    
 
         /**
          * 处理状态：待处理/处理中/已恢复
          * <p> 示例值：2
-         *
          * @param processStatus
          * @return
          */
         public Builder processStatus(Integer processStatus) {
-            this.processStatus = processStatus;
-            return this;
+             this.processStatus = processStatus;
+             return this;
         }
-
         /**
          * 处理状态：待处理/处理中/已恢复
          * <p> 示例值：2
-         *
          * @param processStatus {@link com.lark.oapi.service.vc.v1.enums.AlertProcessStatusEnum}
          * @return
          */
         public Builder processStatus(com.lark.oapi.service.vc.v1.enums.AlertProcessStatusEnum processStatus) {
-            this.processStatus = processStatus.getValue();
-            return this;
+             this.processStatus = processStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 告警规则ID
          * <p> 示例值：100
-         *
          * @param alertRuleId
          * @return
          */
         public Builder alertRuleId(String alertRuleId) {
-            this.alertRuleId = alertRuleId;
-            return this;
+             this.alertRuleId = alertRuleId;
+             return this;
         }
 
+    
 
         /**
          * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
          * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         *
          * @param monitorTargetRoomId
          * @return
          */
         public Builder monitorTargetRoomId(String monitorTargetRoomId) {
-            this.monitorTargetRoomId = monitorTargetRoomId;
-            return this;
+             this.monitorTargetRoomId = monitorTargetRoomId;
+             return this;
         }
 
+    
 
         /**
          * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
          * <p> 示例值：52:60:19:9c:97:21
-         *
          * @param monitorTargetRoomMac
          * @return
          */
         public Builder monitorTargetRoomMac(String monitorTargetRoomMac) {
-            this.monitorTargetRoomMac = monitorTargetRoomMac;
-            return this;
+             this.monitorTargetRoomMac = monitorTargetRoomMac;
+             return this;
         }
 
+    
+    
+    public Alert build(){
+        return new Alert(this);
+      }
+    }
 
-        public Alert build() {
-            return new Alert(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

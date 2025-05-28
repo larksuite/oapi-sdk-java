@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Member {
-    /**
-     * 表示member的id
-     * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
-     */
+     /**
+      * 表示member的id
+      * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 成员的类型
-     * <p> 示例值：user
-     */
+     /**
+      * 成员的类型
+      * <p> 示例值：user
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 成员角色
-     * <p> 示例值：editor
-     */
+     /**
+      * 成员角色
+      * <p> 示例值：editor
+      */
     @SerializedName("role")
     private String role;
-    /**
-     * 成员名称
-     * <p> 示例值：张明德（明德）
-     */
+     /**
+      * 成员名称
+      * <p> 示例值：张明德（明德）
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public Member() {
-    }
-
-    public Member(Builder builder) {
-        /**
-         * 表示member的id
-         * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
-         */
-        this.id = builder.id;
-        /**
-         * 成员的类型
-         * <p> 示例值：user
-         */
-        this.type = builder.type;
-        /**
-         * 成员角色
-         * <p> 示例值：editor
-         */
-        this.role = builder.role;
-        /**
-         * 成员名称
-         * <p> 示例值：张明德（明德）
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -117,82 +81,113 @@ public class Member {
         this.name = name;
     }
 
+
+// builder 开始
+  public Member(){}
+
+  public Member(Builder builder){
+         /**
+          * 表示member的id
+          * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
+          */
+      this.id = builder.id;
+         /**
+          * 成员的类型
+          * <p> 示例值：user
+          */
+      this.type = builder.type;
+         /**
+          * 成员角色
+          * <p> 示例值：editor
+          */
+      this.role = builder.role;
+         /**
+          * 成员名称
+          * <p> 示例值：张明德（明德）
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 表示member的id
-         * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
-         */
+     /**
+      * 表示member的id
+      * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
+      */
         private String id;
-        /**
-         * 成员的类型
-         * <p> 示例值：user
-         */
+     /**
+      * 成员的类型
+      * <p> 示例值：user
+      */
         private String type;
-        /**
-         * 成员角色
-         * <p> 示例值：editor
-         */
+     /**
+      * 成员角色
+      * <p> 示例值：editor
+      */
         private String role;
-        /**
-         * 成员名称
-         * <p> 示例值：张明德（明德）
-         */
+     /**
+      * 成员名称
+      * <p> 示例值：张明德（明德）
+      */
         private String name;
 
         /**
          * 表示member的id
          * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 成员的类型
          * <p> 示例值：user
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 成员角色
          * <p> 示例值：editor
-         *
          * @param role
          * @return
          */
         public Builder role(String role) {
-            this.role = role;
-            return this;
+             this.role = role;
+             return this;
         }
 
+    
 
         /**
          * 成员名称
          * <p> 示例值：张明德（明德）
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public Member build(){
+        return new Member(this);
+      }
+    }
 
-        public Member build() {
-            return new Member(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

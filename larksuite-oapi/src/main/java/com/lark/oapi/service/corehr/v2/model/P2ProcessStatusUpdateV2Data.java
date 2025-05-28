@@ -12,53 +12,48 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2ProcessStatusUpdateV2Data {
-    /**
-     * 流程实例ID
-     * <p> 示例值：7072306364927985196
-     */
+     /**
+      * 流程实例ID
+      * <p> 示例值：7072306364927985196
+      */
     @SerializedName("process_id")
     private String processId;
-    /**
-     * 变更后状态：1 发起/进行中，9 完成，2拒绝，4 撤回，8 撤销，15 撤销中
-     * <p> 示例值：1
-     */
+     /**
+      * 变更后状态：1 发起/进行中，9 完成，2拒绝，4 撤回，8 撤销，15 撤销中
+      * <p> 示例值：1
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * 业务类型
-     * <p> 示例值：renewal_record
-     */
+     /**
+      * 业务类型
+      * <p> 示例值：renewal_record
+      */
     @SerializedName("biz_type")
     private String bizType;
-    /**
-     * 流程定义ID
-     * <p> 示例值：people_7023711013443944467_7379576600867884844v
-     */
+     /**
+      * 流程定义ID
+      * <p> 示例值：people_7023711013443944467_7379576600867884844v
+      */
     @SerializedName("flow_definition_id")
     private String flowDefinitionId;
-    /**
-     * 流程属性
-     * <p> 示例值：1
-     */
+     /**
+      * 流程属性
+      * <p> 示例值：1
+      */
     @SerializedName("properties")
     private Integer properties;
-
     public String getProcessId() {
         return this.processId;
     }

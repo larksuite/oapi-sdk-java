@@ -17,17 +17,16 @@ package com.lark.oapi.service.performance.v2.enums;
  * 终评环节填写内容的来源（仅终评环节的数据有值）
  */
 public enum ReviewDetailLeaderReviewDataSourceEnum {
-    REVIEW("review"), // 产生终评结果的评估型环节
-    CALIBARATION("calibaration"), // 校准环节
-    RECONSIDERATION("reconsideration"), // 结果复议环节
-    ;
-    private String value;
-
+     REVIEW("review"), // 产生终评结果的评估型环节
+     CALIBARATION("calibaration"), // 校准环节
+     RECONSIDERATION("reconsideration"), // 结果复议环节
+  ;
+   private String value;
     ReviewDetailLeaderReviewDataSourceEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

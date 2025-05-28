@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WriteUserGroupScopeData {
-    /**
-     * 写入成功员工user_id列表
-     * <p> 示例值：
-     */
+     /**
+      * 写入成功员工user_id列表
+      * <p> 示例值：
+      */
     @SerializedName("success_user_ids")
     private String[] successUserIds;
-    /**
-     * 失败的员工信息列表
-     * <p> 示例值：
-     */
+     /**
+      * 失败的员工信息列表
+      * <p> 示例值：
+      */
     @SerializedName("fail_user_datas")
     private WriteUserGroupScopeFailUserData[] failUserDatas;
-
-    // builder 开始
-    public WriteUserGroupScopeData() {
-    }
-
-    public WriteUserGroupScopeData(Builder builder) {
-        /**
-         * 写入成功员工user_id列表
-         * <p> 示例值：
-         */
-        this.successUserIds = builder.successUserIds;
-        /**
-         * 失败的员工信息列表
-         * <p> 示例值：
-         */
-        this.failUserDatas = builder.failUserDatas;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getSuccessUserIds() {
         return this.successUserIds;
     }
@@ -79,46 +53,67 @@ public class WriteUserGroupScopeData {
         this.failUserDatas = failUserDatas;
     }
 
+
+// builder 开始
+  public WriteUserGroupScopeData(){}
+
+  public WriteUserGroupScopeData(Builder builder){
+         /**
+          * 写入成功员工user_id列表
+          * <p> 示例值：
+          */
+      this.successUserIds = builder.successUserIds;
+         /**
+          * 失败的员工信息列表
+          * <p> 示例值：
+          */
+      this.failUserDatas = builder.failUserDatas;
+  }
+
     public static class Builder {
-        /**
-         * 写入成功员工user_id列表
-         * <p> 示例值：
-         */
+     /**
+      * 写入成功员工user_id列表
+      * <p> 示例值：
+      */
         private String[] successUserIds;
-        /**
-         * 失败的员工信息列表
-         * <p> 示例值：
-         */
+     /**
+      * 失败的员工信息列表
+      * <p> 示例值：
+      */
         private WriteUserGroupScopeFailUserData[] failUserDatas;
 
         /**
          * 写入成功员工user_id列表
          * <p> 示例值：
-         *
          * @param successUserIds
          * @return
          */
         public Builder successUserIds(String[] successUserIds) {
-            this.successUserIds = successUserIds;
-            return this;
+             this.successUserIds = successUserIds;
+             return this;
         }
 
+    
 
         /**
          * 失败的员工信息列表
          * <p> 示例值：
-         *
          * @param failUserDatas
          * @return
          */
         public Builder failUserDatas(WriteUserGroupScopeFailUserData[] failUserDatas) {
-            this.failUserDatas = failUserDatas;
-            return this;
+             this.failUserDatas = failUserDatas;
+             return this;
         }
 
+    
+    
+    public WriteUserGroupScopeData build(){
+        return new WriteUserGroupScopeData(this);
+      }
+    }
 
-        public WriteUserGroupScopeData build() {
-            return new WriteUserGroupScopeData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

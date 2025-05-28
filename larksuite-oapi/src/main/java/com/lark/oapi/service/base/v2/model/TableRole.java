@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.base.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.base.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,151 +19,79 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
-
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TableRole {
-    /**
-     * 数据表权限
-     * <p> 示例值：0
-     */
+     /**
+      * 数据表权限
+      * <p> 示例值：0
+      */
     @SerializedName("table_perm")
     private Integer tablePerm;
-    /**
-     * 数据表名
-     * <p> 示例值：数据表1
-     */
+     /**
+      * 数据表名
+      * <p> 示例值：数据表1
+      */
     @SerializedName("table_name")
     private String tableName;
-    /**
-     * 数据表ID
-     * <p> 示例值：tblKz5D60T4JlfcT
-     */
+     /**
+      * 数据表ID
+      * <p> 示例值：tblKz5D60T4JlfcT
+      */
     @SerializedName("table_id")
     private String tableId;
-    /**
-     * 记录筛选条件，在table_perm为1或2时有意义，用于指定可编辑或可阅读某些记录
-     * <p> 示例值：
-     */
+     /**
+      * 记录筛选条件，在table_perm为1或2时有意义，用于指定可编辑或可阅读某些记录
+      * <p> 示例值：
+      */
     @SerializedName("rec_rule")
     private RecRule recRule;
-    /**
-     * 记录筛选条件，在rec_rule.Perm为2时有意义，用于指定剩余可阅读的记录
-     * <p> 示例值：
-     */
+     /**
+      * 记录筛选条件，在rec_rule.Perm为2时有意义，用于指定剩余可阅读的记录
+      * <p> 示例值：
+      */
     @SerializedName("other_rec_rule")
     private OtherRecRule otherRecRule;
-    /**
-     * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
-     * <p> 示例值：{"姓名": 1, "年龄": 2}
-     */
+     /**
+      * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
+      * <p> 示例值：{"姓名": 1, "年龄": 2}
+      */
     @SerializedName("field_perm")
     private Map<String, Integer> fieldPerm;
-    /**
-     * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
-     * <p> 示例值：true
-     */
+     /**
+      * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
+      * <p> 示例值：true
+      */
     @SerializedName("allow_add_record")
     private Boolean allowAddRecord;
-    /**
-     * 删除记录权限，仅在table_perm为2时有意义，用于设置记录是否可以删除
-     * <p> 示例值：true
-     */
+     /**
+      * 删除记录权限，仅在table_perm为2时有意义，用于设置记录是否可以删除
+      * <p> 示例值：true
+      */
     @SerializedName("allow_delete_record")
     private Boolean allowDeleteRecord;
-    /**
-     * 视图权限
-     * <p> 示例值：2
-     */
+     /**
+      * 视图权限
+      * <p> 示例值：2
+      */
     @SerializedName("view_perm")
     private Integer viewPerm;
-    /**
-     * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
-     * <p> 示例值：{"vewEYknYcC": 0}
-     */
+     /**
+      * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
+      * <p> 示例值：{"vewEYknYcC": 0}
+      */
     @SerializedName("view_rules")
     private Map<String, Integer> viewRules;
-    /**
-     * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
-     * <p> 示例值：{"select_option_edit": {"字段1"：0}}
-     */
+     /**
+      * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
+      * <p> 示例值：{"select_option_edit": {"字段1"：0}}
+      */
     @SerializedName("field_action_rules")
     private Map<String, Map<String, Integer>> fieldActionRules;
-
-    // builder 开始
-    public TableRole() {
-    }
-
-    public TableRole(Builder builder) {
-        /**
-         * 数据表权限
-         * <p> 示例值：0
-         */
-        this.tablePerm = builder.tablePerm;
-        /**
-         * 数据表名
-         * <p> 示例值：数据表1
-         */
-        this.tableName = builder.tableName;
-        /**
-         * 数据表ID
-         * <p> 示例值：tblKz5D60T4JlfcT
-         */
-        this.tableId = builder.tableId;
-        /**
-         * 记录筛选条件，在table_perm为1或2时有意义，用于指定可编辑或可阅读某些记录
-         * <p> 示例值：
-         */
-        this.recRule = builder.recRule;
-        /**
-         * 记录筛选条件，在rec_rule.Perm为2时有意义，用于指定剩余可阅读的记录
-         * <p> 示例值：
-         */
-        this.otherRecRule = builder.otherRecRule;
-        /**
-         * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
-         * <p> 示例值：{"姓名": 1, "年龄": 2}
-         */
-        this.fieldPerm = builder.fieldPerm;
-        /**
-         * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
-         * <p> 示例值：true
-         */
-        this.allowAddRecord = builder.allowAddRecord;
-        /**
-         * 删除记录权限，仅在table_perm为2时有意义，用于设置记录是否可以删除
-         * <p> 示例值：true
-         */
-        this.allowDeleteRecord = builder.allowDeleteRecord;
-        /**
-         * 视图权限
-         * <p> 示例值：2
-         */
-        this.viewPerm = builder.viewPerm;
-        /**
-         * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
-         * <p> 示例值：{"vewEYknYcC": 0}
-         */
-        this.viewRules = builder.viewRules;
-        /**
-         * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
-         * <p> 示例值：{"select_option_edit": {"字段1"：0}}
-         */
-        this.fieldActionRules = builder.fieldActionRules;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getTablePerm() {
         return this.tablePerm;
     }
@@ -253,232 +180,294 @@ public class TableRole {
         this.fieldActionRules = fieldActionRules;
     }
 
+
+// builder 开始
+  public TableRole(){}
+
+  public TableRole(Builder builder){
+         /**
+          * 数据表权限
+          * <p> 示例值：0
+          */
+      this.tablePerm = builder.tablePerm;
+         /**
+          * 数据表名
+          * <p> 示例值：数据表1
+          */
+      this.tableName = builder.tableName;
+         /**
+          * 数据表ID
+          * <p> 示例值：tblKz5D60T4JlfcT
+          */
+      this.tableId = builder.tableId;
+         /**
+          * 记录筛选条件，在table_perm为1或2时有意义，用于指定可编辑或可阅读某些记录
+          * <p> 示例值：
+          */
+      this.recRule = builder.recRule;
+         /**
+          * 记录筛选条件，在rec_rule.Perm为2时有意义，用于指定剩余可阅读的记录
+          * <p> 示例值：
+          */
+      this.otherRecRule = builder.otherRecRule;
+         /**
+          * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
+          * <p> 示例值：{"姓名": 1, "年龄": 2}
+          */
+      this.fieldPerm = builder.fieldPerm;
+         /**
+          * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
+          * <p> 示例值：true
+          */
+      this.allowAddRecord = builder.allowAddRecord;
+         /**
+          * 删除记录权限，仅在table_perm为2时有意义，用于设置记录是否可以删除
+          * <p> 示例值：true
+          */
+      this.allowDeleteRecord = builder.allowDeleteRecord;
+         /**
+          * 视图权限
+          * <p> 示例值：2
+          */
+      this.viewPerm = builder.viewPerm;
+         /**
+          * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
+          * <p> 示例值：{"vewEYknYcC": 0}
+          */
+      this.viewRules = builder.viewRules;
+         /**
+          * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
+          * <p> 示例值：{"select_option_edit": {"字段1"：0}}
+          */
+      this.fieldActionRules = builder.fieldActionRules;
+  }
+
     public static class Builder {
-        /**
-         * 数据表权限
-         * <p> 示例值：0
-         */
+     /**
+      * 数据表权限
+      * <p> 示例值：0
+      */
         private Integer tablePerm;
-        /**
-         * 数据表名
-         * <p> 示例值：数据表1
-         */
+     /**
+      * 数据表名
+      * <p> 示例值：数据表1
+      */
         private String tableName;
-        /**
-         * 数据表ID
-         * <p> 示例值：tblKz5D60T4JlfcT
-         */
+     /**
+      * 数据表ID
+      * <p> 示例值：tblKz5D60T4JlfcT
+      */
         private String tableId;
-        /**
-         * 记录筛选条件，在table_perm为1或2时有意义，用于指定可编辑或可阅读某些记录
-         * <p> 示例值：
-         */
+     /**
+      * 记录筛选条件，在table_perm为1或2时有意义，用于指定可编辑或可阅读某些记录
+      * <p> 示例值：
+      */
         private RecRule recRule;
-        /**
-         * 记录筛选条件，在rec_rule.Perm为2时有意义，用于指定剩余可阅读的记录
-         * <p> 示例值：
-         */
+     /**
+      * 记录筛选条件，在rec_rule.Perm为2时有意义，用于指定剩余可阅读的记录
+      * <p> 示例值：
+      */
         private OtherRecRule otherRecRule;
-        /**
-         * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
-         * <p> 示例值：{"姓名": 1, "年龄": 2}
-         */
+     /**
+      * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
+      * <p> 示例值：{"姓名": 1, "年龄": 2}
+      */
         private Map<String, Integer> fieldPerm;
-        /**
-         * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
-         * <p> 示例值：true
-         */
+     /**
+      * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
+      * <p> 示例值：true
+      */
         private Boolean allowAddRecord;
-        /**
-         * 删除记录权限，仅在table_perm为2时有意义，用于设置记录是否可以删除
-         * <p> 示例值：true
-         */
+     /**
+      * 删除记录权限，仅在table_perm为2时有意义，用于设置记录是否可以删除
+      * <p> 示例值：true
+      */
         private Boolean allowDeleteRecord;
-        /**
-         * 视图权限
-         * <p> 示例值：2
-         */
+     /**
+      * 视图权限
+      * <p> 示例值：2
+      */
         private Integer viewPerm;
-        /**
-         * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
-         * <p> 示例值：{"vewEYknYcC": 0}
-         */
+     /**
+      * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
+      * <p> 示例值：{"vewEYknYcC": 0}
+      */
         private Map<String, Integer> viewRules;
-        /**
-         * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
-         * <p> 示例值：{"select_option_edit": {"字段1"：0}}
-         */
+     /**
+      * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
+      * <p> 示例值：{"select_option_edit": {"字段1"：0}}
+      */
         private Map<String, Map<String, Integer>> fieldActionRules;
 
         /**
          * 数据表权限
          * <p> 示例值：0
-         *
          * @param tablePerm
          * @return
          */
         public Builder tablePerm(Integer tablePerm) {
-            this.tablePerm = tablePerm;
-            return this;
+             this.tablePerm = tablePerm;
+             return this;
         }
-
         /**
          * 数据表权限
          * <p> 示例值：0
-         *
          * @param tablePerm {@link com.lark.oapi.service.base.v2.enums.TableRoleTablePermEnum}
          * @return
          */
         public Builder tablePerm(com.lark.oapi.service.base.v2.enums.TableRoleTablePermEnum tablePerm) {
-            this.tablePerm = tablePerm.getValue();
-            return this;
+             this.tablePerm = tablePerm.getValue();
+             return this;
         }
 
+    
 
         /**
          * 数据表名
          * <p> 示例值：数据表1
-         *
          * @param tableName
          * @return
          */
         public Builder tableName(String tableName) {
-            this.tableName = tableName;
-            return this;
+             this.tableName = tableName;
+             return this;
         }
 
+    
 
         /**
          * 数据表ID
          * <p> 示例值：tblKz5D60T4JlfcT
-         *
          * @param tableId
          * @return
          */
         public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
+             this.tableId = tableId;
+             return this;
         }
 
+    
 
         /**
          * 记录筛选条件，在table_perm为1或2时有意义，用于指定可编辑或可阅读某些记录
          * <p> 示例值：
-         *
          * @param recRule
          * @return
          */
         public Builder recRule(RecRule recRule) {
-            this.recRule = recRule;
-            return this;
+             this.recRule = recRule;
+             return this;
         }
 
+    
 
         /**
          * 记录筛选条件，在rec_rule.Perm为2时有意义，用于指定剩余可阅读的记录
          * <p> 示例值：
-         *
          * @param otherRecRule
          * @return
          */
         public Builder otherRecRule(OtherRecRule otherRecRule) {
-            this.otherRecRule = otherRecRule;
-            return this;
+             this.otherRecRule = otherRecRule;
+             return this;
         }
 
+    
 
         /**
          * 字段权限，仅在table_perm为2时有意义，设置字段可编辑或可阅读
          * <p> 示例值：{"姓名": 1, "年龄": 2}
-         *
          * @param fieldPerm
          * @return
          */
         public Builder fieldPerm(Map<String, Integer> fieldPerm) {
-            this.fieldPerm = fieldPerm;
-            return this;
+             this.fieldPerm = fieldPerm;
+             return this;
         }
 
+    
 
         /**
          * 新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增
          * <p> 示例值：true
-         *
          * @param allowAddRecord
          * @return
          */
         public Builder allowAddRecord(Boolean allowAddRecord) {
-            this.allowAddRecord = allowAddRecord;
-            return this;
+             this.allowAddRecord = allowAddRecord;
+             return this;
         }
 
+    
 
         /**
          * 删除记录权限，仅在table_perm为2时有意义，用于设置记录是否可以删除
          * <p> 示例值：true
-         *
          * @param allowDeleteRecord
          * @return
          */
         public Builder allowDeleteRecord(Boolean allowDeleteRecord) {
-            this.allowDeleteRecord = allowDeleteRecord;
-            return this;
+             this.allowDeleteRecord = allowDeleteRecord;
+             return this;
         }
 
+    
 
         /**
          * 视图权限
          * <p> 示例值：2
-         *
          * @param viewPerm
          * @return
          */
         public Builder viewPerm(Integer viewPerm) {
-            this.viewPerm = viewPerm;
-            return this;
+             this.viewPerm = viewPerm;
+             return this;
         }
-
         /**
          * 视图权限
          * <p> 示例值：2
-         *
          * @param viewPerm {@link com.lark.oapi.service.base.v2.enums.TableRoleViewPermEnum}
          * @return
          */
         public Builder viewPerm(com.lark.oapi.service.base.v2.enums.TableRoleViewPermEnum viewPerm) {
-            this.viewPerm = viewPerm.getValue();
-            return this;
+             this.viewPerm = viewPerm.getValue();
+             return this;
         }
 
+    
 
         /**
          * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
          * <p> 示例值：{"vewEYknYcC": 0}
-         *
          * @param viewRules
          * @return
          */
         public Builder viewRules(Map<String, Integer> viewRules) {
-            this.viewRules = viewRules;
-            return this;
+             this.viewRules = viewRules;
+             return this;
         }
 
+    
 
         /**
          * 可读的视图集合，仅在view_perm为1时有意义，未设置表示所有视图可读
          * <p> 示例值：{"select_option_edit": {"字段1"：0}}
-         *
          * @param fieldActionRules
          * @return
          */
         public Builder fieldActionRules(Map<String, Map<String, Integer>> fieldActionRules) {
-            this.fieldActionRules = fieldActionRules;
-            return this;
+             this.fieldActionRules = fieldActionRules;
+             return this;
         }
 
+    
+    
+    public TableRole build(){
+        return new TableRole(this);
+      }
+    }
 
-        public TableRole build() {
-            return new TableRole(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

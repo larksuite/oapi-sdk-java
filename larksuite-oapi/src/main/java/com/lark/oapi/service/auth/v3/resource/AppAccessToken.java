@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.auth.v3.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.auth.v3.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class AppAccessToken {
         this.config = config;
     }
 
-
+    
     /**
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=auth&resource=app_access_token&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=auth&resource=app_access_token&version=v3</a> ;
@@ -63,7 +58,7 @@ public class AppAccessToken {
                 , "/open-apis/auth/v3/app_access_token"
                 , Sets.newHashSet()
                 , req);
-
+        
         // 反序列化
         CreateAppAccessTokenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppAccessTokenResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class AppAccessToken {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/auth/v3/app_access_token"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class AppAccessToken {
                 , "/open-apis/auth/v3/app_access_token"
                 , Sets.newHashSet()
                 , req);
-
+        
         // 反序列化
         CreateAppAccessTokenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppAccessTokenResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class AppAccessToken {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/auth/v3/app_access_token"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=internal&project=auth&resource=app_access_token&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=internal&project=auth&resource=app_access_token&version=v3</a> ;
@@ -129,7 +123,7 @@ public class AppAccessToken {
                 , "/open-apis/auth/v3/app_access_token/internal"
                 , Sets.newHashSet()
                 , req);
-
+        
         // 反序列化
         InternalAppAccessTokenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, InternalAppAccessTokenResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class AppAccessToken {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/auth/v3/app_access_token/internal"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class AppAccessToken {
                 , "/open-apis/auth/v3/app_access_token/internal"
                 , Sets.newHashSet()
                 , req);
-
+        
         // 反序列化
         InternalAppAccessTokenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, InternalAppAccessTokenResp.class);
         if (resp == null) {
@@ -169,13 +163,13 @@ public class AppAccessToken {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/auth/v3/app_access_token/internal"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

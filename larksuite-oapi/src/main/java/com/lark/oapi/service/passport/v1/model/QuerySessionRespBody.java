@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.passport.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QuerySessionRespBody {
-    /**
-     * 用户登录信息
-     * <p> 示例值：[{"create_time":"1644983127","terminal_type":2,"user_id":"47f621ff"},{"create_time":"1644980493","terminal_type":2,"user_id":"47f621ff"}]
-     */
+     /**
+      * 用户登录信息
+      * <p> 示例值：[{"create_time":"1644983127","terminal_type":2,"user_id":"47f621ff"},{"create_time":"1644980493","terminal_type":2,"user_id":"47f621ff"}]
+      */
     @SerializedName("mask_sessions")
     private MaskSession[] maskSessions;
-
     public MaskSession[] getMaskSessions() {
         return this.maskSessions;
     }

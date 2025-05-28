@@ -12,36 +12,20 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProcessApprovalInfoReq {
     @Body
     private ProcessApprovalInfoReqBody body;
-
-    // builder 开始
-    public ProcessApprovalInfoReq() {
-    }
-
-    public ProcessApprovalInfoReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
 
     public ProcessApprovalInfoReqBody getProcessApprovalInfoReqBody() {
         return this.body;
@@ -51,27 +35,36 @@ public class ProcessApprovalInfoReq {
         this.body = body;
     }
 
+// builder 开始
+  public ProcessApprovalInfoReq(){}
+
+  public ProcessApprovalInfoReq(Builder builder){
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private ProcessApprovalInfoReqBody body;
-
+    
         public ProcessApprovalInfoReqBody getProcessApprovalInfoReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder processApprovalInfoReqBody(ProcessApprovalInfoReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public ProcessApprovalInfoReq build(){
+        return new ProcessApprovalInfoReq(this);
+      }
+    }
 
-        public ProcessApprovalInfoReq build() {
-            return new ProcessApprovalInfoReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

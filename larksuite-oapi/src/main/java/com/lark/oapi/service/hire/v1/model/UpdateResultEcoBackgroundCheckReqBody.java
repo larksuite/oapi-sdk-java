@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateResultEcoBackgroundCheckReqBody {
-    /**
-     * 背调 ID
-     * <p> 示例值：6931286400470354183
-     */
+     /**
+      * 背调 ID
+      * <p> 示例值：6931286400470354183
+      */
     @SerializedName("background_check_id")
     private String backgroundCheckId;
-    /**
-     * 背调结果
-     * <p> 示例值：无差异
-     */
+     /**
+      * 背调结果
+      * <p> 示例值：无差异
+      */
     @SerializedName("result")
     private String result;
-    /**
-     * 背调结果时间
-     * <p> 示例值：1660123456789
-     */
+     /**
+      * 背调结果时间
+      * <p> 示例值：1660123456789
+      */
     @SerializedName("result_time")
     private String resultTime;
-    /**
-     * 操作人角色，默认值为 1
-     * <p> 示例值：1
-     */
+     /**
+      * 操作人角色，默认值为 1
+      * <p> 示例值：1
+      */
     @SerializedName("operator_role")
     private Integer operatorRole;
-    /**
-     * 报告列表
-     * <p> 示例值：
-     */
+     /**
+      * 报告列表
+      * <p> 示例值：
+      */
     @SerializedName("report_file_list")
     private EcoBackgroundCheckReportFile[] reportFileList;
-
-    // builder 开始
-    public UpdateResultEcoBackgroundCheckReqBody() {
-    }
-
-    public UpdateResultEcoBackgroundCheckReqBody(Builder builder) {
-        /**
-         * 背调 ID
-         * <p> 示例值：6931286400470354183
-         */
-        this.backgroundCheckId = builder.backgroundCheckId;
-        /**
-         * 背调结果
-         * <p> 示例值：无差异
-         */
-        this.result = builder.result;
-        /**
-         * 背调结果时间
-         * <p> 示例值：1660123456789
-         */
-        this.resultTime = builder.resultTime;
-        /**
-         * 操作人角色，默认值为 1
-         * <p> 示例值：1
-         */
-        this.operatorRole = builder.operatorRole;
-        /**
-         * 报告列表
-         * <p> 示例值：
-         */
-        this.reportFileList = builder.reportFileList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBackgroundCheckId() {
         return this.backgroundCheckId;
     }
@@ -135,100 +94,136 @@ public class UpdateResultEcoBackgroundCheckReqBody {
         this.reportFileList = reportFileList;
     }
 
+
+// builder 开始
+  public UpdateResultEcoBackgroundCheckReqBody(){}
+
+  public UpdateResultEcoBackgroundCheckReqBody(Builder builder){
+         /**
+          * 背调 ID
+          * <p> 示例值：6931286400470354183
+          */
+      this.backgroundCheckId = builder.backgroundCheckId;
+         /**
+          * 背调结果
+          * <p> 示例值：无差异
+          */
+      this.result = builder.result;
+         /**
+          * 背调结果时间
+          * <p> 示例值：1660123456789
+          */
+      this.resultTime = builder.resultTime;
+         /**
+          * 操作人角色，默认值为 1
+          * <p> 示例值：1
+          */
+      this.operatorRole = builder.operatorRole;
+         /**
+          * 报告列表
+          * <p> 示例值：
+          */
+      this.reportFileList = builder.reportFileList;
+  }
+
     public static class Builder {
-        /**
-         * 背调 ID
-         * <p> 示例值：6931286400470354183
-         */
+     /**
+      * 背调 ID
+      * <p> 示例值：6931286400470354183
+      */
         private String backgroundCheckId;
-        /**
-         * 背调结果
-         * <p> 示例值：无差异
-         */
+     /**
+      * 背调结果
+      * <p> 示例值：无差异
+      */
         private String result;
-        /**
-         * 背调结果时间
-         * <p> 示例值：1660123456789
-         */
+     /**
+      * 背调结果时间
+      * <p> 示例值：1660123456789
+      */
         private String resultTime;
-        /**
-         * 操作人角色，默认值为 1
-         * <p> 示例值：1
-         */
+     /**
+      * 操作人角色，默认值为 1
+      * <p> 示例值：1
+      */
         private Integer operatorRole;
-        /**
-         * 报告列表
-         * <p> 示例值：
-         */
+     /**
+      * 报告列表
+      * <p> 示例值：
+      */
         private EcoBackgroundCheckReportFile[] reportFileList;
 
         /**
          * 背调 ID
          * <p> 示例值：6931286400470354183
-         *
          * @param backgroundCheckId
          * @return
          */
         public Builder backgroundCheckId(String backgroundCheckId) {
-            this.backgroundCheckId = backgroundCheckId;
-            return this;
+             this.backgroundCheckId = backgroundCheckId;
+             return this;
         }
 
+    
 
         /**
          * 背调结果
          * <p> 示例值：无差异
-         *
          * @param result
          * @return
          */
         public Builder result(String result) {
-            this.result = result;
-            return this;
+             this.result = result;
+             return this;
         }
 
+    
 
         /**
          * 背调结果时间
          * <p> 示例值：1660123456789
-         *
          * @param resultTime
          * @return
          */
         public Builder resultTime(String resultTime) {
-            this.resultTime = resultTime;
-            return this;
+             this.resultTime = resultTime;
+             return this;
         }
 
+    
 
         /**
          * 操作人角色，默认值为 1
          * <p> 示例值：1
-         *
          * @param operatorRole
          * @return
          */
         public Builder operatorRole(Integer operatorRole) {
-            this.operatorRole = operatorRole;
-            return this;
+             this.operatorRole = operatorRole;
+             return this;
         }
 
+    
 
         /**
          * 报告列表
          * <p> 示例值：
-         *
          * @param reportFileList
          * @return
          */
         public Builder reportFileList(EcoBackgroundCheckReportFile[] reportFileList) {
-            this.reportFileList = reportFileList;
-            return this;
+             this.reportFileList = reportFileList;
+             return this;
         }
 
+    
+    
+    public UpdateResultEcoBackgroundCheckReqBody build(){
+        return new UpdateResultEcoBackgroundCheckReqBody(this);
+      }
+    }
 
-        public UpdateResultEcoBackgroundCheckReqBody build() {
-            return new UpdateResultEcoBackgroundCheckReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,20 +17,19 @@ package com.lark.oapi.service.aily.v1.enums;
  * 内置的消息交互类型
  */
 public enum BuiltinActionBuiltinActionTypeEnum {
-    FEEDBACK("FEEDBACK"), // 点赞点踩
-    REVOKE("REVOKE"), // 撤销
-    REGENERATE("REGENERATE"), // 重新生成
-    PIN("PIN"), // 收藏
-    DETAIL("DETAIL"), // 查看详情
-    CANCEL("CANCEL"), // 取消
-    ;
-    private String value;
-
+     FEEDBACK("FEEDBACK"), // 点赞点踩
+     REVOKE("REVOKE"), // 撤销
+     REGENERATE("REGENERATE"), // 重新生成
+     PIN("PIN"), // 收藏
+     DETAIL("DETAIL"), // 查看详情
+     CANCEL("CANCEL"), // 取消
+  ;
+   private String value;
     BuiltinActionBuiltinActionTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

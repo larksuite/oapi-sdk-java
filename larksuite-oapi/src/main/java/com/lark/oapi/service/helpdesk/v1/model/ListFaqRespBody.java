@@ -12,53 +12,48 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListFaqRespBody {
-    /**
-     * if there's next page
-     * <p> 示例值：true
-     */
+     /**
+      * if there's next page
+      * <p> 示例值：true
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-    /**
-     * the next page token
-     * <p> 示例值：6856395634652479491
-     */
+     /**
+      * the next page token
+      * <p> 示例值：6856395634652479491
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 实际返回的FAQ数量
-     * <p> 示例值：100
-     */
+     /**
+      * 实际返回的FAQ数量
+      * <p> 示例值：100
+      */
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 总数
-     * <p> 示例值：200
-     */
+     /**
+      * 总数
+      * <p> 示例值：200
+      */
     @SerializedName("total")
     private Integer total;
-    /**
-     * 知识库列表
-     * <p> 示例值：
-     */
+     /**
+      * 知识库列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private Faq[] items;
-
     public Boolean getHasMore() {
         return this.hasMore;
     }

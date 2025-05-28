@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchTalentOperationLogReqBody {
-    /**
-     * 职位 ID 列表
-     * <p> 示例值：6949805467799537964
-     */
+     /**
+      * 职位 ID 列表
+      * <p> 示例值：6949805467799537964
+      */
     @SerializedName("job_id_list")
     private String[] jobIdList;
-    /**
-     * 操作人 ID 列表
-     * <p> 示例值：ou_e6139117c300506837def50545420c6a
-     */
+     /**
+      * 操作人 ID 列表
+      * <p> 示例值：ou_e6139117c300506837def50545420c6a
+      */
     @SerializedName("operator_id_list")
     private String[] operatorIdList;
-    /**
-     * 操作类型 ID 列表
-     * <p> 示例值："3001"
-     */
+     /**
+      * 操作类型 ID 列表
+      * <p> 示例值："3001"
+      */
     @SerializedName("operation_list")
     private Integer[] operationList;
-
-    // builder 开始
-    public SearchTalentOperationLogReqBody() {
-    }
-
-    public SearchTalentOperationLogReqBody(Builder builder) {
-        /**
-         * 职位 ID 列表
-         * <p> 示例值：6949805467799537964
-         */
-        this.jobIdList = builder.jobIdList;
-        /**
-         * 操作人 ID 列表
-         * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         */
-        this.operatorIdList = builder.operatorIdList;
-        /**
-         * 操作类型 ID 列表
-         * <p> 示例值："3001"
-         */
-        this.operationList = builder.operationList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getJobIdList() {
         return this.jobIdList;
     }
@@ -97,64 +66,90 @@ public class SearchTalentOperationLogReqBody {
         this.operationList = operationList;
     }
 
+
+// builder 开始
+  public SearchTalentOperationLogReqBody(){}
+
+  public SearchTalentOperationLogReqBody(Builder builder){
+         /**
+          * 职位 ID 列表
+          * <p> 示例值：6949805467799537964
+          */
+      this.jobIdList = builder.jobIdList;
+         /**
+          * 操作人 ID 列表
+          * <p> 示例值：ou_e6139117c300506837def50545420c6a
+          */
+      this.operatorIdList = builder.operatorIdList;
+         /**
+          * 操作类型 ID 列表
+          * <p> 示例值："3001"
+          */
+      this.operationList = builder.operationList;
+  }
+
     public static class Builder {
-        /**
-         * 职位 ID 列表
-         * <p> 示例值：6949805467799537964
-         */
+     /**
+      * 职位 ID 列表
+      * <p> 示例值：6949805467799537964
+      */
         private String[] jobIdList;
-        /**
-         * 操作人 ID 列表
-         * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         */
+     /**
+      * 操作人 ID 列表
+      * <p> 示例值：ou_e6139117c300506837def50545420c6a
+      */
         private String[] operatorIdList;
-        /**
-         * 操作类型 ID 列表
-         * <p> 示例值："3001"
-         */
+     /**
+      * 操作类型 ID 列表
+      * <p> 示例值："3001"
+      */
         private Integer[] operationList;
 
         /**
          * 职位 ID 列表
          * <p> 示例值：6949805467799537964
-         *
          * @param jobIdList
          * @return
          */
         public Builder jobIdList(String[] jobIdList) {
-            this.jobIdList = jobIdList;
-            return this;
+             this.jobIdList = jobIdList;
+             return this;
         }
 
+    
 
         /**
          * 操作人 ID 列表
          * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         *
          * @param operatorIdList
          * @return
          */
         public Builder operatorIdList(String[] operatorIdList) {
-            this.operatorIdList = operatorIdList;
-            return this;
+             this.operatorIdList = operatorIdList;
+             return this;
         }
 
+    
 
         /**
          * 操作类型 ID 列表
          * <p> 示例值："3001"
-         *
          * @param operationList
          * @return
          */
         public Builder operationList(Integer[] operationList) {
-            this.operationList = operationList;
-            return this;
+             this.operationList = operationList;
+             return this;
         }
 
+    
+    
+    public SearchTalentOperationLogReqBody build(){
+        return new SearchTalentOperationLogReqBody(this);
+      }
+    }
 
-        public SearchTalentOperationLogReqBody build() {
-            return new SearchTalentOperationLogReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

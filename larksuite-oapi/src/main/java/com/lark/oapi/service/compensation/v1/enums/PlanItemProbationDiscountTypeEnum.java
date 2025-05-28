@@ -17,20 +17,19 @@ package com.lark.oapi.service.compensation.v1.enums;
  * 试用期薪酬类型
  */
 public enum PlanItemProbationDiscountTypeEnum {
-    PERCENTUM("percentum"), // 百分比
-    MANUALINPUT("manual_input"), // 手动输入
-    NONE("none"), // 不区分试用期和转正薪酬
-    FIXED("fixed"), // 固定值
-    FORMULA("formula"), // 公式计算
-    NOTSET("not_set"), // 未设置试用期
-    ;
-    private String value;
-
+     PERCENTUM("percentum"), // 百分比
+     MANUALINPUT("manual_input"), // 手动输入
+     NONE("none"), // 不区分试用期和转正薪酬
+     FIXED("fixed"), // 固定值
+     FORMULA("formula"), // 公式计算
+     NOTSET("not_set"), // 未设置试用期
+  ;
+   private String value;
     PlanItemProbationDiscountTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

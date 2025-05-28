@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EmergencyContact {
-    /**
-     * ID
-     * <p> 示例值：123
-     */
+     /**
+      * ID
+      * <p> 示例值：123
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 姓名
-     * <p> 示例值：
-     */
+     /**
+      * 姓名
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private PersonName name;
-    /**
-     * 关系
-     * <p> 示例值：
-     */
+     /**
+      * 关系
+      * <p> 示例值：
+      */
     @SerializedName("relationship")
     private Enum relationship;
-    /**
-     * 电话
-     * <p> 示例值：
-     */
+     /**
+      * 电话
+      * <p> 示例值：
+      */
     @SerializedName("phone_ist")
     private Phone[] phoneIst;
-    /**
-     * 电话
-     * <p> 示例值：
-     */
+     /**
+      * 电话
+      * <p> 示例值：
+      */
     @SerializedName("phone_list")
     private Phone[] phoneList;
-    /**
-     * 法定姓名
-     * <p> 示例值：张三
-     */
+     /**
+      * 法定姓名
+      * <p> 示例值：张三
+      */
     @SerializedName("legal_name")
     private String legalName;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
-    /**
-     * 联系地址
-     * <p> 示例值：
-     */
+     /**
+      * 联系地址
+      * <p> 示例值：
+      */
     @SerializedName("address")
     private Address address;
-    /**
-     * 邮箱
-     * <p> 示例值：
-     */
+     /**
+      * 邮箱
+      * <p> 示例值：
+      */
     @SerializedName("email")
     private Email email;
-    /**
-     * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
-     * <p> 示例值：true
-     */
+     /**
+      * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
+      * <p> 示例值：true
+      */
     @SerializedName("is_primary")
     private Boolean isPrimary;
-
-    // builder 开始
-    public EmergencyContact() {
-    }
-
-    public EmergencyContact(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：123
-         */
-        this.id = builder.id;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 关系
-         * <p> 示例值：
-         */
-        this.relationship = builder.relationship;
-        /**
-         * 电话
-         * <p> 示例值：
-         */
-        this.phoneIst = builder.phoneIst;
-        /**
-         * 电话
-         * <p> 示例值：
-         */
-        this.phoneList = builder.phoneList;
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         */
-        this.legalName = builder.legalName;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
-        this.address = builder.address;
-        /**
-         * 邮箱
-         * <p> 示例值：
-         */
-        this.email = builder.email;
-        /**
-         * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
-         * <p> 示例值：true
-         */
-        this.isPrimary = builder.isPrimary;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -231,190 +165,251 @@ public class EmergencyContact {
         this.isPrimary = isPrimary;
     }
 
+
+// builder 开始
+  public EmergencyContact(){}
+
+  public EmergencyContact(Builder builder){
+         /**
+          * ID
+          * <p> 示例值：123
+          */
+      this.id = builder.id;
+         /**
+          * 姓名
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 关系
+          * <p> 示例值：
+          */
+      this.relationship = builder.relationship;
+         /**
+          * 电话
+          * <p> 示例值：
+          */
+      this.phoneIst = builder.phoneIst;
+         /**
+          * 电话
+          * <p> 示例值：
+          */
+      this.phoneList = builder.phoneList;
+         /**
+          * 法定姓名
+          * <p> 示例值：张三
+          */
+      this.legalName = builder.legalName;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 联系地址
+          * <p> 示例值：
+          */
+      this.address = builder.address;
+         /**
+          * 邮箱
+          * <p> 示例值：
+          */
+      this.email = builder.email;
+         /**
+          * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
+          * <p> 示例值：true
+          */
+      this.isPrimary = builder.isPrimary;
+  }
+
     public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：123
-         */
+     /**
+      * ID
+      * <p> 示例值：123
+      */
         private String id;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
+     /**
+      * 姓名
+      * <p> 示例值：
+      */
         private PersonName name;
-        /**
-         * 关系
-         * <p> 示例值：
-         */
+     /**
+      * 关系
+      * <p> 示例值：
+      */
         private Enum relationship;
-        /**
-         * 电话
-         * <p> 示例值：
-         */
+     /**
+      * 电话
+      * <p> 示例值：
+      */
         private Phone[] phoneIst;
-        /**
-         * 电话
-         * <p> 示例值：
-         */
+     /**
+      * 电话
+      * <p> 示例值：
+      */
         private Phone[] phoneList;
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         */
+     /**
+      * 法定姓名
+      * <p> 示例值：张三
+      */
         private String legalName;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private CustomFieldData[] customFields;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
+     /**
+      * 联系地址
+      * <p> 示例值：
+      */
         private Address address;
-        /**
-         * 邮箱
-         * <p> 示例值：
-         */
+     /**
+      * 邮箱
+      * <p> 示例值：
+      */
         private Email email;
-        /**
-         * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
-         * <p> 示例值：true
-         */
+     /**
+      * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
+      * <p> 示例值：true
+      */
         private Boolean isPrimary;
 
         /**
          * ID
          * <p> 示例值：123
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 姓名
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(PersonName name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 关系
          * <p> 示例值：
-         *
          * @param relationship
          * @return
          */
         public Builder relationship(Enum relationship) {
-            this.relationship = relationship;
-            return this;
+             this.relationship = relationship;
+             return this;
         }
 
+    
 
         /**
          * 电话
          * <p> 示例值：
-         *
          * @param phoneIst
          * @return
          */
         public Builder phoneIst(Phone[] phoneIst) {
-            this.phoneIst = phoneIst;
-            return this;
+             this.phoneIst = phoneIst;
+             return this;
         }
 
+    
 
         /**
          * 电话
          * <p> 示例值：
-         *
          * @param phoneList
          * @return
          */
         public Builder phoneList(Phone[] phoneList) {
-            this.phoneList = phoneList;
-            return this;
+             this.phoneList = phoneList;
+             return this;
         }
 
+    
 
         /**
          * 法定姓名
          * <p> 示例值：张三
-         *
          * @param legalName
          * @return
          */
         public Builder legalName(String legalName) {
-            this.legalName = legalName;
-            return this;
+             this.legalName = legalName;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 联系地址
          * <p> 示例值：
-         *
          * @param address
          * @return
          */
         public Builder address(Address address) {
-            this.address = address;
-            return this;
+             this.address = address;
+             return this;
         }
 
+    
 
         /**
          * 邮箱
          * <p> 示例值：
-         *
          * @param email
          * @return
          */
         public Builder email(Email email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
 
         /**
          * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
          * <p> 示例值：true
-         *
          * @param isPrimary
          * @return
          */
         public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = isPrimary;
-            return this;
+             this.isPrimary = isPrimary;
+             return this;
         }
 
+    
+    
+    public EmergencyContact build(){
+        return new EmergencyContact(this);
+      }
+    }
 
-        public EmergencyContact build() {
-            return new EmergencyContact(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

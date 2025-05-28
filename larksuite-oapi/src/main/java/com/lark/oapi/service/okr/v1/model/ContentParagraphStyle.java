@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ContentParagraphStyle {
-    /**
-     * 有序列表/无序列表/任务列表
-     * <p> 示例值：
-     */
+     /**
+      * 有序列表/无序列表/任务列表
+      * <p> 示例值：
+      */
     @SerializedName("list")
     private ContentList list;
-
-    // builder 开始
-    public ContentParagraphStyle() {
-    }
-
-    public ContentParagraphStyle(Builder builder) {
-        /**
-         * 有序列表/无序列表/任务列表
-         * <p> 示例值：
-         */
-        this.list = builder.list;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ContentList getList() {
         return this.list;
     }
@@ -60,28 +39,44 @@ public class ContentParagraphStyle {
         this.list = list;
     }
 
+
+// builder 开始
+  public ContentParagraphStyle(){}
+
+  public ContentParagraphStyle(Builder builder){
+         /**
+          * 有序列表/无序列表/任务列表
+          * <p> 示例值：
+          */
+      this.list = builder.list;
+  }
+
     public static class Builder {
-        /**
-         * 有序列表/无序列表/任务列表
-         * <p> 示例值：
-         */
+     /**
+      * 有序列表/无序列表/任务列表
+      * <p> 示例值：
+      */
         private ContentList list;
 
         /**
          * 有序列表/无序列表/任务列表
          * <p> 示例值：
-         *
          * @param list
          * @return
          */
         public Builder list(ContentList list) {
-            this.list = list;
-            return this;
+             this.list = list;
+             return this;
         }
 
+    
+    
+    public ContentParagraphStyle build(){
+        return new ContentParagraphStyle(this);
+      }
+    }
 
-        public ContentParagraphStyle build() {
-            return new ContentParagraphStyle(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

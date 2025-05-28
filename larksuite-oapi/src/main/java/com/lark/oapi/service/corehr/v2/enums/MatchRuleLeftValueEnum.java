@@ -17,25 +17,24 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 左值
  */
 public enum MatchRuleLeftValueEnum {
-    DEPARTMENT("department"), // 部门
-    DEPARTMENT_HIERARCHY("department_hierarchy"), // 部门（含下级）
-    WORK_LOCATION("work_location"), // 工作地点
-    WORK_LOCATION_HIERARCHY("work_location_hierarchy"), // 工作地点（含下级）
-    COST_CENTER("cost_center"), // 成本中心
-    COST_CENTER_HIERARCHY("cost_center_hierarchy"), // 成本中心（含下级）
-    JOB("job"), // 职务
-    JOB_LEVEL("job_level"), // 职级
-    JOB_FAMILY("job_family"), // 序列
-    JOB_FAMILY_HIERARCHY("job_family_hierarchy"), // 序列（含下级）
-    EMPLOYEE_TYPE("employee_type"), // 人员类型
-    ;
-    private String value;
-
+     DEPARTMENT("department"), // 部门
+     DEPARTMENT_HIERARCHY("department_hierarchy"), // 部门（含下级）
+     WORK_LOCATION("work_location"), // 工作地点
+     WORK_LOCATION_HIERARCHY("work_location_hierarchy"), // 工作地点（含下级）
+     COST_CENTER("cost_center"), // 成本中心
+     COST_CENTER_HIERARCHY("cost_center_hierarchy"), // 成本中心（含下级）
+     JOB("job"), // 职务
+     JOB_LEVEL("job_level"), // 职级
+     JOB_FAMILY("job_family"), // 序列
+     JOB_FAMILY_HIERARCHY("job_family_hierarchy"), // 序列（含下级）
+     EMPLOYEE_TYPE("employee_type"), // 人员类型
+  ;
+   private String value;
     MatchRuleLeftValueEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

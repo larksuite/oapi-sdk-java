@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FeedGroupUpdater {
-    /**
-     * 标签 ID
-     * <p> 示例值：7091086414609645828
-     */
+     /**
+      * 标签 ID
+      * <p> 示例值：7091086414609645828
+      */
     @SerializedName("group_id")
     private String groupId;
-    /**
-     * 标签名
-     * <p> 示例值：test
-     */
+     /**
+      * 标签名
+      * <p> 示例值：test
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 标签规则列表
-     * <p> 示例值：
-     */
+     /**
+      * 标签规则列表
+      * <p> 示例值：
+      */
     @SerializedName("rules")
     private FeedGroupRules rules;
-    /**
-     * 更新字段列表
-     * <p> 示例值：
-     */
+     /**
+      * 更新字段列表
+      * <p> 示例值：
+      */
     @SerializedName("update_fields")
     private String[] updateFields;
-
-    // builder 开始
-    public FeedGroupUpdater() {
-    }
-
-    public FeedGroupUpdater(Builder builder) {
-        /**
-         * 标签 ID
-         * <p> 示例值：7091086414609645828
-         */
-        this.groupId = builder.groupId;
-        /**
-         * 标签名
-         * <p> 示例值：test
-         */
-        this.name = builder.name;
-        /**
-         * 标签规则列表
-         * <p> 示例值：
-         */
-        this.rules = builder.rules;
-        /**
-         * 更新字段列表
-         * <p> 示例值：
-         */
-        this.updateFields = builder.updateFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getGroupId() {
         return this.groupId;
     }
@@ -117,82 +81,113 @@ public class FeedGroupUpdater {
         this.updateFields = updateFields;
     }
 
+
+// builder 开始
+  public FeedGroupUpdater(){}
+
+  public FeedGroupUpdater(Builder builder){
+         /**
+          * 标签 ID
+          * <p> 示例值：7091086414609645828
+          */
+      this.groupId = builder.groupId;
+         /**
+          * 标签名
+          * <p> 示例值：test
+          */
+      this.name = builder.name;
+         /**
+          * 标签规则列表
+          * <p> 示例值：
+          */
+      this.rules = builder.rules;
+         /**
+          * 更新字段列表
+          * <p> 示例值：
+          */
+      this.updateFields = builder.updateFields;
+  }
+
     public static class Builder {
-        /**
-         * 标签 ID
-         * <p> 示例值：7091086414609645828
-         */
+     /**
+      * 标签 ID
+      * <p> 示例值：7091086414609645828
+      */
         private String groupId;
-        /**
-         * 标签名
-         * <p> 示例值：test
-         */
+     /**
+      * 标签名
+      * <p> 示例值：test
+      */
         private String name;
-        /**
-         * 标签规则列表
-         * <p> 示例值：
-         */
+     /**
+      * 标签规则列表
+      * <p> 示例值：
+      */
         private FeedGroupRules rules;
-        /**
-         * 更新字段列表
-         * <p> 示例值：
-         */
+     /**
+      * 更新字段列表
+      * <p> 示例值：
+      */
         private String[] updateFields;
 
         /**
          * 标签 ID
          * <p> 示例值：7091086414609645828
-         *
          * @param groupId
          * @return
          */
         public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
+             this.groupId = groupId;
+             return this;
         }
 
+    
 
         /**
          * 标签名
          * <p> 示例值：test
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 标签规则列表
          * <p> 示例值：
-         *
          * @param rules
          * @return
          */
         public Builder rules(FeedGroupRules rules) {
-            this.rules = rules;
-            return this;
+             this.rules = rules;
+             return this;
         }
 
+    
 
         /**
          * 更新字段列表
          * <p> 示例值：
-         *
          * @param updateFields
          * @return
          */
         public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
+             this.updateFields = updateFields;
+             return this;
         }
 
+    
+    
+    public FeedGroupUpdater build(){
+        return new FeedGroupUpdater(this);
+      }
+    }
 
-        public FeedGroupUpdater build() {
-            return new FeedGroupUpdater(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

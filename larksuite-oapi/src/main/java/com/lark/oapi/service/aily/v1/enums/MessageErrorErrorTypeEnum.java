@@ -17,17 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * 错误类型
  */
 public enum MessageErrorErrorTypeEnum {
-    SYSTEM("SYSTEM"), // 系统错误
-    MAKER("MAKER"), // 开发者配置错误
-    USER("USER"), // 用户输入错误
-    ;
-    private String value;
-
+     SYSTEM("SYSTEM"), // 系统错误
+     MAKER("MAKER"), // 开发者配置错误
+     USER("USER"), // 用户输入错误
+  ;
+   private String value;
     MessageErrorErrorTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

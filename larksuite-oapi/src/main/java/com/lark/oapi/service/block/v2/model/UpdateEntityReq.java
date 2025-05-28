@@ -12,48 +12,24 @@
  */
 
 package com.lark.oapi.service.block.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateEntityReq {
-    /**
-     * block唯一标识
-     * <p> 示例值：7794641623571830467
-     */
+     /**
+      * block唯一标识
+      * <p> 示例值：7794641623571830467
+      */
     @Path
     @SerializedName("block_id")
     private String blockId;
-    @Body
-    private Entity body;
-
-    // builder 开始
-    public UpdateEntityReq() {
-    }
-
-    public UpdateEntityReq(Builder builder) {
-        /**
-         * block唯一标识
-         * <p> 示例值：7794641623571830467
-         */
-        this.blockId = builder.blockId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBlockId() {
         return this.blockId;
     }
@@ -61,6 +37,9 @@ public class UpdateEntityReq {
     public void setBlockId(String blockId) {
         this.blockId = blockId;
     }
+
+    @Body
+    private Entity body;
 
     public Entity getEntity() {
         return this.body;
@@ -70,40 +49,54 @@ public class UpdateEntityReq {
         this.body = body;
     }
 
+// builder 开始
+  public UpdateEntityReq(){}
+
+  public UpdateEntityReq(Builder builder){
+     /**
+      * block唯一标识
+      * <p> 示例值：7794641623571830467
+      */
+       this.blockId = builder.blockId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String blockId; // block唯一标识
-        private Entity body;
-
         /**
          * block唯一标识
          * <p> 示例值：7794641623571830467
-         *
          * @param blockId
          * @return
          */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
+          public Builder blockId(String blockId) {
+               this.blockId = blockId;
+               return this;
+          }
 
+    
+        private Entity body;
+    
         public Entity getEntity() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder entity(Entity body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UpdateEntityReq build(){
+        return new UpdateEntityReq(this);
+      }
+    }
 
-        public UpdateEntityReq build() {
-            return new UpdateEntityReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

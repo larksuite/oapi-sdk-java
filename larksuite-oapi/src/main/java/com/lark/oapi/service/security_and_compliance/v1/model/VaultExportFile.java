@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class VaultExportFile {
-    /**
-     * 文件名
-     * <p> 示例值：
-     */
+     /**
+      * 文件名
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 文件大小
-     * <p> 示例值：
-     */
+     /**
+      * 文件大小
+      * <p> 示例值：
+      */
     @SerializedName("size")
     private String size;
-    /**
-     * 文件tos uri
-     * <p> 示例值：
-     */
+     /**
+      * 文件tos uri
+      * <p> 示例值：
+      */
     @SerializedName("url")
     private String url;
-    /**
-     * 文件下载的链接(临时链接，数分钟后失效)
-     * <p> 示例值：
-     */
+     /**
+      * 文件下载的链接(临时链接，数分钟后失效)
+      * <p> 示例值：
+      */
     @SerializedName("download_url")
     private String downloadUrl;
-
-    // builder 开始
-    public VaultExportFile() {
-    }
-
-    public VaultExportFile(Builder builder) {
-        /**
-         * 文件名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 文件大小
-         * <p> 示例值：
-         */
-        this.size = builder.size;
-        /**
-         * 文件tos uri
-         * <p> 示例值：
-         */
-        this.url = builder.url;
-        /**
-         * 文件下载的链接(临时链接，数分钟后失效)
-         * <p> 示例值：
-         */
-        this.downloadUrl = builder.downloadUrl;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -117,82 +81,113 @@ public class VaultExportFile {
         this.downloadUrl = downloadUrl;
     }
 
+
+// builder 开始
+  public VaultExportFile(){}
+
+  public VaultExportFile(Builder builder){
+         /**
+          * 文件名
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 文件大小
+          * <p> 示例值：
+          */
+      this.size = builder.size;
+         /**
+          * 文件tos uri
+          * <p> 示例值：
+          */
+      this.url = builder.url;
+         /**
+          * 文件下载的链接(临时链接，数分钟后失效)
+          * <p> 示例值：
+          */
+      this.downloadUrl = builder.downloadUrl;
+  }
+
     public static class Builder {
-        /**
-         * 文件名
-         * <p> 示例值：
-         */
+     /**
+      * 文件名
+      * <p> 示例值：
+      */
         private String name;
-        /**
-         * 文件大小
-         * <p> 示例值：
-         */
+     /**
+      * 文件大小
+      * <p> 示例值：
+      */
         private String size;
-        /**
-         * 文件tos uri
-         * <p> 示例值：
-         */
+     /**
+      * 文件tos uri
+      * <p> 示例值：
+      */
         private String url;
-        /**
-         * 文件下载的链接(临时链接，数分钟后失效)
-         * <p> 示例值：
-         */
+     /**
+      * 文件下载的链接(临时链接，数分钟后失效)
+      * <p> 示例值：
+      */
         private String downloadUrl;
 
         /**
          * 文件名
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 文件大小
          * <p> 示例值：
-         *
          * @param size
          * @return
          */
         public Builder size(String size) {
-            this.size = size;
-            return this;
+             this.size = size;
+             return this;
         }
 
+    
 
         /**
          * 文件tos uri
          * <p> 示例值：
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
 
         /**
          * 文件下载的链接(临时链接，数分钟后失效)
          * <p> 示例值：
-         *
          * @param downloadUrl
          * @return
          */
         public Builder downloadUrl(String downloadUrl) {
-            this.downloadUrl = downloadUrl;
-            return this;
+             this.downloadUrl = downloadUrl;
+             return this;
         }
 
+    
+    
+    public VaultExportFile build(){
+        return new VaultExportFile(this);
+      }
+    }
 
-        public VaultExportFile build() {
-            return new VaultExportFile(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

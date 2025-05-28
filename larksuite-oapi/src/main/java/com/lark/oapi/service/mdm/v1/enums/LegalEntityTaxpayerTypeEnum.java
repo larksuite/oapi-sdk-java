@@ -17,16 +17,15 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 纳税人类型
  */
 public enum LegalEntityTaxpayerTypeEnum {
-    COMMONTAXPAYER("1"), // 一般纳税人
-    SMALLSCALETAXPAYER("2"), // 小规模纳税人
-    ;
-    private String value;
-
+     COMMONTAXPAYER("1"), // 一般纳税人
+     SMALLSCALETAXPAYER("2"), // 小规模纳税人
+  ;
+   private String value;
     LegalEntityTaxpayerTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

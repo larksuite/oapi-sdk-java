@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReportField {
-    /**
-     * 列簇编
-     * <p> 示例值：fasfa
-     */
+     /**
+      * 列簇编
+      * <p> 示例值：fasfa
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 字段标题
-     * <p> 示例值：日期
-     */
+     /**
+      * 字段标题
+      * <p> 示例值：日期
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 是否可计算
-     * <p> 示例值：true
-     */
+     /**
+      * 是否可计算
+      * <p> 示例值：true
+      */
     @SerializedName("is_calculable")
     private Boolean isCalculable;
-    /**
-     * 归档模版字段id
-     * <p> 示例值：addsacja
-     */
+     /**
+      * 归档模版字段id
+      * <p> 示例值：addsacja
+      */
     @SerializedName("field_id")
     private String fieldId;
-    /**
-     * 子字段列表
-     * <p> 示例值：[{"file_id":"11","code":"111"}]
-     */
+     /**
+      * 子字段列表
+      * <p> 示例值：[{"file_id":"11","code":"111"}]
+      */
     @SerializedName("sub_fields")
     private String subFields;
-    /**
-     * 多语言字段名称
-     * <p> 示例值：
-     */
+     /**
+      * 多语言字段名称
+      * <p> 示例值：
+      */
     @SerializedName("i18n_name")
     private I18nResource[] i18nName;
-
-    // builder 开始
-    public ReportField() {
-    }
-
-    public ReportField(Builder builder) {
-        /**
-         * 列簇编
-         * <p> 示例值：fasfa
-         */
-        this.code = builder.code;
-        /**
-         * 字段标题
-         * <p> 示例值：日期
-         */
-        this.title = builder.title;
-        /**
-         * 是否可计算
-         * <p> 示例值：true
-         */
-        this.isCalculable = builder.isCalculable;
-        /**
-         * 归档模版字段id
-         * <p> 示例值：addsacja
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 子字段列表
-         * <p> 示例值：[{"file_id":"11","code":"111"}]
-         */
-        this.subFields = builder.subFields;
-        /**
-         * 多语言字段名称
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCode() {
         return this.code;
     }
@@ -155,118 +109,159 @@ public class ReportField {
         this.i18nName = i18nName;
     }
 
+
+// builder 开始
+  public ReportField(){}
+
+  public ReportField(Builder builder){
+         /**
+          * 列簇编
+          * <p> 示例值：fasfa
+          */
+      this.code = builder.code;
+         /**
+          * 字段标题
+          * <p> 示例值：日期
+          */
+      this.title = builder.title;
+         /**
+          * 是否可计算
+          * <p> 示例值：true
+          */
+      this.isCalculable = builder.isCalculable;
+         /**
+          * 归档模版字段id
+          * <p> 示例值：addsacja
+          */
+      this.fieldId = builder.fieldId;
+         /**
+          * 子字段列表
+          * <p> 示例值：[{"file_id":"11","code":"111"}]
+          */
+      this.subFields = builder.subFields;
+         /**
+          * 多语言字段名称
+          * <p> 示例值：
+          */
+      this.i18nName = builder.i18nName;
+  }
+
     public static class Builder {
-        /**
-         * 列簇编
-         * <p> 示例值：fasfa
-         */
+     /**
+      * 列簇编
+      * <p> 示例值：fasfa
+      */
         private String code;
-        /**
-         * 字段标题
-         * <p> 示例值：日期
-         */
+     /**
+      * 字段标题
+      * <p> 示例值：日期
+      */
         private String title;
-        /**
-         * 是否可计算
-         * <p> 示例值：true
-         */
+     /**
+      * 是否可计算
+      * <p> 示例值：true
+      */
         private Boolean isCalculable;
-        /**
-         * 归档模版字段id
-         * <p> 示例值：addsacja
-         */
+     /**
+      * 归档模版字段id
+      * <p> 示例值：addsacja
+      */
         private String fieldId;
-        /**
-         * 子字段列表
-         * <p> 示例值：[{"file_id":"11","code":"111"}]
-         */
+     /**
+      * 子字段列表
+      * <p> 示例值：[{"file_id":"11","code":"111"}]
+      */
         private String subFields;
-        /**
-         * 多语言字段名称
-         * <p> 示例值：
-         */
+     /**
+      * 多语言字段名称
+      * <p> 示例值：
+      */
         private I18nResource[] i18nName;
 
         /**
          * 列簇编
          * <p> 示例值：fasfa
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 字段标题
          * <p> 示例值：日期
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 是否可计算
          * <p> 示例值：true
-         *
          * @param isCalculable
          * @return
          */
         public Builder isCalculable(Boolean isCalculable) {
-            this.isCalculable = isCalculable;
-            return this;
+             this.isCalculable = isCalculable;
+             return this;
         }
 
+    
 
         /**
          * 归档模版字段id
          * <p> 示例值：addsacja
-         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
+             this.fieldId = fieldId;
+             return this;
         }
 
+    
 
         /**
          * 子字段列表
          * <p> 示例值：[{"file_id":"11","code":"111"}]
-         *
          * @param subFields
          * @return
          */
         public Builder subFields(String subFields) {
-            this.subFields = subFields;
-            return this;
+             this.subFields = subFields;
+             return this;
         }
 
+    
 
         /**
          * 多语言字段名称
          * <p> 示例值：
-         *
          * @param i18nName
          * @return
          */
         public Builder i18nName(I18nResource[] i18nName) {
-            this.i18nName = i18nName;
-            return this;
+             this.i18nName = i18nName;
+             return this;
         }
 
+    
+    
+    public ReportField build(){
+        return new ReportField(this);
+      }
+    }
 
-        public ReportField build() {
-            return new ReportField(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

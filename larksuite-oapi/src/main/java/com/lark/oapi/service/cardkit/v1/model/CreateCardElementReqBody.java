@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateCardElementReqBody {
-    /**
-     * 添加组件的方式
-     * <p> 示例值：insert_before
-     */
+     /**
+      * 添加组件的方式
+      * <p> 示例值：insert_before
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
-     * <p> 示例值：elem_63529372
-     */
+     /**
+      * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
+      * <p> 示例值：elem_63529372
+      */
     @SerializedName("target_element_id")
     private String targetElementId;
-    /**
-     * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-     * <p> 示例值：191857678434
-     */
+     /**
+      * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
+      * <p> 示例值：191857678434
+      */
     @SerializedName("uuid")
     private String uuid;
-    /**
-     * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-     * <p> 示例值：1712578784
-     */
+     /**
+      * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
+      * <p> 示例值：1712578784
+      */
     @SerializedName("sequence")
     private Integer sequence;
-    /**
-     * 组件列表
-     * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
-     */
+     /**
+      * 组件列表
+      * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
+      */
     @SerializedName("elements")
     private String elements;
-
-    // builder 开始
-    public CreateCardElementReqBody() {
-    }
-
-    public CreateCardElementReqBody(Builder builder) {
-        /**
-         * 添加组件的方式
-         * <p> 示例值：insert_before
-         */
-        this.type = builder.type;
-        /**
-         * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
-         * <p> 示例值：elem_63529372
-         */
-        this.targetElementId = builder.targetElementId;
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
-        this.uuid = builder.uuid;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
-        this.sequence = builder.sequence;
-        /**
-         * 组件列表
-         * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
-         */
-        this.elements = builder.elements;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -136,112 +95,146 @@ public class CreateCardElementReqBody {
         this.elements = elements;
     }
 
+
+// builder 开始
+  public CreateCardElementReqBody(){}
+
+  public CreateCardElementReqBody(Builder builder){
+         /**
+          * 添加组件的方式
+          * <p> 示例值：insert_before
+          */
+      this.type = builder.type;
+         /**
+          * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
+          * <p> 示例值：elem_63529372
+          */
+      this.targetElementId = builder.targetElementId;
+         /**
+          * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
+          * <p> 示例值：191857678434
+          */
+      this.uuid = builder.uuid;
+         /**
+          * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
+          * <p> 示例值：1712578784
+          */
+      this.sequence = builder.sequence;
+         /**
+          * 组件列表
+          * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
+          */
+      this.elements = builder.elements;
+  }
+
     public static class Builder {
-        /**
-         * 添加组件的方式
-         * <p> 示例值：insert_before
-         */
+     /**
+      * 添加组件的方式
+      * <p> 示例值：insert_before
+      */
         private String type;
-        /**
-         * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
-         * <p> 示例值：elem_63529372
-         */
+     /**
+      * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
+      * <p> 示例值：elem_63529372
+      */
         private String targetElementId;
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
+     /**
+      * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
+      * <p> 示例值：191857678434
+      */
         private String uuid;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
+     /**
+      * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
+      * <p> 示例值：1712578784
+      */
         private Integer sequence;
-        /**
-         * 组件列表
-         * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
-         */
+     /**
+      * 组件列表
+      * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
+      */
         private String elements;
 
         /**
          * 添加组件的方式
          * <p> 示例值：insert_before
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 添加组件的方式
          * <p> 示例值：insert_before
-         *
          * @param type {@link com.lark.oapi.service.cardkit.v1.enums.CreateCardElementTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.cardkit.v1.enums.CreateCardElementTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
          * <p> 示例值：elem_63529372
-         *
          * @param targetElementId
          * @return
          */
         public Builder targetElementId(String targetElementId) {
-            this.targetElementId = targetElementId;
-            return this;
+             this.targetElementId = targetElementId;
+             return this;
         }
 
+    
 
         /**
          * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
          * <p> 示例值：191857678434
-         *
          * @param uuid
          * @return
          */
         public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
+             this.uuid = uuid;
+             return this;
         }
 
+    
 
         /**
          * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
          * <p> 示例值：1712578784
-         *
          * @param sequence
          * @return
          */
         public Builder sequence(Integer sequence) {
-            this.sequence = sequence;
-            return this;
+             this.sequence = sequence;
+             return this;
         }
 
+    
 
         /**
          * 组件列表
          * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
-         *
          * @param elements
          * @return
          */
         public Builder elements(String elements) {
-            this.elements = elements;
-            return this;
+             this.elements = elements;
+             return this;
         }
 
+    
+    
+    public CreateCardElementReqBody build(){
+        return new CreateCardElementReqBody(this);
+      }
+    }
 
-        public CreateCardElementReqBody build() {
-            return new CreateCardElementReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

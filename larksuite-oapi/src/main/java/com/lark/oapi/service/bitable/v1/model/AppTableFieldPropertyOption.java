@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AppTableFieldPropertyOption {
-    /**
-     * 选项名
-     * <p> 示例值：红色
-     */
+     /**
+      * 选项名
+      * <p> 示例值：红色
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 选项 ID，创建时不允许指定 ID
-     * <p> 示例值：optKl35lnG
-     */
+     /**
+      * 选项 ID，创建时不允许指定 ID
+      * <p> 示例值：optKl35lnG
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 选项颜色
-     * <p> 示例值：0
-     */
+     /**
+      * 选项颜色
+      * <p> 示例值：0
+      */
     @SerializedName("color")
     private Integer color;
-
-    // builder 开始
-    public AppTableFieldPropertyOption() {
-    }
-
-    public AppTableFieldPropertyOption(Builder builder) {
-        /**
-         * 选项名
-         * <p> 示例值：红色
-         */
-        this.name = builder.name;
-        /**
-         * 选项 ID，创建时不允许指定 ID
-         * <p> 示例值：optKl35lnG
-         */
-        this.id = builder.id;
-        /**
-         * 选项颜色
-         * <p> 示例值：0
-         */
-        this.color = builder.color;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -98,64 +67,90 @@ public class AppTableFieldPropertyOption {
         this.color = color;
     }
 
+
+// builder 开始
+  public AppTableFieldPropertyOption(){}
+
+  public AppTableFieldPropertyOption(Builder builder){
+         /**
+          * 选项名
+          * <p> 示例值：红色
+          */
+      this.name = builder.name;
+         /**
+          * 选项 ID，创建时不允许指定 ID
+          * <p> 示例值：optKl35lnG
+          */
+      this.id = builder.id;
+         /**
+          * 选项颜色
+          * <p> 示例值：0
+          */
+      this.color = builder.color;
+  }
+
     public static class Builder {
-        /**
-         * 选项名
-         * <p> 示例值：红色
-         */
+     /**
+      * 选项名
+      * <p> 示例值：红色
+      */
         private String name;
-        /**
-         * 选项 ID，创建时不允许指定 ID
-         * <p> 示例值：optKl35lnG
-         */
+     /**
+      * 选项 ID，创建时不允许指定 ID
+      * <p> 示例值：optKl35lnG
+      */
         private String id;
-        /**
-         * 选项颜色
-         * <p> 示例值：0
-         */
+     /**
+      * 选项颜色
+      * <p> 示例值：0
+      */
         private Integer color;
 
         /**
          * 选项名
          * <p> 示例值：红色
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 选项 ID，创建时不允许指定 ID
          * <p> 示例值：optKl35lnG
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 选项颜色
          * <p> 示例值：0
-         *
          * @param color
          * @return
          */
         public Builder color(Integer color) {
-            this.color = color;
-            return this;
+             this.color = color;
+             return this;
         }
 
+    
+    
+    public AppTableFieldPropertyOption build(){
+        return new AppTableFieldPropertyOption(this);
+      }
+    }
 
-        public AppTableFieldPropertyOption build() {
-            return new AppTableFieldPropertyOption(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

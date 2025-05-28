@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EvaluationScale {
-    /**
-     * 员工 ID
-     * <p> 示例值：
-     */
+     /**
+      * 员工 ID
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 员工的360° 评估尺度
-     * <p> 示例值：
-     */
+     /**
+      * 员工的360° 评估尺度
+      * <p> 示例值：
+      */
     @SerializedName("user_evaluation_scales")
     private UserEvaluationScale[] userEvaluationScales;
-
-    // builder 开始
-    public EvaluationScale() {
-    }
-
-    public EvaluationScale(Builder builder) {
-        /**
-         * 员工 ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 员工的360° 评估尺度
-         * <p> 示例值：
-         */
-        this.userEvaluationScales = builder.userEvaluationScales;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -79,46 +53,67 @@ public class EvaluationScale {
         this.userEvaluationScales = userEvaluationScales;
     }
 
+
+// builder 开始
+  public EvaluationScale(){}
+
+  public EvaluationScale(Builder builder){
+         /**
+          * 员工 ID
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * 员工的360° 评估尺度
+          * <p> 示例值：
+          */
+      this.userEvaluationScales = builder.userEvaluationScales;
+  }
+
     public static class Builder {
-        /**
-         * 员工 ID
-         * <p> 示例值：
-         */
+     /**
+      * 员工 ID
+      * <p> 示例值：
+      */
         private String userId;
-        /**
-         * 员工的360° 评估尺度
-         * <p> 示例值：
-         */
+     /**
+      * 员工的360° 评估尺度
+      * <p> 示例值：
+      */
         private UserEvaluationScale[] userEvaluationScales;
 
         /**
          * 员工 ID
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 员工的360° 评估尺度
          * <p> 示例值：
-         *
          * @param userEvaluationScales
          * @return
          */
         public Builder userEvaluationScales(UserEvaluationScale[] userEvaluationScales) {
-            this.userEvaluationScales = userEvaluationScales;
-            return this;
+             this.userEvaluationScales = userEvaluationScales;
+             return this;
         }
 
+    
+    
+    public EvaluationScale build(){
+        return new EvaluationScale(this);
+      }
+    }
 
-        public EvaluationScale build() {
-            return new EvaluationScale(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

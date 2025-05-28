@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OpenWidgetInstance {
-    /**
-     * 审批实例唯一标识
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     */
+     /**
+      * 审批实例唯一标识
+      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+      */
     @SerializedName("instance_code")
     private String instanceCode;
-    /**
-     * 审批单当前状态
-     * <p> 示例值：PENDING
-     */
+     /**
+      * 审批单当前状态
+      * <p> 示例值：PENDING
+      */
     @SerializedName("status")
     private String status;
-    /**
-     * 审批单创建时间，毫秒时间戳
-     * <p> 示例值：1666079207003
-     */
+     /**
+      * 审批单创建时间，毫秒时间戳
+      * <p> 示例值：1666079207003
+      */
     @SerializedName("create_time")
     private Integer createTime;
-    /**
-     * 审批实例更新时间，毫秒时间戳
-     * <p> 示例值：1666079207003
-     */
+     /**
+      * 审批实例更新时间，毫秒时间戳
+      * <p> 示例值：1666079207003
+      */
     @SerializedName("update_time")
     private Integer updateTime;
-    /**
-     * 审批表单数据，仅包含自定义控件内的数据
-     * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
-     */
+     /**
+      * 审批表单数据，仅包含自定义控件内的数据
+      * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
+      */
     @SerializedName("form_content")
     private String formContent;
-
-    // builder 开始
-    public OpenWidgetInstance() {
-    }
-
-    public OpenWidgetInstance(Builder builder) {
-        /**
-         * 审批实例唯一标识
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 审批单当前状态
-         * <p> 示例值：PENDING
-         */
-        this.status = builder.status;
-        /**
-         * 审批单创建时间，毫秒时间戳
-         * <p> 示例值：1666079207003
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 审批实例更新时间，毫秒时间戳
-         * <p> 示例值：1666079207003
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 审批表单数据，仅包含自定义控件内的数据
-         * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
-         */
-        this.formContent = builder.formContent;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getInstanceCode() {
         return this.instanceCode;
     }
@@ -136,112 +95,146 @@ public class OpenWidgetInstance {
         this.formContent = formContent;
     }
 
+
+// builder 开始
+  public OpenWidgetInstance(){}
+
+  public OpenWidgetInstance(Builder builder){
+         /**
+          * 审批实例唯一标识
+          * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+          */
+      this.instanceCode = builder.instanceCode;
+         /**
+          * 审批单当前状态
+          * <p> 示例值：PENDING
+          */
+      this.status = builder.status;
+         /**
+          * 审批单创建时间，毫秒时间戳
+          * <p> 示例值：1666079207003
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 审批实例更新时间，毫秒时间戳
+          * <p> 示例值：1666079207003
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 审批表单数据，仅包含自定义控件内的数据
+          * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
+          */
+      this.formContent = builder.formContent;
+  }
+
     public static class Builder {
-        /**
-         * 审批实例唯一标识
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
+     /**
+      * 审批实例唯一标识
+      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+      */
         private String instanceCode;
-        /**
-         * 审批单当前状态
-         * <p> 示例值：PENDING
-         */
+     /**
+      * 审批单当前状态
+      * <p> 示例值：PENDING
+      */
         private String status;
-        /**
-         * 审批单创建时间，毫秒时间戳
-         * <p> 示例值：1666079207003
-         */
+     /**
+      * 审批单创建时间，毫秒时间戳
+      * <p> 示例值：1666079207003
+      */
         private Integer createTime;
-        /**
-         * 审批实例更新时间，毫秒时间戳
-         * <p> 示例值：1666079207003
-         */
+     /**
+      * 审批实例更新时间，毫秒时间戳
+      * <p> 示例值：1666079207003
+      */
         private Integer updateTime;
-        /**
-         * 审批表单数据，仅包含自定义控件内的数据
-         * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
-         */
+     /**
+      * 审批表单数据，仅包含自定义控件内的数据
+      * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
+      */
         private String formContent;
 
         /**
          * 审批实例唯一标识
          * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         *
          * @param instanceCode
          * @return
          */
         public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
+             this.instanceCode = instanceCode;
+             return this;
         }
 
+    
 
         /**
          * 审批单当前状态
          * <p> 示例值：PENDING
-         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 审批单当前状态
          * <p> 示例值：PENDING
-         *
          * @param status {@link com.lark.oapi.service.approval.v4.enums.OpenWidgetInstanceOpenWidgetInstanceStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.approval.v4.enums.OpenWidgetInstanceOpenWidgetInstanceStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
 
         /**
          * 审批单创建时间，毫秒时间戳
          * <p> 示例值：1666079207003
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(Integer createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 审批实例更新时间，毫秒时间戳
          * <p> 示例值：1666079207003
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 审批表单数据，仅包含自定义控件内的数据
          * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
-         *
          * @param formContent
          * @return
          */
         public Builder formContent(String formContent) {
-            this.formContent = formContent;
-            return this;
+             this.formContent = formContent;
+             return this;
         }
 
+    
+    
+    public OpenWidgetInstance build(){
+        return new OpenWidgetInstance(this);
+      }
+    }
 
-        public OpenWidgetInstance build() {
-            return new OpenWidgetInstance(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

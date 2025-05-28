@@ -12,58 +12,32 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteMailgroupPermissionMemberReq {
-    /**
-     * The unique ID or email address of a mail group
-     * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
-     */
+     /**
+      * The unique ID or email address of a mail group
+      * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+      */
     @Path
     @SerializedName("mailgroup_id")
     private String mailgroupId;
-    /**
-     * The unique ID of a member in this permission group
-     * <p> 示例值：xxxxxxxxxxxxxxx
-     */
+     /**
+      * The unique ID of a member in this permission group
+      * <p> 示例值：xxxxxxxxxxxxxxx
+      */
     @Path
     @SerializedName("permission_member_id")
     private String permissionMemberId;
-
-    // builder 开始
-    public DeleteMailgroupPermissionMemberReq() {
-    }
-
-    public DeleteMailgroupPermissionMemberReq(Builder builder) {
-        /**
-         * The unique ID or email address of a mail group
-         * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
-         */
-        this.mailgroupId = builder.mailgroupId;
-        /**
-         * The unique ID of a member in this permission group
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         */
-        this.permissionMemberId = builder.permissionMemberId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMailgroupId() {
         return this.mailgroupId;
     }
@@ -80,39 +54,57 @@ public class DeleteMailgroupPermissionMemberReq {
         this.permissionMemberId = permissionMemberId;
     }
 
-    public static class Builder {
 
+// builder 开始
+  public DeleteMailgroupPermissionMemberReq(){}
+
+  public DeleteMailgroupPermissionMemberReq(Builder builder){
+     /**
+      * The unique ID or email address of a mail group
+      * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+      */
+       this.mailgroupId = builder.mailgroupId;
+     /**
+      * The unique ID of a member in this permission group
+      * <p> 示例值：xxxxxxxxxxxxxxx
+      */
+       this.permissionMemberId = builder.permissionMemberId;
+  }
+
+    public static class Builder {
+    
         private String mailgroupId; // The unique ID or email address of a mail group
         private String permissionMemberId; // The unique ID of a member in this permission group
-
         /**
          * The unique ID or email address of a mail group
          * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
-         *
          * @param mailgroupId
          * @return
          */
-        public Builder mailgroupId(String mailgroupId) {
-            this.mailgroupId = mailgroupId;
-            return this;
-        }
+          public Builder mailgroupId(String mailgroupId) {
+               this.mailgroupId = mailgroupId;
+               return this;
+          }
 
-
+    
         /**
          * The unique ID of a member in this permission group
          * <p> 示例值：xxxxxxxxxxxxxxx
-         *
          * @param permissionMemberId
          * @return
          */
-        public Builder permissionMemberId(String permissionMemberId) {
-            this.permissionMemberId = permissionMemberId;
-            return this;
-        }
+          public Builder permissionMemberId(String permissionMemberId) {
+               this.permissionMemberId = permissionMemberId;
+               return this;
+          }
 
+    
+    public DeleteMailgroupPermissionMemberReq build(){
+        return new DeleteMailgroupPermissionMemberReq(this);
+      }
+    }
 
-        public DeleteMailgroupPermissionMemberReq build() {
-            return new DeleteMailgroupPermissionMemberReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

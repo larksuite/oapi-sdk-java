@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.workplace.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchCustomWorkplaceAccessDataRespBody {
-    /**
-     * 定制工作台访问数据
-     * <p> 示例值：
-     */
+     /**
+      * 定制工作台访问数据
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private CustomWorkplaceAccessData[] items;
-    /**
-     * 是否还有下一页数据
-     * <p> 示例值：true
-     */
+     /**
+      * 是否还有下一页数据
+      * <p> 示例值：true
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-    /**
-     * 分页标记，存在下一页时返回
-     * <p> 示例值：ddowkdkl9w2d
-     */
+     /**
+      * 分页标记，存在下一页时返回
+      * <p> 示例值：ddowkdkl9w2d
+      */
     @SerializedName("page_token")
     private String pageToken;
-
     public CustomWorkplaceAccessData[] getItems() {
         return this.items;
     }

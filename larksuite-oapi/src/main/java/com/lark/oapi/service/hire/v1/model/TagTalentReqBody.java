@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TagTalentReqBody {
-    /**
-     * 操作类型
-     * <p> 示例值：1
-     */
+     /**
+      * 操作类型
+      * <p> 示例值：1
+      */
     @SerializedName("operation")
     private Integer operation;
-    /**
-     * 标签 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 标签 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("tag_id_list")
     private String[] tagIdList;
-
-    // builder 开始
-    public TagTalentReqBody() {
-    }
-
-    public TagTalentReqBody(Builder builder) {
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        this.operation = builder.operation;
-        /**
-         * 标签 ID 列表
-         * <p> 示例值：
-         */
-        this.tagIdList = builder.tagIdList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getOperation() {
         return this.operation;
     }
@@ -78,46 +52,67 @@ public class TagTalentReqBody {
         this.tagIdList = tagIdList;
     }
 
+
+// builder 开始
+  public TagTalentReqBody(){}
+
+  public TagTalentReqBody(Builder builder){
+         /**
+          * 操作类型
+          * <p> 示例值：1
+          */
+      this.operation = builder.operation;
+         /**
+          * 标签 ID 列表
+          * <p> 示例值：
+          */
+      this.tagIdList = builder.tagIdList;
+  }
+
     public static class Builder {
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
+     /**
+      * 操作类型
+      * <p> 示例值：1
+      */
         private Integer operation;
-        /**
-         * 标签 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 标签 ID 列表
+      * <p> 示例值：
+      */
         private String[] tagIdList;
 
         /**
          * 操作类型
          * <p> 示例值：1
-         *
          * @param operation
          * @return
          */
         public Builder operation(Integer operation) {
-            this.operation = operation;
-            return this;
+             this.operation = operation;
+             return this;
         }
 
+    
 
         /**
          * 标签 ID 列表
          * <p> 示例值：
-         *
          * @param tagIdList
          * @return
          */
         public Builder tagIdList(String[] tagIdList) {
-            this.tagIdList = tagIdList;
-            return this;
+             this.tagIdList = tagIdList;
+             return this;
         }
 
+    
+    
+    public TagTalentReqBody build(){
+        return new TagTalentReqBody(this);
+      }
+    }
 
-        public TagTalentReqBody build() {
-            return new TagTalentReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

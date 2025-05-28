@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchBasicInfoCityReqBody {
-    /**
-     * 省份/主要行政区 ID 列表，可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.region_id` 等字段中获取
-     * <p> 示例值：
-     */
+     /**
+      * 省份/主要行政区 ID 列表，可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.region_id` 等字段中获取
+      * <p> 示例值：
+      */
     @SerializedName("country_region_subdivision_id_list")
     private String[] countryRegionSubdivisionIdList;
-    /**
-     * 城市 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_id_v2` 等字段中获取
-     * <p> 示例值：
-     */
+     /**
+      * 城市 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_id_v2` 等字段中获取
+      * <p> 示例值：
+      */
     @SerializedName("city_id_list")
     private String[] cityIdList;
-    /**
-     * 状态列表
-     * <p> 示例值：
-     */
+     /**
+      * 状态列表
+      * <p> 示例值：
+      */
     @SerializedName("status_list")
     private Integer[] statusList;
-
-    // builder 开始
-    public SearchBasicInfoCityReqBody() {
-    }
-
-    public SearchBasicInfoCityReqBody(Builder builder) {
-        /**
-         * 省份/主要行政区 ID 列表，可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.region_id` 等字段中获取
-         * <p> 示例值：
-         */
-        this.countryRegionSubdivisionIdList = builder.countryRegionSubdivisionIdList;
-        /**
-         * 城市 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_id_v2` 等字段中获取
-         * <p> 示例值：
-         */
-        this.cityIdList = builder.cityIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        this.statusList = builder.statusList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getCountryRegionSubdivisionIdList() {
         return this.countryRegionSubdivisionIdList;
     }
@@ -98,64 +67,90 @@ public class SearchBasicInfoCityReqBody {
         this.statusList = statusList;
     }
 
+
+// builder 开始
+  public SearchBasicInfoCityReqBody(){}
+
+  public SearchBasicInfoCityReqBody(Builder builder){
+         /**
+          * 省份/主要行政区 ID 列表，可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.region_id` 等字段中获取
+          * <p> 示例值：
+          */
+      this.countryRegionSubdivisionIdList = builder.countryRegionSubdivisionIdList;
+         /**
+          * 城市 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_id_v2` 等字段中获取
+          * <p> 示例值：
+          */
+      this.cityIdList = builder.cityIdList;
+         /**
+          * 状态列表
+          * <p> 示例值：
+          */
+      this.statusList = builder.statusList;
+  }
+
     public static class Builder {
-        /**
-         * 省份/主要行政区 ID 列表，可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.region_id` 等字段中获取
-         * <p> 示例值：
-         */
+     /**
+      * 省份/主要行政区 ID 列表，可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.region_id` 等字段中获取
+      * <p> 示例值：
+      */
         private String[] countryRegionSubdivisionIdList;
-        /**
-         * 城市 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_id_v2` 等字段中获取
-         * <p> 示例值：
-         */
+     /**
+      * 城市 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_id_v2` 等字段中获取
+      * <p> 示例值：
+      */
         private String[] cityIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
+     /**
+      * 状态列表
+      * <p> 示例值：
+      */
         private Integer[] statusList;
 
         /**
          * 省份/主要行政区 ID 列表，可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.region_id` 等字段中获取
          * <p> 示例值：
-         *
          * @param countryRegionSubdivisionIdList
          * @return
          */
         public Builder countryRegionSubdivisionIdList(String[] countryRegionSubdivisionIdList) {
-            this.countryRegionSubdivisionIdList = countryRegionSubdivisionIdList;
-            return this;
+             this.countryRegionSubdivisionIdList = countryRegionSubdivisionIdList;
+             return this;
         }
 
+    
 
         /**
          * 城市 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_id_v2` 等字段中获取
          * <p> 示例值：
-         *
          * @param cityIdList
          * @return
          */
         public Builder cityIdList(String[] cityIdList) {
-            this.cityIdList = cityIdList;
-            return this;
+             this.cityIdList = cityIdList;
+             return this;
         }
 
+    
 
         /**
          * 状态列表
          * <p> 示例值：
-         *
          * @param statusList
          * @return
          */
         public Builder statusList(Integer[] statusList) {
-            this.statusList = statusList;
-            return this;
+             this.statusList = statusList;
+             return this;
         }
 
+    
+    
+    public SearchBasicInfoCityReqBody build(){
+        return new SearchBasicInfoCityReqBody(this);
+      }
+    }
 
-        public SearchBasicInfoCityReqBody build() {
-            return new SearchBasicInfoCityReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

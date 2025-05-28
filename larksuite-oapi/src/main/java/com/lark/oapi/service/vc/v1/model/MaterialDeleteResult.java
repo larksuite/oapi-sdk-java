@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MaterialDeleteResult {
-    /**
-     * 文件上传drive后的token
-     * <p> 示例值：u8ajdjadau8wqu
-     */
+     /**
+      * 文件上传drive后的token
+      * <p> 示例值：u8ajdjadau8wqu
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 删除结果
-     * <p> 示例值：1
-     */
+     /**
+      * 删除结果
+      * <p> 示例值：1
+      */
     @SerializedName("result")
     private Integer result;
-
-    // builder 开始
-    public MaterialDeleteResult() {
-    }
-
-    public MaterialDeleteResult(Builder builder) {
-        /**
-         * 文件上传drive后的token
-         * <p> 示例值：u8ajdjadau8wqu
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 删除结果
-         * <p> 示例值：1
-         */
-        this.result = builder.result;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFileToken() {
         return this.fileToken;
     }
@@ -79,58 +53,77 @@ public class MaterialDeleteResult {
         this.result = result;
     }
 
+
+// builder 开始
+  public MaterialDeleteResult(){}
+
+  public MaterialDeleteResult(Builder builder){
+         /**
+          * 文件上传drive后的token
+          * <p> 示例值：u8ajdjadau8wqu
+          */
+      this.fileToken = builder.fileToken;
+         /**
+          * 删除结果
+          * <p> 示例值：1
+          */
+      this.result = builder.result;
+  }
+
     public static class Builder {
-        /**
-         * 文件上传drive后的token
-         * <p> 示例值：u8ajdjadau8wqu
-         */
+     /**
+      * 文件上传drive后的token
+      * <p> 示例值：u8ajdjadau8wqu
+      */
         private String fileToken;
-        /**
-         * 删除结果
-         * <p> 示例值：1
-         */
+     /**
+      * 删除结果
+      * <p> 示例值：1
+      */
         private Integer result;
 
         /**
          * 文件上传drive后的token
          * <p> 示例值：u8ajdjadau8wqu
-         *
          * @param fileToken
          * @return
          */
         public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
+             this.fileToken = fileToken;
+             return this;
         }
 
+    
 
         /**
          * 删除结果
          * <p> 示例值：1
-         *
          * @param result
          * @return
          */
         public Builder result(Integer result) {
-            this.result = result;
-            return this;
+             this.result = result;
+             return this;
         }
-
         /**
          * 删除结果
          * <p> 示例值：1
-         *
          * @param result {@link com.lark.oapi.service.vc.v1.enums.MaterialDeleteResultDeleteResultEnum}
          * @return
          */
         public Builder result(com.lark.oapi.service.vc.v1.enums.MaterialDeleteResultDeleteResultEnum result) {
-            this.result = result.getValue();
-            return this;
+             this.result = result.getValue();
+             return this;
         }
 
+    
+    
+    public MaterialDeleteResult build(){
+        return new MaterialDeleteResult(this);
+      }
+    }
 
-        public MaterialDeleteResult build() {
-            return new MaterialDeleteResult(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

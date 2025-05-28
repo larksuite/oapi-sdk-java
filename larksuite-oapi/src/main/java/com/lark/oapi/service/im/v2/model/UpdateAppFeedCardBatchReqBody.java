@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateAppFeedCardBatchReqBody {
-    /**
-     * 应用消息卡片
-     * <p> 示例值：
-     */
+     /**
+      * 应用消息卡片
+      * <p> 示例值：
+      */
     @SerializedName("feed_cards")
     private UserOpenAppFeedCardUpdater[] feedCards;
-
-    // builder 开始
-    public UpdateAppFeedCardBatchReqBody() {
-    }
-
-    public UpdateAppFeedCardBatchReqBody(Builder builder) {
-        /**
-         * 应用消息卡片
-         * <p> 示例值：
-         */
-        this.feedCards = builder.feedCards;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public UserOpenAppFeedCardUpdater[] getFeedCards() {
         return this.feedCards;
     }
@@ -60,28 +39,44 @@ public class UpdateAppFeedCardBatchReqBody {
         this.feedCards = feedCards;
     }
 
+
+// builder 开始
+  public UpdateAppFeedCardBatchReqBody(){}
+
+  public UpdateAppFeedCardBatchReqBody(Builder builder){
+         /**
+          * 应用消息卡片
+          * <p> 示例值：
+          */
+      this.feedCards = builder.feedCards;
+  }
+
     public static class Builder {
-        /**
-         * 应用消息卡片
-         * <p> 示例值：
-         */
+     /**
+      * 应用消息卡片
+      * <p> 示例值：
+      */
         private UserOpenAppFeedCardUpdater[] feedCards;
 
         /**
          * 应用消息卡片
          * <p> 示例值：
-         *
          * @param feedCards
          * @return
          */
         public Builder feedCards(UserOpenAppFeedCardUpdater[] feedCards) {
-            this.feedCards = feedCards;
-            return this;
+             this.feedCards = feedCards;
+             return this;
         }
 
+    
+    
+    public UpdateAppFeedCardBatchReqBody build(){
+        return new UpdateAppFeedCardBatchReqBody(this);
+      }
+    }
 
-        public UpdateAppFeedCardBatchReqBody build() {
-            return new UpdateAppFeedCardBatchReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

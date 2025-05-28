@@ -17,22 +17,21 @@ package com.lark.oapi.service.drive.v1.enums;
  * 需要判断的权限
  */
 public enum AuthPermissionMemberPermEnum {
-    VIEW("view"), // 阅读
-    EDIT("edit"), // 编辑
-    SHARE("share"), // 分享
-    COMMENT("comment"), // 评论
-    EXPORT("export"), // 导出
-    COPY("copy"), // 拷贝
-    PRINT("print"), // 打印
-    MANAGEPUBLIC("manage_public"), // 管理权限设置
-    ;
-    private String value;
-
+     VIEW("view"), // 阅读
+     EDIT("edit"), // 编辑
+     SHARE("share"), // 分享
+     COMMENT("comment"), // 评论
+     EXPORT("export"), // 导出
+     COPY("copy"), // 拷贝
+     PRINT("print"), // 打印
+     MANAGEPUBLIC("manage_public"), // 管理权限设置
+  ;
+   private String value;
     AuthPermissionMemberPermEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

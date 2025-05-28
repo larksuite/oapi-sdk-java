@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Property {
-    /**
-     * 自定义属性键对象
-     * <p> 示例值：target_type
-     */
+     /**
+      * 自定义属性键对象
+      * <p> 示例值：target_type
+      */
     @SerializedName("key")
     private String key;
-    /**
-     * 自定义属性值对象
-     * <p> 示例值：docx
-     */
+     /**
+      * 自定义属性值对象
+      * <p> 示例值：docx
+      */
     @SerializedName("value")
     private String value;
-
-    // builder 开始
-    public Property() {
-    }
-
-    public Property(Builder builder) {
-        /**
-         * 自定义属性键对象
-         * <p> 示例值：target_type
-         */
-        this.key = builder.key;
-        /**
-         * 自定义属性值对象
-         * <p> 示例值：docx
-         */
-        this.value = builder.value;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getKey() {
         return this.key;
     }
@@ -79,46 +53,67 @@ public class Property {
         this.value = value;
     }
 
+
+// builder 开始
+  public Property(){}
+
+  public Property(Builder builder){
+         /**
+          * 自定义属性键对象
+          * <p> 示例值：target_type
+          */
+      this.key = builder.key;
+         /**
+          * 自定义属性值对象
+          * <p> 示例值：docx
+          */
+      this.value = builder.value;
+  }
+
     public static class Builder {
-        /**
-         * 自定义属性键对象
-         * <p> 示例值：target_type
-         */
+     /**
+      * 自定义属性键对象
+      * <p> 示例值：target_type
+      */
         private String key;
-        /**
-         * 自定义属性值对象
-         * <p> 示例值：docx
-         */
+     /**
+      * 自定义属性值对象
+      * <p> 示例值：docx
+      */
         private String value;
 
         /**
          * 自定义属性键对象
          * <p> 示例值：target_type
-         *
          * @param key
          * @return
          */
         public Builder key(String key) {
-            this.key = key;
-            return this;
+             this.key = key;
+             return this;
         }
 
+    
 
         /**
          * 自定义属性值对象
          * <p> 示例值：docx
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
+    
+    public Property build(){
+        return new Property(this);
+      }
+    }
 
-        public Property build() {
-            return new Property(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DownloadFileReq {
-    /**
-     * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-     * <p> 示例值：boxcnabCdefg12345
-     */
+     /**
+      * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+      * <p> 示例值：boxcnabCdefg12345
+      */
     @Path
     @SerializedName("file_token")
     private String fileToken;
-
-    // builder 开始
-    public DownloadFileReq() {
-    }
-
-    public DownloadFileReq(Builder builder) {
-        /**
-         * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-         * <p> 示例值：boxcnabCdefg12345
-         */
-        this.fileToken = builder.fileToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFileToken() {
         return this.fileToken;
     }
@@ -60,25 +39,39 @@ public class DownloadFileReq {
         this.fileToken = fileToken;
     }
 
+
+// builder 开始
+  public DownloadFileReq(){}
+
+  public DownloadFileReq(Builder builder){
+     /**
+      * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+      * <p> 示例值：boxcnabCdefg12345
+      */
+       this.fileToken = builder.fileToken;
+  }
+
     public static class Builder {
-
+    
         private String fileToken; // 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-
         /**
          * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
          * <p> 示例值：boxcnabCdefg12345
-         *
          * @param fileToken
          * @return
          */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
 
+    
+    public DownloadFileReq build(){
+        return new DownloadFileReq(this);
+      }
+    }
 
-        public DownloadFileReq build() {
-            return new DownloadFileReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

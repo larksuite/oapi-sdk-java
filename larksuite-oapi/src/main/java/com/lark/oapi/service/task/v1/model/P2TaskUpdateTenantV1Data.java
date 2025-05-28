@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2TaskUpdateTenantV1Data {
-    /**
-     * 用户 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 用户 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("user_id_list")
     private UserIdList userIdList;
-    /**
-     * 任务的id
-     * <p> 示例值：24314cff-b7fe-438d-a232-b1a80a5f3371
-     */
+     /**
+      * 任务的id
+      * <p> 示例值：24314cff-b7fe-438d-a232-b1a80a5f3371
+      */
     @SerializedName("task_id")
     private String taskId;
-    /**
-     * 变更的数据类型，可选值：;"task"，"collaborator"，"follower"
-     * <p> 示例值：task
-     */
+     /**
+      * 变更的数据类型，可选值：;"task"，"collaborator"，"follower"
+      * <p> 示例值：task
+      */
     @SerializedName("object_type")
     private String objectType;
-    /**
-     * 事件类型，可选值：;"create"，"delete"，"update"
-     * <p> 示例值：update
-     */
+     /**
+      * 事件类型，可选值：;"create"，"delete"，"update"
+      * <p> 示例值：update
+      */
     @SerializedName("event_type")
     private String eventType;
-
     public UserIdList getUserIdList() {
         return this.userIdList;
     }

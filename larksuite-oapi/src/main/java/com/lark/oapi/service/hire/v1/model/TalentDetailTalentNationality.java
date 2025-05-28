@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TalentDetailTalentNationality {
-    /**
-     * 国家编码
-     * <p> 示例值：CN_183
-     */
+     /**
+      * 国家编码
+      * <p> 示例值：CN_183
+      */
     @SerializedName("nationality_code")
     private String nationalityCode;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-
-    // builder 开始
-    public TalentDetailTalentNationality() {
-    }
-
-    public TalentDetailTalentNationality(Builder builder) {
-        /**
-         * 国家编码
-         * <p> 示例值：CN_183
-         */
-        this.nationalityCode = builder.nationalityCode;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNationalityCode() {
         return this.nationalityCode;
     }
@@ -78,46 +52,67 @@ public class TalentDetailTalentNationality {
         this.name = name;
     }
 
+
+// builder 开始
+  public TalentDetailTalentNationality(){}
+
+  public TalentDetailTalentNationality(Builder builder){
+         /**
+          * 国家编码
+          * <p> 示例值：CN_183
+          */
+      this.nationalityCode = builder.nationalityCode;
+         /**
+          * 名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 国家编码
-         * <p> 示例值：CN_183
-         */
+     /**
+      * 国家编码
+      * <p> 示例值：CN_183
+      */
         private String nationalityCode;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
         private I18n name;
 
         /**
          * 国家编码
          * <p> 示例值：CN_183
-         *
          * @param nationalityCode
          * @return
          */
         public Builder nationalityCode(String nationalityCode) {
-            this.nationalityCode = nationalityCode;
-            return this;
+             this.nationalityCode = nationalityCode;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public TalentDetailTalentNationality build(){
+        return new TalentDetailTalentNationality(this);
+      }
+    }
 
-        public TalentDetailTalentNationality build() {
-            return new TalentDetailTalentNationality(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

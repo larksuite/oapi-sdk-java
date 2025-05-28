@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchAgentReq {
-    /**
-     * 客服id
-     * <p> 示例值：ou_14777d82ffef0f707de5a8c7ff2c5ebe
-     */
+     /**
+      * 客服id
+      * <p> 示例值：ou_14777d82ffef0f707de5a8c7ff2c5ebe
+      */
     @Path
     @SerializedName("agent_id")
     private String agentId;
-    @Body
-    private PatchAgentReqBody body;
-
-    // builder 开始
-    public PatchAgentReq() {
-    }
-
-    public PatchAgentReq(Builder builder) {
-        /**
-         * 客服id
-         * <p> 示例值：ou_14777d82ffef0f707de5a8c7ff2c5ebe
-         */
-        this.agentId = builder.agentId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAgentId() {
         return this.agentId;
     }
@@ -62,6 +38,9 @@ public class PatchAgentReq {
     public void setAgentId(String agentId) {
         this.agentId = agentId;
     }
+
+    @Body
+    private PatchAgentReqBody body;
 
     public PatchAgentReqBody getPatchAgentReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class PatchAgentReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchAgentReq(){}
+
+  public PatchAgentReq(Builder builder){
+     /**
+      * 客服id
+      * <p> 示例值：ou_14777d82ffef0f707de5a8c7ff2c5ebe
+      */
+       this.agentId = builder.agentId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String agentId; // 客服id
-        private PatchAgentReqBody body;
-
         /**
          * 客服id
          * <p> 示例值：ou_14777d82ffef0f707de5a8c7ff2c5ebe
-         *
          * @param agentId
          * @return
          */
-        public Builder agentId(String agentId) {
-            this.agentId = agentId;
-            return this;
-        }
+          public Builder agentId(String agentId) {
+               this.agentId = agentId;
+               return this;
+          }
 
+    
+        private PatchAgentReqBody body;
+    
         public PatchAgentReqBody getPatchAgentReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder patchAgentReqBody(PatchAgentReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchAgentReq build(){
+        return new PatchAgentReq(this);
+      }
+    }
 
-        public PatchAgentReq build() {
-            return new PatchAgentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

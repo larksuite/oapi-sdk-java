@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DataArchivingUserStruct {
-    /**
-     * 类型
-     * <p> 示例值：1
-     */
+     /**
+      * 类型
+      * <p> 示例值：1
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 值
-     * <p> 示例值：352d9dgb
-     */
+     /**
+      * 值
+      * <p> 示例值：352d9dgb
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 姓名
-     * <p> 示例值：莉莉
-     */
+     /**
+      * 姓名
+      * <p> 示例值：莉莉
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public DataArchivingUserStruct() {
-    }
-
-    public DataArchivingUserStruct(Builder builder) {
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 值
-         * <p> 示例值：352d9dgb
-         */
-        this.id = builder.id;
-        /**
-         * 姓名
-         * <p> 示例值：莉莉
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -98,76 +67,100 @@ public class DataArchivingUserStruct {
         this.name = name;
     }
 
+
+// builder 开始
+  public DataArchivingUserStruct(){}
+
+  public DataArchivingUserStruct(Builder builder){
+         /**
+          * 类型
+          * <p> 示例值：1
+          */
+      this.type = builder.type;
+         /**
+          * 值
+          * <p> 示例值：352d9dgb
+          */
+      this.id = builder.id;
+         /**
+          * 姓名
+          * <p> 示例值：莉莉
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
+     /**
+      * 类型
+      * <p> 示例值：1
+      */
         private String type;
-        /**
-         * 值
-         * <p> 示例值：352d9dgb
-         */
+     /**
+      * 值
+      * <p> 示例值：352d9dgb
+      */
         private String id;
-        /**
-         * 姓名
-         * <p> 示例值：莉莉
-         */
+     /**
+      * 姓名
+      * <p> 示例值：莉莉
+      */
         private String name;
 
         /**
          * 类型
          * <p> 示例值：1
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 类型
          * <p> 示例值：1
-         *
          * @param type {@link com.lark.oapi.service.security_and_compliance.v1.enums.DataArchivingUserStructDataArchivingChatterTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.security_and_compliance.v1.enums.DataArchivingUserStructDataArchivingChatterTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 值
          * <p> 示例值：352d9dgb
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 姓名
          * <p> 示例值：莉莉
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public DataArchivingUserStruct build(){
+        return new DataArchivingUserStruct(this);
+      }
+    }
 
-        public DataArchivingUserStruct build() {
-            return new DataArchivingUserStruct(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

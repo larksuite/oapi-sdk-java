@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReviewTemplate {
-    /**
-     * 环节模板列表
-     * <p> 示例值：
-     */
+     /**
+      * 环节模板列表
+      * <p> 示例值：
+      */
     @SerializedName("templates")
     private Template[] templates;
-    /**
-     * 评估内容列表
-     * <p> 示例值：
-     */
+     /**
+      * 评估内容列表
+      * <p> 示例值：
+      */
     @SerializedName("units")
     private Unit[] units;
-    /**
-     * 评估模板 ID
-     * <p> 示例值：7343513161666723843
-     */
+     /**
+      * 评估模板 ID
+      * <p> 示例值：7343513161666723843
+      */
     @SerializedName("review_template_id")
     private String reviewTemplateId;
-    /**
-     * 评估模板名称
-     * <p> 示例值：
-     */
+     /**
+      * 评估模板名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 评估模板描述
-     * <p> 示例值：
-     */
+     /**
+      * 评估模板描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private I18n description;
-    /**
-     * 状态
-     * <p> 示例值：enabled
-     */
+     /**
+      * 状态
+      * <p> 示例值：enabled
+      */
     @SerializedName("status")
     private String status;
-
-    // builder 开始
-    public ReviewTemplate() {
-    }
-
-    public ReviewTemplate(Builder builder) {
-        /**
-         * 环节模板列表
-         * <p> 示例值：
-         */
-        this.templates = builder.templates;
-        /**
-         * 评估内容列表
-         * <p> 示例值：
-         */
-        this.units = builder.units;
-        /**
-         * 评估模板 ID
-         * <p> 示例值：7343513161666723843
-         */
-        this.reviewTemplateId = builder.reviewTemplateId;
-        /**
-         * 评估模板名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 评估模板描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 状态
-         * <p> 示例值：enabled
-         */
-        this.status = builder.status;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Template[] getTemplates() {
         return this.templates;
     }
@@ -155,118 +109,159 @@ public class ReviewTemplate {
         this.status = status;
     }
 
+
+// builder 开始
+  public ReviewTemplate(){}
+
+  public ReviewTemplate(Builder builder){
+         /**
+          * 环节模板列表
+          * <p> 示例值：
+          */
+      this.templates = builder.templates;
+         /**
+          * 评估内容列表
+          * <p> 示例值：
+          */
+      this.units = builder.units;
+         /**
+          * 评估模板 ID
+          * <p> 示例值：7343513161666723843
+          */
+      this.reviewTemplateId = builder.reviewTemplateId;
+         /**
+          * 评估模板名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 评估模板描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 状态
+          * <p> 示例值：enabled
+          */
+      this.status = builder.status;
+  }
+
     public static class Builder {
-        /**
-         * 环节模板列表
-         * <p> 示例值：
-         */
+     /**
+      * 环节模板列表
+      * <p> 示例值：
+      */
         private Template[] templates;
-        /**
-         * 评估内容列表
-         * <p> 示例值：
-         */
+     /**
+      * 评估内容列表
+      * <p> 示例值：
+      */
         private Unit[] units;
-        /**
-         * 评估模板 ID
-         * <p> 示例值：7343513161666723843
-         */
+     /**
+      * 评估模板 ID
+      * <p> 示例值：7343513161666723843
+      */
         private String reviewTemplateId;
-        /**
-         * 评估模板名称
-         * <p> 示例值：
-         */
+     /**
+      * 评估模板名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 评估模板描述
-         * <p> 示例值：
-         */
+     /**
+      * 评估模板描述
+      * <p> 示例值：
+      */
         private I18n description;
-        /**
-         * 状态
-         * <p> 示例值：enabled
-         */
+     /**
+      * 状态
+      * <p> 示例值：enabled
+      */
         private String status;
 
         /**
          * 环节模板列表
          * <p> 示例值：
-         *
          * @param templates
          * @return
          */
         public Builder templates(Template[] templates) {
-            this.templates = templates;
-            return this;
+             this.templates = templates;
+             return this;
         }
 
+    
 
         /**
          * 评估内容列表
          * <p> 示例值：
-         *
          * @param units
          * @return
          */
         public Builder units(Unit[] units) {
-            this.units = units;
-            return this;
+             this.units = units;
+             return this;
         }
 
+    
 
         /**
          * 评估模板 ID
          * <p> 示例值：7343513161666723843
-         *
          * @param reviewTemplateId
          * @return
          */
         public Builder reviewTemplateId(String reviewTemplateId) {
-            this.reviewTemplateId = reviewTemplateId;
-            return this;
+             this.reviewTemplateId = reviewTemplateId;
+             return this;
         }
 
+    
 
         /**
          * 评估模板名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 评估模板描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(I18n description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 状态
          * <p> 示例值：enabled
-         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
 
+    
+    
+    public ReviewTemplate build(){
+        return new ReviewTemplate(this);
+      }
+    }
 
-        public ReviewTemplate build() {
-            return new ReviewTemplate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

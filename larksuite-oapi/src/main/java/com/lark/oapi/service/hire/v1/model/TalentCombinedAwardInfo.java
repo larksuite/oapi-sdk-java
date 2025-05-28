@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TalentCombinedAwardInfo {
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     */
+     /**
+      * ID
+      * <p> 示例值：6891560630172518670
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 获奖名称
-     * <p> 示例值：最佳新人奖
-     */
+     /**
+      * 获奖名称
+      * <p> 示例值：最佳新人奖
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 获奖时间
-     * <p> 示例值：293016767159
-     */
+     /**
+      * 获奖时间
+      * <p> 示例值：293016767159
+      */
     @SerializedName("award_time")
     private String awardTime;
-    /**
-     * 描述
-     * <p> 示例值：最优秀的新人奖
-     */
+     /**
+      * 描述
+      * <p> 示例值：最优秀的新人奖
+      */
     @SerializedName("desc")
     private String desc;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("customized_data")
     private TalentCustomizedDataObjectValue[] customizedData;
-
-    // builder 开始
-    public TalentCombinedAwardInfo() {
-    }
-
-    public TalentCombinedAwardInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 获奖名称
-         * <p> 示例值：最佳新人奖
-         */
-        this.title = builder.title;
-        /**
-         * 获奖时间
-         * <p> 示例值：293016767159
-         */
-        this.awardTime = builder.awardTime;
-        /**
-         * 描述
-         * <p> 示例值：最优秀的新人奖
-         */
-        this.desc = builder.desc;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -135,100 +94,136 @@ public class TalentCombinedAwardInfo {
         this.customizedData = customizedData;
     }
 
+
+// builder 开始
+  public TalentCombinedAwardInfo(){}
+
+  public TalentCombinedAwardInfo(Builder builder){
+         /**
+          * ID
+          * <p> 示例值：6891560630172518670
+          */
+      this.id = builder.id;
+         /**
+          * 获奖名称
+          * <p> 示例值：最佳新人奖
+          */
+      this.title = builder.title;
+         /**
+          * 获奖时间
+          * <p> 示例值：293016767159
+          */
+      this.awardTime = builder.awardTime;
+         /**
+          * 描述
+          * <p> 示例值：最优秀的新人奖
+          */
+      this.desc = builder.desc;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customizedData = builder.customizedData;
+  }
+
     public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
+     /**
+      * ID
+      * <p> 示例值：6891560630172518670
+      */
         private String id;
-        /**
-         * 获奖名称
-         * <p> 示例值：最佳新人奖
-         */
+     /**
+      * 获奖名称
+      * <p> 示例值：最佳新人奖
+      */
         private String title;
-        /**
-         * 获奖时间
-         * <p> 示例值：293016767159
-         */
+     /**
+      * 获奖时间
+      * <p> 示例值：293016767159
+      */
         private String awardTime;
-        /**
-         * 描述
-         * <p> 示例值：最优秀的新人奖
-         */
+     /**
+      * 描述
+      * <p> 示例值：最优秀的新人奖
+      */
         private String desc;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private TalentCustomizedDataObjectValue[] customizedData;
 
         /**
          * ID
          * <p> 示例值：6891560630172518670
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 获奖名称
          * <p> 示例值：最佳新人奖
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 获奖时间
          * <p> 示例值：293016767159
-         *
          * @param awardTime
          * @return
          */
         public Builder awardTime(String awardTime) {
-            this.awardTime = awardTime;
-            return this;
+             this.awardTime = awardTime;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：最优秀的新人奖
-         *
          * @param desc
          * @return
          */
         public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
+             this.desc = desc;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customizedData
          * @return
          */
         public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
+             this.customizedData = customizedData;
+             return this;
         }
 
+    
+    
+    public TalentCombinedAwardInfo build(){
+        return new TalentCombinedAwardInfo(this);
+      }
+    }
 
-        public TalentCombinedAwardInfo build() {
-            return new TalentCombinedAwardInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

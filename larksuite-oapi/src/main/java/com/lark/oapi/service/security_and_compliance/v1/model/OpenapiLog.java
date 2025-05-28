@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OpenapiLog {
-    /**
-     * openapi日志唯一标识
-     * <p> 示例值：10000
-     */
+     /**
+      * openapi日志唯一标识
+      * <p> 示例值：10000
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 飞书开放平台定义的API
-     * <p> 示例值：POST/open-apis/demo/v1/example
-     */
+     /**
+      * 飞书开放平台定义的API
+      * <p> 示例值：POST/open-apis/demo/v1/example
+      */
     @SerializedName("api_key")
     private String apiKey;
-    /**
-     * 日志产生的时间，以秒为单位的时间戳
-     * <p> 示例值：1610613336
-     */
+     /**
+      * 日志产生的时间，以秒为单位的时间戳
+      * <p> 示例值：1610613336
+      */
     @SerializedName("event_time")
     private Integer eventTime;
-    /**
-     * 在开发者后台——凭证与基础信息页面查看的app_id（cli_xxxxx）
-     * <p> 示例值：cli_xxx
-     */
+     /**
+      * 在开发者后台——凭证与基础信息页面查看的app_id（cli_xxxxx）
+      * <p> 示例值：cli_xxx
+      */
     @SerializedName("app_id")
     private String appId;
-    /**
-     * 发起调用api的ip地址
-     * <p> 示例值：192.123.12.1或fdbd:ff1:ce00:135:c7e:d128:5028:6546
-     */
+     /**
+      * 发起调用api的ip地址
+      * <p> 示例值：192.123.12.1或fdbd:ff1:ce00:135:c7e:d128:5028:6546
+      */
     @SerializedName("ip")
     private String ip;
-    /**
-     * openapi调用日志详情
-     * <p> 示例值：
-     */
+     /**
+      * openapi调用日志详情
+      * <p> 示例值：
+      */
     @SerializedName("log_detail")
     private OpenapiLogDetail logDetail;
-
-    // builder 开始
-    public OpenapiLog() {
-    }
-
-    public OpenapiLog(Builder builder) {
-        /**
-         * openapi日志唯一标识
-         * <p> 示例值：10000
-         */
-        this.id = builder.id;
-        /**
-         * 飞书开放平台定义的API
-         * <p> 示例值：POST/open-apis/demo/v1/example
-         */
-        this.apiKey = builder.apiKey;
-        /**
-         * 日志产生的时间，以秒为单位的时间戳
-         * <p> 示例值：1610613336
-         */
-        this.eventTime = builder.eventTime;
-        /**
-         * 在开发者后台——凭证与基础信息页面查看的app_id（cli_xxxxx）
-         * <p> 示例值：cli_xxx
-         */
-        this.appId = builder.appId;
-        /**
-         * 发起调用api的ip地址
-         * <p> 示例值：192.123.12.1或fdbd:ff1:ce00:135:c7e:d128:5028:6546
-         */
-        this.ip = builder.ip;
-        /**
-         * openapi调用日志详情
-         * <p> 示例值：
-         */
-        this.logDetail = builder.logDetail;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -155,118 +109,159 @@ public class OpenapiLog {
         this.logDetail = logDetail;
     }
 
+
+// builder 开始
+  public OpenapiLog(){}
+
+  public OpenapiLog(Builder builder){
+         /**
+          * openapi日志唯一标识
+          * <p> 示例值：10000
+          */
+      this.id = builder.id;
+         /**
+          * 飞书开放平台定义的API
+          * <p> 示例值：POST/open-apis/demo/v1/example
+          */
+      this.apiKey = builder.apiKey;
+         /**
+          * 日志产生的时间，以秒为单位的时间戳
+          * <p> 示例值：1610613336
+          */
+      this.eventTime = builder.eventTime;
+         /**
+          * 在开发者后台——凭证与基础信息页面查看的app_id（cli_xxxxx）
+          * <p> 示例值：cli_xxx
+          */
+      this.appId = builder.appId;
+         /**
+          * 发起调用api的ip地址
+          * <p> 示例值：192.123.12.1或fdbd:ff1:ce00:135:c7e:d128:5028:6546
+          */
+      this.ip = builder.ip;
+         /**
+          * openapi调用日志详情
+          * <p> 示例值：
+          */
+      this.logDetail = builder.logDetail;
+  }
+
     public static class Builder {
-        /**
-         * openapi日志唯一标识
-         * <p> 示例值：10000
-         */
+     /**
+      * openapi日志唯一标识
+      * <p> 示例值：10000
+      */
         private String id;
-        /**
-         * 飞书开放平台定义的API
-         * <p> 示例值：POST/open-apis/demo/v1/example
-         */
+     /**
+      * 飞书开放平台定义的API
+      * <p> 示例值：POST/open-apis/demo/v1/example
+      */
         private String apiKey;
-        /**
-         * 日志产生的时间，以秒为单位的时间戳
-         * <p> 示例值：1610613336
-         */
+     /**
+      * 日志产生的时间，以秒为单位的时间戳
+      * <p> 示例值：1610613336
+      */
         private Integer eventTime;
-        /**
-         * 在开发者后台——凭证与基础信息页面查看的app_id（cli_xxxxx）
-         * <p> 示例值：cli_xxx
-         */
+     /**
+      * 在开发者后台——凭证与基础信息页面查看的app_id（cli_xxxxx）
+      * <p> 示例值：cli_xxx
+      */
         private String appId;
-        /**
-         * 发起调用api的ip地址
-         * <p> 示例值：192.123.12.1或fdbd:ff1:ce00:135:c7e:d128:5028:6546
-         */
+     /**
+      * 发起调用api的ip地址
+      * <p> 示例值：192.123.12.1或fdbd:ff1:ce00:135:c7e:d128:5028:6546
+      */
         private String ip;
-        /**
-         * openapi调用日志详情
-         * <p> 示例值：
-         */
+     /**
+      * openapi调用日志详情
+      * <p> 示例值：
+      */
         private OpenapiLogDetail logDetail;
 
         /**
          * openapi日志唯一标识
          * <p> 示例值：10000
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 飞书开放平台定义的API
          * <p> 示例值：POST/open-apis/demo/v1/example
-         *
          * @param apiKey
          * @return
          */
         public Builder apiKey(String apiKey) {
-            this.apiKey = apiKey;
-            return this;
+             this.apiKey = apiKey;
+             return this;
         }
 
+    
 
         /**
          * 日志产生的时间，以秒为单位的时间戳
          * <p> 示例值：1610613336
-         *
          * @param eventTime
          * @return
          */
         public Builder eventTime(Integer eventTime) {
-            this.eventTime = eventTime;
-            return this;
+             this.eventTime = eventTime;
+             return this;
         }
 
+    
 
         /**
          * 在开发者后台——凭证与基础信息页面查看的app_id（cli_xxxxx）
          * <p> 示例值：cli_xxx
-         *
          * @param appId
          * @return
          */
         public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
+             this.appId = appId;
+             return this;
         }
 
+    
 
         /**
          * 发起调用api的ip地址
          * <p> 示例值：192.123.12.1或fdbd:ff1:ce00:135:c7e:d128:5028:6546
-         *
          * @param ip
          * @return
          */
         public Builder ip(String ip) {
-            this.ip = ip;
-            return this;
+             this.ip = ip;
+             return this;
         }
 
+    
 
         /**
          * openapi调用日志详情
          * <p> 示例值：
-         *
          * @param logDetail
          * @return
          */
         public Builder logDetail(OpenapiLogDetail logDetail) {
-            this.logDetail = logDetail;
-            return this;
+             this.logDetail = logDetail;
+             return this;
         }
 
+    
+    
+    public OpenapiLog build(){
+        return new OpenapiLog(this);
+      }
+    }
 
-        public OpenapiLog build() {
-            return new OpenapiLog(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

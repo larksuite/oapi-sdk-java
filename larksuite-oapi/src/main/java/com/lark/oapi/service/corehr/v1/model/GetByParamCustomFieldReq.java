@@ -12,58 +12,32 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetByParamCustomFieldReq {
-    /**
-     * 所属对象 apiname
-     * <p> 示例值：offboarding_info
-     */
+     /**
+      * 所属对象 apiname
+      * <p> 示例值：offboarding_info
+      */
     @Query
     @SerializedName("object_api_name")
     private String objectApiName;
-    /**
-     * 自定义字段 apiname
-     * <p> 示例值：custom_field_33
-     */
+     /**
+      * 自定义字段 apiname
+      * <p> 示例值：custom_field_33
+      */
     @Query
     @SerializedName("custom_api_name")
     private String customApiName;
-
-    // builder 开始
-    public GetByParamCustomFieldReq() {
-    }
-
-    public GetByParamCustomFieldReq(Builder builder) {
-        /**
-         * 所属对象 apiname
-         * <p> 示例值：offboarding_info
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 自定义字段 apiname
-         * <p> 示例值：custom_field_33
-         */
-        this.customApiName = builder.customApiName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getObjectApiName() {
         return this.objectApiName;
     }
@@ -80,38 +54,57 @@ public class GetByParamCustomFieldReq {
         this.customApiName = customApiName;
     }
 
+
+// builder 开始
+  public GetByParamCustomFieldReq(){}
+
+  public GetByParamCustomFieldReq(Builder builder){
+         /**
+          * 所属对象 apiname
+          * <p> 示例值：offboarding_info
+          */
+       this.objectApiName = builder.objectApiName;
+         /**
+          * 自定义字段 apiname
+          * <p> 示例值：custom_field_33
+          */
+       this.customApiName = builder.customApiName;
+  }
+
     public static class Builder {
         private String objectApiName; // 所属对象 apiname
         private String customApiName; // 自定义字段 apiname
-
+    
         /**
          * 所属对象 apiname
          * <p> 示例值：offboarding_info
-         *
          * @param objectApiName
          * @return
          */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
+           public Builder objectApiName(String objectApiName) {
+                this.objectApiName = objectApiName;
+                return this;
+           }
 
-
+    
         /**
          * 自定义字段 apiname
          * <p> 示例值：custom_field_33
-         *
          * @param customApiName
          * @return
          */
-        public Builder customApiName(String customApiName) {
-            this.customApiName = customApiName;
-            return this;
-        }
+           public Builder customApiName(String customApiName) {
+                this.customApiName = customApiName;
+                return this;
+           }
 
+    
+    public GetByParamCustomFieldReq build(){
+        return new GetByParamCustomFieldReq(this);
+      }
+    }
 
-        public GetByParamCustomFieldReq build() {
-            return new GetByParamCustomFieldReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

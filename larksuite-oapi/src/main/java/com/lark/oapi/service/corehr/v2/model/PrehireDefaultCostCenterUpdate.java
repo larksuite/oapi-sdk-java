@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PrehireDefaultCostCenterUpdate {
-    /**
-     * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-     * <p> 示例值：6950635856373745165
-     */
+     /**
+      * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
+      * <p> 示例值：6950635856373745165
+      */
     @SerializedName("cost_center_id")
     private String costCenterId;
-    /**
-     * 是否继承岗位/部门的默认成本中心
-     * <p> 示例值：false
-     */
+     /**
+      * 是否继承岗位/部门的默认成本中心
+      * <p> 示例值：false
+      */
     @SerializedName("is_herit")
     private Boolean isHerit;
-
-    // builder 开始
-    public PrehireDefaultCostCenterUpdate() {
-    }
-
-    public PrehireDefaultCostCenterUpdate(Builder builder) {
-        /**
-         * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-         * <p> 示例值：6950635856373745165
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 是否继承岗位/部门的默认成本中心
-         * <p> 示例值：false
-         */
-        this.isHerit = builder.isHerit;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCostCenterId() {
         return this.costCenterId;
     }
@@ -79,46 +53,67 @@ public class PrehireDefaultCostCenterUpdate {
         this.isHerit = isHerit;
     }
 
+
+// builder 开始
+  public PrehireDefaultCostCenterUpdate(){}
+
+  public PrehireDefaultCostCenterUpdate(Builder builder){
+         /**
+          * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
+          * <p> 示例值：6950635856373745165
+          */
+      this.costCenterId = builder.costCenterId;
+         /**
+          * 是否继承岗位/部门的默认成本中心
+          * <p> 示例值：false
+          */
+      this.isHerit = builder.isHerit;
+  }
+
     public static class Builder {
-        /**
-         * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-         * <p> 示例值：6950635856373745165
-         */
+     /**
+      * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
+      * <p> 示例值：6950635856373745165
+      */
         private String costCenterId;
-        /**
-         * 是否继承岗位/部门的默认成本中心
-         * <p> 示例值：false
-         */
+     /**
+      * 是否继承岗位/部门的默认成本中心
+      * <p> 示例值：false
+      */
         private Boolean isHerit;
 
         /**
          * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
          * <p> 示例值：6950635856373745165
-         *
          * @param costCenterId
          * @return
          */
         public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
+             this.costCenterId = costCenterId;
+             return this;
         }
 
+    
 
         /**
          * 是否继承岗位/部门的默认成本中心
          * <p> 示例值：false
-         *
          * @param isHerit
          * @return
          */
         public Builder isHerit(Boolean isHerit) {
-            this.isHerit = isHerit;
-            return this;
+             this.isHerit = isHerit;
+             return this;
         }
 
+    
+    
+    public PrehireDefaultCostCenterUpdate build(){
+        return new PrehireDefaultCostCenterUpdate(this);
+      }
+    }
 
-        public PrehireDefaultCostCenterUpdate build() {
-            return new PrehireDefaultCostCenterUpdate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

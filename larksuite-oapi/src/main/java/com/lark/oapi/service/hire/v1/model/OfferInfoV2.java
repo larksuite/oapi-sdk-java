@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OfferInfoV2 {
-    /**
-     * Offer 基本信息
-     * <p> 示例值：
-     */
+     /**
+      * Offer 基本信息
+      * <p> 示例值：
+      */
     @SerializedName("offer_basic")
     private OfferBasicInfoV2 offerBasic;
-    /**
-     * Offer 薪酬信息
-     * <p> 示例值：
-     */
+     /**
+      * Offer 薪酬信息
+      * <p> 示例值：
+      */
     @SerializedName("offer_salary")
     private OfferSalaryInfoV2 offerSalary;
-
-    // builder 开始
-    public OfferInfoV2() {
-    }
-
-    public OfferInfoV2(Builder builder) {
-        /**
-         * Offer 基本信息
-         * <p> 示例值：
-         */
-        this.offerBasic = builder.offerBasic;
-        /**
-         * Offer 薪酬信息
-         * <p> 示例值：
-         */
-        this.offerSalary = builder.offerSalary;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public OfferBasicInfoV2 getOfferBasic() {
         return this.offerBasic;
     }
@@ -78,46 +52,67 @@ public class OfferInfoV2 {
         this.offerSalary = offerSalary;
     }
 
+
+// builder 开始
+  public OfferInfoV2(){}
+
+  public OfferInfoV2(Builder builder){
+         /**
+          * Offer 基本信息
+          * <p> 示例值：
+          */
+      this.offerBasic = builder.offerBasic;
+         /**
+          * Offer 薪酬信息
+          * <p> 示例值：
+          */
+      this.offerSalary = builder.offerSalary;
+  }
+
     public static class Builder {
-        /**
-         * Offer 基本信息
-         * <p> 示例值：
-         */
+     /**
+      * Offer 基本信息
+      * <p> 示例值：
+      */
         private OfferBasicInfoV2 offerBasic;
-        /**
-         * Offer 薪酬信息
-         * <p> 示例值：
-         */
+     /**
+      * Offer 薪酬信息
+      * <p> 示例值：
+      */
         private OfferSalaryInfoV2 offerSalary;
 
         /**
          * Offer 基本信息
          * <p> 示例值：
-         *
          * @param offerBasic
          * @return
          */
         public Builder offerBasic(OfferBasicInfoV2 offerBasic) {
-            this.offerBasic = offerBasic;
-            return this;
+             this.offerBasic = offerBasic;
+             return this;
         }
 
+    
 
         /**
          * Offer 薪酬信息
          * <p> 示例值：
-         *
          * @param offerSalary
          * @return
          */
         public Builder offerSalary(OfferSalaryInfoV2 offerSalary) {
-            this.offerSalary = offerSalary;
-            return this;
+             this.offerSalary = offerSalary;
+             return this;
         }
 
+    
+    
+    public OfferInfoV2 build(){
+        return new OfferInfoV2(this);
+      }
+    }
 
-        public OfferInfoV2 build() {
-            return new OfferInfoV2(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

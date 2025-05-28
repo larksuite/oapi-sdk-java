@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProcessRevokeAndWithdraw {
-    /**
-     * 按照指定的用户ID类型传递对应的用户ID。
-     * <p> 示例值：ou_91791271921729102012
-     */
+     /**
+      * 按照指定的用户ID类型传递对应的用户ID。
+      * <p> 示例值：ou_91791271921729102012
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 原因
-     * <p> 示例值：原因自定义字符串
-     */
+     /**
+      * 原因
+      * <p> 示例值：原因自定义字符串
+      */
     @SerializedName("reason")
     private String reason;
-    /**
-     * true-系统身份操作
-     * <p> 示例值：true
-     */
+     /**
+      * true-系统身份操作
+      * <p> 示例值：true
+      */
     @SerializedName("system_user")
     private Boolean systemUser;
-
-    // builder 开始
-    public ProcessRevokeAndWithdraw() {
-    }
-
-    public ProcessRevokeAndWithdraw(Builder builder) {
-        /**
-         * 按照指定的用户ID类型传递对应的用户ID。
-         * <p> 示例值：ou_91791271921729102012
-         */
-        this.userId = builder.userId;
-        /**
-         * 原因
-         * <p> 示例值：原因自定义字符串
-         */
-        this.reason = builder.reason;
-        /**
-         * true-系统身份操作
-         * <p> 示例值：true
-         */
-        this.systemUser = builder.systemUser;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -98,64 +67,90 @@ public class ProcessRevokeAndWithdraw {
         this.systemUser = systemUser;
     }
 
+
+// builder 开始
+  public ProcessRevokeAndWithdraw(){}
+
+  public ProcessRevokeAndWithdraw(Builder builder){
+         /**
+          * 按照指定的用户ID类型传递对应的用户ID。
+          * <p> 示例值：ou_91791271921729102012
+          */
+      this.userId = builder.userId;
+         /**
+          * 原因
+          * <p> 示例值：原因自定义字符串
+          */
+      this.reason = builder.reason;
+         /**
+          * true-系统身份操作
+          * <p> 示例值：true
+          */
+      this.systemUser = builder.systemUser;
+  }
+
     public static class Builder {
-        /**
-         * 按照指定的用户ID类型传递对应的用户ID。
-         * <p> 示例值：ou_91791271921729102012
-         */
+     /**
+      * 按照指定的用户ID类型传递对应的用户ID。
+      * <p> 示例值：ou_91791271921729102012
+      */
         private String userId;
-        /**
-         * 原因
-         * <p> 示例值：原因自定义字符串
-         */
+     /**
+      * 原因
+      * <p> 示例值：原因自定义字符串
+      */
         private String reason;
-        /**
-         * true-系统身份操作
-         * <p> 示例值：true
-         */
+     /**
+      * true-系统身份操作
+      * <p> 示例值：true
+      */
         private Boolean systemUser;
 
         /**
          * 按照指定的用户ID类型传递对应的用户ID。
          * <p> 示例值：ou_91791271921729102012
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 原因
          * <p> 示例值：原因自定义字符串
-         *
          * @param reason
          * @return
          */
         public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
+             this.reason = reason;
+             return this;
         }
 
+    
 
         /**
          * true-系统身份操作
          * <p> 示例值：true
-         *
          * @param systemUser
          * @return
          */
         public Builder systemUser(Boolean systemUser) {
-            this.systemUser = systemUser;
-            return this;
+             this.systemUser = systemUser;
+             return this;
         }
 
+    
+    
+    public ProcessRevokeAndWithdraw build(){
+        return new ProcessRevokeAndWithdraw(this);
+      }
+    }
 
-        public ProcessRevokeAndWithdraw build() {
-            return new ProcessRevokeAndWithdraw(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

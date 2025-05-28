@@ -12,69 +12,38 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetInterviewRecordAttachmentReq {
-    /**
-     * 投递 ID
-     * <p> 示例值：6949805467799537964
-     */
+     /**
+      * 投递 ID
+      * <p> 示例值：6949805467799537964
+      */
     @Query
     @SerializedName("application_id")
     private String applicationId;
-    /**
-     * 面试记录 ID
-     * <p> 示例值：6969137186734393644
-     */
+     /**
+      * 面试记录 ID
+      * <p> 示例值：6969137186734393644
+      */
     @Query
     @SerializedName("interview_record_id")
     private String interviewRecordId;
-    /**
-     * 面试记录语言
-     * <p> 示例值：
-     */
+     /**
+      * 面试记录语言
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("language")
     private Integer language;
-
-    // builder 开始
-    public GetInterviewRecordAttachmentReq() {
-    }
-
-    public GetInterviewRecordAttachmentReq(Builder builder) {
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 面试记录 ID
-         * <p> 示例值：6969137186734393644
-         */
-        this.interviewRecordId = builder.interviewRecordId;
-        /**
-         * 面试记录语言
-         * <p> 示例值：
-         */
-        this.language = builder.language;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApplicationId() {
         return this.applicationId;
     }
@@ -99,52 +68,75 @@ public class GetInterviewRecordAttachmentReq {
         this.language = language;
     }
 
+
+// builder 开始
+  public GetInterviewRecordAttachmentReq(){}
+
+  public GetInterviewRecordAttachmentReq(Builder builder){
+         /**
+          * 投递 ID
+          * <p> 示例值：6949805467799537964
+          */
+       this.applicationId = builder.applicationId;
+         /**
+          * 面试记录 ID
+          * <p> 示例值：6969137186734393644
+          */
+       this.interviewRecordId = builder.interviewRecordId;
+         /**
+          * 面试记录语言
+          * <p> 示例值：
+          */
+       this.language = builder.language;
+  }
+
     public static class Builder {
         private String applicationId; // 投递 ID
         private String interviewRecordId; // 面试记录 ID
         private Integer language; // 面试记录语言
-
+    
         /**
          * 投递 ID
          * <p> 示例值：6949805467799537964
-         *
          * @param applicationId
          * @return
          */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
+           public Builder applicationId(String applicationId) {
+                this.applicationId = applicationId;
+                return this;
+           }
 
-
+    
         /**
          * 面试记录 ID
          * <p> 示例值：6969137186734393644
-         *
          * @param interviewRecordId
          * @return
          */
-        public Builder interviewRecordId(String interviewRecordId) {
-            this.interviewRecordId = interviewRecordId;
-            return this;
-        }
+           public Builder interviewRecordId(String interviewRecordId) {
+                this.interviewRecordId = interviewRecordId;
+                return this;
+           }
 
-
+    
         /**
          * 面试记录语言
          * <p> 示例值：
-         *
          * @param language
          * @return
          */
-        public Builder language(Integer language) {
-            this.language = language;
-            return this;
-        }
+           public Builder language(Integer language) {
+                this.language = language;
+                return this;
+           }
 
+    
+    public GetInterviewRecordAttachmentReq build(){
+        return new GetInterviewRecordAttachmentReq(this);
+      }
+    }
 
-        public GetInterviewRecordAttachmentReq build() {
-            return new GetInterviewRecordAttachmentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

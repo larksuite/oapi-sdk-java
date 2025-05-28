@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Metric {
-    /**
-     * 指标名称
-     * <p> 示例值：function_exec_total
-     */
+     /**
+      * 指标名称
+      * <p> 示例值：function_exec_total
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 指标类型
-     * <p> 示例值：counter
-     */
+     /**
+      * 指标类型
+      * <p> 示例值：counter
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 指标值
-     * <p> 示例值：1
-     */
+     /**
+      * 指标值
+      * <p> 示例值：1
+      */
     @SerializedName("value")
     private Double value;
-    /**
-     * 指标属性，json 格式
-     * <p> 示例值：{"tenant_id": 390}
-     */
+     /**
+      * 指标属性，json 格式
+      * <p> 示例值：{"tenant_id": 390}
+      */
     @SerializedName("attributes")
     private String attributes;
-    /**
-     * 时间戳
-     * <p> 示例值：1729503987342
-     */
+     /**
+      * 时间戳
+      * <p> 示例值：1729503987342
+      */
     @SerializedName("timestamp")
     private Integer timestamp;
-
-    // builder 开始
-    public Metric() {
-    }
-
-    public Metric(Builder builder) {
-        /**
-         * 指标名称
-         * <p> 示例值：function_exec_total
-         */
-        this.name = builder.name;
-        /**
-         * 指标类型
-         * <p> 示例值：counter
-         */
-        this.type = builder.type;
-        /**
-         * 指标值
-         * <p> 示例值：1
-         */
-        this.value = builder.value;
-        /**
-         * 指标属性，json 格式
-         * <p> 示例值：{"tenant_id": 390}
-         */
-        this.attributes = builder.attributes;
-        /**
-         * 时间戳
-         * <p> 示例值：1729503987342
-         */
-        this.timestamp = builder.timestamp;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -136,100 +95,136 @@ public class Metric {
         this.timestamp = timestamp;
     }
 
+
+// builder 开始
+  public Metric(){}
+
+  public Metric(Builder builder){
+         /**
+          * 指标名称
+          * <p> 示例值：function_exec_total
+          */
+      this.name = builder.name;
+         /**
+          * 指标类型
+          * <p> 示例值：counter
+          */
+      this.type = builder.type;
+         /**
+          * 指标值
+          * <p> 示例值：1
+          */
+      this.value = builder.value;
+         /**
+          * 指标属性，json 格式
+          * <p> 示例值：{"tenant_id": 390}
+          */
+      this.attributes = builder.attributes;
+         /**
+          * 时间戳
+          * <p> 示例值：1729503987342
+          */
+      this.timestamp = builder.timestamp;
+  }
+
     public static class Builder {
-        /**
-         * 指标名称
-         * <p> 示例值：function_exec_total
-         */
+     /**
+      * 指标名称
+      * <p> 示例值：function_exec_total
+      */
         private String name;
-        /**
-         * 指标类型
-         * <p> 示例值：counter
-         */
+     /**
+      * 指标类型
+      * <p> 示例值：counter
+      */
         private String type;
-        /**
-         * 指标值
-         * <p> 示例值：1
-         */
+     /**
+      * 指标值
+      * <p> 示例值：1
+      */
         private Double value;
-        /**
-         * 指标属性，json 格式
-         * <p> 示例值：{"tenant_id": 390}
-         */
+     /**
+      * 指标属性，json 格式
+      * <p> 示例值：{"tenant_id": 390}
+      */
         private String attributes;
-        /**
-         * 时间戳
-         * <p> 示例值：1729503987342
-         */
+     /**
+      * 时间戳
+      * <p> 示例值：1729503987342
+      */
         private Integer timestamp;
 
         /**
          * 指标名称
          * <p> 示例值：function_exec_total
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 指标类型
          * <p> 示例值：counter
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 指标值
          * <p> 示例值：1
-         *
          * @param value
          * @return
          */
         public Builder value(Double value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
 
         /**
          * 指标属性，json 格式
          * <p> 示例值：{"tenant_id": 390}
-         *
          * @param attributes
          * @return
          */
         public Builder attributes(String attributes) {
-            this.attributes = attributes;
-            return this;
+             this.attributes = attributes;
+             return this;
         }
 
+    
 
         /**
          * 时间戳
          * <p> 示例值：1729503987342
-         *
          * @param timestamp
          * @return
          */
         public Builder timestamp(Integer timestamp) {
-            this.timestamp = timestamp;
-            return this;
+             this.timestamp = timestamp;
+             return this;
         }
 
+    
+    
+    public Metric build(){
+        return new Metric(this);
+      }
+    }
 
-        public Metric build() {
-            return new Metric(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

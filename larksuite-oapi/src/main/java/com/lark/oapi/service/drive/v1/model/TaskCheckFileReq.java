@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TaskCheckFileReq {
-    /**
-     * 文件相关异步任务id
-     * <p> 示例值：12345
-     */
+     /**
+      * 文件相关异步任务id
+      * <p> 示例值：12345
+      */
     @Query
     @SerializedName("task_id")
     private String taskId;
-
-    // builder 开始
-    public TaskCheckFileReq() {
-    }
-
-    public TaskCheckFileReq(Builder builder) {
-        /**
-         * 文件相关异步任务id
-         * <p> 示例值：12345
-         */
-        this.taskId = builder.taskId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTaskId() {
         return this.taskId;
     }
@@ -60,24 +39,39 @@ public class TaskCheckFileReq {
         this.taskId = taskId;
     }
 
+
+// builder 开始
+  public TaskCheckFileReq(){}
+
+  public TaskCheckFileReq(Builder builder){
+         /**
+          * 文件相关异步任务id
+          * <p> 示例值：12345
+          */
+       this.taskId = builder.taskId;
+  }
+
     public static class Builder {
         private String taskId; // 文件相关异步任务id
-
+    
         /**
          * 文件相关异步任务id
          * <p> 示例值：12345
-         *
          * @param taskId
          * @return
          */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
+           public Builder taskId(String taskId) {
+                this.taskId = taskId;
+                return this;
+           }
 
+    
+    public TaskCheckFileReq build(){
+        return new TaskCheckFileReq(this);
+      }
+    }
 
-        public TaskCheckFileReq build() {
-            return new TaskCheckFileReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

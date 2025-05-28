@@ -17,17 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * 发送者类型
  */
 public enum SenderSenderTypeEnum {
-    USER("USER"), // 用户消息
-    SYSTEM("SYSTEM"), // 系统消息
-    SKILL("SKILL"), // 技能消息
-    ;
-    private String value;
-
+     USER("USER"), // 用户消息
+     SYSTEM("SYSTEM"), // 系统消息
+     SKILL("SKILL"), // 技能消息
+  ;
+   private String value;
     SenderSenderTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

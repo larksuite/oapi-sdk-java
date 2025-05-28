@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,236 +19,126 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AuditInfo {
-    /**
-     * 事件id
-     * <p> 示例值：7126195947859656705
-     */
+     /**
+      * 事件id
+      * <p> 示例值：7126195947859656705
+      */
     @SerializedName("event_id")
     private String eventId;
-    /**
-     * 唯一id
-     * <p> 示例值：7126195947859656705
-     */
+     /**
+      * 唯一id
+      * <p> 示例值：7126195947859656705
+      */
     @SerializedName("unique_id")
     private String uniqueId;
-    /**
-     * 事件名称
-     * <p> 示例值：space_read_doc
-     */
+     /**
+      * 事件名称
+      * <p> 示例值：space_read_doc
+      */
     @SerializedName("event_name")
     private String eventName;
-    /**
-     * 用户所属部门的ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 用户所属部门的ID列表
+      * <p> 示例值：
+      */
     @SerializedName("department_ids")
     private String[] departmentIds;
-    /**
-     * 模块
-     * <p> 示例值：1
-     */
+     /**
+      * 模块
+      * <p> 示例值：1
+      */
     @SerializedName("event_module")
     private Integer eventModule;
-    /**
-     * 操作人类型
-     * <p> 示例值：
-     */
+     /**
+      * 操作人类型
+      * <p> 示例值：
+      */
     @SerializedName("operator_type")
     private Integer operatorType;
-    /**
-     * 操作人id
-     * <p> 示例值：4a3b8541
-     */
+     /**
+      * 操作人id
+      * <p> 示例值：4a3b8541
+      */
     @SerializedName("operator_value")
     private String operatorValue;
-    /**
-     * 操作对象列表
-     * <p> 示例值：
-     */
+     /**
+      * 操作对象列表
+      * <p> 示例值：
+      */
     @SerializedName("objects")
     private AuditObjectEntity[] objects;
-    /**
-     * 接收者对象列表
-     * <p> 示例值：
-     */
+     /**
+      * 接收者对象列表
+      * <p> 示例值：
+      */
     @SerializedName("recipients")
     private AuditRecipientEntity[] recipients;
-    /**
-     * 事件时间
-     * <p> 示例值：1669046400
-     */
+     /**
+      * 事件时间
+      * <p> 示例值：1669046400
+      */
     @SerializedName("event_time")
     private Integer eventTime;
-    /**
-     * ip信息
-     * <p> 示例值：192.168.168.1
-     */
+     /**
+      * ip信息
+      * <p> 示例值：192.168.168.1
+      */
     @SerializedName("ip")
     private String ip;
-    /**
-     * 第三方isvID
-     * <p> 示例值：example_value
-     */
+     /**
+      * 第三方isvID
+      * <p> 示例值：example_value
+      */
     @SerializedName("operator_app")
     private String operatorApp;
-    /**
-     * 环境信息
-     * <p> 示例值：
-     */
+     /**
+      * 环境信息
+      * <p> 示例值：
+      */
     @SerializedName("audit_context")
     private AuditContext auditContext;
-    /**
-     * 事件级别的扩展
-     * <p> 示例值：
-     */
+     /**
+      * 事件级别的扩展
+      * <p> 示例值：
+      */
     @SerializedName("extend")
     private AuditEventExtend extend;
-    /**
-     * 第三方isv名称
-     * <p> 示例值：example_value
-     */
+     /**
+      * 第三方isv名称
+      * <p> 示例值：example_value
+      */
     @SerializedName("operator_app_name")
     private String operatorAppName;
-    /**
-     * 扩展字段信息
-     * <p> 示例值：
-     */
+     /**
+      * 扩展字段信息
+      * <p> 示例值：
+      */
     @SerializedName("common_drawers")
     private ApiAuditCommonDrawers commonDrawers;
-    /**
-     * 日志扩展信息
-     * <p> 示例值：
-     */
+     /**
+      * 日志扩展信息
+      * <p> 示例值：
+      */
     @SerializedName("audit_detail")
     private AuditDetail auditDetail;
-    /**
-     * 操作人企业编号
-     * <p> 示例值：F2823442
-     */
+     /**
+      * 操作人企业编号
+      * <p> 示例值：F2823442
+      */
     @SerializedName("operator_tenant")
     private String operatorTenant;
-    /**
-     * 操作人详情
-     * <p> 示例值：
-     */
+     /**
+      * 操作人详情
+      * <p> 示例值：
+      */
     @SerializedName("operator_detail")
     private OperatorDetail operatorDetail;
-
-    // builder 开始
-    public AuditInfo() {
-    }
-
-    public AuditInfo(Builder builder) {
-        /**
-         * 事件id
-         * <p> 示例值：7126195947859656705
-         */
-        this.eventId = builder.eventId;
-        /**
-         * 唯一id
-         * <p> 示例值：7126195947859656705
-         */
-        this.uniqueId = builder.uniqueId;
-        /**
-         * 事件名称
-         * <p> 示例值：space_read_doc
-         */
-        this.eventName = builder.eventName;
-        /**
-         * 用户所属部门的ID列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 模块
-         * <p> 示例值：1
-         */
-        this.eventModule = builder.eventModule;
-        /**
-         * 操作人类型
-         * <p> 示例值：
-         */
-        this.operatorType = builder.operatorType;
-        /**
-         * 操作人id
-         * <p> 示例值：4a3b8541
-         */
-        this.operatorValue = builder.operatorValue;
-        /**
-         * 操作对象列表
-         * <p> 示例值：
-         */
-        this.objects = builder.objects;
-        /**
-         * 接收者对象列表
-         * <p> 示例值：
-         */
-        this.recipients = builder.recipients;
-        /**
-         * 事件时间
-         * <p> 示例值：1669046400
-         */
-        this.eventTime = builder.eventTime;
-        /**
-         * ip信息
-         * <p> 示例值：192.168.168.1
-         */
-        this.ip = builder.ip;
-        /**
-         * 第三方isvID
-         * <p> 示例值：example_value
-         */
-        this.operatorApp = builder.operatorApp;
-        /**
-         * 环境信息
-         * <p> 示例值：
-         */
-        this.auditContext = builder.auditContext;
-        /**
-         * 事件级别的扩展
-         * <p> 示例值：
-         */
-        this.extend = builder.extend;
-        /**
-         * 第三方isv名称
-         * <p> 示例值：example_value
-         */
-        this.operatorAppName = builder.operatorAppName;
-        /**
-         * 扩展字段信息
-         * <p> 示例值：
-         */
-        this.commonDrawers = builder.commonDrawers;
-        /**
-         * 日志扩展信息
-         * <p> 示例值：
-         */
-        this.auditDetail = builder.auditDetail;
-        /**
-         * 操作人企业编号
-         * <p> 示例值：F2823442
-         */
-        this.operatorTenant = builder.operatorTenant;
-        /**
-         * 操作人详情
-         * <p> 示例值：
-         */
-        this.operatorDetail = builder.operatorDetail;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEventId() {
         return this.eventId;
     }
@@ -402,364 +291,468 @@ public class AuditInfo {
         this.operatorDetail = operatorDetail;
     }
 
+
+// builder 开始
+  public AuditInfo(){}
+
+  public AuditInfo(Builder builder){
+         /**
+          * 事件id
+          * <p> 示例值：7126195947859656705
+          */
+      this.eventId = builder.eventId;
+         /**
+          * 唯一id
+          * <p> 示例值：7126195947859656705
+          */
+      this.uniqueId = builder.uniqueId;
+         /**
+          * 事件名称
+          * <p> 示例值：space_read_doc
+          */
+      this.eventName = builder.eventName;
+         /**
+          * 用户所属部门的ID列表
+          * <p> 示例值：
+          */
+      this.departmentIds = builder.departmentIds;
+         /**
+          * 模块
+          * <p> 示例值：1
+          */
+      this.eventModule = builder.eventModule;
+         /**
+          * 操作人类型
+          * <p> 示例值：
+          */
+      this.operatorType = builder.operatorType;
+         /**
+          * 操作人id
+          * <p> 示例值：4a3b8541
+          */
+      this.operatorValue = builder.operatorValue;
+         /**
+          * 操作对象列表
+          * <p> 示例值：
+          */
+      this.objects = builder.objects;
+         /**
+          * 接收者对象列表
+          * <p> 示例值：
+          */
+      this.recipients = builder.recipients;
+         /**
+          * 事件时间
+          * <p> 示例值：1669046400
+          */
+      this.eventTime = builder.eventTime;
+         /**
+          * ip信息
+          * <p> 示例值：192.168.168.1
+          */
+      this.ip = builder.ip;
+         /**
+          * 第三方isvID
+          * <p> 示例值：example_value
+          */
+      this.operatorApp = builder.operatorApp;
+         /**
+          * 环境信息
+          * <p> 示例值：
+          */
+      this.auditContext = builder.auditContext;
+         /**
+          * 事件级别的扩展
+          * <p> 示例值：
+          */
+      this.extend = builder.extend;
+         /**
+          * 第三方isv名称
+          * <p> 示例值：example_value
+          */
+      this.operatorAppName = builder.operatorAppName;
+         /**
+          * 扩展字段信息
+          * <p> 示例值：
+          */
+      this.commonDrawers = builder.commonDrawers;
+         /**
+          * 日志扩展信息
+          * <p> 示例值：
+          */
+      this.auditDetail = builder.auditDetail;
+         /**
+          * 操作人企业编号
+          * <p> 示例值：F2823442
+          */
+      this.operatorTenant = builder.operatorTenant;
+         /**
+          * 操作人详情
+          * <p> 示例值：
+          */
+      this.operatorDetail = builder.operatorDetail;
+  }
+
     public static class Builder {
-        /**
-         * 事件id
-         * <p> 示例值：7126195947859656705
-         */
+     /**
+      * 事件id
+      * <p> 示例值：7126195947859656705
+      */
         private String eventId;
-        /**
-         * 唯一id
-         * <p> 示例值：7126195947859656705
-         */
+     /**
+      * 唯一id
+      * <p> 示例值：7126195947859656705
+      */
         private String uniqueId;
-        /**
-         * 事件名称
-         * <p> 示例值：space_read_doc
-         */
+     /**
+      * 事件名称
+      * <p> 示例值：space_read_doc
+      */
         private String eventName;
-        /**
-         * 用户所属部门的ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 用户所属部门的ID列表
+      * <p> 示例值：
+      */
         private String[] departmentIds;
-        /**
-         * 模块
-         * <p> 示例值：1
-         */
+     /**
+      * 模块
+      * <p> 示例值：1
+      */
         private Integer eventModule;
-        /**
-         * 操作人类型
-         * <p> 示例值：
-         */
+     /**
+      * 操作人类型
+      * <p> 示例值：
+      */
         private Integer operatorType;
-        /**
-         * 操作人id
-         * <p> 示例值：4a3b8541
-         */
+     /**
+      * 操作人id
+      * <p> 示例值：4a3b8541
+      */
         private String operatorValue;
-        /**
-         * 操作对象列表
-         * <p> 示例值：
-         */
+     /**
+      * 操作对象列表
+      * <p> 示例值：
+      */
         private AuditObjectEntity[] objects;
-        /**
-         * 接收者对象列表
-         * <p> 示例值：
-         */
+     /**
+      * 接收者对象列表
+      * <p> 示例值：
+      */
         private AuditRecipientEntity[] recipients;
-        /**
-         * 事件时间
-         * <p> 示例值：1669046400
-         */
+     /**
+      * 事件时间
+      * <p> 示例值：1669046400
+      */
         private Integer eventTime;
-        /**
-         * ip信息
-         * <p> 示例值：192.168.168.1
-         */
+     /**
+      * ip信息
+      * <p> 示例值：192.168.168.1
+      */
         private String ip;
-        /**
-         * 第三方isvID
-         * <p> 示例值：example_value
-         */
+     /**
+      * 第三方isvID
+      * <p> 示例值：example_value
+      */
         private String operatorApp;
-        /**
-         * 环境信息
-         * <p> 示例值：
-         */
+     /**
+      * 环境信息
+      * <p> 示例值：
+      */
         private AuditContext auditContext;
-        /**
-         * 事件级别的扩展
-         * <p> 示例值：
-         */
+     /**
+      * 事件级别的扩展
+      * <p> 示例值：
+      */
         private AuditEventExtend extend;
-        /**
-         * 第三方isv名称
-         * <p> 示例值：example_value
-         */
+     /**
+      * 第三方isv名称
+      * <p> 示例值：example_value
+      */
         private String operatorAppName;
-        /**
-         * 扩展字段信息
-         * <p> 示例值：
-         */
+     /**
+      * 扩展字段信息
+      * <p> 示例值：
+      */
         private ApiAuditCommonDrawers commonDrawers;
-        /**
-         * 日志扩展信息
-         * <p> 示例值：
-         */
+     /**
+      * 日志扩展信息
+      * <p> 示例值：
+      */
         private AuditDetail auditDetail;
-        /**
-         * 操作人企业编号
-         * <p> 示例值：F2823442
-         */
+     /**
+      * 操作人企业编号
+      * <p> 示例值：F2823442
+      */
         private String operatorTenant;
-        /**
-         * 操作人详情
-         * <p> 示例值：
-         */
+     /**
+      * 操作人详情
+      * <p> 示例值：
+      */
         private OperatorDetail operatorDetail;
 
         /**
          * 事件id
          * <p> 示例值：7126195947859656705
-         *
          * @param eventId
          * @return
          */
         public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
+             this.eventId = eventId;
+             return this;
         }
 
+    
 
         /**
          * 唯一id
          * <p> 示例值：7126195947859656705
-         *
          * @param uniqueId
          * @return
          */
         public Builder uniqueId(String uniqueId) {
-            this.uniqueId = uniqueId;
-            return this;
+             this.uniqueId = uniqueId;
+             return this;
         }
 
+    
 
         /**
          * 事件名称
          * <p> 示例值：space_read_doc
-         *
          * @param eventName
          * @return
          */
         public Builder eventName(String eventName) {
-            this.eventName = eventName;
-            return this;
+             this.eventName = eventName;
+             return this;
         }
 
+    
 
         /**
          * 用户所属部门的ID列表
          * <p> 示例值：
-         *
          * @param departmentIds
          * @return
          */
         public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
+             this.departmentIds = departmentIds;
+             return this;
         }
 
+    
 
         /**
          * 模块
          * <p> 示例值：1
-         *
          * @param eventModule
          * @return
          */
         public Builder eventModule(Integer eventModule) {
-            this.eventModule = eventModule;
-            return this;
+             this.eventModule = eventModule;
+             return this;
         }
 
+    
 
         /**
          * 操作人类型
          * <p> 示例值：
-         *
          * @param operatorType
          * @return
          */
         public Builder operatorType(Integer operatorType) {
-            this.operatorType = operatorType;
-            return this;
+             this.operatorType = operatorType;
+             return this;
         }
-
         /**
          * 操作人类型
          * <p> 示例值：
-         *
          * @param operatorType {@link com.lark.oapi.service.admin.v1.enums.AuditInfoOperatorTypeEnum}
          * @return
          */
         public Builder operatorType(com.lark.oapi.service.admin.v1.enums.AuditInfoOperatorTypeEnum operatorType) {
-            this.operatorType = operatorType.getValue();
-            return this;
+             this.operatorType = operatorType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 操作人id
          * <p> 示例值：4a3b8541
-         *
          * @param operatorValue
          * @return
          */
         public Builder operatorValue(String operatorValue) {
-            this.operatorValue = operatorValue;
-            return this;
+             this.operatorValue = operatorValue;
+             return this;
         }
 
+    
 
         /**
          * 操作对象列表
          * <p> 示例值：
-         *
          * @param objects
          * @return
          */
         public Builder objects(AuditObjectEntity[] objects) {
-            this.objects = objects;
-            return this;
+             this.objects = objects;
+             return this;
         }
 
+    
 
         /**
          * 接收者对象列表
          * <p> 示例值：
-         *
          * @param recipients
          * @return
          */
         public Builder recipients(AuditRecipientEntity[] recipients) {
-            this.recipients = recipients;
-            return this;
+             this.recipients = recipients;
+             return this;
         }
 
+    
 
         /**
          * 事件时间
          * <p> 示例值：1669046400
-         *
          * @param eventTime
          * @return
          */
         public Builder eventTime(Integer eventTime) {
-            this.eventTime = eventTime;
-            return this;
+             this.eventTime = eventTime;
+             return this;
         }
 
+    
 
         /**
          * ip信息
          * <p> 示例值：192.168.168.1
-         *
          * @param ip
          * @return
          */
         public Builder ip(String ip) {
-            this.ip = ip;
-            return this;
+             this.ip = ip;
+             return this;
         }
 
+    
 
         /**
          * 第三方isvID
          * <p> 示例值：example_value
-         *
          * @param operatorApp
          * @return
          */
         public Builder operatorApp(String operatorApp) {
-            this.operatorApp = operatorApp;
-            return this;
+             this.operatorApp = operatorApp;
+             return this;
         }
 
+    
 
         /**
          * 环境信息
          * <p> 示例值：
-         *
          * @param auditContext
          * @return
          */
         public Builder auditContext(AuditContext auditContext) {
-            this.auditContext = auditContext;
-            return this;
+             this.auditContext = auditContext;
+             return this;
         }
 
+    
 
         /**
          * 事件级别的扩展
          * <p> 示例值：
-         *
          * @param extend
          * @return
          */
         public Builder extend(AuditEventExtend extend) {
-            this.extend = extend;
-            return this;
+             this.extend = extend;
+             return this;
         }
 
+    
 
         /**
          * 第三方isv名称
          * <p> 示例值：example_value
-         *
          * @param operatorAppName
          * @return
          */
         public Builder operatorAppName(String operatorAppName) {
-            this.operatorAppName = operatorAppName;
-            return this;
+             this.operatorAppName = operatorAppName;
+             return this;
         }
 
+    
 
         /**
          * 扩展字段信息
          * <p> 示例值：
-         *
          * @param commonDrawers
          * @return
          */
         public Builder commonDrawers(ApiAuditCommonDrawers commonDrawers) {
-            this.commonDrawers = commonDrawers;
-            return this;
+             this.commonDrawers = commonDrawers;
+             return this;
         }
 
+    
 
         /**
          * 日志扩展信息
          * <p> 示例值：
-         *
          * @param auditDetail
          * @return
          */
         public Builder auditDetail(AuditDetail auditDetail) {
-            this.auditDetail = auditDetail;
-            return this;
+             this.auditDetail = auditDetail;
+             return this;
         }
 
+    
 
         /**
          * 操作人企业编号
          * <p> 示例值：F2823442
-         *
          * @param operatorTenant
          * @return
          */
         public Builder operatorTenant(String operatorTenant) {
-            this.operatorTenant = operatorTenant;
-            return this;
+             this.operatorTenant = operatorTenant;
+             return this;
         }
 
+    
 
         /**
          * 操作人详情
          * <p> 示例值：
-         *
          * @param operatorDetail
          * @return
          */
         public Builder operatorDetail(OperatorDetail operatorDetail) {
-            this.operatorDetail = operatorDetail;
-            return this;
+             this.operatorDetail = operatorDetail;
+             return this;
         }
 
+    
+    
+    public AuditInfo build(){
+        return new AuditInfo(this);
+      }
+    }
 
-        public AuditInfo build() {
-            return new AuditInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

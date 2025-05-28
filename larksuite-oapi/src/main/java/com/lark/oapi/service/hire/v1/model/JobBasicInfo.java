@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobBasicInfo {
-    /**
-     * 职位 ID
-     * <p> 示例值：6956499586395523359
-     */
+     /**
+      * 职位 ID
+      * <p> 示例值：6956499586395523359
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 职位名称
-     * <p> 示例值：后端研发工程师
-     */
+     /**
+      * 职位名称
+      * <p> 示例值：后端研发工程师
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 职位编码
-     * <p> 示例值：A75256
-     */
+     /**
+      * 职位编码
+      * <p> 示例值：A75256
+      */
     @SerializedName("code")
     private String code;
-
-    // builder 开始
-    public JobBasicInfo() {
-    }
-
-    public JobBasicInfo(Builder builder) {
-        /**
-         * 职位 ID
-         * <p> 示例值：6956499586395523359
-         */
-        this.id = builder.id;
-        /**
-         * 职位名称
-         * <p> 示例值：后端研发工程师
-         */
-        this.name = builder.name;
-        /**
-         * 职位编码
-         * <p> 示例值：A75256
-         */
-        this.code = builder.code;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -97,64 +66,90 @@ public class JobBasicInfo {
         this.code = code;
     }
 
+
+// builder 开始
+  public JobBasicInfo(){}
+
+  public JobBasicInfo(Builder builder){
+         /**
+          * 职位 ID
+          * <p> 示例值：6956499586395523359
+          */
+      this.id = builder.id;
+         /**
+          * 职位名称
+          * <p> 示例值：后端研发工程师
+          */
+      this.name = builder.name;
+         /**
+          * 职位编码
+          * <p> 示例值：A75256
+          */
+      this.code = builder.code;
+  }
+
     public static class Builder {
-        /**
-         * 职位 ID
-         * <p> 示例值：6956499586395523359
-         */
+     /**
+      * 职位 ID
+      * <p> 示例值：6956499586395523359
+      */
         private String id;
-        /**
-         * 职位名称
-         * <p> 示例值：后端研发工程师
-         */
+     /**
+      * 职位名称
+      * <p> 示例值：后端研发工程师
+      */
         private String name;
-        /**
-         * 职位编码
-         * <p> 示例值：A75256
-         */
+     /**
+      * 职位编码
+      * <p> 示例值：A75256
+      */
         private String code;
 
         /**
          * 职位 ID
          * <p> 示例值：6956499586395523359
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 职位名称
          * <p> 示例值：后端研发工程师
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 职位编码
          * <p> 示例值：A75256
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
+    
+    public JobBasicInfo build(){
+        return new JobBasicInfo(this);
+      }
+    }
 
-        public JobBasicInfo build() {
-            return new JobBasicInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

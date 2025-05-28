@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class File {
-    /**
-     * 文件名称，当前仅支持上传图片且图片格式为以下六种：icon、bmp、gif、png、jpeg、webp
-     * <p> 示例值：示例图片.png
-     */
+     /**
+      * 文件名称，当前仅支持上传图片且图片格式为以下六种：icon、bmp、gif、png、jpeg、webp
+      * <p> 示例值：示例图片.png
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片
-     * <p> 示例值：file binary
-     */
+     /**
+      * 二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片
+      * <p> 示例值：file binary
+      */
     @SerializedName("file")
     private java.io.File file;
-
-    // builder 开始
-    public File() {
-    }
-
-    public File(Builder builder) {
-        /**
-         * 文件名称，当前仅支持上传图片且图片格式为以下六种：icon、bmp、gif、png、jpeg、webp
-         * <p> 示例值：示例图片.png
-         */
-        this.name = builder.name;
-        /**
-         * 二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片
-         * <p> 示例值：file binary
-         */
-        this.file = builder.file;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -79,46 +53,67 @@ public class File {
         this.file = file;
     }
 
+
+// builder 开始
+  public File(){}
+
+  public File(Builder builder){
+         /**
+          * 文件名称，当前仅支持上传图片且图片格式为以下六种：icon、bmp、gif、png、jpeg、webp
+          * <p> 示例值：示例图片.png
+          */
+      this.name = builder.name;
+         /**
+          * 二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片
+          * <p> 示例值：file binary
+          */
+      this.file = builder.file;
+  }
+
     public static class Builder {
-        /**
-         * 文件名称，当前仅支持上传图片且图片格式为以下六种：icon、bmp、gif、png、jpeg、webp
-         * <p> 示例值：示例图片.png
-         */
+     /**
+      * 文件名称，当前仅支持上传图片且图片格式为以下六种：icon、bmp、gif、png、jpeg、webp
+      * <p> 示例值：示例图片.png
+      */
         private String name;
-        /**
-         * 二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片
-         * <p> 示例值：file binary
-         */
+     /**
+      * 二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片
+      * <p> 示例值：file binary
+      */
         private java.io.File file;
 
         /**
          * 文件名称，当前仅支持上传图片且图片格式为以下六种：icon、bmp、gif、png、jpeg、webp
          * <p> 示例值：示例图片.png
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片
          * <p> 示例值：file binary
-         *
          * @param file
          * @return
          */
         public Builder file(java.io.File file) {
-            this.file = file;
-            return this;
+             this.file = file;
+             return this;
         }
 
+    
+    
+    public File build(){
+        return new File(this);
+      }
+    }
 
-        public File build() {
-            return new File(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TicketEventUpdateInfo {
-    /**
-     * ticket stage
-     * <p> 示例值：1
-     */
+     /**
+      * ticket stage
+      * <p> 示例值：1
+      */
     @SerializedName("stage")
     private Integer stage;
-    /**
-     * ticket status
-     * <p> 示例值：50
-     */
+     /**
+      * ticket status
+      * <p> 示例值：50
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * ticket update time
-     * <p> 示例值：1616920429000
-     */
+     /**
+      * ticket update time
+      * <p> 示例值：1616920429000
+      */
     @SerializedName("updated_at")
     private Integer updatedAt;
-
-    // builder 开始
-    public TicketEventUpdateInfo() {
-    }
-
-    public TicketEventUpdateInfo(Builder builder) {
-        /**
-         * ticket stage
-         * <p> 示例值：1
-         */
-        this.stage = builder.stage;
-        /**
-         * ticket status
-         * <p> 示例值：50
-         */
-        this.status = builder.status;
-        /**
-         * ticket update time
-         * <p> 示例值：1616920429000
-         */
-        this.updatedAt = builder.updatedAt;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getStage() {
         return this.stage;
     }
@@ -98,64 +67,90 @@ public class TicketEventUpdateInfo {
         this.updatedAt = updatedAt;
     }
 
+
+// builder 开始
+  public TicketEventUpdateInfo(){}
+
+  public TicketEventUpdateInfo(Builder builder){
+         /**
+          * ticket stage
+          * <p> 示例值：1
+          */
+      this.stage = builder.stage;
+         /**
+          * ticket status
+          * <p> 示例值：50
+          */
+      this.status = builder.status;
+         /**
+          * ticket update time
+          * <p> 示例值：1616920429000
+          */
+      this.updatedAt = builder.updatedAt;
+  }
+
     public static class Builder {
-        /**
-         * ticket stage
-         * <p> 示例值：1
-         */
+     /**
+      * ticket stage
+      * <p> 示例值：1
+      */
         private Integer stage;
-        /**
-         * ticket status
-         * <p> 示例值：50
-         */
+     /**
+      * ticket status
+      * <p> 示例值：50
+      */
         private Integer status;
-        /**
-         * ticket update time
-         * <p> 示例值：1616920429000
-         */
+     /**
+      * ticket update time
+      * <p> 示例值：1616920429000
+      */
         private Integer updatedAt;
 
         /**
          * ticket stage
          * <p> 示例值：1
-         *
          * @param stage
          * @return
          */
         public Builder stage(Integer stage) {
-            this.stage = stage;
-            return this;
+             this.stage = stage;
+             return this;
         }
 
+    
 
         /**
          * ticket status
          * <p> 示例值：50
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
 
+    
 
         /**
          * ticket update time
          * <p> 示例值：1616920429000
-         *
          * @param updatedAt
          * @return
          */
         public Builder updatedAt(Integer updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
+             this.updatedAt = updatedAt;
+             return this;
         }
 
+    
+    
+    public TicketEventUpdateInfo build(){
+        return new TicketEventUpdateInfo(this);
+      }
+    }
 
-        public TicketEventUpdateInfo build() {
-            return new TicketEventUpdateInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

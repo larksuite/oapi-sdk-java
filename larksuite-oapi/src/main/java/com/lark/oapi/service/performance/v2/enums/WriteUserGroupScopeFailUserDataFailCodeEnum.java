@@ -17,15 +17,14 @@ package com.lark.oapi.service.performance.v2.enums;
  * 失败原因枚举
  */
 public enum WriteUserGroupScopeFailUserDataFailCodeEnum {
-    USER_NOT_FOUND(1), // 员工未找到
-    ;
-    private Integer value;
-
+     USER_NOT_FOUND(1), // 员工未找到
+  ;
+   private Integer value;
     WriteUserGroupScopeFailUserDataFailCodeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

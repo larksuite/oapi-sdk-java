@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DimensionValueLookupInfo {
-    /**
-     * 引用对象类型
-     * <p> 示例值：work_calendar
-     */
+     /**
+      * 引用对象类型
+      * <p> 示例值：work_calendar
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 引用对象的id，可根据相关API查询到对象的完整信息
-     * <p> 示例值：6961286846093788621
-     */
+     /**
+      * 引用对象的id，可根据相关API查询到对象的完整信息
+      * <p> 示例值：6961286846093788621
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 引用对象的code，目前下面的对象会有code
-     * <p> 示例值：D1230011115
-     */
+     /**
+      * 引用对象的code，目前下面的对象会有code
+      * <p> 示例值：D1230011115
+      */
     @SerializedName("code")
     private String code;
-
-    // builder 开始
-    public DimensionValueLookupInfo() {
-    }
-
-    public DimensionValueLookupInfo(Builder builder) {
-        /**
-         * 引用对象类型
-         * <p> 示例值：work_calendar
-         */
-        this.type = builder.type;
-        /**
-         * 引用对象的id，可根据相关API查询到对象的完整信息
-         * <p> 示例值：6961286846093788621
-         */
-        this.id = builder.id;
-        /**
-         * 引用对象的code，目前下面的对象会有code
-         * <p> 示例值：D1230011115
-         */
-        this.code = builder.code;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -98,64 +67,90 @@ public class DimensionValueLookupInfo {
         this.code = code;
     }
 
+
+// builder 开始
+  public DimensionValueLookupInfo(){}
+
+  public DimensionValueLookupInfo(Builder builder){
+         /**
+          * 引用对象类型
+          * <p> 示例值：work_calendar
+          */
+      this.type = builder.type;
+         /**
+          * 引用对象的id，可根据相关API查询到对象的完整信息
+          * <p> 示例值：6961286846093788621
+          */
+      this.id = builder.id;
+         /**
+          * 引用对象的code，目前下面的对象会有code
+          * <p> 示例值：D1230011115
+          */
+      this.code = builder.code;
+  }
+
     public static class Builder {
-        /**
-         * 引用对象类型
-         * <p> 示例值：work_calendar
-         */
+     /**
+      * 引用对象类型
+      * <p> 示例值：work_calendar
+      */
         private String type;
-        /**
-         * 引用对象的id，可根据相关API查询到对象的完整信息
-         * <p> 示例值：6961286846093788621
-         */
+     /**
+      * 引用对象的id，可根据相关API查询到对象的完整信息
+      * <p> 示例值：6961286846093788621
+      */
         private String id;
-        /**
-         * 引用对象的code，目前下面的对象会有code
-         * <p> 示例值：D1230011115
-         */
+     /**
+      * 引用对象的code，目前下面的对象会有code
+      * <p> 示例值：D1230011115
+      */
         private String code;
 
         /**
          * 引用对象类型
          * <p> 示例值：work_calendar
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
 
+    
 
         /**
          * 引用对象的id，可根据相关API查询到对象的完整信息
          * <p> 示例值：6961286846093788621
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 引用对象的code，目前下面的对象会有code
          * <p> 示例值：D1230011115
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
+    
+    public DimensionValueLookupInfo build(){
+        return new DimensionValueLookupInfo(this);
+      }
+    }
 
-        public DimensionValueLookupInfo build() {
-            return new DimensionValueLookupInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

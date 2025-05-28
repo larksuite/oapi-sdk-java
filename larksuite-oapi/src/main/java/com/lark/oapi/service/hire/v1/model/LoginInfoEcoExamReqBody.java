@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LoginInfoEcoExamReqBody {
-    /**
-     * 状态码，0-成功 非零-错误码
-     * <p> 示例值：0
-     */
+     /**
+      * 状态码，0-成功 非零-错误码
+      * <p> 示例值：0
+      */
     @SerializedName("result")
     private Integer result;
-    /**
-     * 成功或失败的描述信息
-     * <p> 示例值：success
-     */
+     /**
+      * 成功或失败的描述信息
+      * <p> 示例值：success
+      */
     @SerializedName("msg")
     private String msg;
-    /**
-     * 笔试作答信息
-     * <p> 示例值：
-     */
+     /**
+      * 笔试作答信息
+      * <p> 示例值：
+      */
     @SerializedName("exam_login_info")
     private EcoExamLoginInfo examLoginInfo;
-
-    // builder 开始
-    public LoginInfoEcoExamReqBody() {
-    }
-
-    public LoginInfoEcoExamReqBody(Builder builder) {
-        /**
-         * 状态码，0-成功 非零-错误码
-         * <p> 示例值：0
-         */
-        this.result = builder.result;
-        /**
-         * 成功或失败的描述信息
-         * <p> 示例值：success
-         */
-        this.msg = builder.msg;
-        /**
-         * 笔试作答信息
-         * <p> 示例值：
-         */
-        this.examLoginInfo = builder.examLoginInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getResult() {
         return this.result;
     }
@@ -97,64 +66,90 @@ public class LoginInfoEcoExamReqBody {
         this.examLoginInfo = examLoginInfo;
     }
 
+
+// builder 开始
+  public LoginInfoEcoExamReqBody(){}
+
+  public LoginInfoEcoExamReqBody(Builder builder){
+         /**
+          * 状态码，0-成功 非零-错误码
+          * <p> 示例值：0
+          */
+      this.result = builder.result;
+         /**
+          * 成功或失败的描述信息
+          * <p> 示例值：success
+          */
+      this.msg = builder.msg;
+         /**
+          * 笔试作答信息
+          * <p> 示例值：
+          */
+      this.examLoginInfo = builder.examLoginInfo;
+  }
+
     public static class Builder {
-        /**
-         * 状态码，0-成功 非零-错误码
-         * <p> 示例值：0
-         */
+     /**
+      * 状态码，0-成功 非零-错误码
+      * <p> 示例值：0
+      */
         private Integer result;
-        /**
-         * 成功或失败的描述信息
-         * <p> 示例值：success
-         */
+     /**
+      * 成功或失败的描述信息
+      * <p> 示例值：success
+      */
         private String msg;
-        /**
-         * 笔试作答信息
-         * <p> 示例值：
-         */
+     /**
+      * 笔试作答信息
+      * <p> 示例值：
+      */
         private EcoExamLoginInfo examLoginInfo;
 
         /**
          * 状态码，0-成功 非零-错误码
          * <p> 示例值：0
-         *
          * @param result
          * @return
          */
         public Builder result(Integer result) {
-            this.result = result;
-            return this;
+             this.result = result;
+             return this;
         }
 
+    
 
         /**
          * 成功或失败的描述信息
          * <p> 示例值：success
-         *
          * @param msg
          * @return
          */
         public Builder msg(String msg) {
-            this.msg = msg;
-            return this;
+             this.msg = msg;
+             return this;
         }
 
+    
 
         /**
          * 笔试作答信息
          * <p> 示例值：
-         *
          * @param examLoginInfo
          * @return
          */
         public Builder examLoginInfo(EcoExamLoginInfo examLoginInfo) {
-            this.examLoginInfo = examLoginInfo;
-            return this;
+             this.examLoginInfo = examLoginInfo;
+             return this;
         }
 
+    
+    
+    public LoginInfoEcoExamReqBody build(){
+        return new LoginInfoEcoExamReqBody(this);
+      }
+    }
 
-        public LoginInfoEcoExamReqBody build() {
-            return new LoginInfoEcoExamReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

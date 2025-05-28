@@ -17,23 +17,22 @@ package com.lark.oapi.service.base.v2.enums;
  * 密级设置的类型
  */
 public enum MetaSecureLabelTypeEnum {
-    NONE(0), // ""
-    USERDEFINED(1), // ""
-    CREATE(2), // ""
-    INHERITED(3), // ""
-    ADMINMARK(4), // ""
-    AUTOMARK(5), // ""
-    RECOMMENDMARK(6), // ""
-    OPENAPIDEFINED(7), // ""
-    ONETIMECOVER(8), // ""
-    ;
-    private Integer value;
-
+     NONE(0), // ""
+     USERDEFINED(1), // ""
+     CREATE(2), // ""
+     INHERITED(3), // ""
+     ADMINMARK(4), // ""
+     AUTOMARK(5), // ""
+     RECOMMENDMARK(6), // ""
+     OPENAPIDEFINED(7), // ""
+     ONETIMECOVER(8), // ""
+  ;
+   private Integer value;
     MetaSecureLabelTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

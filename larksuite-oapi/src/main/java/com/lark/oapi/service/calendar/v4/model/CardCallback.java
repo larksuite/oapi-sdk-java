@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CardCallback {
-    /**
-     * 卡片的消息ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
+     /**
+      * 卡片的消息ID
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
     @SerializedName("message_id")
     private String messageId;
-    /**
-     * 卡片状态
-     * <p> 示例值：
-     */
+     /**
+      * 卡片状态
+      * <p> 示例值：
+      */
     @SerializedName("status")
     private MyaiCardStatus status;
-    /**
-     * 业务定义的回调数据，json格式
-     * <p> 示例值：无
-     */
+     /**
+      * 业务定义的回调数据，json格式
+      * <p> 示例值：无
+      */
     @SerializedName("callback_info")
     private String callbackInfo;
-
-    // builder 开始
-    public CardCallback() {
-    }
-
-    public CardCallback(Builder builder) {
-        /**
-         * 卡片的消息ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 卡片状态
-         * <p> 示例值：
-         */
-        this.status = builder.status;
-        /**
-         * 业务定义的回调数据，json格式
-         * <p> 示例值：无
-         */
-        this.callbackInfo = builder.callbackInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMessageId() {
         return this.messageId;
     }
@@ -98,64 +67,90 @@ public class CardCallback {
         this.callbackInfo = callbackInfo;
     }
 
+
+// builder 开始
+  public CardCallback(){}
+
+  public CardCallback(Builder builder){
+         /**
+          * 卡片的消息ID
+          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+          */
+      this.messageId = builder.messageId;
+         /**
+          * 卡片状态
+          * <p> 示例值：
+          */
+      this.status = builder.status;
+         /**
+          * 业务定义的回调数据，json格式
+          * <p> 示例值：无
+          */
+      this.callbackInfo = builder.callbackInfo;
+  }
+
     public static class Builder {
-        /**
-         * 卡片的消息ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
+     /**
+      * 卡片的消息ID
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
         private String messageId;
-        /**
-         * 卡片状态
-         * <p> 示例值：
-         */
+     /**
+      * 卡片状态
+      * <p> 示例值：
+      */
         private MyaiCardStatus status;
-        /**
-         * 业务定义的回调数据，json格式
-         * <p> 示例值：无
-         */
+     /**
+      * 业务定义的回调数据，json格式
+      * <p> 示例值：无
+      */
         private String callbackInfo;
 
         /**
          * 卡片的消息ID
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
          * @param messageId
          * @return
          */
         public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
+             this.messageId = messageId;
+             return this;
         }
 
+    
 
         /**
          * 卡片状态
          * <p> 示例值：
-         *
          * @param status
          * @return
          */
         public Builder status(MyaiCardStatus status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
 
+    
 
         /**
          * 业务定义的回调数据，json格式
          * <p> 示例值：无
-         *
          * @param callbackInfo
          * @return
          */
         public Builder callbackInfo(String callbackInfo) {
-            this.callbackInfo = callbackInfo;
-            return this;
+             this.callbackInfo = callbackInfo;
+             return this;
         }
 
+    
+    
+    public CardCallback build(){
+        return new CardCallback(this);
+      }
+    }
 
-        public CardCallback build() {
-            return new CardCallback(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

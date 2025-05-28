@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class City {
-    /**
-     * 编码
-     * <p> 示例值：
-     */
+     /**
+      * 编码
+      * <p> 示例值：
+      */
     @SerializedName("city_code")
     private String cityCode;
-    /**
-     * 名字
-     * <p> 示例值：
-     */
+     /**
+      * 名字
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 英文名
-     * <p> 示例值：
-     */
+     /**
+      * 英文名
+      * <p> 示例值：
+      */
     @SerializedName("en_name")
     private String enName;
-    /**
-     * 国家
-     * <p> 示例值：
-     */
+     /**
+      * 国家
+      * <p> 示例值：
+      */
     @SerializedName("country")
     private Country country;
-
-    // builder 开始
-    public City() {
-    }
-
-    public City(Builder builder) {
-        /**
-         * 编码
-         * <p> 示例值：
-         */
-        this.cityCode = builder.cityCode;
-        /**
-         * 名字
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 英文名
-         * <p> 示例值：
-         */
-        this.enName = builder.enName;
-        /**
-         * 国家
-         * <p> 示例值：
-         */
-        this.country = builder.country;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCityCode() {
         return this.cityCode;
     }
@@ -116,82 +80,113 @@ public class City {
         this.country = country;
     }
 
+
+// builder 开始
+  public City(){}
+
+  public City(Builder builder){
+         /**
+          * 编码
+          * <p> 示例值：
+          */
+      this.cityCode = builder.cityCode;
+         /**
+          * 名字
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 英文名
+          * <p> 示例值：
+          */
+      this.enName = builder.enName;
+         /**
+          * 国家
+          * <p> 示例值：
+          */
+      this.country = builder.country;
+  }
+
     public static class Builder {
-        /**
-         * 编码
-         * <p> 示例值：
-         */
+     /**
+      * 编码
+      * <p> 示例值：
+      */
         private String cityCode;
-        /**
-         * 名字
-         * <p> 示例值：
-         */
+     /**
+      * 名字
+      * <p> 示例值：
+      */
         private String name;
-        /**
-         * 英文名
-         * <p> 示例值：
-         */
+     /**
+      * 英文名
+      * <p> 示例值：
+      */
         private String enName;
-        /**
-         * 国家
-         * <p> 示例值：
-         */
+     /**
+      * 国家
+      * <p> 示例值：
+      */
         private Country country;
 
         /**
          * 编码
          * <p> 示例值：
-         *
          * @param cityCode
          * @return
          */
         public Builder cityCode(String cityCode) {
-            this.cityCode = cityCode;
-            return this;
+             this.cityCode = cityCode;
+             return this;
         }
 
+    
 
         /**
          * 名字
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 英文名
          * <p> 示例值：
-         *
          * @param enName
          * @return
          */
         public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
+             this.enName = enName;
+             return this;
         }
 
+    
 
         /**
          * 国家
          * <p> 示例值：
-         *
          * @param country
          * @return
          */
         public Builder country(Country country) {
-            this.country = country;
-            return this;
+             this.country = country;
+             return this;
         }
 
+    
+    
+    public City build(){
+        return new City(this);
+      }
+    }
 
-        public City build() {
-            return new City(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

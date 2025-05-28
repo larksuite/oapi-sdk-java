@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,59 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class File {
-    /**
-     * 附件token
-     * <p> 示例值：boxxxxxxx
-     */
+     /**
+      * 附件token
+      * <p> 示例值：boxxxxxxx
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 附件名称
-     * <p> 示例值：a.png
-     */
+     /**
+      * 附件名称
+      * <p> 示例值：a.png
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("segment_style")
     private SegmentStyle segmentStyle;
-
-    // builder 开始
-    public File() {
-    }
-
-    public File(Builder builder) {
-        /**
-         * 附件token
-         * <p> 示例值：boxxxxxxx
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 附件名称
-         * <p> 示例值：a.png
-         */
-        this.name = builder.name;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.segmentStyle = builder.segmentStyle;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFileToken() {
         return this.fileToken;
     }
@@ -97,62 +67,90 @@ public class File {
         this.segmentStyle = segmentStyle;
     }
 
+
+// builder 开始
+  public File(){}
+
+  public File(Builder builder){
+         /**
+          * 附件token
+          * <p> 示例值：boxxxxxxx
+          */
+      this.fileToken = builder.fileToken;
+         /**
+          * 附件名称
+          * <p> 示例值：a.png
+          */
+      this.name = builder.name;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.segmentStyle = builder.segmentStyle;
+  }
+
     public static class Builder {
-        /**
-         * 附件token
-         * <p> 示例值：boxxxxxxx
-         */
+     /**
+      * 附件token
+      * <p> 示例值：boxxxxxxx
+      */
         private String fileToken;
-        /**
-         * 附件名称
-         * <p> 示例值：a.png
-         */
+     /**
+      * 附件名称
+      * <p> 示例值：a.png
+      */
         private String name;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private SegmentStyle segmentStyle;
 
         /**
          * 附件token
          * <p> 示例值：boxxxxxxx
-         *
          * @param fileToken
          * @return
          */
         public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
+             this.fileToken = fileToken;
+             return this;
         }
 
+    
 
         /**
          * 附件名称
          * <p> 示例值：a.png
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param segmentStyle
          * @return
          */
         public Builder segmentStyle(SegmentStyle segmentStyle) {
-            this.segmentStyle = segmentStyle;
-            return this;
+             this.segmentStyle = segmentStyle;
+             return this;
         }
 
+    
+    
+    public File build(){
+        return new File(this);
+      }
+    }
 
-        public File build() {
-            return new File(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

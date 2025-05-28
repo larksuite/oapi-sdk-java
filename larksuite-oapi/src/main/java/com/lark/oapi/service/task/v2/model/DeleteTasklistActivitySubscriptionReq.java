@@ -12,58 +12,32 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteTasklistActivitySubscriptionReq {
-    /**
-     * 清单GUID
-     * <p> 示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
-     */
+     /**
+      * 清单GUID
+      * <p> 示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
+      */
     @Path
     @SerializedName("tasklist_guid")
     private String tasklistGuid;
-    /**
-     * 要删除的订阅GUID
-     * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-     */
+     /**
+      * 要删除的订阅GUID
+      * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+      */
     @Path
     @SerializedName("activity_subscription_guid")
     private String activitySubscriptionGuid;
-
-    // builder 开始
-    public DeleteTasklistActivitySubscriptionReq() {
-    }
-
-    public DeleteTasklistActivitySubscriptionReq(Builder builder) {
-        /**
-         * 清单GUID
-         * <p> 示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
-         */
-        this.tasklistGuid = builder.tasklistGuid;
-        /**
-         * 要删除的订阅GUID
-         * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-         */
-        this.activitySubscriptionGuid = builder.activitySubscriptionGuid;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTasklistGuid() {
         return this.tasklistGuid;
     }
@@ -80,39 +54,57 @@ public class DeleteTasklistActivitySubscriptionReq {
         this.activitySubscriptionGuid = activitySubscriptionGuid;
     }
 
-    public static class Builder {
 
+// builder 开始
+  public DeleteTasklistActivitySubscriptionReq(){}
+
+  public DeleteTasklistActivitySubscriptionReq(Builder builder){
+     /**
+      * 清单GUID
+      * <p> 示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
+      */
+       this.tasklistGuid = builder.tasklistGuid;
+     /**
+      * 要删除的订阅GUID
+      * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+      */
+       this.activitySubscriptionGuid = builder.activitySubscriptionGuid;
+  }
+
+    public static class Builder {
+    
         private String tasklistGuid; // 清单GUID
         private String activitySubscriptionGuid; // 要删除的订阅GUID
-
         /**
          * 清单GUID
          * <p> 示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
-         *
          * @param tasklistGuid
          * @return
          */
-        public Builder tasklistGuid(String tasklistGuid) {
-            this.tasklistGuid = tasklistGuid;
-            return this;
-        }
+          public Builder tasklistGuid(String tasklistGuid) {
+               this.tasklistGuid = tasklistGuid;
+               return this;
+          }
 
-
+    
         /**
          * 要删除的订阅GUID
          * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-         *
          * @param activitySubscriptionGuid
          * @return
          */
-        public Builder activitySubscriptionGuid(String activitySubscriptionGuid) {
-            this.activitySubscriptionGuid = activitySubscriptionGuid;
-            return this;
-        }
+          public Builder activitySubscriptionGuid(String activitySubscriptionGuid) {
+               this.activitySubscriptionGuid = activitySubscriptionGuid;
+               return this;
+          }
 
+    
+    public DeleteTasklistActivitySubscriptionReq build(){
+        return new DeleteTasklistActivitySubscriptionReq(this);
+      }
+    }
 
-        public DeleteTasklistActivitySubscriptionReq build() {
-            return new DeleteTasklistActivitySubscriptionReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

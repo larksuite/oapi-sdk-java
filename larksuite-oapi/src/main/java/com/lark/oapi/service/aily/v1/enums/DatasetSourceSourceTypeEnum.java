@@ -17,17 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * 分析表类型：object/external/dataflow
  */
 public enum DatasetSourceSourceTypeEnum {
-    DATASETSOURCETYPEDATAFLOW("dataflow"), // 数据流
-    DATASETSOURCETYPEEXTERNAL("external"), // 外部导入
-    DATASETSOURCETYPEOBJECT("object"), // 数据表导入
-    ;
-    private String value;
-
+     DATASETSOURCETYPEDATAFLOW("dataflow"), // 数据流
+     DATASETSOURCETYPEEXTERNAL("external"), // 外部导入
+     DATASETSOURCETYPEOBJECT("object"), // 数据表导入
+  ;
+   private String value;
     DatasetSourceSourceTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

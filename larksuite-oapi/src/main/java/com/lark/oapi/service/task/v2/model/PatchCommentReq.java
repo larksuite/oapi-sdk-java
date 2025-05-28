@@ -12,61 +12,25 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchCommentReq {
-    /**
-     * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
-     */
+     /**
+      * 表示user的ID的类型，支持open_id, user_id, union_id
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 要更新的评论ID
-     * <p> 示例值：7198104824246747156
-     */
-    @Path
-    @SerializedName("comment_id")
-    private String commentId;
-    @Body
-    private PatchCommentReqBody body;
-
-    // builder 开始
-    public PatchCommentReq() {
-    }
-
-    public PatchCommentReq(Builder builder) {
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 要更新的评论ID
-         * <p> 示例值：7198104824246747156
-         */
-        this.commentId = builder.commentId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -75,6 +39,13 @@ public class PatchCommentReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 要更新的评论ID
+      * <p> 示例值：7198104824246747156
+      */
+    @Path
+    @SerializedName("comment_id")
+    private String commentId;
     public String getCommentId() {
         return this.commentId;
     }
@@ -82,6 +53,9 @@ public class PatchCommentReq {
     public void setCommentId(String commentId) {
         this.commentId = commentId;
     }
+
+    @Body
+    private PatchCommentReqBody body;
 
     public PatchCommentReqBody getPatchCommentReqBody() {
         return this.body;
@@ -91,52 +65,72 @@ public class PatchCommentReq {
         this.body = body;
     }
 
+// builder 开始
+  public PatchCommentReq(){}
+
+  public PatchCommentReq(Builder builder){
+         /**
+          * 表示user的ID的类型，支持open_id, user_id, union_id
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 要更新的评论ID
+      * <p> 示例值：7198104824246747156
+      */
+       this.commentId = builder.commentId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String commentId; // 要更新的评论ID
-        private PatchCommentReqBody body;
-
+    
         /**
          * 表示user的ID的类型，支持open_id, user_id, union_id
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+        private String commentId; // 要更新的评论ID
         /**
          * 要更新的评论ID
          * <p> 示例值：7198104824246747156
-         *
          * @param commentId
          * @return
          */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
+          public Builder commentId(String commentId) {
+               this.commentId = commentId;
+               return this;
+          }
 
+    
+        private PatchCommentReqBody body;
+    
         public PatchCommentReqBody getPatchCommentReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder patchCommentReqBody(PatchCommentReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchCommentReq build(){
+        return new PatchCommentReq(this);
+      }
+    }
 
-        public PatchCommentReq build() {
-            return new PatchCommentReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -23,46 +23,39 @@ public class MeetingRoomService {
     private final MeetingRoom meetingRoom; // 事件
 
     public MeetingRoomService(Config config) {
-        this.v1 = new V1(config);
-        this.meetingRoom = new MeetingRoom(config);
+    this.v1 = new V1(config);
+    this.meetingRoom = new MeetingRoom(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public MeetingRoom meetingRoom() {
         return meetingRoom;
     }
-
     public abstract static class P2MeetingRoomCreatedV1Handler implements IEventHandler<P2MeetingRoomCreatedV1> {
         @Override
         public P2MeetingRoomCreatedV1 getEvent() {
             return new P2MeetingRoomCreatedV1();
         }
     }
-
     public abstract static class P2MeetingRoomDeletedV1Handler implements IEventHandler<P2MeetingRoomDeletedV1> {
         @Override
         public P2MeetingRoomDeletedV1 getEvent() {
             return new P2MeetingRoomDeletedV1();
         }
     }
-
     public abstract static class P2MeetingRoomStatusChangedV1Handler implements IEventHandler<P2MeetingRoomStatusChangedV1> {
         @Override
         public P2MeetingRoomStatusChangedV1 getEvent() {
             return new P2MeetingRoomStatusChangedV1();
         }
     }
-
     public abstract static class P2MeetingRoomUpdatedV1Handler implements IEventHandler<P2MeetingRoomUpdatedV1> {
         @Override
         public P2MeetingRoomUpdatedV1 getEvent() {
             return new P2MeetingRoomUpdatedV1();
         }
     }
-
     public abstract static class P1ThirdPartyMeetingRoomChangedV1Handler implements IEventHandler<P1ThirdPartyMeetingRoomChangedV1> {
         @Override
         public P1ThirdPartyMeetingRoomChangedV1 getEvent() {

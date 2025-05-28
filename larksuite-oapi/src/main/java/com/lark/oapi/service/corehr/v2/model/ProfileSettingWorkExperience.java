@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProfileSettingWorkExperience {
-    /**
-     * 公司 / 组织
-     * <p> 示例值：
-     */
+     /**
+      * 公司 / 组织
+      * <p> 示例值：
+      */
     @SerializedName("company_organization")
     private ProfileSettingI18n companyOrganization;
-    /**
-     * 部门
-     * <p> 示例值：
-     */
+     /**
+      * 部门
+      * <p> 示例值：
+      */
     @SerializedName("department")
     private ProfileSettingI18n department;
-    /**
-     * 开始日期
-     * <p> 示例值：2020-01-01
-     */
+     /**
+      * 开始日期
+      * <p> 示例值：2020-01-01
+      */
     @SerializedName("start_date")
     private String startDate;
-    /**
-     * 结束日期
-     * <p> 示例值：2020-02-01
-     */
+     /**
+      * 结束日期
+      * <p> 示例值：2020-02-01
+      */
     @SerializedName("end_date")
     private String endDate;
-    /**
-     * 岗位
-     * <p> 示例值：
-     */
+     /**
+      * 岗位
+      * <p> 示例值：
+      */
     @SerializedName("job")
     private ProfileSettingI18n job;
-    /**
-     * 工作描述
-     * <p> 示例值：
-     */
+     /**
+      * 工作描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private ProfileSettingI18n description;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ProfileSettingCustomField[] customFields;
-
-    // builder 开始
-    public ProfileSettingWorkExperience() {
-    }
-
-    public ProfileSettingWorkExperience(Builder builder) {
-        /**
-         * 公司 / 组织
-         * <p> 示例值：
-         */
-        this.companyOrganization = builder.companyOrganization;
-        /**
-         * 部门
-         * <p> 示例值：
-         */
-        this.department = builder.department;
-        /**
-         * 开始日期
-         * <p> 示例值：2020-01-01
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 结束日期
-         * <p> 示例值：2020-02-01
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 岗位
-         * <p> 示例值：
-         */
-        this.job = builder.job;
-        /**
-         * 工作描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ProfileSettingI18n getCompanyOrganization() {
         return this.companyOrganization;
     }
@@ -174,136 +123,182 @@ public class ProfileSettingWorkExperience {
         this.customFields = customFields;
     }
 
+
+// builder 开始
+  public ProfileSettingWorkExperience(){}
+
+  public ProfileSettingWorkExperience(Builder builder){
+         /**
+          * 公司 / 组织
+          * <p> 示例值：
+          */
+      this.companyOrganization = builder.companyOrganization;
+         /**
+          * 部门
+          * <p> 示例值：
+          */
+      this.department = builder.department;
+         /**
+          * 开始日期
+          * <p> 示例值：2020-01-01
+          */
+      this.startDate = builder.startDate;
+         /**
+          * 结束日期
+          * <p> 示例值：2020-02-01
+          */
+      this.endDate = builder.endDate;
+         /**
+          * 岗位
+          * <p> 示例值：
+          */
+      this.job = builder.job;
+         /**
+          * 工作描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+  }
+
     public static class Builder {
-        /**
-         * 公司 / 组织
-         * <p> 示例值：
-         */
+     /**
+      * 公司 / 组织
+      * <p> 示例值：
+      */
         private ProfileSettingI18n companyOrganization;
-        /**
-         * 部门
-         * <p> 示例值：
-         */
+     /**
+      * 部门
+      * <p> 示例值：
+      */
         private ProfileSettingI18n department;
-        /**
-         * 开始日期
-         * <p> 示例值：2020-01-01
-         */
+     /**
+      * 开始日期
+      * <p> 示例值：2020-01-01
+      */
         private String startDate;
-        /**
-         * 结束日期
-         * <p> 示例值：2020-02-01
-         */
+     /**
+      * 结束日期
+      * <p> 示例值：2020-02-01
+      */
         private String endDate;
-        /**
-         * 岗位
-         * <p> 示例值：
-         */
+     /**
+      * 岗位
+      * <p> 示例值：
+      */
         private ProfileSettingI18n job;
-        /**
-         * 工作描述
-         * <p> 示例值：
-         */
+     /**
+      * 工作描述
+      * <p> 示例值：
+      */
         private ProfileSettingI18n description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ProfileSettingCustomField[] customFields;
 
         /**
          * 公司 / 组织
          * <p> 示例值：
-         *
          * @param companyOrganization
          * @return
          */
         public Builder companyOrganization(ProfileSettingI18n companyOrganization) {
-            this.companyOrganization = companyOrganization;
-            return this;
+             this.companyOrganization = companyOrganization;
+             return this;
         }
 
+    
 
         /**
          * 部门
          * <p> 示例值：
-         *
          * @param department
          * @return
          */
         public Builder department(ProfileSettingI18n department) {
-            this.department = department;
-            return this;
+             this.department = department;
+             return this;
         }
 
+    
 
         /**
          * 开始日期
          * <p> 示例值：2020-01-01
-         *
          * @param startDate
          * @return
          */
         public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
+             this.startDate = startDate;
+             return this;
         }
 
+    
 
         /**
          * 结束日期
          * <p> 示例值：2020-02-01
-         *
          * @param endDate
          * @return
          */
         public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
+             this.endDate = endDate;
+             return this;
         }
 
+    
 
         /**
          * 岗位
          * <p> 示例值：
-         *
          * @param job
          * @return
          */
         public Builder job(ProfileSettingI18n job) {
-            this.job = job;
-            return this;
+             this.job = job;
+             return this;
         }
 
+    
 
         /**
          * 工作描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(ProfileSettingI18n description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ProfileSettingCustomField[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
+    
+    public ProfileSettingWorkExperience build(){
+        return new ProfileSettingWorkExperience(this);
+      }
+    }
 
-        public ProfileSettingWorkExperience build() {
-            return new ProfileSettingWorkExperience(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReviewRecord {
-    /**
-     * 评估人的环节状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
-     * <p> 示例值：1
-     */
+     /**
+      * 评估人的环节状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
+      * <p> 示例值：1
+      */
     @SerializedName("progress")
     private Integer progress;
-    /**
-     * 评估记录中的评估内容明细
-     * <p> 示例值：
-     */
+     /**
+      * 评估记录中的评估内容明细
+      * <p> 示例值：
+      */
     @SerializedName("units")
     private ReviewUnit[] units;
-    /**
-     * 360 ° 评估记录的信息。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回评估人的部分信息
-     * <p> 示例值：
-     */
+     /**
+      * 360 ° 评估记录的信息。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回评估人的部分信息
+      * <p> 示例值：
+      */
     @SerializedName("invited_review_record_info")
     private InvitedReviewRecordInfo invitedReviewRecordInfo;
-    /**
-     * 项目上级评估记录信息
-     * <p> 示例值：
-     */
+     /**
+      * 项目上级评估记录信息
+      * <p> 示例值：
+      */
     @SerializedName("direct_project_leader_record_info")
     private DirectProjectLeaderRecordInfo directProjectLeaderRecordInfo;
-    /**
-     * 评估记录 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 评估记录 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("record_id")
     private String recordId;
-
-    // builder 开始
-    public ReviewRecord() {
-    }
-
-    public ReviewRecord(Builder builder) {
-        /**
-         * 评估人的环节状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
-         * <p> 示例值：1
-         */
-        this.progress = builder.progress;
-        /**
-         * 评估记录中的评估内容明细
-         * <p> 示例值：
-         */
-        this.units = builder.units;
-        /**
-         * 360 ° 评估记录的信息。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回评估人的部分信息
-         * <p> 示例值：
-         */
-        this.invitedReviewRecordInfo = builder.invitedReviewRecordInfo;
-        /**
-         * 项目上级评估记录信息
-         * <p> 示例值：
-         */
-        this.directProjectLeaderRecordInfo = builder.directProjectLeaderRecordInfo;
-        /**
-         * 评估记录 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.recordId = builder.recordId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getProgress() {
         return this.progress;
     }
@@ -136,100 +95,136 @@ public class ReviewRecord {
         this.recordId = recordId;
     }
 
+
+// builder 开始
+  public ReviewRecord(){}
+
+  public ReviewRecord(Builder builder){
+         /**
+          * 评估人的环节状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
+          * <p> 示例值：1
+          */
+      this.progress = builder.progress;
+         /**
+          * 评估记录中的评估内容明细
+          * <p> 示例值：
+          */
+      this.units = builder.units;
+         /**
+          * 360 ° 评估记录的信息。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回评估人的部分信息
+          * <p> 示例值：
+          */
+      this.invitedReviewRecordInfo = builder.invitedReviewRecordInfo;
+         /**
+          * 项目上级评估记录信息
+          * <p> 示例值：
+          */
+      this.directProjectLeaderRecordInfo = builder.directProjectLeaderRecordInfo;
+         /**
+          * 评估记录 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.recordId = builder.recordId;
+  }
+
     public static class Builder {
-        /**
-         * 评估人的环节状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
-         * <p> 示例值：1
-         */
+     /**
+      * 评估人的环节状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
+      * <p> 示例值：1
+      */
         private Integer progress;
-        /**
-         * 评估记录中的评估内容明细
-         * <p> 示例值：
-         */
+     /**
+      * 评估记录中的评估内容明细
+      * <p> 示例值：
+      */
         private ReviewUnit[] units;
-        /**
-         * 360 ° 评估记录的信息。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回评估人的部分信息
-         * <p> 示例值：
-         */
+     /**
+      * 360 ° 评估记录的信息。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回评估人的部分信息
+      * <p> 示例值：
+      */
         private InvitedReviewRecordInfo invitedReviewRecordInfo;
-        /**
-         * 项目上级评估记录信息
-         * <p> 示例值：
-         */
+     /**
+      * 项目上级评估记录信息
+      * <p> 示例值：
+      */
         private DirectProjectLeaderRecordInfo directProjectLeaderRecordInfo;
-        /**
-         * 评估记录 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 评估记录 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String recordId;
 
         /**
          * 评估人的环节状态。各类型的环节分别有以下环节状态：  绩效结果查看环节状态 可选值： 0：已开通，绩效结果已开通，未发起复议也无需确认结果 1：待确认，绩效结果已开通但被评估人还未确认结果，确认的截止时间还未到达 2：已截止，绩效结果已开通但被评估人还未确认结果，确认的截止时间已到达 3：已确认，绩效结果已开通，被评估人已确认结果 4：已复议，绩效结果已开通，且被评估人已发起  绩效结果复议环节状态 可选值： 1：待完成，任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成  除上述类型外的其他环节类型状态 可选值： 0：未开始，任务的开始时间未到达 1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成 2：已截止，任务的截止时间已到达，且任务未完成 3：已完成，任务已完成
          * <p> 示例值：1
-         *
          * @param progress
          * @return
          */
         public Builder progress(Integer progress) {
-            this.progress = progress;
-            return this;
+             this.progress = progress;
+             return this;
         }
 
+    
 
         /**
          * 评估记录中的评估内容明细
          * <p> 示例值：
-         *
          * @param units
          * @return
          */
         public Builder units(ReviewUnit[] units) {
-            this.units = units;
-            return this;
+             this.units = units;
+             return this;
         }
 
+    
 
         /**
          * 360 ° 评估记录的信息。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回评估人的部分信息
          * <p> 示例值：
-         *
          * @param invitedReviewRecordInfo
          * @return
          */
         public Builder invitedReviewRecordInfo(InvitedReviewRecordInfo invitedReviewRecordInfo) {
-            this.invitedReviewRecordInfo = invitedReviewRecordInfo;
-            return this;
+             this.invitedReviewRecordInfo = invitedReviewRecordInfo;
+             return this;
         }
 
+    
 
         /**
          * 项目上级评估记录信息
          * <p> 示例值：
-         *
          * @param directProjectLeaderRecordInfo
          * @return
          */
         public Builder directProjectLeaderRecordInfo(DirectProjectLeaderRecordInfo directProjectLeaderRecordInfo) {
-            this.directProjectLeaderRecordInfo = directProjectLeaderRecordInfo;
-            return this;
+             this.directProjectLeaderRecordInfo = directProjectLeaderRecordInfo;
+             return this;
         }
 
+    
 
         /**
          * 评估记录 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param recordId
          * @return
          */
         public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
+             this.recordId = recordId;
+             return this;
         }
 
+    
+    
+    public ReviewRecord build(){
+        return new ReviewRecord(this);
+      }
+    }
 
-        public ReviewRecord build() {
-            return new ReviewRecord(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

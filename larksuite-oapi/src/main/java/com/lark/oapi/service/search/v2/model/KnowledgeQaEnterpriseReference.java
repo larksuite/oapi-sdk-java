@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class KnowledgeQaEnterpriseReference {
-    /**
-     * passage_id
-     * <p> 示例值：123456
-     */
+     /**
+      * passage_id
+      * <p> 示例值：123456
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * source_type
-     * <p> 示例值：1
-     */
+     /**
+      * source_type
+      * <p> 示例值：1
+      */
     @SerializedName("source_type")
     private Integer sourceType;
-    /**
-     * title
-     * <p> 示例值：xxxxx
-     */
+     /**
+      * title
+      * <p> 示例值：xxxxx
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * content
-     * <p> 示例值：xxxxxx
-     */
+     /**
+      * content
+      * <p> 示例值：xxxxxx
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * url
-     * <p> 示例值：xxxxx
-     */
+     /**
+      * url
+      * <p> 示例值：xxxxx
+      */
     @SerializedName("url")
     private String url;
-
-    // builder 开始
-    public KnowledgeQaEnterpriseReference() {
-    }
-
-    public KnowledgeQaEnterpriseReference(Builder builder) {
-        /**
-         * passage_id
-         * <p> 示例值：123456
-         */
-        this.id = builder.id;
-        /**
-         * source_type
-         * <p> 示例值：1
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * title
-         * <p> 示例值：xxxxx
-         */
-        this.title = builder.title;
-        /**
-         * content
-         * <p> 示例值：xxxxxx
-         */
-        this.content = builder.content;
-        /**
-         * url
-         * <p> 示例值：xxxxx
-         */
-        this.url = builder.url;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -136,112 +95,146 @@ public class KnowledgeQaEnterpriseReference {
         this.url = url;
     }
 
+
+// builder 开始
+  public KnowledgeQaEnterpriseReference(){}
+
+  public KnowledgeQaEnterpriseReference(Builder builder){
+         /**
+          * passage_id
+          * <p> 示例值：123456
+          */
+      this.id = builder.id;
+         /**
+          * source_type
+          * <p> 示例值：1
+          */
+      this.sourceType = builder.sourceType;
+         /**
+          * title
+          * <p> 示例值：xxxxx
+          */
+      this.title = builder.title;
+         /**
+          * content
+          * <p> 示例值：xxxxxx
+          */
+      this.content = builder.content;
+         /**
+          * url
+          * <p> 示例值：xxxxx
+          */
+      this.url = builder.url;
+  }
+
     public static class Builder {
-        /**
-         * passage_id
-         * <p> 示例值：123456
-         */
+     /**
+      * passage_id
+      * <p> 示例值：123456
+      */
         private String id;
-        /**
-         * source_type
-         * <p> 示例值：1
-         */
+     /**
+      * source_type
+      * <p> 示例值：1
+      */
         private Integer sourceType;
-        /**
-         * title
-         * <p> 示例值：xxxxx
-         */
+     /**
+      * title
+      * <p> 示例值：xxxxx
+      */
         private String title;
-        /**
-         * content
-         * <p> 示例值：xxxxxx
-         */
+     /**
+      * content
+      * <p> 示例值：xxxxxx
+      */
         private String content;
-        /**
-         * url
-         * <p> 示例值：xxxxx
-         */
+     /**
+      * url
+      * <p> 示例值：xxxxx
+      */
         private String url;
 
         /**
          * passage_id
          * <p> 示例值：123456
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * source_type
          * <p> 示例值：1
-         *
          * @param sourceType
          * @return
          */
         public Builder sourceType(Integer sourceType) {
-            this.sourceType = sourceType;
-            return this;
+             this.sourceType = sourceType;
+             return this;
         }
-
         /**
          * source_type
          * <p> 示例值：1
-         *
          * @param sourceType {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaEnterpriseReferenceSourceTypeEnum}
          * @return
          */
         public Builder sourceType(com.lark.oapi.service.search.v2.enums.KnowledgeQaEnterpriseReferenceSourceTypeEnum sourceType) {
-            this.sourceType = sourceType.getValue();
-            return this;
+             this.sourceType = sourceType.getValue();
+             return this;
         }
 
+    
 
         /**
          * title
          * <p> 示例值：xxxxx
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * content
          * <p> 示例值：xxxxxx
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * url
          * <p> 示例值：xxxxx
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
+    
+    public KnowledgeQaEnterpriseReference build(){
+        return new KnowledgeQaEnterpriseReference(this);
+      }
+    }
 
-        public KnowledgeQaEnterpriseReference build() {
-            return new KnowledgeQaEnterpriseReference(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

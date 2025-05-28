@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchRecallProgress {
-    /**
-     * 撤回成功的消息条数
-     * <p> 示例值：
-     */
+     /**
+      * 撤回成功的消息条数
+      * <p> 示例值：
+      */
     @SerializedName("recall_count")
     private String recallCount;
-    /**
-     * 计划撤回的消息条数
-     * <p> 示例值：
-     */
+     /**
+      * 计划撤回的消息条数
+      * <p> 示例值：
+      */
     @SerializedName("total_recall_count")
     private String totalRecallCount;
-
-    // builder 开始
-    public BatchRecallProgress() {
-    }
-
-    public BatchRecallProgress(Builder builder) {
-        /**
-         * 撤回成功的消息条数
-         * <p> 示例值：
-         */
-        this.recallCount = builder.recallCount;
-        /**
-         * 计划撤回的消息条数
-         * <p> 示例值：
-         */
-        this.totalRecallCount = builder.totalRecallCount;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRecallCount() {
         return this.recallCount;
     }
@@ -79,46 +53,67 @@ public class BatchRecallProgress {
         this.totalRecallCount = totalRecallCount;
     }
 
+
+// builder 开始
+  public BatchRecallProgress(){}
+
+  public BatchRecallProgress(Builder builder){
+         /**
+          * 撤回成功的消息条数
+          * <p> 示例值：
+          */
+      this.recallCount = builder.recallCount;
+         /**
+          * 计划撤回的消息条数
+          * <p> 示例值：
+          */
+      this.totalRecallCount = builder.totalRecallCount;
+  }
+
     public static class Builder {
-        /**
-         * 撤回成功的消息条数
-         * <p> 示例值：
-         */
+     /**
+      * 撤回成功的消息条数
+      * <p> 示例值：
+      */
         private String recallCount;
-        /**
-         * 计划撤回的消息条数
-         * <p> 示例值：
-         */
+     /**
+      * 计划撤回的消息条数
+      * <p> 示例值：
+      */
         private String totalRecallCount;
 
         /**
          * 撤回成功的消息条数
          * <p> 示例值：
-         *
          * @param recallCount
          * @return
          */
         public Builder recallCount(String recallCount) {
-            this.recallCount = recallCount;
-            return this;
+             this.recallCount = recallCount;
+             return this;
         }
 
+    
 
         /**
          * 计划撤回的消息条数
          * <p> 示例值：
-         *
          * @param totalRecallCount
          * @return
          */
         public Builder totalRecallCount(String totalRecallCount) {
-            this.totalRecallCount = totalRecallCount;
-            return this;
+             this.totalRecallCount = totalRecallCount;
+             return this;
         }
 
+    
+    
+    public BatchRecallProgress build(){
+        return new BatchRecallProgress(this);
+      }
+    }
 
-        public BatchRecallProgress build() {
-            return new BatchRecallProgress(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

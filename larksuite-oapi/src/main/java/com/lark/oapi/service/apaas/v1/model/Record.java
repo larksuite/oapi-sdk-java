@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Record {
-    /**
-     * 记录 id
-     * <p> 示例值：1764024447525960
-     */
+     /**
+      * 记录 id
+      * <p> 示例值：1764024447525960
+      */
     @SerializedName("id")
     private String id;
-
-    // builder 开始
-    public Record() {
-    }
-
-    public Record(Builder builder) {
-        /**
-         * 记录 id
-         * <p> 示例值：1764024447525960
-         */
-        this.id = builder.id;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -60,28 +39,44 @@ public class Record {
         this.id = id;
     }
 
+
+// builder 开始
+  public Record(){}
+
+  public Record(Builder builder){
+         /**
+          * 记录 id
+          * <p> 示例值：1764024447525960
+          */
+      this.id = builder.id;
+  }
+
     public static class Builder {
-        /**
-         * 记录 id
-         * <p> 示例值：1764024447525960
-         */
+     /**
+      * 记录 id
+      * <p> 示例值：1764024447525960
+      */
         private String id;
 
         /**
          * 记录 id
          * <p> 示例值：1764024447525960
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
+    
+    public Record build(){
+        return new Record(this);
+      }
+    }
 
-        public Record build() {
-            return new Record(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

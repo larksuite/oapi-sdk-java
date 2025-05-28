@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FormFieldVariable {
-    /**
-     * 变量api名称
-     * <p> 示例值：
-     */
+     /**
+      * 变量api名称
+      * <p> 示例值：
+      */
     @SerializedName("variable_api_name")
     private String variableApiName;
-    /**
-     * 变量名称的i18n描述
-     * <p> 示例值：
-     */
+     /**
+      * 变量名称的i18n描述
+      * <p> 示例值：
+      */
     @SerializedName("variable_name")
     private BpmDataengineI18n variableName;
-    /**
-     * 变量值的对象
-     * <p> 示例值：
-     */
+     /**
+      * 变量值的对象
+      * <p> 示例值：
+      */
     @SerializedName("variable_value")
     private FormVariableValueInfo variableValue;
-
-    // builder 开始
-    public FormFieldVariable() {
-    }
-
-    public FormFieldVariable(Builder builder) {
-        /**
-         * 变量api名称
-         * <p> 示例值：
-         */
-        this.variableApiName = builder.variableApiName;
-        /**
-         * 变量名称的i18n描述
-         * <p> 示例值：
-         */
-        this.variableName = builder.variableName;
-        /**
-         * 变量值的对象
-         * <p> 示例值：
-         */
-        this.variableValue = builder.variableValue;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getVariableApiName() {
         return this.variableApiName;
     }
@@ -98,64 +67,90 @@ public class FormFieldVariable {
         this.variableValue = variableValue;
     }
 
+
+// builder 开始
+  public FormFieldVariable(){}
+
+  public FormFieldVariable(Builder builder){
+         /**
+          * 变量api名称
+          * <p> 示例值：
+          */
+      this.variableApiName = builder.variableApiName;
+         /**
+          * 变量名称的i18n描述
+          * <p> 示例值：
+          */
+      this.variableName = builder.variableName;
+         /**
+          * 变量值的对象
+          * <p> 示例值：
+          */
+      this.variableValue = builder.variableValue;
+  }
+
     public static class Builder {
-        /**
-         * 变量api名称
-         * <p> 示例值：
-         */
+     /**
+      * 变量api名称
+      * <p> 示例值：
+      */
         private String variableApiName;
-        /**
-         * 变量名称的i18n描述
-         * <p> 示例值：
-         */
+     /**
+      * 变量名称的i18n描述
+      * <p> 示例值：
+      */
         private BpmDataengineI18n variableName;
-        /**
-         * 变量值的对象
-         * <p> 示例值：
-         */
+     /**
+      * 变量值的对象
+      * <p> 示例值：
+      */
         private FormVariableValueInfo variableValue;
 
         /**
          * 变量api名称
          * <p> 示例值：
-         *
          * @param variableApiName
          * @return
          */
         public Builder variableApiName(String variableApiName) {
-            this.variableApiName = variableApiName;
-            return this;
+             this.variableApiName = variableApiName;
+             return this;
         }
 
+    
 
         /**
          * 变量名称的i18n描述
          * <p> 示例值：
-         *
          * @param variableName
          * @return
          */
         public Builder variableName(BpmDataengineI18n variableName) {
-            this.variableName = variableName;
-            return this;
+             this.variableName = variableName;
+             return this;
         }
 
+    
 
         /**
          * 变量值的对象
          * <p> 示例值：
-         *
          * @param variableValue
          * @return
          */
         public Builder variableValue(FormVariableValueInfo variableValue) {
-            this.variableValue = variableValue;
-            return this;
+             this.variableValue = variableValue;
+             return this;
         }
 
+    
+    
+    public FormFieldVariable build(){
+        return new FormFieldVariable(this);
+      }
+    }
 
-        public FormFieldVariable build() {
-            return new FormFieldVariable(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

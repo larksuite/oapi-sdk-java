@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RoomEvent {
-    /**
-     * 会议室ID
-     * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-     */
+     /**
+      * 会议室ID
+      * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+      */
     @SerializedName("room_id")
     private String roomId;
-    /**
-     * 会议室名称
-     * <p> 示例值：测试会议室
-     */
+     /**
+      * 会议室名称
+      * <p> 示例值：测试会议室
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 会议室能容纳的人数
-     * <p> 示例值：10
-     */
+     /**
+      * 会议室能容纳的人数
+      * <p> 示例值：10
+      */
     @SerializedName("capacity")
     private Integer capacity;
-    /**
-     * 会议室的相关描述
-     * <p> 示例值：测试会议室描述
-     */
+     /**
+      * 会议室的相关描述
+      * <p> 示例值：测试会议室描述
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 会议室的展示ID
-     * <p> 示例值：LM134742334
-     */
+     /**
+      * 会议室的展示ID
+      * <p> 示例值：LM134742334
+      */
     @SerializedName("display_id")
     private String displayId;
-    /**
-     * 自定义的会议室ID
-     * <p> 示例值：1234
-     */
+     /**
+      * 自定义的会议室ID
+      * <p> 示例值：1234
+      */
     @SerializedName("custom_room_id")
     private String customRoomId;
-    /**
-     * 层级ID
-     * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-     */
+     /**
+      * 层级ID
+      * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+      */
     @SerializedName("room_level_id")
     private String roomLevelId;
-    /**
-     * 层级路径
-     * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754,omb_8d020b12fe49e82847c2af3c193d5754]
-     */
+     /**
+      * 层级路径
+      * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754,omb_8d020b12fe49e82847c2af3c193d5754]
+      */
     @SerializedName("path")
     private String[] path;
-    /**
-     * 会议室状态
-     * <p> 示例值：
-     */
+     /**
+      * 会议室状态
+      * <p> 示例值：
+      */
     @SerializedName("room_status")
     private RoomStatusEvent roomStatus;
-    /**
-     * 设施信息列表
-     * <p> 示例值：
-     */
+     /**
+      * 设施信息列表
+      * <p> 示例值：
+      */
     @SerializedName("device")
     private Device[] device;
-
-    // builder 开始
-    public RoomEvent() {
-    }
-
-    public RoomEvent(Builder builder) {
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         */
-        this.roomId = builder.roomId;
-        /**
-         * 会议室名称
-         * <p> 示例值：测试会议室
-         */
-        this.name = builder.name;
-        /**
-         * 会议室能容纳的人数
-         * <p> 示例值：10
-         */
-        this.capacity = builder.capacity;
-        /**
-         * 会议室的相关描述
-         * <p> 示例值：测试会议室描述
-         */
-        this.description = builder.description;
-        /**
-         * 会议室的展示ID
-         * <p> 示例值：LM134742334
-         */
-        this.displayId = builder.displayId;
-        /**
-         * 自定义的会议室ID
-         * <p> 示例值：1234
-         */
-        this.customRoomId = builder.customRoomId;
-        /**
-         * 层级ID
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
-        this.roomLevelId = builder.roomLevelId;
-        /**
-         * 层级路径
-         * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754,omb_8d020b12fe49e82847c2af3c193d5754]
-         */
-        this.path = builder.path;
-        /**
-         * 会议室状态
-         * <p> 示例值：
-         */
-        this.roomStatus = builder.roomStatus;
-        /**
-         * 设施信息列表
-         * <p> 示例值：
-         */
-        this.device = builder.device;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoomId() {
         return this.roomId;
     }
@@ -231,190 +165,251 @@ public class RoomEvent {
         this.device = device;
     }
 
+
+// builder 开始
+  public RoomEvent(){}
+
+  public RoomEvent(Builder builder){
+         /**
+          * 会议室ID
+          * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+          */
+      this.roomId = builder.roomId;
+         /**
+          * 会议室名称
+          * <p> 示例值：测试会议室
+          */
+      this.name = builder.name;
+         /**
+          * 会议室能容纳的人数
+          * <p> 示例值：10
+          */
+      this.capacity = builder.capacity;
+         /**
+          * 会议室的相关描述
+          * <p> 示例值：测试会议室描述
+          */
+      this.description = builder.description;
+         /**
+          * 会议室的展示ID
+          * <p> 示例值：LM134742334
+          */
+      this.displayId = builder.displayId;
+         /**
+          * 自定义的会议室ID
+          * <p> 示例值：1234
+          */
+      this.customRoomId = builder.customRoomId;
+         /**
+          * 层级ID
+          * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+          */
+      this.roomLevelId = builder.roomLevelId;
+         /**
+          * 层级路径
+          * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754,omb_8d020b12fe49e82847c2af3c193d5754]
+          */
+      this.path = builder.path;
+         /**
+          * 会议室状态
+          * <p> 示例值：
+          */
+      this.roomStatus = builder.roomStatus;
+         /**
+          * 设施信息列表
+          * <p> 示例值：
+          */
+      this.device = builder.device;
+  }
+
     public static class Builder {
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         */
+     /**
+      * 会议室ID
+      * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+      */
         private String roomId;
-        /**
-         * 会议室名称
-         * <p> 示例值：测试会议室
-         */
+     /**
+      * 会议室名称
+      * <p> 示例值：测试会议室
+      */
         private String name;
-        /**
-         * 会议室能容纳的人数
-         * <p> 示例值：10
-         */
+     /**
+      * 会议室能容纳的人数
+      * <p> 示例值：10
+      */
         private Integer capacity;
-        /**
-         * 会议室的相关描述
-         * <p> 示例值：测试会议室描述
-         */
+     /**
+      * 会议室的相关描述
+      * <p> 示例值：测试会议室描述
+      */
         private String description;
-        /**
-         * 会议室的展示ID
-         * <p> 示例值：LM134742334
-         */
+     /**
+      * 会议室的展示ID
+      * <p> 示例值：LM134742334
+      */
         private String displayId;
-        /**
-         * 自定义的会议室ID
-         * <p> 示例值：1234
-         */
+     /**
+      * 自定义的会议室ID
+      * <p> 示例值：1234
+      */
         private String customRoomId;
-        /**
-         * 层级ID
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
+     /**
+      * 层级ID
+      * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+      */
         private String roomLevelId;
-        /**
-         * 层级路径
-         * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754,omb_8d020b12fe49e82847c2af3c193d5754]
-         */
+     /**
+      * 层级路径
+      * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754,omb_8d020b12fe49e82847c2af3c193d5754]
+      */
         private String[] path;
-        /**
-         * 会议室状态
-         * <p> 示例值：
-         */
+     /**
+      * 会议室状态
+      * <p> 示例值：
+      */
         private RoomStatusEvent roomStatus;
-        /**
-         * 设施信息列表
-         * <p> 示例值：
-         */
+     /**
+      * 设施信息列表
+      * <p> 示例值：
+      */
         private Device[] device;
 
         /**
          * 会议室ID
          * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         *
          * @param roomId
          * @return
          */
         public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
+             this.roomId = roomId;
+             return this;
         }
 
+    
 
         /**
          * 会议室名称
          * <p> 示例值：测试会议室
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 会议室能容纳的人数
          * <p> 示例值：10
-         *
          * @param capacity
          * @return
          */
         public Builder capacity(Integer capacity) {
-            this.capacity = capacity;
-            return this;
+             this.capacity = capacity;
+             return this;
         }
 
+    
 
         /**
          * 会议室的相关描述
          * <p> 示例值：测试会议室描述
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 会议室的展示ID
          * <p> 示例值：LM134742334
-         *
          * @param displayId
          * @return
          */
         public Builder displayId(String displayId) {
-            this.displayId = displayId;
-            return this;
+             this.displayId = displayId;
+             return this;
         }
 
+    
 
         /**
          * 自定义的会议室ID
          * <p> 示例值：1234
-         *
          * @param customRoomId
          * @return
          */
         public Builder customRoomId(String customRoomId) {
-            this.customRoomId = customRoomId;
-            return this;
+             this.customRoomId = customRoomId;
+             return this;
         }
 
+    
 
         /**
          * 层级ID
          * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         *
          * @param roomLevelId
          * @return
          */
         public Builder roomLevelId(String roomLevelId) {
-            this.roomLevelId = roomLevelId;
-            return this;
+             this.roomLevelId = roomLevelId;
+             return this;
         }
 
+    
 
         /**
          * 层级路径
          * <p> 示例值：[omb_8d020b12fe49e82847c2af3c193d5754,omb_8d020b12fe49e82847c2af3c193d5754]
-         *
          * @param path
          * @return
          */
         public Builder path(String[] path) {
-            this.path = path;
-            return this;
+             this.path = path;
+             return this;
         }
 
+    
 
         /**
          * 会议室状态
          * <p> 示例值：
-         *
          * @param roomStatus
          * @return
          */
         public Builder roomStatus(RoomStatusEvent roomStatus) {
-            this.roomStatus = roomStatus;
-            return this;
+             this.roomStatus = roomStatus;
+             return this;
         }
 
+    
 
         /**
          * 设施信息列表
          * <p> 示例值：
-         *
          * @param device
          * @return
          */
         public Builder device(Device[] device) {
-            this.device = device;
-            return this;
+             this.device = device;
+             return this;
         }
 
+    
+    
+    public RoomEvent build(){
+        return new RoomEvent(this);
+      }
+    }
 
-        public RoomEvent build() {
-            return new RoomEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

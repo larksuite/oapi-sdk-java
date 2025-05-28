@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CellFontStyle {
-    /**
-     * 是否加粗
-     * <p> 示例值：true
-     */
+     /**
+      * 是否加粗
+      * <p> 示例值：true
+      */
     @SerializedName("bold")
     private Boolean bold;
-    /**
-     * 是否斜体
-     * <p> 示例值：true
-     */
+     /**
+      * 是否斜体
+      * <p> 示例值：true
+      */
     @SerializedName("italic")
     private Boolean italic;
-    /**
-     * 是否设置删除线
-     * <p> 示例值：true
-     */
+     /**
+      * 是否设置删除线
+      * <p> 示例值：true
+      */
     @SerializedName("strikethrough")
     private Boolean strikethrough;
-    /**
-     * 是否展示下划线
-     * <p> 示例值：true
-     */
+     /**
+      * 是否展示下划线
+      * <p> 示例值：true
+      */
     @SerializedName("underline")
     private Boolean underline;
-    /**
-     * 字体颜色
-     * <p> 示例值：#ff00ff
-     */
+     /**
+      * 字体颜色
+      * <p> 示例值：#ff00ff
+      */
     @SerializedName("foreground_color")
     private String foregroundColor;
-    /**
-     * 背景颜色
-     * <p> 示例值：#ff00ff
-     */
+     /**
+      * 背景颜色
+      * <p> 示例值：#ff00ff
+      */
     @SerializedName("background_color")
     private String backgroundColor;
-
-    // builder 开始
-    public CellFontStyle() {
-    }
-
-    public CellFontStyle(Builder builder) {
-        /**
-         * 是否加粗
-         * <p> 示例值：true
-         */
-        this.bold = builder.bold;
-        /**
-         * 是否斜体
-         * <p> 示例值：true
-         */
-        this.italic = builder.italic;
-        /**
-         * 是否设置删除线
-         * <p> 示例值：true
-         */
-        this.strikethrough = builder.strikethrough;
-        /**
-         * 是否展示下划线
-         * <p> 示例值：true
-         */
-        this.underline = builder.underline;
-        /**
-         * 字体颜色
-         * <p> 示例值：#ff00ff
-         */
-        this.foregroundColor = builder.foregroundColor;
-        /**
-         * 背景颜色
-         * <p> 示例值：#ff00ff
-         */
-        this.backgroundColor = builder.backgroundColor;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getBold() {
         return this.bold;
     }
@@ -155,118 +109,159 @@ public class CellFontStyle {
         this.backgroundColor = backgroundColor;
     }
 
+
+// builder 开始
+  public CellFontStyle(){}
+
+  public CellFontStyle(Builder builder){
+         /**
+          * 是否加粗
+          * <p> 示例值：true
+          */
+      this.bold = builder.bold;
+         /**
+          * 是否斜体
+          * <p> 示例值：true
+          */
+      this.italic = builder.italic;
+         /**
+          * 是否设置删除线
+          * <p> 示例值：true
+          */
+      this.strikethrough = builder.strikethrough;
+         /**
+          * 是否展示下划线
+          * <p> 示例值：true
+          */
+      this.underline = builder.underline;
+         /**
+          * 字体颜色
+          * <p> 示例值：#ff00ff
+          */
+      this.foregroundColor = builder.foregroundColor;
+         /**
+          * 背景颜色
+          * <p> 示例值：#ff00ff
+          */
+      this.backgroundColor = builder.backgroundColor;
+  }
+
     public static class Builder {
-        /**
-         * 是否加粗
-         * <p> 示例值：true
-         */
+     /**
+      * 是否加粗
+      * <p> 示例值：true
+      */
         private Boolean bold;
-        /**
-         * 是否斜体
-         * <p> 示例值：true
-         */
+     /**
+      * 是否斜体
+      * <p> 示例值：true
+      */
         private Boolean italic;
-        /**
-         * 是否设置删除线
-         * <p> 示例值：true
-         */
+     /**
+      * 是否设置删除线
+      * <p> 示例值：true
+      */
         private Boolean strikethrough;
-        /**
-         * 是否展示下划线
-         * <p> 示例值：true
-         */
+     /**
+      * 是否展示下划线
+      * <p> 示例值：true
+      */
         private Boolean underline;
-        /**
-         * 字体颜色
-         * <p> 示例值：#ff00ff
-         */
+     /**
+      * 字体颜色
+      * <p> 示例值：#ff00ff
+      */
         private String foregroundColor;
-        /**
-         * 背景颜色
-         * <p> 示例值：#ff00ff
-         */
+     /**
+      * 背景颜色
+      * <p> 示例值：#ff00ff
+      */
         private String backgroundColor;
 
         /**
          * 是否加粗
          * <p> 示例值：true
-         *
          * @param bold
          * @return
          */
         public Builder bold(Boolean bold) {
-            this.bold = bold;
-            return this;
+             this.bold = bold;
+             return this;
         }
 
+    
 
         /**
          * 是否斜体
          * <p> 示例值：true
-         *
          * @param italic
          * @return
          */
         public Builder italic(Boolean italic) {
-            this.italic = italic;
-            return this;
+             this.italic = italic;
+             return this;
         }
 
+    
 
         /**
          * 是否设置删除线
          * <p> 示例值：true
-         *
          * @param strikethrough
          * @return
          */
         public Builder strikethrough(Boolean strikethrough) {
-            this.strikethrough = strikethrough;
-            return this;
+             this.strikethrough = strikethrough;
+             return this;
         }
 
+    
 
         /**
          * 是否展示下划线
          * <p> 示例值：true
-         *
          * @param underline
          * @return
          */
         public Builder underline(Boolean underline) {
-            this.underline = underline;
-            return this;
+             this.underline = underline;
+             return this;
         }
 
+    
 
         /**
          * 字体颜色
          * <p> 示例值：#ff00ff
-         *
          * @param foregroundColor
          * @return
          */
         public Builder foregroundColor(String foregroundColor) {
-            this.foregroundColor = foregroundColor;
-            return this;
+             this.foregroundColor = foregroundColor;
+             return this;
         }
 
+    
 
         /**
          * 背景颜色
          * <p> 示例值：#ff00ff
-         *
          * @param backgroundColor
          * @return
          */
         public Builder backgroundColor(String backgroundColor) {
-            this.backgroundColor = backgroundColor;
-            return this;
+             this.backgroundColor = backgroundColor;
+             return this;
         }
 
+    
+    
+    public CellFontStyle build(){
+        return new CellFontStyle(this);
+      }
+    }
 
-        public CellFontStyle build() {
-            return new CellFontStyle(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

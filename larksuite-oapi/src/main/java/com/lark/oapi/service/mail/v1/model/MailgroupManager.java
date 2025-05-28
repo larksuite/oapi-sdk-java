@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MailgroupManager {
-    /**
-     * 管理员用户ID
-     * <p> 示例值：xxxxxx
-     */
+     /**
+      * 管理员用户ID
+      * <p> 示例值：xxxxxx
+      */
     @SerializedName("user_id")
     private String userId;
-
-    // builder 开始
-    public MailgroupManager() {
-    }
-
-    public MailgroupManager(Builder builder) {
-        /**
-         * 管理员用户ID
-         * <p> 示例值：xxxxxx
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -60,28 +39,44 @@ public class MailgroupManager {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public MailgroupManager(){}
+
+  public MailgroupManager(Builder builder){
+         /**
+          * 管理员用户ID
+          * <p> 示例值：xxxxxx
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * 管理员用户ID
-         * <p> 示例值：xxxxxx
-         */
+     /**
+      * 管理员用户ID
+      * <p> 示例值：xxxxxx
+      */
         private String userId;
 
         /**
          * 管理员用户ID
          * <p> 示例值：xxxxxx
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public MailgroupManager build(){
+        return new MailgroupManager(this);
+      }
+    }
 
-        public MailgroupManager build() {
-            return new MailgroupManager(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

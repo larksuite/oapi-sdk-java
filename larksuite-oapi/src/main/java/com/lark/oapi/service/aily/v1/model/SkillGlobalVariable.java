@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SkillGlobalVariable {
-    /**
-     * 触发技能的消息文本
-     * <p> 示例值：你好
-     */
+     /**
+      * 触发技能的消息文本
+      * <p> 示例值：你好
+      */
     @SerializedName("query")
     private String query;
-    /**
-     * 触发技能的消息文件
-     * <p> 示例值：
-     */
+     /**
+      * 触发技能的消息文件
+      * <p> 示例值：
+      */
     @SerializedName("files")
     private String[] files;
-    /**
-     * 渠道信息
-     * <p> 示例值：
-     */
+     /**
+      * 渠道信息
+      * <p> 示例值：
+      */
     @SerializedName("channel")
     private Channel channel;
-
-    // builder 开始
-    public SkillGlobalVariable() {
-    }
-
-    public SkillGlobalVariable(Builder builder) {
-        /**
-         * 触发技能的消息文本
-         * <p> 示例值：你好
-         */
-        this.query = builder.query;
-        /**
-         * 触发技能的消息文件
-         * <p> 示例值：
-         */
-        this.files = builder.files;
-        /**
-         * 渠道信息
-         * <p> 示例值：
-         */
-        this.channel = builder.channel;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getQuery() {
         return this.query;
     }
@@ -98,64 +67,90 @@ public class SkillGlobalVariable {
         this.channel = channel;
     }
 
+
+// builder 开始
+  public SkillGlobalVariable(){}
+
+  public SkillGlobalVariable(Builder builder){
+         /**
+          * 触发技能的消息文本
+          * <p> 示例值：你好
+          */
+      this.query = builder.query;
+         /**
+          * 触发技能的消息文件
+          * <p> 示例值：
+          */
+      this.files = builder.files;
+         /**
+          * 渠道信息
+          * <p> 示例值：
+          */
+      this.channel = builder.channel;
+  }
+
     public static class Builder {
-        /**
-         * 触发技能的消息文本
-         * <p> 示例值：你好
-         */
+     /**
+      * 触发技能的消息文本
+      * <p> 示例值：你好
+      */
         private String query;
-        /**
-         * 触发技能的消息文件
-         * <p> 示例值：
-         */
+     /**
+      * 触发技能的消息文件
+      * <p> 示例值：
+      */
         private String[] files;
-        /**
-         * 渠道信息
-         * <p> 示例值：
-         */
+     /**
+      * 渠道信息
+      * <p> 示例值：
+      */
         private Channel channel;
 
         /**
          * 触发技能的消息文本
          * <p> 示例值：你好
-         *
          * @param query
          * @return
          */
         public Builder query(String query) {
-            this.query = query;
-            return this;
+             this.query = query;
+             return this;
         }
 
+    
 
         /**
          * 触发技能的消息文件
          * <p> 示例值：
-         *
          * @param files
          * @return
          */
         public Builder files(String[] files) {
-            this.files = files;
-            return this;
+             this.files = files;
+             return this;
         }
 
+    
 
         /**
          * 渠道信息
          * <p> 示例值：
-         *
          * @param channel
          * @return
          */
         public Builder channel(Channel channel) {
-            this.channel = channel;
-            return this;
+             this.channel = channel;
+             return this;
         }
 
+    
+    
+    public SkillGlobalVariable build(){
+        return new SkillGlobalVariable(this);
+      }
+    }
 
-        public SkillGlobalVariable build() {
-            return new SkillGlobalVariable(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

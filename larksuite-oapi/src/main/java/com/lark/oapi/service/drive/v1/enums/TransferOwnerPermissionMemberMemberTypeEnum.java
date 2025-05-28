@@ -17,17 +17,16 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文档拥有者的ID类型
  */
 public enum TransferOwnerPermissionMemberMemberTypeEnum {
-    EMAIL("email"), // 飞书邮箱
-    OPEN_ID("openid"), // 开放平台ID
-    USER_ID("userid"), // 用户自定义ID
-    ;
-    private String value;
-
+     EMAIL("email"), // 飞书邮箱
+     OPEN_ID("openid"), // 开放平台ID
+     USER_ID("userid"), // 用户自定义ID
+  ;
+   private String value;
     TransferOwnerPermissionMemberMemberTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

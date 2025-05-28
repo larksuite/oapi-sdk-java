@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MetricTemplate {
-    /**
-     * 指标模板ID
-     * <p> 示例值：7296488199415660563
-     */
+     /**
+      * 指标模板ID
+      * <p> 示例值：7296488199415660563
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 模版名称
-     * <p> 示例值：
-     */
+     /**
+      * 模版名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 模板描述
-     * <p> 示例值：
-     */
+     /**
+      * 模板描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private I18n description;
-    /**
-     * 状态
-     * <p> 示例值：to_be_configured
-     */
+     /**
+      * 状态
+      * <p> 示例值：to_be_configured
+      */
     @SerializedName("status")
     private String status;
-    /**
-     * 是否分人群设置指标
-     * <p> 示例值：
-     */
+     /**
+      * 是否分人群设置指标
+      * <p> 示例值：
+      */
     @SerializedName("is_set_by_group")
     private Boolean isSetByGroup;
-    /**
-     * 指标总分计算方式
-     * <p> 示例值：
-     */
+     /**
+      * 指标总分计算方式
+      * <p> 示例值：
+      */
     @SerializedName("total_metric_score_method")
     private String totalMetricScoreMethod;
-    /**
-     * 指标权重计算方式
-     * <p> 示例值：
-     */
+     /**
+      * 指标权重计算方式
+      * <p> 示例值：
+      */
     @SerializedName("metric_weight_method")
     private String metricWeightMethod;
-    /**
-     * 指标维度列表
-     * <p> 示例值：
-     */
+     /**
+      * 指标维度列表
+      * <p> 示例值：
+      */
     @SerializedName("metric_dimensions")
     private MetricDimension[] metricDimensions;
-    /**
-     * 指标列表
-     * <p> 示例值：
-     */
+     /**
+      * 指标列表
+      * <p> 示例值：
+      */
     @SerializedName("metrics")
     private MetricInTemplate[] metrics;
-    /**
-     * 人群分组
-     * <p> 示例值：
-     */
+     /**
+      * 人群分组
+      * <p> 示例值：
+      */
     @SerializedName("groups")
     private MetricGroup[] groups;
-
-    // builder 开始
-    public MetricTemplate() {
-    }
-
-    public MetricTemplate(Builder builder) {
-        /**
-         * 指标模板ID
-         * <p> 示例值：7296488199415660563
-         */
-        this.id = builder.id;
-        /**
-         * 模版名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 模板描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 状态
-         * <p> 示例值：to_be_configured
-         */
-        this.status = builder.status;
-        /**
-         * 是否分人群设置指标
-         * <p> 示例值：
-         */
-        this.isSetByGroup = builder.isSetByGroup;
-        /**
-         * 指标总分计算方式
-         * <p> 示例值：
-         */
-        this.totalMetricScoreMethod = builder.totalMetricScoreMethod;
-        /**
-         * 指标权重计算方式
-         * <p> 示例值：
-         */
-        this.metricWeightMethod = builder.metricWeightMethod;
-        /**
-         * 指标维度列表
-         * <p> 示例值：
-         */
-        this.metricDimensions = builder.metricDimensions;
-        /**
-         * 指标列表
-         * <p> 示例值：
-         */
-        this.metrics = builder.metrics;
-        /**
-         * 人群分组
-         * <p> 示例值：
-         */
-        this.groups = builder.groups;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -231,226 +165,281 @@ public class MetricTemplate {
         this.groups = groups;
     }
 
+
+// builder 开始
+  public MetricTemplate(){}
+
+  public MetricTemplate(Builder builder){
+         /**
+          * 指标模板ID
+          * <p> 示例值：7296488199415660563
+          */
+      this.id = builder.id;
+         /**
+          * 模版名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 模板描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 状态
+          * <p> 示例值：to_be_configured
+          */
+      this.status = builder.status;
+         /**
+          * 是否分人群设置指标
+          * <p> 示例值：
+          */
+      this.isSetByGroup = builder.isSetByGroup;
+         /**
+          * 指标总分计算方式
+          * <p> 示例值：
+          */
+      this.totalMetricScoreMethod = builder.totalMetricScoreMethod;
+         /**
+          * 指标权重计算方式
+          * <p> 示例值：
+          */
+      this.metricWeightMethod = builder.metricWeightMethod;
+         /**
+          * 指标维度列表
+          * <p> 示例值：
+          */
+      this.metricDimensions = builder.metricDimensions;
+         /**
+          * 指标列表
+          * <p> 示例值：
+          */
+      this.metrics = builder.metrics;
+         /**
+          * 人群分组
+          * <p> 示例值：
+          */
+      this.groups = builder.groups;
+  }
+
     public static class Builder {
-        /**
-         * 指标模板ID
-         * <p> 示例值：7296488199415660563
-         */
+     /**
+      * 指标模板ID
+      * <p> 示例值：7296488199415660563
+      */
         private String id;
-        /**
-         * 模版名称
-         * <p> 示例值：
-         */
+     /**
+      * 模版名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 模板描述
-         * <p> 示例值：
-         */
+     /**
+      * 模板描述
+      * <p> 示例值：
+      */
         private I18n description;
-        /**
-         * 状态
-         * <p> 示例值：to_be_configured
-         */
+     /**
+      * 状态
+      * <p> 示例值：to_be_configured
+      */
         private String status;
-        /**
-         * 是否分人群设置指标
-         * <p> 示例值：
-         */
+     /**
+      * 是否分人群设置指标
+      * <p> 示例值：
+      */
         private Boolean isSetByGroup;
-        /**
-         * 指标总分计算方式
-         * <p> 示例值：
-         */
+     /**
+      * 指标总分计算方式
+      * <p> 示例值：
+      */
         private String totalMetricScoreMethod;
-        /**
-         * 指标权重计算方式
-         * <p> 示例值：
-         */
+     /**
+      * 指标权重计算方式
+      * <p> 示例值：
+      */
         private String metricWeightMethod;
-        /**
-         * 指标维度列表
-         * <p> 示例值：
-         */
+     /**
+      * 指标维度列表
+      * <p> 示例值：
+      */
         private MetricDimension[] metricDimensions;
-        /**
-         * 指标列表
-         * <p> 示例值：
-         */
+     /**
+      * 指标列表
+      * <p> 示例值：
+      */
         private MetricInTemplate[] metrics;
-        /**
-         * 人群分组
-         * <p> 示例值：
-         */
+     /**
+      * 人群分组
+      * <p> 示例值：
+      */
         private MetricGroup[] groups;
 
         /**
          * 指标模板ID
          * <p> 示例值：7296488199415660563
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 模版名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 模板描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(I18n description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 状态
          * <p> 示例值：to_be_configured
-         *
          * @param status
          * @return
          */
         public Builder status(String status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 状态
          * <p> 示例值：to_be_configured
-         *
          * @param status {@link com.lark.oapi.service.performance.v2.enums.MetricTemplateStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.performance.v2.enums.MetricTemplateStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
 
         /**
          * 是否分人群设置指标
          * <p> 示例值：
-         *
          * @param isSetByGroup
          * @return
          */
         public Builder isSetByGroup(Boolean isSetByGroup) {
-            this.isSetByGroup = isSetByGroup;
-            return this;
+             this.isSetByGroup = isSetByGroup;
+             return this;
         }
 
+    
 
         /**
          * 指标总分计算方式
          * <p> 示例值：
-         *
          * @param totalMetricScoreMethod
          * @return
          */
         public Builder totalMetricScoreMethod(String totalMetricScoreMethod) {
-            this.totalMetricScoreMethod = totalMetricScoreMethod;
-            return this;
+             this.totalMetricScoreMethod = totalMetricScoreMethod;
+             return this;
         }
-
         /**
          * 指标总分计算方式
          * <p> 示例值：
-         *
          * @param totalMetricScoreMethod {@link com.lark.oapi.service.performance.v2.enums.MetricTemplateTotalMetricScoreMethodEnum}
          * @return
          */
         public Builder totalMetricScoreMethod(com.lark.oapi.service.performance.v2.enums.MetricTemplateTotalMetricScoreMethodEnum totalMetricScoreMethod) {
-            this.totalMetricScoreMethod = totalMetricScoreMethod.getValue();
-            return this;
+             this.totalMetricScoreMethod = totalMetricScoreMethod.getValue();
+             return this;
         }
 
+    
 
         /**
          * 指标权重计算方式
          * <p> 示例值：
-         *
          * @param metricWeightMethod
          * @return
          */
         public Builder metricWeightMethod(String metricWeightMethod) {
-            this.metricWeightMethod = metricWeightMethod;
-            return this;
+             this.metricWeightMethod = metricWeightMethod;
+             return this;
         }
-
         /**
          * 指标权重计算方式
          * <p> 示例值：
-         *
          * @param metricWeightMethod {@link com.lark.oapi.service.performance.v2.enums.MetricTemplateMetricWeightMethodEnum}
          * @return
          */
         public Builder metricWeightMethod(com.lark.oapi.service.performance.v2.enums.MetricTemplateMetricWeightMethodEnum metricWeightMethod) {
-            this.metricWeightMethod = metricWeightMethod.getValue();
-            return this;
+             this.metricWeightMethod = metricWeightMethod.getValue();
+             return this;
         }
 
+    
 
         /**
          * 指标维度列表
          * <p> 示例值：
-         *
          * @param metricDimensions
          * @return
          */
         public Builder metricDimensions(MetricDimension[] metricDimensions) {
-            this.metricDimensions = metricDimensions;
-            return this;
+             this.metricDimensions = metricDimensions;
+             return this;
         }
 
+    
 
         /**
          * 指标列表
          * <p> 示例值：
-         *
          * @param metrics
          * @return
          */
         public Builder metrics(MetricInTemplate[] metrics) {
-            this.metrics = metrics;
-            return this;
+             this.metrics = metrics;
+             return this;
         }
 
+    
 
         /**
          * 人群分组
          * <p> 示例值：
-         *
          * @param groups
          * @return
          */
         public Builder groups(MetricGroup[] groups) {
-            this.groups = groups;
-            return this;
+             this.groups = groups;
+             return this;
         }
 
+    
+    
+    public MetricTemplate build(){
+        return new MetricTemplate(this);
+      }
+    }
 
-        public MetricTemplate build() {
-            return new MetricTemplate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

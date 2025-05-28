@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FilterExpression {
-    /**
-     * 规则
-     * <p> 示例值：
-     */
+     /**
+      * 规则
+      * <p> 示例值：
+      */
     @SerializedName("conditions")
     private FilterCondition[] conditions;
-    /**
-     * 表达式
-     * <p> 示例值：1 and 2
-     */
+     /**
+      * 表达式
+      * <p> 示例值：1 and 2
+      */
     @SerializedName("expression")
     private String expression;
-
-    // builder 开始
-    public FilterExpression() {
-    }
-
-    public FilterExpression(Builder builder) {
-        /**
-         * 规则
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
-        /**
-         * 表达式
-         * <p> 示例值：1 and 2
-         */
-        this.expression = builder.expression;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public FilterCondition[] getConditions() {
         return this.conditions;
     }
@@ -79,46 +53,67 @@ public class FilterExpression {
         this.expression = expression;
     }
 
+
+// builder 开始
+  public FilterExpression(){}
+
+  public FilterExpression(Builder builder){
+         /**
+          * 规则
+          * <p> 示例值：
+          */
+      this.conditions = builder.conditions;
+         /**
+          * 表达式
+          * <p> 示例值：1 and 2
+          */
+      this.expression = builder.expression;
+  }
+
     public static class Builder {
-        /**
-         * 规则
-         * <p> 示例值：
-         */
+     /**
+      * 规则
+      * <p> 示例值：
+      */
         private FilterCondition[] conditions;
-        /**
-         * 表达式
-         * <p> 示例值：1 and 2
-         */
+     /**
+      * 表达式
+      * <p> 示例值：1 and 2
+      */
         private String expression;
 
         /**
          * 规则
          * <p> 示例值：
-         *
          * @param conditions
          * @return
          */
         public Builder conditions(FilterCondition[] conditions) {
-            this.conditions = conditions;
-            return this;
+             this.conditions = conditions;
+             return this;
         }
 
+    
 
         /**
          * 表达式
          * <p> 示例值：1 and 2
-         *
          * @param expression
          * @return
          */
         public Builder expression(String expression) {
-            this.expression = expression;
-            return this;
+             this.expression = expression;
+             return this;
         }
 
+    
+    
+    public FilterExpression build(){
+        return new FilterExpression(this);
+      }
+    }
 
-        public FilterExpression build() {
-            return new FilterExpression(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

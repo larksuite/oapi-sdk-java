@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReviewDataPermissionUnit {
-    /**
-     * 评估内容 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 评估内容 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("unit_id")
     private String unitId;
-    /**
-     * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-     * <p> 示例值：
-     */
+     /**
+      * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
+      * <p> 示例值：
+      */
     @SerializedName("fields")
     private ReviewDataPermissionField[] fields;
-
-    // builder 开始
-    public ReviewDataPermissionUnit() {
-    }
-
-    public ReviewDataPermissionUnit(Builder builder) {
-        /**
-         * 评估内容 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.unitId = builder.unitId;
-        /**
-         * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUnitId() {
         return this.unitId;
     }
@@ -79,46 +53,67 @@ public class ReviewDataPermissionUnit {
         this.fields = fields;
     }
 
+
+// builder 开始
+  public ReviewDataPermissionUnit(){}
+
+  public ReviewDataPermissionUnit(Builder builder){
+         /**
+          * 评估内容 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.unitId = builder.unitId;
+         /**
+          * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
+          * <p> 示例值：
+          */
+      this.fields = builder.fields;
+  }
+
     public static class Builder {
-        /**
-         * 评估内容 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 评估内容 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String unitId;
-        /**
-         * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-         * <p> 示例值：
-         */
+     /**
+      * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
+      * <p> 示例值：
+      */
         private ReviewDataPermissionField[] fields;
 
         /**
          * 评估内容 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param unitId
          * @return
          */
         public Builder unitId(String unitId) {
-            this.unitId = unitId;
-            return this;
+             this.unitId = unitId;
+             return this;
         }
 
+    
 
         /**
          * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
          * <p> 示例值：
-         *
          * @param fields
          * @return
          */
         public Builder fields(ReviewDataPermissionField[] fields) {
-            this.fields = fields;
-            return this;
+             this.fields = fields;
+             return this;
         }
 
+    
+    
+    public ReviewDataPermissionUnit build(){
+        return new ReviewDataPermissionUnit(this);
+      }
+    }
 
-        public ReviewDataPermissionUnit build() {
-            return new ReviewDataPermissionUnit(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

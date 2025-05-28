@@ -12,221 +12,120 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CombinedCreateTalentReqBody {
-    /**
-     * 简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)接口查询
-     * <p> 示例值：1
-     */
+     /**
+      * 简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)接口查询
+      * <p> 示例值：1
+      */
     @SerializedName("init_source_id")
     private String initSourceId;
-    /**
-     * 简历来源 ID
-     * <p> 示例值：1
-     */
+     /**
+      * 简历来源 ID
+      * <p> 示例值：1
+      */
     @SerializedName("resume_source_id")
     private String resumeSourceId;
-    /**
-     * 文件夹 ID 列表
-     * <p> 示例值：["7025517823176132908"]
-     */
+     /**
+      * 文件夹 ID 列表
+      * <p> 示例值：["7025517823176132908"]
+      */
     @SerializedName("folder_id_list")
     private String[] folderIdList;
-    /**
-     * 创建人 ID
-     * <p> 示例值：ou-xxx
-     */
+     /**
+      * 创建人 ID
+      * <p> 示例值：ou-xxx
+      */
     @SerializedName("creator_id")
     private String creatorId;
-    /**
-     * 创建人类型
-     * <p> 示例值：1
-     */
+     /**
+      * 创建人类型
+      * <p> 示例值：1
+      */
     @SerializedName("creator_account_type")
     private Integer creatorAccountType;
-    /**
-     * 简历附件 ID
-     * <p> 示例值：12345
-     */
+     /**
+      * 简历附件 ID
+      * <p> 示例值：12345
+      */
     @SerializedName("resume_attachment_id")
     private String resumeAttachmentId;
-    /**
-     * 基础信息
-     * <p> 示例值：
-     */
+     /**
+      * 基础信息
+      * <p> 示例值：
+      */
     @SerializedName("basic_info")
     private TalentCombinedBasicInfo basicInfo;
-    /**
-     * 教育经历
-     * <p> 示例值：
-     */
+     /**
+      * 教育经历
+      * <p> 示例值：
+      */
     @SerializedName("education_list")
     private TalentCombinedEducationInfo[] educationList;
-    /**
-     * 工作经历
-     * <p> 示例值：
-     */
+     /**
+      * 工作经历
+      * <p> 示例值：
+      */
     @SerializedName("career_list")
     private TalentCombinedCareerInfo[] careerList;
-    /**
-     * 项目经历
-     * <p> 示例值：
-     */
+     /**
+      * 项目经历
+      * <p> 示例值：
+      */
     @SerializedName("project_list")
     private TalentCombinedProjectInfo[] projectList;
-    /**
-     * 作品
-     * <p> 示例值：
-     */
+     /**
+      * 作品
+      * <p> 示例值：
+      */
     @SerializedName("works_list")
     private TalentCombinedWorkInfo[] worksList;
-    /**
-     * 获奖
-     * <p> 示例值：
-     */
+     /**
+      * 获奖
+      * <p> 示例值：
+      */
     @SerializedName("award_list")
     private TalentCombinedAwardInfo[] awardList;
-    /**
-     * 语言能力
-     * <p> 示例值：
-     */
+     /**
+      * 语言能力
+      * <p> 示例值：
+      */
     @SerializedName("language_list")
     private TalentCombinedLanguageInfo[] languageList;
-    /**
-     * 社交账号
-     * <p> 示例值：
-     */
+     /**
+      * 社交账号
+      * <p> 示例值：
+      */
     @SerializedName("sns_list")
     private TalentCombinedSnsInfo[] snsList;
-    /**
-     * 意向地点
-     * <p> 示例值：["CT_2"]
-     */
+     /**
+      * 意向地点
+      * <p> 示例值：["CT_2"]
+      */
     @SerializedName("preferred_city_code_list")
     private String[] preferredCityCodeList;
-    /**
-     * 自我评价
-     * <p> 示例值：
-     */
+     /**
+      * 自我评价
+      * <p> 示例值：
+      */
     @SerializedName("self_evaluation")
     private TalentSelfEvaluation selfEvaluation;
-    /**
-     * 自定义模块
-     * <p> 示例值：
-     */
+     /**
+      * 自定义模块
+      * <p> 示例值：
+      */
     @SerializedName("customized_data")
     private TalentCustomizedDataObjectValue[] customizedData;
-
-    // builder 开始
-    public CombinedCreateTalentReqBody() {
-    }
-
-    public CombinedCreateTalentReqBody(Builder builder) {
-        /**
-         * 简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)接口查询
-         * <p> 示例值：1
-         */
-        this.initSourceId = builder.initSourceId;
-        /**
-         * 简历来源 ID
-         * <p> 示例值：1
-         */
-        this.resumeSourceId = builder.resumeSourceId;
-        /**
-         * 文件夹 ID 列表
-         * <p> 示例值：["7025517823176132908"]
-         */
-        this.folderIdList = builder.folderIdList;
-        /**
-         * 创建人 ID
-         * <p> 示例值：ou-xxx
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 创建人类型
-         * <p> 示例值：1
-         */
-        this.creatorAccountType = builder.creatorAccountType;
-        /**
-         * 简历附件 ID
-         * <p> 示例值：12345
-         */
-        this.resumeAttachmentId = builder.resumeAttachmentId;
-        /**
-         * 基础信息
-         * <p> 示例值：
-         */
-        this.basicInfo = builder.basicInfo;
-        /**
-         * 教育经历
-         * <p> 示例值：
-         */
-        this.educationList = builder.educationList;
-        /**
-         * 工作经历
-         * <p> 示例值：
-         */
-        this.careerList = builder.careerList;
-        /**
-         * 项目经历
-         * <p> 示例值：
-         */
-        this.projectList = builder.projectList;
-        /**
-         * 作品
-         * <p> 示例值：
-         */
-        this.worksList = builder.worksList;
-        /**
-         * 获奖
-         * <p> 示例值：
-         */
-        this.awardList = builder.awardList;
-        /**
-         * 语言能力
-         * <p> 示例值：
-         */
-        this.languageList = builder.languageList;
-        /**
-         * 社交账号
-         * <p> 示例值：
-         */
-        this.snsList = builder.snsList;
-        /**
-         * 意向地点
-         * <p> 示例值：["CT_2"]
-         */
-        this.preferredCityCodeList = builder.preferredCityCodeList;
-        /**
-         * 自我评价
-         * <p> 示例值：
-         */
-        this.selfEvaluation = builder.selfEvaluation;
-        /**
-         * 自定义模块
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getInitSourceId() {
         return this.initSourceId;
     }
@@ -363,316 +262,412 @@ public class CombinedCreateTalentReqBody {
         this.customizedData = customizedData;
     }
 
+
+// builder 开始
+  public CombinedCreateTalentReqBody(){}
+
+  public CombinedCreateTalentReqBody(Builder builder){
+         /**
+          * 简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)接口查询
+          * <p> 示例值：1
+          */
+      this.initSourceId = builder.initSourceId;
+         /**
+          * 简历来源 ID
+          * <p> 示例值：1
+          */
+      this.resumeSourceId = builder.resumeSourceId;
+         /**
+          * 文件夹 ID 列表
+          * <p> 示例值：["7025517823176132908"]
+          */
+      this.folderIdList = builder.folderIdList;
+         /**
+          * 创建人 ID
+          * <p> 示例值：ou-xxx
+          */
+      this.creatorId = builder.creatorId;
+         /**
+          * 创建人类型
+          * <p> 示例值：1
+          */
+      this.creatorAccountType = builder.creatorAccountType;
+         /**
+          * 简历附件 ID
+          * <p> 示例值：12345
+          */
+      this.resumeAttachmentId = builder.resumeAttachmentId;
+         /**
+          * 基础信息
+          * <p> 示例值：
+          */
+      this.basicInfo = builder.basicInfo;
+         /**
+          * 教育经历
+          * <p> 示例值：
+          */
+      this.educationList = builder.educationList;
+         /**
+          * 工作经历
+          * <p> 示例值：
+          */
+      this.careerList = builder.careerList;
+         /**
+          * 项目经历
+          * <p> 示例值：
+          */
+      this.projectList = builder.projectList;
+         /**
+          * 作品
+          * <p> 示例值：
+          */
+      this.worksList = builder.worksList;
+         /**
+          * 获奖
+          * <p> 示例值：
+          */
+      this.awardList = builder.awardList;
+         /**
+          * 语言能力
+          * <p> 示例值：
+          */
+      this.languageList = builder.languageList;
+         /**
+          * 社交账号
+          * <p> 示例值：
+          */
+      this.snsList = builder.snsList;
+         /**
+          * 意向地点
+          * <p> 示例值：["CT_2"]
+          */
+      this.preferredCityCodeList = builder.preferredCityCodeList;
+         /**
+          * 自我评价
+          * <p> 示例值：
+          */
+      this.selfEvaluation = builder.selfEvaluation;
+         /**
+          * 自定义模块
+          * <p> 示例值：
+          */
+      this.customizedData = builder.customizedData;
+  }
+
     public static class Builder {
-        /**
-         * 简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)接口查询
-         * <p> 示例值：1
-         */
+     /**
+      * 简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)接口查询
+      * <p> 示例值：1
+      */
         private String initSourceId;
-        /**
-         * 简历来源 ID
-         * <p> 示例值：1
-         */
+     /**
+      * 简历来源 ID
+      * <p> 示例值：1
+      */
         private String resumeSourceId;
-        /**
-         * 文件夹 ID 列表
-         * <p> 示例值：["7025517823176132908"]
-         */
+     /**
+      * 文件夹 ID 列表
+      * <p> 示例值：["7025517823176132908"]
+      */
         private String[] folderIdList;
-        /**
-         * 创建人 ID
-         * <p> 示例值：ou-xxx
-         */
+     /**
+      * 创建人 ID
+      * <p> 示例值：ou-xxx
+      */
         private String creatorId;
-        /**
-         * 创建人类型
-         * <p> 示例值：1
-         */
+     /**
+      * 创建人类型
+      * <p> 示例值：1
+      */
         private Integer creatorAccountType;
-        /**
-         * 简历附件 ID
-         * <p> 示例值：12345
-         */
+     /**
+      * 简历附件 ID
+      * <p> 示例值：12345
+      */
         private String resumeAttachmentId;
-        /**
-         * 基础信息
-         * <p> 示例值：
-         */
+     /**
+      * 基础信息
+      * <p> 示例值：
+      */
         private TalentCombinedBasicInfo basicInfo;
-        /**
-         * 教育经历
-         * <p> 示例值：
-         */
+     /**
+      * 教育经历
+      * <p> 示例值：
+      */
         private TalentCombinedEducationInfo[] educationList;
-        /**
-         * 工作经历
-         * <p> 示例值：
-         */
+     /**
+      * 工作经历
+      * <p> 示例值：
+      */
         private TalentCombinedCareerInfo[] careerList;
-        /**
-         * 项目经历
-         * <p> 示例值：
-         */
+     /**
+      * 项目经历
+      * <p> 示例值：
+      */
         private TalentCombinedProjectInfo[] projectList;
-        /**
-         * 作品
-         * <p> 示例值：
-         */
+     /**
+      * 作品
+      * <p> 示例值：
+      */
         private TalentCombinedWorkInfo[] worksList;
-        /**
-         * 获奖
-         * <p> 示例值：
-         */
+     /**
+      * 获奖
+      * <p> 示例值：
+      */
         private TalentCombinedAwardInfo[] awardList;
-        /**
-         * 语言能力
-         * <p> 示例值：
-         */
+     /**
+      * 语言能力
+      * <p> 示例值：
+      */
         private TalentCombinedLanguageInfo[] languageList;
-        /**
-         * 社交账号
-         * <p> 示例值：
-         */
+     /**
+      * 社交账号
+      * <p> 示例值：
+      */
         private TalentCombinedSnsInfo[] snsList;
-        /**
-         * 意向地点
-         * <p> 示例值：["CT_2"]
-         */
+     /**
+      * 意向地点
+      * <p> 示例值：["CT_2"]
+      */
         private String[] preferredCityCodeList;
-        /**
-         * 自我评价
-         * <p> 示例值：
-         */
+     /**
+      * 自我评价
+      * <p> 示例值：
+      */
         private TalentSelfEvaluation selfEvaluation;
-        /**
-         * 自定义模块
-         * <p> 示例值：
-         */
+     /**
+      * 自定义模块
+      * <p> 示例值：
+      */
         private TalentCustomizedDataObjectValue[] customizedData;
 
         /**
          * 简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)接口查询
          * <p> 示例值：1
-         *
          * @param initSourceId
          * @return
          */
         public Builder initSourceId(String initSourceId) {
-            this.initSourceId = initSourceId;
-            return this;
+             this.initSourceId = initSourceId;
+             return this;
         }
 
+    
 
         /**
          * 简历来源 ID
          * <p> 示例值：1
-         *
          * @param resumeSourceId
          * @return
          */
         public Builder resumeSourceId(String resumeSourceId) {
-            this.resumeSourceId = resumeSourceId;
-            return this;
+             this.resumeSourceId = resumeSourceId;
+             return this;
         }
 
+    
 
         /**
          * 文件夹 ID 列表
          * <p> 示例值：["7025517823176132908"]
-         *
          * @param folderIdList
          * @return
          */
         public Builder folderIdList(String[] folderIdList) {
-            this.folderIdList = folderIdList;
-            return this;
+             this.folderIdList = folderIdList;
+             return this;
         }
 
+    
 
         /**
          * 创建人 ID
          * <p> 示例值：ou-xxx
-         *
          * @param creatorId
          * @return
          */
         public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
+             this.creatorId = creatorId;
+             return this;
         }
 
+    
 
         /**
          * 创建人类型
          * <p> 示例值：1
-         *
          * @param creatorAccountType
          * @return
          */
         public Builder creatorAccountType(Integer creatorAccountType) {
-            this.creatorAccountType = creatorAccountType;
-            return this;
+             this.creatorAccountType = creatorAccountType;
+             return this;
         }
 
+    
 
         /**
          * 简历附件 ID
          * <p> 示例值：12345
-         *
          * @param resumeAttachmentId
          * @return
          */
         public Builder resumeAttachmentId(String resumeAttachmentId) {
-            this.resumeAttachmentId = resumeAttachmentId;
-            return this;
+             this.resumeAttachmentId = resumeAttachmentId;
+             return this;
         }
 
+    
 
         /**
          * 基础信息
          * <p> 示例值：
-         *
          * @param basicInfo
          * @return
          */
         public Builder basicInfo(TalentCombinedBasicInfo basicInfo) {
-            this.basicInfo = basicInfo;
-            return this;
+             this.basicInfo = basicInfo;
+             return this;
         }
 
+    
 
         /**
          * 教育经历
          * <p> 示例值：
-         *
          * @param educationList
          * @return
          */
         public Builder educationList(TalentCombinedEducationInfo[] educationList) {
-            this.educationList = educationList;
-            return this;
+             this.educationList = educationList;
+             return this;
         }
 
+    
 
         /**
          * 工作经历
          * <p> 示例值：
-         *
          * @param careerList
          * @return
          */
         public Builder careerList(TalentCombinedCareerInfo[] careerList) {
-            this.careerList = careerList;
-            return this;
+             this.careerList = careerList;
+             return this;
         }
 
+    
 
         /**
          * 项目经历
          * <p> 示例值：
-         *
          * @param projectList
          * @return
          */
         public Builder projectList(TalentCombinedProjectInfo[] projectList) {
-            this.projectList = projectList;
-            return this;
+             this.projectList = projectList;
+             return this;
         }
 
+    
 
         /**
          * 作品
          * <p> 示例值：
-         *
          * @param worksList
          * @return
          */
         public Builder worksList(TalentCombinedWorkInfo[] worksList) {
-            this.worksList = worksList;
-            return this;
+             this.worksList = worksList;
+             return this;
         }
 
+    
 
         /**
          * 获奖
          * <p> 示例值：
-         *
          * @param awardList
          * @return
          */
         public Builder awardList(TalentCombinedAwardInfo[] awardList) {
-            this.awardList = awardList;
-            return this;
+             this.awardList = awardList;
+             return this;
         }
 
+    
 
         /**
          * 语言能力
          * <p> 示例值：
-         *
          * @param languageList
          * @return
          */
         public Builder languageList(TalentCombinedLanguageInfo[] languageList) {
-            this.languageList = languageList;
-            return this;
+             this.languageList = languageList;
+             return this;
         }
 
+    
 
         /**
          * 社交账号
          * <p> 示例值：
-         *
          * @param snsList
          * @return
          */
         public Builder snsList(TalentCombinedSnsInfo[] snsList) {
-            this.snsList = snsList;
-            return this;
+             this.snsList = snsList;
+             return this;
         }
 
+    
 
         /**
          * 意向地点
          * <p> 示例值：["CT_2"]
-         *
          * @param preferredCityCodeList
          * @return
          */
         public Builder preferredCityCodeList(String[] preferredCityCodeList) {
-            this.preferredCityCodeList = preferredCityCodeList;
-            return this;
+             this.preferredCityCodeList = preferredCityCodeList;
+             return this;
         }
 
+    
 
         /**
          * 自我评价
          * <p> 示例值：
-         *
          * @param selfEvaluation
          * @return
          */
         public Builder selfEvaluation(TalentSelfEvaluation selfEvaluation) {
-            this.selfEvaluation = selfEvaluation;
-            return this;
+             this.selfEvaluation = selfEvaluation;
+             return this;
         }
 
+    
 
         /**
          * 自定义模块
          * <p> 示例值：
-         *
          * @param customizedData
          * @return
          */
         public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
+             this.customizedData = customizedData;
+             return this;
         }
 
+    
+    
+    public CombinedCreateTalentReqBody build(){
+        return new CombinedCreateTalentReqBody(this);
+      }
+    }
 
-        public CombinedCreateTalentReqBody build() {
-            return new CombinedCreateTalentReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

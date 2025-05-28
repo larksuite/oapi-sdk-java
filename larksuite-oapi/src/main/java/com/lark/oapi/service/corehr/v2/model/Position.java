@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,258 +19,138 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Position {
-    /**
-     * 岗位 ID
-     * <p> 示例值：4692446793125560154
-     */
+     /**
+      * 岗位 ID
+      * <p> 示例值：4692446793125560154
+      */
     @SerializedName("position_id")
     private String positionId;
-    /**
-     * 编码
-     * <p> 示例值：A01234
-     */
+     /**
+      * 编码
+      * <p> 示例值：A01234
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
     @SerializedName("names")
     private I18n[] names;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
     @SerializedName("descriptions")
     private I18n[] descriptions;
-    /**
-     * 状态
-     * <p> 示例值：true
-     */
+     /**
+      * 状态
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 序列
-     * <p> 示例值：
-     */
+     /**
+      * 序列
+      * <p> 示例值：
+      */
     @SerializedName("job_family_id_list")
     private String[] jobFamilyIdList;
-    /**
-     * 成本中心
-     * <p> 示例值：4719519211875096301
-     */
+     /**
+      * 成本中心
+      * <p> 示例值：4719519211875096301
+      */
     @SerializedName("cost_center_id")
     private String costCenterId;
-    /**
-     * 职务
-     * <p> 示例值：4719519211875096302
-     */
+     /**
+      * 职务
+      * <p> 示例值：4719519211875096302
+      */
     @SerializedName("job_id")
     private String jobId;
-    /**
-     * 职级
-     * <p> 示例值：
-     */
+     /**
+      * 职级
+      * <p> 示例值：
+      */
     @SerializedName("job_level_id_list")
     private String[] jobLevelIdList;
-    /**
-     * 人员类型
-     * <p> 示例值：
-     */
+     /**
+      * 人员类型
+      * <p> 示例值：
+      */
     @SerializedName("employee_type_id_list")
     private String[] employeeTypeIdList;
-    /**
-     * 职等
-     * <p> 示例值：
-     */
+     /**
+      * 职等
+      * <p> 示例值：
+      */
     @SerializedName("job_grade_id_list")
     private String[] jobGradeIdList;
-    /**
-     * 工作地点
-     * <p> 示例值：
-     */
+     /**
+      * 工作地点
+      * <p> 示例值：
+      */
     @SerializedName("work_location_id_list")
     private String[] workLocationIdList;
-    /**
-     * 工时制度
-     * <p> 示例值：4719519211875096301
-     */
+     /**
+      * 工时制度
+      * <p> 示例值：4719519211875096301
+      */
     @SerializedName("working_hours_type_id")
     private String workingHoursTypeId;
-    /**
-     * 部门
-     * <p> 示例值：4719519211875096301
-     */
+     /**
+      * 部门
+      * <p> 示例值：4719519211875096301
+      */
     @SerializedName("department_id")
     private String departmentId;
-    /**
-     * 直属上级岗位
-     * <p> 示例值：4719519211875096301
-     */
+     /**
+      * 直属上级岗位
+      * <p> 示例值：4719519211875096301
+      */
     @SerializedName("direct_leader_id")
     private String directLeaderId;
-    /**
-     * 虚线上级岗位
-     * <p> 示例值：4719519211875096301
-     */
+     /**
+      * 虚线上级岗位
+      * <p> 示例值：4719519211875096301
+      */
     @SerializedName("dotted_line_leader_id")
     private String dottedLineLeaderId;
-    /**
-     * 是否关键岗位
-     * <p> 示例值：true
-     */
+     /**
+      * 是否关键岗位
+      * <p> 示例值：true
+      */
     @SerializedName("is_key_position")
     private Boolean isKeyPosition;
-    /**
-     * 生效日期
-     * <p> 示例值：2020-05-01
-     */
+     /**
+      * 生效日期
+      * <p> 示例值：2020-05-01
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 失效日期
-     * <p> 示例值：2020-05-01
-     */
+     /**
+      * 失效日期
+      * <p> 示例值：2020-05-01
+      */
     @SerializedName("expiration_time")
     private String expirationTime;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
-    /**
-     * 创建人
-     * <p> 示例值：4719519211875096301
-     */
+     /**
+      * 创建人
+      * <p> 示例值：4719519211875096301
+      */
     @SerializedName("created_by")
     private String createdBy;
-
-    // builder 开始
-    public Position() {
-    }
-
-    public Position(Builder builder) {
-        /**
-         * 岗位 ID
-         * <p> 示例值：4692446793125560154
-         */
-        this.positionId = builder.positionId;
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         */
-        this.code = builder.code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-        /**
-         * 状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 序列
-         * <p> 示例值：
-         */
-        this.jobFamilyIdList = builder.jobFamilyIdList;
-        /**
-         * 成本中心
-         * <p> 示例值：4719519211875096301
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 职务
-         * <p> 示例值：4719519211875096302
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 职级
-         * <p> 示例值：
-         */
-        this.jobLevelIdList = builder.jobLevelIdList;
-        /**
-         * 人员类型
-         * <p> 示例值：
-         */
-        this.employeeTypeIdList = builder.employeeTypeIdList;
-        /**
-         * 职等
-         * <p> 示例值：
-         */
-        this.jobGradeIdList = builder.jobGradeIdList;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
-        this.workLocationIdList = builder.workLocationIdList;
-        /**
-         * 工时制度
-         * <p> 示例值：4719519211875096301
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
-        /**
-         * 部门
-         * <p> 示例值：4719519211875096301
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 直属上级岗位
-         * <p> 示例值：4719519211875096301
-         */
-        this.directLeaderId = builder.directLeaderId;
-        /**
-         * 虚线上级岗位
-         * <p> 示例值：4719519211875096301
-         */
-        this.dottedLineLeaderId = builder.dottedLineLeaderId;
-        /**
-         * 是否关键岗位
-         * <p> 示例值：true
-         */
-        this.isKeyPosition = builder.isKeyPosition;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效日期
-         * <p> 示例值：2020-05-01
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 创建人
-         * <p> 示例值：4719519211875096301
-         */
-        this.createdBy = builder.createdBy;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPositionId() {
         return this.positionId;
     }
@@ -440,388 +319,504 @@ public class Position {
         this.createdBy = createdBy;
     }
 
+
+// builder 开始
+  public Position(){}
+
+  public Position(Builder builder){
+         /**
+          * 岗位 ID
+          * <p> 示例值：4692446793125560154
+          */
+      this.positionId = builder.positionId;
+         /**
+          * 编码
+          * <p> 示例值：A01234
+          */
+      this.code = builder.code;
+         /**
+          * 名称
+          * <p> 示例值：
+          */
+      this.names = builder.names;
+         /**
+          * 描述
+          * <p> 示例值：
+          */
+      this.descriptions = builder.descriptions;
+         /**
+          * 状态
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 序列
+          * <p> 示例值：
+          */
+      this.jobFamilyIdList = builder.jobFamilyIdList;
+         /**
+          * 成本中心
+          * <p> 示例值：4719519211875096301
+          */
+      this.costCenterId = builder.costCenterId;
+         /**
+          * 职务
+          * <p> 示例值：4719519211875096302
+          */
+      this.jobId = builder.jobId;
+         /**
+          * 职级
+          * <p> 示例值：
+          */
+      this.jobLevelIdList = builder.jobLevelIdList;
+         /**
+          * 人员类型
+          * <p> 示例值：
+          */
+      this.employeeTypeIdList = builder.employeeTypeIdList;
+         /**
+          * 职等
+          * <p> 示例值：
+          */
+      this.jobGradeIdList = builder.jobGradeIdList;
+         /**
+          * 工作地点
+          * <p> 示例值：
+          */
+      this.workLocationIdList = builder.workLocationIdList;
+         /**
+          * 工时制度
+          * <p> 示例值：4719519211875096301
+          */
+      this.workingHoursTypeId = builder.workingHoursTypeId;
+         /**
+          * 部门
+          * <p> 示例值：4719519211875096301
+          */
+      this.departmentId = builder.departmentId;
+         /**
+          * 直属上级岗位
+          * <p> 示例值：4719519211875096301
+          */
+      this.directLeaderId = builder.directLeaderId;
+         /**
+          * 虚线上级岗位
+          * <p> 示例值：4719519211875096301
+          */
+      this.dottedLineLeaderId = builder.dottedLineLeaderId;
+         /**
+          * 是否关键岗位
+          * <p> 示例值：true
+          */
+      this.isKeyPosition = builder.isKeyPosition;
+         /**
+          * 生效日期
+          * <p> 示例值：2020-05-01
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 失效日期
+          * <p> 示例值：2020-05-01
+          */
+      this.expirationTime = builder.expirationTime;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 创建人
+          * <p> 示例值：4719519211875096301
+          */
+      this.createdBy = builder.createdBy;
+  }
+
     public static class Builder {
-        /**
-         * 岗位 ID
-         * <p> 示例值：4692446793125560154
-         */
+     /**
+      * 岗位 ID
+      * <p> 示例值：4692446793125560154
+      */
         private String positionId;
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         */
+     /**
+      * 编码
+      * <p> 示例值：A01234
+      */
         private String code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
         private I18n[] names;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
+     /**
+      * 描述
+      * <p> 示例值：
+      */
         private I18n[] descriptions;
-        /**
-         * 状态
-         * <p> 示例值：true
-         */
+     /**
+      * 状态
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 序列
-         * <p> 示例值：
-         */
+     /**
+      * 序列
+      * <p> 示例值：
+      */
         private String[] jobFamilyIdList;
-        /**
-         * 成本中心
-         * <p> 示例值：4719519211875096301
-         */
+     /**
+      * 成本中心
+      * <p> 示例值：4719519211875096301
+      */
         private String costCenterId;
-        /**
-         * 职务
-         * <p> 示例值：4719519211875096302
-         */
+     /**
+      * 职务
+      * <p> 示例值：4719519211875096302
+      */
         private String jobId;
-        /**
-         * 职级
-         * <p> 示例值：
-         */
+     /**
+      * 职级
+      * <p> 示例值：
+      */
         private String[] jobLevelIdList;
-        /**
-         * 人员类型
-         * <p> 示例值：
-         */
+     /**
+      * 人员类型
+      * <p> 示例值：
+      */
         private String[] employeeTypeIdList;
-        /**
-         * 职等
-         * <p> 示例值：
-         */
+     /**
+      * 职等
+      * <p> 示例值：
+      */
         private String[] jobGradeIdList;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
+     /**
+      * 工作地点
+      * <p> 示例值：
+      */
         private String[] workLocationIdList;
-        /**
-         * 工时制度
-         * <p> 示例值：4719519211875096301
-         */
+     /**
+      * 工时制度
+      * <p> 示例值：4719519211875096301
+      */
         private String workingHoursTypeId;
-        /**
-         * 部门
-         * <p> 示例值：4719519211875096301
-         */
+     /**
+      * 部门
+      * <p> 示例值：4719519211875096301
+      */
         private String departmentId;
-        /**
-         * 直属上级岗位
-         * <p> 示例值：4719519211875096301
-         */
+     /**
+      * 直属上级岗位
+      * <p> 示例值：4719519211875096301
+      */
         private String directLeaderId;
-        /**
-         * 虚线上级岗位
-         * <p> 示例值：4719519211875096301
-         */
+     /**
+      * 虚线上级岗位
+      * <p> 示例值：4719519211875096301
+      */
         private String dottedLineLeaderId;
-        /**
-         * 是否关键岗位
-         * <p> 示例值：true
-         */
+     /**
+      * 是否关键岗位
+      * <p> 示例值：true
+      */
         private Boolean isKeyPosition;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
+     /**
+      * 生效日期
+      * <p> 示例值：2020-05-01
+      */
         private String effectiveTime;
-        /**
-         * 失效日期
-         * <p> 示例值：2020-05-01
-         */
+     /**
+      * 失效日期
+      * <p> 示例值：2020-05-01
+      */
         private String expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private CustomFieldData[] customFields;
-        /**
-         * 创建人
-         * <p> 示例值：4719519211875096301
-         */
+     /**
+      * 创建人
+      * <p> 示例值：4719519211875096301
+      */
         private String createdBy;
 
         /**
          * 岗位 ID
          * <p> 示例值：4692446793125560154
-         *
          * @param positionId
          * @return
          */
         public Builder positionId(String positionId) {
-            this.positionId = positionId;
-            return this;
+             this.positionId = positionId;
+             return this;
         }
 
+    
 
         /**
          * 编码
          * <p> 示例值：A01234
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：
-         *
          * @param names
          * @return
          */
         public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
+             this.names = names;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：
-         *
          * @param descriptions
          * @return
          */
         public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
+             this.descriptions = descriptions;
+             return this;
         }
 
+    
 
         /**
          * 状态
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 序列
          * <p> 示例值：
-         *
          * @param jobFamilyIdList
          * @return
          */
         public Builder jobFamilyIdList(String[] jobFamilyIdList) {
-            this.jobFamilyIdList = jobFamilyIdList;
-            return this;
+             this.jobFamilyIdList = jobFamilyIdList;
+             return this;
         }
 
+    
 
         /**
          * 成本中心
          * <p> 示例值：4719519211875096301
-         *
          * @param costCenterId
          * @return
          */
         public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
+             this.costCenterId = costCenterId;
+             return this;
         }
 
+    
 
         /**
          * 职务
          * <p> 示例值：4719519211875096302
-         *
          * @param jobId
          * @return
          */
         public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
+             this.jobId = jobId;
+             return this;
         }
 
+    
 
         /**
          * 职级
          * <p> 示例值：
-         *
          * @param jobLevelIdList
          * @return
          */
         public Builder jobLevelIdList(String[] jobLevelIdList) {
-            this.jobLevelIdList = jobLevelIdList;
-            return this;
+             this.jobLevelIdList = jobLevelIdList;
+             return this;
         }
 
+    
 
         /**
          * 人员类型
          * <p> 示例值：
-         *
          * @param employeeTypeIdList
          * @return
          */
         public Builder employeeTypeIdList(String[] employeeTypeIdList) {
-            this.employeeTypeIdList = employeeTypeIdList;
-            return this;
+             this.employeeTypeIdList = employeeTypeIdList;
+             return this;
         }
 
+    
 
         /**
          * 职等
          * <p> 示例值：
-         *
          * @param jobGradeIdList
          * @return
          */
         public Builder jobGradeIdList(String[] jobGradeIdList) {
-            this.jobGradeIdList = jobGradeIdList;
-            return this;
+             this.jobGradeIdList = jobGradeIdList;
+             return this;
         }
 
+    
 
         /**
          * 工作地点
          * <p> 示例值：
-         *
          * @param workLocationIdList
          * @return
          */
         public Builder workLocationIdList(String[] workLocationIdList) {
-            this.workLocationIdList = workLocationIdList;
-            return this;
+             this.workLocationIdList = workLocationIdList;
+             return this;
         }
 
+    
 
         /**
          * 工时制度
          * <p> 示例值：4719519211875096301
-         *
          * @param workingHoursTypeId
          * @return
          */
         public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
+             this.workingHoursTypeId = workingHoursTypeId;
+             return this;
         }
 
+    
 
         /**
          * 部门
          * <p> 示例值：4719519211875096301
-         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
+             this.departmentId = departmentId;
+             return this;
         }
 
+    
 
         /**
          * 直属上级岗位
          * <p> 示例值：4719519211875096301
-         *
          * @param directLeaderId
          * @return
          */
         public Builder directLeaderId(String directLeaderId) {
-            this.directLeaderId = directLeaderId;
-            return this;
+             this.directLeaderId = directLeaderId;
+             return this;
         }
 
+    
 
         /**
          * 虚线上级岗位
          * <p> 示例值：4719519211875096301
-         *
          * @param dottedLineLeaderId
          * @return
          */
         public Builder dottedLineLeaderId(String dottedLineLeaderId) {
-            this.dottedLineLeaderId = dottedLineLeaderId;
-            return this;
+             this.dottedLineLeaderId = dottedLineLeaderId;
+             return this;
         }
 
+    
 
         /**
          * 是否关键岗位
          * <p> 示例值：true
-         *
          * @param isKeyPosition
          * @return
          */
         public Builder isKeyPosition(Boolean isKeyPosition) {
-            this.isKeyPosition = isKeyPosition;
-            return this;
+             this.isKeyPosition = isKeyPosition;
+             return this;
         }
 
+    
 
         /**
          * 生效日期
          * <p> 示例值：2020-05-01
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 失效日期
          * <p> 示例值：2020-05-01
-         *
          * @param expirationTime
          * @return
          */
         public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
+             this.expirationTime = expirationTime;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 创建人
          * <p> 示例值：4719519211875096301
-         *
          * @param createdBy
          * @return
          */
         public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
+             this.createdBy = createdBy;
+             return this;
         }
 
+    
+    
+    public Position build(){
+        return new Position(this);
+      }
+    }
 
-        public Position build() {
-            return new Position(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

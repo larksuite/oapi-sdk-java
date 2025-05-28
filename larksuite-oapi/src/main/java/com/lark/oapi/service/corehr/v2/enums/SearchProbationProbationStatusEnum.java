@@ -17,20 +17,19 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 试用期状态
  */
 public enum SearchProbationProbationStatusEnum {
-    PENDING("pending"), // 审批中
-    REJECTED("rejected"), // 已拒绝
-    WAITING("waiting"), // 待发起转正
-    APPROVED("approved"), // 审批通过
-    CONVERTED("converted"), // 已转正
-    OFFBOARDED("offboarded"), // 已离职
-    ;
-    private String value;
-
+     PENDING("pending"), // 审批中
+     REJECTED("rejected"), // 已拒绝
+     WAITING("waiting"), // 待发起转正
+     APPROVED("approved"), // 审批通过
+     CONVERTED("converted"), // 已转正
+     OFFBOARDED("offboarded"), // 已离职
+  ;
+   private String value;
     SearchProbationProbationStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.personal_settings.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchOpenSystemStatusReqBody {
-    /**
-     * 开启列表
-     * <p> 示例值：
-     */
+     /**
+      * 开启列表
+      * <p> 示例值：
+      */
     @SerializedName("user_list")
     private SystemStatusUserOpenParam[] userList;
-
-    // builder 开始
-    public BatchOpenSystemStatusReqBody() {
-    }
-
-    public BatchOpenSystemStatusReqBody(Builder builder) {
-        /**
-         * 开启列表
-         * <p> 示例值：
-         */
-        this.userList = builder.userList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public SystemStatusUserOpenParam[] getUserList() {
         return this.userList;
     }
@@ -60,28 +39,44 @@ public class BatchOpenSystemStatusReqBody {
         this.userList = userList;
     }
 
+
+// builder 开始
+  public BatchOpenSystemStatusReqBody(){}
+
+  public BatchOpenSystemStatusReqBody(Builder builder){
+         /**
+          * 开启列表
+          * <p> 示例值：
+          */
+      this.userList = builder.userList;
+  }
+
     public static class Builder {
-        /**
-         * 开启列表
-         * <p> 示例值：
-         */
+     /**
+      * 开启列表
+      * <p> 示例值：
+      */
         private SystemStatusUserOpenParam[] userList;
 
         /**
          * 开启列表
          * <p> 示例值：
-         *
          * @param userList
          * @return
          */
         public Builder userList(SystemStatusUserOpenParam[] userList) {
-            this.userList = userList;
-            return this;
+             this.userList = userList;
+             return this;
         }
 
+    
+    
+    public BatchOpenSystemStatusReqBody build(){
+        return new BatchOpenSystemStatusReqBody(this);
+      }
+    }
 
-        public BatchOpenSystemStatusReqBody build() {
-            return new BatchOpenSystemStatusReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

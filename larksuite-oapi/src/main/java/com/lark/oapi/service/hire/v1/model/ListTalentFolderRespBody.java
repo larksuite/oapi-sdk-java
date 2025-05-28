@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListTalentFolderRespBody {
-    /**
-     * 是否有下一页
-     * <p> 示例值：true
-     */
+     /**
+      * 是否有下一页
+      * <p> 示例值：true
+      */
     @SerializedName("has_more")
     private Boolean hasMore;
-    /**
-     * 下一页页码
-     * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
-     */
+     /**
+      * 下一页页码
+      * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
+      */
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 文件夹列表
-     * <p> 示例值：
-     */
+     /**
+      * 文件夹列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private TalentFolderForList[] items;
-
     public Boolean getHasMore() {
         return this.hasMore;
     }

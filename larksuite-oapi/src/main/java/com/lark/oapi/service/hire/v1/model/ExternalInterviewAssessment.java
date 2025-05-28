@@ -12,111 +12,60 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ExternalInterviewAssessment {
-    /**
-     * 外部面评 ID
-     * <p> 示例值：6989181065243969836
-     */
+     /**
+      * 外部面评 ID
+      * <p> 示例值：6989181065243969836
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 外部系统面评主键（仅用于幂等）
-     * <p> 示例值：123
-     */
+     /**
+      * 外部系统面评主键（仅用于幂等）
+      * <p> 示例值：123
+      */
     @SerializedName("external_id")
     private String externalId;
-    /**
-     * 面试官姓名
-     * <p> 示例值：shaojiale
-     */
+     /**
+      * 面试官姓名
+      * <p> 示例值：shaojiale
+      */
     @SerializedName("username")
     private String username;
-    /**
-     * 面试结果
-     * <p> 示例值：1
-     */
+     /**
+      * 面试结果
+      * <p> 示例值：1
+      */
     @SerializedName("conclusion")
     private Integer conclusion;
-    /**
-     * 评价维度列表
-     * <p> 示例值：
-     */
+     /**
+      * 评价维度列表
+      * <p> 示例值：
+      */
     @SerializedName("assessment_dimension_list")
     private ExternalInterviewAssessmentDimension[] assessmentDimensionList;
-    /**
-     * 综合记录
-     * <p> 示例值：hello world
-     */
+     /**
+      * 综合记录
+      * <p> 示例值：hello world
+      */
     @SerializedName("content")
     private String content;
-    /**
-     * 外部面试 ID
-     * <p> 示例值：6986199832494934316
-     */
+     /**
+      * 外部面试 ID
+      * <p> 示例值：6986199832494934316
+      */
     @SerializedName("external_interview_id")
     private String externalInterviewId;
-
-    // builder 开始
-    public ExternalInterviewAssessment() {
-    }
-
-    public ExternalInterviewAssessment(Builder builder) {
-        /**
-         * 外部面评 ID
-         * <p> 示例值：6989181065243969836
-         */
-        this.id = builder.id;
-        /**
-         * 外部系统面评主键（仅用于幂等）
-         * <p> 示例值：123
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 面试官姓名
-         * <p> 示例值：shaojiale
-         */
-        this.username = builder.username;
-        /**
-         * 面试结果
-         * <p> 示例值：1
-         */
-        this.conclusion = builder.conclusion;
-        /**
-         * 评价维度列表
-         * <p> 示例值：
-         */
-        this.assessmentDimensionList = builder.assessmentDimensionList;
-        /**
-         * 综合记录
-         * <p> 示例值：hello world
-         */
-        this.content = builder.content;
-        /**
-         * 外部面试 ID
-         * <p> 示例值：6986199832494934316
-         */
-        this.externalInterviewId = builder.externalInterviewId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -173,136 +122,182 @@ public class ExternalInterviewAssessment {
         this.externalInterviewId = externalInterviewId;
     }
 
+
+// builder 开始
+  public ExternalInterviewAssessment(){}
+
+  public ExternalInterviewAssessment(Builder builder){
+         /**
+          * 外部面评 ID
+          * <p> 示例值：6989181065243969836
+          */
+      this.id = builder.id;
+         /**
+          * 外部系统面评主键（仅用于幂等）
+          * <p> 示例值：123
+          */
+      this.externalId = builder.externalId;
+         /**
+          * 面试官姓名
+          * <p> 示例值：shaojiale
+          */
+      this.username = builder.username;
+         /**
+          * 面试结果
+          * <p> 示例值：1
+          */
+      this.conclusion = builder.conclusion;
+         /**
+          * 评价维度列表
+          * <p> 示例值：
+          */
+      this.assessmentDimensionList = builder.assessmentDimensionList;
+         /**
+          * 综合记录
+          * <p> 示例值：hello world
+          */
+      this.content = builder.content;
+         /**
+          * 外部面试 ID
+          * <p> 示例值：6986199832494934316
+          */
+      this.externalInterviewId = builder.externalInterviewId;
+  }
+
     public static class Builder {
-        /**
-         * 外部面评 ID
-         * <p> 示例值：6989181065243969836
-         */
+     /**
+      * 外部面评 ID
+      * <p> 示例值：6989181065243969836
+      */
         private String id;
-        /**
-         * 外部系统面评主键（仅用于幂等）
-         * <p> 示例值：123
-         */
+     /**
+      * 外部系统面评主键（仅用于幂等）
+      * <p> 示例值：123
+      */
         private String externalId;
-        /**
-         * 面试官姓名
-         * <p> 示例值：shaojiale
-         */
+     /**
+      * 面试官姓名
+      * <p> 示例值：shaojiale
+      */
         private String username;
-        /**
-         * 面试结果
-         * <p> 示例值：1
-         */
+     /**
+      * 面试结果
+      * <p> 示例值：1
+      */
         private Integer conclusion;
-        /**
-         * 评价维度列表
-         * <p> 示例值：
-         */
+     /**
+      * 评价维度列表
+      * <p> 示例值：
+      */
         private ExternalInterviewAssessmentDimension[] assessmentDimensionList;
-        /**
-         * 综合记录
-         * <p> 示例值：hello world
-         */
+     /**
+      * 综合记录
+      * <p> 示例值：hello world
+      */
         private String content;
-        /**
-         * 外部面试 ID
-         * <p> 示例值：6986199832494934316
-         */
+     /**
+      * 外部面试 ID
+      * <p> 示例值：6986199832494934316
+      */
         private String externalInterviewId;
 
         /**
          * 外部面评 ID
          * <p> 示例值：6989181065243969836
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 外部系统面评主键（仅用于幂等）
          * <p> 示例值：123
-         *
          * @param externalId
          * @return
          */
         public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
+             this.externalId = externalId;
+             return this;
         }
 
+    
 
         /**
          * 面试官姓名
          * <p> 示例值：shaojiale
-         *
          * @param username
          * @return
          */
         public Builder username(String username) {
-            this.username = username;
-            return this;
+             this.username = username;
+             return this;
         }
 
+    
 
         /**
          * 面试结果
          * <p> 示例值：1
-         *
          * @param conclusion
          * @return
          */
         public Builder conclusion(Integer conclusion) {
-            this.conclusion = conclusion;
-            return this;
+             this.conclusion = conclusion;
+             return this;
         }
 
+    
 
         /**
          * 评价维度列表
          * <p> 示例值：
-         *
          * @param assessmentDimensionList
          * @return
          */
         public Builder assessmentDimensionList(ExternalInterviewAssessmentDimension[] assessmentDimensionList) {
-            this.assessmentDimensionList = assessmentDimensionList;
-            return this;
+             this.assessmentDimensionList = assessmentDimensionList;
+             return this;
         }
 
+    
 
         /**
          * 综合记录
          * <p> 示例值：hello world
-         *
          * @param content
          * @return
          */
         public Builder content(String content) {
-            this.content = content;
-            return this;
+             this.content = content;
+             return this;
         }
 
+    
 
         /**
          * 外部面试 ID
          * <p> 示例值：6986199832494934316
-         *
          * @param externalInterviewId
          * @return
          */
         public Builder externalInterviewId(String externalInterviewId) {
-            this.externalInterviewId = externalInterviewId;
-            return this;
+             this.externalInterviewId = externalInterviewId;
+             return this;
         }
 
+    
+    
+    public ExternalInterviewAssessment build(){
+        return new ExternalInterviewAssessment(this);
+      }
+    }
 
-        public ExternalInterviewAssessment build() {
-            return new ExternalInterviewAssessment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

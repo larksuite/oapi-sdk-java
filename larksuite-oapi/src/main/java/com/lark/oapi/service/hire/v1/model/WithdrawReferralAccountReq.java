@@ -12,48 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WithdrawReferralAccountReq {
-    /**
-     * 账户ID
-     * <p> 示例值：6942778198054125570
-     */
+     /**
+      * 账户ID
+      * <p> 示例值：6942778198054125570
+      */
     @Path
     @SerializedName("referral_account_id")
     private String referralAccountId;
-    @Body
-    private WithdrawReferralAccountReqBody body;
-
-    // builder 开始
-    public WithdrawReferralAccountReq() {
-    }
-
-    public WithdrawReferralAccountReq(Builder builder) {
-        /**
-         * 账户ID
-         * <p> 示例值：6942778198054125570
-         */
-        this.referralAccountId = builder.referralAccountId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getReferralAccountId() {
         return this.referralAccountId;
     }
@@ -61,6 +37,9 @@ public class WithdrawReferralAccountReq {
     public void setReferralAccountId(String referralAccountId) {
         this.referralAccountId = referralAccountId;
     }
+
+    @Body
+    private WithdrawReferralAccountReqBody body;
 
     public WithdrawReferralAccountReqBody getWithdrawReferralAccountReqBody() {
         return this.body;
@@ -70,40 +49,54 @@ public class WithdrawReferralAccountReq {
         this.body = body;
     }
 
+// builder 开始
+  public WithdrawReferralAccountReq(){}
+
+  public WithdrawReferralAccountReq(Builder builder){
+     /**
+      * 账户ID
+      * <p> 示例值：6942778198054125570
+      */
+       this.referralAccountId = builder.referralAccountId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String referralAccountId; // 账户ID
-        private WithdrawReferralAccountReqBody body;
-
         /**
          * 账户ID
          * <p> 示例值：6942778198054125570
-         *
          * @param referralAccountId
          * @return
          */
-        public Builder referralAccountId(String referralAccountId) {
-            this.referralAccountId = referralAccountId;
-            return this;
-        }
+          public Builder referralAccountId(String referralAccountId) {
+               this.referralAccountId = referralAccountId;
+               return this;
+          }
 
+    
+        private WithdrawReferralAccountReqBody body;
+    
         public WithdrawReferralAccountReqBody getWithdrawReferralAccountReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder withdrawReferralAccountReqBody(WithdrawReferralAccountReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public WithdrawReferralAccountReq build(){
+        return new WithdrawReferralAccountReq(this);
+      }
+    }
 
-        public WithdrawReferralAccountReq build() {
-            return new WithdrawReferralAccountReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

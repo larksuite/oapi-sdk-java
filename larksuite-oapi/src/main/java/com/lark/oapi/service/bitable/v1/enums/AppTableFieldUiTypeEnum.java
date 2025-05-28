@@ -17,39 +17,38 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
  */
 public enum AppTableFieldUiTypeEnum {
-    TEXT("Text"), // 多行文本
-    EMAIL("Email"), // 邮箱地址
-    BARCODE("Barcode"), // 条码
-    NUMBER("Number"), // 数字
-    PROGRESS("Progress"), // 进度
-    CURRENCY("Currency"), // 货币
-    RATING("Rating"), // 评分
-    SINGLESELECT("SingleSelect"), // 单选
-    MULTISELECT("MultiSelect"), // 多选
-    DATETIME("DateTime"), // 日期
-    CHECKBOX("Checkbox"), // 复选框
-    USER("User"), // 人员
-    GROUPCHAT("GroupChat"), // 群组
-    PHONE("Phone"), // 电话号码
-    URL("Url"), // 超链接
-    ATTACHMENT("Attachment"), // 附件
-    SINGLELINK("SingleLink"), // 单向关联
-    FORMULA("Formula"), // 公式
-    DUPLEXLINK("DuplexLink"), // 双向关联
-    LOCATION("Location"), // 地理位置
-    CREATEDTIME("CreatedTime"), // 创建时间
-    MODIFIEDTIME("ModifiedTime"), // 最后更新时间
-    CREATEDUSER("CreatedUser"), // 创建人
-    MODIFIEDUSER("ModifiedUser"), // 修改人
-    AUTONUMBER("AutoNumber"), // 自动编号
-    ;
-    private String value;
-
+     TEXT("Text"), // 多行文本
+     EMAIL("Email"), // 邮箱地址
+     BARCODE("Barcode"), // 条码
+     NUMBER("Number"), // 数字
+     PROGRESS("Progress"), // 进度
+     CURRENCY("Currency"), // 货币
+     RATING("Rating"), // 评分
+     SINGLESELECT("SingleSelect"), // 单选
+     MULTISELECT("MultiSelect"), // 多选
+     DATETIME("DateTime"), // 日期
+     CHECKBOX("Checkbox"), // 复选框
+     USER("User"), // 人员
+     GROUPCHAT("GroupChat"), // 群组
+     PHONE("Phone"), // 电话号码
+     URL("Url"), // 超链接
+     ATTACHMENT("Attachment"), // 附件
+     SINGLELINK("SingleLink"), // 单向关联
+     FORMULA("Formula"), // 公式
+     DUPLEXLINK("DuplexLink"), // 双向关联
+     LOCATION("Location"), // 地理位置
+     CREATEDTIME("CreatedTime"), // 创建时间
+     MODIFIEDTIME("ModifiedTime"), // 最后更新时间
+     CREATEDUSER("CreatedUser"), // 创建人
+     MODIFIEDUSER("ModifiedUser"), // 修改人
+     AUTONUMBER("AutoNumber"), // 自动编号
+  ;
+   private String value;
     AppTableFieldUiTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

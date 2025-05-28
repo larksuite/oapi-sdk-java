@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class I18nMap {
-    /**
-     * 中文名称
-     * <p> 示例值：1
-     */
+     /**
+      * 中文名称
+      * <p> 示例值：1
+      */
     @SerializedName("zh")
     private String zh;
-    /**
-     * 英文名称
-     * <p> 示例值：alice
-     */
+     /**
+      * 英文名称
+      * <p> 示例值：alice
+      */
     @SerializedName("en")
     private String en;
-    /**
-     * 日文名称
-     * <p> 示例值：1
-     */
+     /**
+      * 日文名称
+      * <p> 示例值：1
+      */
     @SerializedName("ja")
     private String ja;
-
-    // builder 开始
-    public I18nMap() {
-    }
-
-    public I18nMap(Builder builder) {
-        /**
-         * 中文名称
-         * <p> 示例值：1
-         */
-        this.zh = builder.zh;
-        /**
-         * 英文名称
-         * <p> 示例值：alice
-         */
-        this.en = builder.en;
-        /**
-         * 日文名称
-         * <p> 示例值：1
-         */
-        this.ja = builder.ja;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getZh() {
         return this.zh;
     }
@@ -98,64 +67,90 @@ public class I18nMap {
         this.ja = ja;
     }
 
+
+// builder 开始
+  public I18nMap(){}
+
+  public I18nMap(Builder builder){
+         /**
+          * 中文名称
+          * <p> 示例值：1
+          */
+      this.zh = builder.zh;
+         /**
+          * 英文名称
+          * <p> 示例值：alice
+          */
+      this.en = builder.en;
+         /**
+          * 日文名称
+          * <p> 示例值：1
+          */
+      this.ja = builder.ja;
+  }
+
     public static class Builder {
-        /**
-         * 中文名称
-         * <p> 示例值：1
-         */
+     /**
+      * 中文名称
+      * <p> 示例值：1
+      */
         private String zh;
-        /**
-         * 英文名称
-         * <p> 示例值：alice
-         */
+     /**
+      * 英文名称
+      * <p> 示例值：alice
+      */
         private String en;
-        /**
-         * 日文名称
-         * <p> 示例值：1
-         */
+     /**
+      * 日文名称
+      * <p> 示例值：1
+      */
         private String ja;
 
         /**
          * 中文名称
          * <p> 示例值：1
-         *
          * @param zh
          * @return
          */
         public Builder zh(String zh) {
-            this.zh = zh;
-            return this;
+             this.zh = zh;
+             return this;
         }
 
+    
 
         /**
          * 英文名称
          * <p> 示例值：alice
-         *
          * @param en
          * @return
          */
         public Builder en(String en) {
-            this.en = en;
-            return this;
+             this.en = en;
+             return this;
         }
 
+    
 
         /**
          * 日文名称
          * <p> 示例值：1
-         *
          * @param ja
          * @return
          */
         public Builder ja(String ja) {
-            this.ja = ja;
-            return this;
+             this.ja = ja;
+             return this;
         }
 
+    
+    
+    public I18nMap build(){
+        return new I18nMap(this);
+      }
+    }
 
-        public I18nMap build() {
-            return new I18nMap(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,16 +17,15 @@ package com.lark.oapi.service.admin.v1.enums;
  * 过滤操作者: 操作者类型. 与 operator_value 配合使用
  */
 public enum ListAuditInfoOperatorTypeEnum {
-    USER("user"), // 以user_id来识别用户
-    BOT("bot"), // [已废弃] 以bot_id来识别用户
-    ;
-    private String value;
-
+     USER("user"), // 以user_id来识别用户
+     BOT("bot"), // [已废弃] 以bot_id来识别用户
+  ;
+   private String value;
     ListAuditInfoOperatorTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

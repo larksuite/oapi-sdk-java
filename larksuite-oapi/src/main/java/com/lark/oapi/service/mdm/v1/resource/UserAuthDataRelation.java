@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mdm.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.mdm.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class UserAuthDataRelation {
         this.config = config;
     }
 
-
+    
     /**
      * 用户数据维度绑定，通过该接口，可为指定应用下的用户绑定一类数据维度，支持批量给多个用户同时增量授权。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v1/user_auth_data_relation/bind">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v1/user_auth_data_relation/bind</a> ;
@@ -63,7 +58,7 @@ public class UserAuthDataRelation {
                 , "/open-apis/mdm/v1/user_auth_data_relations/bind"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BindUserAuthDataRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BindUserAuthDataRelationResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class UserAuthDataRelation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mdm/v1/user_auth_data_relations/bind"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class UserAuthDataRelation {
                 , "/open-apis/mdm/v1/user_auth_data_relations/bind"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BindUserAuthDataRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BindUserAuthDataRelationResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class UserAuthDataRelation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mdm/v1/user_auth_data_relations/bind"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 用户数据维度解绑，通过该接口，可为指定应用下的指定用户解除一类数据维度。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v1/user_auth_data_relation/unbind">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v1/user_auth_data_relation/unbind</a> ;
@@ -129,7 +123,7 @@ public class UserAuthDataRelation {
                 , "/open-apis/mdm/v1/user_auth_data_relations/unbind"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UnbindUserAuthDataRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnbindUserAuthDataRelationResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class UserAuthDataRelation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mdm/v1/user_auth_data_relations/unbind"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class UserAuthDataRelation {
                 , "/open-apis/mdm/v1/user_auth_data_relations/unbind"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UnbindUserAuthDataRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnbindUserAuthDataRelationResp.class);
         if (resp == null) {
@@ -169,13 +163,13 @@ public class UserAuthDataRelation {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mdm/v1/user_auth_data_relations/unbind"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

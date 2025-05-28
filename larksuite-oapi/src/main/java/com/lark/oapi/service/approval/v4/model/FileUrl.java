@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FileUrl {
-    /**
-     * 不给出即使用从url从获得的，如果给出则使用用户给出的
-     * <p> 示例值：xxxxx.png
-     */
+     /**
+      * 不给出即使用从url从获得的，如果给出则使用用户给出的
+      * <p> 示例值：xxxxx.png
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 用户上传的url
-     * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
-     */
+     /**
+      * 用户上传的url
+      * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
+      */
     @SerializedName("url")
     private String url;
-
-    // builder 开始
-    public FileUrl() {
-    }
-
-    public FileUrl(Builder builder) {
-        /**
-         * 不给出即使用从url从获得的，如果给出则使用用户给出的
-         * <p> 示例值：xxxxx.png
-         */
-        this.name = builder.name;
-        /**
-         * 用户上传的url
-         * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
-         */
-        this.url = builder.url;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -79,46 +53,67 @@ public class FileUrl {
         this.url = url;
     }
 
+
+// builder 开始
+  public FileUrl(){}
+
+  public FileUrl(Builder builder){
+         /**
+          * 不给出即使用从url从获得的，如果给出则使用用户给出的
+          * <p> 示例值：xxxxx.png
+          */
+      this.name = builder.name;
+         /**
+          * 用户上传的url
+          * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
+          */
+      this.url = builder.url;
+  }
+
     public static class Builder {
-        /**
-         * 不给出即使用从url从获得的，如果给出则使用用户给出的
-         * <p> 示例值：xxxxx.png
-         */
+     /**
+      * 不给出即使用从url从获得的，如果给出则使用用户给出的
+      * <p> 示例值：xxxxx.png
+      */
         private String name;
-        /**
-         * 用户上传的url
-         * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
-         */
+     /**
+      * 用户上传的url
+      * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
+      */
         private String url;
 
         /**
          * 不给出即使用从url从获得的，如果给出则使用用户给出的
          * <p> 示例值：xxxxx.png
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 用户上传的url
          * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
+    
+    public FileUrl build(){
+        return new FileUrl(this);
+      }
+    }
 
-        public FileUrl build() {
-            return new FileUrl(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

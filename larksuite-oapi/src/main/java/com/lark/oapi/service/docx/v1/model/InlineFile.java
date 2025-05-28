@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InlineFile {
-    /**
-     * 附件 token
-     * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-     */
+     /**
+      * 附件 token
+      * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 当前文档中该附件所处的 block 的 id
-     * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
-     */
+     /**
+      * 当前文档中该附件所处的 block 的 id
+      * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+      */
     @SerializedName("source_block_id")
     private String sourceBlockId;
-    /**
-     * 文本局部样式
-     * <p> 示例值：
-     */
+     /**
+      * 文本局部样式
+      * <p> 示例值：
+      */
     @SerializedName("text_element_style")
     private TextElementStyle textElementStyle;
-
-    // builder 开始
-    public InlineFile() {
-    }
-
-    public InlineFile(Builder builder) {
-        /**
-         * 附件 token
-         * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 当前文档中该附件所处的 block 的 id
-         * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
-         */
-        this.sourceBlockId = builder.sourceBlockId;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        this.textElementStyle = builder.textElementStyle;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFileToken() {
         return this.fileToken;
     }
@@ -98,64 +67,90 @@ public class InlineFile {
         this.textElementStyle = textElementStyle;
     }
 
+
+// builder 开始
+  public InlineFile(){}
+
+  public InlineFile(Builder builder){
+         /**
+          * 附件 token
+          * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+          */
+      this.fileToken = builder.fileToken;
+         /**
+          * 当前文档中该附件所处的 block 的 id
+          * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+          */
+      this.sourceBlockId = builder.sourceBlockId;
+         /**
+          * 文本局部样式
+          * <p> 示例值：
+          */
+      this.textElementStyle = builder.textElementStyle;
+  }
+
     public static class Builder {
-        /**
-         * 附件 token
-         * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-         */
+     /**
+      * 附件 token
+      * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+      */
         private String fileToken;
-        /**
-         * 当前文档中该附件所处的 block 的 id
-         * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
-         */
+     /**
+      * 当前文档中该附件所处的 block 的 id
+      * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+      */
         private String sourceBlockId;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
+     /**
+      * 文本局部样式
+      * <p> 示例值：
+      */
         private TextElementStyle textElementStyle;
 
         /**
          * 附件 token
          * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-         *
          * @param fileToken
          * @return
          */
         public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
+             this.fileToken = fileToken;
+             return this;
         }
 
+    
 
         /**
          * 当前文档中该附件所处的 block 的 id
          * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
-         *
          * @param sourceBlockId
          * @return
          */
         public Builder sourceBlockId(String sourceBlockId) {
-            this.sourceBlockId = sourceBlockId;
-            return this;
+             this.sourceBlockId = sourceBlockId;
+             return this;
         }
 
+    
 
         /**
          * 文本局部样式
          * <p> 示例值：
-         *
          * @param textElementStyle
          * @return
          */
         public Builder textElementStyle(TextElementStyle textElementStyle) {
-            this.textElementStyle = textElementStyle;
-            return this;
+             this.textElementStyle = textElementStyle;
+             return this;
         }
 
+    
+    
+    public InlineFile build(){
+        return new InlineFile(this);
+      }
+    }
 
-        public InlineFile build() {
-            return new InlineFile(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

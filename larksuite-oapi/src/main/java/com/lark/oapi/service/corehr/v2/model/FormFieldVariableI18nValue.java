@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FormFieldVariableI18nValue {
-    /**
-     * 多语参数
-     * <p> 示例值：
-     */
+     /**
+      * 多语参数
+      * <p> 示例值：
+      */
     @SerializedName("value")
     private BpmDataengineI18n value;
-
-    // builder 开始
-    public FormFieldVariableI18nValue() {
-    }
-
-    public FormFieldVariableI18nValue(Builder builder) {
-        /**
-         * 多语参数
-         * <p> 示例值：
-         */
-        this.value = builder.value;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public BpmDataengineI18n getValue() {
         return this.value;
     }
@@ -60,28 +39,44 @@ public class FormFieldVariableI18nValue {
         this.value = value;
     }
 
+
+// builder 开始
+  public FormFieldVariableI18nValue(){}
+
+  public FormFieldVariableI18nValue(Builder builder){
+         /**
+          * 多语参数
+          * <p> 示例值：
+          */
+      this.value = builder.value;
+  }
+
     public static class Builder {
-        /**
-         * 多语参数
-         * <p> 示例值：
-         */
+     /**
+      * 多语参数
+      * <p> 示例值：
+      */
         private BpmDataengineI18n value;
 
         /**
          * 多语参数
          * <p> 示例值：
-         *
          * @param value
          * @return
          */
         public Builder value(BpmDataengineI18n value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
+    
+    public FormFieldVariableI18nValue build(){
+        return new FormFieldVariableI18nValue(this);
+      }
+    }
 
-        public FormFieldVariableI18nValue build() {
-            return new FormFieldVariableI18nValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

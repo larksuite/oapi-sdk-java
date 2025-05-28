@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SwapShiftDetail {
-    /**
-     * 换班日期
-     * <p> 示例值：2023-09-11
-     */
+     /**
+      * 换班日期
+      * <p> 示例值：2023-09-11
+      */
     @SerializedName("date")
     private String date;
-    /**
-     * 还班日期
-     * <p> 示例值：2023-09-12
-     */
+     /**
+      * 还班日期
+      * <p> 示例值：2023-09-12
+      */
     @SerializedName("return_date")
     private String returnDate;
-    /**
-     * 班次ID
-     * <p> 示例值：xxx
-     */
+     /**
+      * 班次ID
+      * <p> 示例值：xxx
+      */
     @SerializedName("shfit_id")
     private String shfitId;
-
-    // builder 开始
-    public SwapShiftDetail() {
-    }
-
-    public SwapShiftDetail(Builder builder) {
-        /**
-         * 换班日期
-         * <p> 示例值：2023-09-11
-         */
-        this.date = builder.date;
-        /**
-         * 还班日期
-         * <p> 示例值：2023-09-12
-         */
-        this.returnDate = builder.returnDate;
-        /**
-         * 班次ID
-         * <p> 示例值：xxx
-         */
-        this.shfitId = builder.shfitId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDate() {
         return this.date;
     }
@@ -98,64 +67,90 @@ public class SwapShiftDetail {
         this.shfitId = shfitId;
     }
 
+
+// builder 开始
+  public SwapShiftDetail(){}
+
+  public SwapShiftDetail(Builder builder){
+         /**
+          * 换班日期
+          * <p> 示例值：2023-09-11
+          */
+      this.date = builder.date;
+         /**
+          * 还班日期
+          * <p> 示例值：2023-09-12
+          */
+      this.returnDate = builder.returnDate;
+         /**
+          * 班次ID
+          * <p> 示例值：xxx
+          */
+      this.shfitId = builder.shfitId;
+  }
+
     public static class Builder {
-        /**
-         * 换班日期
-         * <p> 示例值：2023-09-11
-         */
+     /**
+      * 换班日期
+      * <p> 示例值：2023-09-11
+      */
         private String date;
-        /**
-         * 还班日期
-         * <p> 示例值：2023-09-12
-         */
+     /**
+      * 还班日期
+      * <p> 示例值：2023-09-12
+      */
         private String returnDate;
-        /**
-         * 班次ID
-         * <p> 示例值：xxx
-         */
+     /**
+      * 班次ID
+      * <p> 示例值：xxx
+      */
         private String shfitId;
 
         /**
          * 换班日期
          * <p> 示例值：2023-09-11
-         *
          * @param date
          * @return
          */
         public Builder date(String date) {
-            this.date = date;
-            return this;
+             this.date = date;
+             return this;
         }
 
+    
 
         /**
          * 还班日期
          * <p> 示例值：2023-09-12
-         *
          * @param returnDate
          * @return
          */
         public Builder returnDate(String returnDate) {
-            this.returnDate = returnDate;
-            return this;
+             this.returnDate = returnDate;
+             return this;
         }
 
+    
 
         /**
          * 班次ID
          * <p> 示例值：xxx
-         *
          * @param shfitId
          * @return
          */
         public Builder shfitId(String shfitId) {
-            this.shfitId = shfitId;
-            return this;
+             this.shfitId = shfitId;
+             return this;
         }
 
+    
+    
+    public SwapShiftDetail build(){
+        return new SwapShiftDetail(this);
+      }
+    }
 
-        public SwapShiftDetail build() {
-            return new SwapShiftDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

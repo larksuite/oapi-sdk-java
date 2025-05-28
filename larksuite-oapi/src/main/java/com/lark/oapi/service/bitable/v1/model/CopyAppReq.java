@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CopyAppReq {
-    /**
-     * 多维表格 App token
-     * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
-     */
+     /**
+      * 多维表格 App token
+      * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
+      */
     @Path
     @SerializedName("app_token")
     private String appToken;
-    @Body
-    private CopyAppReqBody body;
-
-    // builder 开始
-    public CopyAppReq() {
-    }
-
-    public CopyAppReq(Builder builder) {
-        /**
-         * 多维表格 App token
-         * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
-         */
-        this.appToken = builder.appToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAppToken() {
         return this.appToken;
     }
@@ -62,6 +38,9 @@ public class CopyAppReq {
     public void setAppToken(String appToken) {
         this.appToken = appToken;
     }
+
+    @Body
+    private CopyAppReqBody body;
 
     public CopyAppReqBody getCopyAppReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class CopyAppReq {
         this.body = body;
     }
 
+// builder 开始
+  public CopyAppReq(){}
+
+  public CopyAppReq(Builder builder){
+     /**
+      * 多维表格 App token
+      * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
+      */
+       this.appToken = builder.appToken;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String appToken; // 多维表格 App token
-        private CopyAppReqBody body;
-
         /**
          * 多维表格 App token
          * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
-         *
          * @param appToken
          * @return
          */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
 
+    
+        private CopyAppReqBody body;
+    
         public CopyAppReqBody getCopyAppReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder copyAppReqBody(CopyAppReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CopyAppReq build(){
+        return new CopyAppReq(this);
+      }
+    }
 
-        public CopyAppReq build() {
-            return new CopyAppReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

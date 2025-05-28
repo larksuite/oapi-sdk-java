@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,87 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class StatusChange {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("index")
     private Integer index;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("before_status")
     private String beforeStatus;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("current_status")
     private String currentStatus;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("before_supplement")
     private String beforeSupplement;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("current_supplement")
     private String currentSupplement;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("work_type")
     private String workType;
-
-    // builder 开始
-    public StatusChange() {
-    }
-
-    public StatusChange(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.index = builder.index;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.beforeStatus = builder.beforeStatus;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.currentStatus = builder.currentStatus;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.beforeSupplement = builder.beforeSupplement;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.currentSupplement = builder.currentSupplement;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.workType = builder.workType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getIndex() {
         return this.index;
     }
@@ -149,106 +109,159 @@ public class StatusChange {
         this.workType = workType;
     }
 
+
+// builder 开始
+  public StatusChange(){}
+
+  public StatusChange(Builder builder){
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.index = builder.index;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.beforeStatus = builder.beforeStatus;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.currentStatus = builder.currentStatus;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.beforeSupplement = builder.beforeSupplement;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.currentSupplement = builder.currentSupplement;
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.workType = builder.workType;
+  }
+
     public static class Builder {
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private Integer index;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String beforeStatus;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String currentStatus;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String beforeSupplement;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String currentSupplement;
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private String workType;
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param index
          * @return
          */
         public Builder index(Integer index) {
-            this.index = index;
-            return this;
+             this.index = index;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param beforeStatus
          * @return
          */
         public Builder beforeStatus(String beforeStatus) {
-            this.beforeStatus = beforeStatus;
-            return this;
+             this.beforeStatus = beforeStatus;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param currentStatus
          * @return
          */
         public Builder currentStatus(String currentStatus) {
-            this.currentStatus = currentStatus;
-            return this;
+             this.currentStatus = currentStatus;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param beforeSupplement
          * @return
          */
         public Builder beforeSupplement(String beforeSupplement) {
-            this.beforeSupplement = beforeSupplement;
-            return this;
+             this.beforeSupplement = beforeSupplement;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param currentSupplement
          * @return
          */
         public Builder currentSupplement(String currentSupplement) {
-            this.currentSupplement = currentSupplement;
-            return this;
+             this.currentSupplement = currentSupplement;
+             return this;
         }
 
+    
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param workType
          * @return
          */
         public Builder workType(String workType) {
-            this.workType = workType;
-            return this;
+             this.workType = workType;
+             return this;
         }
 
+    
+    
+    public StatusChange build(){
+        return new StatusChange(this);
+      }
+    }
 
-        public StatusChange build() {
-            return new StatusChange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

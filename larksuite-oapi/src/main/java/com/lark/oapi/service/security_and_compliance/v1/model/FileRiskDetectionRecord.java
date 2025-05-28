@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FileRiskDetectionRecord {
-    /**
-     * 文件送检记录主键
-     * <p> 示例值：308975127
-     */
+     /**
+      * 文件送检记录主键
+      * <p> 示例值：308975127
+      */
     @SerializedName("record_id")
     private String recordId;
-    /**
-     * 文件下载链接
-     * <p> 示例值：https://example.com
-     */
+     /**
+      * 文件下载链接
+      * <p> 示例值：https://example.com
+      */
     @SerializedName("file_url")
     private String fileUrl;
-    /**
-     * 文件下载链接失效时间戳（秒）
-     * <p> 示例值：1735660799
-     */
+     /**
+      * 文件下载链接失效时间戳（秒）
+      * <p> 示例值：1735660799
+      */
     @SerializedName("file_url_expire_time")
     private String fileUrlExpireTime;
-    /**
-     * 文件大小（字节）
-     * <p> 示例值：1024
-     */
+     /**
+      * 文件大小（字节）
+      * <p> 示例值：1024
+      */
     @SerializedName("file_size")
     private String fileSize;
-    /**
-     * 触发送检原因
-     * <p> 示例值：1
-     */
+     /**
+      * 触发送检原因
+      * <p> 示例值：1
+      */
     @SerializedName("trigger_reason")
     private Integer triggerReason;
-
-    // builder 开始
-    public FileRiskDetectionRecord() {
-    }
-
-    public FileRiskDetectionRecord(Builder builder) {
-        /**
-         * 文件送检记录主键
-         * <p> 示例值：308975127
-         */
-        this.recordId = builder.recordId;
-        /**
-         * 文件下载链接
-         * <p> 示例值：https://example.com
-         */
-        this.fileUrl = builder.fileUrl;
-        /**
-         * 文件下载链接失效时间戳（秒）
-         * <p> 示例值：1735660799
-         */
-        this.fileUrlExpireTime = builder.fileUrlExpireTime;
-        /**
-         * 文件大小（字节）
-         * <p> 示例值：1024
-         */
-        this.fileSize = builder.fileSize;
-        /**
-         * 触发送检原因
-         * <p> 示例值：1
-         */
-        this.triggerReason = builder.triggerReason;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRecordId() {
         return this.recordId;
     }
@@ -136,112 +95,146 @@ public class FileRiskDetectionRecord {
         this.triggerReason = triggerReason;
     }
 
+
+// builder 开始
+  public FileRiskDetectionRecord(){}
+
+  public FileRiskDetectionRecord(Builder builder){
+         /**
+          * 文件送检记录主键
+          * <p> 示例值：308975127
+          */
+      this.recordId = builder.recordId;
+         /**
+          * 文件下载链接
+          * <p> 示例值：https://example.com
+          */
+      this.fileUrl = builder.fileUrl;
+         /**
+          * 文件下载链接失效时间戳（秒）
+          * <p> 示例值：1735660799
+          */
+      this.fileUrlExpireTime = builder.fileUrlExpireTime;
+         /**
+          * 文件大小（字节）
+          * <p> 示例值：1024
+          */
+      this.fileSize = builder.fileSize;
+         /**
+          * 触发送检原因
+          * <p> 示例值：1
+          */
+      this.triggerReason = builder.triggerReason;
+  }
+
     public static class Builder {
-        /**
-         * 文件送检记录主键
-         * <p> 示例值：308975127
-         */
+     /**
+      * 文件送检记录主键
+      * <p> 示例值：308975127
+      */
         private String recordId;
-        /**
-         * 文件下载链接
-         * <p> 示例值：https://example.com
-         */
+     /**
+      * 文件下载链接
+      * <p> 示例值：https://example.com
+      */
         private String fileUrl;
-        /**
-         * 文件下载链接失效时间戳（秒）
-         * <p> 示例值：1735660799
-         */
+     /**
+      * 文件下载链接失效时间戳（秒）
+      * <p> 示例值：1735660799
+      */
         private String fileUrlExpireTime;
-        /**
-         * 文件大小（字节）
-         * <p> 示例值：1024
-         */
+     /**
+      * 文件大小（字节）
+      * <p> 示例值：1024
+      */
         private String fileSize;
-        /**
-         * 触发送检原因
-         * <p> 示例值：1
-         */
+     /**
+      * 触发送检原因
+      * <p> 示例值：1
+      */
         private Integer triggerReason;
 
         /**
          * 文件送检记录主键
          * <p> 示例值：308975127
-         *
          * @param recordId
          * @return
          */
         public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
+             this.recordId = recordId;
+             return this;
         }
 
+    
 
         /**
          * 文件下载链接
          * <p> 示例值：https://example.com
-         *
          * @param fileUrl
          * @return
          */
         public Builder fileUrl(String fileUrl) {
-            this.fileUrl = fileUrl;
-            return this;
+             this.fileUrl = fileUrl;
+             return this;
         }
 
+    
 
         /**
          * 文件下载链接失效时间戳（秒）
          * <p> 示例值：1735660799
-         *
          * @param fileUrlExpireTime
          * @return
          */
         public Builder fileUrlExpireTime(String fileUrlExpireTime) {
-            this.fileUrlExpireTime = fileUrlExpireTime;
-            return this;
+             this.fileUrlExpireTime = fileUrlExpireTime;
+             return this;
         }
 
+    
 
         /**
          * 文件大小（字节）
          * <p> 示例值：1024
-         *
          * @param fileSize
          * @return
          */
         public Builder fileSize(String fileSize) {
-            this.fileSize = fileSize;
-            return this;
+             this.fileSize = fileSize;
+             return this;
         }
 
+    
 
         /**
          * 触发送检原因
          * <p> 示例值：1
-         *
          * @param triggerReason
          * @return
          */
         public Builder triggerReason(Integer triggerReason) {
-            this.triggerReason = triggerReason;
-            return this;
+             this.triggerReason = triggerReason;
+             return this;
         }
-
         /**
          * 触发送检原因
          * <p> 示例值：1
-         *
          * @param triggerReason {@link com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordTriggerReasonEnum}
          * @return
          */
         public Builder triggerReason(com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordTriggerReasonEnum triggerReason) {
-            this.triggerReason = triggerReason.getValue();
-            return this;
+             this.triggerReason = triggerReason.getValue();
+             return this;
         }
 
+    
+    
+    public FileRiskDetectionRecord build(){
+        return new FileRiskDetectionRecord(this);
+      }
+    }
 
-        public FileRiskDetectionRecord build() {
-            return new FileRiskDetectionRecord(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

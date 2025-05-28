@@ -17,19 +17,18 @@ package com.lark.oapi.service.drive.v2.enums;
  * 导入文件扩展名
  */
 public enum ImportJobFileExtensionEnum {
-    LARKDOC("larkdoc"), // docx 本地文件格式
-    LARKSHEET("larksheet"), // sheet 本地文件格式
-    LARKMM("larkmm"), // mindnote 本地文件格式
-    LARK_WHITEBOARD("lark_whiteboard"), // 画板本地文件格式
-    BASE("base"), // base 本地文件格式
-    ;
-    private String value;
-
+     LARKDOC("larkdoc"), // docx 本地文件格式
+     LARKSHEET("larksheet"), // sheet 本地文件格式
+     LARKMM("larkmm"), // mindnote 本地文件格式
+     LARK_WHITEBOARD("lark_whiteboard"), // 画板本地文件格式
+     BASE("base"), // base 本地文件格式
+  ;
+   private String value;
     ImportJobFileExtensionEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

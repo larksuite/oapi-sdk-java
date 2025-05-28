@@ -12,144 +12,78 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DimensionAssessment {
-    /**
-     * 对应模版中维度ID
-     * <p> 示例值：7171693733661327361
-     */
+     /**
+      * 对应模版中维度ID
+      * <p> 示例值：7171693733661327361
+      */
     @SerializedName("interview_feedback_form_dimension_id")
     private String interviewFeedbackFormDimensionId;
-    /**
-     * 维度名称
-     * <p> 示例值：
-     */
+     /**
+      * 维度名称
+      * <p> 示例值：
+      */
     @SerializedName("dimension_name")
     private I18n dimensionName;
-    /**
-     * 维度类型
-     * <p> 示例值：1
-     */
+     /**
+      * 维度类型
+      * <p> 示例值：1
+      */
     @SerializedName("dimension_type")
     private Integer dimensionType;
-    /**
-     * 维度权重
-     * <p> 示例值：1
-     */
+     /**
+      * 维度权重
+      * <p> 示例值：1
+      */
     @SerializedName("weight")
     private Double weight;
-    /**
-     * 当维度类型为描述题时，从此取值
-     * <p> 示例值：描述题作答
-     */
+     /**
+      * 当维度类型为描述题时，从此取值
+      * <p> 示例值：描述题作答
+      */
     @SerializedName("dimension_content")
     private String dimensionContent;
-    /**
-     * 当维度类型为单选题时，从此取值
-     * <p> 示例值：
-     */
+     /**
+      * 当维度类型为单选题时，从此取值
+      * <p> 示例值：
+      */
     @SerializedName("dimension_option")
     private DimensionOption dimensionOption;
-    /**
-     * 当维度类型为多选题时，从此取值
-     * <p> 示例值：
-     */
+     /**
+      * 当维度类型为多选题时，从此取值
+      * <p> 示例值：
+      */
     @SerializedName("dimension_options")
     private DimensionOption[] dimensionOptions;
-    /**
-     * 当维度评价方式为「打分题(填空)时」，从此取值
-     * <p> 示例值：10
-     */
+     /**
+      * 当维度评价方式为「打分题(填空)时」，从此取值
+      * <p> 示例值：10
+      */
     @SerializedName("dimension_score")
     private Integer dimensionScore;
-    /**
-     * 当维度为「职级建议」时，从此取值
-     * <p> 示例值：
-     */
+     /**
+      * 当维度为「职级建议」时，从此取值
+      * <p> 示例值：
+      */
     @SerializedName("recommended_job_level")
     private RecommendedJobLevel recommendedJobLevel;
-    /**
-     * 维度关联面试题
-     * <p> 示例值：
-     */
+     /**
+      * 维度关联面试题
+      * <p> 示例值：
+      */
     @SerializedName("question_assessments")
     private QuestionAssessment[] questionAssessments;
-
-    // builder 开始
-    public DimensionAssessment() {
-    }
-
-    public DimensionAssessment(Builder builder) {
-        /**
-         * 对应模版中维度ID
-         * <p> 示例值：7171693733661327361
-         */
-        this.interviewFeedbackFormDimensionId = builder.interviewFeedbackFormDimensionId;
-        /**
-         * 维度名称
-         * <p> 示例值：
-         */
-        this.dimensionName = builder.dimensionName;
-        /**
-         * 维度类型
-         * <p> 示例值：1
-         */
-        this.dimensionType = builder.dimensionType;
-        /**
-         * 维度权重
-         * <p> 示例值：1
-         */
-        this.weight = builder.weight;
-        /**
-         * 当维度类型为描述题时，从此取值
-         * <p> 示例值：描述题作答
-         */
-        this.dimensionContent = builder.dimensionContent;
-        /**
-         * 当维度类型为单选题时，从此取值
-         * <p> 示例值：
-         */
-        this.dimensionOption = builder.dimensionOption;
-        /**
-         * 当维度类型为多选题时，从此取值
-         * <p> 示例值：
-         */
-        this.dimensionOptions = builder.dimensionOptions;
-        /**
-         * 当维度评价方式为「打分题(填空)时」，从此取值
-         * <p> 示例值：10
-         */
-        this.dimensionScore = builder.dimensionScore;
-        /**
-         * 当维度为「职级建议」时，从此取值
-         * <p> 示例值：
-         */
-        this.recommendedJobLevel = builder.recommendedJobLevel;
-        /**
-         * 维度关联面试题
-         * <p> 示例值：
-         */
-        this.questionAssessments = builder.questionAssessments;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getInterviewFeedbackFormDimensionId() {
         return this.interviewFeedbackFormDimensionId;
     }
@@ -230,190 +164,251 @@ public class DimensionAssessment {
         this.questionAssessments = questionAssessments;
     }
 
+
+// builder 开始
+  public DimensionAssessment(){}
+
+  public DimensionAssessment(Builder builder){
+         /**
+          * 对应模版中维度ID
+          * <p> 示例值：7171693733661327361
+          */
+      this.interviewFeedbackFormDimensionId = builder.interviewFeedbackFormDimensionId;
+         /**
+          * 维度名称
+          * <p> 示例值：
+          */
+      this.dimensionName = builder.dimensionName;
+         /**
+          * 维度类型
+          * <p> 示例值：1
+          */
+      this.dimensionType = builder.dimensionType;
+         /**
+          * 维度权重
+          * <p> 示例值：1
+          */
+      this.weight = builder.weight;
+         /**
+          * 当维度类型为描述题时，从此取值
+          * <p> 示例值：描述题作答
+          */
+      this.dimensionContent = builder.dimensionContent;
+         /**
+          * 当维度类型为单选题时，从此取值
+          * <p> 示例值：
+          */
+      this.dimensionOption = builder.dimensionOption;
+         /**
+          * 当维度类型为多选题时，从此取值
+          * <p> 示例值：
+          */
+      this.dimensionOptions = builder.dimensionOptions;
+         /**
+          * 当维度评价方式为「打分题(填空)时」，从此取值
+          * <p> 示例值：10
+          */
+      this.dimensionScore = builder.dimensionScore;
+         /**
+          * 当维度为「职级建议」时，从此取值
+          * <p> 示例值：
+          */
+      this.recommendedJobLevel = builder.recommendedJobLevel;
+         /**
+          * 维度关联面试题
+          * <p> 示例值：
+          */
+      this.questionAssessments = builder.questionAssessments;
+  }
+
     public static class Builder {
-        /**
-         * 对应模版中维度ID
-         * <p> 示例值：7171693733661327361
-         */
+     /**
+      * 对应模版中维度ID
+      * <p> 示例值：7171693733661327361
+      */
         private String interviewFeedbackFormDimensionId;
-        /**
-         * 维度名称
-         * <p> 示例值：
-         */
+     /**
+      * 维度名称
+      * <p> 示例值：
+      */
         private I18n dimensionName;
-        /**
-         * 维度类型
-         * <p> 示例值：1
-         */
+     /**
+      * 维度类型
+      * <p> 示例值：1
+      */
         private Integer dimensionType;
-        /**
-         * 维度权重
-         * <p> 示例值：1
-         */
+     /**
+      * 维度权重
+      * <p> 示例值：1
+      */
         private Double weight;
-        /**
-         * 当维度类型为描述题时，从此取值
-         * <p> 示例值：描述题作答
-         */
+     /**
+      * 当维度类型为描述题时，从此取值
+      * <p> 示例值：描述题作答
+      */
         private String dimensionContent;
-        /**
-         * 当维度类型为单选题时，从此取值
-         * <p> 示例值：
-         */
+     /**
+      * 当维度类型为单选题时，从此取值
+      * <p> 示例值：
+      */
         private DimensionOption dimensionOption;
-        /**
-         * 当维度类型为多选题时，从此取值
-         * <p> 示例值：
-         */
+     /**
+      * 当维度类型为多选题时，从此取值
+      * <p> 示例值：
+      */
         private DimensionOption[] dimensionOptions;
-        /**
-         * 当维度评价方式为「打分题(填空)时」，从此取值
-         * <p> 示例值：10
-         */
+     /**
+      * 当维度评价方式为「打分题(填空)时」，从此取值
+      * <p> 示例值：10
+      */
         private Integer dimensionScore;
-        /**
-         * 当维度为「职级建议」时，从此取值
-         * <p> 示例值：
-         */
+     /**
+      * 当维度为「职级建议」时，从此取值
+      * <p> 示例值：
+      */
         private RecommendedJobLevel recommendedJobLevel;
-        /**
-         * 维度关联面试题
-         * <p> 示例值：
-         */
+     /**
+      * 维度关联面试题
+      * <p> 示例值：
+      */
         private QuestionAssessment[] questionAssessments;
 
         /**
          * 对应模版中维度ID
          * <p> 示例值：7171693733661327361
-         *
          * @param interviewFeedbackFormDimensionId
          * @return
          */
         public Builder interviewFeedbackFormDimensionId(String interviewFeedbackFormDimensionId) {
-            this.interviewFeedbackFormDimensionId = interviewFeedbackFormDimensionId;
-            return this;
+             this.interviewFeedbackFormDimensionId = interviewFeedbackFormDimensionId;
+             return this;
         }
 
+    
 
         /**
          * 维度名称
          * <p> 示例值：
-         *
          * @param dimensionName
          * @return
          */
         public Builder dimensionName(I18n dimensionName) {
-            this.dimensionName = dimensionName;
-            return this;
+             this.dimensionName = dimensionName;
+             return this;
         }
 
+    
 
         /**
          * 维度类型
          * <p> 示例值：1
-         *
          * @param dimensionType
          * @return
          */
         public Builder dimensionType(Integer dimensionType) {
-            this.dimensionType = dimensionType;
-            return this;
+             this.dimensionType = dimensionType;
+             return this;
         }
 
+    
 
         /**
          * 维度权重
          * <p> 示例值：1
-         *
          * @param weight
          * @return
          */
         public Builder weight(Double weight) {
-            this.weight = weight;
-            return this;
+             this.weight = weight;
+             return this;
         }
 
+    
 
         /**
          * 当维度类型为描述题时，从此取值
          * <p> 示例值：描述题作答
-         *
          * @param dimensionContent
          * @return
          */
         public Builder dimensionContent(String dimensionContent) {
-            this.dimensionContent = dimensionContent;
-            return this;
+             this.dimensionContent = dimensionContent;
+             return this;
         }
 
+    
 
         /**
          * 当维度类型为单选题时，从此取值
          * <p> 示例值：
-         *
          * @param dimensionOption
          * @return
          */
         public Builder dimensionOption(DimensionOption dimensionOption) {
-            this.dimensionOption = dimensionOption;
-            return this;
+             this.dimensionOption = dimensionOption;
+             return this;
         }
 
+    
 
         /**
          * 当维度类型为多选题时，从此取值
          * <p> 示例值：
-         *
          * @param dimensionOptions
          * @return
          */
         public Builder dimensionOptions(DimensionOption[] dimensionOptions) {
-            this.dimensionOptions = dimensionOptions;
-            return this;
+             this.dimensionOptions = dimensionOptions;
+             return this;
         }
 
+    
 
         /**
          * 当维度评价方式为「打分题(填空)时」，从此取值
          * <p> 示例值：10
-         *
          * @param dimensionScore
          * @return
          */
         public Builder dimensionScore(Integer dimensionScore) {
-            this.dimensionScore = dimensionScore;
-            return this;
+             this.dimensionScore = dimensionScore;
+             return this;
         }
 
+    
 
         /**
          * 当维度为「职级建议」时，从此取值
          * <p> 示例值：
-         *
          * @param recommendedJobLevel
          * @return
          */
         public Builder recommendedJobLevel(RecommendedJobLevel recommendedJobLevel) {
-            this.recommendedJobLevel = recommendedJobLevel;
-            return this;
+             this.recommendedJobLevel = recommendedJobLevel;
+             return this;
         }
 
+    
 
         /**
          * 维度关联面试题
          * <p> 示例值：
-         *
          * @param questionAssessments
          * @return
          */
         public Builder questionAssessments(QuestionAssessment[] questionAssessments) {
-            this.questionAssessments = questionAssessments;
-            return this;
+             this.questionAssessments = questionAssessments;
+             return this;
         }
 
+    
+    
+    public DimensionAssessment build(){
+        return new DimensionAssessment(this);
+      }
+    }
 
-        public DimensionAssessment build() {
-            return new DimensionAssessment(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

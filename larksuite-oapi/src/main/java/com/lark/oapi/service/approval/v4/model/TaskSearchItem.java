@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TaskSearchItem {
-    /**
-     * 审批定义
-     * <p> 示例值：
-     */
+     /**
+      * 审批定义
+      * <p> 示例值：
+      */
     @SerializedName("approval")
     private InstanceSearchApproval approval;
-    /**
-     * 审批定义分组
-     * <p> 示例值：
-     */
+     /**
+      * 审批定义分组
+      * <p> 示例值：
+      */
     @SerializedName("group")
     private InstanceSearchGroup group;
-    /**
-     * 审批实例信息
-     * <p> 示例值：
-     */
+     /**
+      * 审批实例信息
+      * <p> 示例值：
+      */
     @SerializedName("instance")
     private InstanceSearchNode instance;
-    /**
-     * 审批任务
-     * <p> 示例值：
-     */
+     /**
+      * 审批任务
+      * <p> 示例值：
+      */
     @SerializedName("task")
     private TaskSearchNode task;
-
-    // builder 开始
-    public TaskSearchItem() {
-    }
-
-    public TaskSearchItem(Builder builder) {
-        /**
-         * 审批定义
-         * <p> 示例值：
-         */
-        this.approval = builder.approval;
-        /**
-         * 审批定义分组
-         * <p> 示例值：
-         */
-        this.group = builder.group;
-        /**
-         * 审批实例信息
-         * <p> 示例值：
-         */
-        this.instance = builder.instance;
-        /**
-         * 审批任务
-         * <p> 示例值：
-         */
-        this.task = builder.task;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public InstanceSearchApproval getApproval() {
         return this.approval;
     }
@@ -117,82 +81,113 @@ public class TaskSearchItem {
         this.task = task;
     }
 
+
+// builder 开始
+  public TaskSearchItem(){}
+
+  public TaskSearchItem(Builder builder){
+         /**
+          * 审批定义
+          * <p> 示例值：
+          */
+      this.approval = builder.approval;
+         /**
+          * 审批定义分组
+          * <p> 示例值：
+          */
+      this.group = builder.group;
+         /**
+          * 审批实例信息
+          * <p> 示例值：
+          */
+      this.instance = builder.instance;
+         /**
+          * 审批任务
+          * <p> 示例值：
+          */
+      this.task = builder.task;
+  }
+
     public static class Builder {
-        /**
-         * 审批定义
-         * <p> 示例值：
-         */
+     /**
+      * 审批定义
+      * <p> 示例值：
+      */
         private InstanceSearchApproval approval;
-        /**
-         * 审批定义分组
-         * <p> 示例值：
-         */
+     /**
+      * 审批定义分组
+      * <p> 示例值：
+      */
         private InstanceSearchGroup group;
-        /**
-         * 审批实例信息
-         * <p> 示例值：
-         */
+     /**
+      * 审批实例信息
+      * <p> 示例值：
+      */
         private InstanceSearchNode instance;
-        /**
-         * 审批任务
-         * <p> 示例值：
-         */
+     /**
+      * 审批任务
+      * <p> 示例值：
+      */
         private TaskSearchNode task;
 
         /**
          * 审批定义
          * <p> 示例值：
-         *
          * @param approval
          * @return
          */
         public Builder approval(InstanceSearchApproval approval) {
-            this.approval = approval;
-            return this;
+             this.approval = approval;
+             return this;
         }
 
+    
 
         /**
          * 审批定义分组
          * <p> 示例值：
-         *
          * @param group
          * @return
          */
         public Builder group(InstanceSearchGroup group) {
-            this.group = group;
-            return this;
+             this.group = group;
+             return this;
         }
 
+    
 
         /**
          * 审批实例信息
          * <p> 示例值：
-         *
          * @param instance
          * @return
          */
         public Builder instance(InstanceSearchNode instance) {
-            this.instance = instance;
-            return this;
+             this.instance = instance;
+             return this;
         }
 
+    
 
         /**
          * 审批任务
          * <p> 示例值：
-         *
          * @param task
          * @return
          */
         public Builder task(TaskSearchNode task) {
-            this.task = task;
-            return this;
+             this.task = task;
+             return this;
         }
 
+    
+    
+    public TaskSearchItem build(){
+        return new TaskSearchItem(this);
+      }
+    }
 
-        public TaskSearchItem build() {
-            return new TaskSearchItem(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreatePublicMailboxAliasReq {
-    /**
-     * 公共邮箱id或公共邮箱地址
-     * <p> 示例值：xxxxxx 或 xxx@xx.xxx
-     */
+     /**
+      * 公共邮箱id或公共邮箱地址
+      * <p> 示例值：xxxxxx 或 xxx@xx.xxx
+      */
     @Path
     @SerializedName("public_mailbox_id")
     private String publicMailboxId;
-    @Body
-    private EmailAlias body;
-
-    // builder 开始
-    public CreatePublicMailboxAliasReq() {
-    }
-
-    public CreatePublicMailboxAliasReq(Builder builder) {
-        /**
-         * 公共邮箱id或公共邮箱地址
-         * <p> 示例值：xxxxxx 或 xxx@xx.xxx
-         */
-        this.publicMailboxId = builder.publicMailboxId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPublicMailboxId() {
         return this.publicMailboxId;
     }
@@ -62,6 +38,9 @@ public class CreatePublicMailboxAliasReq {
     public void setPublicMailboxId(String publicMailboxId) {
         this.publicMailboxId = publicMailboxId;
     }
+
+    @Body
+    private EmailAlias body;
 
     public EmailAlias getEmailAlias() {
         return this.body;
@@ -71,40 +50,54 @@ public class CreatePublicMailboxAliasReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreatePublicMailboxAliasReq(){}
+
+  public CreatePublicMailboxAliasReq(Builder builder){
+     /**
+      * 公共邮箱id或公共邮箱地址
+      * <p> 示例值：xxxxxx 或 xxx@xx.xxx
+      */
+       this.publicMailboxId = builder.publicMailboxId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String publicMailboxId; // 公共邮箱id或公共邮箱地址
-        private EmailAlias body;
-
         /**
          * 公共邮箱id或公共邮箱地址
          * <p> 示例值：xxxxxx 或 xxx@xx.xxx
-         *
          * @param publicMailboxId
          * @return
          */
-        public Builder publicMailboxId(String publicMailboxId) {
-            this.publicMailboxId = publicMailboxId;
-            return this;
-        }
+          public Builder publicMailboxId(String publicMailboxId) {
+               this.publicMailboxId = publicMailboxId;
+               return this;
+          }
 
+    
+        private EmailAlias body;
+    
         public EmailAlias getEmailAlias() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder emailAlias(EmailAlias body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreatePublicMailboxAliasReq build(){
+        return new CreatePublicMailboxAliasReq(this);
+      }
+    }
 
-        public CreatePublicMailboxAliasReq build() {
-            return new CreatePublicMailboxAliasReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

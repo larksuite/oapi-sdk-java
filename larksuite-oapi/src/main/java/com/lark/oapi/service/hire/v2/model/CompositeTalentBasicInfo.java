@@ -12,265 +12,144 @@
  */
 
 package com.lark.oapi.service.hire.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CompositeTalentBasicInfo {
-    /**
-     * 名字
-     * <p> 示例值：测试
-     */
+     /**
+      * 名字
+      * <p> 示例值：测试
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 手机
-     * <p> 示例值：18312341234
-     */
+     /**
+      * 手机
+      * <p> 示例值：18312341234
+      */
     @SerializedName("mobile_number")
     private String mobileNumber;
-    /**
-     * 手机国家区号
-     * <p> 示例值：86
-     */
+     /**
+      * 手机国家区号
+      * <p> 示例值：86
+      */
     @SerializedName("mobile_code")
     private String mobileCode;
-    /**
-     * 邮箱
-     * <p> 示例值：16xx1@126.com
-     */
+     /**
+      * 邮箱
+      * <p> 示例值：16xx1@126.com
+      */
     @SerializedName("email")
     private String email;
-    /**
-     * 工作年限
-     * <p> 示例值：5
-     */
+     /**
+      * 工作年限
+      * <p> 示例值：5
+      */
     @SerializedName("experience_years")
     private Long experienceYears;
-    /**
-     * 年龄
-     * <p> 示例值：22
-     */
+     /**
+      * 年龄
+      * <p> 示例值：22
+      */
     @SerializedName("age")
     private Long age;
-    /**
-     * 国籍
-     * <p> 示例值：CN_1
-     */
+     /**
+      * 国籍
+      * <p> 示例值：CN_1
+      */
     @SerializedName("nationality_code")
     private String nationalityCode;
-    /**
-     * 性别
-     * <p> 示例值：1
-     */
+     /**
+      * 性别
+      * <p> 示例值：1
+      */
     @SerializedName("gender")
     private Integer gender;
-    /**
-     * 所在地点
-     * <p> 示例值：CN_2
-     */
+     /**
+      * 所在地点
+      * <p> 示例值：CN_2
+      */
     @SerializedName("current_location_code")
     private String currentLocationCode;
-    /**
-     * 家乡
-     * <p> 示例值：CN_3
-     */
+     /**
+      * 家乡
+      * <p> 示例值：CN_3
+      */
     @SerializedName("hometown_location_code")
     private String hometownLocationCode;
-    /**
-     * 意向地点
-     * <p> 示例值：
-     */
+     /**
+      * 意向地点
+      * <p> 示例值：
+      */
     @SerializedName("preferred_location_code_list")
     private String[] preferredLocationCodeList;
-    /**
-     * 家庭住址
-     * <p> 示例值：北京市朝阳区
-     */
+     /**
+      * 家庭住址
+      * <p> 示例值：北京市朝阳区
+      */
     @SerializedName("home_address")
     private String homeAddress;
-    /**
-     * 证件类型
-     * <p> 示例值：1
-     */
+     /**
+      * 证件类型
+      * <p> 示例值：1
+      */
     @SerializedName("identification_type")
     private Integer identificationType;
-    /**
-     * 证件号
-     * <p> 示例值：511699199x1x111234
-     */
+     /**
+      * 证件号
+      * <p> 示例值：511699199x1x111234
+      */
     @SerializedName("identification_number")
     private String identificationNumber;
-    /**
-     * 生日
-     * <p> 示例值：293016767159
-     */
+     /**
+      * 生日
+      * <p> 示例值：293016767159
+      */
     @SerializedName("birthday")
     private Long birthday;
-    /**
-     * 婚姻状况
-     * <p> 示例值：1
-     */
+     /**
+      * 婚姻状况
+      * <p> 示例值：1
+      */
     @SerializedName("marital_status")
     private Integer maritalStatus;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("customized_data_list")
     private TalentCustomizedDataChild[] customizedDataList;
-    /**
-     * 户口所在地
-     * <p> 示例值：CN_1
-     */
+     /**
+      * 户口所在地
+      * <p> 示例值：CN_1
+      */
     @SerializedName("hukou_location_code")
     private String hukouLocationCode;
-    /**
-     * 人才更新时间
-     * <p> 示例值：1634801678103
-     */
+     /**
+      * 人才更新时间
+      * <p> 示例值：1634801678103
+      */
     @SerializedName("update_time")
     private String updateTime;
-    /**
-     * 人才创建时间
-     * <p> 示例值：1634801678103
-     */
+     /**
+      * 人才创建时间
+      * <p> 示例值：1634801678103
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 人才隐藏状态
-     * <p> 示例值：1
-     */
+     /**
+      * 人才隐藏状态
+      * <p> 示例值：1
+      */
     @SerializedName("confidential")
     private Integer confidential;
-
-    // builder 开始
-    public CompositeTalentBasicInfo() {
-    }
-
-    public CompositeTalentBasicInfo(Builder builder) {
-        /**
-         * 名字
-         * <p> 示例值：测试
-         */
-        this.name = builder.name;
-        /**
-         * 手机
-         * <p> 示例值：18312341234
-         */
-        this.mobileNumber = builder.mobileNumber;
-        /**
-         * 手机国家区号
-         * <p> 示例值：86
-         */
-        this.mobileCode = builder.mobileCode;
-        /**
-         * 邮箱
-         * <p> 示例值：16xx1@126.com
-         */
-        this.email = builder.email;
-        /**
-         * 工作年限
-         * <p> 示例值：5
-         */
-        this.experienceYears = builder.experienceYears;
-        /**
-         * 年龄
-         * <p> 示例值：22
-         */
-        this.age = builder.age;
-        /**
-         * 国籍
-         * <p> 示例值：CN_1
-         */
-        this.nationalityCode = builder.nationalityCode;
-        /**
-         * 性别
-         * <p> 示例值：1
-         */
-        this.gender = builder.gender;
-        /**
-         * 所在地点
-         * <p> 示例值：CN_2
-         */
-        this.currentLocationCode = builder.currentLocationCode;
-        /**
-         * 家乡
-         * <p> 示例值：CN_3
-         */
-        this.hometownLocationCode = builder.hometownLocationCode;
-        /**
-         * 意向地点
-         * <p> 示例值：
-         */
-        this.preferredLocationCodeList = builder.preferredLocationCodeList;
-        /**
-         * 家庭住址
-         * <p> 示例值：北京市朝阳区
-         */
-        this.homeAddress = builder.homeAddress;
-        /**
-         * 证件类型
-         * <p> 示例值：1
-         */
-        this.identificationType = builder.identificationType;
-        /**
-         * 证件号
-         * <p> 示例值：511699199x1x111234
-         */
-        this.identificationNumber = builder.identificationNumber;
-        /**
-         * 生日
-         * <p> 示例值：293016767159
-         */
-        this.birthday = builder.birthday;
-        /**
-         * 婚姻状况
-         * <p> 示例值：1
-         */
-        this.maritalStatus = builder.maritalStatus;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedDataList = builder.customizedDataList;
-        /**
-         * 户口所在地
-         * <p> 示例值：CN_1
-         */
-        this.hukouLocationCode = builder.hukouLocationCode;
-        /**
-         * 人才更新时间
-         * <p> 示例值：1634801678103
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 人才创建时间
-         * <p> 示例值：1634801678103
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 人才隐藏状态
-         * <p> 示例值：1
-         */
-        this.confidential = builder.confidential;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getName() {
         return this.name;
     }
@@ -439,388 +318,504 @@ public class CompositeTalentBasicInfo {
         this.confidential = confidential;
     }
 
+
+// builder 开始
+  public CompositeTalentBasicInfo(){}
+
+  public CompositeTalentBasicInfo(Builder builder){
+         /**
+          * 名字
+          * <p> 示例值：测试
+          */
+      this.name = builder.name;
+         /**
+          * 手机
+          * <p> 示例值：18312341234
+          */
+      this.mobileNumber = builder.mobileNumber;
+         /**
+          * 手机国家区号
+          * <p> 示例值：86
+          */
+      this.mobileCode = builder.mobileCode;
+         /**
+          * 邮箱
+          * <p> 示例值：16xx1@126.com
+          */
+      this.email = builder.email;
+         /**
+          * 工作年限
+          * <p> 示例值：5
+          */
+      this.experienceYears = builder.experienceYears;
+         /**
+          * 年龄
+          * <p> 示例值：22
+          */
+      this.age = builder.age;
+         /**
+          * 国籍
+          * <p> 示例值：CN_1
+          */
+      this.nationalityCode = builder.nationalityCode;
+         /**
+          * 性别
+          * <p> 示例值：1
+          */
+      this.gender = builder.gender;
+         /**
+          * 所在地点
+          * <p> 示例值：CN_2
+          */
+      this.currentLocationCode = builder.currentLocationCode;
+         /**
+          * 家乡
+          * <p> 示例值：CN_3
+          */
+      this.hometownLocationCode = builder.hometownLocationCode;
+         /**
+          * 意向地点
+          * <p> 示例值：
+          */
+      this.preferredLocationCodeList = builder.preferredLocationCodeList;
+         /**
+          * 家庭住址
+          * <p> 示例值：北京市朝阳区
+          */
+      this.homeAddress = builder.homeAddress;
+         /**
+          * 证件类型
+          * <p> 示例值：1
+          */
+      this.identificationType = builder.identificationType;
+         /**
+          * 证件号
+          * <p> 示例值：511699199x1x111234
+          */
+      this.identificationNumber = builder.identificationNumber;
+         /**
+          * 生日
+          * <p> 示例值：293016767159
+          */
+      this.birthday = builder.birthday;
+         /**
+          * 婚姻状况
+          * <p> 示例值：1
+          */
+      this.maritalStatus = builder.maritalStatus;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customizedDataList = builder.customizedDataList;
+         /**
+          * 户口所在地
+          * <p> 示例值：CN_1
+          */
+      this.hukouLocationCode = builder.hukouLocationCode;
+         /**
+          * 人才更新时间
+          * <p> 示例值：1634801678103
+          */
+      this.updateTime = builder.updateTime;
+         /**
+          * 人才创建时间
+          * <p> 示例值：1634801678103
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 人才隐藏状态
+          * <p> 示例值：1
+          */
+      this.confidential = builder.confidential;
+  }
+
     public static class Builder {
-        /**
-         * 名字
-         * <p> 示例值：测试
-         */
+     /**
+      * 名字
+      * <p> 示例值：测试
+      */
         private String name;
-        /**
-         * 手机
-         * <p> 示例值：18312341234
-         */
+     /**
+      * 手机
+      * <p> 示例值：18312341234
+      */
         private String mobileNumber;
-        /**
-         * 手机国家区号
-         * <p> 示例值：86
-         */
+     /**
+      * 手机国家区号
+      * <p> 示例值：86
+      */
         private String mobileCode;
-        /**
-         * 邮箱
-         * <p> 示例值：16xx1@126.com
-         */
+     /**
+      * 邮箱
+      * <p> 示例值：16xx1@126.com
+      */
         private String email;
-        /**
-         * 工作年限
-         * <p> 示例值：5
-         */
+     /**
+      * 工作年限
+      * <p> 示例值：5
+      */
         private Long experienceYears;
-        /**
-         * 年龄
-         * <p> 示例值：22
-         */
+     /**
+      * 年龄
+      * <p> 示例值：22
+      */
         private Long age;
-        /**
-         * 国籍
-         * <p> 示例值：CN_1
-         */
+     /**
+      * 国籍
+      * <p> 示例值：CN_1
+      */
         private String nationalityCode;
-        /**
-         * 性别
-         * <p> 示例值：1
-         */
+     /**
+      * 性别
+      * <p> 示例值：1
+      */
         private Integer gender;
-        /**
-         * 所在地点
-         * <p> 示例值：CN_2
-         */
+     /**
+      * 所在地点
+      * <p> 示例值：CN_2
+      */
         private String currentLocationCode;
-        /**
-         * 家乡
-         * <p> 示例值：CN_3
-         */
+     /**
+      * 家乡
+      * <p> 示例值：CN_3
+      */
         private String hometownLocationCode;
-        /**
-         * 意向地点
-         * <p> 示例值：
-         */
+     /**
+      * 意向地点
+      * <p> 示例值：
+      */
         private String[] preferredLocationCodeList;
-        /**
-         * 家庭住址
-         * <p> 示例值：北京市朝阳区
-         */
+     /**
+      * 家庭住址
+      * <p> 示例值：北京市朝阳区
+      */
         private String homeAddress;
-        /**
-         * 证件类型
-         * <p> 示例值：1
-         */
+     /**
+      * 证件类型
+      * <p> 示例值：1
+      */
         private Integer identificationType;
-        /**
-         * 证件号
-         * <p> 示例值：511699199x1x111234
-         */
+     /**
+      * 证件号
+      * <p> 示例值：511699199x1x111234
+      */
         private String identificationNumber;
-        /**
-         * 生日
-         * <p> 示例值：293016767159
-         */
+     /**
+      * 生日
+      * <p> 示例值：293016767159
+      */
         private Long birthday;
-        /**
-         * 婚姻状况
-         * <p> 示例值：1
-         */
+     /**
+      * 婚姻状况
+      * <p> 示例值：1
+      */
         private Integer maritalStatus;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private TalentCustomizedDataChild[] customizedDataList;
-        /**
-         * 户口所在地
-         * <p> 示例值：CN_1
-         */
+     /**
+      * 户口所在地
+      * <p> 示例值：CN_1
+      */
         private String hukouLocationCode;
-        /**
-         * 人才更新时间
-         * <p> 示例值：1634801678103
-         */
+     /**
+      * 人才更新时间
+      * <p> 示例值：1634801678103
+      */
         private String updateTime;
-        /**
-         * 人才创建时间
-         * <p> 示例值：1634801678103
-         */
+     /**
+      * 人才创建时间
+      * <p> 示例值：1634801678103
+      */
         private String createTime;
-        /**
-         * 人才隐藏状态
-         * <p> 示例值：1
-         */
+     /**
+      * 人才隐藏状态
+      * <p> 示例值：1
+      */
         private Integer confidential;
 
         /**
          * 名字
          * <p> 示例值：测试
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 手机
          * <p> 示例值：18312341234
-         *
          * @param mobileNumber
          * @return
          */
         public Builder mobileNumber(String mobileNumber) {
-            this.mobileNumber = mobileNumber;
-            return this;
+             this.mobileNumber = mobileNumber;
+             return this;
         }
 
+    
 
         /**
          * 手机国家区号
          * <p> 示例值：86
-         *
          * @param mobileCode
          * @return
          */
         public Builder mobileCode(String mobileCode) {
-            this.mobileCode = mobileCode;
-            return this;
+             this.mobileCode = mobileCode;
+             return this;
         }
 
+    
 
         /**
          * 邮箱
          * <p> 示例值：16xx1@126.com
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
 
         /**
          * 工作年限
          * <p> 示例值：5
-         *
          * @param experienceYears
          * @return
          */
         public Builder experienceYears(Long experienceYears) {
-            this.experienceYears = experienceYears;
-            return this;
+             this.experienceYears = experienceYears;
+             return this;
         }
 
+    
 
         /**
          * 年龄
          * <p> 示例值：22
-         *
          * @param age
          * @return
          */
         public Builder age(Long age) {
-            this.age = age;
-            return this;
+             this.age = age;
+             return this;
         }
 
+    
 
         /**
          * 国籍
          * <p> 示例值：CN_1
-         *
          * @param nationalityCode
          * @return
          */
         public Builder nationalityCode(String nationalityCode) {
-            this.nationalityCode = nationalityCode;
-            return this;
+             this.nationalityCode = nationalityCode;
+             return this;
         }
 
+    
 
         /**
          * 性别
          * <p> 示例值：1
-         *
          * @param gender
          * @return
          */
         public Builder gender(Integer gender) {
-            this.gender = gender;
-            return this;
+             this.gender = gender;
+             return this;
         }
 
+    
 
         /**
          * 所在地点
          * <p> 示例值：CN_2
-         *
          * @param currentLocationCode
          * @return
          */
         public Builder currentLocationCode(String currentLocationCode) {
-            this.currentLocationCode = currentLocationCode;
-            return this;
+             this.currentLocationCode = currentLocationCode;
+             return this;
         }
 
+    
 
         /**
          * 家乡
          * <p> 示例值：CN_3
-         *
          * @param hometownLocationCode
          * @return
          */
         public Builder hometownLocationCode(String hometownLocationCode) {
-            this.hometownLocationCode = hometownLocationCode;
-            return this;
+             this.hometownLocationCode = hometownLocationCode;
+             return this;
         }
 
+    
 
         /**
          * 意向地点
          * <p> 示例值：
-         *
          * @param preferredLocationCodeList
          * @return
          */
         public Builder preferredLocationCodeList(String[] preferredLocationCodeList) {
-            this.preferredLocationCodeList = preferredLocationCodeList;
-            return this;
+             this.preferredLocationCodeList = preferredLocationCodeList;
+             return this;
         }
 
+    
 
         /**
          * 家庭住址
          * <p> 示例值：北京市朝阳区
-         *
          * @param homeAddress
          * @return
          */
         public Builder homeAddress(String homeAddress) {
-            this.homeAddress = homeAddress;
-            return this;
+             this.homeAddress = homeAddress;
+             return this;
         }
 
+    
 
         /**
          * 证件类型
          * <p> 示例值：1
-         *
          * @param identificationType
          * @return
          */
         public Builder identificationType(Integer identificationType) {
-            this.identificationType = identificationType;
-            return this;
+             this.identificationType = identificationType;
+             return this;
         }
 
+    
 
         /**
          * 证件号
          * <p> 示例值：511699199x1x111234
-         *
          * @param identificationNumber
          * @return
          */
         public Builder identificationNumber(String identificationNumber) {
-            this.identificationNumber = identificationNumber;
-            return this;
+             this.identificationNumber = identificationNumber;
+             return this;
         }
 
+    
 
         /**
          * 生日
          * <p> 示例值：293016767159
-         *
          * @param birthday
          * @return
          */
         public Builder birthday(Long birthday) {
-            this.birthday = birthday;
-            return this;
+             this.birthday = birthday;
+             return this;
         }
 
+    
 
         /**
          * 婚姻状况
          * <p> 示例值：1
-         *
          * @param maritalStatus
          * @return
          */
         public Builder maritalStatus(Integer maritalStatus) {
-            this.maritalStatus = maritalStatus;
-            return this;
+             this.maritalStatus = maritalStatus;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customizedDataList
          * @return
          */
         public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-            this.customizedDataList = customizedDataList;
-            return this;
+             this.customizedDataList = customizedDataList;
+             return this;
         }
 
+    
 
         /**
          * 户口所在地
          * <p> 示例值：CN_1
-         *
          * @param hukouLocationCode
          * @return
          */
         public Builder hukouLocationCode(String hukouLocationCode) {
-            this.hukouLocationCode = hukouLocationCode;
-            return this;
+             this.hukouLocationCode = hukouLocationCode;
+             return this;
         }
 
+    
 
         /**
          * 人才更新时间
          * <p> 示例值：1634801678103
-         *
          * @param updateTime
          * @return
          */
         public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
+             this.updateTime = updateTime;
+             return this;
         }
 
+    
 
         /**
          * 人才创建时间
          * <p> 示例值：1634801678103
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 人才隐藏状态
          * <p> 示例值：1
-         *
          * @param confidential
          * @return
          */
         public Builder confidential(Integer confidential) {
-            this.confidential = confidential;
-            return this;
+             this.confidential = confidential;
+             return this;
         }
 
+    
+    
+    public CompositeTalentBasicInfo build(){
+        return new CompositeTalentBasicInfo(this);
+      }
+    }
 
-        public CompositeTalentBasicInfo build() {
-            return new CompositeTalentBasicInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

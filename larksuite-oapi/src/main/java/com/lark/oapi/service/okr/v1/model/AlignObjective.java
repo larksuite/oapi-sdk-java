@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AlignObjective {
-    /**
-     * Objective ID
-     * <p> 示例值：
-     */
+     /**
+      * Objective ID
+      * <p> 示例值：
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * OKR ID
-     * <p> 示例值：
-     */
+     /**
+      * OKR ID
+      * <p> 示例值：
+      */
     @SerializedName("okr_id")
     private String okrId;
-    /**
-     * 用户 UUID
-     * <p> 示例值：
-     */
+     /**
+      * 用户 UUID
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-
-    // builder 开始
-    public AlignObjective() {
-    }
-
-    public AlignObjective(Builder builder) {
-        /**
-         * Objective ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * OKR ID
-         * <p> 示例值：
-         */
-        this.okrId = builder.okrId;
-        /**
-         * 用户 UUID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -98,64 +67,90 @@ public class AlignObjective {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public AlignObjective(){}
+
+  public AlignObjective(Builder builder){
+         /**
+          * Objective ID
+          * <p> 示例值：
+          */
+      this.id = builder.id;
+         /**
+          * OKR ID
+          * <p> 示例值：
+          */
+      this.okrId = builder.okrId;
+         /**
+          * 用户 UUID
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * Objective ID
-         * <p> 示例值：
-         */
+     /**
+      * Objective ID
+      * <p> 示例值：
+      */
         private String id;
-        /**
-         * OKR ID
-         * <p> 示例值：
-         */
+     /**
+      * OKR ID
+      * <p> 示例值：
+      */
         private String okrId;
-        /**
-         * 用户 UUID
-         * <p> 示例值：
-         */
+     /**
+      * 用户 UUID
+      * <p> 示例值：
+      */
         private String userId;
 
         /**
          * Objective ID
          * <p> 示例值：
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * OKR ID
          * <p> 示例值：
-         *
          * @param okrId
          * @return
          */
         public Builder okrId(String okrId) {
-            this.okrId = okrId;
-            return this;
+             this.okrId = okrId;
+             return this;
         }
 
+    
 
         /**
          * 用户 UUID
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public AlignObjective build(){
+        return new AlignObjective(this);
+      }
+    }
 
-        public AlignObjective build() {
-            return new AlignObjective(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

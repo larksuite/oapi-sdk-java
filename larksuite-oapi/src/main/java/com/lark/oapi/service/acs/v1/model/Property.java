@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Property {
-    /**
-     * 设备版本号
-     * <p> 示例值：2.3.10
-     */
+     /**
+      * 设备版本号
+      * <p> 示例值：2.3.10
+      */
     @SerializedName("version")
     private String version;
-    /**
-     * 当前设备人脸数量
-     * <p> 示例值：300
-     */
+     /**
+      * 当前设备人脸数量
+      * <p> 示例值：300
+      */
     @SerializedName("current_device_face_count")
     private Integer currentDeviceFaceCount;
-    /**
-     * 设备最大人脸容量
-     * <p> 示例值：5000
-     */
+     /**
+      * 设备最大人脸容量
+      * <p> 示例值：5000
+      */
     @SerializedName("max_face_capacity")
     private Integer maxFaceCapacity;
-    /**
-     * 在线状态
-     * <p> 示例值：1
-     */
+     /**
+      * 在线状态
+      * <p> 示例值：1
+      */
     @SerializedName("online_status")
     private Integer onlineStatus;
-    /**
-     * 设备名称
-     * <p> 示例值：南门
-     */
+     /**
+      * 设备名称
+      * <p> 示例值：南门
+      */
     @SerializedName("device_name")
     private String deviceName;
-    /**
-     * 是否是打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否是打卡
+      * <p> 示例值：true
+      */
     @SerializedName("is_clock_in")
     private Boolean isClockIn;
-
-    // builder 开始
-    public Property() {
-    }
-
-    public Property(Builder builder) {
-        /**
-         * 设备版本号
-         * <p> 示例值：2.3.10
-         */
-        this.version = builder.version;
-        /**
-         * 当前设备人脸数量
-         * <p> 示例值：300
-         */
-        this.currentDeviceFaceCount = builder.currentDeviceFaceCount;
-        /**
-         * 设备最大人脸容量
-         * <p> 示例值：5000
-         */
-        this.maxFaceCapacity = builder.maxFaceCapacity;
-        /**
-         * 在线状态
-         * <p> 示例值：1
-         */
-        this.onlineStatus = builder.onlineStatus;
-        /**
-         * 设备名称
-         * <p> 示例值：南门
-         */
-        this.deviceName = builder.deviceName;
-        /**
-         * 是否是打卡
-         * <p> 示例值：true
-         */
-        this.isClockIn = builder.isClockIn;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getVersion() {
         return this.version;
     }
@@ -155,130 +109,169 @@ public class Property {
         this.isClockIn = isClockIn;
     }
 
+
+// builder 开始
+  public Property(){}
+
+  public Property(Builder builder){
+         /**
+          * 设备版本号
+          * <p> 示例值：2.3.10
+          */
+      this.version = builder.version;
+         /**
+          * 当前设备人脸数量
+          * <p> 示例值：300
+          */
+      this.currentDeviceFaceCount = builder.currentDeviceFaceCount;
+         /**
+          * 设备最大人脸容量
+          * <p> 示例值：5000
+          */
+      this.maxFaceCapacity = builder.maxFaceCapacity;
+         /**
+          * 在线状态
+          * <p> 示例值：1
+          */
+      this.onlineStatus = builder.onlineStatus;
+         /**
+          * 设备名称
+          * <p> 示例值：南门
+          */
+      this.deviceName = builder.deviceName;
+         /**
+          * 是否是打卡
+          * <p> 示例值：true
+          */
+      this.isClockIn = builder.isClockIn;
+  }
+
     public static class Builder {
-        /**
-         * 设备版本号
-         * <p> 示例值：2.3.10
-         */
+     /**
+      * 设备版本号
+      * <p> 示例值：2.3.10
+      */
         private String version;
-        /**
-         * 当前设备人脸数量
-         * <p> 示例值：300
-         */
+     /**
+      * 当前设备人脸数量
+      * <p> 示例值：300
+      */
         private Integer currentDeviceFaceCount;
-        /**
-         * 设备最大人脸容量
-         * <p> 示例值：5000
-         */
+     /**
+      * 设备最大人脸容量
+      * <p> 示例值：5000
+      */
         private Integer maxFaceCapacity;
-        /**
-         * 在线状态
-         * <p> 示例值：1
-         */
+     /**
+      * 在线状态
+      * <p> 示例值：1
+      */
         private Integer onlineStatus;
-        /**
-         * 设备名称
-         * <p> 示例值：南门
-         */
+     /**
+      * 设备名称
+      * <p> 示例值：南门
+      */
         private String deviceName;
-        /**
-         * 是否是打卡
-         * <p> 示例值：true
-         */
+     /**
+      * 是否是打卡
+      * <p> 示例值：true
+      */
         private Boolean isClockIn;
 
         /**
          * 设备版本号
          * <p> 示例值：2.3.10
-         *
          * @param version
          * @return
          */
         public Builder version(String version) {
-            this.version = version;
-            return this;
+             this.version = version;
+             return this;
         }
 
+    
 
         /**
          * 当前设备人脸数量
          * <p> 示例值：300
-         *
          * @param currentDeviceFaceCount
          * @return
          */
         public Builder currentDeviceFaceCount(Integer currentDeviceFaceCount) {
-            this.currentDeviceFaceCount = currentDeviceFaceCount;
-            return this;
+             this.currentDeviceFaceCount = currentDeviceFaceCount;
+             return this;
         }
 
+    
 
         /**
          * 设备最大人脸容量
          * <p> 示例值：5000
-         *
          * @param maxFaceCapacity
          * @return
          */
         public Builder maxFaceCapacity(Integer maxFaceCapacity) {
-            this.maxFaceCapacity = maxFaceCapacity;
-            return this;
+             this.maxFaceCapacity = maxFaceCapacity;
+             return this;
         }
 
+    
 
         /**
          * 在线状态
          * <p> 示例值：1
-         *
          * @param onlineStatus
          * @return
          */
         public Builder onlineStatus(Integer onlineStatus) {
-            this.onlineStatus = onlineStatus;
-            return this;
+             this.onlineStatus = onlineStatus;
+             return this;
         }
-
         /**
          * 在线状态
          * <p> 示例值：1
-         *
          * @param onlineStatus {@link com.lark.oapi.service.acs.v1.enums.PropertyOnlineStatusEnum}
          * @return
          */
         public Builder onlineStatus(com.lark.oapi.service.acs.v1.enums.PropertyOnlineStatusEnum onlineStatus) {
-            this.onlineStatus = onlineStatus.getValue();
-            return this;
+             this.onlineStatus = onlineStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 设备名称
          * <p> 示例值：南门
-         *
          * @param deviceName
          * @return
          */
         public Builder deviceName(String deviceName) {
-            this.deviceName = deviceName;
-            return this;
+             this.deviceName = deviceName;
+             return this;
         }
 
+    
 
         /**
          * 是否是打卡
          * <p> 示例值：true
-         *
          * @param isClockIn
          * @return
          */
         public Builder isClockIn(Boolean isClockIn) {
-            this.isClockIn = isClockIn;
-            return this;
+             this.isClockIn = isClockIn;
+             return this;
         }
 
+    
+    
+    public Property build(){
+        return new Property(this);
+      }
+    }
 
-        public Property build() {
-            return new Property(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

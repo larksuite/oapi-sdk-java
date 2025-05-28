@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.personal_settings.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.personal_settings.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class SystemStatus {
         this.config = config;
     }
 
-
+    
     /**
      * 批量关闭系统状态，批量关闭用户系统状态可用
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/batch_close">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/batch_close</a> ;
@@ -63,7 +58,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_close"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchCloseSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCloseSystemStatusResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_close"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_close"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchCloseSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCloseSystemStatusResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_close"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 批量开启系统状态，批量开启用户系统状态可用
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/batch_open">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/batch_open</a> ;
@@ -129,7 +123,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_open"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchOpenSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchOpenSystemStatusResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_open"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_open"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchOpenSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchOpenSystemStatusResp.class);
         if (resp == null) {
@@ -169,16 +163,15 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_open"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 创建系统状态，创建租户维度的系统状态。
      * <p> 注意事项:;- 操作的数据为租户维度数据，请小心操作。;- 每个租户最多创建10个系统状态。 ;
@@ -196,7 +189,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSystemStatusResp.class);
         if (resp == null) {
@@ -204,14 +197,14 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -229,7 +222,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSystemStatusResp.class);
         if (resp == null) {
@@ -237,16 +230,15 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 删除系统状态，删除租户维度的系统状态。
      * <p> 注意事项：;- 操作的数据为租户维度数据，请小心操作。 ;- 删除系统状态后，并不影响正在使用该状态用户下系统状态的客户端展示。 ;
@@ -264,7 +256,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSystemStatusResp.class);
         if (resp == null) {
@@ -272,14 +264,14 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -297,7 +289,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSystemStatusResp.class);
         if (resp == null) {
@@ -305,16 +297,15 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 获取系统状态，获取租户下所有系统状态
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list</a> ;
@@ -331,7 +322,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSystemStatusResp.class);
         if (resp == null) {
@@ -339,14 +330,14 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -363,7 +354,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ListSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSystemStatusResp.class);
         if (resp == null) {
@@ -371,16 +362,15 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 修改系统状态，修改租户维度系统状态。
      * <p> 注意事项：;- 操作的数据为租户维度数据，请小心操作。 ;- 修改系统状态后，并不影响正在使用的用户。该用户的系统状态可用时间到期后，再次被开启可用的时候，用户客户端才会同步到更新后的系统状态。 ;
@@ -398,7 +388,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         PatchSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSystemStatusResp.class);
         if (resp == null) {
@@ -406,14 +396,14 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -431,7 +421,7 @@ public class SystemStatus {
                 , "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         PatchSystemStatusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSystemStatusResp.class);
         if (resp == null) {
@@ -439,13 +429,13 @@ public class SystemStatus {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

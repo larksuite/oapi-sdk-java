@@ -17,17 +17,16 @@ package com.lark.oapi.service.aily.v1.enums;
  * session 类型
  */
 public enum SessionSessionTypeEnum {
-    PERMANENT("PERMANENT"), // 永久有效
-    LONG_TERM("LONG-TERM"), // 一段时间内有效，有效期内活跃时会主动刷新过期时间
-    INSTANT("INSTANT"), // 一次性
-    ;
-    private String value;
-
+     PERMANENT("PERMANENT"), // 永久有效
+     LONG_TERM("LONG-TERM"), // 一段时间内有效，有效期内活跃时会主动刷新过期时间
+     INSTANT("INSTANT"), // 一次性
+  ;
+   private String value;
     SessionSessionTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

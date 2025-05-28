@@ -17,16 +17,15 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 调整类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：seniority_adjust_information;  - custom_api_name：seniority_adjustment_type
  */
 public enum SeniorityAdjustInformationEditSeniorityAdjustmentTypeEnum {
-    INCREASE("increase"), // 增加
-    DECREASE("decrease"), // 减少
-    ;
-    private String value;
-
+     INCREASE("increase"), // 增加
+     DECREASE("decrease"), // 减少
+  ;
+   private String value;
     SeniorityAdjustInformationEditSeniorityAdjustmentTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

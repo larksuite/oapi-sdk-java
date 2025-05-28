@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FormFieldVariableNumberValue {
-    /**
-     * 数值类型变量的值
-     * <p> 示例值：1
-     */
+     /**
+      * 数值类型变量的值
+      * <p> 示例值：1
+      */
     @SerializedName("value")
     private Integer value;
-
-    // builder 开始
-    public FormFieldVariableNumberValue() {
-    }
-
-    public FormFieldVariableNumberValue(Builder builder) {
-        /**
-         * 数值类型变量的值
-         * <p> 示例值：1
-         */
-        this.value = builder.value;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getValue() {
         return this.value;
     }
@@ -60,28 +39,44 @@ public class FormFieldVariableNumberValue {
         this.value = value;
     }
 
+
+// builder 开始
+  public FormFieldVariableNumberValue(){}
+
+  public FormFieldVariableNumberValue(Builder builder){
+         /**
+          * 数值类型变量的值
+          * <p> 示例值：1
+          */
+      this.value = builder.value;
+  }
+
     public static class Builder {
-        /**
-         * 数值类型变量的值
-         * <p> 示例值：1
-         */
+     /**
+      * 数值类型变量的值
+      * <p> 示例值：1
+      */
         private Integer value;
 
         /**
          * 数值类型变量的值
          * <p> 示例值：1
-         *
          * @param value
          * @return
          */
         public Builder value(Integer value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
+    
+    public FormFieldVariableNumberValue build(){
+        return new FormFieldVariableNumberValue(this);
+      }
+    }
 
-        public FormFieldVariableNumberValue build() {
-            return new FormFieldVariableNumberValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

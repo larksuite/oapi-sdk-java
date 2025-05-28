@@ -12,111 +12,60 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OfferSalaryInfo {
-    /**
-     * 币种
-     * <p> 示例值：CNY
-     */
+     /**
+      * 币种
+      * <p> 示例值：CNY
+      */
     @SerializedName("currency")
     private String currency;
-    /**
-     * 基本工资，当启用 Offer 申请表中的「薪资信息」模块时，「基本工资」字段为必传项
-     * <p> 示例值：1000000
-     */
+     /**
+      * 基本工资，当启用 Offer 申请表中的「薪资信息」模块时，「基本工资」字段为必传项
+      * <p> 示例值：1000000
+      */
     @SerializedName("basic_salary")
     private String basicSalary;
-    /**
-     * 试用期百分比
-     * <p> 示例值：0.8
-     */
+     /**
+      * 试用期百分比
+      * <p> 示例值：0.8
+      */
     @SerializedName("probation_salary_percentage")
     private String probationSalaryPercentage;
-    /**
-     * 年终奖月数
-     * <p> 示例值：3
-     */
+     /**
+      * 年终奖月数
+      * <p> 示例值：3
+      */
     @SerializedName("award_salary_multiple")
     private String awardSalaryMultiple;
-    /**
-     * 期权股数
-     * <p> 示例值：30
-     */
+     /**
+      * 期权股数
+      * <p> 示例值：30
+      */
     @SerializedName("option_shares")
     private String optionShares;
-    /**
-     * 季度奖金额
-     * <p> 示例值：3000
-     */
+     /**
+      * 季度奖金额
+      * <p> 示例值：3000
+      */
     @SerializedName("quarterly_bonus")
     private String quarterlyBonus;
-    /**
-     * 半年奖金额
-     * <p> 示例值：10000
-     */
+     /**
+      * 半年奖金额
+      * <p> 示例值：10000
+      */
     @SerializedName("half_year_bonus")
     private String halfYearBonus;
-
-    // builder 开始
-    public OfferSalaryInfo() {
-    }
-
-    public OfferSalaryInfo(Builder builder) {
-        /**
-         * 币种
-         * <p> 示例值：CNY
-         */
-        this.currency = builder.currency;
-        /**
-         * 基本工资，当启用 Offer 申请表中的「薪资信息」模块时，「基本工资」字段为必传项
-         * <p> 示例值：1000000
-         */
-        this.basicSalary = builder.basicSalary;
-        /**
-         * 试用期百分比
-         * <p> 示例值：0.8
-         */
-        this.probationSalaryPercentage = builder.probationSalaryPercentage;
-        /**
-         * 年终奖月数
-         * <p> 示例值：3
-         */
-        this.awardSalaryMultiple = builder.awardSalaryMultiple;
-        /**
-         * 期权股数
-         * <p> 示例值：30
-         */
-        this.optionShares = builder.optionShares;
-        /**
-         * 季度奖金额
-         * <p> 示例值：3000
-         */
-        this.quarterlyBonus = builder.quarterlyBonus;
-        /**
-         * 半年奖金额
-         * <p> 示例值：10000
-         */
-        this.halfYearBonus = builder.halfYearBonus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCurrency() {
         return this.currency;
     }
@@ -173,136 +122,182 @@ public class OfferSalaryInfo {
         this.halfYearBonus = halfYearBonus;
     }
 
+
+// builder 开始
+  public OfferSalaryInfo(){}
+
+  public OfferSalaryInfo(Builder builder){
+         /**
+          * 币种
+          * <p> 示例值：CNY
+          */
+      this.currency = builder.currency;
+         /**
+          * 基本工资，当启用 Offer 申请表中的「薪资信息」模块时，「基本工资」字段为必传项
+          * <p> 示例值：1000000
+          */
+      this.basicSalary = builder.basicSalary;
+         /**
+          * 试用期百分比
+          * <p> 示例值：0.8
+          */
+      this.probationSalaryPercentage = builder.probationSalaryPercentage;
+         /**
+          * 年终奖月数
+          * <p> 示例值：3
+          */
+      this.awardSalaryMultiple = builder.awardSalaryMultiple;
+         /**
+          * 期权股数
+          * <p> 示例值：30
+          */
+      this.optionShares = builder.optionShares;
+         /**
+          * 季度奖金额
+          * <p> 示例值：3000
+          */
+      this.quarterlyBonus = builder.quarterlyBonus;
+         /**
+          * 半年奖金额
+          * <p> 示例值：10000
+          */
+      this.halfYearBonus = builder.halfYearBonus;
+  }
+
     public static class Builder {
-        /**
-         * 币种
-         * <p> 示例值：CNY
-         */
+     /**
+      * 币种
+      * <p> 示例值：CNY
+      */
         private String currency;
-        /**
-         * 基本工资，当启用 Offer 申请表中的「薪资信息」模块时，「基本工资」字段为必传项
-         * <p> 示例值：1000000
-         */
+     /**
+      * 基本工资，当启用 Offer 申请表中的「薪资信息」模块时，「基本工资」字段为必传项
+      * <p> 示例值：1000000
+      */
         private String basicSalary;
-        /**
-         * 试用期百分比
-         * <p> 示例值：0.8
-         */
+     /**
+      * 试用期百分比
+      * <p> 示例值：0.8
+      */
         private String probationSalaryPercentage;
-        /**
-         * 年终奖月数
-         * <p> 示例值：3
-         */
+     /**
+      * 年终奖月数
+      * <p> 示例值：3
+      */
         private String awardSalaryMultiple;
-        /**
-         * 期权股数
-         * <p> 示例值：30
-         */
+     /**
+      * 期权股数
+      * <p> 示例值：30
+      */
         private String optionShares;
-        /**
-         * 季度奖金额
-         * <p> 示例值：3000
-         */
+     /**
+      * 季度奖金额
+      * <p> 示例值：3000
+      */
         private String quarterlyBonus;
-        /**
-         * 半年奖金额
-         * <p> 示例值：10000
-         */
+     /**
+      * 半年奖金额
+      * <p> 示例值：10000
+      */
         private String halfYearBonus;
 
         /**
          * 币种
          * <p> 示例值：CNY
-         *
          * @param currency
          * @return
          */
         public Builder currency(String currency) {
-            this.currency = currency;
-            return this;
+             this.currency = currency;
+             return this;
         }
 
+    
 
         /**
          * 基本工资，当启用 Offer 申请表中的「薪资信息」模块时，「基本工资」字段为必传项
          * <p> 示例值：1000000
-         *
          * @param basicSalary
          * @return
          */
         public Builder basicSalary(String basicSalary) {
-            this.basicSalary = basicSalary;
-            return this;
+             this.basicSalary = basicSalary;
+             return this;
         }
 
+    
 
         /**
          * 试用期百分比
          * <p> 示例值：0.8
-         *
          * @param probationSalaryPercentage
          * @return
          */
         public Builder probationSalaryPercentage(String probationSalaryPercentage) {
-            this.probationSalaryPercentage = probationSalaryPercentage;
-            return this;
+             this.probationSalaryPercentage = probationSalaryPercentage;
+             return this;
         }
 
+    
 
         /**
          * 年终奖月数
          * <p> 示例值：3
-         *
          * @param awardSalaryMultiple
          * @return
          */
         public Builder awardSalaryMultiple(String awardSalaryMultiple) {
-            this.awardSalaryMultiple = awardSalaryMultiple;
-            return this;
+             this.awardSalaryMultiple = awardSalaryMultiple;
+             return this;
         }
 
+    
 
         /**
          * 期权股数
          * <p> 示例值：30
-         *
          * @param optionShares
          * @return
          */
         public Builder optionShares(String optionShares) {
-            this.optionShares = optionShares;
-            return this;
+             this.optionShares = optionShares;
+             return this;
         }
 
+    
 
         /**
          * 季度奖金额
          * <p> 示例值：3000
-         *
          * @param quarterlyBonus
          * @return
          */
         public Builder quarterlyBonus(String quarterlyBonus) {
-            this.quarterlyBonus = quarterlyBonus;
-            return this;
+             this.quarterlyBonus = quarterlyBonus;
+             return this;
         }
 
+    
 
         /**
          * 半年奖金额
          * <p> 示例值：10000
-         *
          * @param halfYearBonus
          * @return
          */
         public Builder halfYearBonus(String halfYearBonus) {
-            this.halfYearBonus = halfYearBonus;
-            return this;
+             this.halfYearBonus = halfYearBonus;
+             return this;
         }
 
+    
+    
+    public OfferSalaryInfo build(){
+        return new OfferSalaryInfo(this);
+      }
+    }
 
-        public OfferSalaryInfo build() {
-            return new OfferSalaryInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

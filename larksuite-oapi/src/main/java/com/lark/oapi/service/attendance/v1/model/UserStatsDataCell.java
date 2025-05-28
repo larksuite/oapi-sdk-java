@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserStatsDataCell {
-    /**
-     * 字段编号
-     * <p> 示例值：50102
-     */
+     /**
+      * 字段编号
+      * <p> 示例值：50102
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 数据值
-     * <p> 示例值：无需打卡(-), 无需打卡(-)
-     */
+     /**
+      * 数据值
+      * <p> 示例值：无需打卡(-), 无需打卡(-)
+      */
     @SerializedName("value")
     private String value;
-    /**
-     * 数据属性
-     * <p> 示例值：
-     */
+     /**
+      * 数据属性
+      * <p> 示例值：
+      */
     @SerializedName("features")
     private UserStatsDataFeature[] features;
-    /**
-     * 字段标题
-     * <p> 示例值：姓名
-     */
+     /**
+      * 字段标题
+      * <p> 示例值：姓名
+      */
     @SerializedName("title")
     private String title;
-    /**
-     * 时长
-     * <p> 示例值：
-     */
+     /**
+      * 时长
+      * <p> 示例值：
+      */
     @SerializedName("duration_num")
     private UserStatsDataDuration durationNum;
-
-    // builder 开始
-    public UserStatsDataCell() {
-    }
-
-    public UserStatsDataCell(Builder builder) {
-        /**
-         * 字段编号
-         * <p> 示例值：50102
-         */
-        this.code = builder.code;
-        /**
-         * 数据值
-         * <p> 示例值：无需打卡(-), 无需打卡(-)
-         */
-        this.value = builder.value;
-        /**
-         * 数据属性
-         * <p> 示例值：
-         */
-        this.features = builder.features;
-        /**
-         * 字段标题
-         * <p> 示例值：姓名
-         */
-        this.title = builder.title;
-        /**
-         * 时长
-         * <p> 示例值：
-         */
-        this.durationNum = builder.durationNum;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCode() {
         return this.code;
     }
@@ -136,100 +95,136 @@ public class UserStatsDataCell {
         this.durationNum = durationNum;
     }
 
+
+// builder 开始
+  public UserStatsDataCell(){}
+
+  public UserStatsDataCell(Builder builder){
+         /**
+          * 字段编号
+          * <p> 示例值：50102
+          */
+      this.code = builder.code;
+         /**
+          * 数据值
+          * <p> 示例值：无需打卡(-), 无需打卡(-)
+          */
+      this.value = builder.value;
+         /**
+          * 数据属性
+          * <p> 示例值：
+          */
+      this.features = builder.features;
+         /**
+          * 字段标题
+          * <p> 示例值：姓名
+          */
+      this.title = builder.title;
+         /**
+          * 时长
+          * <p> 示例值：
+          */
+      this.durationNum = builder.durationNum;
+  }
+
     public static class Builder {
-        /**
-         * 字段编号
-         * <p> 示例值：50102
-         */
+     /**
+      * 字段编号
+      * <p> 示例值：50102
+      */
         private String code;
-        /**
-         * 数据值
-         * <p> 示例值：无需打卡(-), 无需打卡(-)
-         */
+     /**
+      * 数据值
+      * <p> 示例值：无需打卡(-), 无需打卡(-)
+      */
         private String value;
-        /**
-         * 数据属性
-         * <p> 示例值：
-         */
+     /**
+      * 数据属性
+      * <p> 示例值：
+      */
         private UserStatsDataFeature[] features;
-        /**
-         * 字段标题
-         * <p> 示例值：姓名
-         */
+     /**
+      * 字段标题
+      * <p> 示例值：姓名
+      */
         private String title;
-        /**
-         * 时长
-         * <p> 示例值：
-         */
+     /**
+      * 时长
+      * <p> 示例值：
+      */
         private UserStatsDataDuration durationNum;
 
         /**
          * 字段编号
          * <p> 示例值：50102
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 数据值
          * <p> 示例值：无需打卡(-), 无需打卡(-)
-         *
          * @param value
          * @return
          */
         public Builder value(String value) {
-            this.value = value;
-            return this;
+             this.value = value;
+             return this;
         }
 
+    
 
         /**
          * 数据属性
          * <p> 示例值：
-         *
          * @param features
          * @return
          */
         public Builder features(UserStatsDataFeature[] features) {
-            this.features = features;
-            return this;
+             this.features = features;
+             return this;
         }
 
+    
 
         /**
          * 字段标题
          * <p> 示例值：姓名
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 时长
          * <p> 示例值：
-         *
          * @param durationNum
          * @return
          */
         public Builder durationNum(UserStatsDataDuration durationNum) {
-            this.durationNum = durationNum;
-            return this;
+             this.durationNum = durationNum;
+             return this;
         }
 
+    
+    
+    public UserStatsDataCell build(){
+        return new UserStatsDataCell(this);
+      }
+    }
 
-        public UserStatsDataCell build() {
-            return new UserStatsDataCell(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

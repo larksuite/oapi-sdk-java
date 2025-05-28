@@ -17,16 +17,15 @@ package com.lark.oapi.service.payroll.v1.enums;
  * 薪资组状态
  */
 public enum PaygroupStatusEnum {
-    ACTIVE(1), // 启用
-    INACTIVE(0), // 禁用
-    ;
-    private Integer value;
-
+     ACTIVE(1), // 启用
+     INACTIVE(0), // 禁用
+  ;
+   private Integer value;
     PaygroupStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

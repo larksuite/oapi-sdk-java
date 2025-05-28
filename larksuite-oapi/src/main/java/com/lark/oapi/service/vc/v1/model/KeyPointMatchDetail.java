@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class KeyPointMatchDetail {
-    /**
-     * 开始时间戳
-     * <p> 示例值：1
-     */
+     /**
+      * 开始时间戳
+      * <p> 示例值：1
+      */
     @SerializedName("start_timestamp")
     private String startTimestamp;
-    /**
-     * 匹配到的文本
-     * <p> 示例值：1
-     */
+     /**
+      * 匹配到的文本
+      * <p> 示例值：1
+      */
     @SerializedName("matched_text")
     private String matchedText;
-
-    // builder 开始
-    public KeyPointMatchDetail() {
-    }
-
-    public KeyPointMatchDetail(Builder builder) {
-        /**
-         * 开始时间戳
-         * <p> 示例值：1
-         */
-        this.startTimestamp = builder.startTimestamp;
-        /**
-         * 匹配到的文本
-         * <p> 示例值：1
-         */
-        this.matchedText = builder.matchedText;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStartTimestamp() {
         return this.startTimestamp;
     }
@@ -79,46 +53,67 @@ public class KeyPointMatchDetail {
         this.matchedText = matchedText;
     }
 
+
+// builder 开始
+  public KeyPointMatchDetail(){}
+
+  public KeyPointMatchDetail(Builder builder){
+         /**
+          * 开始时间戳
+          * <p> 示例值：1
+          */
+      this.startTimestamp = builder.startTimestamp;
+         /**
+          * 匹配到的文本
+          * <p> 示例值：1
+          */
+      this.matchedText = builder.matchedText;
+  }
+
     public static class Builder {
-        /**
-         * 开始时间戳
-         * <p> 示例值：1
-         */
+     /**
+      * 开始时间戳
+      * <p> 示例值：1
+      */
         private String startTimestamp;
-        /**
-         * 匹配到的文本
-         * <p> 示例值：1
-         */
+     /**
+      * 匹配到的文本
+      * <p> 示例值：1
+      */
         private String matchedText;
 
         /**
          * 开始时间戳
          * <p> 示例值：1
-         *
          * @param startTimestamp
          * @return
          */
         public Builder startTimestamp(String startTimestamp) {
-            this.startTimestamp = startTimestamp;
-            return this;
+             this.startTimestamp = startTimestamp;
+             return this;
         }
 
+    
 
         /**
          * 匹配到的文本
          * <p> 示例值：1
-         *
          * @param matchedText
          * @return
          */
         public Builder matchedText(String matchedText) {
-            this.matchedText = matchedText;
-            return this;
+             this.matchedText = matchedText;
+             return this;
         }
 
+    
+    
+    public KeyPointMatchDetail build(){
+        return new KeyPointMatchDetail(this);
+      }
+    }
 
-        public KeyPointMatchDetail build() {
-            return new KeyPointMatchDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

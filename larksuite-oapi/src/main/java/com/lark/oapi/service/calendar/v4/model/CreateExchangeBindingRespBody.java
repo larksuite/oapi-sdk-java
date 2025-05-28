@@ -12,53 +12,48 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateExchangeBindingRespBody {
-    /**
-     * admin账户
-     * <p> 示例值：email_admin_example@outlook.com
-     */
+     /**
+      * admin账户
+      * <p> 示例值：email_admin_example@outlook.com
+      */
     @SerializedName("admin_account")
     private String adminAccount;
-    /**
-     * 用户绑定的Exchange账户
-     * <p> 示例值：email_account_example@outlook.com
-     */
+     /**
+      * 用户绑定的Exchange账户
+      * <p> 示例值：email_account_example@outlook.com
+      */
     @SerializedName("exchange_account")
     private String exchangeAccount;
-    /**
-     * Exchange账户绑定user唯一标识id
-     * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
-     */
+     /**
+      * Exchange账户绑定user唯一标识id
+      * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * Exchange账户同步状态
-     * <p> 示例值：
-     */
+     /**
+      * Exchange账户同步状态
+      * <p> 示例值：
+      */
     @SerializedName("status")
     private String status;
-    /**
-     * exchange绑定唯一标识id
-     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
-     */
+     /**
+      * exchange绑定唯一标识id
+      * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+      */
     @SerializedName("exchange_binding_id")
     private String exchangeBindingId;
-
     public String getAdminAccount() {
         return this.adminAccount;
     }

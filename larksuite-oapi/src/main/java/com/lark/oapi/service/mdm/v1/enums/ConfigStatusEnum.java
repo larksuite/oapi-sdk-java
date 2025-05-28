@@ -17,16 +17,15 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 是否启用
  */
 public enum ConfigStatusEnum {
-    NOT_STATUS(0), // 不启用
-    STATUS(1), // 启用
-    ;
-    private Integer value;
-
+     NOT_STATUS(0), // 不启用
+     STATUS(1), // 启用
+  ;
+   private Integer value;
     ConfigStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

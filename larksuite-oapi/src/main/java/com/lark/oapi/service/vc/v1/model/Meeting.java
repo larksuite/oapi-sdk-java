@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,192 +19,102 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Meeting {
-    /**
-     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-     * <p> 示例值：6911188411934433028
-     */
+     /**
+      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+      * <p> 示例值：6911188411934433028
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 会议主题
-     * <p> 示例值：my meeting
-     */
+     /**
+      * 会议主题
+      * <p> 示例值：my meeting
+      */
     @SerializedName("topic")
     private String topic;
-    /**
-     * 会议链接（飞书用户可通过点击会议链接快捷入会）
-     * <p> 示例值：https://vc.feishu.cn/j/337736498
-     */
+     /**
+      * 会议链接（飞书用户可通过点击会议链接快捷入会）
+      * <p> 示例值：https://vc.feishu.cn/j/337736498
+      */
     @SerializedName("url")
     private String url;
-    /**
-     * 会议号
-     * <p> 示例值：123456789
-     */
+     /**
+      * 会议号
+      * <p> 示例值：123456789
+      */
     @SerializedName("meeting_no")
     private String meetingNo;
-    /**
-     * 会议密码
-     * <p> 示例值：971024
-     */
+     /**
+      * 会议密码
+      * <p> 示例值：971024
+      */
     @SerializedName("password")
     private String password;
-    /**
-     * 会议创建时间（unix时间，单位sec）
-     * <p> 示例值：1608885566
-     */
+     /**
+      * 会议创建时间（unix时间，单位sec）
+      * <p> 示例值：1608885566
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 会议开始时间（unix时间，单位sec）
-     * <p> 示例值：1608883322
-     */
+     /**
+      * 会议开始时间（unix时间，单位sec）
+      * <p> 示例值：1608883322
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 会议结束时间（unix时间，单位sec）
-     * <p> 示例值：1608888867
-     */
+     /**
+      * 会议结束时间（unix时间，单位sec）
+      * <p> 示例值：1608888867
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 主持人
-     * <p> 示例值：
-     */
+     /**
+      * 主持人
+      * <p> 示例值：
+      */
     @SerializedName("host_user")
     private MeetingUser hostUser;
-    /**
-     * 该会议是否支持互通
-     * <p> 示例值：true
-     */
+     /**
+      * 该会议是否支持互通
+      * <p> 示例值：true
+      */
     @SerializedName("meeting_connect")
     private Boolean meetingConnect;
-    /**
-     * 会议状态
-     * <p> 示例值：2
-     */
+     /**
+      * 会议状态
+      * <p> 示例值：2
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * 参会峰值人数
-     * <p> 示例值：10
-     */
+     /**
+      * 参会峰值人数
+      * <p> 示例值：10
+      */
     @SerializedName("participant_count")
     private String participantCount;
-    /**
-     * 累计参会人数
-     * <p> 示例值：10
-     */
+     /**
+      * 累计参会人数
+      * <p> 示例值：10
+      */
     @SerializedName("participant_count_accumulated")
     private String participantCountAccumulated;
-    /**
-     * 参会人列表
-     * <p> 示例值：
-     */
+     /**
+      * 参会人列表
+      * <p> 示例值：
+      */
     @SerializedName("participants")
     private MeetingParticipant[] participants;
-    /**
-     * 会中使用的能力
-     * <p> 示例值：
-     */
+     /**
+      * 会中使用的能力
+      * <p> 示例值：
+      */
     @SerializedName("ability")
     private MeetingAbility ability;
-
-    // builder 开始
-    public Meeting() {
-    }
-
-    public Meeting(Builder builder) {
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411934433028
-         */
-        this.id = builder.id;
-        /**
-         * 会议主题
-         * <p> 示例值：my meeting
-         */
-        this.topic = builder.topic;
-        /**
-         * 会议链接（飞书用户可通过点击会议链接快捷入会）
-         * <p> 示例值：https://vc.feishu.cn/j/337736498
-         */
-        this.url = builder.url;
-        /**
-         * 会议号
-         * <p> 示例值：123456789
-         */
-        this.meetingNo = builder.meetingNo;
-        /**
-         * 会议密码
-         * <p> 示例值：971024
-         */
-        this.password = builder.password;
-        /**
-         * 会议创建时间（unix时间，单位sec）
-         * <p> 示例值：1608885566
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 会议开始时间（unix时间，单位sec）
-         * <p> 示例值：1608883322
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 会议结束时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 主持人
-         * <p> 示例值：
-         */
-        this.hostUser = builder.hostUser;
-        /**
-         * 该会议是否支持互通
-         * <p> 示例值：true
-         */
-        this.meetingConnect = builder.meetingConnect;
-        /**
-         * 会议状态
-         * <p> 示例值：2
-         */
-        this.status = builder.status;
-        /**
-         * 参会峰值人数
-         * <p> 示例值：10
-         */
-        this.participantCount = builder.participantCount;
-        /**
-         * 累计参会人数
-         * <p> 示例值：10
-         */
-        this.participantCountAccumulated = builder.participantCountAccumulated;
-        /**
-         * 参会人列表
-         * <p> 示例值：
-         */
-        this.participants = builder.participants;
-        /**
-         * 会中使用的能力
-         * <p> 示例值：
-         */
-        this.ability = builder.ability;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -326,292 +235,376 @@ public class Meeting {
         this.ability = ability;
     }
 
+
+// builder 开始
+  public Meeting(){}
+
+  public Meeting(Builder builder){
+         /**
+          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+          * <p> 示例值：6911188411934433028
+          */
+      this.id = builder.id;
+         /**
+          * 会议主题
+          * <p> 示例值：my meeting
+          */
+      this.topic = builder.topic;
+         /**
+          * 会议链接（飞书用户可通过点击会议链接快捷入会）
+          * <p> 示例值：https://vc.feishu.cn/j/337736498
+          */
+      this.url = builder.url;
+         /**
+          * 会议号
+          * <p> 示例值：123456789
+          */
+      this.meetingNo = builder.meetingNo;
+         /**
+          * 会议密码
+          * <p> 示例值：971024
+          */
+      this.password = builder.password;
+         /**
+          * 会议创建时间（unix时间，单位sec）
+          * <p> 示例值：1608885566
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 会议开始时间（unix时间，单位sec）
+          * <p> 示例值：1608883322
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 会议结束时间（unix时间，单位sec）
+          * <p> 示例值：1608888867
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 主持人
+          * <p> 示例值：
+          */
+      this.hostUser = builder.hostUser;
+         /**
+          * 该会议是否支持互通
+          * <p> 示例值：true
+          */
+      this.meetingConnect = builder.meetingConnect;
+         /**
+          * 会议状态
+          * <p> 示例值：2
+          */
+      this.status = builder.status;
+         /**
+          * 参会峰值人数
+          * <p> 示例值：10
+          */
+      this.participantCount = builder.participantCount;
+         /**
+          * 累计参会人数
+          * <p> 示例值：10
+          */
+      this.participantCountAccumulated = builder.participantCountAccumulated;
+         /**
+          * 参会人列表
+          * <p> 示例值：
+          */
+      this.participants = builder.participants;
+         /**
+          * 会中使用的能力
+          * <p> 示例值：
+          */
+      this.ability = builder.ability;
+  }
+
     public static class Builder {
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411934433028
-         */
+     /**
+      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+      * <p> 示例值：6911188411934433028
+      */
         private String id;
-        /**
-         * 会议主题
-         * <p> 示例值：my meeting
-         */
+     /**
+      * 会议主题
+      * <p> 示例值：my meeting
+      */
         private String topic;
-        /**
-         * 会议链接（飞书用户可通过点击会议链接快捷入会）
-         * <p> 示例值：https://vc.feishu.cn/j/337736498
-         */
+     /**
+      * 会议链接（飞书用户可通过点击会议链接快捷入会）
+      * <p> 示例值：https://vc.feishu.cn/j/337736498
+      */
         private String url;
-        /**
-         * 会议号
-         * <p> 示例值：123456789
-         */
+     /**
+      * 会议号
+      * <p> 示例值：123456789
+      */
         private String meetingNo;
-        /**
-         * 会议密码
-         * <p> 示例值：971024
-         */
+     /**
+      * 会议密码
+      * <p> 示例值：971024
+      */
         private String password;
-        /**
-         * 会议创建时间（unix时间，单位sec）
-         * <p> 示例值：1608885566
-         */
+     /**
+      * 会议创建时间（unix时间，单位sec）
+      * <p> 示例值：1608885566
+      */
         private String createTime;
-        /**
-         * 会议开始时间（unix时间，单位sec）
-         * <p> 示例值：1608883322
-         */
+     /**
+      * 会议开始时间（unix时间，单位sec）
+      * <p> 示例值：1608883322
+      */
         private String startTime;
-        /**
-         * 会议结束时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
+     /**
+      * 会议结束时间（unix时间，单位sec）
+      * <p> 示例值：1608888867
+      */
         private String endTime;
-        /**
-         * 主持人
-         * <p> 示例值：
-         */
+     /**
+      * 主持人
+      * <p> 示例值：
+      */
         private MeetingUser hostUser;
-        /**
-         * 该会议是否支持互通
-         * <p> 示例值：true
-         */
+     /**
+      * 该会议是否支持互通
+      * <p> 示例值：true
+      */
         private Boolean meetingConnect;
-        /**
-         * 会议状态
-         * <p> 示例值：2
-         */
+     /**
+      * 会议状态
+      * <p> 示例值：2
+      */
         private Integer status;
-        /**
-         * 参会峰值人数
-         * <p> 示例值：10
-         */
+     /**
+      * 参会峰值人数
+      * <p> 示例值：10
+      */
         private String participantCount;
-        /**
-         * 累计参会人数
-         * <p> 示例值：10
-         */
+     /**
+      * 累计参会人数
+      * <p> 示例值：10
+      */
         private String participantCountAccumulated;
-        /**
-         * 参会人列表
-         * <p> 示例值：
-         */
+     /**
+      * 参会人列表
+      * <p> 示例值：
+      */
         private MeetingParticipant[] participants;
-        /**
-         * 会中使用的能力
-         * <p> 示例值：
-         */
+     /**
+      * 会中使用的能力
+      * <p> 示例值：
+      */
         private MeetingAbility ability;
 
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
          * <p> 示例值：6911188411934433028
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 会议主题
          * <p> 示例值：my meeting
-         *
          * @param topic
          * @return
          */
         public Builder topic(String topic) {
-            this.topic = topic;
-            return this;
+             this.topic = topic;
+             return this;
         }
 
+    
 
         /**
          * 会议链接（飞书用户可通过点击会议链接快捷入会）
          * <p> 示例值：https://vc.feishu.cn/j/337736498
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
 
         /**
          * 会议号
          * <p> 示例值：123456789
-         *
          * @param meetingNo
          * @return
          */
         public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
+             this.meetingNo = meetingNo;
+             return this;
         }
 
+    
 
         /**
          * 会议密码
          * <p> 示例值：971024
-         *
          * @param password
          * @return
          */
         public Builder password(String password) {
-            this.password = password;
-            return this;
+             this.password = password;
+             return this;
         }
 
+    
 
         /**
          * 会议创建时间（unix时间，单位sec）
          * <p> 示例值：1608885566
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 会议开始时间（unix时间，单位sec）
          * <p> 示例值：1608883322
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 会议结束时间（unix时间，单位sec）
          * <p> 示例值：1608888867
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 主持人
          * <p> 示例值：
-         *
          * @param hostUser
          * @return
          */
         public Builder hostUser(MeetingUser hostUser) {
-            this.hostUser = hostUser;
-            return this;
+             this.hostUser = hostUser;
+             return this;
         }
 
+    
 
         /**
          * 该会议是否支持互通
          * <p> 示例值：true
-         *
          * @param meetingConnect
          * @return
          */
         public Builder meetingConnect(Boolean meetingConnect) {
-            this.meetingConnect = meetingConnect;
-            return this;
+             this.meetingConnect = meetingConnect;
+             return this;
         }
 
+    
 
         /**
          * 会议状态
          * <p> 示例值：2
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 会议状态
          * <p> 示例值：2
-         *
          * @param status {@link com.lark.oapi.service.vc.v1.enums.MeetingMeetingStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.vc.v1.enums.MeetingMeetingStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
 
         /**
          * 参会峰值人数
          * <p> 示例值：10
-         *
          * @param participantCount
          * @return
          */
         public Builder participantCount(String participantCount) {
-            this.participantCount = participantCount;
-            return this;
+             this.participantCount = participantCount;
+             return this;
         }
 
+    
 
         /**
          * 累计参会人数
          * <p> 示例值：10
-         *
          * @param participantCountAccumulated
          * @return
          */
         public Builder participantCountAccumulated(String participantCountAccumulated) {
-            this.participantCountAccumulated = participantCountAccumulated;
-            return this;
+             this.participantCountAccumulated = participantCountAccumulated;
+             return this;
         }
 
+    
 
         /**
          * 参会人列表
          * <p> 示例值：
-         *
          * @param participants
          * @return
          */
         public Builder participants(MeetingParticipant[] participants) {
-            this.participants = participants;
-            return this;
+             this.participants = participants;
+             return this;
         }
 
+    
 
         /**
          * 会中使用的能力
          * <p> 示例值：
-         *
          * @param ability
          * @return
          */
         public Builder ability(MeetingAbility ability) {
-            this.ability = ability;
-            return this;
+             this.ability = ability;
+             return this;
         }
 
+    
+    
+    public Meeting build(){
+        return new Meeting(this);
+      }
+    }
 
-        public Meeting build() {
-            return new Meeting(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

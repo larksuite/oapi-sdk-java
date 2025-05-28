@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.okr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OkrSimple {
-    /**
-     * 周期展示名称
-     * <p> 示例值：
-     */
+     /**
+      * 周期展示名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private OkrName name;
-    /**
-     * OKR ID
-     * <p> 示例值：
-     */
+     /**
+      * OKR ID
+      * <p> 示例值：
+      */
     @SerializedName("okr_id")
     private String okrId;
-    /**
-     * 周期 ID
-     * <p> 示例值：
-     */
+     /**
+      * 周期 ID
+      * <p> 示例值：
+      */
     @SerializedName("period_id")
     private String periodId;
-    /**
-     * 周期类型：1、月周期；2、年周期
-     * <p> 示例值：
-     */
+     /**
+      * 周期类型：1、月周期；2、年周期
+      * <p> 示例值：
+      */
     @SerializedName("period_type")
     private String periodType;
-
-    // builder 开始
-    public OkrSimple() {
-    }
-
-    public OkrSimple(Builder builder) {
-        /**
-         * 周期展示名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * OKR ID
-         * <p> 示例值：
-         */
-        this.okrId = builder.okrId;
-        /**
-         * 周期 ID
-         * <p> 示例值：
-         */
-        this.periodId = builder.periodId;
-        /**
-         * 周期类型：1、月周期；2、年周期
-         * <p> 示例值：
-         */
-        this.periodType = builder.periodType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public OkrName getName() {
         return this.name;
     }
@@ -117,82 +81,113 @@ public class OkrSimple {
         this.periodType = periodType;
     }
 
+
+// builder 开始
+  public OkrSimple(){}
+
+  public OkrSimple(Builder builder){
+         /**
+          * 周期展示名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * OKR ID
+          * <p> 示例值：
+          */
+      this.okrId = builder.okrId;
+         /**
+          * 周期 ID
+          * <p> 示例值：
+          */
+      this.periodId = builder.periodId;
+         /**
+          * 周期类型：1、月周期；2、年周期
+          * <p> 示例值：
+          */
+      this.periodType = builder.periodType;
+  }
+
     public static class Builder {
-        /**
-         * 周期展示名称
-         * <p> 示例值：
-         */
+     /**
+      * 周期展示名称
+      * <p> 示例值：
+      */
         private OkrName name;
-        /**
-         * OKR ID
-         * <p> 示例值：
-         */
+     /**
+      * OKR ID
+      * <p> 示例值：
+      */
         private String okrId;
-        /**
-         * 周期 ID
-         * <p> 示例值：
-         */
+     /**
+      * 周期 ID
+      * <p> 示例值：
+      */
         private String periodId;
-        /**
-         * 周期类型：1、月周期；2、年周期
-         * <p> 示例值：
-         */
+     /**
+      * 周期类型：1、月周期；2、年周期
+      * <p> 示例值：
+      */
         private String periodType;
 
         /**
          * 周期展示名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(OkrName name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * OKR ID
          * <p> 示例值：
-         *
          * @param okrId
          * @return
          */
         public Builder okrId(String okrId) {
-            this.okrId = okrId;
-            return this;
+             this.okrId = okrId;
+             return this;
         }
 
+    
 
         /**
          * 周期 ID
          * <p> 示例值：
-         *
          * @param periodId
          * @return
          */
         public Builder periodId(String periodId) {
-            this.periodId = periodId;
-            return this;
+             this.periodId = periodId;
+             return this;
         }
 
+    
 
         /**
          * 周期类型：1、月周期；2、年周期
          * <p> 示例值：
-         *
          * @param periodType
          * @return
          */
         public Builder periodType(String periodType) {
-            this.periodType = periodType;
-            return this;
+             this.periodType = periodType;
+             return this;
         }
 
+    
+    
+    public OkrSimple build(){
+        return new OkrSimple(this);
+      }
+    }
 
-        public OkrSimple build() {
-            return new OkrSimple(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

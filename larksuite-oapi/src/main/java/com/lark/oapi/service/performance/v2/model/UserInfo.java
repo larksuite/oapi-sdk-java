@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserInfo {
-    /**
-     * 人员
-     * <p> 示例值：
-     */
+     /**
+      * 人员
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private User userId;
-    /**
-     * 用户的直属上级的用户ID
-     * <p> 示例值：
-     */
+     /**
+      * 用户的直属上级的用户ID
+      * <p> 示例值：
+      */
     @SerializedName("direct_leader_user_id")
     private User directLeaderUserId;
-    /**
-     * 人员的部门
-     * <p> 示例值：
-     */
+     /**
+      * 人员的部门
+      * <p> 示例值：
+      */
     @SerializedName("department")
     private Department department;
-    /**
-     * 人员的序列
-     * <p> 示例值：
-     */
+     /**
+      * 人员的序列
+      * <p> 示例值：
+      */
     @SerializedName("job_family")
     private JobFamily jobFamily;
-    /**
-     * 人员的职级
-     * <p> 示例值：
-     */
+     /**
+      * 人员的职级
+      * <p> 示例值：
+      */
     @SerializedName("job_level")
     private JobLevel jobLevel;
-
-    // builder 开始
-    public UserInfo() {
-    }
-
-    public UserInfo(Builder builder) {
-        /**
-         * 人员
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户的直属上级的用户ID
-         * <p> 示例值：
-         */
-        this.directLeaderUserId = builder.directLeaderUserId;
-        /**
-         * 人员的部门
-         * <p> 示例值：
-         */
-        this.department = builder.department;
-        /**
-         * 人员的序列
-         * <p> 示例值：
-         */
-        this.jobFamily = builder.jobFamily;
-        /**
-         * 人员的职级
-         * <p> 示例值：
-         */
-        this.jobLevel = builder.jobLevel;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public User getUserId() {
         return this.userId;
     }
@@ -136,100 +95,136 @@ public class UserInfo {
         this.jobLevel = jobLevel;
     }
 
+
+// builder 开始
+  public UserInfo(){}
+
+  public UserInfo(Builder builder){
+         /**
+          * 人员
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+         /**
+          * 用户的直属上级的用户ID
+          * <p> 示例值：
+          */
+      this.directLeaderUserId = builder.directLeaderUserId;
+         /**
+          * 人员的部门
+          * <p> 示例值：
+          */
+      this.department = builder.department;
+         /**
+          * 人员的序列
+          * <p> 示例值：
+          */
+      this.jobFamily = builder.jobFamily;
+         /**
+          * 人员的职级
+          * <p> 示例值：
+          */
+      this.jobLevel = builder.jobLevel;
+  }
+
     public static class Builder {
-        /**
-         * 人员
-         * <p> 示例值：
-         */
+     /**
+      * 人员
+      * <p> 示例值：
+      */
         private User userId;
-        /**
-         * 用户的直属上级的用户ID
-         * <p> 示例值：
-         */
+     /**
+      * 用户的直属上级的用户ID
+      * <p> 示例值：
+      */
         private User directLeaderUserId;
-        /**
-         * 人员的部门
-         * <p> 示例值：
-         */
+     /**
+      * 人员的部门
+      * <p> 示例值：
+      */
         private Department department;
-        /**
-         * 人员的序列
-         * <p> 示例值：
-         */
+     /**
+      * 人员的序列
+      * <p> 示例值：
+      */
         private JobFamily jobFamily;
-        /**
-         * 人员的职级
-         * <p> 示例值：
-         */
+     /**
+      * 人员的职级
+      * <p> 示例值：
+      */
         private JobLevel jobLevel;
 
         /**
          * 人员
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(User userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 用户的直属上级的用户ID
          * <p> 示例值：
-         *
          * @param directLeaderUserId
          * @return
          */
         public Builder directLeaderUserId(User directLeaderUserId) {
-            this.directLeaderUserId = directLeaderUserId;
-            return this;
+             this.directLeaderUserId = directLeaderUserId;
+             return this;
         }
 
+    
 
         /**
          * 人员的部门
          * <p> 示例值：
-         *
          * @param department
          * @return
          */
         public Builder department(Department department) {
-            this.department = department;
-            return this;
+             this.department = department;
+             return this;
         }
 
+    
 
         /**
          * 人员的序列
          * <p> 示例值：
-         *
          * @param jobFamily
          * @return
          */
         public Builder jobFamily(JobFamily jobFamily) {
-            this.jobFamily = jobFamily;
-            return this;
+             this.jobFamily = jobFamily;
+             return this;
         }
 
+    
 
         /**
          * 人员的职级
          * <p> 示例值：
-         *
          * @param jobLevel
          * @return
          */
         public Builder jobLevel(JobLevel jobLevel) {
-            this.jobLevel = jobLevel;
-            return this;
+             this.jobLevel = jobLevel;
+             return this;
         }
 
+    
+    
+    public UserInfo build(){
+        return new UserInfo(this);
+      }
+    }
 
-        public UserInfo build() {
-            return new UserInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryUserTaskRemedyReqBody {
-    /**
-     * employee_no 或 employee_id 列表
-     * <p> 示例值：["abd754f7"]
-     */
+     /**
+      * employee_no 或 employee_id 列表
+      * <p> 示例值：["abd754f7"]
+      */
     @SerializedName("user_ids")
     private String[] userIds;
-    /**
-     * 查询的起始时间，精确到秒的时间戳
-     * <p> 示例值：1566641088
-     */
+     /**
+      * 查询的起始时间，精确到秒的时间戳
+      * <p> 示例值：1566641088
+      */
     @SerializedName("check_time_from")
     private String checkTimeFrom;
-    /**
-     * 查询的结束时间，精确到秒的时间戳
-     * <p> 示例值：1592561088
-     */
+     /**
+      * 查询的结束时间，精确到秒的时间戳
+      * <p> 示例值：1592561088
+      */
     @SerializedName("check_time_to")
     private String checkTimeTo;
-    /**
-     * 查询依据的时间类型（默认依据PeriodTime，如果使用非默认的，非特定租户不支持）
-     * <p> 示例值：PeriodTime
-     */
+     /**
+      * 查询依据的时间类型（默认依据PeriodTime，如果使用非默认的，非特定租户不支持）
+      * <p> 示例值：PeriodTime
+      */
     @SerializedName("check_date_type")
     private String checkDateType;
-    /**
-     * 查询状态（不填默认查询已通过状态）
-     * <p> 示例值：2
-     */
+     /**
+      * 查询状态（不填默认查询已通过状态）
+      * <p> 示例值：2
+      */
     @SerializedName("status")
     private Integer status;
-
-    // builder 开始
-    public QueryUserTaskRemedyReqBody() {
-    }
-
-    public QueryUserTaskRemedyReqBody(Builder builder) {
-        /**
-         * employee_no 或 employee_id 列表
-         * <p> 示例值：["abd754f7"]
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 查询的起始时间，精确到秒的时间戳
-         * <p> 示例值：1566641088
-         */
-        this.checkTimeFrom = builder.checkTimeFrom;
-        /**
-         * 查询的结束时间，精确到秒的时间戳
-         * <p> 示例值：1592561088
-         */
-        this.checkTimeTo = builder.checkTimeTo;
-        /**
-         * 查询依据的时间类型（默认依据PeriodTime，如果使用非默认的，非特定租户不支持）
-         * <p> 示例值：PeriodTime
-         */
-        this.checkDateType = builder.checkDateType;
-        /**
-         * 查询状态（不填默认查询已通过状态）
-         * <p> 示例值：2
-         */
-        this.status = builder.status;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getUserIds() {
         return this.userIds;
     }
@@ -136,124 +95,156 @@ public class QueryUserTaskRemedyReqBody {
         this.status = status;
     }
 
+
+// builder 开始
+  public QueryUserTaskRemedyReqBody(){}
+
+  public QueryUserTaskRemedyReqBody(Builder builder){
+         /**
+          * employee_no 或 employee_id 列表
+          * <p> 示例值：["abd754f7"]
+          */
+      this.userIds = builder.userIds;
+         /**
+          * 查询的起始时间，精确到秒的时间戳
+          * <p> 示例值：1566641088
+          */
+      this.checkTimeFrom = builder.checkTimeFrom;
+         /**
+          * 查询的结束时间，精确到秒的时间戳
+          * <p> 示例值：1592561088
+          */
+      this.checkTimeTo = builder.checkTimeTo;
+         /**
+          * 查询依据的时间类型（默认依据PeriodTime，如果使用非默认的，非特定租户不支持）
+          * <p> 示例值：PeriodTime
+          */
+      this.checkDateType = builder.checkDateType;
+         /**
+          * 查询状态（不填默认查询已通过状态）
+          * <p> 示例值：2
+          */
+      this.status = builder.status;
+  }
+
     public static class Builder {
-        /**
-         * employee_no 或 employee_id 列表
-         * <p> 示例值：["abd754f7"]
-         */
+     /**
+      * employee_no 或 employee_id 列表
+      * <p> 示例值：["abd754f7"]
+      */
         private String[] userIds;
-        /**
-         * 查询的起始时间，精确到秒的时间戳
-         * <p> 示例值：1566641088
-         */
+     /**
+      * 查询的起始时间，精确到秒的时间戳
+      * <p> 示例值：1566641088
+      */
         private String checkTimeFrom;
-        /**
-         * 查询的结束时间，精确到秒的时间戳
-         * <p> 示例值：1592561088
-         */
+     /**
+      * 查询的结束时间，精确到秒的时间戳
+      * <p> 示例值：1592561088
+      */
         private String checkTimeTo;
-        /**
-         * 查询依据的时间类型（默认依据PeriodTime，如果使用非默认的，非特定租户不支持）
-         * <p> 示例值：PeriodTime
-         */
+     /**
+      * 查询依据的时间类型（默认依据PeriodTime，如果使用非默认的，非特定租户不支持）
+      * <p> 示例值：PeriodTime
+      */
         private String checkDateType;
-        /**
-         * 查询状态（不填默认查询已通过状态）
-         * <p> 示例值：2
-         */
+     /**
+      * 查询状态（不填默认查询已通过状态）
+      * <p> 示例值：2
+      */
         private Integer status;
 
         /**
          * employee_no 或 employee_id 列表
          * <p> 示例值：["abd754f7"]
-         *
          * @param userIds
          * @return
          */
         public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
+             this.userIds = userIds;
+             return this;
         }
 
+    
 
         /**
          * 查询的起始时间，精确到秒的时间戳
          * <p> 示例值：1566641088
-         *
          * @param checkTimeFrom
          * @return
          */
         public Builder checkTimeFrom(String checkTimeFrom) {
-            this.checkTimeFrom = checkTimeFrom;
-            return this;
+             this.checkTimeFrom = checkTimeFrom;
+             return this;
         }
 
+    
 
         /**
          * 查询的结束时间，精确到秒的时间戳
          * <p> 示例值：1592561088
-         *
          * @param checkTimeTo
          * @return
          */
         public Builder checkTimeTo(String checkTimeTo) {
-            this.checkTimeTo = checkTimeTo;
-            return this;
+             this.checkTimeTo = checkTimeTo;
+             return this;
         }
 
+    
 
         /**
          * 查询依据的时间类型（默认依据PeriodTime，如果使用非默认的，非特定租户不支持）
          * <p> 示例值：PeriodTime
-         *
          * @param checkDateType
          * @return
          */
         public Builder checkDateType(String checkDateType) {
-            this.checkDateType = checkDateType;
-            return this;
+             this.checkDateType = checkDateType;
+             return this;
         }
-
         /**
          * 查询依据的时间类型（默认依据PeriodTime，如果使用非默认的，非特定租户不支持）
          * <p> 示例值：PeriodTime
-         *
          * @param checkDateType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserTaskRemedyCheckDateTypeEnum}
          * @return
          */
         public Builder checkDateType(com.lark.oapi.service.attendance.v1.enums.QueryUserTaskRemedyCheckDateTypeEnum checkDateType) {
-            this.checkDateType = checkDateType.getValue();
-            return this;
+             this.checkDateType = checkDateType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 查询状态（不填默认查询已通过状态）
          * <p> 示例值：2
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
-
         /**
          * 查询状态（不填默认查询已通过状态）
          * <p> 示例值：2
-         *
          * @param status {@link com.lark.oapi.service.attendance.v1.enums.QueryUserTaskRemedyRemedyStatusEnum}
          * @return
          */
         public Builder status(com.lark.oapi.service.attendance.v1.enums.QueryUserTaskRemedyRemedyStatusEnum status) {
-            this.status = status.getValue();
-            return this;
+             this.status = status.getValue();
+             return this;
         }
 
+    
+    
+    public QueryUserTaskRemedyReqBody build(){
+        return new QueryUserTaskRemedyReqBody(this);
+      }
+    }
 
-        public QueryUserTaskRemedyReqBody build() {
-            return new QueryUserTaskRemedyReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

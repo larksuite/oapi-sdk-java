@@ -12,35 +12,30 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CopyAppDashboardRespBody {
-    /**
-     * 多维表格 block_id
-     * <p> 示例值：blkEsvEEaNllY2UV
-     */
+     /**
+      * 多维表格 block_id
+      * <p> 示例值：blkEsvEEaNllY2UV
+      */
     @SerializedName("block_id")
     private String blockId;
-    /**
-     * block 名称
-     * <p> 示例值：Dashboard
-     */
+     /**
+      * block 名称
+      * <p> 示例值：Dashboard
+      */
     @SerializedName("name")
     private String name;
-
     public String getBlockId() {
         return this.blockId;
     }

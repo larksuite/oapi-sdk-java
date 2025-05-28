@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ImageDetail {
-    /**
-     * 图片完整内容base64字符串
-     * <p> 示例值：MTEx
-     */
+     /**
+      * 图片完整内容base64字符串
+      * <p> 示例值：MTEx
+      */
     @SerializedName("base64")
     private String base64;
-    /**
-     * 图片描述，目前为当前图片的前一段和后一段\n拼接
-     * <p> 示例值：这是一个示例
-     */
+     /**
+      * 图片描述，目前为当前图片的前一段和后一段\n拼接
+      * <p> 示例值：这是一个示例
+      */
     @SerializedName("caption")
     private String caption;
-    /**
-     * 图片url
-     * <p> 示例值：
-     */
+     /**
+      * 图片url
+      * <p> 示例值：
+      */
     @SerializedName("links")
     private String[] links;
-
-    // builder 开始
-    public ImageDetail() {
-    }
-
-    public ImageDetail(Builder builder) {
-        /**
-         * 图片完整内容base64字符串
-         * <p> 示例值：MTEx
-         */
-        this.base64 = builder.base64;
-        /**
-         * 图片描述，目前为当前图片的前一段和后一段\n拼接
-         * <p> 示例值：这是一个示例
-         */
-        this.caption = builder.caption;
-        /**
-         * 图片url
-         * <p> 示例值：
-         */
-        this.links = builder.links;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBase64() {
         return this.base64;
     }
@@ -98,64 +67,90 @@ public class ImageDetail {
         this.links = links;
     }
 
+
+// builder 开始
+  public ImageDetail(){}
+
+  public ImageDetail(Builder builder){
+         /**
+          * 图片完整内容base64字符串
+          * <p> 示例值：MTEx
+          */
+      this.base64 = builder.base64;
+         /**
+          * 图片描述，目前为当前图片的前一段和后一段\n拼接
+          * <p> 示例值：这是一个示例
+          */
+      this.caption = builder.caption;
+         /**
+          * 图片url
+          * <p> 示例值：
+          */
+      this.links = builder.links;
+  }
+
     public static class Builder {
-        /**
-         * 图片完整内容base64字符串
-         * <p> 示例值：MTEx
-         */
+     /**
+      * 图片完整内容base64字符串
+      * <p> 示例值：MTEx
+      */
         private String base64;
-        /**
-         * 图片描述，目前为当前图片的前一段和后一段\n拼接
-         * <p> 示例值：这是一个示例
-         */
+     /**
+      * 图片描述，目前为当前图片的前一段和后一段\n拼接
+      * <p> 示例值：这是一个示例
+      */
         private String caption;
-        /**
-         * 图片url
-         * <p> 示例值：
-         */
+     /**
+      * 图片url
+      * <p> 示例值：
+      */
         private String[] links;
 
         /**
          * 图片完整内容base64字符串
          * <p> 示例值：MTEx
-         *
          * @param base64
          * @return
          */
         public Builder base64(String base64) {
-            this.base64 = base64;
-            return this;
+             this.base64 = base64;
+             return this;
         }
 
+    
 
         /**
          * 图片描述，目前为当前图片的前一段和后一段\n拼接
          * <p> 示例值：这是一个示例
-         *
          * @param caption
          * @return
          */
         public Builder caption(String caption) {
-            this.caption = caption;
-            return this;
+             this.caption = caption;
+             return this;
         }
 
+    
 
         /**
          * 图片url
          * <p> 示例值：
-         *
          * @param links
          * @return
          */
         public Builder links(String[] links) {
-            this.links = links;
-            return this;
+             this.links = links;
+             return this;
         }
 
+    
+    
+    public ImageDetail build(){
+        return new ImageDetail(this);
+      }
+    }
 
-        public ImageDetail build() {
-            return new ImageDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

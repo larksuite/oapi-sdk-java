@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReferenceObject {
-    /**
-     * cpst_item(项目)、 cpst_indicator(指标)
-     * <p> 示例值：cpst_item
-     */
+     /**
+      * cpst_item(项目)、 cpst_indicator(指标)
+      * <p> 示例值：cpst_item
+      */
     @SerializedName("api_name")
     private String apiName;
-    /**
-     * 值列表 例如部门ID
-     * <p> 示例值：7156853394442044972
-     */
+     /**
+      * 值列表 例如部门ID
+      * <p> 示例值：7156853394442044972
+      */
     @SerializedName("id")
     private String id;
-
-    // builder 开始
-    public ReferenceObject() {
-    }
-
-    public ReferenceObject(Builder builder) {
-        /**
-         * cpst_item(项目)、 cpst_indicator(指标)
-         * <p> 示例值：cpst_item
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 值列表 例如部门ID
-         * <p> 示例值：7156853394442044972
-         */
-        this.id = builder.id;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApiName() {
         return this.apiName;
     }
@@ -79,58 +53,77 @@ public class ReferenceObject {
         this.id = id;
     }
 
+
+// builder 开始
+  public ReferenceObject(){}
+
+  public ReferenceObject(Builder builder){
+         /**
+          * cpst_item(项目)、 cpst_indicator(指标)
+          * <p> 示例值：cpst_item
+          */
+      this.apiName = builder.apiName;
+         /**
+          * 值列表 例如部门ID
+          * <p> 示例值：7156853394442044972
+          */
+      this.id = builder.id;
+  }
+
     public static class Builder {
-        /**
-         * cpst_item(项目)、 cpst_indicator(指标)
-         * <p> 示例值：cpst_item
-         */
+     /**
+      * cpst_item(项目)、 cpst_indicator(指标)
+      * <p> 示例值：cpst_item
+      */
         private String apiName;
-        /**
-         * 值列表 例如部门ID
-         * <p> 示例值：7156853394442044972
-         */
+     /**
+      * 值列表 例如部门ID
+      * <p> 示例值：7156853394442044972
+      */
         private String id;
 
         /**
          * cpst_item(项目)、 cpst_indicator(指标)
          * <p> 示例值：cpst_item
-         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
+             this.apiName = apiName;
+             return this;
         }
-
         /**
          * cpst_item(项目)、 cpst_indicator(指标)
          * <p> 示例值：cpst_item
-         *
          * @param apiName {@link com.lark.oapi.service.corehr.v1.enums.ReferenceObjectApiNameEnum}
          * @return
          */
         public Builder apiName(com.lark.oapi.service.corehr.v1.enums.ReferenceObjectApiNameEnum apiName) {
-            this.apiName = apiName.getValue();
-            return this;
+             this.apiName = apiName.getValue();
+             return this;
         }
 
+    
 
         /**
          * 值列表 例如部门ID
          * <p> 示例值：7156853394442044972
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
+    
+    public ReferenceObject build(){
+        return new ReferenceObject(this);
+      }
+    }
 
-        public ReferenceObject build() {
-            return new ReferenceObject(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

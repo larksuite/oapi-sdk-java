@@ -12,89 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EvaluationTask {
-    /**
-     * 评估 ID
-     * <p> 示例值：6989202908470446380
-     */
+     /**
+      * 评估 ID
+      * <p> 示例值：6989202908470446380
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 职位 ID
-     * <p> 示例值：6897921873523247373
-     */
+     /**
+      * 职位 ID
+      * <p> 示例值：6897921873523247373
+      */
     @SerializedName("job_id")
     private String jobId;
-    /**
-     * 人才 ID
-     * <p> 示例值：7046263097923537196
-     */
+     /**
+      * 人才 ID
+      * <p> 示例值：7046263097923537196
+      */
     @SerializedName("talent_id")
     private String talentId;
-    /**
-     * 投递 ID
-     * <p> 示例值：7046315599510833452
-     */
+     /**
+      * 投递 ID
+      * <p> 示例值：7046315599510833452
+      */
     @SerializedName("application_id")
     private String applicationId;
-    /**
-     * 任务状态
-     * <p> 示例值：1
-     */
+     /**
+      * 任务状态
+      * <p> 示例值：1
+      */
     @SerializedName("activity_status")
     private Integer activityStatus;
-
-    // builder 开始
-    public EvaluationTask() {
-    }
-
-    public EvaluationTask(Builder builder) {
-        /**
-         * 评估 ID
-         * <p> 示例值：6989202908470446380
-         */
-        this.id = builder.id;
-        /**
-         * 职位 ID
-         * <p> 示例值：6897921873523247373
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 人才 ID
-         * <p> 示例值：7046263097923537196
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 投递 ID
-         * <p> 示例值：7046315599510833452
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 任务状态
-         * <p> 示例值：1
-         */
-        this.activityStatus = builder.activityStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -135,100 +94,136 @@ public class EvaluationTask {
         this.activityStatus = activityStatus;
     }
 
+
+// builder 开始
+  public EvaluationTask(){}
+
+  public EvaluationTask(Builder builder){
+         /**
+          * 评估 ID
+          * <p> 示例值：6989202908470446380
+          */
+      this.id = builder.id;
+         /**
+          * 职位 ID
+          * <p> 示例值：6897921873523247373
+          */
+      this.jobId = builder.jobId;
+         /**
+          * 人才 ID
+          * <p> 示例值：7046263097923537196
+          */
+      this.talentId = builder.talentId;
+         /**
+          * 投递 ID
+          * <p> 示例值：7046315599510833452
+          */
+      this.applicationId = builder.applicationId;
+         /**
+          * 任务状态
+          * <p> 示例值：1
+          */
+      this.activityStatus = builder.activityStatus;
+  }
+
     public static class Builder {
-        /**
-         * 评估 ID
-         * <p> 示例值：6989202908470446380
-         */
+     /**
+      * 评估 ID
+      * <p> 示例值：6989202908470446380
+      */
         private String id;
-        /**
-         * 职位 ID
-         * <p> 示例值：6897921873523247373
-         */
+     /**
+      * 职位 ID
+      * <p> 示例值：6897921873523247373
+      */
         private String jobId;
-        /**
-         * 人才 ID
-         * <p> 示例值：7046263097923537196
-         */
+     /**
+      * 人才 ID
+      * <p> 示例值：7046263097923537196
+      */
         private String talentId;
-        /**
-         * 投递 ID
-         * <p> 示例值：7046315599510833452
-         */
+     /**
+      * 投递 ID
+      * <p> 示例值：7046315599510833452
+      */
         private String applicationId;
-        /**
-         * 任务状态
-         * <p> 示例值：1
-         */
+     /**
+      * 任务状态
+      * <p> 示例值：1
+      */
         private Integer activityStatus;
 
         /**
          * 评估 ID
          * <p> 示例值：6989202908470446380
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 职位 ID
          * <p> 示例值：6897921873523247373
-         *
          * @param jobId
          * @return
          */
         public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
+             this.jobId = jobId;
+             return this;
         }
 
+    
 
         /**
          * 人才 ID
          * <p> 示例值：7046263097923537196
-         *
          * @param talentId
          * @return
          */
         public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
+             this.talentId = talentId;
+             return this;
         }
 
+    
 
         /**
          * 投递 ID
          * <p> 示例值：7046315599510833452
-         *
          * @param applicationId
          * @return
          */
         public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
+             this.applicationId = applicationId;
+             return this;
         }
 
+    
 
         /**
          * 任务状态
          * <p> 示例值：1
-         *
          * @param activityStatus
          * @return
          */
         public Builder activityStatus(Integer activityStatus) {
-            this.activityStatus = activityStatus;
-            return this;
+             this.activityStatus = activityStatus;
+             return this;
         }
 
+    
+    
+    public EvaluationTask build(){
+        return new EvaluationTask(this);
+      }
+    }
 
-        public EvaluationTask build() {
-            return new EvaluationTask(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

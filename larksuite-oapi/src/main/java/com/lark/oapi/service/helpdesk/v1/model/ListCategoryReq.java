@@ -12,70 +12,39 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListCategoryReq {
-    /**
-     * 知识库分类语言
-     * <p> 示例值：zh_cn
-     */
+     /**
+      * 知识库分类语言
+      * <p> 示例值：zh_cn
+      */
     @Query
     @SerializedName("lang")
     private String lang;
-    /**
-     * 排序键。1: 根据知识库分类更新时间排序
-     * <p> 示例值：1
-     */
+     /**
+      * 排序键。1: 根据知识库分类更新时间排序
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("order_by")
     private Integer orderBy;
-    /**
-     * 顺序。true: 正序；false：反序
-     * <p> 示例值：true
-     */
+     /**
+      * 顺序。true: 正序；false：反序
+      * <p> 示例值：true
+      */
     @Query
     @SerializedName("asc")
     private Boolean asc;
-
-    // builder 开始
-    public ListCategoryReq() {
-    }
-
-    public ListCategoryReq(Builder builder) {
-        /**
-         * 知识库分类语言
-         * <p> 示例值：zh_cn
-         */
-        this.lang = builder.lang;
-        /**
-         * 排序键。1: 根据知识库分类更新时间排序
-         * <p> 示例值：1
-         */
-        this.orderBy = builder.orderBy;
-        /**
-         * 顺序。true: 正序；false：反序
-         * <p> 示例值：true
-         */
-        this.asc = builder.asc;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLang() {
         return this.lang;
     }
@@ -100,52 +69,75 @@ public class ListCategoryReq {
         this.asc = asc;
     }
 
+
+// builder 开始
+  public ListCategoryReq(){}
+
+  public ListCategoryReq(Builder builder){
+         /**
+          * 知识库分类语言
+          * <p> 示例值：zh_cn
+          */
+       this.lang = builder.lang;
+         /**
+          * 排序键。1: 根据知识库分类更新时间排序
+          * <p> 示例值：1
+          */
+       this.orderBy = builder.orderBy;
+         /**
+          * 顺序。true: 正序；false：反序
+          * <p> 示例值：true
+          */
+       this.asc = builder.asc;
+  }
+
     public static class Builder {
         private String lang; // 知识库分类语言
         private Integer orderBy; // 排序键。1: 根据知识库分类更新时间排序
         private Boolean asc; // 顺序。true: 正序；false：反序
-
+    
         /**
          * 知识库分类语言
          * <p> 示例值：zh_cn
-         *
          * @param lang
          * @return
          */
-        public Builder lang(String lang) {
-            this.lang = lang;
-            return this;
-        }
+           public Builder lang(String lang) {
+                this.lang = lang;
+                return this;
+           }
 
-
+    
         /**
          * 排序键。1: 根据知识库分类更新时间排序
          * <p> 示例值：1
-         *
          * @param orderBy
          * @return
          */
-        public Builder orderBy(Integer orderBy) {
-            this.orderBy = orderBy;
-            return this;
-        }
+           public Builder orderBy(Integer orderBy) {
+                this.orderBy = orderBy;
+                return this;
+           }
 
-
+    
         /**
          * 顺序。true: 正序；false：反序
          * <p> 示例值：true
-         *
          * @param asc
          * @return
          */
-        public Builder asc(Boolean asc) {
-            this.asc = asc;
-            return this;
-        }
+           public Builder asc(Boolean asc) {
+                this.asc = asc;
+                return this;
+           }
 
+    
+    public ListCategoryReq build(){
+        return new ListCategoryReq(this);
+      }
+    }
 
-        public ListCategoryReq build() {
-            return new ListCategoryReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

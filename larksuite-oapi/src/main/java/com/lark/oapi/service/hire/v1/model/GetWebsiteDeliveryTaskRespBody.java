@@ -12,47 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetWebsiteDeliveryTaskRespBody {
-    /**
-     * 任务状态
-     * <p> 示例值：1
-     */
+     /**
+      * 任务状态
+      * <p> 示例值：1
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * 官网投递信息
-     * <p> 示例值：
-     */
+     /**
+      * 官网投递信息
+      * <p> 示例值：
+      */
     @SerializedName("delivery")
     private WebsiteDeliveryDto delivery;
-    /**
-     * 状态信息，仅 status 为 3 时返回
-     * <p> 示例值：same application exist
-     */
+     /**
+      * 状态信息，仅 status 为 3 时返回
+      * <p> 示例值：same application exist
+      */
     @SerializedName("status_msg")
     private String statusMsg;
-    /**
-     * 附加信息，当前返回投递 ID，仅当 status 为 3 且 status_msg 标识为重复投递时，将返回重复投递的 ID
-     * <p> 示例值：7100825663201052972
-     */
+     /**
+      * 附加信息，当前返回投递 ID，仅当 status 为 3 且 status_msg 标识为重复投递时，将返回重复投递的 ID
+      * <p> 示例值：7100825663201052972
+      */
     @SerializedName("extra_info")
     private String extraInfo;
-
     public Integer getStatus() {
         return this.status;
     }

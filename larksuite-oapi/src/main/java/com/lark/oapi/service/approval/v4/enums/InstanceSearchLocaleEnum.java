@@ -17,17 +17,16 @@ package com.lark.oapi.service.approval.v4.enums;
  * 地区
  */
 public enum InstanceSearchLocaleEnum {
-    ZHCN("zh-CN"), // 中文
-    ENUS("en-US"), // 英文
-    JAJP("ja-JP"), // 日文
-    ;
-    private String value;
-
+     ZHCN("zh-CN"), // 中文
+     ENUS("en-US"), // 英文
+     JAJP("ja-JP"), // 日文
+  ;
+   private String value;
     InstanceSearchLocaleEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DepartmentAdjustRecord {
-    /**
-     * 部门调整记录 ID
-     * <p> 示例值：6991776076699549697
-     */
+     /**
+      * 部门调整记录 ID
+      * <p> 示例值：6991776076699549697
+      */
     @SerializedName("record_id")
     private String recordId;
-    /**
-     * 部门 ID
-     * <p> 示例值：6966236933198579208
-     */
+     /**
+      * 部门 ID
+      * <p> 示例值：6966236933198579208
+      */
     @SerializedName("department_id")
     private String departmentId;
-    /**
-     * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
-     * <p> 示例值：6966236933198579208
-     */
+     /**
+      * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+      * <p> 示例值：6966236933198579208
+      */
     @SerializedName("draft_department_id")
     private String draftDepartmentId;
-    /**
-     * 调整类型
-     * <p> 示例值：Create
-     */
+     /**
+      * 调整类型
+      * <p> 示例值：Create
+      */
     @SerializedName("department_change_type")
     private String departmentChangeType;
-    /**
-     * 是否冲突
-     * <p> 示例值：false
-     */
+     /**
+      * 是否冲突
+      * <p> 示例值：false
+      */
     @SerializedName("is_conflict")
     private Boolean isConflict;
-    /**
-     * 调整原因
-     * <p> 示例值：
-     */
+     /**
+      * 调整原因
+      * <p> 示例值：
+      */
     @SerializedName("change_reasons")
     private String[] changeReasons;
-    /**
-     * 调整详细信息
-     * <p> 示例值：
-     */
+     /**
+      * 调整详细信息
+      * <p> 示例值：
+      */
     @SerializedName("reorganization_info")
     private ReorganizationInfo reorganizationInfo;
-
-    // builder 开始
-    public DepartmentAdjustRecord() {
-    }
-
-    public DepartmentAdjustRecord(Builder builder) {
-        /**
-         * 部门调整记录 ID
-         * <p> 示例值：6991776076699549697
-         */
-        this.recordId = builder.recordId;
-        /**
-         * 部门 ID
-         * <p> 示例值：6966236933198579208
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
-         * <p> 示例值：6966236933198579208
-         */
-        this.draftDepartmentId = builder.draftDepartmentId;
-        /**
-         * 调整类型
-         * <p> 示例值：Create
-         */
-        this.departmentChangeType = builder.departmentChangeType;
-        /**
-         * 是否冲突
-         * <p> 示例值：false
-         */
-        this.isConflict = builder.isConflict;
-        /**
-         * 调整原因
-         * <p> 示例值：
-         */
-        this.changeReasons = builder.changeReasons;
-        /**
-         * 调整详细信息
-         * <p> 示例值：
-         */
-        this.reorganizationInfo = builder.reorganizationInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRecordId() {
         return this.recordId;
     }
@@ -174,148 +123,192 @@ public class DepartmentAdjustRecord {
         this.reorganizationInfo = reorganizationInfo;
     }
 
+
+// builder 开始
+  public DepartmentAdjustRecord(){}
+
+  public DepartmentAdjustRecord(Builder builder){
+         /**
+          * 部门调整记录 ID
+          * <p> 示例值：6991776076699549697
+          */
+      this.recordId = builder.recordId;
+         /**
+          * 部门 ID
+          * <p> 示例值：6966236933198579208
+          */
+      this.departmentId = builder.departmentId;
+         /**
+          * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+          * <p> 示例值：6966236933198579208
+          */
+      this.draftDepartmentId = builder.draftDepartmentId;
+         /**
+          * 调整类型
+          * <p> 示例值：Create
+          */
+      this.departmentChangeType = builder.departmentChangeType;
+         /**
+          * 是否冲突
+          * <p> 示例值：false
+          */
+      this.isConflict = builder.isConflict;
+         /**
+          * 调整原因
+          * <p> 示例值：
+          */
+      this.changeReasons = builder.changeReasons;
+         /**
+          * 调整详细信息
+          * <p> 示例值：
+          */
+      this.reorganizationInfo = builder.reorganizationInfo;
+  }
+
     public static class Builder {
-        /**
-         * 部门调整记录 ID
-         * <p> 示例值：6991776076699549697
-         */
+     /**
+      * 部门调整记录 ID
+      * <p> 示例值：6991776076699549697
+      */
         private String recordId;
-        /**
-         * 部门 ID
-         * <p> 示例值：6966236933198579208
-         */
+     /**
+      * 部门 ID
+      * <p> 示例值：6966236933198579208
+      */
         private String departmentId;
-        /**
-         * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
-         * <p> 示例值：6966236933198579208
-         */
+     /**
+      * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+      * <p> 示例值：6966236933198579208
+      */
         private String draftDepartmentId;
-        /**
-         * 调整类型
-         * <p> 示例值：Create
-         */
+     /**
+      * 调整类型
+      * <p> 示例值：Create
+      */
         private String departmentChangeType;
-        /**
-         * 是否冲突
-         * <p> 示例值：false
-         */
+     /**
+      * 是否冲突
+      * <p> 示例值：false
+      */
         private Boolean isConflict;
-        /**
-         * 调整原因
-         * <p> 示例值：
-         */
+     /**
+      * 调整原因
+      * <p> 示例值：
+      */
         private String[] changeReasons;
-        /**
-         * 调整详细信息
-         * <p> 示例值：
-         */
+     /**
+      * 调整详细信息
+      * <p> 示例值：
+      */
         private ReorganizationInfo reorganizationInfo;
 
         /**
          * 部门调整记录 ID
          * <p> 示例值：6991776076699549697
-         *
          * @param recordId
          * @return
          */
         public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
+             this.recordId = recordId;
+             return this;
         }
 
+    
 
         /**
          * 部门 ID
          * <p> 示例值：6966236933198579208
-         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
+             this.departmentId = departmentId;
+             return this;
         }
 
+    
 
         /**
          * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
          * <p> 示例值：6966236933198579208
-         *
          * @param draftDepartmentId
          * @return
          */
         public Builder draftDepartmentId(String draftDepartmentId) {
-            this.draftDepartmentId = draftDepartmentId;
-            return this;
+             this.draftDepartmentId = draftDepartmentId;
+             return this;
         }
 
+    
 
         /**
          * 调整类型
          * <p> 示例值：Create
-         *
          * @param departmentChangeType
          * @return
          */
         public Builder departmentChangeType(String departmentChangeType) {
-            this.departmentChangeType = departmentChangeType;
-            return this;
+             this.departmentChangeType = departmentChangeType;
+             return this;
         }
-
         /**
          * 调整类型
          * <p> 示例值：Create
-         *
          * @param departmentChangeType {@link com.lark.oapi.service.corehr.v2.enums.DepartmentAdjustRecordDepartmentChangeTypeEnum}
          * @return
          */
         public Builder departmentChangeType(com.lark.oapi.service.corehr.v2.enums.DepartmentAdjustRecordDepartmentChangeTypeEnum departmentChangeType) {
-            this.departmentChangeType = departmentChangeType.getValue();
-            return this;
+             this.departmentChangeType = departmentChangeType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 是否冲突
          * <p> 示例值：false
-         *
          * @param isConflict
          * @return
          */
         public Builder isConflict(Boolean isConflict) {
-            this.isConflict = isConflict;
-            return this;
+             this.isConflict = isConflict;
+             return this;
         }
 
+    
 
         /**
          * 调整原因
          * <p> 示例值：
-         *
          * @param changeReasons
          * @return
          */
         public Builder changeReasons(String[] changeReasons) {
-            this.changeReasons = changeReasons;
-            return this;
+             this.changeReasons = changeReasons;
+             return this;
         }
 
+    
 
         /**
          * 调整详细信息
          * <p> 示例值：
-         *
          * @param reorganizationInfo
          * @return
          */
         public Builder reorganizationInfo(ReorganizationInfo reorganizationInfo) {
-            this.reorganizationInfo = reorganizationInfo;
-            return this;
+             this.reorganizationInfo = reorganizationInfo;
+             return this;
         }
 
+    
+    
+    public DepartmentAdjustRecord build(){
+        return new DepartmentAdjustRecord(this);
+      }
+    }
 
-        public DepartmentAdjustRecord build() {
-            return new DepartmentAdjustRecord(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

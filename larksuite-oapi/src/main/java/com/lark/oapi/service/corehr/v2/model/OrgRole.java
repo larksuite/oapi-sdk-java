@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OrgRole {
-    /**
-     * 角色key
-     * <p> 示例值：hrbp
-     */
+     /**
+      * 角色key
+      * <p> 示例值：hrbp
+      */
     @SerializedName("api_name")
     private String apiName;
-    /**
-     * 角色ID
-     * <p> 示例值：7034393015968122400
-     */
+     /**
+      * 角色ID
+      * <p> 示例值：7034393015968122400
+      */
     @SerializedName("security_group_id")
     private String securityGroupId;
-    /**
-     * 授权员工列表
-     * <p> 示例值：
-     */
+     /**
+      * 授权员工列表
+      * <p> 示例值：
+      */
     @SerializedName("employment_ids")
     private String[] employmentIds;
-    /**
-     * 继承至上级授权员工列表
-     * <p> 示例值：
-     */
+     /**
+      * 继承至上级授权员工列表
+      * <p> 示例值：
+      */
     @SerializedName("inherit_employment_ids")
     private String[] inheritEmploymentIds;
-
-    // builder 开始
-    public OrgRole() {
-    }
-
-    public OrgRole(Builder builder) {
-        /**
-         * 角色key
-         * <p> 示例值：hrbp
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 角色ID
-         * <p> 示例值：7034393015968122400
-         */
-        this.securityGroupId = builder.securityGroupId;
-        /**
-         * 授权员工列表
-         * <p> 示例值：
-         */
-        this.employmentIds = builder.employmentIds;
-        /**
-         * 继承至上级授权员工列表
-         * <p> 示例值：
-         */
-        this.inheritEmploymentIds = builder.inheritEmploymentIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApiName() {
         return this.apiName;
     }
@@ -117,82 +81,113 @@ public class OrgRole {
         this.inheritEmploymentIds = inheritEmploymentIds;
     }
 
+
+// builder 开始
+  public OrgRole(){}
+
+  public OrgRole(Builder builder){
+         /**
+          * 角色key
+          * <p> 示例值：hrbp
+          */
+      this.apiName = builder.apiName;
+         /**
+          * 角色ID
+          * <p> 示例值：7034393015968122400
+          */
+      this.securityGroupId = builder.securityGroupId;
+         /**
+          * 授权员工列表
+          * <p> 示例值：
+          */
+      this.employmentIds = builder.employmentIds;
+         /**
+          * 继承至上级授权员工列表
+          * <p> 示例值：
+          */
+      this.inheritEmploymentIds = builder.inheritEmploymentIds;
+  }
+
     public static class Builder {
-        /**
-         * 角色key
-         * <p> 示例值：hrbp
-         */
+     /**
+      * 角色key
+      * <p> 示例值：hrbp
+      */
         private String apiName;
-        /**
-         * 角色ID
-         * <p> 示例值：7034393015968122400
-         */
+     /**
+      * 角色ID
+      * <p> 示例值：7034393015968122400
+      */
         private String securityGroupId;
-        /**
-         * 授权员工列表
-         * <p> 示例值：
-         */
+     /**
+      * 授权员工列表
+      * <p> 示例值：
+      */
         private String[] employmentIds;
-        /**
-         * 继承至上级授权员工列表
-         * <p> 示例值：
-         */
+     /**
+      * 继承至上级授权员工列表
+      * <p> 示例值：
+      */
         private String[] inheritEmploymentIds;
 
         /**
          * 角色key
          * <p> 示例值：hrbp
-         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
+             this.apiName = apiName;
+             return this;
         }
 
+    
 
         /**
          * 角色ID
          * <p> 示例值：7034393015968122400
-         *
          * @param securityGroupId
          * @return
          */
         public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = securityGroupId;
-            return this;
+             this.securityGroupId = securityGroupId;
+             return this;
         }
 
+    
 
         /**
          * 授权员工列表
          * <p> 示例值：
-         *
          * @param employmentIds
          * @return
          */
         public Builder employmentIds(String[] employmentIds) {
-            this.employmentIds = employmentIds;
-            return this;
+             this.employmentIds = employmentIds;
+             return this;
         }
 
+    
 
         /**
          * 继承至上级授权员工列表
          * <p> 示例值：
-         *
          * @param inheritEmploymentIds
          * @return
          */
         public Builder inheritEmploymentIds(String[] inheritEmploymentIds) {
-            this.inheritEmploymentIds = inheritEmploymentIds;
-            return this;
+             this.inheritEmploymentIds = inheritEmploymentIds;
+             return this;
         }
 
+    
+    
+    public OrgRole build(){
+        return new OrgRole(this);
+      }
+    }
 
-        public OrgRole build() {
-            return new OrgRole(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

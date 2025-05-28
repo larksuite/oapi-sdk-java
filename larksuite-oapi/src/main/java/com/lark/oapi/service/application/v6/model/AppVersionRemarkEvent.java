@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AppVersionRemarkEvent {
-    /**
-     * 备注说明
-     * <p> 示例值：备注说明
-     */
+     /**
+      * 备注说明
+      * <p> 示例值：备注说明
+      */
     @SerializedName("remark")
     private String remark;
-    /**
-     * 更新说明
-     * <p> 示例值：更新说明
-     */
+     /**
+      * 更新说明
+      * <p> 示例值：更新说明
+      */
     @SerializedName("update_remark")
     private String updateRemark;
-    /**
-     * 可见性名单
-     * <p> 示例值：
-     */
+     /**
+      * 可见性名单
+      * <p> 示例值：
+      */
     @SerializedName("visibility")
     private AppVisibilityEvent visibility;
-
-    // builder 开始
-    public AppVersionRemarkEvent() {
-    }
-
-    public AppVersionRemarkEvent(Builder builder) {
-        /**
-         * 备注说明
-         * <p> 示例值：备注说明
-         */
-        this.remark = builder.remark;
-        /**
-         * 更新说明
-         * <p> 示例值：更新说明
-         */
-        this.updateRemark = builder.updateRemark;
-        /**
-         * 可见性名单
-         * <p> 示例值：
-         */
-        this.visibility = builder.visibility;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRemark() {
         return this.remark;
     }
@@ -98,64 +67,90 @@ public class AppVersionRemarkEvent {
         this.visibility = visibility;
     }
 
+
+// builder 开始
+  public AppVersionRemarkEvent(){}
+
+  public AppVersionRemarkEvent(Builder builder){
+         /**
+          * 备注说明
+          * <p> 示例值：备注说明
+          */
+      this.remark = builder.remark;
+         /**
+          * 更新说明
+          * <p> 示例值：更新说明
+          */
+      this.updateRemark = builder.updateRemark;
+         /**
+          * 可见性名单
+          * <p> 示例值：
+          */
+      this.visibility = builder.visibility;
+  }
+
     public static class Builder {
-        /**
-         * 备注说明
-         * <p> 示例值：备注说明
-         */
+     /**
+      * 备注说明
+      * <p> 示例值：备注说明
+      */
         private String remark;
-        /**
-         * 更新说明
-         * <p> 示例值：更新说明
-         */
+     /**
+      * 更新说明
+      * <p> 示例值：更新说明
+      */
         private String updateRemark;
-        /**
-         * 可见性名单
-         * <p> 示例值：
-         */
+     /**
+      * 可见性名单
+      * <p> 示例值：
+      */
         private AppVisibilityEvent visibility;
 
         /**
          * 备注说明
          * <p> 示例值：备注说明
-         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
+             this.remark = remark;
+             return this;
         }
 
+    
 
         /**
          * 更新说明
          * <p> 示例值：更新说明
-         *
          * @param updateRemark
          * @return
          */
         public Builder updateRemark(String updateRemark) {
-            this.updateRemark = updateRemark;
-            return this;
+             this.updateRemark = updateRemark;
+             return this;
         }
 
+    
 
         /**
          * 可见性名单
          * <p> 示例值：
-         *
          * @param visibility
          * @return
          */
         public Builder visibility(AppVisibilityEvent visibility) {
-            this.visibility = visibility;
-            return this;
+             this.visibility = visibility;
+             return this;
         }
 
+    
+    
+    public AppVersionRemarkEvent build(){
+        return new AppVersionRemarkEvent(this);
+      }
+    }
 
-        public AppVersionRemarkEvent build() {
-            return new AppVersionRemarkEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

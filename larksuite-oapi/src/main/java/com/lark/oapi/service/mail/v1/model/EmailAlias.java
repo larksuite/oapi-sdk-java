@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EmailAlias {
-    /**
-     * 主邮箱地址
-     * <p> 示例值：xxx@xx.xxx
-     */
+     /**
+      * 主邮箱地址
+      * <p> 示例值：xxx@xx.xxx
+      */
     @SerializedName("primary_email")
     private String primaryEmail;
-    /**
-     * 邮箱别名
-     * <p> 示例值：xxx@xx.xxx
-     */
+     /**
+      * 邮箱别名
+      * <p> 示例值：xxx@xx.xxx
+      */
     @SerializedName("email_alias")
     private String emailAlias;
-
-    // builder 开始
-    public EmailAlias() {
-    }
-
-    public EmailAlias(Builder builder) {
-        /**
-         * 主邮箱地址
-         * <p> 示例值：xxx@xx.xxx
-         */
-        this.primaryEmail = builder.primaryEmail;
-        /**
-         * 邮箱别名
-         * <p> 示例值：xxx@xx.xxx
-         */
-        this.emailAlias = builder.emailAlias;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPrimaryEmail() {
         return this.primaryEmail;
     }
@@ -79,46 +53,67 @@ public class EmailAlias {
         this.emailAlias = emailAlias;
     }
 
+
+// builder 开始
+  public EmailAlias(){}
+
+  public EmailAlias(Builder builder){
+         /**
+          * 主邮箱地址
+          * <p> 示例值：xxx@xx.xxx
+          */
+      this.primaryEmail = builder.primaryEmail;
+         /**
+          * 邮箱别名
+          * <p> 示例值：xxx@xx.xxx
+          */
+      this.emailAlias = builder.emailAlias;
+  }
+
     public static class Builder {
-        /**
-         * 主邮箱地址
-         * <p> 示例值：xxx@xx.xxx
-         */
+     /**
+      * 主邮箱地址
+      * <p> 示例值：xxx@xx.xxx
+      */
         private String primaryEmail;
-        /**
-         * 邮箱别名
-         * <p> 示例值：xxx@xx.xxx
-         */
+     /**
+      * 邮箱别名
+      * <p> 示例值：xxx@xx.xxx
+      */
         private String emailAlias;
 
         /**
          * 主邮箱地址
          * <p> 示例值：xxx@xx.xxx
-         *
          * @param primaryEmail
          * @return
          */
         public Builder primaryEmail(String primaryEmail) {
-            this.primaryEmail = primaryEmail;
-            return this;
+             this.primaryEmail = primaryEmail;
+             return this;
         }
 
+    
 
         /**
          * 邮箱别名
          * <p> 示例值：xxx@xx.xxx
-         *
          * @param emailAlias
          * @return
          */
         public Builder emailAlias(String emailAlias) {
-            this.emailAlias = emailAlias;
-            return this;
+             this.emailAlias = emailAlias;
+             return this;
         }
 
+    
+    
+    public EmailAlias build(){
+        return new EmailAlias(this);
+      }
+    }
 
-        public EmailAlias build() {
-            return new EmailAlias(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

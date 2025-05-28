@@ -17,27 +17,26 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 证件类型
  */
 public enum VendorCertificationTypeEnum {
-    UNIFYSOCIALCREDITCODE("0"), // 统一社会信用代码(中国大陆)
-    CHINESEMAINLANDIDENTITYCARD("1"), // 中国大陆居民身份证(中国大陆)
-    REGISTRATIONNUMBER("2"), // 注册号(海外)
-    DUTPARAGRAPH("3"), // 税号(海外)
-    DRIVERLICENSE("4"), // 驾驶证(海外)
-    IDENTITYCARD("5"), // 身份证(海外)
-    PASSPORT("6"), // 护照
-    MAINLANDTRAVELPERMITFORHONGKONGANDMACAORESIDENTS("8"), // 港澳居民往来大陆通行证
-    MAINLANDTRAVELPERMITFORTAIWANRESIDENTS("9"), // 台湾居民往来大陆通行证
-    HONGKONGPERMANENTIDENTITYCARD("10"), // 香港永久性居民身份证
-    PERMANENTRESIDENTSOFTHEMACAOSPECIALADMINISTRATIVEREGION("11"), // 澳门特别行政区永久性居民身份证
-    TAIWANIDENTITYCARD("12"), // 台湾身份证
-    FOREIGNPERMANENTRESIDENCECARD("13"), // 外国人永久居留证
-    ;
-    private String value;
-
+     UNIFYSOCIALCREDITCODE("0"), // 统一社会信用代码(中国大陆)
+     CHINESEMAINLANDIDENTITYCARD("1"), // 中国大陆居民身份证(中国大陆)
+     REGISTRATIONNUMBER("2"), // 注册号(海外)
+     DUTPARAGRAPH("3"), // 税号(海外)
+     DRIVERLICENSE("4"), // 驾驶证(海外)
+     IDENTITYCARD("5"), // 身份证(海外)
+     PASSPORT("6"), // 护照
+     MAINLANDTRAVELPERMITFORHONGKONGANDMACAORESIDENTS("8"), // 港澳居民往来大陆通行证
+     MAINLANDTRAVELPERMITFORTAIWANRESIDENTS("9"), // 台湾居民往来大陆通行证
+     HONGKONGPERMANENTIDENTITYCARD("10"), // 香港永久性居民身份证
+     PERMANENTRESIDENTSOFTHEMACAOSPECIALADMINISTRATIVEREGION("11"), // 澳门特别行政区永久性居民身份证
+     TAIWANIDENTITYCARD("12"), // 台湾身份证
+     FOREIGNPERMANENTRESIDENCECARD("13"), // 外国人永久居留证
+  ;
+   private String value;
     VendorCertificationTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

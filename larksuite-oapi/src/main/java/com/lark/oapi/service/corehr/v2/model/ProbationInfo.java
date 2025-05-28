@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,302 +19,162 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProbationInfo {
-    /**
-     * 雇佣 ID
-     * <p> 示例值：6893014062142064135
-     */
+     /**
+      * 雇佣 ID
+      * <p> 示例值：6893014062142064135
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 试用期信息 ID
-     * <p> 示例值：6893014062142064132
-     */
+     /**
+      * 试用期信息 ID
+      * <p> 示例值：6893014062142064132
+      */
     @SerializedName("probation_id")
     private String probationId;
-    /**
-     * 试用期开始日期
-     * <p> 示例值：2022-05-20
-     */
+     /**
+      * 试用期开始日期
+      * <p> 示例值：2022-05-20
+      */
     @SerializedName("probation_start_date")
     private String probationStartDate;
-    /**
-     * 试用期预计结束日期
-     * <p> 示例值：2022-05-28
-     */
+     /**
+      * 试用期预计结束日期
+      * <p> 示例值：2022-05-28
+      */
     @SerializedName("probation_expected_end_date")
     private String probationExpectedEndDate;
-    /**
-     * 试用期实际结束日期
-     * <p> 示例值：2022-06-28
-     */
+     /**
+      * 试用期实际结束日期
+      * <p> 示例值：2022-06-28
+      */
     @SerializedName("actual_probation_end_date")
     private String actualProbationEndDate;
-    /**
-     * 转正发起日期
-     * <p> 示例值：2022-07-28
-     */
+     /**
+      * 转正发起日期
+      * <p> 示例值：2022-07-28
+      */
     @SerializedName("initiating_time")
     private String initiatingTime;
-    /**
-     * 发起方
-     * <p> 示例值：hr_submission
-     */
+     /**
+      * 发起方
+      * <p> 示例值：hr_submission
+      */
     @SerializedName("submission_type")
     private Enum submissionType;
-    /**
-     * 转正发起人的雇佣 ID，当系统发起转正时该字段为空
-     * <p> 示例值：6893014062142061135
-     */
+     /**
+      * 转正发起人的雇佣 ID，当系统发起转正时该字段为空
+      * <p> 示例值：6893014062142061135
+      */
     @SerializedName("initiator_id")
     private String initiatorId;
-    /**
-     * 试用期状态
-     * <p> 示例值：converted
-     */
+     /**
+      * 试用期状态
+      * <p> 示例值：converted
+      */
     @SerializedName("probation_status")
     private Enum probationStatus;
-    /**
-     * 员工自评
-     * <p> 示例值：符合预期
-     */
+     /**
+      * 员工自评
+      * <p> 示例值：符合预期
+      */
     @SerializedName("self_review")
     private String selfReview;
-    /**
-     * 备注
-     * <p> 示例值：高潜
-     */
+     /**
+      * 备注
+      * <p> 示例值：高潜
+      */
     @SerializedName("notes")
     private String notes;
-    /**
-     * 流程实例 ID
-     * <p> 示例值：6893014062142164135
-     */
+     /**
+      * 流程实例 ID
+      * <p> 示例值：6893014062142164135
+      */
     @SerializedName("process_id")
     private String processId;
-    /**
-     * 是否通过 BPM 转正
-     * <p> 示例值：false
-     */
+     /**
+      * 是否通过 BPM 转正
+      * <p> 示例值：false
+      */
     @SerializedName("converted_via_bpm")
     private Boolean convertedViaBpm;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
-    /**
-     * 试用期考核最终状态
-     * <p> 示例值：completed
-     */
+     /**
+      * 试用期考核最终状态
+      * <p> 示例值：completed
+      */
     @SerializedName("final_assessment_status")
     private Enum finalAssessmentStatus;
-    /**
-     * 试用期考核最终结果
-     * <p> 示例值：approved
-     */
+     /**
+      * 试用期考核最终结果
+      * <p> 示例值：approved
+      */
     @SerializedName("final_assessment_result")
     private Enum finalAssessmentResult;
-    /**
-     * 试用期考核最终得分
-     * <p> 示例值：99.9
-     */
+     /**
+      * 试用期考核最终得分
+      * <p> 示例值：99.9
+      */
     @SerializedName("final_assessment_score")
     private Double finalAssessmentScore;
-    /**
-     * 试用期考核最终等级
-     * <p> 示例值：grade_a
-     */
+     /**
+      * 试用期考核最终等级
+      * <p> 示例值：grade_a
+      */
     @SerializedName("final_assessment_grade")
     private Enum finalAssessmentGrade;
-    /**
-     * 试用期考核最终评语
-     * <p> 示例值：超出预期
-     */
+     /**
+      * 试用期考核最终评语
+      * <p> 示例值：超出预期
+      */
     @SerializedName("final_assessment_comment")
     private String finalAssessmentComment;
-    /**
-     * 最终考核结果页面超链接
-     * <p> 示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&recordPageId=173330728118312
-     */
+     /**
+      * 最终考核结果页面超链接
+      * <p> 示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&recordPageId=173330728118312
+      */
     @SerializedName("final_assessment_detail")
     private String finalAssessmentDetail;
-    /**
-     * 试用期考核结果列表
-     * <p> 示例值：
-     */
+     /**
+      * 试用期考核结果列表
+      * <p> 示例值：
+      */
     @SerializedName("assessments")
     private Assessment[] assessments;
-    /**
-     * 试用期延长后的预计结束日期
-     * <p> 示例值：2022-05-20
-     */
+     /**
+      * 试用期延长后的预计结束日期
+      * <p> 示例值：2022-05-20
+      */
     @SerializedName("probation_extend_expected_end_date")
     private String probationExtendExpectedEndDate;
-    /**
-     * 试用期延长时间
-     * <p> 示例值：1
-     */
+     /**
+      * 试用期延长时间
+      * <p> 示例值：1
+      */
     @SerializedName("extended_probation_period_duration")
     private Integer extendedProbationPeriodDuration;
-    /**
-     * 试用期延长时间单位
-     * <p> 示例值：month
-     */
+     /**
+      * 试用期延长时间单位
+      * <p> 示例值：month
+      */
     @SerializedName("extended_probation_period_unit")
     private Enum extendedProbationPeriodUnit;
-    /**
-     * 试用期结果
-     * <p> 示例值：passed
-     */
+     /**
+      * 试用期结果
+      * <p> 示例值：passed
+      */
     @SerializedName("probation_outcome")
     private Enum probationOutcome;
-
-    // builder 开始
-    public ProbationInfo() {
-    }
-
-    public ProbationInfo(Builder builder) {
-        /**
-         * 雇佣 ID
-         * <p> 示例值：6893014062142064135
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 试用期信息 ID
-         * <p> 示例值：6893014062142064132
-         */
-        this.probationId = builder.probationId;
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2022-05-20
-         */
-        this.probationStartDate = builder.probationStartDate;
-        /**
-         * 试用期预计结束日期
-         * <p> 示例值：2022-05-28
-         */
-        this.probationExpectedEndDate = builder.probationExpectedEndDate;
-        /**
-         * 试用期实际结束日期
-         * <p> 示例值：2022-06-28
-         */
-        this.actualProbationEndDate = builder.actualProbationEndDate;
-        /**
-         * 转正发起日期
-         * <p> 示例值：2022-07-28
-         */
-        this.initiatingTime = builder.initiatingTime;
-        /**
-         * 发起方
-         * <p> 示例值：hr_submission
-         */
-        this.submissionType = builder.submissionType;
-        /**
-         * 转正发起人的雇佣 ID，当系统发起转正时该字段为空
-         * <p> 示例值：6893014062142061135
-         */
-        this.initiatorId = builder.initiatorId;
-        /**
-         * 试用期状态
-         * <p> 示例值：converted
-         */
-        this.probationStatus = builder.probationStatus;
-        /**
-         * 员工自评
-         * <p> 示例值：符合预期
-         */
-        this.selfReview = builder.selfReview;
-        /**
-         * 备注
-         * <p> 示例值：高潜
-         */
-        this.notes = builder.notes;
-        /**
-         * 流程实例 ID
-         * <p> 示例值：6893014062142164135
-         */
-        this.processId = builder.processId;
-        /**
-         * 是否通过 BPM 转正
-         * <p> 示例值：false
-         */
-        this.convertedViaBpm = builder.convertedViaBpm;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 试用期考核最终状态
-         * <p> 示例值：completed
-         */
-        this.finalAssessmentStatus = builder.finalAssessmentStatus;
-        /**
-         * 试用期考核最终结果
-         * <p> 示例值：approved
-         */
-        this.finalAssessmentResult = builder.finalAssessmentResult;
-        /**
-         * 试用期考核最终得分
-         * <p> 示例值：99.9
-         */
-        this.finalAssessmentScore = builder.finalAssessmentScore;
-        /**
-         * 试用期考核最终等级
-         * <p> 示例值：grade_a
-         */
-        this.finalAssessmentGrade = builder.finalAssessmentGrade;
-        /**
-         * 试用期考核最终评语
-         * <p> 示例值：超出预期
-         */
-        this.finalAssessmentComment = builder.finalAssessmentComment;
-        /**
-         * 最终考核结果页面超链接
-         * <p> 示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&recordPageId=173330728118312
-         */
-        this.finalAssessmentDetail = builder.finalAssessmentDetail;
-        /**
-         * 试用期考核结果列表
-         * <p> 示例值：
-         */
-        this.assessments = builder.assessments;
-        /**
-         * 试用期延长后的预计结束日期
-         * <p> 示例值：2022-05-20
-         */
-        this.probationExtendExpectedEndDate = builder.probationExtendExpectedEndDate;
-        /**
-         * 试用期延长时间
-         * <p> 示例值：1
-         */
-        this.extendedProbationPeriodDuration = builder.extendedProbationPeriodDuration;
-        /**
-         * 试用期延长时间单位
-         * <p> 示例值：month
-         */
-        this.extendedProbationPeriodUnit = builder.extendedProbationPeriodUnit;
-        /**
-         * 试用期结果
-         * <p> 示例值：passed
-         */
-        this.probationOutcome = builder.probationOutcome;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getEmploymentId() {
         return this.employmentId;
     }
@@ -516,460 +375,596 @@ public class ProbationInfo {
         this.probationOutcome = probationOutcome;
     }
 
+
+// builder 开始
+  public ProbationInfo(){}
+
+  public ProbationInfo(Builder builder){
+         /**
+          * 雇佣 ID
+          * <p> 示例值：6893014062142064135
+          */
+      this.employmentId = builder.employmentId;
+         /**
+          * 试用期信息 ID
+          * <p> 示例值：6893014062142064132
+          */
+      this.probationId = builder.probationId;
+         /**
+          * 试用期开始日期
+          * <p> 示例值：2022-05-20
+          */
+      this.probationStartDate = builder.probationStartDate;
+         /**
+          * 试用期预计结束日期
+          * <p> 示例值：2022-05-28
+          */
+      this.probationExpectedEndDate = builder.probationExpectedEndDate;
+         /**
+          * 试用期实际结束日期
+          * <p> 示例值：2022-06-28
+          */
+      this.actualProbationEndDate = builder.actualProbationEndDate;
+         /**
+          * 转正发起日期
+          * <p> 示例值：2022-07-28
+          */
+      this.initiatingTime = builder.initiatingTime;
+         /**
+          * 发起方
+          * <p> 示例值：hr_submission
+          */
+      this.submissionType = builder.submissionType;
+         /**
+          * 转正发起人的雇佣 ID，当系统发起转正时该字段为空
+          * <p> 示例值：6893014062142061135
+          */
+      this.initiatorId = builder.initiatorId;
+         /**
+          * 试用期状态
+          * <p> 示例值：converted
+          */
+      this.probationStatus = builder.probationStatus;
+         /**
+          * 员工自评
+          * <p> 示例值：符合预期
+          */
+      this.selfReview = builder.selfReview;
+         /**
+          * 备注
+          * <p> 示例值：高潜
+          */
+      this.notes = builder.notes;
+         /**
+          * 流程实例 ID
+          * <p> 示例值：6893014062142164135
+          */
+      this.processId = builder.processId;
+         /**
+          * 是否通过 BPM 转正
+          * <p> 示例值：false
+          */
+      this.convertedViaBpm = builder.convertedViaBpm;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 试用期考核最终状态
+          * <p> 示例值：completed
+          */
+      this.finalAssessmentStatus = builder.finalAssessmentStatus;
+         /**
+          * 试用期考核最终结果
+          * <p> 示例值：approved
+          */
+      this.finalAssessmentResult = builder.finalAssessmentResult;
+         /**
+          * 试用期考核最终得分
+          * <p> 示例值：99.9
+          */
+      this.finalAssessmentScore = builder.finalAssessmentScore;
+         /**
+          * 试用期考核最终等级
+          * <p> 示例值：grade_a
+          */
+      this.finalAssessmentGrade = builder.finalAssessmentGrade;
+         /**
+          * 试用期考核最终评语
+          * <p> 示例值：超出预期
+          */
+      this.finalAssessmentComment = builder.finalAssessmentComment;
+         /**
+          * 最终考核结果页面超链接
+          * <p> 示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&recordPageId=173330728118312
+          */
+      this.finalAssessmentDetail = builder.finalAssessmentDetail;
+         /**
+          * 试用期考核结果列表
+          * <p> 示例值：
+          */
+      this.assessments = builder.assessments;
+         /**
+          * 试用期延长后的预计结束日期
+          * <p> 示例值：2022-05-20
+          */
+      this.probationExtendExpectedEndDate = builder.probationExtendExpectedEndDate;
+         /**
+          * 试用期延长时间
+          * <p> 示例值：1
+          */
+      this.extendedProbationPeriodDuration = builder.extendedProbationPeriodDuration;
+         /**
+          * 试用期延长时间单位
+          * <p> 示例值：month
+          */
+      this.extendedProbationPeriodUnit = builder.extendedProbationPeriodUnit;
+         /**
+          * 试用期结果
+          * <p> 示例值：passed
+          */
+      this.probationOutcome = builder.probationOutcome;
+  }
+
     public static class Builder {
-        /**
-         * 雇佣 ID
-         * <p> 示例值：6893014062142064135
-         */
+     /**
+      * 雇佣 ID
+      * <p> 示例值：6893014062142064135
+      */
         private String employmentId;
-        /**
-         * 试用期信息 ID
-         * <p> 示例值：6893014062142064132
-         */
+     /**
+      * 试用期信息 ID
+      * <p> 示例值：6893014062142064132
+      */
         private String probationId;
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2022-05-20
-         */
+     /**
+      * 试用期开始日期
+      * <p> 示例值：2022-05-20
+      */
         private String probationStartDate;
-        /**
-         * 试用期预计结束日期
-         * <p> 示例值：2022-05-28
-         */
+     /**
+      * 试用期预计结束日期
+      * <p> 示例值：2022-05-28
+      */
         private String probationExpectedEndDate;
-        /**
-         * 试用期实际结束日期
-         * <p> 示例值：2022-06-28
-         */
+     /**
+      * 试用期实际结束日期
+      * <p> 示例值：2022-06-28
+      */
         private String actualProbationEndDate;
-        /**
-         * 转正发起日期
-         * <p> 示例值：2022-07-28
-         */
+     /**
+      * 转正发起日期
+      * <p> 示例值：2022-07-28
+      */
         private String initiatingTime;
-        /**
-         * 发起方
-         * <p> 示例值：hr_submission
-         */
+     /**
+      * 发起方
+      * <p> 示例值：hr_submission
+      */
         private Enum submissionType;
-        /**
-         * 转正发起人的雇佣 ID，当系统发起转正时该字段为空
-         * <p> 示例值：6893014062142061135
-         */
+     /**
+      * 转正发起人的雇佣 ID，当系统发起转正时该字段为空
+      * <p> 示例值：6893014062142061135
+      */
         private String initiatorId;
-        /**
-         * 试用期状态
-         * <p> 示例值：converted
-         */
+     /**
+      * 试用期状态
+      * <p> 示例值：converted
+      */
         private Enum probationStatus;
-        /**
-         * 员工自评
-         * <p> 示例值：符合预期
-         */
+     /**
+      * 员工自评
+      * <p> 示例值：符合预期
+      */
         private String selfReview;
-        /**
-         * 备注
-         * <p> 示例值：高潜
-         */
+     /**
+      * 备注
+      * <p> 示例值：高潜
+      */
         private String notes;
-        /**
-         * 流程实例 ID
-         * <p> 示例值：6893014062142164135
-         */
+     /**
+      * 流程实例 ID
+      * <p> 示例值：6893014062142164135
+      */
         private String processId;
-        /**
-         * 是否通过 BPM 转正
-         * <p> 示例值：false
-         */
+     /**
+      * 是否通过 BPM 转正
+      * <p> 示例值：false
+      */
         private Boolean convertedViaBpm;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private CustomFieldData[] customFields;
-        /**
-         * 试用期考核最终状态
-         * <p> 示例值：completed
-         */
+     /**
+      * 试用期考核最终状态
+      * <p> 示例值：completed
+      */
         private Enum finalAssessmentStatus;
-        /**
-         * 试用期考核最终结果
-         * <p> 示例值：approved
-         */
+     /**
+      * 试用期考核最终结果
+      * <p> 示例值：approved
+      */
         private Enum finalAssessmentResult;
-        /**
-         * 试用期考核最终得分
-         * <p> 示例值：99.9
-         */
+     /**
+      * 试用期考核最终得分
+      * <p> 示例值：99.9
+      */
         private Double finalAssessmentScore;
-        /**
-         * 试用期考核最终等级
-         * <p> 示例值：grade_a
-         */
+     /**
+      * 试用期考核最终等级
+      * <p> 示例值：grade_a
+      */
         private Enum finalAssessmentGrade;
-        /**
-         * 试用期考核最终评语
-         * <p> 示例值：超出预期
-         */
+     /**
+      * 试用期考核最终评语
+      * <p> 示例值：超出预期
+      */
         private String finalAssessmentComment;
-        /**
-         * 最终考核结果页面超链接
-         * <p> 示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&recordPageId=173330728118312
-         */
+     /**
+      * 最终考核结果页面超链接
+      * <p> 示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&recordPageId=173330728118312
+      */
         private String finalAssessmentDetail;
-        /**
-         * 试用期考核结果列表
-         * <p> 示例值：
-         */
+     /**
+      * 试用期考核结果列表
+      * <p> 示例值：
+      */
         private Assessment[] assessments;
-        /**
-         * 试用期延长后的预计结束日期
-         * <p> 示例值：2022-05-20
-         */
+     /**
+      * 试用期延长后的预计结束日期
+      * <p> 示例值：2022-05-20
+      */
         private String probationExtendExpectedEndDate;
-        /**
-         * 试用期延长时间
-         * <p> 示例值：1
-         */
+     /**
+      * 试用期延长时间
+      * <p> 示例值：1
+      */
         private Integer extendedProbationPeriodDuration;
-        /**
-         * 试用期延长时间单位
-         * <p> 示例值：month
-         */
+     /**
+      * 试用期延长时间单位
+      * <p> 示例值：month
+      */
         private Enum extendedProbationPeriodUnit;
-        /**
-         * 试用期结果
-         * <p> 示例值：passed
-         */
+     /**
+      * 试用期结果
+      * <p> 示例值：passed
+      */
         private Enum probationOutcome;
 
         /**
          * 雇佣 ID
          * <p> 示例值：6893014062142064135
-         *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
+             this.employmentId = employmentId;
+             return this;
         }
 
+    
 
         /**
          * 试用期信息 ID
          * <p> 示例值：6893014062142064132
-         *
          * @param probationId
          * @return
          */
         public Builder probationId(String probationId) {
-            this.probationId = probationId;
-            return this;
+             this.probationId = probationId;
+             return this;
         }
 
+    
 
         /**
          * 试用期开始日期
          * <p> 示例值：2022-05-20
-         *
          * @param probationStartDate
          * @return
          */
         public Builder probationStartDate(String probationStartDate) {
-            this.probationStartDate = probationStartDate;
-            return this;
+             this.probationStartDate = probationStartDate;
+             return this;
         }
 
+    
 
         /**
          * 试用期预计结束日期
          * <p> 示例值：2022-05-28
-         *
          * @param probationExpectedEndDate
          * @return
          */
         public Builder probationExpectedEndDate(String probationExpectedEndDate) {
-            this.probationExpectedEndDate = probationExpectedEndDate;
-            return this;
+             this.probationExpectedEndDate = probationExpectedEndDate;
+             return this;
         }
 
+    
 
         /**
          * 试用期实际结束日期
          * <p> 示例值：2022-06-28
-         *
          * @param actualProbationEndDate
          * @return
          */
         public Builder actualProbationEndDate(String actualProbationEndDate) {
-            this.actualProbationEndDate = actualProbationEndDate;
-            return this;
+             this.actualProbationEndDate = actualProbationEndDate;
+             return this;
         }
 
+    
 
         /**
          * 转正发起日期
          * <p> 示例值：2022-07-28
-         *
          * @param initiatingTime
          * @return
          */
         public Builder initiatingTime(String initiatingTime) {
-            this.initiatingTime = initiatingTime;
-            return this;
+             this.initiatingTime = initiatingTime;
+             return this;
         }
 
+    
 
         /**
          * 发起方
          * <p> 示例值：hr_submission
-         *
          * @param submissionType
          * @return
          */
         public Builder submissionType(Enum submissionType) {
-            this.submissionType = submissionType;
-            return this;
+             this.submissionType = submissionType;
+             return this;
         }
 
+    
 
         /**
          * 转正发起人的雇佣 ID，当系统发起转正时该字段为空
          * <p> 示例值：6893014062142061135
-         *
          * @param initiatorId
          * @return
          */
         public Builder initiatorId(String initiatorId) {
-            this.initiatorId = initiatorId;
-            return this;
+             this.initiatorId = initiatorId;
+             return this;
         }
 
+    
 
         /**
          * 试用期状态
          * <p> 示例值：converted
-         *
          * @param probationStatus
          * @return
          */
         public Builder probationStatus(Enum probationStatus) {
-            this.probationStatus = probationStatus;
-            return this;
+             this.probationStatus = probationStatus;
+             return this;
         }
 
+    
 
         /**
          * 员工自评
          * <p> 示例值：符合预期
-         *
          * @param selfReview
          * @return
          */
         public Builder selfReview(String selfReview) {
-            this.selfReview = selfReview;
-            return this;
+             this.selfReview = selfReview;
+             return this;
         }
 
+    
 
         /**
          * 备注
          * <p> 示例值：高潜
-         *
          * @param notes
          * @return
          */
         public Builder notes(String notes) {
-            this.notes = notes;
-            return this;
+             this.notes = notes;
+             return this;
         }
 
+    
 
         /**
          * 流程实例 ID
          * <p> 示例值：6893014062142164135
-         *
          * @param processId
          * @return
          */
         public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
+             this.processId = processId;
+             return this;
         }
 
+    
 
         /**
          * 是否通过 BPM 转正
          * <p> 示例值：false
-         *
          * @param convertedViaBpm
          * @return
          */
         public Builder convertedViaBpm(Boolean convertedViaBpm) {
-            this.convertedViaBpm = convertedViaBpm;
-            return this;
+             this.convertedViaBpm = convertedViaBpm;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 试用期考核最终状态
          * <p> 示例值：completed
-         *
          * @param finalAssessmentStatus
          * @return
          */
         public Builder finalAssessmentStatus(Enum finalAssessmentStatus) {
-            this.finalAssessmentStatus = finalAssessmentStatus;
-            return this;
+             this.finalAssessmentStatus = finalAssessmentStatus;
+             return this;
         }
 
+    
 
         /**
          * 试用期考核最终结果
          * <p> 示例值：approved
-         *
          * @param finalAssessmentResult
          * @return
          */
         public Builder finalAssessmentResult(Enum finalAssessmentResult) {
-            this.finalAssessmentResult = finalAssessmentResult;
-            return this;
+             this.finalAssessmentResult = finalAssessmentResult;
+             return this;
         }
 
+    
 
         /**
          * 试用期考核最终得分
          * <p> 示例值：99.9
-         *
          * @param finalAssessmentScore
          * @return
          */
         public Builder finalAssessmentScore(Double finalAssessmentScore) {
-            this.finalAssessmentScore = finalAssessmentScore;
-            return this;
+             this.finalAssessmentScore = finalAssessmentScore;
+             return this;
         }
 
+    
 
         /**
          * 试用期考核最终等级
          * <p> 示例值：grade_a
-         *
          * @param finalAssessmentGrade
          * @return
          */
         public Builder finalAssessmentGrade(Enum finalAssessmentGrade) {
-            this.finalAssessmentGrade = finalAssessmentGrade;
-            return this;
+             this.finalAssessmentGrade = finalAssessmentGrade;
+             return this;
         }
 
+    
 
         /**
          * 试用期考核最终评语
          * <p> 示例值：超出预期
-         *
          * @param finalAssessmentComment
          * @return
          */
         public Builder finalAssessmentComment(String finalAssessmentComment) {
-            this.finalAssessmentComment = finalAssessmentComment;
-            return this;
+             this.finalAssessmentComment = finalAssessmentComment;
+             return this;
         }
 
+    
 
         /**
          * 最终考核结果页面超链接
          * <p> 示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&recordPageId=173330728118312
-         *
          * @param finalAssessmentDetail
          * @return
          */
         public Builder finalAssessmentDetail(String finalAssessmentDetail) {
-            this.finalAssessmentDetail = finalAssessmentDetail;
-            return this;
+             this.finalAssessmentDetail = finalAssessmentDetail;
+             return this;
         }
 
+    
 
         /**
          * 试用期考核结果列表
          * <p> 示例值：
-         *
          * @param assessments
          * @return
          */
         public Builder assessments(Assessment[] assessments) {
-            this.assessments = assessments;
-            return this;
+             this.assessments = assessments;
+             return this;
         }
 
+    
 
         /**
          * 试用期延长后的预计结束日期
          * <p> 示例值：2022-05-20
-         *
          * @param probationExtendExpectedEndDate
          * @return
          */
         public Builder probationExtendExpectedEndDate(String probationExtendExpectedEndDate) {
-            this.probationExtendExpectedEndDate = probationExtendExpectedEndDate;
-            return this;
+             this.probationExtendExpectedEndDate = probationExtendExpectedEndDate;
+             return this;
         }
 
+    
 
         /**
          * 试用期延长时间
          * <p> 示例值：1
-         *
          * @param extendedProbationPeriodDuration
          * @return
          */
         public Builder extendedProbationPeriodDuration(Integer extendedProbationPeriodDuration) {
-            this.extendedProbationPeriodDuration = extendedProbationPeriodDuration;
-            return this;
+             this.extendedProbationPeriodDuration = extendedProbationPeriodDuration;
+             return this;
         }
 
+    
 
         /**
          * 试用期延长时间单位
          * <p> 示例值：month
-         *
          * @param extendedProbationPeriodUnit
          * @return
          */
         public Builder extendedProbationPeriodUnit(Enum extendedProbationPeriodUnit) {
-            this.extendedProbationPeriodUnit = extendedProbationPeriodUnit;
-            return this;
+             this.extendedProbationPeriodUnit = extendedProbationPeriodUnit;
+             return this;
         }
 
+    
 
         /**
          * 试用期结果
          * <p> 示例值：passed
-         *
          * @param probationOutcome
          * @return
          */
         public Builder probationOutcome(Enum probationOutcome) {
-            this.probationOutcome = probationOutcome;
-            return this;
+             this.probationOutcome = probationOutcome;
+             return this;
         }
 
+    
+    
+    public ProbationInfo build(){
+        return new ProbationInfo(this);
+      }
+    }
 
-        public ProbationInfo build() {
-            return new ProbationInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

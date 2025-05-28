@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.document_ai.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,126 +19,66 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BankEntity {
-    /**
-     * 账户名
-     * <p> 示例值：北京字节跳动网络技术有限公司
-     */
+     /**
+      * 账户名
+      * <p> 示例值：北京字节跳动网络技术有限公司
+      */
     @SerializedName("account_name")
     private String accountName;
-    /**
-     * 银行名称
-     * <p> 示例值：中国农业银行北京和平里支行
-     */
+     /**
+      * 银行名称
+      * <p> 示例值：中国农业银行北京和平里支行
+      */
     @SerializedName("bank_name")
     private String bankName;
-    /**
-     * 账户ID
-     * <p> 示例值：1123012345004701
-     */
+     /**
+      * 账户ID
+      * <p> 示例值：1123012345004701
+      */
     @SerializedName("account_number")
     private String accountNumber;
-    /**
-     * 电话
-     * <p> 示例值：010-81234688
-     */
+     /**
+      * 电话
+      * <p> 示例值：010-81234688
+      */
     @SerializedName("phone")
     private String phone;
-    /**
-     * 联系人
-     * <p> 示例值：张三
-     */
+     /**
+      * 联系人
+      * <p> 示例值：张三
+      */
     @SerializedName("contacts")
     private String contacts;
-    /**
-     * 传真号码
-     * <p> 示例值：91110112345684235
-     */
+     /**
+      * 传真号码
+      * <p> 示例值：91110112345684235
+      */
     @SerializedName("tax_number")
     private String taxNumber;
-    /**
-     * 联系地址
-     * <p> 示例值：A市B区C园D楼3-8
-     */
+     /**
+      * 联系地址
+      * <p> 示例值：A市B区C园D楼3-8
+      */
     @SerializedName("address")
     private String address;
-    /**
-     * id号
-     * <p> 示例值：1123012345004701
-     */
+     /**
+      * id号
+      * <p> 示例值：1123012345004701
+      */
     @SerializedName("id_number")
     private String idNumber;
-    /**
-     * 邮箱
-     * <p> 示例值：zhangsan.1111@bytedance.com
-     */
+     /**
+      * 邮箱
+      * <p> 示例值：zhangsan.1111@bytedance.com
+      */
     @SerializedName("email")
     private String email;
-
-    // builder 开始
-    public BankEntity() {
-    }
-
-    public BankEntity(Builder builder) {
-        /**
-         * 账户名
-         * <p> 示例值：北京字节跳动网络技术有限公司
-         */
-        this.accountName = builder.accountName;
-        /**
-         * 银行名称
-         * <p> 示例值：中国农业银行北京和平里支行
-         */
-        this.bankName = builder.bankName;
-        /**
-         * 账户ID
-         * <p> 示例值：1123012345004701
-         */
-        this.accountNumber = builder.accountNumber;
-        /**
-         * 电话
-         * <p> 示例值：010-81234688
-         */
-        this.phone = builder.phone;
-        /**
-         * 联系人
-         * <p> 示例值：张三
-         */
-        this.contacts = builder.contacts;
-        /**
-         * 传真号码
-         * <p> 示例值：91110112345684235
-         */
-        this.taxNumber = builder.taxNumber;
-        /**
-         * 联系地址
-         * <p> 示例值：A市B区C园D楼3-8
-         */
-        this.address = builder.address;
-        /**
-         * id号
-         * <p> 示例值：1123012345004701
-         */
-        this.idNumber = builder.idNumber;
-        /**
-         * 邮箱
-         * <p> 示例值：zhangsan.1111@bytedance.com
-         */
-        this.email = builder.email;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAccountName() {
         return this.accountName;
     }
@@ -212,172 +151,228 @@ public class BankEntity {
         this.email = email;
     }
 
+
+// builder 开始
+  public BankEntity(){}
+
+  public BankEntity(Builder builder){
+         /**
+          * 账户名
+          * <p> 示例值：北京字节跳动网络技术有限公司
+          */
+      this.accountName = builder.accountName;
+         /**
+          * 银行名称
+          * <p> 示例值：中国农业银行北京和平里支行
+          */
+      this.bankName = builder.bankName;
+         /**
+          * 账户ID
+          * <p> 示例值：1123012345004701
+          */
+      this.accountNumber = builder.accountNumber;
+         /**
+          * 电话
+          * <p> 示例值：010-81234688
+          */
+      this.phone = builder.phone;
+         /**
+          * 联系人
+          * <p> 示例值：张三
+          */
+      this.contacts = builder.contacts;
+         /**
+          * 传真号码
+          * <p> 示例值：91110112345684235
+          */
+      this.taxNumber = builder.taxNumber;
+         /**
+          * 联系地址
+          * <p> 示例值：A市B区C园D楼3-8
+          */
+      this.address = builder.address;
+         /**
+          * id号
+          * <p> 示例值：1123012345004701
+          */
+      this.idNumber = builder.idNumber;
+         /**
+          * 邮箱
+          * <p> 示例值：zhangsan.1111@bytedance.com
+          */
+      this.email = builder.email;
+  }
+
     public static class Builder {
-        /**
-         * 账户名
-         * <p> 示例值：北京字节跳动网络技术有限公司
-         */
+     /**
+      * 账户名
+      * <p> 示例值：北京字节跳动网络技术有限公司
+      */
         private String accountName;
-        /**
-         * 银行名称
-         * <p> 示例值：中国农业银行北京和平里支行
-         */
+     /**
+      * 银行名称
+      * <p> 示例值：中国农业银行北京和平里支行
+      */
         private String bankName;
-        /**
-         * 账户ID
-         * <p> 示例值：1123012345004701
-         */
+     /**
+      * 账户ID
+      * <p> 示例值：1123012345004701
+      */
         private String accountNumber;
-        /**
-         * 电话
-         * <p> 示例值：010-81234688
-         */
+     /**
+      * 电话
+      * <p> 示例值：010-81234688
+      */
         private String phone;
-        /**
-         * 联系人
-         * <p> 示例值：张三
-         */
+     /**
+      * 联系人
+      * <p> 示例值：张三
+      */
         private String contacts;
-        /**
-         * 传真号码
-         * <p> 示例值：91110112345684235
-         */
+     /**
+      * 传真号码
+      * <p> 示例值：91110112345684235
+      */
         private String taxNumber;
-        /**
-         * 联系地址
-         * <p> 示例值：A市B区C园D楼3-8
-         */
+     /**
+      * 联系地址
+      * <p> 示例值：A市B区C园D楼3-8
+      */
         private String address;
-        /**
-         * id号
-         * <p> 示例值：1123012345004701
-         */
+     /**
+      * id号
+      * <p> 示例值：1123012345004701
+      */
         private String idNumber;
-        /**
-         * 邮箱
-         * <p> 示例值：zhangsan.1111@bytedance.com
-         */
+     /**
+      * 邮箱
+      * <p> 示例值：zhangsan.1111@bytedance.com
+      */
         private String email;
 
         /**
          * 账户名
          * <p> 示例值：北京字节跳动网络技术有限公司
-         *
          * @param accountName
          * @return
          */
         public Builder accountName(String accountName) {
-            this.accountName = accountName;
-            return this;
+             this.accountName = accountName;
+             return this;
         }
 
+    
 
         /**
          * 银行名称
          * <p> 示例值：中国农业银行北京和平里支行
-         *
          * @param bankName
          * @return
          */
         public Builder bankName(String bankName) {
-            this.bankName = bankName;
-            return this;
+             this.bankName = bankName;
+             return this;
         }
 
+    
 
         /**
          * 账户ID
          * <p> 示例值：1123012345004701
-         *
          * @param accountNumber
          * @return
          */
         public Builder accountNumber(String accountNumber) {
-            this.accountNumber = accountNumber;
-            return this;
+             this.accountNumber = accountNumber;
+             return this;
         }
 
+    
 
         /**
          * 电话
          * <p> 示例值：010-81234688
-         *
          * @param phone
          * @return
          */
         public Builder phone(String phone) {
-            this.phone = phone;
-            return this;
+             this.phone = phone;
+             return this;
         }
 
+    
 
         /**
          * 联系人
          * <p> 示例值：张三
-         *
          * @param contacts
          * @return
          */
         public Builder contacts(String contacts) {
-            this.contacts = contacts;
-            return this;
+             this.contacts = contacts;
+             return this;
         }
 
+    
 
         /**
          * 传真号码
          * <p> 示例值：91110112345684235
-         *
          * @param taxNumber
          * @return
          */
         public Builder taxNumber(String taxNumber) {
-            this.taxNumber = taxNumber;
-            return this;
+             this.taxNumber = taxNumber;
+             return this;
         }
 
+    
 
         /**
          * 联系地址
          * <p> 示例值：A市B区C园D楼3-8
-         *
          * @param address
          * @return
          */
         public Builder address(String address) {
-            this.address = address;
-            return this;
+             this.address = address;
+             return this;
         }
 
+    
 
         /**
          * id号
          * <p> 示例值：1123012345004701
-         *
          * @param idNumber
          * @return
          */
         public Builder idNumber(String idNumber) {
-            this.idNumber = idNumber;
-            return this;
+             this.idNumber = idNumber;
+             return this;
         }
 
+    
 
         /**
          * 邮箱
          * <p> 示例值：zhangsan.1111@bytedance.com
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
+    
+    public BankEntity build(){
+        return new BankEntity(this);
+      }
+    }
 
-        public BankEntity build() {
-            return new BankEntity(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

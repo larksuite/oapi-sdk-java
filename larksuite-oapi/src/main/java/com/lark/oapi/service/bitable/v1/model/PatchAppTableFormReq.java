@@ -12,73 +12,39 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchAppTableFormReq {
-    /**
-     * 多维表格文档 Token
-     * <p> 示例值：bascnv1jIEppJdTCn3jOosabcef
-     */
+     /**
+      * 多维表格文档 Token
+      * <p> 示例值：bascnv1jIEppJdTCn3jOosabcef
+      */
     @Path
     @SerializedName("app_token")
     private String appToken;
-    /**
-     * 表格 ID
-     * <p> 示例值：tblz8nadEUdxNMt5
-     */
+     /**
+      * 表格 ID
+      * <p> 示例值：tblz8nadEUdxNMt5
+      */
     @Path
     @SerializedName("table_id")
     private String tableId;
-    /**
-     * 表单 ID
-     * <p> 示例值：vew6oMbAa4
-     */
+     /**
+      * 表单 ID
+      * <p> 示例值：vew6oMbAa4
+      */
     @Path
     @SerializedName("form_id")
     private String formId;
-    @Body
-    private AppTableForm body;
-
-    // builder 开始
-    public PatchAppTableFormReq() {
-    }
-
-    public PatchAppTableFormReq(Builder builder) {
-        /**
-         * 多维表格文档 Token
-         * <p> 示例值：bascnv1jIEppJdTCn3jOosabcef
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 表格 ID
-         * <p> 示例值：tblz8nadEUdxNMt5
-         */
-        this.tableId = builder.tableId;
-        /**
-         * 表单 ID
-         * <p> 示例值：vew6oMbAa4
-         */
-        this.formId = builder.formId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAppToken() {
         return this.appToken;
     }
@@ -103,6 +69,9 @@ public class PatchAppTableFormReq {
         this.formId = formId;
     }
 
+    @Body
+    private AppTableForm body;
+
     public AppTableForm getAppTableForm() {
         return this.body;
     }
@@ -111,66 +80,90 @@ public class PatchAppTableFormReq {
         this.body = body;
     }
 
-    public static class Builder {
+// builder 开始
+  public PatchAppTableFormReq(){}
 
+  public PatchAppTableFormReq(Builder builder){
+     /**
+      * 多维表格文档 Token
+      * <p> 示例值：bascnv1jIEppJdTCn3jOosabcef
+      */
+       this.appToken = builder.appToken;
+     /**
+      * 表格 ID
+      * <p> 示例值：tblz8nadEUdxNMt5
+      */
+       this.tableId = builder.tableId;
+     /**
+      * 表单 ID
+      * <p> 示例值：vew6oMbAa4
+      */
+       this.formId = builder.formId;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+    
         private String appToken; // 多维表格文档 Token
         private String tableId; // 表格 ID
         private String formId; // 表单 ID
-        private AppTableForm body;
-
         /**
          * 多维表格文档 Token
          * <p> 示例值：bascnv1jIEppJdTCn3jOosabcef
-         *
          * @param appToken
          * @return
          */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
 
+    
         /**
          * 表格 ID
          * <p> 示例值：tblz8nadEUdxNMt5
-         *
          * @param tableId
          * @return
          */
-        public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
-        }
+          public Builder tableId(String tableId) {
+               this.tableId = tableId;
+               return this;
+          }
 
+    
         /**
          * 表单 ID
          * <p> 示例值：vew6oMbAa4
-         *
          * @param formId
          * @return
          */
-        public Builder formId(String formId) {
-            this.formId = formId;
-            return this;
-        }
+          public Builder formId(String formId) {
+               this.formId = formId;
+               return this;
+          }
 
+    
+        private AppTableForm body;
+    
         public AppTableForm getAppTableForm() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder appTableForm(AppTableForm body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public PatchAppTableFormReq build(){
+        return new PatchAppTableFormReq(this);
+      }
+    }
 
-        public PatchAppTableFormReq build() {
-            return new PatchAppTableFormReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

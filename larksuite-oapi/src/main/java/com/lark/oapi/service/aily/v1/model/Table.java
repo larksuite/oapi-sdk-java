@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,96 +19,49 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
-
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Table {
-    /**
-     * 表类型，分为 "datatable"、"dataset"
-     * <p> 示例值：datatable
-     */
+     /**
+      * 表类型，分为 "datatable"、"dataset"
+      * <p> 示例值：datatable
+      */
     @SerializedName("table_type")
     private String tableType;
-    /**
-     * 数据表标识
-     * <p> 示例值：object_a
-     */
+     /**
+      * 数据表标识
+      * <p> 示例值：object_a
+      */
     @SerializedName("api_name")
     private String apiName;
-    /**
-     * 数据表名称
-     * <p> 示例值：
-     */
+     /**
+      * 数据表名称
+      * <p> 示例值：
+      */
     @SerializedName("label")
     private Map<String, String> label;
-    /**
-     * 数据表读写权限
-     * <p> 示例值：
-     */
+     /**
+      * 数据表读写权限
+      * <p> 示例值：
+      */
     @SerializedName("access_items")
     private String[] accessItems;
-    /**
-     * 数据表描述信息
-     * <p> 示例值：这是一个商品的数据表
-     */
+     /**
+      * 数据表描述信息
+      * <p> 示例值：这是一个商品的数据表
+      */
     @SerializedName("ai_description")
     private String aiDescription;
-    /**
-     * 数据表下的字段列表，获取数据表元信息详情时才会返回
-     * <p> 示例值：
-     */
+     /**
+      * 数据表下的字段列表，获取数据表元信息详情时才会返回
+      * <p> 示例值：
+      */
     @SerializedName("fields")
     private Field[] fields;
-
-    // builder 开始
-    public Table() {
-    }
-
-    public Table(Builder builder) {
-        /**
-         * 表类型，分为 "datatable"、"dataset"
-         * <p> 示例值：datatable
-         */
-        this.tableType = builder.tableType;
-        /**
-         * 数据表标识
-         * <p> 示例值：object_a
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 数据表名称
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 数据表读写权限
-         * <p> 示例值：
-         */
-        this.accessItems = builder.accessItems;
-        /**
-         * 数据表描述信息
-         * <p> 示例值：这是一个商品的数据表
-         */
-        this.aiDescription = builder.aiDescription;
-        /**
-         * 数据表下的字段列表，获取数据表元信息详情时才会返回
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTableType() {
         return this.tableType;
     }
@@ -158,130 +110,169 @@ public class Table {
         this.fields = fields;
     }
 
+
+// builder 开始
+  public Table(){}
+
+  public Table(Builder builder){
+         /**
+          * 表类型，分为 "datatable"、"dataset"
+          * <p> 示例值：datatable
+          */
+      this.tableType = builder.tableType;
+         /**
+          * 数据表标识
+          * <p> 示例值：object_a
+          */
+      this.apiName = builder.apiName;
+         /**
+          * 数据表名称
+          * <p> 示例值：
+          */
+      this.label = builder.label;
+         /**
+          * 数据表读写权限
+          * <p> 示例值：
+          */
+      this.accessItems = builder.accessItems;
+         /**
+          * 数据表描述信息
+          * <p> 示例值：这是一个商品的数据表
+          */
+      this.aiDescription = builder.aiDescription;
+         /**
+          * 数据表下的字段列表，获取数据表元信息详情时才会返回
+          * <p> 示例值：
+          */
+      this.fields = builder.fields;
+  }
+
     public static class Builder {
-        /**
-         * 表类型，分为 "datatable"、"dataset"
-         * <p> 示例值：datatable
-         */
+     /**
+      * 表类型，分为 "datatable"、"dataset"
+      * <p> 示例值：datatable
+      */
         private String tableType;
-        /**
-         * 数据表标识
-         * <p> 示例值：object_a
-         */
+     /**
+      * 数据表标识
+      * <p> 示例值：object_a
+      */
         private String apiName;
-        /**
-         * 数据表名称
-         * <p> 示例值：
-         */
+     /**
+      * 数据表名称
+      * <p> 示例值：
+      */
         private Map<String, String> label;
-        /**
-         * 数据表读写权限
-         * <p> 示例值：
-         */
+     /**
+      * 数据表读写权限
+      * <p> 示例值：
+      */
         private String[] accessItems;
-        /**
-         * 数据表描述信息
-         * <p> 示例值：这是一个商品的数据表
-         */
+     /**
+      * 数据表描述信息
+      * <p> 示例值：这是一个商品的数据表
+      */
         private String aiDescription;
-        /**
-         * 数据表下的字段列表，获取数据表元信息详情时才会返回
-         * <p> 示例值：
-         */
+     /**
+      * 数据表下的字段列表，获取数据表元信息详情时才会返回
+      * <p> 示例值：
+      */
         private Field[] fields;
 
         /**
          * 表类型，分为 "datatable"、"dataset"
          * <p> 示例值：datatable
-         *
          * @param tableType
          * @return
          */
         public Builder tableType(String tableType) {
-            this.tableType = tableType;
-            return this;
+             this.tableType = tableType;
+             return this;
         }
-
         /**
          * 表类型，分为 "datatable"、"dataset"
          * <p> 示例值：datatable
-         *
          * @param tableType {@link com.lark.oapi.service.aily.v1.enums.TableTableTypeEnum}
          * @return
          */
         public Builder tableType(com.lark.oapi.service.aily.v1.enums.TableTableTypeEnum tableType) {
-            this.tableType = tableType.getValue();
-            return this;
+             this.tableType = tableType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 数据表标识
          * <p> 示例值：object_a
-         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
+             this.apiName = apiName;
+             return this;
         }
 
+    
 
         /**
          * 数据表名称
          * <p> 示例值：
-         *
          * @param label
          * @return
          */
         public Builder label(Map<String, String> label) {
-            this.label = label;
-            return this;
+             this.label = label;
+             return this;
         }
 
+    
 
         /**
          * 数据表读写权限
          * <p> 示例值：
-         *
          * @param accessItems
          * @return
          */
         public Builder accessItems(String[] accessItems) {
-            this.accessItems = accessItems;
-            return this;
+             this.accessItems = accessItems;
+             return this;
         }
 
+    
 
         /**
          * 数据表描述信息
          * <p> 示例值：这是一个商品的数据表
-         *
          * @param aiDescription
          * @return
          */
         public Builder aiDescription(String aiDescription) {
-            this.aiDescription = aiDescription;
-            return this;
+             this.aiDescription = aiDescription;
+             return this;
         }
 
+    
 
         /**
          * 数据表下的字段列表，获取数据表元信息详情时才会返回
          * <p> 示例值：
-         *
          * @param fields
          * @return
          */
         public Builder fields(Field[] fields) {
-            this.fields = fields;
-            return this;
+             this.fields = fields;
+             return this;
         }
 
+    
+    
+    public Table build(){
+        return new Table(this);
+      }
+    }
 
-        public Table build() {
-            return new Table(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

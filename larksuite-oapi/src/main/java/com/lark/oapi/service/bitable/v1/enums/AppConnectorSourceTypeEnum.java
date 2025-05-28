@@ -17,15 +17,14 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 数据源类型
  */
 public enum AppConnectorSourceTypeEnum {
-    BASE(1), // 多维表格
-    ;
-    private Integer value;
-
+     BASE(1), // 多维表格
+  ;
+   private Integer value;
     AppConnectorSourceTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

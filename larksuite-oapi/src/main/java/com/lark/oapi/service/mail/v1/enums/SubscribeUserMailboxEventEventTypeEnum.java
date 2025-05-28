@@ -17,15 +17,14 @@ package com.lark.oapi.service.mail.v1.enums;
  * 事件类型
  */
 public enum SubscribeUserMailboxEventEventTypeEnum {
-    MESSAGE(1), // 邮件相关事件
-    ;
-    private Integer value;
-
+     MESSAGE(1), // 邮件相关事件
+  ;
+   private Integer value;
     SubscribeUserMailboxEventEventTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

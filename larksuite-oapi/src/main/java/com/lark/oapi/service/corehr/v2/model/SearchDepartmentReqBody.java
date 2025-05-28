@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,126 +19,66 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchDepartmentReqBody {
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 当通过上级部门 ID 查询时，填写 true 返回所有子部门，填写 false 只返回直接下级部门
-     * <p> 示例值：false
-     */
+     /**
+      * 当通过上级部门 ID 查询时，填写 true 返回所有子部门，填写 false 只返回直接下级部门
+      * <p> 示例值：false
+      */
     @SerializedName("get_all_children")
     private Boolean getAllChildren;
-    /**
-     * manager ID 列表;**字段权限要求：按照部门负责人搜索 (corehr:department.manager.search:read)**
-     * <p> 示例值：
-     */
+     /**
+      * manager ID 列表;**字段权限要求：按照部门负责人搜索 (corehr:department.manager.search:read)**
+      * <p> 示例值：
+      */
     @SerializedName("manager_list")
     private String[] managerList;
-    /**
-     * 部门 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 部门 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("department_id_list")
     private String[] departmentIdList;
-    /**
-     * 部门名称列表，需精确匹配
-     * <p> 示例值：
-     */
+     /**
+      * 部门名称列表，需精确匹配
+      * <p> 示例值：
+      */
     @SerializedName("name_list")
     private String[] nameList;
-    /**
-     * 上级部门 ID ，可查询直接下级部门;**字段权限要求：按照上级部门搜索 (corehr:department.organize.search:read) **
-     * <p> 示例值：7094136522860922222
-     */
+     /**
+      * 上级部门 ID ，可查询直接下级部门;**字段权限要求：按照上级部门搜索 (corehr:department.organize.search:read) **
+      * <p> 示例值：7094136522860922222
+      */
     @SerializedName("parent_department_id")
     private String parentDepartmentId;
-    /**
-     * 部门 code 列表
-     * <p> 示例值：
-     */
+     /**
+      * 部门 code 列表
+      * <p> 示例值：
+      */
     @SerializedName("code_list")
     private String[] codeList;
-    /**
-     * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
-     * <p> 示例值：false
-     */
+     /**
+      * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
+      * <p> 示例值：false
+      */
     @SerializedName("get_all_version")
     private Boolean getAllVersion;
-    /**
-     * 返回数据的字段列表
-     * <p> 示例值：
-     */
+     /**
+      * 返回数据的字段列表
+      * <p> 示例值：
+      */
     @SerializedName("fields")
     private String[] fields;
-
-    // builder 开始
-    public SearchDepartmentReqBody() {
-    }
-
-    public SearchDepartmentReqBody(Builder builder) {
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 当通过上级部门 ID 查询时，填写 true 返回所有子部门，填写 false 只返回直接下级部门
-         * <p> 示例值：false
-         */
-        this.getAllChildren = builder.getAllChildren;
-        /**
-         * manager ID 列表;**字段权限要求：按照部门负责人搜索 (corehr:department.manager.search:read)**
-         * <p> 示例值：
-         */
-        this.managerList = builder.managerList;
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentIdList = builder.departmentIdList;
-        /**
-         * 部门名称列表，需精确匹配
-         * <p> 示例值：
-         */
-        this.nameList = builder.nameList;
-        /**
-         * 上级部门 ID ，可查询直接下级部门;**字段权限要求：按照上级部门搜索 (corehr:department.organize.search:read) **
-         * <p> 示例值：7094136522860922222
-         */
-        this.parentDepartmentId = builder.parentDepartmentId;
-        /**
-         * 部门 code 列表
-         * <p> 示例值：
-         */
-        this.codeList = builder.codeList;
-        /**
-         * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
-         * <p> 示例值：false
-         */
-        this.getAllVersion = builder.getAllVersion;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getActive() {
         return this.active;
     }
@@ -212,172 +151,228 @@ public class SearchDepartmentReqBody {
         this.fields = fields;
     }
 
+
+// builder 开始
+  public SearchDepartmentReqBody(){}
+
+  public SearchDepartmentReqBody(Builder builder){
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 当通过上级部门 ID 查询时，填写 true 返回所有子部门，填写 false 只返回直接下级部门
+          * <p> 示例值：false
+          */
+      this.getAllChildren = builder.getAllChildren;
+         /**
+          * manager ID 列表;**字段权限要求：按照部门负责人搜索 (corehr:department.manager.search:read)**
+          * <p> 示例值：
+          */
+      this.managerList = builder.managerList;
+         /**
+          * 部门 ID 列表
+          * <p> 示例值：
+          */
+      this.departmentIdList = builder.departmentIdList;
+         /**
+          * 部门名称列表，需精确匹配
+          * <p> 示例值：
+          */
+      this.nameList = builder.nameList;
+         /**
+          * 上级部门 ID ，可查询直接下级部门;**字段权限要求：按照上级部门搜索 (corehr:department.organize.search:read) **
+          * <p> 示例值：7094136522860922222
+          */
+      this.parentDepartmentId = builder.parentDepartmentId;
+         /**
+          * 部门 code 列表
+          * <p> 示例值：
+          */
+      this.codeList = builder.codeList;
+         /**
+          * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
+          * <p> 示例值：false
+          */
+      this.getAllVersion = builder.getAllVersion;
+         /**
+          * 返回数据的字段列表
+          * <p> 示例值：
+          */
+      this.fields = builder.fields;
+  }
+
     public static class Builder {
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 当通过上级部门 ID 查询时，填写 true 返回所有子部门，填写 false 只返回直接下级部门
-         * <p> 示例值：false
-         */
+     /**
+      * 当通过上级部门 ID 查询时，填写 true 返回所有子部门，填写 false 只返回直接下级部门
+      * <p> 示例值：false
+      */
         private Boolean getAllChildren;
-        /**
-         * manager ID 列表;**字段权限要求：按照部门负责人搜索 (corehr:department.manager.search:read)**
-         * <p> 示例值：
-         */
+     /**
+      * manager ID 列表;**字段权限要求：按照部门负责人搜索 (corehr:department.manager.search:read)**
+      * <p> 示例值：
+      */
         private String[] managerList;
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 部门 ID 列表
+      * <p> 示例值：
+      */
         private String[] departmentIdList;
-        /**
-         * 部门名称列表，需精确匹配
-         * <p> 示例值：
-         */
+     /**
+      * 部门名称列表，需精确匹配
+      * <p> 示例值：
+      */
         private String[] nameList;
-        /**
-         * 上级部门 ID ，可查询直接下级部门;**字段权限要求：按照上级部门搜索 (corehr:department.organize.search:read) **
-         * <p> 示例值：7094136522860922222
-         */
+     /**
+      * 上级部门 ID ，可查询直接下级部门;**字段权限要求：按照上级部门搜索 (corehr:department.organize.search:read) **
+      * <p> 示例值：7094136522860922222
+      */
         private String parentDepartmentId;
-        /**
-         * 部门 code 列表
-         * <p> 示例值：
-         */
+     /**
+      * 部门 code 列表
+      * <p> 示例值：
+      */
         private String[] codeList;
-        /**
-         * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
-         * <p> 示例值：false
-         */
+     /**
+      * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
+      * <p> 示例值：false
+      */
         private Boolean getAllVersion;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
+     /**
+      * 返回数据的字段列表
+      * <p> 示例值：
+      */
         private String[] fields;
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 当通过上级部门 ID 查询时，填写 true 返回所有子部门，填写 false 只返回直接下级部门
          * <p> 示例值：false
-         *
          * @param getAllChildren
          * @return
          */
         public Builder getAllChildren(Boolean getAllChildren) {
-            this.getAllChildren = getAllChildren;
-            return this;
+             this.getAllChildren = getAllChildren;
+             return this;
         }
 
+    
 
         /**
          * manager ID 列表;**字段权限要求：按照部门负责人搜索 (corehr:department.manager.search:read)**
          * <p> 示例值：
-         *
          * @param managerList
          * @return
          */
         public Builder managerList(String[] managerList) {
-            this.managerList = managerList;
-            return this;
+             this.managerList = managerList;
+             return this;
         }
 
+    
 
         /**
          * 部门 ID 列表
          * <p> 示例值：
-         *
          * @param departmentIdList
          * @return
          */
         public Builder departmentIdList(String[] departmentIdList) {
-            this.departmentIdList = departmentIdList;
-            return this;
+             this.departmentIdList = departmentIdList;
+             return this;
         }
 
+    
 
         /**
          * 部门名称列表，需精确匹配
          * <p> 示例值：
-         *
          * @param nameList
          * @return
          */
         public Builder nameList(String[] nameList) {
-            this.nameList = nameList;
-            return this;
+             this.nameList = nameList;
+             return this;
         }
 
+    
 
         /**
          * 上级部门 ID ，可查询直接下级部门;**字段权限要求：按照上级部门搜索 (corehr:department.organize.search:read) **
          * <p> 示例值：7094136522860922222
-         *
          * @param parentDepartmentId
          * @return
          */
         public Builder parentDepartmentId(String parentDepartmentId) {
-            this.parentDepartmentId = parentDepartmentId;
-            return this;
+             this.parentDepartmentId = parentDepartmentId;
+             return this;
         }
 
+    
 
         /**
          * 部门 code 列表
          * <p> 示例值：
-         *
          * @param codeList
          * @return
          */
         public Builder codeList(String[] codeList) {
-            this.codeList = codeList;
-            return this;
+             this.codeList = codeList;
+             return this;
         }
 
+    
 
         /**
          * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
          * <p> 示例值：false
-         *
          * @param getAllVersion
          * @return
          */
         public Builder getAllVersion(Boolean getAllVersion) {
-            this.getAllVersion = getAllVersion;
-            return this;
+             this.getAllVersion = getAllVersion;
+             return this;
         }
 
+    
 
         /**
          * 返回数据的字段列表
          * <p> 示例值：
-         *
          * @param fields
          * @return
          */
         public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
+             this.fields = fields;
+             return this;
         }
 
+    
+    
+    public SearchDepartmentReqBody build(){
+        return new SearchDepartmentReqBody(this);
+      }
+    }
 
-        public SearchDepartmentReqBody build() {
-            return new SearchDepartmentReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateDocumentRequest {
-    /**
-     * 更新文档的展示设置
-     * <p> 示例值：
-     */
+     /**
+      * 更新文档的展示设置
+      * <p> 示例值：
+      */
     @SerializedName("update_display_setting")
     private DocumentDisplaySetting updateDisplaySetting;
-    /**
-     * 更新文档封面
-     * <p> 示例值：
-     */
+     /**
+      * 更新文档封面
+      * <p> 示例值：
+      */
     @SerializedName("update_cover")
     private UpdateCoverRequest updateCover;
-
-    // builder 开始
-    public UpdateDocumentRequest() {
-    }
-
-    public UpdateDocumentRequest(Builder builder) {
-        /**
-         * 更新文档的展示设置
-         * <p> 示例值：
-         */
-        this.updateDisplaySetting = builder.updateDisplaySetting;
-        /**
-         * 更新文档封面
-         * <p> 示例值：
-         */
-        this.updateCover = builder.updateCover;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public DocumentDisplaySetting getUpdateDisplaySetting() {
         return this.updateDisplaySetting;
     }
@@ -79,46 +53,67 @@ public class UpdateDocumentRequest {
         this.updateCover = updateCover;
     }
 
+
+// builder 开始
+  public UpdateDocumentRequest(){}
+
+  public UpdateDocumentRequest(Builder builder){
+         /**
+          * 更新文档的展示设置
+          * <p> 示例值：
+          */
+      this.updateDisplaySetting = builder.updateDisplaySetting;
+         /**
+          * 更新文档封面
+          * <p> 示例值：
+          */
+      this.updateCover = builder.updateCover;
+  }
+
     public static class Builder {
-        /**
-         * 更新文档的展示设置
-         * <p> 示例值：
-         */
+     /**
+      * 更新文档的展示设置
+      * <p> 示例值：
+      */
         private DocumentDisplaySetting updateDisplaySetting;
-        /**
-         * 更新文档封面
-         * <p> 示例值：
-         */
+     /**
+      * 更新文档封面
+      * <p> 示例值：
+      */
         private UpdateCoverRequest updateCover;
 
         /**
          * 更新文档的展示设置
          * <p> 示例值：
-         *
          * @param updateDisplaySetting
          * @return
          */
         public Builder updateDisplaySetting(DocumentDisplaySetting updateDisplaySetting) {
-            this.updateDisplaySetting = updateDisplaySetting;
-            return this;
+             this.updateDisplaySetting = updateDisplaySetting;
+             return this;
         }
 
+    
 
         /**
          * 更新文档封面
          * <p> 示例值：
-         *
          * @param updateCover
          * @return
          */
         public Builder updateCover(UpdateCoverRequest updateCover) {
-            this.updateCover = updateCover;
-            return this;
+             this.updateCover = updateCover;
+             return this;
         }
 
+    
+    
+    public UpdateDocumentRequest build(){
+        return new UpdateDocumentRequest(this);
+      }
+    }
 
-        public UpdateDocumentRequest build() {
-            return new UpdateDocumentRequest(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

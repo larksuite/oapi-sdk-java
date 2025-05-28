@@ -17,16 +17,15 @@ package com.lark.oapi.service.moments.v1.enums;
  * 表情回复所属实体类型
  */
 public enum ReactionEntityTypeEnum {
-    POST(1), // 帖子
-    COMMENT(2), // 评论
-    ;
-    private Integer value;
-
+     POST(1), // 帖子
+     COMMENT(2), // 评论
+  ;
+   private Integer value;
     ReactionEntityTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

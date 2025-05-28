@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteCategoryReq {
-    /**
-     * 知识库分类ID
-     * <p> 示例值：6948728206392295444
-     */
+     /**
+      * 知识库分类ID
+      * <p> 示例值：6948728206392295444
+      */
     @Path
     @SerializedName("id")
     private String id;
-
-    // builder 开始
-    public DeleteCategoryReq() {
-    }
-
-    public DeleteCategoryReq(Builder builder) {
-        /**
-         * 知识库分类ID
-         * <p> 示例值：6948728206392295444
-         */
-        this.id = builder.id;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -60,25 +39,39 @@ public class DeleteCategoryReq {
         this.id = id;
     }
 
+
+// builder 开始
+  public DeleteCategoryReq(){}
+
+  public DeleteCategoryReq(Builder builder){
+     /**
+      * 知识库分类ID
+      * <p> 示例值：6948728206392295444
+      */
+       this.id = builder.id;
+  }
+
     public static class Builder {
-
+    
         private String id; // 知识库分类ID
-
         /**
          * 知识库分类ID
          * <p> 示例值：6948728206392295444
-         *
          * @param id
          * @return
          */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
+          public Builder id(String id) {
+               this.id = id;
+               return this;
+          }
 
+    
+    public DeleteCategoryReq build(){
+        return new DeleteCategoryReq(this);
+      }
+    }
 
-        public DeleteCategoryReq build() {
-            return new DeleteCategoryReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

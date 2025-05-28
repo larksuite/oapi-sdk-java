@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeletePinReq {
-    /**
-     * 待移除Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
+     /**
+      * 待移除Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
     @Path
     @SerializedName("message_id")
     private String messageId;
-
-    // builder 开始
-    public DeletePinReq() {
-    }
-
-    public DeletePinReq(Builder builder) {
-        /**
-         * 待移除Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMessageId() {
         return this.messageId;
     }
@@ -60,25 +39,39 @@ public class DeletePinReq {
         this.messageId = messageId;
     }
 
+
+// builder 开始
+  public DeletePinReq(){}
+
+  public DeletePinReq(Builder builder){
+     /**
+      * 待移除Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
+       this.messageId = builder.messageId;
+  }
+
     public static class Builder {
-
+    
         private String messageId; // 待移除Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-
         /**
          * 待移除Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
          * @param messageId
          * @return
          */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
+          public Builder messageId(String messageId) {
+               this.messageId = messageId;
+               return this;
+          }
 
+    
+    public DeletePinReq build(){
+        return new DeletePinReq(this);
+      }
+    }
 
-        public DeletePinReq build() {
-            return new DeletePinReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

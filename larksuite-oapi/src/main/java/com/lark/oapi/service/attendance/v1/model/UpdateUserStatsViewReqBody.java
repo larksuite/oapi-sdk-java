@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateUserStatsViewReqBody {
-    /**
-     * 统计设置
-     * <p> 示例值：
-     */
+     /**
+      * 统计设置
+      * <p> 示例值：
+      */
     @SerializedName("view")
     private UserStatsView view;
-
-    // builder 开始
-    public UpdateUserStatsViewReqBody() {
-    }
-
-    public UpdateUserStatsViewReqBody(Builder builder) {
-        /**
-         * 统计设置
-         * <p> 示例值：
-         */
-        this.view = builder.view;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public UserStatsView getView() {
         return this.view;
     }
@@ -60,28 +39,44 @@ public class UpdateUserStatsViewReqBody {
         this.view = view;
     }
 
+
+// builder 开始
+  public UpdateUserStatsViewReqBody(){}
+
+  public UpdateUserStatsViewReqBody(Builder builder){
+         /**
+          * 统计设置
+          * <p> 示例值：
+          */
+      this.view = builder.view;
+  }
+
     public static class Builder {
-        /**
-         * 统计设置
-         * <p> 示例值：
-         */
+     /**
+      * 统计设置
+      * <p> 示例值：
+      */
         private UserStatsView view;
 
         /**
          * 统计设置
          * <p> 示例值：
-         *
          * @param view
          * @return
          */
         public Builder view(UserStatsView view) {
-            this.view = view;
-            return this;
+             this.view = view;
+             return this;
         }
 
+    
+    
+    public UpdateUserStatsViewReqBody build(){
+        return new UpdateUserStatsViewReqBody(this);
+      }
+    }
 
-        public UpdateUserStatsViewReqBody build() {
-            return new UpdateUserStatsViewReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

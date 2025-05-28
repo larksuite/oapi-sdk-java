@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.drive.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class Media {
         this.config = config;
     }
 
-
+    
     /**
      * 获取素材临时下载链接，通过file_token获取素材临时下载链接，链接时效性是24小时，过期失效。
      * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
@@ -64,7 +59,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchGetTmpDownloadUrlMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetTmpDownloadUrlMediaResp.class);
         if (resp == null) {
@@ -72,14 +67,14 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -97,7 +92,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchGetTmpDownloadUrlMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetTmpDownloadUrlMediaResp.class);
         if (resp == null) {
@@ -105,16 +100,15 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 下载素材，使用该接口可以下载素材。素材表示在各种创作容器里的文件，如Doc文档内的图片，文件均属于素材。支持range下载。
      * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
@@ -133,7 +127,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/:file_token/download"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         if (httpResponse.getStatusCode() == 200) {
             DownloadMediaResp resp = new DownloadMediaResp();
             resp.setRawResponse(httpResponse);
@@ -141,7 +135,7 @@ public class Media {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return resp;
+            return  resp;
         }
         // 反序列化
         DownloadMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadMediaResp.class);
@@ -150,14 +144,14 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/:file_token/download"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -176,7 +170,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/:file_token/download"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 下载请求，返回流
         if (httpResponse.getStatusCode() == 200) {
             DownloadMediaResp resp = new DownloadMediaResp();
@@ -185,7 +179,7 @@ public class Media {
             outputStream.write(httpResponse.getBody());
             resp.setData(outputStream);
             resp.setFileName(httpResponse.getFileName());
-            return resp;
+            return  resp;
         }
         // 反序列化
         DownloadMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadMediaResp.class);
@@ -194,16 +188,15 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/:file_token/download"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 上传素材，将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。
      * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。 ;
@@ -223,7 +216,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/upload_all"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UploadAllMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadAllMediaResp.class);
         if (resp == null) {
@@ -231,14 +224,14 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_all"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -258,7 +251,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/upload_all"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UploadAllMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadAllMediaResp.class);
         if (resp == null) {
@@ -266,16 +259,15 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_all"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 分片上传素材（完成上传），触发完成上传。
      * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
@@ -293,7 +285,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/upload_finish"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UploadFinishMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFinishMediaResp.class);
         if (resp == null) {
@@ -301,14 +293,14 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_finish"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -326,7 +318,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/upload_finish"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UploadFinishMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFinishMediaResp.class);
         if (resp == null) {
@@ -334,16 +326,15 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_finish"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 分片上传素材（上传分片），上传对应的文件块。
      * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
@@ -362,7 +353,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/upload_part"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UploadPartMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPartMediaResp.class);
         if (resp == null) {
@@ -370,14 +361,14 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_part"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -396,7 +387,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/upload_part"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UploadPartMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPartMediaResp.class);
         if (resp == null) {
@@ -404,16 +395,15 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_part"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * 分片上传素材（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
      * <p> 您在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
@@ -432,7 +422,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/upload_prepare"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UploadPrepareMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPrepareMediaResp.class);
         if (resp == null) {
@@ -440,14 +430,14 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_prepare"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -466,7 +456,7 @@ public class Media {
                 , "/open-apis/drive/v1/medias/upload_prepare"
                 , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UploadPrepareMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPrepareMediaResp.class);
         if (resp == null) {
@@ -474,13 +464,13 @@ public class Media {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_prepare"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

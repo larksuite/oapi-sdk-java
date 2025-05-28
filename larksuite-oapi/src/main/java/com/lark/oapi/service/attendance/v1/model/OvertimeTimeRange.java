@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OvertimeTimeRange {
-    /**
-     * 开始时间
-     * <p> 示例值：2023-09-25 07:00:00
-     */
+     /**
+      * 开始时间
+      * <p> 示例值：2023-09-25 07:00:00
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 结束时间
-     * <p> 示例值：2023-09-25 23:30:00
-     */
+     /**
+      * 结束时间
+      * <p> 示例值：2023-09-25 23:30:00
+      */
     @SerializedName("end_time")
     private String endTime;
-
-    // builder 开始
-    public OvertimeTimeRange() {
-    }
-
-    public OvertimeTimeRange(Builder builder) {
-        /**
-         * 开始时间
-         * <p> 示例值：2023-09-25 07:00:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：2023-09-25 23:30:00
-         */
-        this.endTime = builder.endTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStartTime() {
         return this.startTime;
     }
@@ -79,46 +53,67 @@ public class OvertimeTimeRange {
         this.endTime = endTime;
     }
 
+
+// builder 开始
+  public OvertimeTimeRange(){}
+
+  public OvertimeTimeRange(Builder builder){
+         /**
+          * 开始时间
+          * <p> 示例值：2023-09-25 07:00:00
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 结束时间
+          * <p> 示例值：2023-09-25 23:30:00
+          */
+      this.endTime = builder.endTime;
+  }
+
     public static class Builder {
-        /**
-         * 开始时间
-         * <p> 示例值：2023-09-25 07:00:00
-         */
+     /**
+      * 开始时间
+      * <p> 示例值：2023-09-25 07:00:00
+      */
         private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：2023-09-25 23:30:00
-         */
+     /**
+      * 结束时间
+      * <p> 示例值：2023-09-25 23:30:00
+      */
         private String endTime;
 
         /**
          * 开始时间
          * <p> 示例值：2023-09-25 07:00:00
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 结束时间
          * <p> 示例值：2023-09-25 23:30:00
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
+    
+    public OvertimeTimeRange build(){
+        return new OvertimeTimeRange(this);
+      }
+    }
 
-        public OvertimeTimeRange build() {
-            return new OvertimeTimeRange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,53 +12,48 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2OffboardingUpdatedV1Data {
-    /**
-     * 员工 ID
-     * <p> 示例值：7072306364927985196
-     */
+     /**
+      * 员工 ID
+      * <p> 示例值：7072306364927985196
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
+     /**
+      * 用户 ID
+      * <p> 示例值：
+      */
     @SerializedName("target_user_id")
     private UserId targetUserId;
-    /**
-     * 离职记录 ID
-     * <p> 示例值：7044427347159746085
-     */
+     /**
+      * 离职记录 ID
+      * <p> 示例值：7044427347159746085
+      */
     @SerializedName("offboarding_id")
     private String offboardingId;
-    /**
-     * 离职发起后的审批流程实例 ID
-     * <p> 示例值：7090409013925398060
-     */
+     /**
+      * 离职发起后的审批流程实例 ID
+      * <p> 示例值：7090409013925398060
+      */
     @SerializedName("process_id")
     private String processId;
-    /**
-     * 离职状态
-     * <p> 示例值：1
-     */
+     /**
+      * 离职状态
+      * <p> 示例值：1
+      */
     @SerializedName("status")
     private Integer status;
-
     public String getEmploymentId() {
         return this.employmentId;
     }

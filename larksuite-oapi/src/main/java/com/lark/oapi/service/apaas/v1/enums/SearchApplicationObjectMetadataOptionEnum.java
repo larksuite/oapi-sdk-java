@@ -17,16 +17,15 @@ package com.lark.oapi.service.apaas.v1.enums;
  * 返回元数据枚举值
  */
 public enum SearchApplicationObjectMetadataOptionEnum {
-    METADATAOPTIONLABEL("Label"), // 只返回 Label
-    METADATAOPTIONSEARCHLAYOUT("SearchLayout"), // 返回搜索布局信息
-    ;
-    private String value;
-
+     METADATAOPTIONLABEL("Label"), // 只返回 Label
+     METADATAOPTIONSEARCHLAYOUT("SearchLayout"), // 返回搜索布局信息
+  ;
+   private String value;
     SearchApplicationObjectMetadataOptionEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

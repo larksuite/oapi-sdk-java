@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LeaveTime {
-    /**
-     * 日期
-     * <p> 示例值：2006-01-02
-     */
+     /**
+      * 日期
+      * <p> 示例值：2006-01-02
+      */
     @SerializedName("date")
     private String date;
-    /**
-     * 时间
-     * <p> 示例值：12:00
-     */
+     /**
+      * 时间
+      * <p> 示例值：12:00
+      */
     @SerializedName("time")
     private String time;
-    /**
-     * morning:上午, afternoon:下午
-     * <p> 示例值：morning
-     */
+     /**
+      * morning:上午, afternoon:下午
+      * <p> 示例值：morning
+      */
     @SerializedName("half_day")
     private String halfDay;
-
-    // builder 开始
-    public LeaveTime() {
-    }
-
-    public LeaveTime(Builder builder) {
-        /**
-         * 日期
-         * <p> 示例值：2006-01-02
-         */
-        this.date = builder.date;
-        /**
-         * 时间
-         * <p> 示例值：12:00
-         */
-        this.time = builder.time;
-        /**
-         * morning:上午, afternoon:下午
-         * <p> 示例值：morning
-         */
-        this.halfDay = builder.halfDay;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDate() {
         return this.date;
     }
@@ -98,64 +67,90 @@ public class LeaveTime {
         this.halfDay = halfDay;
     }
 
+
+// builder 开始
+  public LeaveTime(){}
+
+  public LeaveTime(Builder builder){
+         /**
+          * 日期
+          * <p> 示例值：2006-01-02
+          */
+      this.date = builder.date;
+         /**
+          * 时间
+          * <p> 示例值：12:00
+          */
+      this.time = builder.time;
+         /**
+          * morning:上午, afternoon:下午
+          * <p> 示例值：morning
+          */
+      this.halfDay = builder.halfDay;
+  }
+
     public static class Builder {
-        /**
-         * 日期
-         * <p> 示例值：2006-01-02
-         */
+     /**
+      * 日期
+      * <p> 示例值：2006-01-02
+      */
         private String date;
-        /**
-         * 时间
-         * <p> 示例值：12:00
-         */
+     /**
+      * 时间
+      * <p> 示例值：12:00
+      */
         private String time;
-        /**
-         * morning:上午, afternoon:下午
-         * <p> 示例值：morning
-         */
+     /**
+      * morning:上午, afternoon:下午
+      * <p> 示例值：morning
+      */
         private String halfDay;
 
         /**
          * 日期
          * <p> 示例值：2006-01-02
-         *
          * @param date
          * @return
          */
         public Builder date(String date) {
-            this.date = date;
-            return this;
+             this.date = date;
+             return this;
         }
 
+    
 
         /**
          * 时间
          * <p> 示例值：12:00
-         *
          * @param time
          * @return
          */
         public Builder time(String time) {
-            this.time = time;
-            return this;
+             this.time = time;
+             return this;
         }
 
+    
 
         /**
          * morning:上午, afternoon:下午
          * <p> 示例值：morning
-         *
          * @param halfDay
          * @return
          */
         public Builder halfDay(String halfDay) {
-            this.halfDay = halfDay;
-            return this;
+             this.halfDay = halfDay;
+             return this;
         }
 
+    
+    
+    public LeaveTime build(){
+        return new LeaveTime(this);
+      }
+    }
 
-        public LeaveTime build() {
-            return new LeaveTime(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

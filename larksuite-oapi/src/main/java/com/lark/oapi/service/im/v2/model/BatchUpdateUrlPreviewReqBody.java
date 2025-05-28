@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchUpdateUrlPreviewReqBody {
-    /**
-     * URL预览的token列表
-     * <p> 示例值：
-     */
+     /**
+      * URL预览的token列表
+      * <p> 示例值：
+      */
     @SerializedName("preview_tokens")
     private String[] previewTokens;
-    /**
-     * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
-     * <p> 示例值：
-     */
+     /**
+      * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
+      * <p> 示例值：
+      */
     @SerializedName("open_ids")
     private String[] openIds;
-
-    // builder 开始
-    public BatchUpdateUrlPreviewReqBody() {
-    }
-
-    public BatchUpdateUrlPreviewReqBody(Builder builder) {
-        /**
-         * URL预览的token列表
-         * <p> 示例值：
-         */
-        this.previewTokens = builder.previewTokens;
-        /**
-         * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
-         * <p> 示例值：
-         */
-        this.openIds = builder.openIds;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getPreviewTokens() {
         return this.previewTokens;
     }
@@ -79,46 +53,67 @@ public class BatchUpdateUrlPreviewReqBody {
         this.openIds = openIds;
     }
 
+
+// builder 开始
+  public BatchUpdateUrlPreviewReqBody(){}
+
+  public BatchUpdateUrlPreviewReqBody(Builder builder){
+         /**
+          * URL预览的token列表
+          * <p> 示例值：
+          */
+      this.previewTokens = builder.previewTokens;
+         /**
+          * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
+          * <p> 示例值：
+          */
+      this.openIds = builder.openIds;
+  }
+
     public static class Builder {
-        /**
-         * URL预览的token列表
-         * <p> 示例值：
-         */
+     /**
+      * URL预览的token列表
+      * <p> 示例值：
+      */
         private String[] previewTokens;
-        /**
-         * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
-         * <p> 示例值：
-         */
+     /**
+      * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
+      * <p> 示例值：
+      */
         private String[] openIds;
 
         /**
          * URL预览的token列表
          * <p> 示例值：
-         *
          * @param previewTokens
          * @return
          */
         public Builder previewTokens(String[] previewTokens) {
-            this.previewTokens = previewTokens;
-            return this;
+             this.previewTokens = previewTokens;
+             return this;
         }
 
+    
 
         /**
          * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
          * <p> 示例值：
-         *
          * @param openIds
          * @return
          */
         public Builder openIds(String[] openIds) {
-            this.openIds = openIds;
-            return this;
+             this.openIds = openIds;
+             return this;
         }
 
+    
+    
+    public BatchUpdateUrlPreviewReqBody build(){
+        return new BatchUpdateUrlPreviewReqBody(this);
+      }
+    }
 
-        public BatchUpdateUrlPreviewReqBody build() {
-            return new BatchUpdateUrlPreviewReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

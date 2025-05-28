@@ -12,58 +12,25 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetNotificationReq {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 唯一ID
-     * <p> 示例值：1624326025000
-     */
-    @Path
-    @SerializedName("notification_id")
-    private String notificationId;
-
-    // builder 开始
-    public GetNotificationReq() {
-    }
-
-    public GetNotificationReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 唯一ID
-         * <p> 示例值：1624326025000
-         */
-        this.notificationId = builder.notificationId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -72,6 +39,13 @@ public class GetNotificationReq {
         this.userIdType = userIdType;
     }
 
+     /**
+      * 唯一ID
+      * <p> 示例值：1624326025000
+      */
+    @Path
+    @SerializedName("notification_id")
+    private String notificationId;
     public String getNotificationId() {
         return this.notificationId;
     }
@@ -80,49 +54,68 @@ public class GetNotificationReq {
         this.notificationId = notificationId;
     }
 
+
+// builder 开始
+  public GetNotificationReq(){}
+
+  public GetNotificationReq(Builder builder){
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+     /**
+      * 唯一ID
+      * <p> 示例值：1624326025000
+      */
+       this.notificationId = builder.notificationId;
+  }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String notificationId; // 唯一ID
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType {@link com.lark.oapi.service.helpdesk.v1.enums.GetNotificationUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.GetNotificationUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.GetNotificationUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
+    
+        private String notificationId; // 唯一ID
         /**
          * 唯一ID
          * <p> 示例值：1624326025000
-         *
          * @param notificationId
          * @return
          */
-        public Builder notificationId(String notificationId) {
-            this.notificationId = notificationId;
-            return this;
-        }
+          public Builder notificationId(String notificationId) {
+               this.notificationId = notificationId;
+               return this;
+          }
 
+    
+    public GetNotificationReq build(){
+        return new GetNotificationReq(this);
+      }
+    }
 
-        public GetNotificationReq build() {
-            return new GetNotificationReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

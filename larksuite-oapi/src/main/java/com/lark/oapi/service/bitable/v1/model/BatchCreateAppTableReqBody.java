@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchCreateAppTableReqBody {
-    /**
-     * tables
-     * <p> 示例值：
-     */
+     /**
+      * tables
+      * <p> 示例值：
+      */
     @SerializedName("tables")
     private ReqTable[] tables;
-
-    // builder 开始
-    public BatchCreateAppTableReqBody() {
-    }
-
-    public BatchCreateAppTableReqBody(Builder builder) {
-        /**
-         * tables
-         * <p> 示例值：
-         */
-        this.tables = builder.tables;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ReqTable[] getTables() {
         return this.tables;
     }
@@ -60,28 +39,44 @@ public class BatchCreateAppTableReqBody {
         this.tables = tables;
     }
 
+
+// builder 开始
+  public BatchCreateAppTableReqBody(){}
+
+  public BatchCreateAppTableReqBody(Builder builder){
+         /**
+          * tables
+          * <p> 示例值：
+          */
+      this.tables = builder.tables;
+  }
+
     public static class Builder {
-        /**
-         * tables
-         * <p> 示例值：
-         */
+     /**
+      * tables
+      * <p> 示例值：
+      */
         private ReqTable[] tables;
 
         /**
          * tables
          * <p> 示例值：
-         *
          * @param tables
          * @return
          */
         public Builder tables(ReqTable[] tables) {
-            this.tables = tables;
-            return this;
+             this.tables = tables;
+             return this;
         }
 
+    
+    
+    public BatchCreateAppTableReqBody build(){
+        return new BatchCreateAppTableReqBody(this);
+      }
+    }
 
-        public BatchCreateAppTableReqBody build() {
-            return new BatchCreateAppTableReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

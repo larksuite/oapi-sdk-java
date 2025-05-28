@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateShortcutFileReqBody {
-    /**
-     * 创建快捷方式的目标父文件夹 token
-     * <p> 示例值：fldbc5qgwyQnO0uedNllWuF3fAd
-     */
+     /**
+      * 创建快捷方式的目标父文件夹 token
+      * <p> 示例值：fldbc5qgwyQnO0uedNllWuF3fAd
+      */
     @SerializedName("parent_token")
     private String parentToken;
-    /**
-     * 快捷方式映射到的文档和文件列表信息
-     * <p> 示例值：
-     */
+     /**
+      * 快捷方式映射到的文档和文件列表信息
+      * <p> 示例值：
+      */
     @SerializedName("refer_entity")
     private ReferEntity referEntity;
-
-    // builder 开始
-    public CreateShortcutFileReqBody() {
-    }
-
-    public CreateShortcutFileReqBody(Builder builder) {
-        /**
-         * 创建快捷方式的目标父文件夹 token
-         * <p> 示例值：fldbc5qgwyQnO0uedNllWuF3fAd
-         */
-        this.parentToken = builder.parentToken;
-        /**
-         * 快捷方式映射到的文档和文件列表信息
-         * <p> 示例值：
-         */
-        this.referEntity = builder.referEntity;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getParentToken() {
         return this.parentToken;
     }
@@ -79,46 +53,67 @@ public class CreateShortcutFileReqBody {
         this.referEntity = referEntity;
     }
 
+
+// builder 开始
+  public CreateShortcutFileReqBody(){}
+
+  public CreateShortcutFileReqBody(Builder builder){
+         /**
+          * 创建快捷方式的目标父文件夹 token
+          * <p> 示例值：fldbc5qgwyQnO0uedNllWuF3fAd
+          */
+      this.parentToken = builder.parentToken;
+         /**
+          * 快捷方式映射到的文档和文件列表信息
+          * <p> 示例值：
+          */
+      this.referEntity = builder.referEntity;
+  }
+
     public static class Builder {
-        /**
-         * 创建快捷方式的目标父文件夹 token
-         * <p> 示例值：fldbc5qgwyQnO0uedNllWuF3fAd
-         */
+     /**
+      * 创建快捷方式的目标父文件夹 token
+      * <p> 示例值：fldbc5qgwyQnO0uedNllWuF3fAd
+      */
         private String parentToken;
-        /**
-         * 快捷方式映射到的文档和文件列表信息
-         * <p> 示例值：
-         */
+     /**
+      * 快捷方式映射到的文档和文件列表信息
+      * <p> 示例值：
+      */
         private ReferEntity referEntity;
 
         /**
          * 创建快捷方式的目标父文件夹 token
          * <p> 示例值：fldbc5qgwyQnO0uedNllWuF3fAd
-         *
          * @param parentToken
          * @return
          */
         public Builder parentToken(String parentToken) {
-            this.parentToken = parentToken;
-            return this;
+             this.parentToken = parentToken;
+             return this;
         }
 
+    
 
         /**
          * 快捷方式映射到的文档和文件列表信息
          * <p> 示例值：
-         *
          * @param referEntity
          * @return
          */
         public Builder referEntity(ReferEntity referEntity) {
-            this.referEntity = referEntity;
-            return this;
+             this.referEntity = referEntity;
+             return this;
         }
 
+    
+    
+    public CreateShortcutFileReqBody build(){
+        return new CreateShortcutFileReqBody(this);
+      }
+    }
 
-        public CreateShortcutFileReqBody build() {
-            return new CreateShortcutFileReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

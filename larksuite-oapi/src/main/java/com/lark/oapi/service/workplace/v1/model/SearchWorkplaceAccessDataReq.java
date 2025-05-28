@@ -12,81 +12,45 @@
  */
 
 package com.lark.oapi.service.workplace.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchWorkplaceAccessDataReq {
-    /**
-     * 数据检索开始时间，精确到日。格式yyyy-MM-dd
-     * <p> 示例值：2023-03-01
-     */
+     /**
+      * 数据检索开始时间，精确到日。格式yyyy-MM-dd
+      * <p> 示例值：2023-03-01
+      */
     @Query
     @SerializedName("from_date")
     private String fromDate;
-    /**
-     * 数据检索结束时间，精确到日。格式yyyy-MM-dd。
-     * <p> 示例值：2023-03-22
-     */
+     /**
+      * 数据检索结束时间，精确到日。格式yyyy-MM-dd。
+      * <p> 示例值：2023-03-22
+      */
     @Query
     @SerializedName("to_date")
     private String toDate;
-    /**
-     * 分页大小，最小为 1，最大为 200，默认为 20。
-     * <p> 示例值：20
-     */
+     /**
+      * 分页大小，最小为 1，最大为 200，默认为 20。
+      * <p> 示例值：20
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 用于标记当前请求的分页标记，将返回以当前分页标记开始，往后 page_size 个元素。第一次访问接口的时候不需要传。
-     * <p> 示例值：ddowkdkl9w2d
-     */
+     /**
+      * 用于标记当前请求的分页标记，将返回以当前分页标记开始，往后 page_size 个元素。第一次访问接口的时候不需要传。
+      * <p> 示例值：ddowkdkl9w2d
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-
-    // builder 开始
-    public SearchWorkplaceAccessDataReq() {
-    }
-
-    public SearchWorkplaceAccessDataReq(Builder builder) {
-        /**
-         * 数据检索开始时间，精确到日。格式yyyy-MM-dd
-         * <p> 示例值：2023-03-01
-         */
-        this.fromDate = builder.fromDate;
-        /**
-         * 数据检索结束时间，精确到日。格式yyyy-MM-dd。
-         * <p> 示例值：2023-03-22
-         */
-        this.toDate = builder.toDate;
-        /**
-         * 分页大小，最小为 1，最大为 200，默认为 20。
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 用于标记当前请求的分页标记，将返回以当前分页标记开始，往后 page_size 个元素。第一次访问接口的时候不需要传。
-         * <p> 示例值：ddowkdkl9w2d
-         */
-        this.pageToken = builder.pageToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFromDate() {
         return this.fromDate;
     }
@@ -119,66 +83,93 @@ public class SearchWorkplaceAccessDataReq {
         this.pageToken = pageToken;
     }
 
+
+// builder 开始
+  public SearchWorkplaceAccessDataReq(){}
+
+  public SearchWorkplaceAccessDataReq(Builder builder){
+         /**
+          * 数据检索开始时间，精确到日。格式yyyy-MM-dd
+          * <p> 示例值：2023-03-01
+          */
+       this.fromDate = builder.fromDate;
+         /**
+          * 数据检索结束时间，精确到日。格式yyyy-MM-dd。
+          * <p> 示例值：2023-03-22
+          */
+       this.toDate = builder.toDate;
+         /**
+          * 分页大小，最小为 1，最大为 200，默认为 20。
+          * <p> 示例值：20
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 用于标记当前请求的分页标记，将返回以当前分页标记开始，往后 page_size 个元素。第一次访问接口的时候不需要传。
+          * <p> 示例值：ddowkdkl9w2d
+          */
+       this.pageToken = builder.pageToken;
+  }
+
     public static class Builder {
         private String fromDate; // 数据检索开始时间，精确到日。格式yyyy-MM-dd
         private String toDate; // 数据检索结束时间，精确到日。格式yyyy-MM-dd。
         private Integer pageSize; // 分页大小，最小为 1，最大为 200，默认为 20。
         private String pageToken; // 用于标记当前请求的分页标记，将返回以当前分页标记开始，往后 page_size 个元素。第一次访问接口的时候不需要传。
-
+    
         /**
          * 数据检索开始时间，精确到日。格式yyyy-MM-dd
          * <p> 示例值：2023-03-01
-         *
          * @param fromDate
          * @return
          */
-        public Builder fromDate(String fromDate) {
-            this.fromDate = fromDate;
-            return this;
-        }
+           public Builder fromDate(String fromDate) {
+                this.fromDate = fromDate;
+                return this;
+           }
 
-
+    
         /**
          * 数据检索结束时间，精确到日。格式yyyy-MM-dd。
          * <p> 示例值：2023-03-22
-         *
          * @param toDate
          * @return
          */
-        public Builder toDate(String toDate) {
-            this.toDate = toDate;
-            return this;
-        }
+           public Builder toDate(String toDate) {
+                this.toDate = toDate;
+                return this;
+           }
 
-
+    
         /**
          * 分页大小，最小为 1，最大为 200，默认为 20。
          * <p> 示例值：20
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 用于标记当前请求的分页标记，将返回以当前分页标记开始，往后 page_size 个元素。第一次访问接口的时候不需要传。
          * <p> 示例值：ddowkdkl9w2d
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
+    
+    public SearchWorkplaceAccessDataReq build(){
+        return new SearchWorkplaceAccessDataReq(this);
+      }
+    }
 
-        public SearchWorkplaceAccessDataReq build() {
-            return new SearchWorkplaceAccessDataReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

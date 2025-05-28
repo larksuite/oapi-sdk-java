@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UrgentReceivers {
-    /**
-     * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
-     * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
-     */
+     /**
+      * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
+      * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
+      */
     @SerializedName("user_id_list")
     private String[] userIdList;
-
-    // builder 开始
-    public UrgentReceivers() {
-    }
-
-    public UrgentReceivers(Builder builder) {
-        /**
-         * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
-         * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
-         */
-        this.userIdList = builder.userIdList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getUserIdList() {
         return this.userIdList;
     }
@@ -60,28 +39,44 @@ public class UrgentReceivers {
         this.userIdList = userIdList;
     }
 
+
+// builder 开始
+  public UrgentReceivers(){}
+
+  public UrgentReceivers(Builder builder){
+         /**
+          * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
+          * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
+          */
+      this.userIdList = builder.userIdList;
+  }
+
     public static class Builder {
-        /**
-         * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
-         * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
-         */
+     /**
+      * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
+      * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
+      */
         private String[] userIdList;
 
         /**
          * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
          * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
-         *
          * @param userIdList
          * @return
          */
         public Builder userIdList(String[] userIdList) {
-            this.userIdList = userIdList;
-            return this;
+             this.userIdList = userIdList;
+             return this;
         }
 
+    
+    
+    public UrgentReceivers build(){
+        return new UrgentReceivers(this);
+      }
+    }
 
-        public UrgentReceivers build() {
-            return new UrgentReceivers(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MatchRule {
-    /**
-     * 左值
-     * <p> 示例值：department
-     */
+     /**
+      * 左值
+      * <p> 示例值：department
+      */
     @SerializedName("left_value")
     private String leftValue;
-    /**
-     * 操作符
-     * <p> 示例值：contains
-     */
+     /**
+      * 操作符
+      * <p> 示例值：contains
+      */
     @SerializedName("operator")
     private String operator;
-    /**
-     * 右值
-     * <p> 示例值：
-     */
+     /**
+      * 右值
+      * <p> 示例值：
+      */
     @SerializedName("right_values")
     private String[] rightValues;
-
-    // builder 开始
-    public MatchRule() {
-    }
-
-    public MatchRule(Builder builder) {
-        /**
-         * 左值
-         * <p> 示例值：department
-         */
-        this.leftValue = builder.leftValue;
-        /**
-         * 操作符
-         * <p> 示例值：contains
-         */
-        this.operator = builder.operator;
-        /**
-         * 右值
-         * <p> 示例值：
-         */
-        this.rightValues = builder.rightValues;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getLeftValue() {
         return this.leftValue;
     }
@@ -98,88 +67,110 @@ public class MatchRule {
         this.rightValues = rightValues;
     }
 
+
+// builder 开始
+  public MatchRule(){}
+
+  public MatchRule(Builder builder){
+         /**
+          * 左值
+          * <p> 示例值：department
+          */
+      this.leftValue = builder.leftValue;
+         /**
+          * 操作符
+          * <p> 示例值：contains
+          */
+      this.operator = builder.operator;
+         /**
+          * 右值
+          * <p> 示例值：
+          */
+      this.rightValues = builder.rightValues;
+  }
+
     public static class Builder {
-        /**
-         * 左值
-         * <p> 示例值：department
-         */
+     /**
+      * 左值
+      * <p> 示例值：department
+      */
         private String leftValue;
-        /**
-         * 操作符
-         * <p> 示例值：contains
-         */
+     /**
+      * 操作符
+      * <p> 示例值：contains
+      */
         private String operator;
-        /**
-         * 右值
-         * <p> 示例值：
-         */
+     /**
+      * 右值
+      * <p> 示例值：
+      */
         private String[] rightValues;
 
         /**
          * 左值
          * <p> 示例值：department
-         *
          * @param leftValue
          * @return
          */
         public Builder leftValue(String leftValue) {
-            this.leftValue = leftValue;
-            return this;
+             this.leftValue = leftValue;
+             return this;
         }
-
         /**
          * 左值
          * <p> 示例值：department
-         *
          * @param leftValue {@link com.lark.oapi.service.corehr.v2.enums.MatchRuleLeftValueEnum}
          * @return
          */
         public Builder leftValue(com.lark.oapi.service.corehr.v2.enums.MatchRuleLeftValueEnum leftValue) {
-            this.leftValue = leftValue.getValue();
-            return this;
+             this.leftValue = leftValue.getValue();
+             return this;
         }
 
+    
 
         /**
          * 操作符
          * <p> 示例值：contains
-         *
          * @param operator
          * @return
          */
         public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
+             this.operator = operator;
+             return this;
         }
-
         /**
          * 操作符
          * <p> 示例值：contains
-         *
          * @param operator {@link com.lark.oapi.service.corehr.v2.enums.MatchRuleOperatorEnum}
          * @return
          */
         public Builder operator(com.lark.oapi.service.corehr.v2.enums.MatchRuleOperatorEnum operator) {
-            this.operator = operator.getValue();
-            return this;
+             this.operator = operator.getValue();
+             return this;
         }
 
+    
 
         /**
          * 右值
          * <p> 示例值：
-         *
          * @param rightValues
          * @return
          */
         public Builder rightValues(String[] rightValues) {
-            this.rightValues = rightValues;
-            return this;
+             this.rightValues = rightValues;
+             return this;
         }
 
+    
+    
+    public MatchRule build(){
+        return new MatchRule(this);
+      }
+    }
 
-        public MatchRule build() {
-            return new MatchRule(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

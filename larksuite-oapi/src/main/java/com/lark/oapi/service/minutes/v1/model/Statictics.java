@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.minutes.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.minutes.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Statictics {
-    /**
-     * 用户浏览数
-     * <p> 示例值：3
-     */
+     /**
+      * 用户浏览数
+      * <p> 示例值：3
+      */
     @SerializedName("user_view_count")
     private String userViewCount;
-    /**
-     * 页面浏览数量
-     * <p> 示例值：20
-     */
+     /**
+      * 页面浏览数量
+      * <p> 示例值：20
+      */
     @SerializedName("page_view_count")
     private String pageViewCount;
-    /**
-     * 用户浏览列表
-     * <p> 示例值：
-     */
+     /**
+      * 用户浏览列表
+      * <p> 示例值：
+      */
     @SerializedName("user_view_list")
     private UserViewDetail[] userViewList;
-
-    // builder 开始
-    public Statictics() {
-    }
-
-    public Statictics(Builder builder) {
-        /**
-         * 用户浏览数
-         * <p> 示例值：3
-         */
-        this.userViewCount = builder.userViewCount;
-        /**
-         * 页面浏览数量
-         * <p> 示例值：20
-         */
-        this.pageViewCount = builder.pageViewCount;
-        /**
-         * 用户浏览列表
-         * <p> 示例值：
-         */
-        this.userViewList = builder.userViewList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserViewCount() {
         return this.userViewCount;
     }
@@ -98,64 +67,90 @@ public class Statictics {
         this.userViewList = userViewList;
     }
 
+
+// builder 开始
+  public Statictics(){}
+
+  public Statictics(Builder builder){
+         /**
+          * 用户浏览数
+          * <p> 示例值：3
+          */
+      this.userViewCount = builder.userViewCount;
+         /**
+          * 页面浏览数量
+          * <p> 示例值：20
+          */
+      this.pageViewCount = builder.pageViewCount;
+         /**
+          * 用户浏览列表
+          * <p> 示例值：
+          */
+      this.userViewList = builder.userViewList;
+  }
+
     public static class Builder {
-        /**
-         * 用户浏览数
-         * <p> 示例值：3
-         */
+     /**
+      * 用户浏览数
+      * <p> 示例值：3
+      */
         private String userViewCount;
-        /**
-         * 页面浏览数量
-         * <p> 示例值：20
-         */
+     /**
+      * 页面浏览数量
+      * <p> 示例值：20
+      */
         private String pageViewCount;
-        /**
-         * 用户浏览列表
-         * <p> 示例值：
-         */
+     /**
+      * 用户浏览列表
+      * <p> 示例值：
+      */
         private UserViewDetail[] userViewList;
 
         /**
          * 用户浏览数
          * <p> 示例值：3
-         *
          * @param userViewCount
          * @return
          */
         public Builder userViewCount(String userViewCount) {
-            this.userViewCount = userViewCount;
-            return this;
+             this.userViewCount = userViewCount;
+             return this;
         }
 
+    
 
         /**
          * 页面浏览数量
          * <p> 示例值：20
-         *
          * @param pageViewCount
          * @return
          */
         public Builder pageViewCount(String pageViewCount) {
-            this.pageViewCount = pageViewCount;
-            return this;
+             this.pageViewCount = pageViewCount;
+             return this;
         }
 
+    
 
         /**
          * 用户浏览列表
          * <p> 示例值：
-         *
          * @param userViewList
          * @return
          */
         public Builder userViewList(UserViewDetail[] userViewList) {
-            this.userViewList = userViewList;
-            return this;
+             this.userViewList = userViewList;
+             return this;
         }
 
+    
+    
+    public Statictics build(){
+        return new Statictics(this);
+      }
+    }
 
-        public Statictics build() {
-            return new Statictics(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

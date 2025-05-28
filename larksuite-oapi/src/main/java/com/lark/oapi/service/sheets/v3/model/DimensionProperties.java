@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DimensionProperties {
-    /**
-     * 是否隐藏
-     * <p> 示例值：false
-     */
+     /**
+      * 是否隐藏
+      * <p> 示例值：false
+      */
     @SerializedName("hidden")
     private Boolean hidden;
-    /**
-     * 行/列像素大小
-     * <p> 示例值：100
-     */
+     /**
+      * 行/列像素大小
+      * <p> 示例值：100
+      */
     @SerializedName("pixel_size")
     private Integer pixelSize;
-
-    // builder 开始
-    public DimensionProperties() {
-    }
-
-    public DimensionProperties(Builder builder) {
-        /**
-         * 是否隐藏
-         * <p> 示例值：false
-         */
-        this.hidden = builder.hidden;
-        /**
-         * 行/列像素大小
-         * <p> 示例值：100
-         */
-        this.pixelSize = builder.pixelSize;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getHidden() {
         return this.hidden;
     }
@@ -79,46 +53,67 @@ public class DimensionProperties {
         this.pixelSize = pixelSize;
     }
 
+
+// builder 开始
+  public DimensionProperties(){}
+
+  public DimensionProperties(Builder builder){
+         /**
+          * 是否隐藏
+          * <p> 示例值：false
+          */
+      this.hidden = builder.hidden;
+         /**
+          * 行/列像素大小
+          * <p> 示例值：100
+          */
+      this.pixelSize = builder.pixelSize;
+  }
+
     public static class Builder {
-        /**
-         * 是否隐藏
-         * <p> 示例值：false
-         */
+     /**
+      * 是否隐藏
+      * <p> 示例值：false
+      */
         private Boolean hidden;
-        /**
-         * 行/列像素大小
-         * <p> 示例值：100
-         */
+     /**
+      * 行/列像素大小
+      * <p> 示例值：100
+      */
         private Integer pixelSize;
 
         /**
          * 是否隐藏
          * <p> 示例值：false
-         *
          * @param hidden
          * @return
          */
         public Builder hidden(Boolean hidden) {
-            this.hidden = hidden;
-            return this;
+             this.hidden = hidden;
+             return this;
         }
 
+    
 
         /**
          * 行/列像素大小
          * <p> 示例值：100
-         *
          * @param pixelSize
          * @return
          */
         public Builder pixelSize(Integer pixelSize) {
-            this.pixelSize = pixelSize;
-            return this;
+             this.pixelSize = pixelSize;
+             return this;
         }
 
+    
+    
+    public DimensionProperties build(){
+        return new DimensionProperties(this);
+      }
+    }
 
-        public DimensionProperties build() {
-            return new DimensionProperties(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

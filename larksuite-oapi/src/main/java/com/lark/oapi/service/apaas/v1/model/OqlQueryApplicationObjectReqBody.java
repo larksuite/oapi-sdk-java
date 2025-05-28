@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OqlQueryApplicationObjectReqBody {
-    /**
-     * 待执行的 OQL 语句（关于支持的关键词及操作符，详见查看）
-     * <p> 示例值：SELECT _id, _name FROM _user WHERE _type = $1 AND _accountStatus = $user_status LIMIT 10
-     */
+     /**
+      * 待执行的 OQL 语句（关于支持的关键词及操作符，详见查看）
+      * <p> 示例值：SELECT _id, _name FROM _user WHERE _type = $1 AND _accountStatus = $user_status LIMIT 10
+      */
     @SerializedName("query")
     private String query;
-    /**
-     * 用于指定 OQL 语句中匿名参数的具体值
-     * <p> 示例值：[\"_employee\"]
-     */
+     /**
+      * 用于指定 OQL 语句中匿名参数的具体值
+      * <p> 示例值：[\"_employee\"]
+      */
     @SerializedName("args")
     private String args;
-    /**
-     * 用于指定 OQL 语句中具名参数的具体值
-     * <p> 示例值：{\"user_status\" : \"_used\"}
-     */
+     /**
+      * 用于指定 OQL 语句中具名参数的具体值
+      * <p> 示例值：{\"user_status\" : \"_used\"}
+      */
     @SerializedName("named_args")
     private String namedArgs;
-
-    // builder 开始
-    public OqlQueryApplicationObjectReqBody() {
-    }
-
-    public OqlQueryApplicationObjectReqBody(Builder builder) {
-        /**
-         * 待执行的 OQL 语句（关于支持的关键词及操作符，详见查看）
-         * <p> 示例值：SELECT _id, _name FROM _user WHERE _type = $1 AND _accountStatus = $user_status LIMIT 10
-         */
-        this.query = builder.query;
-        /**
-         * 用于指定 OQL 语句中匿名参数的具体值
-         * <p> 示例值：[\"_employee\"]
-         */
-        this.args = builder.args;
-        /**
-         * 用于指定 OQL 语句中具名参数的具体值
-         * <p> 示例值：{\"user_status\" : \"_used\"}
-         */
-        this.namedArgs = builder.namedArgs;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getQuery() {
         return this.query;
     }
@@ -98,64 +67,90 @@ public class OqlQueryApplicationObjectReqBody {
         this.namedArgs = namedArgs;
     }
 
+
+// builder 开始
+  public OqlQueryApplicationObjectReqBody(){}
+
+  public OqlQueryApplicationObjectReqBody(Builder builder){
+         /**
+          * 待执行的 OQL 语句（关于支持的关键词及操作符，详见查看）
+          * <p> 示例值：SELECT _id, _name FROM _user WHERE _type = $1 AND _accountStatus = $user_status LIMIT 10
+          */
+      this.query = builder.query;
+         /**
+          * 用于指定 OQL 语句中匿名参数的具体值
+          * <p> 示例值：[\"_employee\"]
+          */
+      this.args = builder.args;
+         /**
+          * 用于指定 OQL 语句中具名参数的具体值
+          * <p> 示例值：{\"user_status\" : \"_used\"}
+          */
+      this.namedArgs = builder.namedArgs;
+  }
+
     public static class Builder {
-        /**
-         * 待执行的 OQL 语句（关于支持的关键词及操作符，详见查看）
-         * <p> 示例值：SELECT _id, _name FROM _user WHERE _type = $1 AND _accountStatus = $user_status LIMIT 10
-         */
+     /**
+      * 待执行的 OQL 语句（关于支持的关键词及操作符，详见查看）
+      * <p> 示例值：SELECT _id, _name FROM _user WHERE _type = $1 AND _accountStatus = $user_status LIMIT 10
+      */
         private String query;
-        /**
-         * 用于指定 OQL 语句中匿名参数的具体值
-         * <p> 示例值：[\"_employee\"]
-         */
+     /**
+      * 用于指定 OQL 语句中匿名参数的具体值
+      * <p> 示例值：[\"_employee\"]
+      */
         private String args;
-        /**
-         * 用于指定 OQL 语句中具名参数的具体值
-         * <p> 示例值：{\"user_status\" : \"_used\"}
-         */
+     /**
+      * 用于指定 OQL 语句中具名参数的具体值
+      * <p> 示例值：{\"user_status\" : \"_used\"}
+      */
         private String namedArgs;
 
         /**
          * 待执行的 OQL 语句（关于支持的关键词及操作符，详见查看）
          * <p> 示例值：SELECT _id, _name FROM _user WHERE _type = $1 AND _accountStatus = $user_status LIMIT 10
-         *
          * @param query
          * @return
          */
         public Builder query(String query) {
-            this.query = query;
-            return this;
+             this.query = query;
+             return this;
         }
 
+    
 
         /**
          * 用于指定 OQL 语句中匿名参数的具体值
          * <p> 示例值：[\"_employee\"]
-         *
          * @param args
          * @return
          */
         public Builder args(String args) {
-            this.args = args;
-            return this;
+             this.args = args;
+             return this;
         }
 
+    
 
         /**
          * 用于指定 OQL 语句中具名参数的具体值
          * <p> 示例值：{\"user_status\" : \"_used\"}
-         *
          * @param namedArgs
          * @return
          */
         public Builder namedArgs(String namedArgs) {
-            this.namedArgs = namedArgs;
-            return this;
+             this.namedArgs = namedArgs;
+             return this;
         }
 
+    
+    
+    public OqlQueryApplicationObjectReqBody build(){
+        return new OqlQueryApplicationObjectReqBody(this);
+      }
+    }
 
-        public OqlQueryApplicationObjectReqBody build() {
-            return new OqlQueryApplicationObjectReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

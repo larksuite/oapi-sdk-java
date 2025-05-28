@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FileViewRecord {
-    /**
-     * 访问者 ID
-     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-     */
+     /**
+      * 访问者 ID
+      * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+      */
     @SerializedName("viewer_id")
     private String viewerId;
-    /**
-     * 访问者名称
-     * <p> 示例值：zhangsan
-     */
+     /**
+      * 访问者名称
+      * <p> 示例值：zhangsan
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 访问者头像 URL
-     * <p> 示例值：https://foo.icon.com/xxxx
-     */
+     /**
+      * 访问者头像 URL
+      * <p> 示例值：https://foo.icon.com/xxxx
+      */
     @SerializedName("avatar_url")
     private String avatarUrl;
-    /**
-     * 最近访问时间，秒级时间戳
-     * <p> 示例值：1679284285
-     */
+     /**
+      * 最近访问时间，秒级时间戳
+      * <p> 示例值：1679284285
+      */
     @SerializedName("last_view_time")
     private String lastViewTime;
-
-    // builder 开始
-    public FileViewRecord() {
-    }
-
-    public FileViewRecord(Builder builder) {
-        /**
-         * 访问者 ID
-         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-         */
-        this.viewerId = builder.viewerId;
-        /**
-         * 访问者名称
-         * <p> 示例值：zhangsan
-         */
-        this.name = builder.name;
-        /**
-         * 访问者头像 URL
-         * <p> 示例值：https://foo.icon.com/xxxx
-         */
-        this.avatarUrl = builder.avatarUrl;
-        /**
-         * 最近访问时间，秒级时间戳
-         * <p> 示例值：1679284285
-         */
-        this.lastViewTime = builder.lastViewTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getViewerId() {
         return this.viewerId;
     }
@@ -117,82 +81,113 @@ public class FileViewRecord {
         this.lastViewTime = lastViewTime;
     }
 
+
+// builder 开始
+  public FileViewRecord(){}
+
+  public FileViewRecord(Builder builder){
+         /**
+          * 访问者 ID
+          * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+          */
+      this.viewerId = builder.viewerId;
+         /**
+          * 访问者名称
+          * <p> 示例值：zhangsan
+          */
+      this.name = builder.name;
+         /**
+          * 访问者头像 URL
+          * <p> 示例值：https://foo.icon.com/xxxx
+          */
+      this.avatarUrl = builder.avatarUrl;
+         /**
+          * 最近访问时间，秒级时间戳
+          * <p> 示例值：1679284285
+          */
+      this.lastViewTime = builder.lastViewTime;
+  }
+
     public static class Builder {
-        /**
-         * 访问者 ID
-         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-         */
+     /**
+      * 访问者 ID
+      * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+      */
         private String viewerId;
-        /**
-         * 访问者名称
-         * <p> 示例值：zhangsan
-         */
+     /**
+      * 访问者名称
+      * <p> 示例值：zhangsan
+      */
         private String name;
-        /**
-         * 访问者头像 URL
-         * <p> 示例值：https://foo.icon.com/xxxx
-         */
+     /**
+      * 访问者头像 URL
+      * <p> 示例值：https://foo.icon.com/xxxx
+      */
         private String avatarUrl;
-        /**
-         * 最近访问时间，秒级时间戳
-         * <p> 示例值：1679284285
-         */
+     /**
+      * 最近访问时间，秒级时间戳
+      * <p> 示例值：1679284285
+      */
         private String lastViewTime;
 
         /**
          * 访问者 ID
          * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-         *
          * @param viewerId
          * @return
          */
         public Builder viewerId(String viewerId) {
-            this.viewerId = viewerId;
-            return this;
+             this.viewerId = viewerId;
+             return this;
         }
 
+    
 
         /**
          * 访问者名称
          * <p> 示例值：zhangsan
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 访问者头像 URL
          * <p> 示例值：https://foo.icon.com/xxxx
-         *
          * @param avatarUrl
          * @return
          */
         public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
+             this.avatarUrl = avatarUrl;
+             return this;
         }
 
+    
 
         /**
          * 最近访问时间，秒级时间戳
          * <p> 示例值：1679284285
-         *
          * @param lastViewTime
          * @return
          */
         public Builder lastViewTime(String lastViewTime) {
-            this.lastViewTime = lastViewTime;
-            return this;
+             this.lastViewTime = lastViewTime;
+             return this;
         }
 
+    
+    
+    public FileViewRecord build(){
+        return new FileViewRecord(this);
+      }
+    }
 
-        public FileViewRecord build() {
-            return new FileViewRecord(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

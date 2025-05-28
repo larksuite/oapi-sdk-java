@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserQueryFaqInfo {
-    /**
-     * faq服务台内唯一标识
-     * <p> 示例值：12345
-     */
+     /**
+      * faq服务台内唯一标识
+      * <p> 示例值：12345
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * faq匹配得分
-     * <p> 示例值：0.9
-     */
+     /**
+      * faq匹配得分
+      * <p> 示例值：0.9
+      */
     @SerializedName("score")
     private Double score;
-
-    // builder 开始
-    public UserQueryFaqInfo() {
-    }
-
-    public UserQueryFaqInfo(Builder builder) {
-        /**
-         * faq服务台内唯一标识
-         * <p> 示例值：12345
-         */
-        this.id = builder.id;
-        /**
-         * faq匹配得分
-         * <p> 示例值：0.9
-         */
-        this.score = builder.score;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -79,46 +53,67 @@ public class UserQueryFaqInfo {
         this.score = score;
     }
 
+
+// builder 开始
+  public UserQueryFaqInfo(){}
+
+  public UserQueryFaqInfo(Builder builder){
+         /**
+          * faq服务台内唯一标识
+          * <p> 示例值：12345
+          */
+      this.id = builder.id;
+         /**
+          * faq匹配得分
+          * <p> 示例值：0.9
+          */
+      this.score = builder.score;
+  }
+
     public static class Builder {
-        /**
-         * faq服务台内唯一标识
-         * <p> 示例值：12345
-         */
+     /**
+      * faq服务台内唯一标识
+      * <p> 示例值：12345
+      */
         private String id;
-        /**
-         * faq匹配得分
-         * <p> 示例值：0.9
-         */
+     /**
+      * faq匹配得分
+      * <p> 示例值：0.9
+      */
         private Double score;
 
         /**
          * faq服务台内唯一标识
          * <p> 示例值：12345
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * faq匹配得分
          * <p> 示例值：0.9
-         *
          * @param score
          * @return
          */
         public Builder score(Double score) {
-            this.score = score;
-            return this;
+             this.score = score;
+             return this;
         }
 
+    
+    
+    public UserQueryFaqInfo build(){
+        return new UserQueryFaqInfo(this);
+      }
+    }
 
-        public UserQueryFaqInfo build() {
-            return new UserQueryFaqInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

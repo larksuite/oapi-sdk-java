@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobFamily {
-    /**
-     * 序列 ID
-     * <p> 示例值：mga5oa8ayjlp9rb
-     */
+     /**
+      * 序列 ID
+      * <p> 示例值：mga5oa8ayjlp9rb
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 序列名称
-     * <p> 示例值：
-     */
+     /**
+      * 序列名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-
-    // builder 开始
-    public JobFamily() {
-    }
-
-    public JobFamily(Builder builder) {
-        /**
-         * 序列 ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        this.id = builder.id;
-        /**
-         * 序列名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -79,46 +53,67 @@ public class JobFamily {
         this.name = name;
     }
 
+
+// builder 开始
+  public JobFamily(){}
+
+  public JobFamily(Builder builder){
+         /**
+          * 序列 ID
+          * <p> 示例值：mga5oa8ayjlp9rb
+          */
+      this.id = builder.id;
+         /**
+          * 序列名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 序列 ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
+     /**
+      * 序列 ID
+      * <p> 示例值：mga5oa8ayjlp9rb
+      */
         private String id;
-        /**
-         * 序列名称
-         * <p> 示例值：
-         */
+     /**
+      * 序列名称
+      * <p> 示例值：
+      */
         private I18n name;
 
         /**
          * 序列 ID
          * <p> 示例值：mga5oa8ayjlp9rb
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 序列名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public JobFamily build(){
+        return new JobFamily(this);
+      }
+    }
 
-        public JobFamily build() {
-            return new JobFamily(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

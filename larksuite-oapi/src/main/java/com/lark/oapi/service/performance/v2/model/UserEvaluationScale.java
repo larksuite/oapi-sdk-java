@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.performance.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserEvaluationScale {
-    /**
-     * 评估项 ID
-     * <p> 示例值：7343513161666707459
-     */
+     /**
+      * 评估项 ID
+      * <p> 示例值：7343513161666707459
+      */
     @SerializedName("indicator_id")
     private String indicatorId;
-    /**
-     * 360° 评估人的评估尺度标签
-     * <p> 示例值：1
-     */
+     /**
+      * 360° 评估人的评估尺度标签
+      * <p> 示例值：1
+      */
     @SerializedName("distribute_type")
     private Integer distributeType;
-    /**
-     * 360° 评估人的评估尺度数值
-     * <p> 示例值：1.23
-     */
+     /**
+      * 360° 评估人的评估尺度数值
+      * <p> 示例值：1.23
+      */
     @SerializedName("avg_diff")
     private String avgDiff;
-
-    // builder 开始
-    public UserEvaluationScale() {
-    }
-
-    public UserEvaluationScale(Builder builder) {
-        /**
-         * 评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.indicatorId = builder.indicatorId;
-        /**
-         * 360° 评估人的评估尺度标签
-         * <p> 示例值：1
-         */
-        this.distributeType = builder.distributeType;
-        /**
-         * 360° 评估人的评估尺度数值
-         * <p> 示例值：1.23
-         */
-        this.avgDiff = builder.avgDiff;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getIndicatorId() {
         return this.indicatorId;
     }
@@ -98,64 +67,90 @@ public class UserEvaluationScale {
         this.avgDiff = avgDiff;
     }
 
+
+// builder 开始
+  public UserEvaluationScale(){}
+
+  public UserEvaluationScale(Builder builder){
+         /**
+          * 评估项 ID
+          * <p> 示例值：7343513161666707459
+          */
+      this.indicatorId = builder.indicatorId;
+         /**
+          * 360° 评估人的评估尺度标签
+          * <p> 示例值：1
+          */
+      this.distributeType = builder.distributeType;
+         /**
+          * 360° 评估人的评估尺度数值
+          * <p> 示例值：1.23
+          */
+      this.avgDiff = builder.avgDiff;
+  }
+
     public static class Builder {
-        /**
-         * 评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
+     /**
+      * 评估项 ID
+      * <p> 示例值：7343513161666707459
+      */
         private String indicatorId;
-        /**
-         * 360° 评估人的评估尺度标签
-         * <p> 示例值：1
-         */
+     /**
+      * 360° 评估人的评估尺度标签
+      * <p> 示例值：1
+      */
         private Integer distributeType;
-        /**
-         * 360° 评估人的评估尺度数值
-         * <p> 示例值：1.23
-         */
+     /**
+      * 360° 评估人的评估尺度数值
+      * <p> 示例值：1.23
+      */
         private String avgDiff;
 
         /**
          * 评估项 ID
          * <p> 示例值：7343513161666707459
-         *
          * @param indicatorId
          * @return
          */
         public Builder indicatorId(String indicatorId) {
-            this.indicatorId = indicatorId;
-            return this;
+             this.indicatorId = indicatorId;
+             return this;
         }
 
+    
 
         /**
          * 360° 评估人的评估尺度标签
          * <p> 示例值：1
-         *
          * @param distributeType
          * @return
          */
         public Builder distributeType(Integer distributeType) {
-            this.distributeType = distributeType;
-            return this;
+             this.distributeType = distributeType;
+             return this;
         }
 
+    
 
         /**
          * 360° 评估人的评估尺度数值
          * <p> 示例值：1.23
-         *
          * @param avgDiff
          * @return
          */
         public Builder avgDiff(String avgDiff) {
-            this.avgDiff = avgDiff;
-            return this;
+             this.avgDiff = avgDiff;
+             return this;
         }
 
+    
+    
+    public UserEvaluationScale build(){
+        return new UserEvaluationScale(this);
+      }
+    }
 
-        public UserEvaluationScale build() {
-            return new UserEvaluationScale(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

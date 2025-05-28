@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SignatureTemplateCustomField {
-    /**
-     * 中英文描述
-     * <p> 示例值：
-     */
+     /**
+      * 中英文描述
+      * <p> 示例值：
+      */
     @SerializedName("label")
     private I18n[] label;
-    /**
-     * 主数据apiname
-     * <p> 示例值：status
-     */
+     /**
+      * 主数据apiname
+      * <p> 示例值：status
+      */
     @SerializedName("apiname")
     private String apiname;
-    /**
-     * 用户自定义字段类型
-     * <p> 示例值：
-     */
+     /**
+      * 用户自定义字段类型
+      * <p> 示例值：
+      */
     @SerializedName("custom_field_type")
     private Enum customFieldType;
-    /**
-     * 是否使用到
-     * <p> 示例值：
-     */
+     /**
+      * 是否使用到
+      * <p> 示例值：
+      */
     @SerializedName("used")
     private Boolean used;
-    /**
-     * 是否需要
-     * <p> 示例值：
-     */
+     /**
+      * 是否需要
+      * <p> 示例值：
+      */
     @SerializedName("is_required")
     private Boolean isRequired;
-    /**
-     * 自定义描述
-     * <p> 示例值：desc
-     */
+     /**
+      * 自定义描述
+      * <p> 示例值：desc
+      */
     @SerializedName("custom_desc")
     private String customDesc;
-    /**
-     * 电子签模版公共字段信息
-     * <p> 示例值：
-     */
+     /**
+      * 电子签模版公共字段信息
+      * <p> 示例值：
+      */
     @SerializedName("common_info")
     private SignatureTemplateCommonFieldInfo commonInfo;
-
-    // builder 开始
-    public SignatureTemplateCustomField() {
-    }
-
-    public SignatureTemplateCustomField(Builder builder) {
-        /**
-         * 中英文描述
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 主数据apiname
-         * <p> 示例值：status
-         */
-        this.apiname = builder.apiname;
-        /**
-         * 用户自定义字段类型
-         * <p> 示例值：
-         */
-        this.customFieldType = builder.customFieldType;
-        /**
-         * 是否使用到
-         * <p> 示例值：
-         */
-        this.used = builder.used;
-        /**
-         * 是否需要
-         * <p> 示例值：
-         */
-        this.isRequired = builder.isRequired;
-        /**
-         * 自定义描述
-         * <p> 示例值：desc
-         */
-        this.customDesc = builder.customDesc;
-        /**
-         * 电子签模版公共字段信息
-         * <p> 示例值：
-         */
-        this.commonInfo = builder.commonInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public I18n[] getLabel() {
         return this.label;
     }
@@ -174,136 +123,182 @@ public class SignatureTemplateCustomField {
         this.commonInfo = commonInfo;
     }
 
+
+// builder 开始
+  public SignatureTemplateCustomField(){}
+
+  public SignatureTemplateCustomField(Builder builder){
+         /**
+          * 中英文描述
+          * <p> 示例值：
+          */
+      this.label = builder.label;
+         /**
+          * 主数据apiname
+          * <p> 示例值：status
+          */
+      this.apiname = builder.apiname;
+         /**
+          * 用户自定义字段类型
+          * <p> 示例值：
+          */
+      this.customFieldType = builder.customFieldType;
+         /**
+          * 是否使用到
+          * <p> 示例值：
+          */
+      this.used = builder.used;
+         /**
+          * 是否需要
+          * <p> 示例值：
+          */
+      this.isRequired = builder.isRequired;
+         /**
+          * 自定义描述
+          * <p> 示例值：desc
+          */
+      this.customDesc = builder.customDesc;
+         /**
+          * 电子签模版公共字段信息
+          * <p> 示例值：
+          */
+      this.commonInfo = builder.commonInfo;
+  }
+
     public static class Builder {
-        /**
-         * 中英文描述
-         * <p> 示例值：
-         */
+     /**
+      * 中英文描述
+      * <p> 示例值：
+      */
         private I18n[] label;
-        /**
-         * 主数据apiname
-         * <p> 示例值：status
-         */
+     /**
+      * 主数据apiname
+      * <p> 示例值：status
+      */
         private String apiname;
-        /**
-         * 用户自定义字段类型
-         * <p> 示例值：
-         */
+     /**
+      * 用户自定义字段类型
+      * <p> 示例值：
+      */
         private Enum customFieldType;
-        /**
-         * 是否使用到
-         * <p> 示例值：
-         */
+     /**
+      * 是否使用到
+      * <p> 示例值：
+      */
         private Boolean used;
-        /**
-         * 是否需要
-         * <p> 示例值：
-         */
+     /**
+      * 是否需要
+      * <p> 示例值：
+      */
         private Boolean isRequired;
-        /**
-         * 自定义描述
-         * <p> 示例值：desc
-         */
+     /**
+      * 自定义描述
+      * <p> 示例值：desc
+      */
         private String customDesc;
-        /**
-         * 电子签模版公共字段信息
-         * <p> 示例值：
-         */
+     /**
+      * 电子签模版公共字段信息
+      * <p> 示例值：
+      */
         private SignatureTemplateCommonFieldInfo commonInfo;
 
         /**
          * 中英文描述
          * <p> 示例值：
-         *
          * @param label
          * @return
          */
         public Builder label(I18n[] label) {
-            this.label = label;
-            return this;
+             this.label = label;
+             return this;
         }
 
+    
 
         /**
          * 主数据apiname
          * <p> 示例值：status
-         *
          * @param apiname
          * @return
          */
         public Builder apiname(String apiname) {
-            this.apiname = apiname;
-            return this;
+             this.apiname = apiname;
+             return this;
         }
 
+    
 
         /**
          * 用户自定义字段类型
          * <p> 示例值：
-         *
          * @param customFieldType
          * @return
          */
         public Builder customFieldType(Enum customFieldType) {
-            this.customFieldType = customFieldType;
-            return this;
+             this.customFieldType = customFieldType;
+             return this;
         }
 
+    
 
         /**
          * 是否使用到
          * <p> 示例值：
-         *
          * @param used
          * @return
          */
         public Builder used(Boolean used) {
-            this.used = used;
-            return this;
+             this.used = used;
+             return this;
         }
 
+    
 
         /**
          * 是否需要
          * <p> 示例值：
-         *
          * @param isRequired
          * @return
          */
         public Builder isRequired(Boolean isRequired) {
-            this.isRequired = isRequired;
-            return this;
+             this.isRequired = isRequired;
+             return this;
         }
 
+    
 
         /**
          * 自定义描述
          * <p> 示例值：desc
-         *
          * @param customDesc
          * @return
          */
         public Builder customDesc(String customDesc) {
-            this.customDesc = customDesc;
-            return this;
+             this.customDesc = customDesc;
+             return this;
         }
 
+    
 
         /**
          * 电子签模版公共字段信息
          * <p> 示例值：
-         *
          * @param commonInfo
          * @return
          */
         public Builder commonInfo(SignatureTemplateCommonFieldInfo commonInfo) {
-            this.commonInfo = commonInfo;
-            return this;
+             this.commonInfo = commonInfo;
+             return this;
         }
 
+    
+    
+    public SignatureTemplateCustomField build(){
+        return new SignatureTemplateCustomField(this);
+      }
+    }
 
-        public SignatureTemplateCustomField build() {
-            return new SignatureTemplateCustomField(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

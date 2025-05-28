@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ReserveActionPermission {
-    /**
-     * 权限项
-     * <p> 示例值：1
-     */
+     /**
+      * 权限项
+      * <p> 示例值：1
+      */
     @SerializedName("permission")
     private Integer permission;
-    /**
-     * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-     * <p> 示例值：
-     */
+     /**
+      * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+      * <p> 示例值：
+      */
     @SerializedName("permission_checkers")
     private ReservePermissionChecker[] permissionCheckers;
-
-    // builder 开始
-    public ReserveActionPermission() {
-    }
-
-    public ReserveActionPermission(Builder builder) {
-        /**
-         * 权限项
-         * <p> 示例值：1
-         */
-        this.permission = builder.permission;
-        /**
-         * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-         * <p> 示例值：
-         */
-        this.permissionCheckers = builder.permissionCheckers;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPermission() {
         return this.permission;
     }
@@ -79,58 +53,77 @@ public class ReserveActionPermission {
         this.permissionCheckers = permissionCheckers;
     }
 
+
+// builder 开始
+  public ReserveActionPermission(){}
+
+  public ReserveActionPermission(Builder builder){
+         /**
+          * 权限项
+          * <p> 示例值：1
+          */
+      this.permission = builder.permission;
+         /**
+          * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+          * <p> 示例值：
+          */
+      this.permissionCheckers = builder.permissionCheckers;
+  }
+
     public static class Builder {
-        /**
-         * 权限项
-         * <p> 示例值：1
-         */
+     /**
+      * 权限项
+      * <p> 示例值：1
+      */
         private Integer permission;
-        /**
-         * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-         * <p> 示例值：
-         */
+     /**
+      * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+      * <p> 示例值：
+      */
         private ReservePermissionChecker[] permissionCheckers;
 
         /**
          * 权限项
          * <p> 示例值：1
-         *
          * @param permission
          * @return
          */
         public Builder permission(Integer permission) {
-            this.permission = permission;
-            return this;
+             this.permission = permission;
+             return this;
         }
-
         /**
          * 权限项
          * <p> 示例值：1
-         *
          * @param permission {@link com.lark.oapi.service.vc.v1.enums.ReserveActionPermissionMeetingPermEnum}
          * @return
          */
         public Builder permission(com.lark.oapi.service.vc.v1.enums.ReserveActionPermissionMeetingPermEnum permission) {
-            this.permission = permission.getValue();
-            return this;
+             this.permission = permission.getValue();
+             return this;
         }
 
+    
 
         /**
          * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
          * <p> 示例值：
-         *
          * @param permissionCheckers
          * @return
          */
         public Builder permissionCheckers(ReservePermissionChecker[] permissionCheckers) {
-            this.permissionCheckers = permissionCheckers;
-            return this;
+             this.permissionCheckers = permissionCheckers;
+             return this;
         }
 
+    
+    
+    public ReserveActionPermission build(){
+        return new ReserveActionPermission(this);
+      }
+    }
 
-        public ReserveActionPermission build() {
-            return new ReserveActionPermission(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,16 +17,15 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 单选类型
  */
 public enum SingleOptionSingleOptionEnum {
-    ONEOFLIST("OneOfList"), // 列表中的一个
-    ONEOFRANGE("OneOfRange"), // 范围中的一个
-    ;
-    private String value;
-
+     ONEOFLIST("OneOfList"), // 列表中的一个
+     ONEOFRANGE("OneOfRange"), // 范围中的一个
+  ;
+   private String value;
     SingleOptionSingleOptionEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -12,94 +12,53 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListApproverReq {
-    /**
-     * 分页大小
-     * <p> 示例值：20
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：20
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：1
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 用户 ID 类型
-     * <p> 示例值：open_id
-     */
+     /**
+      * 用户 ID 类型
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
-     * <p> 示例值：ou_91791271921729102012
-     */
+     /**
+      * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
+      * <p> 示例值：ou_91791271921729102012
+      */
     @Query
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 任务状态
-     * <p> 示例值：1
-     */
+     /**
+      * 任务状态
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("approver_status")
     private Integer approverStatus;
-
-    // builder 开始
-    public ListApproverReq() {
-    }
-
-    public ListApproverReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：1
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
-         * <p> 示例值：ou_91791271921729102012
-         */
-        this.userId = builder.userId;
-        /**
-         * 任务状态
-         * <p> 示例值：1
-         */
-        this.approverStatus = builder.approverStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -140,104 +99,133 @@ public class ListApproverReq {
         this.approverStatus = approverStatus;
     }
 
+
+// builder 开始
+  public ListApproverReq(){}
+
+  public ListApproverReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：20
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：1
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 用户 ID 类型
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
+          * <p> 示例值：ou_91791271921729102012
+          */
+       this.userId = builder.userId;
+         /**
+          * 任务状态
+          * <p> 示例值：1
+          */
+       this.approverStatus = builder.approverStatus;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String userIdType; // 用户 ID 类型
         private String userId; // 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
         private Integer approverStatus; // 任务状态
-
+    
         /**
          * 分页大小
          * <p> 示例值：20
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：1
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
         /**
          * 用户 ID 类型
          * <p> 示例值：open_id
-         *
          * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.ListApproverUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.ListApproverUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
+          public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.ListApproverUserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
 
-
+    
         /**
          * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
          * <p> 示例值：ou_91791271921729102012
-         *
          * @param userId
          * @return
          */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
+           public Builder userId(String userId) {
+                this.userId = userId;
+                return this;
+           }
 
-
+    
         /**
          * 任务状态
          * <p> 示例值：1
-         *
          * @param approverStatus
          * @return
          */
-        public Builder approverStatus(Integer approverStatus) {
-            this.approverStatus = approverStatus;
-            return this;
-        }
+           public Builder approverStatus(Integer approverStatus) {
+                this.approverStatus = approverStatus;
+                return this;
+           }
 
         /**
          * 任务状态
          * <p> 示例值：1
-         *
          * @param approverStatus {@link com.lark.oapi.service.corehr.v2.enums.ListApproverApproverStatusEnum}
          * @return
          */
-        public Builder approverStatus(com.lark.oapi.service.corehr.v2.enums.ListApproverApproverStatusEnum approverStatus) {
-            this.approverStatus = approverStatus.getValue();
-            return this;
-        }
+          public Builder approverStatus(com.lark.oapi.service.corehr.v2.enums.ListApproverApproverStatusEnum approverStatus) {
+               this.approverStatus = approverStatus.getValue();
+               return this;
+          }
 
+    
+    public ListApproverReq build(){
+        return new ListApproverReq(this);
+      }
+    }
 
-        public ListApproverReq build() {
-            return new ListApproverReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

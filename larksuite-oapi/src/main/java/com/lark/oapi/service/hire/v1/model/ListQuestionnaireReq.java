@@ -12,105 +12,59 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListQuestionnaireReq {
-    /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：1231231987
-     */
+     /**
+      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+      * <p> 示例值：1231231987
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
-     */
+     /**
+      * 每页获取记录数量，最大100
+      * <p> 示例值：100
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 投递 ID
-     * <p> 示例值：6985833807195212076
-     */
+     /**
+      * 投递 ID
+      * <p> 示例值：6985833807195212076
+      */
     @Query
     @SerializedName("application_id")
     private String applicationId;
-    /**
-     * 面试 ID
-     * <p> 示例值：7038435261598763308
-     */
+     /**
+      * 面试 ID
+      * <p> 示例值：7038435261598763308
+      */
     @Query
     @SerializedName("interview_id")
     private String interviewId;
-    /**
-     * 最早更新时间
-     * <p> 示例值：1638848468868
-     */
+     /**
+      * 最早更新时间
+      * <p> 示例值：1638848468868
+      */
     @Query
     @SerializedName("update_start_time")
     private String updateStartTime;
-    /**
-     * 最晚更新时间
-     * <p> 示例值：1638848468869
-     */
+     /**
+      * 最晚更新时间
+      * <p> 示例值：1638848468869
+      */
     @Query
     @SerializedName("update_end_time")
     private String updateEndTime;
-
-    // builder 开始
-    public ListQuestionnaireReq() {
-    }
-
-    public ListQuestionnaireReq(Builder builder) {
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 投递 ID
-         * <p> 示例值：6985833807195212076
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 面试 ID
-         * <p> 示例值：7038435261598763308
-         */
-        this.interviewId = builder.interviewId;
-        /**
-         * 最早更新时间
-         * <p> 示例值：1638848468868
-         */
-        this.updateStartTime = builder.updateStartTime;
-        /**
-         * 最晚更新时间
-         * <p> 示例值：1638848468869
-         */
-        this.updateEndTime = builder.updateEndTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPageToken() {
         return this.pageToken;
     }
@@ -159,6 +113,43 @@ public class ListQuestionnaireReq {
         this.updateEndTime = updateEndTime;
     }
 
+
+// builder 开始
+  public ListQuestionnaireReq(){}
+
+  public ListQuestionnaireReq(Builder builder){
+         /**
+          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+          * <p> 示例值：1231231987
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 每页获取记录数量，最大100
+          * <p> 示例值：100
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 投递 ID
+          * <p> 示例值：6985833807195212076
+          */
+       this.applicationId = builder.applicationId;
+         /**
+          * 面试 ID
+          * <p> 示例值：7038435261598763308
+          */
+       this.interviewId = builder.interviewId;
+         /**
+          * 最早更新时间
+          * <p> 示例值：1638848468868
+          */
+       this.updateStartTime = builder.updateStartTime;
+         /**
+          * 最晚更新时间
+          * <p> 示例值：1638848468869
+          */
+       this.updateEndTime = builder.updateEndTime;
+  }
+
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private Integer pageSize; // 每页获取记录数量，最大100
@@ -166,87 +157,85 @@ public class ListQuestionnaireReq {
         private String interviewId; // 面试 ID
         private String updateStartTime; // 最早更新时间
         private String updateEndTime; // 最晚更新时间
-
+    
         /**
          * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
          * <p> 示例值：1231231987
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 每页获取记录数量，最大100
          * <p> 示例值：100
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 投递 ID
          * <p> 示例值：6985833807195212076
-         *
          * @param applicationId
          * @return
          */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
+           public Builder applicationId(String applicationId) {
+                this.applicationId = applicationId;
+                return this;
+           }
 
-
+    
         /**
          * 面试 ID
          * <p> 示例值：7038435261598763308
-         *
          * @param interviewId
          * @return
          */
-        public Builder interviewId(String interviewId) {
-            this.interviewId = interviewId;
-            return this;
-        }
+           public Builder interviewId(String interviewId) {
+                this.interviewId = interviewId;
+                return this;
+           }
 
-
+    
         /**
          * 最早更新时间
          * <p> 示例值：1638848468868
-         *
          * @param updateStartTime
          * @return
          */
-        public Builder updateStartTime(String updateStartTime) {
-            this.updateStartTime = updateStartTime;
-            return this;
-        }
+           public Builder updateStartTime(String updateStartTime) {
+                this.updateStartTime = updateStartTime;
+                return this;
+           }
 
-
+    
         /**
          * 最晚更新时间
          * <p> 示例值：1638848468869
-         *
          * @param updateEndTime
          * @return
          */
-        public Builder updateEndTime(String updateEndTime) {
-            this.updateEndTime = updateEndTime;
-            return this;
-        }
+           public Builder updateEndTime(String updateEndTime) {
+                this.updateEndTime = updateEndTime;
+                return this;
+           }
 
+    
+    public ListQuestionnaireReq build(){
+        return new ListQuestionnaireReq(this);
+      }
+    }
 
-        public ListQuestionnaireReq build() {
-            return new ListQuestionnaireReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

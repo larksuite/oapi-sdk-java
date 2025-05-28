@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,137 +19,72 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DocPassageParam {
-    /**
-     * 是否要搜索doc
-     * <p> 示例值：false
-     */
+     /**
+      * 是否要搜索doc
+      * <p> 示例值：false
+      */
     @SerializedName("searchable")
     private Boolean searchable;
-    /**
-     * 搜索几篇特定doc
-     * <p> 示例值：
-     */
+     /**
+      * 搜索几篇特定doc
+      * <p> 示例值：
+      */
     @SerializedName("doc_tokens")
     private String[] docTokens;
-    /**
-     * 搜索特定的文件夹
-     * <p> 示例值：
-     */
+     /**
+      * 搜索特定的文件夹
+      * <p> 示例值：
+      */
     @SerializedName("folder_tokens")
     private String[] folderTokens;
-    /**
-     * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
-     * <p> 示例值：
-     */
+     /**
+      * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
+      * <p> 示例值：
+      */
     @SerializedName("obj_ids")
     private String[] objIds;
-    /**
-     * 禁用搜索外链文档功能
-     * <p> 示例值：false
-     */
+     /**
+      * 禁用搜索外链文档功能
+      * <p> 示例值：false
+      */
     @SerializedName("disable_search_link")
     private Boolean disableSearchLink;
-    /**
-     * 排除文档id
-     * <p> 示例值：true
-     */
+     /**
+      * 排除文档id
+      * <p> 示例值：true
+      */
     @SerializedName("excluded_obj_ids")
     private String[] excludedObjIds;
-    /**
-     * 排除文档token
-     * <p> 示例值：true
-     */
+     /**
+      * 排除文档token
+      * <p> 示例值：true
+      */
     @SerializedName("excluded_doc_tokens")
     private String[] excludedDocTokens;
-    /**
-     * 排除的文件夹token
-     * <p> 示例值：
-     */
+     /**
+      * 排除的文件夹token
+      * <p> 示例值：
+      */
     @SerializedName("excluded_folder_tokens")
     private String[] excludedFolderTokens;
-    /**
-     * 是否跨租户
-     * <p> 示例值：false
-     */
+     /**
+      * 是否跨租户
+      * <p> 示例值：false
+      */
     @SerializedName("enable_cross_tenant")
     private Boolean enableCrossTenant;
-    /**
-     * 是否只搜公开
-     * <p> 示例值：false
-     */
+     /**
+      * 是否只搜公开
+      * <p> 示例值：false
+      */
     @SerializedName("only_search_public")
     private Boolean onlySearchPublic;
-
-    // builder 开始
-    public DocPassageParam() {
-    }
-
-    public DocPassageParam(Builder builder) {
-        /**
-         * 是否要搜索doc
-         * <p> 示例值：false
-         */
-        this.searchable = builder.searchable;
-        /**
-         * 搜索几篇特定doc
-         * <p> 示例值：
-         */
-        this.docTokens = builder.docTokens;
-        /**
-         * 搜索特定的文件夹
-         * <p> 示例值：
-         */
-        this.folderTokens = builder.folderTokens;
-        /**
-         * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
-         * <p> 示例值：
-         */
-        this.objIds = builder.objIds;
-        /**
-         * 禁用搜索外链文档功能
-         * <p> 示例值：false
-         */
-        this.disableSearchLink = builder.disableSearchLink;
-        /**
-         * 排除文档id
-         * <p> 示例值：true
-         */
-        this.excludedObjIds = builder.excludedObjIds;
-        /**
-         * 排除文档token
-         * <p> 示例值：true
-         */
-        this.excludedDocTokens = builder.excludedDocTokens;
-        /**
-         * 排除的文件夹token
-         * <p> 示例值：
-         */
-        this.excludedFolderTokens = builder.excludedFolderTokens;
-        /**
-         * 是否跨租户
-         * <p> 示例值：false
-         */
-        this.enableCrossTenant = builder.enableCrossTenant;
-        /**
-         * 是否只搜公开
-         * <p> 示例值：false
-         */
-        this.onlySearchPublic = builder.onlySearchPublic;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getSearchable() {
         return this.searchable;
     }
@@ -231,190 +165,251 @@ public class DocPassageParam {
         this.onlySearchPublic = onlySearchPublic;
     }
 
+
+// builder 开始
+  public DocPassageParam(){}
+
+  public DocPassageParam(Builder builder){
+         /**
+          * 是否要搜索doc
+          * <p> 示例值：false
+          */
+      this.searchable = builder.searchable;
+         /**
+          * 搜索几篇特定doc
+          * <p> 示例值：
+          */
+      this.docTokens = builder.docTokens;
+         /**
+          * 搜索特定的文件夹
+          * <p> 示例值：
+          */
+      this.folderTokens = builder.folderTokens;
+         /**
+          * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
+          * <p> 示例值：
+          */
+      this.objIds = builder.objIds;
+         /**
+          * 禁用搜索外链文档功能
+          * <p> 示例值：false
+          */
+      this.disableSearchLink = builder.disableSearchLink;
+         /**
+          * 排除文档id
+          * <p> 示例值：true
+          */
+      this.excludedObjIds = builder.excludedObjIds;
+         /**
+          * 排除文档token
+          * <p> 示例值：true
+          */
+      this.excludedDocTokens = builder.excludedDocTokens;
+         /**
+          * 排除的文件夹token
+          * <p> 示例值：
+          */
+      this.excludedFolderTokens = builder.excludedFolderTokens;
+         /**
+          * 是否跨租户
+          * <p> 示例值：false
+          */
+      this.enableCrossTenant = builder.enableCrossTenant;
+         /**
+          * 是否只搜公开
+          * <p> 示例值：false
+          */
+      this.onlySearchPublic = builder.onlySearchPublic;
+  }
+
     public static class Builder {
-        /**
-         * 是否要搜索doc
-         * <p> 示例值：false
-         */
+     /**
+      * 是否要搜索doc
+      * <p> 示例值：false
+      */
         private Boolean searchable;
-        /**
-         * 搜索几篇特定doc
-         * <p> 示例值：
-         */
+     /**
+      * 搜索几篇特定doc
+      * <p> 示例值：
+      */
         private String[] docTokens;
-        /**
-         * 搜索特定的文件夹
-         * <p> 示例值：
-         */
+     /**
+      * 搜索特定的文件夹
+      * <p> 示例值：
+      */
         private String[] folderTokens;
-        /**
-         * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
-         * <p> 示例值：
-         */
+     /**
+      * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
+      * <p> 示例值：
+      */
         private String[] objIds;
-        /**
-         * 禁用搜索外链文档功能
-         * <p> 示例值：false
-         */
+     /**
+      * 禁用搜索外链文档功能
+      * <p> 示例值：false
+      */
         private Boolean disableSearchLink;
-        /**
-         * 排除文档id
-         * <p> 示例值：true
-         */
+     /**
+      * 排除文档id
+      * <p> 示例值：true
+      */
         private String[] excludedObjIds;
-        /**
-         * 排除文档token
-         * <p> 示例值：true
-         */
+     /**
+      * 排除文档token
+      * <p> 示例值：true
+      */
         private String[] excludedDocTokens;
-        /**
-         * 排除的文件夹token
-         * <p> 示例值：
-         */
+     /**
+      * 排除的文件夹token
+      * <p> 示例值：
+      */
         private String[] excludedFolderTokens;
-        /**
-         * 是否跨租户
-         * <p> 示例值：false
-         */
+     /**
+      * 是否跨租户
+      * <p> 示例值：false
+      */
         private Boolean enableCrossTenant;
-        /**
-         * 是否只搜公开
-         * <p> 示例值：false
-         */
+     /**
+      * 是否只搜公开
+      * <p> 示例值：false
+      */
         private Boolean onlySearchPublic;
 
         /**
          * 是否要搜索doc
          * <p> 示例值：false
-         *
          * @param searchable
          * @return
          */
         public Builder searchable(Boolean searchable) {
-            this.searchable = searchable;
-            return this;
+             this.searchable = searchable;
+             return this;
         }
 
+    
 
         /**
          * 搜索几篇特定doc
          * <p> 示例值：
-         *
          * @param docTokens
          * @return
          */
         public Builder docTokens(String[] docTokens) {
-            this.docTokens = docTokens;
-            return this;
+             this.docTokens = docTokens;
+             return this;
         }
 
+    
 
         /**
          * 搜索特定的文件夹
          * <p> 示例值：
-         *
          * @param folderTokens
          * @return
          */
         public Builder folderTokens(String[] folderTokens) {
-            this.folderTokens = folderTokens;
-            return this;
+             this.folderTokens = folderTokens;
+             return this;
         }
 
+    
 
         /**
          * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
          * <p> 示例值：
-         *
          * @param objIds
          * @return
          */
         public Builder objIds(String[] objIds) {
-            this.objIds = objIds;
-            return this;
+             this.objIds = objIds;
+             return this;
         }
 
+    
 
         /**
          * 禁用搜索外链文档功能
          * <p> 示例值：false
-         *
          * @param disableSearchLink
          * @return
          */
         public Builder disableSearchLink(Boolean disableSearchLink) {
-            this.disableSearchLink = disableSearchLink;
-            return this;
+             this.disableSearchLink = disableSearchLink;
+             return this;
         }
 
+    
 
         /**
          * 排除文档id
          * <p> 示例值：true
-         *
          * @param excludedObjIds
          * @return
          */
         public Builder excludedObjIds(String[] excludedObjIds) {
-            this.excludedObjIds = excludedObjIds;
-            return this;
+             this.excludedObjIds = excludedObjIds;
+             return this;
         }
 
+    
 
         /**
          * 排除文档token
          * <p> 示例值：true
-         *
          * @param excludedDocTokens
          * @return
          */
         public Builder excludedDocTokens(String[] excludedDocTokens) {
-            this.excludedDocTokens = excludedDocTokens;
-            return this;
+             this.excludedDocTokens = excludedDocTokens;
+             return this;
         }
 
+    
 
         /**
          * 排除的文件夹token
          * <p> 示例值：
-         *
          * @param excludedFolderTokens
          * @return
          */
         public Builder excludedFolderTokens(String[] excludedFolderTokens) {
-            this.excludedFolderTokens = excludedFolderTokens;
-            return this;
+             this.excludedFolderTokens = excludedFolderTokens;
+             return this;
         }
 
+    
 
         /**
          * 是否跨租户
          * <p> 示例值：false
-         *
          * @param enableCrossTenant
          * @return
          */
         public Builder enableCrossTenant(Boolean enableCrossTenant) {
-            this.enableCrossTenant = enableCrossTenant;
-            return this;
+             this.enableCrossTenant = enableCrossTenant;
+             return this;
         }
 
+    
 
         /**
          * 是否只搜公开
          * <p> 示例值：false
-         *
          * @param onlySearchPublic
          * @return
          */
         public Builder onlySearchPublic(Boolean onlySearchPublic) {
-            this.onlySearchPublic = onlySearchPublic;
-            return this;
+             this.onlySearchPublic = onlySearchPublic;
+             return this;
         }
 
+    
+    
+    public DocPassageParam build(){
+        return new DocPassageParam(this);
+      }
+    }
 
-        public DocPassageParam build() {
-            return new DocPassageParam(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

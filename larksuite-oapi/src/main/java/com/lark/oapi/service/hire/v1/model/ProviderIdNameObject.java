@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ProviderIdNameObject {
-    /**
-     * 供应商ID
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 供应商ID
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("provider_id")
     private String providerId;
-    /**
-     * 供应商名称信息
-     * <p> 示例值：
-     */
+     /**
+      * 供应商名称信息
+      * <p> 示例值：
+      */
     @SerializedName("provider_name")
     private I18n providerName;
-
-    // builder 开始
-    public ProviderIdNameObject() {
-    }
-
-    public ProviderIdNameObject(Builder builder) {
-        /**
-         * 供应商ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.providerId = builder.providerId;
-        /**
-         * 供应商名称信息
-         * <p> 示例值：
-         */
-        this.providerName = builder.providerName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getProviderId() {
         return this.providerId;
     }
@@ -78,46 +52,67 @@ public class ProviderIdNameObject {
         this.providerName = providerName;
     }
 
+
+// builder 开始
+  public ProviderIdNameObject(){}
+
+  public ProviderIdNameObject(Builder builder){
+         /**
+          * 供应商ID
+          * <p> 示例值：6930815272790114324
+          */
+      this.providerId = builder.providerId;
+         /**
+          * 供应商名称信息
+          * <p> 示例值：
+          */
+      this.providerName = builder.providerName;
+  }
+
     public static class Builder {
-        /**
-         * 供应商ID
-         * <p> 示例值：6930815272790114324
-         */
+     /**
+      * 供应商ID
+      * <p> 示例值：6930815272790114324
+      */
         private String providerId;
-        /**
-         * 供应商名称信息
-         * <p> 示例值：
-         */
+     /**
+      * 供应商名称信息
+      * <p> 示例值：
+      */
         private I18n providerName;
 
         /**
          * 供应商ID
          * <p> 示例值：6930815272790114324
-         *
          * @param providerId
          * @return
          */
         public Builder providerId(String providerId) {
-            this.providerId = providerId;
-            return this;
+             this.providerId = providerId;
+             return this;
         }
 
+    
 
         /**
          * 供应商名称信息
          * <p> 示例值：
-         *
          * @param providerName
          * @return
          */
         public Builder providerName(I18n providerName) {
-            this.providerName = providerName;
-            return this;
+             this.providerName = providerName;
+             return this;
         }
 
+    
+    
+    public ProviderIdNameObject build(){
+        return new ProviderIdNameObject(this);
+      }
+    }
 
-        public ProviderIdNameObject build() {
-            return new ProviderIdNameObject(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

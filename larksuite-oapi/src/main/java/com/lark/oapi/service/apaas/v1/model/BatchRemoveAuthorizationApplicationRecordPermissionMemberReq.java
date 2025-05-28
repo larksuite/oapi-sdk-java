@@ -12,61 +12,32 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchRemoveAuthorizationApplicationRecordPermissionMemberReq {
-    /**
-     * 应用命名空间
-     * <p> 示例值：package_test__c
-     */
+     /**
+      * 应用命名空间
+      * <p> 示例值：package_test__c
+      */
     @Path
     @SerializedName("namespace")
     private String namespace;
-    /**
-     * 记录权限 API 名称
-     * <p> 示例值：adminRecordPermission
-     */
+     /**
+      * 记录权限 API 名称
+      * <p> 示例值：adminRecordPermission
+      */
     @Path
     @SerializedName("record_permission_api_name")
     private String recordPermissionApiName;
-    @Body
-    private BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody body;
-
-    // builder 开始
-    public BatchRemoveAuthorizationApplicationRecordPermissionMemberReq() {
-    }
-
-    public BatchRemoveAuthorizationApplicationRecordPermissionMemberReq(Builder builder) {
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 记录权限 API 名称
-         * <p> 示例值：adminRecordPermission
-         */
-        this.recordPermissionApiName = builder.recordPermissionApiName;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNamespace() {
         return this.namespace;
     }
@@ -83,6 +54,9 @@ public class BatchRemoveAuthorizationApplicationRecordPermissionMemberReq {
         this.recordPermissionApiName = recordPermissionApiName;
     }
 
+    @Body
+    private BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody body;
+
     public BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody getBatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody() {
         return this.body;
     }
@@ -91,53 +65,72 @@ public class BatchRemoveAuthorizationApplicationRecordPermissionMemberReq {
         this.body = body;
     }
 
-    public static class Builder {
+// builder 开始
+  public BatchRemoveAuthorizationApplicationRecordPermissionMemberReq(){}
 
+  public BatchRemoveAuthorizationApplicationRecordPermissionMemberReq(Builder builder){
+     /**
+      * 应用命名空间
+      * <p> 示例值：package_test__c
+      */
+       this.namespace = builder.namespace;
+     /**
+      * 记录权限 API 名称
+      * <p> 示例值：adminRecordPermission
+      */
+       this.recordPermissionApiName = builder.recordPermissionApiName;
+        this.body = builder.body;
+  }
+
+    public static class Builder {
+    
         private String namespace; // 应用命名空间
         private String recordPermissionApiName; // 记录权限 API 名称
-        private BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody body;
-
         /**
          * 应用命名空间
          * <p> 示例值：package_test__c
-         *
          * @param namespace
          * @return
          */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
+          public Builder namespace(String namespace) {
+               this.namespace = namespace;
+               return this;
+          }
 
+    
         /**
          * 记录权限 API 名称
          * <p> 示例值：adminRecordPermission
-         *
          * @param recordPermissionApiName
          * @return
          */
-        public Builder recordPermissionApiName(String recordPermissionApiName) {
-            this.recordPermissionApiName = recordPermissionApiName;
-            return this;
-        }
+          public Builder recordPermissionApiName(String recordPermissionApiName) {
+               this.recordPermissionApiName = recordPermissionApiName;
+               return this;
+          }
 
+    
+        private BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody body;
+    
         public BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody getBatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder batchRemoveAuthorizationApplicationRecordPermissionMemberReqBody(BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public BatchRemoveAuthorizationApplicationRecordPermissionMemberReq build(){
+        return new BatchRemoveAuthorizationApplicationRecordPermissionMemberReq(this);
+      }
+    }
 
-        public BatchRemoveAuthorizationApplicationRecordPermissionMemberReq build() {
-            return new BatchRemoveAuthorizationApplicationRecordPermissionMemberReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

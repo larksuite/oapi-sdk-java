@@ -12,41 +12,36 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2MeetingRecordingReadyV1Data {
-    /**
-     * 会议数据
-     * <p> 示例值：
-     */
+     /**
+      * 会议数据
+      * <p> 示例值：
+      */
     @SerializedName("meeting")
     private MeetingEventMeeting meeting;
-    /**
-     * 会议录制链接
-     * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
-     */
+     /**
+      * 会议录制链接
+      * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
+      */
     @SerializedName("url")
     private String url;
-    /**
-     * 录制总时长（单位msec）
-     * <p> 示例值：30000
-     */
+     /**
+      * 录制总时长（单位msec）
+      * <p> 示例值：30000
+      */
     @SerializedName("duration")
     private String duration;
-
     public MeetingEventMeeting getMeeting() {
         return this.meeting;
     }

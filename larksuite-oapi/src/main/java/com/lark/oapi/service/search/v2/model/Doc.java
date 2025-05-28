@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Doc {
-    /**
-     * 文档的唯一标识，只允许英文字母、数字和下划线
-     * <p> 示例值：3953903108179099667
-     */
+     /**
+      * 文档的唯一标识，只允许英文字母、数字和下划线
+      * <p> 示例值：3953903108179099667
+      */
     @SerializedName("doc_id")
     private String docId;
-    /**
-     * 文档对应filter_schema的值
-     * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
-     */
+     /**
+      * 文档对应filter_schema的值
+      * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
+      */
     @SerializedName("filter_data")
     private String filterData;
-    /**
-     * 文本块列表
-     * <p> 示例值：
-     */
+     /**
+      * 文本块列表
+      * <p> 示例值：
+      */
     @SerializedName("chunks")
     private Chunk[] chunks;
-
-    // builder 开始
-    public Doc() {
-    }
-
-    public Doc(Builder builder) {
-        /**
-         * 文档的唯一标识，只允许英文字母、数字和下划线
-         * <p> 示例值：3953903108179099667
-         */
-        this.docId = builder.docId;
-        /**
-         * 文档对应filter_schema的值
-         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
-         */
-        this.filterData = builder.filterData;
-        /**
-         * 文本块列表
-         * <p> 示例值：
-         */
-        this.chunks = builder.chunks;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDocId() {
         return this.docId;
     }
@@ -98,64 +67,90 @@ public class Doc {
         this.chunks = chunks;
     }
 
+
+// builder 开始
+  public Doc(){}
+
+  public Doc(Builder builder){
+         /**
+          * 文档的唯一标识，只允许英文字母、数字和下划线
+          * <p> 示例值：3953903108179099667
+          */
+      this.docId = builder.docId;
+         /**
+          * 文档对应filter_schema的值
+          * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
+          */
+      this.filterData = builder.filterData;
+         /**
+          * 文本块列表
+          * <p> 示例值：
+          */
+      this.chunks = builder.chunks;
+  }
+
     public static class Builder {
-        /**
-         * 文档的唯一标识，只允许英文字母、数字和下划线
-         * <p> 示例值：3953903108179099667
-         */
+     /**
+      * 文档的唯一标识，只允许英文字母、数字和下划线
+      * <p> 示例值：3953903108179099667
+      */
         private String docId;
-        /**
-         * 文档对应filter_schema的值
-         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
-         */
+     /**
+      * 文档对应filter_schema的值
+      * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
+      */
         private String filterData;
-        /**
-         * 文本块列表
-         * <p> 示例值：
-         */
+     /**
+      * 文本块列表
+      * <p> 示例值：
+      */
         private Chunk[] chunks;
 
         /**
          * 文档的唯一标识，只允许英文字母、数字和下划线
          * <p> 示例值：3953903108179099667
-         *
          * @param docId
          * @return
          */
         public Builder docId(String docId) {
-            this.docId = docId;
-            return this;
+             this.docId = docId;
+             return this;
         }
 
+    
 
         /**
          * 文档对应filter_schema的值
          * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
-         *
          * @param filterData
          * @return
          */
         public Builder filterData(String filterData) {
-            this.filterData = filterData;
-            return this;
+             this.filterData = filterData;
+             return this;
         }
 
+    
 
         /**
          * 文本块列表
          * <p> 示例值：
-         *
          * @param chunks
          * @return
          */
         public Builder chunks(Chunk[] chunks) {
-            this.chunks = chunks;
-            return this;
+             this.chunks = chunks;
+             return this;
         }
 
+    
+    
+    public Doc build(){
+        return new Doc(this);
+      }
+    }
 
-        public Doc build() {
-            return new Doc(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

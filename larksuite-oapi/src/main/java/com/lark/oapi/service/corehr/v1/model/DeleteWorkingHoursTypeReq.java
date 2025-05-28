@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteWorkingHoursTypeReq {
-    /**
-     * 需要删除的工时制度 ID
-     * <p> 示例值：325325254
-     */
+     /**
+      * 需要删除的工时制度 ID
+      * <p> 示例值：325325254
+      */
     @Path
     @SerializedName("working_hours_type_id")
     private String workingHoursTypeId;
-
-    // builder 开始
-    public DeleteWorkingHoursTypeReq() {
-    }
-
-    public DeleteWorkingHoursTypeReq(Builder builder) {
-        /**
-         * 需要删除的工时制度 ID
-         * <p> 示例值：325325254
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getWorkingHoursTypeId() {
         return this.workingHoursTypeId;
     }
@@ -60,25 +39,39 @@ public class DeleteWorkingHoursTypeReq {
         this.workingHoursTypeId = workingHoursTypeId;
     }
 
+
+// builder 开始
+  public DeleteWorkingHoursTypeReq(){}
+
+  public DeleteWorkingHoursTypeReq(Builder builder){
+     /**
+      * 需要删除的工时制度 ID
+      * <p> 示例值：325325254
+      */
+       this.workingHoursTypeId = builder.workingHoursTypeId;
+  }
+
     public static class Builder {
-
+    
         private String workingHoursTypeId; // 需要删除的工时制度 ID
-
         /**
          * 需要删除的工时制度 ID
          * <p> 示例值：325325254
-         *
          * @param workingHoursTypeId
          * @return
          */
-        public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
-        }
+          public Builder workingHoursTypeId(String workingHoursTypeId) {
+               this.workingHoursTypeId = workingHoursTypeId;
+               return this;
+          }
 
+    
+    public DeleteWorkingHoursTypeReq build(){
+        return new DeleteWorkingHoursTypeReq(this);
+      }
+    }
 
-        public DeleteWorkingHoursTypeReq build() {
-            return new DeleteWorkingHoursTypeReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

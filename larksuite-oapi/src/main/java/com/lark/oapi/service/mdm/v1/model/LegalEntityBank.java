@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,214 +19,114 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LegalEntityBank {
-    /**
-     * 法人实体银行账户id
-     * <p> 示例值：1433492736852541442
-     */
+     /**
+      * 法人实体银行账户id
+      * <p> 示例值：1433492736852541442
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 公司编码
-     * <p> 示例值：1002
-     */
+     /**
+      * 公司编码
+      * <p> 示例值：1002
+      */
     @SerializedName("company_code")
     private String companyCode;
-    /**
-     * 银行Id
-     * <p> 示例值：MDBK00131739
-     */
+     /**
+      * 银行Id
+      * <p> 示例值：MDBK00131739
+      */
     @SerializedName("bank_id")
     private String bankId;
-    /**
-     * 银联号
-     * <p> 示例值：001755053005
-     */
+     /**
+      * 银联号
+      * <p> 示例值：001755053005
+      */
     @SerializedName("bank_code")
     private String bankCode;
-    /**
-     * 银行名称
-     * <p> 示例值：中国人民银行丽江市中心支行
-     */
+     /**
+      * 银行名称
+      * <p> 示例值：中国人民银行丽江市中心支行
+      */
     @SerializedName("bank_name")
     private String bankName;
-    /**
-     * 总行英文缩写
-     * <p> 示例值：PBC
-     */
+     /**
+      * 总行英文缩写
+      * <p> 示例值：PBC
+      */
     @SerializedName("bank_acronym")
     private String bankAcronym;
-    /**
-     * 国家
-     * <p> 示例值：CN
-     */
+     /**
+      * 国家
+      * <p> 示例值：CN
+      */
     @SerializedName("country")
     private String country;
-    /**
-     * 账户名称
-     * <p> 示例值：账户名称
-     */
+     /**
+      * 账户名称
+      * <p> 示例值：账户名称
+      */
     @SerializedName("account_name")
     private String accountName;
-    /**
-     * 银行账号
-     * <p> 示例值：122907287xxxxx9
-     */
+     /**
+      * 银行账号
+      * <p> 示例值：122907287xxxxx9
+      */
     @SerializedName("bank_account")
     private String bankAccount;
-    /**
-     * 银行SWIFT编码
-     * <p> 示例值：CMBCCNBS
-     */
+     /**
+      * 银行SWIFT编码
+      * <p> 示例值：CMBCCNBS
+      */
     @SerializedName("swift_code")
     private String swiftCode;
-    /**
-     * 银行控制码
-     * <p> 示例值：40001xxxxxxx00313261
-     */
+     /**
+      * 银行控制码
+      * <p> 示例值：40001xxxxxxx00313261
+      */
     @SerializedName("bank_control_code")
     private String bankControlCode;
-    /**
-     * 扩展字段相关信息列表
-     * <p> 示例值：
-     */
+     /**
+      * 扩展字段相关信息列表
+      * <p> 示例值：
+      */
     @SerializedName("extend_info")
     private ExtendField[] extendInfo;
-    /**
-     * IBAN账号
-     * <p> 示例值：6446777
-     */
+     /**
+      * IBAN账号
+      * <p> 示例值：6446777
+      */
     @SerializedName("iban_account")
     private String ibanAccount;
-    /**
-     * 币种
-     * <p> 示例值：RMB
-     */
+     /**
+      * 币种
+      * <p> 示例值：RMB
+      */
     @SerializedName("currency")
     private String currency;
-    /**
-     * 总账科目编码
-     * <p> 示例值：123ASD
-     */
+     /**
+      * 总账科目编码
+      * <p> 示例值：123ASD
+      */
     @SerializedName("gl_account")
     private String glAccount;
-    /**
-     * 清算科目编码
-     * <p> 示例值：ASD123
-     */
+     /**
+      * 清算科目编码
+      * <p> 示例值：ASD123
+      */
     @SerializedName("clearing_account")
     private String clearingAccount;
-    /**
-     * 账户属性描述
-     * <p> 示例值：QWE123
-     */
+     /**
+      * 账户属性描述
+      * <p> 示例值：QWE123
+      */
     @SerializedName("account_attribute_desc")
     private String accountAttributeDesc;
-
-    // builder 开始
-    public LegalEntityBank() {
-    }
-
-    public LegalEntityBank(Builder builder) {
-        /**
-         * 法人实体银行账户id
-         * <p> 示例值：1433492736852541442
-         */
-        this.id = builder.id;
-        /**
-         * 公司编码
-         * <p> 示例值：1002
-         */
-        this.companyCode = builder.companyCode;
-        /**
-         * 银行Id
-         * <p> 示例值：MDBK00131739
-         */
-        this.bankId = builder.bankId;
-        /**
-         * 银联号
-         * <p> 示例值：001755053005
-         */
-        this.bankCode = builder.bankCode;
-        /**
-         * 银行名称
-         * <p> 示例值：中国人民银行丽江市中心支行
-         */
-        this.bankName = builder.bankName;
-        /**
-         * 总行英文缩写
-         * <p> 示例值：PBC
-         */
-        this.bankAcronym = builder.bankAcronym;
-        /**
-         * 国家
-         * <p> 示例值：CN
-         */
-        this.country = builder.country;
-        /**
-         * 账户名称
-         * <p> 示例值：账户名称
-         */
-        this.accountName = builder.accountName;
-        /**
-         * 银行账号
-         * <p> 示例值：122907287xxxxx9
-         */
-        this.bankAccount = builder.bankAccount;
-        /**
-         * 银行SWIFT编码
-         * <p> 示例值：CMBCCNBS
-         */
-        this.swiftCode = builder.swiftCode;
-        /**
-         * 银行控制码
-         * <p> 示例值：40001xxxxxxx00313261
-         */
-        this.bankControlCode = builder.bankControlCode;
-        /**
-         * 扩展字段相关信息列表
-         * <p> 示例值：
-         */
-        this.extendInfo = builder.extendInfo;
-        /**
-         * IBAN账号
-         * <p> 示例值：6446777
-         */
-        this.ibanAccount = builder.ibanAccount;
-        /**
-         * 币种
-         * <p> 示例值：RMB
-         */
-        this.currency = builder.currency;
-        /**
-         * 总账科目编码
-         * <p> 示例值：123ASD
-         */
-        this.glAccount = builder.glAccount;
-        /**
-         * 清算科目编码
-         * <p> 示例值：ASD123
-         */
-        this.clearingAccount = builder.clearingAccount;
-        /**
-         * 账户属性描述
-         * <p> 示例值：QWE123
-         */
-        this.accountAttributeDesc = builder.accountAttributeDesc;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -364,316 +263,412 @@ public class LegalEntityBank {
         this.accountAttributeDesc = accountAttributeDesc;
     }
 
+
+// builder 开始
+  public LegalEntityBank(){}
+
+  public LegalEntityBank(Builder builder){
+         /**
+          * 法人实体银行账户id
+          * <p> 示例值：1433492736852541442
+          */
+      this.id = builder.id;
+         /**
+          * 公司编码
+          * <p> 示例值：1002
+          */
+      this.companyCode = builder.companyCode;
+         /**
+          * 银行Id
+          * <p> 示例值：MDBK00131739
+          */
+      this.bankId = builder.bankId;
+         /**
+          * 银联号
+          * <p> 示例值：001755053005
+          */
+      this.bankCode = builder.bankCode;
+         /**
+          * 银行名称
+          * <p> 示例值：中国人民银行丽江市中心支行
+          */
+      this.bankName = builder.bankName;
+         /**
+          * 总行英文缩写
+          * <p> 示例值：PBC
+          */
+      this.bankAcronym = builder.bankAcronym;
+         /**
+          * 国家
+          * <p> 示例值：CN
+          */
+      this.country = builder.country;
+         /**
+          * 账户名称
+          * <p> 示例值：账户名称
+          */
+      this.accountName = builder.accountName;
+         /**
+          * 银行账号
+          * <p> 示例值：122907287xxxxx9
+          */
+      this.bankAccount = builder.bankAccount;
+         /**
+          * 银行SWIFT编码
+          * <p> 示例值：CMBCCNBS
+          */
+      this.swiftCode = builder.swiftCode;
+         /**
+          * 银行控制码
+          * <p> 示例值：40001xxxxxxx00313261
+          */
+      this.bankControlCode = builder.bankControlCode;
+         /**
+          * 扩展字段相关信息列表
+          * <p> 示例值：
+          */
+      this.extendInfo = builder.extendInfo;
+         /**
+          * IBAN账号
+          * <p> 示例值：6446777
+          */
+      this.ibanAccount = builder.ibanAccount;
+         /**
+          * 币种
+          * <p> 示例值：RMB
+          */
+      this.currency = builder.currency;
+         /**
+          * 总账科目编码
+          * <p> 示例值：123ASD
+          */
+      this.glAccount = builder.glAccount;
+         /**
+          * 清算科目编码
+          * <p> 示例值：ASD123
+          */
+      this.clearingAccount = builder.clearingAccount;
+         /**
+          * 账户属性描述
+          * <p> 示例值：QWE123
+          */
+      this.accountAttributeDesc = builder.accountAttributeDesc;
+  }
+
     public static class Builder {
-        /**
-         * 法人实体银行账户id
-         * <p> 示例值：1433492736852541442
-         */
+     /**
+      * 法人实体银行账户id
+      * <p> 示例值：1433492736852541442
+      */
         private String id;
-        /**
-         * 公司编码
-         * <p> 示例值：1002
-         */
+     /**
+      * 公司编码
+      * <p> 示例值：1002
+      */
         private String companyCode;
-        /**
-         * 银行Id
-         * <p> 示例值：MDBK00131739
-         */
+     /**
+      * 银行Id
+      * <p> 示例值：MDBK00131739
+      */
         private String bankId;
-        /**
-         * 银联号
-         * <p> 示例值：001755053005
-         */
+     /**
+      * 银联号
+      * <p> 示例值：001755053005
+      */
         private String bankCode;
-        /**
-         * 银行名称
-         * <p> 示例值：中国人民银行丽江市中心支行
-         */
+     /**
+      * 银行名称
+      * <p> 示例值：中国人民银行丽江市中心支行
+      */
         private String bankName;
-        /**
-         * 总行英文缩写
-         * <p> 示例值：PBC
-         */
+     /**
+      * 总行英文缩写
+      * <p> 示例值：PBC
+      */
         private String bankAcronym;
-        /**
-         * 国家
-         * <p> 示例值：CN
-         */
+     /**
+      * 国家
+      * <p> 示例值：CN
+      */
         private String country;
-        /**
-         * 账户名称
-         * <p> 示例值：账户名称
-         */
+     /**
+      * 账户名称
+      * <p> 示例值：账户名称
+      */
         private String accountName;
-        /**
-         * 银行账号
-         * <p> 示例值：122907287xxxxx9
-         */
+     /**
+      * 银行账号
+      * <p> 示例值：122907287xxxxx9
+      */
         private String bankAccount;
-        /**
-         * 银行SWIFT编码
-         * <p> 示例值：CMBCCNBS
-         */
+     /**
+      * 银行SWIFT编码
+      * <p> 示例值：CMBCCNBS
+      */
         private String swiftCode;
-        /**
-         * 银行控制码
-         * <p> 示例值：40001xxxxxxx00313261
-         */
+     /**
+      * 银行控制码
+      * <p> 示例值：40001xxxxxxx00313261
+      */
         private String bankControlCode;
-        /**
-         * 扩展字段相关信息列表
-         * <p> 示例值：
-         */
+     /**
+      * 扩展字段相关信息列表
+      * <p> 示例值：
+      */
         private ExtendField[] extendInfo;
-        /**
-         * IBAN账号
-         * <p> 示例值：6446777
-         */
+     /**
+      * IBAN账号
+      * <p> 示例值：6446777
+      */
         private String ibanAccount;
-        /**
-         * 币种
-         * <p> 示例值：RMB
-         */
+     /**
+      * 币种
+      * <p> 示例值：RMB
+      */
         private String currency;
-        /**
-         * 总账科目编码
-         * <p> 示例值：123ASD
-         */
+     /**
+      * 总账科目编码
+      * <p> 示例值：123ASD
+      */
         private String glAccount;
-        /**
-         * 清算科目编码
-         * <p> 示例值：ASD123
-         */
+     /**
+      * 清算科目编码
+      * <p> 示例值：ASD123
+      */
         private String clearingAccount;
-        /**
-         * 账户属性描述
-         * <p> 示例值：QWE123
-         */
+     /**
+      * 账户属性描述
+      * <p> 示例值：QWE123
+      */
         private String accountAttributeDesc;
 
         /**
          * 法人实体银行账户id
          * <p> 示例值：1433492736852541442
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 公司编码
          * <p> 示例值：1002
-         *
          * @param companyCode
          * @return
          */
         public Builder companyCode(String companyCode) {
-            this.companyCode = companyCode;
-            return this;
+             this.companyCode = companyCode;
+             return this;
         }
 
+    
 
         /**
          * 银行Id
          * <p> 示例值：MDBK00131739
-         *
          * @param bankId
          * @return
          */
         public Builder bankId(String bankId) {
-            this.bankId = bankId;
-            return this;
+             this.bankId = bankId;
+             return this;
         }
 
+    
 
         /**
          * 银联号
          * <p> 示例值：001755053005
-         *
          * @param bankCode
          * @return
          */
         public Builder bankCode(String bankCode) {
-            this.bankCode = bankCode;
-            return this;
+             this.bankCode = bankCode;
+             return this;
         }
 
+    
 
         /**
          * 银行名称
          * <p> 示例值：中国人民银行丽江市中心支行
-         *
          * @param bankName
          * @return
          */
         public Builder bankName(String bankName) {
-            this.bankName = bankName;
-            return this;
+             this.bankName = bankName;
+             return this;
         }
 
+    
 
         /**
          * 总行英文缩写
          * <p> 示例值：PBC
-         *
          * @param bankAcronym
          * @return
          */
         public Builder bankAcronym(String bankAcronym) {
-            this.bankAcronym = bankAcronym;
-            return this;
+             this.bankAcronym = bankAcronym;
+             return this;
         }
 
+    
 
         /**
          * 国家
          * <p> 示例值：CN
-         *
          * @param country
          * @return
          */
         public Builder country(String country) {
-            this.country = country;
-            return this;
+             this.country = country;
+             return this;
         }
 
+    
 
         /**
          * 账户名称
          * <p> 示例值：账户名称
-         *
          * @param accountName
          * @return
          */
         public Builder accountName(String accountName) {
-            this.accountName = accountName;
-            return this;
+             this.accountName = accountName;
+             return this;
         }
 
+    
 
         /**
          * 银行账号
          * <p> 示例值：122907287xxxxx9
-         *
          * @param bankAccount
          * @return
          */
         public Builder bankAccount(String bankAccount) {
-            this.bankAccount = bankAccount;
-            return this;
+             this.bankAccount = bankAccount;
+             return this;
         }
 
+    
 
         /**
          * 银行SWIFT编码
          * <p> 示例值：CMBCCNBS
-         *
          * @param swiftCode
          * @return
          */
         public Builder swiftCode(String swiftCode) {
-            this.swiftCode = swiftCode;
-            return this;
+             this.swiftCode = swiftCode;
+             return this;
         }
 
+    
 
         /**
          * 银行控制码
          * <p> 示例值：40001xxxxxxx00313261
-         *
          * @param bankControlCode
          * @return
          */
         public Builder bankControlCode(String bankControlCode) {
-            this.bankControlCode = bankControlCode;
-            return this;
+             this.bankControlCode = bankControlCode;
+             return this;
         }
 
+    
 
         /**
          * 扩展字段相关信息列表
          * <p> 示例值：
-         *
          * @param extendInfo
          * @return
          */
         public Builder extendInfo(ExtendField[] extendInfo) {
-            this.extendInfo = extendInfo;
-            return this;
+             this.extendInfo = extendInfo;
+             return this;
         }
 
+    
 
         /**
          * IBAN账号
          * <p> 示例值：6446777
-         *
          * @param ibanAccount
          * @return
          */
         public Builder ibanAccount(String ibanAccount) {
-            this.ibanAccount = ibanAccount;
-            return this;
+             this.ibanAccount = ibanAccount;
+             return this;
         }
 
+    
 
         /**
          * 币种
          * <p> 示例值：RMB
-         *
          * @param currency
          * @return
          */
         public Builder currency(String currency) {
-            this.currency = currency;
-            return this;
+             this.currency = currency;
+             return this;
         }
 
+    
 
         /**
          * 总账科目编码
          * <p> 示例值：123ASD
-         *
          * @param glAccount
          * @return
          */
         public Builder glAccount(String glAccount) {
-            this.glAccount = glAccount;
-            return this;
+             this.glAccount = glAccount;
+             return this;
         }
 
+    
 
         /**
          * 清算科目编码
          * <p> 示例值：ASD123
-         *
          * @param clearingAccount
          * @return
          */
         public Builder clearingAccount(String clearingAccount) {
-            this.clearingAccount = clearingAccount;
-            return this;
+             this.clearingAccount = clearingAccount;
+             return this;
         }
 
+    
 
         /**
          * 账户属性描述
          * <p> 示例值：QWE123
-         *
          * @param accountAttributeDesc
          * @return
          */
         public Builder accountAttributeDesc(String accountAttributeDesc) {
-            this.accountAttributeDesc = accountAttributeDesc;
-            return this;
+             this.accountAttributeDesc = accountAttributeDesc;
+             return this;
         }
 
+    
+    
+    public LegalEntityBank build(){
+        return new LegalEntityBank(this);
+      }
+    }
 
-        public LegalEntityBank build() {
-            return new LegalEntityBank(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RollbackNode {
-    /**
-     * 节点id
-     * <p> 示例值：46e6d96cfa756980907209209ec03b64
-     */
+     /**
+      * 节点id
+      * <p> 示例值：46e6d96cfa756980907209209ec03b64
+      */
     @SerializedName("node_id")
     private String nodeId;
-    /**
-     * 节点名称
-     * <p> 示例值：开始
-     */
+     /**
+      * 节点名称
+      * <p> 示例值：开始
+      */
     @SerializedName("node_name")
     private String nodeName;
-    /**
-     * 节点自定义 id
-     * <p> 示例值：manager
-     */
+     /**
+      * 节点自定义 id
+      * <p> 示例值：manager
+      */
     @SerializedName("custom_node_id")
     private String customNodeId;
-    /**
-     * 节点key
-     * <p> 示例值：APPROVAL_240330_4058663
-     */
+     /**
+      * 节点key
+      * <p> 示例值：APPROVAL_240330_4058663
+      */
     @SerializedName("node_key")
     private String nodeKey;
-
-    // builder 开始
-    public RollbackNode() {
-    }
-
-    public RollbackNode(Builder builder) {
-        /**
-         * 节点id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        this.nodeId = builder.nodeId;
-        /**
-         * 节点名称
-         * <p> 示例值：开始
-         */
-        this.nodeName = builder.nodeName;
-        /**
-         * 节点自定义 id
-         * <p> 示例值：manager
-         */
-        this.customNodeId = builder.customNodeId;
-        /**
-         * 节点key
-         * <p> 示例值：APPROVAL_240330_4058663
-         */
-        this.nodeKey = builder.nodeKey;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNodeId() {
         return this.nodeId;
     }
@@ -117,82 +81,113 @@ public class RollbackNode {
         this.nodeKey = nodeKey;
     }
 
+
+// builder 开始
+  public RollbackNode(){}
+
+  public RollbackNode(Builder builder){
+         /**
+          * 节点id
+          * <p> 示例值：46e6d96cfa756980907209209ec03b64
+          */
+      this.nodeId = builder.nodeId;
+         /**
+          * 节点名称
+          * <p> 示例值：开始
+          */
+      this.nodeName = builder.nodeName;
+         /**
+          * 节点自定义 id
+          * <p> 示例值：manager
+          */
+      this.customNodeId = builder.customNodeId;
+         /**
+          * 节点key
+          * <p> 示例值：APPROVAL_240330_4058663
+          */
+      this.nodeKey = builder.nodeKey;
+  }
+
     public static class Builder {
-        /**
-         * 节点id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
+     /**
+      * 节点id
+      * <p> 示例值：46e6d96cfa756980907209209ec03b64
+      */
         private String nodeId;
-        /**
-         * 节点名称
-         * <p> 示例值：开始
-         */
+     /**
+      * 节点名称
+      * <p> 示例值：开始
+      */
         private String nodeName;
-        /**
-         * 节点自定义 id
-         * <p> 示例值：manager
-         */
+     /**
+      * 节点自定义 id
+      * <p> 示例值：manager
+      */
         private String customNodeId;
-        /**
-         * 节点key
-         * <p> 示例值：APPROVAL_240330_4058663
-         */
+     /**
+      * 节点key
+      * <p> 示例值：APPROVAL_240330_4058663
+      */
         private String nodeKey;
 
         /**
          * 节点id
          * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         *
          * @param nodeId
          * @return
          */
         public Builder nodeId(String nodeId) {
-            this.nodeId = nodeId;
-            return this;
+             this.nodeId = nodeId;
+             return this;
         }
 
+    
 
         /**
          * 节点名称
          * <p> 示例值：开始
-         *
          * @param nodeName
          * @return
          */
         public Builder nodeName(String nodeName) {
-            this.nodeName = nodeName;
-            return this;
+             this.nodeName = nodeName;
+             return this;
         }
 
+    
 
         /**
          * 节点自定义 id
          * <p> 示例值：manager
-         *
          * @param customNodeId
          * @return
          */
         public Builder customNodeId(String customNodeId) {
-            this.customNodeId = customNodeId;
-            return this;
+             this.customNodeId = customNodeId;
+             return this;
         }
 
+    
 
         /**
          * 节点key
          * <p> 示例值：APPROVAL_240330_4058663
-         *
          * @param nodeKey
          * @return
          */
         public Builder nodeKey(String nodeKey) {
-            this.nodeKey = nodeKey;
-            return this;
+             this.nodeKey = nodeKey;
+             return this;
         }
 
+    
+    
+    public RollbackNode build(){
+        return new RollbackNode(this);
+      }
+    }
 
-        public RollbackNode build() {
-            return new RollbackNode(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

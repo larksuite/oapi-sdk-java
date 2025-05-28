@@ -17,17 +17,16 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 文本换行
  */
 public enum CellStyleWrapStrategyEnum {
-    OVERFLOW("Overflow"), // 溢出
-    CLIP("Clip"), // 截断
-    WRAP("Wrap"), // 自动换行
-    ;
-    private String value;
-
+     OVERFLOW("Overflow"), // 溢出
+     CLIP("Clip"), // 截断
+     WRAP("Wrap"), // 自动换行
+  ;
+   private String value;
     CellStyleWrapStrategyEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

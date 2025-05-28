@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CodeNameObject {
-    /**
-     * 编码
-     * <p> 示例值：1111
-     */
+     /**
+      * 编码
+      * <p> 示例值：1111
+      */
     @SerializedName("code")
     private String code;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-
-    // builder 开始
-    public CodeNameObject() {
-    }
-
-    public CodeNameObject(Builder builder) {
-        /**
-         * 编码
-         * <p> 示例值：1111
-         */
-        this.code = builder.code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCode() {
         return this.code;
     }
@@ -78,46 +52,67 @@ public class CodeNameObject {
         this.name = name;
     }
 
+
+// builder 开始
+  public CodeNameObject(){}
+
+  public CodeNameObject(Builder builder){
+         /**
+          * 编码
+          * <p> 示例值：1111
+          */
+      this.code = builder.code;
+         /**
+          * 名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 编码
-         * <p> 示例值：1111
-         */
+     /**
+      * 编码
+      * <p> 示例值：1111
+      */
         private String code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
+     /**
+      * 名称
+      * <p> 示例值：
+      */
         private I18n name;
 
         /**
          * 编码
          * <p> 示例值：1111
-         *
          * @param code
          * @return
          */
         public Builder code(String code) {
-            this.code = code;
-            return this;
+             this.code = code;
+             return this;
         }
 
+    
 
         /**
          * 名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public CodeNameObject build(){
+        return new CodeNameObject(this);
+      }
+    }
 
-        public CodeNameObject build() {
-            return new CodeNameObject(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -21,9 +21,8 @@ public class BaseService {
     private final V2 v2;
 
     public BaseService(Config config) {
-        this.v2 = new V2(config);
+    this.v2 = new V2(config);
     }
-
     public V2 v2() {
         return v2;
     }

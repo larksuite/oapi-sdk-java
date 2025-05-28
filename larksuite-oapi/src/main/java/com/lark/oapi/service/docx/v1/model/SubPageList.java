@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SubPageList {
-    /**
-     * 知识库节点 token，仅支持知识库文档创建子页面列表，且需传入当前页面的 wiki token
-     * <p> 示例值：Ub47wVI7AikG9wkgnpSbFyabcef
-     */
+     /**
+      * 知识库节点 token，仅支持知识库文档创建子页面列表，且需传入当前页面的 wiki token
+      * <p> 示例值：Ub47wVI7AikG9wkgnpSbFyabcef
+      */
     @SerializedName("wiki_token")
     private String wikiToken;
-
-    // builder 开始
-    public SubPageList() {
-    }
-
-    public SubPageList(Builder builder) {
-        /**
-         * 知识库节点 token，仅支持知识库文档创建子页面列表，且需传入当前页面的 wiki token
-         * <p> 示例值：Ub47wVI7AikG9wkgnpSbFyabcef
-         */
-        this.wikiToken = builder.wikiToken;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getWikiToken() {
         return this.wikiToken;
     }
@@ -60,28 +39,44 @@ public class SubPageList {
         this.wikiToken = wikiToken;
     }
 
+
+// builder 开始
+  public SubPageList(){}
+
+  public SubPageList(Builder builder){
+         /**
+          * 知识库节点 token，仅支持知识库文档创建子页面列表，且需传入当前页面的 wiki token
+          * <p> 示例值：Ub47wVI7AikG9wkgnpSbFyabcef
+          */
+      this.wikiToken = builder.wikiToken;
+  }
+
     public static class Builder {
-        /**
-         * 知识库节点 token，仅支持知识库文档创建子页面列表，且需传入当前页面的 wiki token
-         * <p> 示例值：Ub47wVI7AikG9wkgnpSbFyabcef
-         */
+     /**
+      * 知识库节点 token，仅支持知识库文档创建子页面列表，且需传入当前页面的 wiki token
+      * <p> 示例值：Ub47wVI7AikG9wkgnpSbFyabcef
+      */
         private String wikiToken;
 
         /**
          * 知识库节点 token，仅支持知识库文档创建子页面列表，且需传入当前页面的 wiki token
          * <p> 示例值：Ub47wVI7AikG9wkgnpSbFyabcef
-         *
          * @param wikiToken
          * @return
          */
         public Builder wikiToken(String wikiToken) {
-            this.wikiToken = wikiToken;
-            return this;
+             this.wikiToken = wikiToken;
+             return this;
         }
 
+    
+    
+    public SubPageList build(){
+        return new SubPageList(this);
+      }
+    }
 
-        public SubPageList build() {
-            return new SubPageList(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

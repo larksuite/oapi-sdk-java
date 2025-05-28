@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Config {
-    /**
-     * 是否允许转发卡片。取值：  true：允许 false：不允许 默认值为 true，该字段要求飞书客户端的版本为 V3.31.0 及以上
-     * <p> 示例值：
-     */
+     /**
+      * 是否允许转发卡片。取值：  true：允许 false：不允许 默认值为 true，该字段要求飞书客户端的版本为 V3.31.0 及以上
+      * <p> 示例值：
+      */
     @SerializedName("enable_forward")
     private Boolean enableForward;
-    /**
-     * 标识是否开启流式
-     * <p> 示例值：
-     */
+     /**
+      * 标识是否开启流式
+      * <p> 示例值：
+      */
     @SerializedName("streaming_mode")
     private Boolean streamingMode;
-    /**
-     * 卡片摘要
-     * <p> 示例值：
-     */
+     /**
+      * 卡片摘要
+      * <p> 示例值：
+      */
     @SerializedName("summary")
     private Summary summary;
-
-    // builder 开始
-    public Config() {
-    }
-
-    public Config(Builder builder) {
-        /**
-         * 是否允许转发卡片。取值：  true：允许 false：不允许 默认值为 true，该字段要求飞书客户端的版本为 V3.31.0 及以上
-         * <p> 示例值：
-         */
-        this.enableForward = builder.enableForward;
-        /**
-         * 标识是否开启流式
-         * <p> 示例值：
-         */
-        this.streamingMode = builder.streamingMode;
-        /**
-         * 卡片摘要
-         * <p> 示例值：
-         */
-        this.summary = builder.summary;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getEnableForward() {
         return this.enableForward;
     }
@@ -98,64 +67,90 @@ public class Config {
         this.summary = summary;
     }
 
+
+// builder 开始
+  public Config(){}
+
+  public Config(Builder builder){
+         /**
+          * 是否允许转发卡片。取值：  true：允许 false：不允许 默认值为 true，该字段要求飞书客户端的版本为 V3.31.0 及以上
+          * <p> 示例值：
+          */
+      this.enableForward = builder.enableForward;
+         /**
+          * 标识是否开启流式
+          * <p> 示例值：
+          */
+      this.streamingMode = builder.streamingMode;
+         /**
+          * 卡片摘要
+          * <p> 示例值：
+          */
+      this.summary = builder.summary;
+  }
+
     public static class Builder {
-        /**
-         * 是否允许转发卡片。取值：  true：允许 false：不允许 默认值为 true，该字段要求飞书客户端的版本为 V3.31.0 及以上
-         * <p> 示例值：
-         */
+     /**
+      * 是否允许转发卡片。取值：  true：允许 false：不允许 默认值为 true，该字段要求飞书客户端的版本为 V3.31.0 及以上
+      * <p> 示例值：
+      */
         private Boolean enableForward;
-        /**
-         * 标识是否开启流式
-         * <p> 示例值：
-         */
+     /**
+      * 标识是否开启流式
+      * <p> 示例值：
+      */
         private Boolean streamingMode;
-        /**
-         * 卡片摘要
-         * <p> 示例值：
-         */
+     /**
+      * 卡片摘要
+      * <p> 示例值：
+      */
         private Summary summary;
 
         /**
          * 是否允许转发卡片。取值：  true：允许 false：不允许 默认值为 true，该字段要求飞书客户端的版本为 V3.31.0 及以上
          * <p> 示例值：
-         *
          * @param enableForward
          * @return
          */
         public Builder enableForward(Boolean enableForward) {
-            this.enableForward = enableForward;
-            return this;
+             this.enableForward = enableForward;
+             return this;
         }
 
+    
 
         /**
          * 标识是否开启流式
          * <p> 示例值：
-         *
          * @param streamingMode
          * @return
          */
         public Builder streamingMode(Boolean streamingMode) {
-            this.streamingMode = streamingMode;
-            return this;
+             this.streamingMode = streamingMode;
+             return this;
         }
 
+    
 
         /**
          * 卡片摘要
          * <p> 示例值：
-         *
          * @param summary
          * @return
          */
         public Builder summary(Summary summary) {
-            this.summary = summary;
-            return this;
+             this.summary = summary;
+             return this;
         }
 
+    
+    
+    public Config build(){
+        return new Config(this);
+      }
+    }
 
-        public Config build() {
-            return new Config(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteExternalOfferReq {
-    /**
-     * 外部Offer ID
-     * <p> 示例值：6960663240925956660
-     */
+     /**
+      * 外部Offer ID
+      * <p> 示例值：6960663240925956660
+      */
     @Path
     @SerializedName("external_offer_id")
     private String externalOfferId;
-
-    // builder 开始
-    public DeleteExternalOfferReq() {
-    }
-
-    public DeleteExternalOfferReq(Builder builder) {
-        /**
-         * 外部Offer ID
-         * <p> 示例值：6960663240925956660
-         */
-        this.externalOfferId = builder.externalOfferId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getExternalOfferId() {
         return this.externalOfferId;
     }
@@ -59,25 +38,39 @@ public class DeleteExternalOfferReq {
         this.externalOfferId = externalOfferId;
     }
 
+
+// builder 开始
+  public DeleteExternalOfferReq(){}
+
+  public DeleteExternalOfferReq(Builder builder){
+     /**
+      * 外部Offer ID
+      * <p> 示例值：6960663240925956660
+      */
+       this.externalOfferId = builder.externalOfferId;
+  }
+
     public static class Builder {
-
+    
         private String externalOfferId; // 外部Offer ID
-
         /**
          * 外部Offer ID
          * <p> 示例值：6960663240925956660
-         *
          * @param externalOfferId
          * @return
          */
-        public Builder externalOfferId(String externalOfferId) {
-            this.externalOfferId = externalOfferId;
-            return this;
-        }
+          public Builder externalOfferId(String externalOfferId) {
+               this.externalOfferId = externalOfferId;
+               return this;
+          }
 
+    
+    public DeleteExternalOfferReq build(){
+        return new DeleteExternalOfferReq(this);
+      }
+    }
 
-        public DeleteExternalOfferReq build() {
-            return new DeleteExternalOfferReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.human_authentication.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.human_authentication.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Identity {
-    /**
-     * user identity name
-     * <p> 示例值：
-     */
+     /**
+      * user identity name
+      * <p> 示例值：
+      */
     @SerializedName("identity_name")
     private String identityName;
-    /**
-     * user identity code
-     * <p> 示例值：
-     */
+     /**
+      * user identity code
+      * <p> 示例值：
+      */
     @SerializedName("identity_code")
     private String identityCode;
-    /**
-     * user mobile
-     * <p> 示例值：
-     */
+     /**
+      * user mobile
+      * <p> 示例值：
+      */
     @SerializedName("mobile")
     private String mobile;
-
-    // builder 开始
-    public Identity() {
-    }
-
-    public Identity(Builder builder) {
-        /**
-         * user identity name
-         * <p> 示例值：
-         */
-        this.identityName = builder.identityName;
-        /**
-         * user identity code
-         * <p> 示例值：
-         */
-        this.identityCode = builder.identityCode;
-        /**
-         * user mobile
-         * <p> 示例值：
-         */
-        this.mobile = builder.mobile;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getIdentityName() {
         return this.identityName;
     }
@@ -98,64 +67,90 @@ public class Identity {
         this.mobile = mobile;
     }
 
+
+// builder 开始
+  public Identity(){}
+
+  public Identity(Builder builder){
+         /**
+          * user identity name
+          * <p> 示例值：
+          */
+      this.identityName = builder.identityName;
+         /**
+          * user identity code
+          * <p> 示例值：
+          */
+      this.identityCode = builder.identityCode;
+         /**
+          * user mobile
+          * <p> 示例值：
+          */
+      this.mobile = builder.mobile;
+  }
+
     public static class Builder {
-        /**
-         * user identity name
-         * <p> 示例值：
-         */
+     /**
+      * user identity name
+      * <p> 示例值：
+      */
         private String identityName;
-        /**
-         * user identity code
-         * <p> 示例值：
-         */
+     /**
+      * user identity code
+      * <p> 示例值：
+      */
         private String identityCode;
-        /**
-         * user mobile
-         * <p> 示例值：
-         */
+     /**
+      * user mobile
+      * <p> 示例值：
+      */
         private String mobile;
 
         /**
          * user identity name
          * <p> 示例值：
-         *
          * @param identityName
          * @return
          */
         public Builder identityName(String identityName) {
-            this.identityName = identityName;
-            return this;
+             this.identityName = identityName;
+             return this;
         }
 
+    
 
         /**
          * user identity code
          * <p> 示例值：
-         *
          * @param identityCode
          * @return
          */
         public Builder identityCode(String identityCode) {
-            this.identityCode = identityCode;
-            return this;
+             this.identityCode = identityCode;
+             return this;
         }
 
+    
 
         /**
          * user mobile
          * <p> 示例值：
-         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
+             this.mobile = mobile;
+             return this;
         }
 
+    
+    
+    public Identity build(){
+        return new Identity(this);
+      }
+    }
 
-        public Identity build() {
-            return new Identity(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

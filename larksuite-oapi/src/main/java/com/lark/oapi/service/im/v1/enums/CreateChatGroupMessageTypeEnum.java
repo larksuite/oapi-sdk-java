@@ -17,16 +17,15 @@ package com.lark.oapi.service.im.v1.enums;
  * 群消息模式
  */
 public enum CreateChatGroupMessageTypeEnum {
-    CHAT("chat"), // 普通模式
-    THREAD("thread"), // 话题模式
-    ;
-    private String value;
-
+     CHAT("chat"), // 普通模式
+     THREAD("thread"), // 话题模式
+  ;
+   private String value;
     CreateChatGroupMessageTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

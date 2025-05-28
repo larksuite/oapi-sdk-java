@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.report.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.report.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FormContent {
-    /**
-     * 表单字段ID
-     * <p> 示例值：6968626905868156948
-     */
+     /**
+      * 表单字段ID
+      * <p> 示例值：6968626905868156948
+      */
     @SerializedName("field_id")
     private String fieldId;
-    /**
-     * 表单字段名称
-     * <p> 示例值：表单测试
-     */
+     /**
+      * 表单字段名称
+      * <p> 示例值：表单测试
+      */
     @SerializedName("field_name")
     private String fieldName;
-    /**
-     * 表单字段值
-     * <p> 示例值：测试数据
-     */
+     /**
+      * 表单字段值
+      * <p> 示例值：测试数据
+      */
     @SerializedName("field_value")
     private String fieldValue;
-
-    // builder 开始
-    public FormContent() {
-    }
-
-    public FormContent(Builder builder) {
-        /**
-         * 表单字段ID
-         * <p> 示例值：6968626905868156948
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 表单字段名称
-         * <p> 示例值：表单测试
-         */
-        this.fieldName = builder.fieldName;
-        /**
-         * 表单字段值
-         * <p> 示例值：测试数据
-         */
-        this.fieldValue = builder.fieldValue;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getFieldId() {
         return this.fieldId;
     }
@@ -98,64 +67,90 @@ public class FormContent {
         this.fieldValue = fieldValue;
     }
 
+
+// builder 开始
+  public FormContent(){}
+
+  public FormContent(Builder builder){
+         /**
+          * 表单字段ID
+          * <p> 示例值：6968626905868156948
+          */
+      this.fieldId = builder.fieldId;
+         /**
+          * 表单字段名称
+          * <p> 示例值：表单测试
+          */
+      this.fieldName = builder.fieldName;
+         /**
+          * 表单字段值
+          * <p> 示例值：测试数据
+          */
+      this.fieldValue = builder.fieldValue;
+  }
+
     public static class Builder {
-        /**
-         * 表单字段ID
-         * <p> 示例值：6968626905868156948
-         */
+     /**
+      * 表单字段ID
+      * <p> 示例值：6968626905868156948
+      */
         private String fieldId;
-        /**
-         * 表单字段名称
-         * <p> 示例值：表单测试
-         */
+     /**
+      * 表单字段名称
+      * <p> 示例值：表单测试
+      */
         private String fieldName;
-        /**
-         * 表单字段值
-         * <p> 示例值：测试数据
-         */
+     /**
+      * 表单字段值
+      * <p> 示例值：测试数据
+      */
         private String fieldValue;
 
         /**
          * 表单字段ID
          * <p> 示例值：6968626905868156948
-         *
          * @param fieldId
          * @return
          */
         public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
+             this.fieldId = fieldId;
+             return this;
         }
 
+    
 
         /**
          * 表单字段名称
          * <p> 示例值：表单测试
-         *
          * @param fieldName
          * @return
          */
         public Builder fieldName(String fieldName) {
-            this.fieldName = fieldName;
-            return this;
+             this.fieldName = fieldName;
+             return this;
         }
 
+    
 
         /**
          * 表单字段值
          * <p> 示例值：测试数据
-         *
          * @param fieldValue
          * @return
          */
         public Builder fieldValue(String fieldValue) {
-            this.fieldValue = fieldValue;
-            return this;
+             this.fieldValue = fieldValue;
+             return this;
         }
 
+    
+    
+    public FormContent build(){
+        return new FormContent(this);
+      }
+    }
 
-        public FormContent build() {
-            return new FormContent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

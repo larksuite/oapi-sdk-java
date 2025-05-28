@@ -23,14 +23,12 @@ public class SpeechToTextService {
     private final Speech speech; // 语音识别
 
     public SpeechToTextService(Config config) {
-        this.v1 = new V1(config);
-        this.speech = new Speech(config);
+    this.v1 = new V1(config);
+    this.speech = new Speech(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public Speech speech() {
         return speech;
     }

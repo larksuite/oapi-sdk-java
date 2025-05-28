@@ -12,56 +12,30 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchChangeTalentPoolTalentPoolReqBody {
-    /**
-     * 人才 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * 人才 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("talent_id_list")
     private String[] talentIdList;
-    /**
-     * 操作类型
-     * <p> 示例值：
-     */
+     /**
+      * 操作类型
+      * <p> 示例值：
+      */
     @SerializedName("option_type")
     private Integer optionType;
-
-    // builder 开始
-    public BatchChangeTalentPoolTalentPoolReqBody() {
-    }
-
-    public BatchChangeTalentPoolTalentPoolReqBody(Builder builder) {
-        /**
-         * 人才 ID 列表
-         * <p> 示例值：
-         */
-        this.talentIdList = builder.talentIdList;
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        this.optionType = builder.optionType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getTalentIdList() {
         return this.talentIdList;
     }
@@ -78,46 +52,67 @@ public class BatchChangeTalentPoolTalentPoolReqBody {
         this.optionType = optionType;
     }
 
+
+// builder 开始
+  public BatchChangeTalentPoolTalentPoolReqBody(){}
+
+  public BatchChangeTalentPoolTalentPoolReqBody(Builder builder){
+         /**
+          * 人才 ID 列表
+          * <p> 示例值：
+          */
+      this.talentIdList = builder.talentIdList;
+         /**
+          * 操作类型
+          * <p> 示例值：
+          */
+      this.optionType = builder.optionType;
+  }
+
     public static class Builder {
-        /**
-         * 人才 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * 人才 ID 列表
+      * <p> 示例值：
+      */
         private String[] talentIdList;
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
+     /**
+      * 操作类型
+      * <p> 示例值：
+      */
         private Integer optionType;
 
         /**
          * 人才 ID 列表
          * <p> 示例值：
-         *
          * @param talentIdList
          * @return
          */
         public Builder talentIdList(String[] talentIdList) {
-            this.talentIdList = talentIdList;
-            return this;
+             this.talentIdList = talentIdList;
+             return this;
         }
 
+    
 
         /**
          * 操作类型
          * <p> 示例值：
-         *
          * @param optionType
          * @return
          */
         public Builder optionType(Integer optionType) {
-            this.optionType = optionType;
-            return this;
+             this.optionType = optionType;
+             return this;
         }
 
+    
+    
+    public BatchChangeTalentPoolTalentPoolReqBody build(){
+        return new BatchChangeTalentPoolTalentPoolReqBody(this);
+      }
+    }
 
-        public BatchChangeTalentPoolTalentPoolReqBody build() {
-            return new BatchChangeTalentPoolTalentPoolReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

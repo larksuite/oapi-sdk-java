@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DepartmentDetail {
-    /**
-     * 部门ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-     */
+     /**
+      * 部门ID
+      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+      */
     @SerializedName("department_id")
     private String departmentId;
-    /**
-     * 部门名
-     * <p> 示例值：
-     */
+     /**
+      * 部门名
+      * <p> 示例值：
+      */
     @SerializedName("department_name")
     private DepartmentPathName departmentName;
-    /**
-     * 部门路径
-     * <p> 示例值：
-     */
+     /**
+      * 部门路径
+      * <p> 示例值：
+      */
     @SerializedName("department_path")
     private DepartmentPath departmentPath;
-
-    // builder 开始
-    public DepartmentDetail() {
-    }
-
-    public DepartmentDetail(Builder builder) {
-        /**
-         * 部门ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 部门名
-         * <p> 示例值：
-         */
-        this.departmentName = builder.departmentName;
-        /**
-         * 部门路径
-         * <p> 示例值：
-         */
-        this.departmentPath = builder.departmentPath;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDepartmentId() {
         return this.departmentId;
     }
@@ -98,64 +67,90 @@ public class DepartmentDetail {
         this.departmentPath = departmentPath;
     }
 
+
+// builder 开始
+  public DepartmentDetail(){}
+
+  public DepartmentDetail(Builder builder){
+         /**
+          * 部门ID
+          * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+          */
+      this.departmentId = builder.departmentId;
+         /**
+          * 部门名
+          * <p> 示例值：
+          */
+      this.departmentName = builder.departmentName;
+         /**
+          * 部门路径
+          * <p> 示例值：
+          */
+      this.departmentPath = builder.departmentPath;
+  }
+
     public static class Builder {
-        /**
-         * 部门ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
+     /**
+      * 部门ID
+      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+      */
         private String departmentId;
-        /**
-         * 部门名
-         * <p> 示例值：
-         */
+     /**
+      * 部门名
+      * <p> 示例值：
+      */
         private DepartmentPathName departmentName;
-        /**
-         * 部门路径
-         * <p> 示例值：
-         */
+     /**
+      * 部门路径
+      * <p> 示例值：
+      */
         private DepartmentPath departmentPath;
 
         /**
          * 部门ID
          * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
+             this.departmentId = departmentId;
+             return this;
         }
 
+    
 
         /**
          * 部门名
          * <p> 示例值：
-         *
          * @param departmentName
          * @return
          */
         public Builder departmentName(DepartmentPathName departmentName) {
-            this.departmentName = departmentName;
-            return this;
+             this.departmentName = departmentName;
+             return this;
         }
 
+    
 
         /**
          * 部门路径
          * <p> 示例值：
-         *
          * @param departmentPath
          * @return
          */
         public Builder departmentPath(DepartmentPath departmentPath) {
-            this.departmentPath = departmentPath;
-            return this;
+             this.departmentPath = departmentPath;
+             return this;
         }
 
+    
+    
+    public DepartmentDetail build(){
+        return new DepartmentDetail(this);
+      }
+    }
 
-        public DepartmentDetail build() {
-            return new DepartmentDetail(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

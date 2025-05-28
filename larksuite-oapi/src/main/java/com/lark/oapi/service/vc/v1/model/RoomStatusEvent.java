@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RoomStatusEvent {
-    /**
-     * 是否启用会议室
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用会议室
+      * <p> 示例值：true
+      */
     @SerializedName("status")
     private Boolean status;
-    /**
-     * 会议室未来状态为启用或禁用
-     * <p> 示例值：true
-     */
+     /**
+      * 会议室未来状态为启用或禁用
+      * <p> 示例值：true
+      */
     @SerializedName("schedule_status")
     private Boolean scheduleStatus;
-    /**
-     * 禁用开始时间（unix时间，单位sec）
-     * <p> 示例值：1652356050
-     */
+     /**
+      * 禁用开始时间（unix时间，单位sec）
+      * <p> 示例值：1652356050
+      */
     @SerializedName("disable_start_time")
     private String disableStartTime;
-    /**
-     * 禁用结束时间（unix时间，单位sec，数值0表示永久禁用）
-     * <p> 示例值：1652442450
-     */
+     /**
+      * 禁用结束时间（unix时间，单位sec，数值0表示永久禁用）
+      * <p> 示例值：1652442450
+      */
     @SerializedName("disable_end_time")
     private String disableEndTime;
-    /**
-     * 禁用原因
-     * <p> 示例值：测试占用
-     */
+     /**
+      * 禁用原因
+      * <p> 示例值：测试占用
+      */
     @SerializedName("disable_reason")
     private String disableReason;
-    /**
-     * 联系人列表
-     * <p> 示例值：
-     */
+     /**
+      * 联系人列表
+      * <p> 示例值：
+      */
     @SerializedName("contact_ids")
     private UserId[] contactIds;
-    /**
-     * 是否在禁用时发送通知给预定了该会议室的员工
-     * <p> 示例值：true
-     */
+     /**
+      * 是否在禁用时发送通知给预定了该会议室的员工
+      * <p> 示例值：true
+      */
     @SerializedName("disable_notice")
     private Boolean disableNotice;
-    /**
-     * 是否在恢复启用时发送通知给预定了该会议室的员工
-     * <p> 示例值：true
-     */
+     /**
+      * 是否在恢复启用时发送通知给预定了该会议室的员工
+      * <p> 示例值：true
+      */
     @SerializedName("resume_notice")
     private Boolean resumeNotice;
-
-    // builder 开始
-    public RoomStatusEvent() {
-    }
-
-    public RoomStatusEvent(Builder builder) {
-        /**
-         * 是否启用会议室
-         * <p> 示例值：true
-         */
-        this.status = builder.status;
-        /**
-         * 会议室未来状态为启用或禁用
-         * <p> 示例值：true
-         */
-        this.scheduleStatus = builder.scheduleStatus;
-        /**
-         * 禁用开始时间（unix时间，单位sec）
-         * <p> 示例值：1652356050
-         */
-        this.disableStartTime = builder.disableStartTime;
-        /**
-         * 禁用结束时间（unix时间，单位sec，数值0表示永久禁用）
-         * <p> 示例值：1652442450
-         */
-        this.disableEndTime = builder.disableEndTime;
-        /**
-         * 禁用原因
-         * <p> 示例值：测试占用
-         */
-        this.disableReason = builder.disableReason;
-        /**
-         * 联系人列表
-         * <p> 示例值：
-         */
-        this.contactIds = builder.contactIds;
-        /**
-         * 是否在禁用时发送通知给预定了该会议室的员工
-         * <p> 示例值：true
-         */
-        this.disableNotice = builder.disableNotice;
-        /**
-         * 是否在恢复启用时发送通知给预定了该会议室的员工
-         * <p> 示例值：true
-         */
-        this.resumeNotice = builder.resumeNotice;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getStatus() {
         return this.status;
     }
@@ -193,154 +137,205 @@ public class RoomStatusEvent {
         this.resumeNotice = resumeNotice;
     }
 
+
+// builder 开始
+  public RoomStatusEvent(){}
+
+  public RoomStatusEvent(Builder builder){
+         /**
+          * 是否启用会议室
+          * <p> 示例值：true
+          */
+      this.status = builder.status;
+         /**
+          * 会议室未来状态为启用或禁用
+          * <p> 示例值：true
+          */
+      this.scheduleStatus = builder.scheduleStatus;
+         /**
+          * 禁用开始时间（unix时间，单位sec）
+          * <p> 示例值：1652356050
+          */
+      this.disableStartTime = builder.disableStartTime;
+         /**
+          * 禁用结束时间（unix时间，单位sec，数值0表示永久禁用）
+          * <p> 示例值：1652442450
+          */
+      this.disableEndTime = builder.disableEndTime;
+         /**
+          * 禁用原因
+          * <p> 示例值：测试占用
+          */
+      this.disableReason = builder.disableReason;
+         /**
+          * 联系人列表
+          * <p> 示例值：
+          */
+      this.contactIds = builder.contactIds;
+         /**
+          * 是否在禁用时发送通知给预定了该会议室的员工
+          * <p> 示例值：true
+          */
+      this.disableNotice = builder.disableNotice;
+         /**
+          * 是否在恢复启用时发送通知给预定了该会议室的员工
+          * <p> 示例值：true
+          */
+      this.resumeNotice = builder.resumeNotice;
+  }
+
     public static class Builder {
-        /**
-         * 是否启用会议室
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用会议室
+      * <p> 示例值：true
+      */
         private Boolean status;
-        /**
-         * 会议室未来状态为启用或禁用
-         * <p> 示例值：true
-         */
+     /**
+      * 会议室未来状态为启用或禁用
+      * <p> 示例值：true
+      */
         private Boolean scheduleStatus;
-        /**
-         * 禁用开始时间（unix时间，单位sec）
-         * <p> 示例值：1652356050
-         */
+     /**
+      * 禁用开始时间（unix时间，单位sec）
+      * <p> 示例值：1652356050
+      */
         private String disableStartTime;
-        /**
-         * 禁用结束时间（unix时间，单位sec，数值0表示永久禁用）
-         * <p> 示例值：1652442450
-         */
+     /**
+      * 禁用结束时间（unix时间，单位sec，数值0表示永久禁用）
+      * <p> 示例值：1652442450
+      */
         private String disableEndTime;
-        /**
-         * 禁用原因
-         * <p> 示例值：测试占用
-         */
+     /**
+      * 禁用原因
+      * <p> 示例值：测试占用
+      */
         private String disableReason;
-        /**
-         * 联系人列表
-         * <p> 示例值：
-         */
+     /**
+      * 联系人列表
+      * <p> 示例值：
+      */
         private UserId[] contactIds;
-        /**
-         * 是否在禁用时发送通知给预定了该会议室的员工
-         * <p> 示例值：true
-         */
+     /**
+      * 是否在禁用时发送通知给预定了该会议室的员工
+      * <p> 示例值：true
+      */
         private Boolean disableNotice;
-        /**
-         * 是否在恢复启用时发送通知给预定了该会议室的员工
-         * <p> 示例值：true
-         */
+     /**
+      * 是否在恢复启用时发送通知给预定了该会议室的员工
+      * <p> 示例值：true
+      */
         private Boolean resumeNotice;
 
         /**
          * 是否启用会议室
          * <p> 示例值：true
-         *
          * @param status
          * @return
          */
         public Builder status(Boolean status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
 
+    
 
         /**
          * 会议室未来状态为启用或禁用
          * <p> 示例值：true
-         *
          * @param scheduleStatus
          * @return
          */
         public Builder scheduleStatus(Boolean scheduleStatus) {
-            this.scheduleStatus = scheduleStatus;
-            return this;
+             this.scheduleStatus = scheduleStatus;
+             return this;
         }
 
+    
 
         /**
          * 禁用开始时间（unix时间，单位sec）
          * <p> 示例值：1652356050
-         *
          * @param disableStartTime
          * @return
          */
         public Builder disableStartTime(String disableStartTime) {
-            this.disableStartTime = disableStartTime;
-            return this;
+             this.disableStartTime = disableStartTime;
+             return this;
         }
 
+    
 
         /**
          * 禁用结束时间（unix时间，单位sec，数值0表示永久禁用）
          * <p> 示例值：1652442450
-         *
          * @param disableEndTime
          * @return
          */
         public Builder disableEndTime(String disableEndTime) {
-            this.disableEndTime = disableEndTime;
-            return this;
+             this.disableEndTime = disableEndTime;
+             return this;
         }
 
+    
 
         /**
          * 禁用原因
          * <p> 示例值：测试占用
-         *
          * @param disableReason
          * @return
          */
         public Builder disableReason(String disableReason) {
-            this.disableReason = disableReason;
-            return this;
+             this.disableReason = disableReason;
+             return this;
         }
 
+    
 
         /**
          * 联系人列表
          * <p> 示例值：
-         *
          * @param contactIds
          * @return
          */
         public Builder contactIds(UserId[] contactIds) {
-            this.contactIds = contactIds;
-            return this;
+             this.contactIds = contactIds;
+             return this;
         }
 
+    
 
         /**
          * 是否在禁用时发送通知给预定了该会议室的员工
          * <p> 示例值：true
-         *
          * @param disableNotice
          * @return
          */
         public Builder disableNotice(Boolean disableNotice) {
-            this.disableNotice = disableNotice;
-            return this;
+             this.disableNotice = disableNotice;
+             return this;
         }
 
+    
 
         /**
          * 是否在恢复启用时发送通知给预定了该会议室的员工
          * <p> 示例值：true
-         *
          * @param resumeNotice
          * @return
          */
         public Builder resumeNotice(Boolean resumeNotice) {
-            this.resumeNotice = resumeNotice;
-            return this;
+             this.resumeNotice = resumeNotice;
+             return this;
         }
 
+    
+    
+    public RoomStatusEvent build(){
+        return new RoomStatusEvent(this);
+      }
+    }
 
-        public RoomStatusEvent build() {
-            return new RoomStatusEvent(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

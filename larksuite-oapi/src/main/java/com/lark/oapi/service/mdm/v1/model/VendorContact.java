@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mdm.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class VendorContact {
-    /**
-     * 交易方联系人id
-     * <p> 示例值：1433488091906793474
-     */
+     /**
+      * 交易方联系人id
+      * <p> 示例值：1433488091906793474
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 姓名
-     * <p> 示例值：张三
-     */
+     /**
+      * 姓名
+      * <p> 示例值：张三
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 职位
-     * <p> 示例值：董事长
-     */
+     /**
+      * 职位
+      * <p> 示例值：董事长
+      */
     @SerializedName("position")
     private String position;
-    /**
-     * 邮箱
-     * <p> 示例值：haha@xxx.com
-     */
+     /**
+      * 邮箱
+      * <p> 示例值：haha@xxx.com
+      */
     @SerializedName("email")
     private String email;
-    /**
-     * 手机号
-     * <p> 示例值：13333323333
-     */
+     /**
+      * 手机号
+      * <p> 示例值：13333323333
+      */
     @SerializedName("phone")
     private String phone;
-    /**
-     * 备注
-     * <p> 示例值：备注
-     */
+     /**
+      * 备注
+      * <p> 示例值：备注
+      */
     @SerializedName("remark")
     private String remark;
-    /**
-     * 扩展字段相关信息列表
-     * <p> 示例值：
-     */
+     /**
+      * 扩展字段相关信息列表
+      * <p> 示例值：
+      */
     @SerializedName("extend_info")
     private ExtendField[] extendInfo;
-
-    // builder 开始
-    public VendorContact() {
-    }
-
-    public VendorContact(Builder builder) {
-        /**
-         * 交易方联系人id
-         * <p> 示例值：1433488091906793474
-         */
-        this.id = builder.id;
-        /**
-         * 姓名
-         * <p> 示例值：张三
-         */
-        this.name = builder.name;
-        /**
-         * 职位
-         * <p> 示例值：董事长
-         */
-        this.position = builder.position;
-        /**
-         * 邮箱
-         * <p> 示例值：haha@xxx.com
-         */
-        this.email = builder.email;
-        /**
-         * 手机号
-         * <p> 示例值：13333323333
-         */
-        this.phone = builder.phone;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        this.remark = builder.remark;
-        /**
-         * 扩展字段相关信息列表
-         * <p> 示例值：
-         */
-        this.extendInfo = builder.extendInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -174,136 +123,182 @@ public class VendorContact {
         this.extendInfo = extendInfo;
     }
 
+
+// builder 开始
+  public VendorContact(){}
+
+  public VendorContact(Builder builder){
+         /**
+          * 交易方联系人id
+          * <p> 示例值：1433488091906793474
+          */
+      this.id = builder.id;
+         /**
+          * 姓名
+          * <p> 示例值：张三
+          */
+      this.name = builder.name;
+         /**
+          * 职位
+          * <p> 示例值：董事长
+          */
+      this.position = builder.position;
+         /**
+          * 邮箱
+          * <p> 示例值：haha@xxx.com
+          */
+      this.email = builder.email;
+         /**
+          * 手机号
+          * <p> 示例值：13333323333
+          */
+      this.phone = builder.phone;
+         /**
+          * 备注
+          * <p> 示例值：备注
+          */
+      this.remark = builder.remark;
+         /**
+          * 扩展字段相关信息列表
+          * <p> 示例值：
+          */
+      this.extendInfo = builder.extendInfo;
+  }
+
     public static class Builder {
-        /**
-         * 交易方联系人id
-         * <p> 示例值：1433488091906793474
-         */
+     /**
+      * 交易方联系人id
+      * <p> 示例值：1433488091906793474
+      */
         private String id;
-        /**
-         * 姓名
-         * <p> 示例值：张三
-         */
+     /**
+      * 姓名
+      * <p> 示例值：张三
+      */
         private String name;
-        /**
-         * 职位
-         * <p> 示例值：董事长
-         */
+     /**
+      * 职位
+      * <p> 示例值：董事长
+      */
         private String position;
-        /**
-         * 邮箱
-         * <p> 示例值：haha@xxx.com
-         */
+     /**
+      * 邮箱
+      * <p> 示例值：haha@xxx.com
+      */
         private String email;
-        /**
-         * 手机号
-         * <p> 示例值：13333323333
-         */
+     /**
+      * 手机号
+      * <p> 示例值：13333323333
+      */
         private String phone;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
+     /**
+      * 备注
+      * <p> 示例值：备注
+      */
         private String remark;
-        /**
-         * 扩展字段相关信息列表
-         * <p> 示例值：
-         */
+     /**
+      * 扩展字段相关信息列表
+      * <p> 示例值：
+      */
         private ExtendField[] extendInfo;
 
         /**
          * 交易方联系人id
          * <p> 示例值：1433488091906793474
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 姓名
          * <p> 示例值：张三
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 职位
          * <p> 示例值：董事长
-         *
          * @param position
          * @return
          */
         public Builder position(String position) {
-            this.position = position;
-            return this;
+             this.position = position;
+             return this;
         }
 
+    
 
         /**
          * 邮箱
          * <p> 示例值：haha@xxx.com
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
 
         /**
          * 手机号
          * <p> 示例值：13333323333
-         *
          * @param phone
          * @return
          */
         public Builder phone(String phone) {
-            this.phone = phone;
-            return this;
+             this.phone = phone;
+             return this;
         }
 
+    
 
         /**
          * 备注
          * <p> 示例值：备注
-         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
+             this.remark = remark;
+             return this;
         }
 
+    
 
         /**
          * 扩展字段相关信息列表
          * <p> 示例值：
-         *
          * @param extendInfo
          * @return
          */
         public Builder extendInfo(ExtendField[] extendInfo) {
-            this.extendInfo = extendInfo;
-            return this;
+             this.extendInfo = extendInfo;
+             return this;
         }
 
+    
+    
+    public VendorContact build(){
+        return new VendorContact(this);
+      }
+    }
 
-        public VendorContact build() {
-            return new VendorContact(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

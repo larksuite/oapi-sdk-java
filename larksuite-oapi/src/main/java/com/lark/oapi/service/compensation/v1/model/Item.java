@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.compensation.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,148 +19,78 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Item {
-    /**
-     * 薪酬项ID
-     * <p> 示例值：7196951947268589113
-     */
+     /**
+      * 薪酬项ID
+      * <p> 示例值：7196951947268589113
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 薪酬项名称
-     * <p> 示例值：基本月薪
-     */
+     /**
+      * 薪酬项名称
+      * <p> 示例值：基本月薪
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * 薪酬项描述
-     * <p> 示例值：每月份的薪酬
-     */
+     /**
+      * 薪酬项描述
+      * <p> 示例值：每月份的薪酬
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 薪酬项分类ID，详细信息可以通过[批量获取薪资项分类信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item_category/list)接口查询获得
-     * <p> 示例值：7196951947268589223
-     */
+     /**
+      * 薪酬项分类ID，详细信息可以通过[批量获取薪资项分类信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item_category/list)接口查询获得
+      * <p> 示例值：7196951947268589223
+      */
     @SerializedName("category_id")
     private String categoryId;
-    /**
-     * 薪酬项数值类型
-     * <p> 示例值：money
-     */
+     /**
+      * 薪酬项数值类型
+      * <p> 示例值：money
+      */
     @SerializedName("value_type")
     private String valueType;
-    /**
-     * 发放频率
-     * <p> 示例值：month
-     */
+     /**
+      * 发放频率
+      * <p> 示例值：month
+      */
     @SerializedName("pay_off_frequency_type")
     private String payOffFrequencyType;
-    /**
-     * 小数位数
-     * <p> 示例值：2
-     */
+     /**
+      * 小数位数
+      * <p> 示例值：2
+      */
     @SerializedName("decimal_places")
     private Integer decimalPlaces;
-    /**
-     * 启用状态
-     * <p> 示例值：1
-     */
+     /**
+      * 启用状态
+      * <p> 示例值：1
+      */
     @SerializedName("active_status")
     private Integer activeStatus;
-    /**
-     * 多语言名称
-     * <p> 示例值：
-     */
+     /**
+      * 多语言名称
+      * <p> 示例值：
+      */
     @SerializedName("i18n_names")
     private I18nContent[] i18nNames;
-    /**
-     * 多语言描述
-     * <p> 示例值：
-     */
+     /**
+      * 多语言描述
+      * <p> 示例值：
+      */
     @SerializedName("i18n_descriptions")
     private I18nContent[] i18nDescriptions;
-    /**
-     * 薪酬项类型
-     * <p> 示例值：bonus
-     */
+     /**
+      * 薪酬项类型
+      * <p> 示例值：bonus
+      */
     @SerializedName("item_type")
     private String itemType;
-
-    // builder 开始
-    public Item() {
-    }
-
-    public Item(Builder builder) {
-        /**
-         * 薪酬项ID
-         * <p> 示例值：7196951947268589113
-         */
-        this.id = builder.id;
-        /**
-         * 薪酬项名称
-         * <p> 示例值：基本月薪
-         */
-        this.name = builder.name;
-        /**
-         * 薪酬项描述
-         * <p> 示例值：每月份的薪酬
-         */
-        this.description = builder.description;
-        /**
-         * 薪酬项分类ID，详细信息可以通过[批量获取薪资项分类信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item_category/list)接口查询获得
-         * <p> 示例值：7196951947268589223
-         */
-        this.categoryId = builder.categoryId;
-        /**
-         * 薪酬项数值类型
-         * <p> 示例值：money
-         */
-        this.valueType = builder.valueType;
-        /**
-         * 发放频率
-         * <p> 示例值：month
-         */
-        this.payOffFrequencyType = builder.payOffFrequencyType;
-        /**
-         * 小数位数
-         * <p> 示例值：2
-         */
-        this.decimalPlaces = builder.decimalPlaces;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
-        this.i18nDescriptions = builder.i18nDescriptions;
-        /**
-         * 薪酬项类型
-         * <p> 示例值：bonus
-         */
-        this.itemType = builder.itemType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -250,256 +179,314 @@ public class Item {
         this.itemType = itemType;
     }
 
+
+// builder 开始
+  public Item(){}
+
+  public Item(Builder builder){
+         /**
+          * 薪酬项ID
+          * <p> 示例值：7196951947268589113
+          */
+      this.id = builder.id;
+         /**
+          * 薪酬项名称
+          * <p> 示例值：基本月薪
+          */
+      this.name = builder.name;
+         /**
+          * 薪酬项描述
+          * <p> 示例值：每月份的薪酬
+          */
+      this.description = builder.description;
+         /**
+          * 薪酬项分类ID，详细信息可以通过[批量获取薪资项分类信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item_category/list)接口查询获得
+          * <p> 示例值：7196951947268589223
+          */
+      this.categoryId = builder.categoryId;
+         /**
+          * 薪酬项数值类型
+          * <p> 示例值：money
+          */
+      this.valueType = builder.valueType;
+         /**
+          * 发放频率
+          * <p> 示例值：month
+          */
+      this.payOffFrequencyType = builder.payOffFrequencyType;
+         /**
+          * 小数位数
+          * <p> 示例值：2
+          */
+      this.decimalPlaces = builder.decimalPlaces;
+         /**
+          * 启用状态
+          * <p> 示例值：1
+          */
+      this.activeStatus = builder.activeStatus;
+         /**
+          * 多语言名称
+          * <p> 示例值：
+          */
+      this.i18nNames = builder.i18nNames;
+         /**
+          * 多语言描述
+          * <p> 示例值：
+          */
+      this.i18nDescriptions = builder.i18nDescriptions;
+         /**
+          * 薪酬项类型
+          * <p> 示例值：bonus
+          */
+      this.itemType = builder.itemType;
+  }
+
     public static class Builder {
-        /**
-         * 薪酬项ID
-         * <p> 示例值：7196951947268589113
-         */
+     /**
+      * 薪酬项ID
+      * <p> 示例值：7196951947268589113
+      */
         private String id;
-        /**
-         * 薪酬项名称
-         * <p> 示例值：基本月薪
-         */
+     /**
+      * 薪酬项名称
+      * <p> 示例值：基本月薪
+      */
         private String name;
-        /**
-         * 薪酬项描述
-         * <p> 示例值：每月份的薪酬
-         */
+     /**
+      * 薪酬项描述
+      * <p> 示例值：每月份的薪酬
+      */
         private String description;
-        /**
-         * 薪酬项分类ID，详细信息可以通过[批量获取薪资项分类信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item_category/list)接口查询获得
-         * <p> 示例值：7196951947268589223
-         */
+     /**
+      * 薪酬项分类ID，详细信息可以通过[批量获取薪资项分类信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item_category/list)接口查询获得
+      * <p> 示例值：7196951947268589223
+      */
         private String categoryId;
-        /**
-         * 薪酬项数值类型
-         * <p> 示例值：money
-         */
+     /**
+      * 薪酬项数值类型
+      * <p> 示例值：money
+      */
         private String valueType;
-        /**
-         * 发放频率
-         * <p> 示例值：month
-         */
+     /**
+      * 发放频率
+      * <p> 示例值：month
+      */
         private String payOffFrequencyType;
-        /**
-         * 小数位数
-         * <p> 示例值：2
-         */
+     /**
+      * 小数位数
+      * <p> 示例值：2
+      */
         private Integer decimalPlaces;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
+     /**
+      * 启用状态
+      * <p> 示例值：1
+      */
         private Integer activeStatus;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
+     /**
+      * 多语言名称
+      * <p> 示例值：
+      */
         private I18nContent[] i18nNames;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
+     /**
+      * 多语言描述
+      * <p> 示例值：
+      */
         private I18nContent[] i18nDescriptions;
-        /**
-         * 薪酬项类型
-         * <p> 示例值：bonus
-         */
+     /**
+      * 薪酬项类型
+      * <p> 示例值：bonus
+      */
         private String itemType;
 
         /**
          * 薪酬项ID
          * <p> 示例值：7196951947268589113
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 薪酬项名称
          * <p> 示例值：基本月薪
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 薪酬项描述
          * <p> 示例值：每月份的薪酬
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 薪酬项分类ID，详细信息可以通过[批量获取薪资项分类信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item_category/list)接口查询获得
          * <p> 示例值：7196951947268589223
-         *
          * @param categoryId
          * @return
          */
         public Builder categoryId(String categoryId) {
-            this.categoryId = categoryId;
-            return this;
+             this.categoryId = categoryId;
+             return this;
         }
 
+    
 
         /**
          * 薪酬项数值类型
          * <p> 示例值：money
-         *
          * @param valueType
          * @return
          */
         public Builder valueType(String valueType) {
-            this.valueType = valueType;
-            return this;
+             this.valueType = valueType;
+             return this;
         }
-
         /**
          * 薪酬项数值类型
          * <p> 示例值：money
-         *
          * @param valueType {@link com.lark.oapi.service.compensation.v1.enums.ItemValueTypeEnum}
          * @return
          */
         public Builder valueType(com.lark.oapi.service.compensation.v1.enums.ItemValueTypeEnum valueType) {
-            this.valueType = valueType.getValue();
-            return this;
+             this.valueType = valueType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 发放频率
          * <p> 示例值：month
-         *
          * @param payOffFrequencyType
          * @return
          */
         public Builder payOffFrequencyType(String payOffFrequencyType) {
-            this.payOffFrequencyType = payOffFrequencyType;
-            return this;
+             this.payOffFrequencyType = payOffFrequencyType;
+             return this;
         }
-
         /**
          * 发放频率
          * <p> 示例值：month
-         *
          * @param payOffFrequencyType {@link com.lark.oapi.service.compensation.v1.enums.ItemPayOffFrequencyTypeEnum}
          * @return
          */
         public Builder payOffFrequencyType(com.lark.oapi.service.compensation.v1.enums.ItemPayOffFrequencyTypeEnum payOffFrequencyType) {
-            this.payOffFrequencyType = payOffFrequencyType.getValue();
-            return this;
+             this.payOffFrequencyType = payOffFrequencyType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 小数位数
          * <p> 示例值：2
-         *
          * @param decimalPlaces
          * @return
          */
         public Builder decimalPlaces(Integer decimalPlaces) {
-            this.decimalPlaces = decimalPlaces;
-            return this;
+             this.decimalPlaces = decimalPlaces;
+             return this;
         }
 
+    
 
         /**
          * 启用状态
          * <p> 示例值：1
-         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
+             this.activeStatus = activeStatus;
+             return this;
         }
-
         /**
          * 启用状态
          * <p> 示例值：1
-         *
          * @param activeStatus {@link com.lark.oapi.service.compensation.v1.enums.ItemActiveStatusEnum}
          * @return
          */
         public Builder activeStatus(com.lark.oapi.service.compensation.v1.enums.ItemActiveStatusEnum activeStatus) {
-            this.activeStatus = activeStatus.getValue();
-            return this;
+             this.activeStatus = activeStatus.getValue();
+             return this;
         }
 
+    
 
         /**
          * 多语言名称
          * <p> 示例值：
-         *
          * @param i18nNames
          * @return
          */
         public Builder i18nNames(I18nContent[] i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
+             this.i18nNames = i18nNames;
+             return this;
         }
 
+    
 
         /**
          * 多语言描述
          * <p> 示例值：
-         *
          * @param i18nDescriptions
          * @return
          */
         public Builder i18nDescriptions(I18nContent[] i18nDescriptions) {
-            this.i18nDescriptions = i18nDescriptions;
-            return this;
+             this.i18nDescriptions = i18nDescriptions;
+             return this;
         }
 
+    
 
         /**
          * 薪酬项类型
          * <p> 示例值：bonus
-         *
          * @param itemType
          * @return
          */
         public Builder itemType(String itemType) {
-            this.itemType = itemType;
-            return this;
+             this.itemType = itemType;
+             return this;
         }
-
         /**
          * 薪酬项类型
          * <p> 示例值：bonus
-         *
          * @param itemType {@link com.lark.oapi.service.compensation.v1.enums.ItemItemTypeEnum}
          * @return
          */
         public Builder itemType(com.lark.oapi.service.compensation.v1.enums.ItemItemTypeEnum itemType) {
-            this.itemType = itemType.getValue();
-            return this;
+             this.itemType = itemType.getValue();
+             return this;
         }
 
+    
+    
+    public Item build(){
+        return new Item(this);
+      }
+    }
 
-        public Item build() {
-            return new Item(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

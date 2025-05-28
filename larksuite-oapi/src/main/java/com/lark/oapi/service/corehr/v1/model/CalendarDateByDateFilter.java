@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,104 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CalendarDateByDateFilter {
-    /**
-     * 工作日历WKID列表，最多100
-     * <p> 示例值："7390282135276635692"
-     */
+     /**
+      * 工作日历WKID列表，最多100
+      * <p> 示例值："7390282135276635692"
+      */
     @SerializedName("wk_calendar_ids")
     private String[] wkCalendarIds;
-    /**
-     * 日期，格式："2006-01-02"，最多50个
-     * <p> 示例值：
-     */
+     /**
+      * 日期，格式："2006-01-02"，最多50个
+      * <p> 示例值：
+      */
     @SerializedName("dates")
     private String[] dates;
-    /**
-     * 日期范围-开始日期，格式："2006-01-02"
-     * <p> 示例值："2006-01-02"
-     */
+     /**
+      * 日期范围-开始日期，格式："2006-01-02"
+      * <p> 示例值："2006-01-02"
+      */
     @SerializedName("begin_date")
     private String beginDate;
-    /**
-     * 日期范围-结束日期(含)，格式："2006-01-02"
-     * <p> 示例值："2006-01-02"
-     */
+     /**
+      * 日期范围-结束日期(含)，格式："2006-01-02"
+      * <p> 示例值："2006-01-02"
+      */
     @SerializedName("end_date")
     private String endDate;
-    /**
-     * 分页
-     * <p> 示例值：0
-     */
+     /**
+      * 分页
+      * <p> 示例值：0
+      */
     @SerializedName("offset")
     private Integer offset;
-    /**
-     * 分页大小
-     * <p> 示例值：10
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：10
+      */
     @SerializedName("limit")
     private Integer limit;
-    /**
-     * 日期id，与其他筛选参数互斥，传了该参数，其他筛选参数不起效
-     * <p> 示例值：
-     */
+     /**
+      * 日期id，与其他筛选参数互斥，传了该参数，其他筛选参数不起效
+      * <p> 示例值：
+      */
     @SerializedName("ids")
     private String[] ids;
-
-    // builder 开始
-    public CalendarDateByDateFilter() {
-    }
-
-    public CalendarDateByDateFilter(Builder builder) {
-        /**
-         * 工作日历WKID列表，最多100
-         * <p> 示例值："7390282135276635692"
-         */
-        this.wkCalendarIds = builder.wkCalendarIds;
-        /**
-         * 日期，格式："2006-01-02"，最多50个
-         * <p> 示例值：
-         */
-        this.dates = builder.dates;
-        /**
-         * 日期范围-开始日期，格式："2006-01-02"
-         * <p> 示例值："2006-01-02"
-         */
-        this.beginDate = builder.beginDate;
-        /**
-         * 日期范围-结束日期(含)，格式："2006-01-02"
-         * <p> 示例值："2006-01-02"
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 分页
-         * <p> 示例值：0
-         */
-        this.offset = builder.offset;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.limit = builder.limit;
-        /**
-         * 日期id，与其他筛选参数互斥，传了该参数，其他筛选参数不起效
-         * <p> 示例值：
-         */
-        this.ids = builder.ids;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getWkCalendarIds() {
         return this.wkCalendarIds;
     }
@@ -174,136 +123,182 @@ public class CalendarDateByDateFilter {
         this.ids = ids;
     }
 
+
+// builder 开始
+  public CalendarDateByDateFilter(){}
+
+  public CalendarDateByDateFilter(Builder builder){
+         /**
+          * 工作日历WKID列表，最多100
+          * <p> 示例值："7390282135276635692"
+          */
+      this.wkCalendarIds = builder.wkCalendarIds;
+         /**
+          * 日期，格式："2006-01-02"，最多50个
+          * <p> 示例值：
+          */
+      this.dates = builder.dates;
+         /**
+          * 日期范围-开始日期，格式："2006-01-02"
+          * <p> 示例值："2006-01-02"
+          */
+      this.beginDate = builder.beginDate;
+         /**
+          * 日期范围-结束日期(含)，格式："2006-01-02"
+          * <p> 示例值："2006-01-02"
+          */
+      this.endDate = builder.endDate;
+         /**
+          * 分页
+          * <p> 示例值：0
+          */
+      this.offset = builder.offset;
+         /**
+          * 分页大小
+          * <p> 示例值：10
+          */
+      this.limit = builder.limit;
+         /**
+          * 日期id，与其他筛选参数互斥，传了该参数，其他筛选参数不起效
+          * <p> 示例值：
+          */
+      this.ids = builder.ids;
+  }
+
     public static class Builder {
-        /**
-         * 工作日历WKID列表，最多100
-         * <p> 示例值："7390282135276635692"
-         */
+     /**
+      * 工作日历WKID列表，最多100
+      * <p> 示例值："7390282135276635692"
+      */
         private String[] wkCalendarIds;
-        /**
-         * 日期，格式："2006-01-02"，最多50个
-         * <p> 示例值：
-         */
+     /**
+      * 日期，格式："2006-01-02"，最多50个
+      * <p> 示例值：
+      */
         private String[] dates;
-        /**
-         * 日期范围-开始日期，格式："2006-01-02"
-         * <p> 示例值："2006-01-02"
-         */
+     /**
+      * 日期范围-开始日期，格式："2006-01-02"
+      * <p> 示例值："2006-01-02"
+      */
         private String beginDate;
-        /**
-         * 日期范围-结束日期(含)，格式："2006-01-02"
-         * <p> 示例值："2006-01-02"
-         */
+     /**
+      * 日期范围-结束日期(含)，格式："2006-01-02"
+      * <p> 示例值："2006-01-02"
+      */
         private String endDate;
-        /**
-         * 分页
-         * <p> 示例值：0
-         */
+     /**
+      * 分页
+      * <p> 示例值：0
+      */
         private Integer offset;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
+     /**
+      * 分页大小
+      * <p> 示例值：10
+      */
         private Integer limit;
-        /**
-         * 日期id，与其他筛选参数互斥，传了该参数，其他筛选参数不起效
-         * <p> 示例值：
-         */
+     /**
+      * 日期id，与其他筛选参数互斥，传了该参数，其他筛选参数不起效
+      * <p> 示例值：
+      */
         private String[] ids;
 
         /**
          * 工作日历WKID列表，最多100
          * <p> 示例值："7390282135276635692"
-         *
          * @param wkCalendarIds
          * @return
          */
         public Builder wkCalendarIds(String[] wkCalendarIds) {
-            this.wkCalendarIds = wkCalendarIds;
-            return this;
+             this.wkCalendarIds = wkCalendarIds;
+             return this;
         }
 
+    
 
         /**
          * 日期，格式："2006-01-02"，最多50个
          * <p> 示例值：
-         *
          * @param dates
          * @return
          */
         public Builder dates(String[] dates) {
-            this.dates = dates;
-            return this;
+             this.dates = dates;
+             return this;
         }
 
+    
 
         /**
          * 日期范围-开始日期，格式："2006-01-02"
          * <p> 示例值："2006-01-02"
-         *
          * @param beginDate
          * @return
          */
         public Builder beginDate(String beginDate) {
-            this.beginDate = beginDate;
-            return this;
+             this.beginDate = beginDate;
+             return this;
         }
 
+    
 
         /**
          * 日期范围-结束日期(含)，格式："2006-01-02"
          * <p> 示例值："2006-01-02"
-         *
          * @param endDate
          * @return
          */
         public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
+             this.endDate = endDate;
+             return this;
         }
 
+    
 
         /**
          * 分页
          * <p> 示例值：0
-         *
          * @param offset
          * @return
          */
         public Builder offset(Integer offset) {
-            this.offset = offset;
-            return this;
+             this.offset = offset;
+             return this;
         }
 
+    
 
         /**
          * 分页大小
          * <p> 示例值：10
-         *
          * @param limit
          * @return
          */
         public Builder limit(Integer limit) {
-            this.limit = limit;
-            return this;
+             this.limit = limit;
+             return this;
         }
 
+    
 
         /**
          * 日期id，与其他筛选参数互斥，传了该参数，其他筛选参数不起效
          * <p> 示例值：
-         *
          * @param ids
          * @return
          */
         public Builder ids(String[] ids) {
-            this.ids = ids;
-            return this;
+             this.ids = ids;
+             return this;
         }
 
+    
+    
+    public CalendarDateByDateFilter build(){
+        return new CalendarDateByDateFilter(this);
+      }
+    }
 
-        public CalendarDateByDateFilter build() {
-            return new CalendarDateByDateFilter(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

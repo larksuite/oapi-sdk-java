@@ -17,19 +17,18 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 交易方类别
  */
 public enum VendorVendorCategoryEnum {
-    INNERCLIENT("11"), // 内部客户(当vendor_category = 1 时的枚举值)
-    OUTERCLIENT("12"), // 外部客户(当vendor_category = 1 时的枚举值)
-    INNERVENDOR("21"), // 内部供应商(当vendor_category = 2 时的枚举值)
-    OUTERVENDOR("22"), // 外部供应商(当vendor_category = 2 时的枚举值)
-    STAFFVENDOR("23"), // 员工供应商(当vendor_category = 2 时的枚举值)
-    ;
-    private String value;
-
+     INNERCLIENT("11"), // 内部客户(当vendor_category = 1 时的枚举值)
+     OUTERCLIENT("12"), // 外部客户(当vendor_category = 1 时的枚举值)
+     INNERVENDOR("21"), // 内部供应商(当vendor_category = 2 时的枚举值)
+     OUTERVENDOR("22"), // 外部供应商(当vendor_category = 2 时的枚举值)
+     STAFFVENDOR("23"), // 员工供应商(当vendor_category = 2 时的枚举值)
+  ;
+   private String value;
     VendorVendorCategoryEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -53,6 +53,7 @@ public class DownloadUrlUserMailboxMessageAttachmentReq {
     // builder 开始
     public DownloadUrlUserMailboxMessageAttachmentReq() {
     }
+
     public DownloadUrlUserMailboxMessageAttachmentReq(Builder builder) {
         /**
          * 附件 id 列表

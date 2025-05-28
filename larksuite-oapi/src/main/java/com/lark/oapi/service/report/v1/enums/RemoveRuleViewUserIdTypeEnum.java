@@ -14,20 +14,19 @@
 package com.lark.oapi.service.report.v1.enums;
 
 /**
- *
+ * 
  */
 public enum RemoveRuleViewUserIdTypeEnum {
-    USER_ID("user_id"), //
-    UNION_ID("union_id"), //
-    OPEN_ID("open_id"), //
-    ;
-    private String value;
-
+     USER_ID("user_id"), // 
+     UNION_ID("union_id"), // 
+     OPEN_ID("open_id"), // 
+  ;
+   private String value;
     RemoveRuleViewUserIdTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

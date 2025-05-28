@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EcoBackgroundCheckPackage {
-    /**
-     * 背调账号 ID，可在「账号绑定」事件中获取
-     * <p> 示例值：ord_id
-     */
+     /**
+      * 背调账号 ID，可在「账号绑定」事件中获取
+      * <p> 示例值：ord_id
+      */
     @SerializedName("account_id")
     private String accountId;
-    /**
-     * 背调套餐列表
-     * <p> 示例值：
-     */
+     /**
+      * 背调套餐列表
+      * <p> 示例值：
+      */
     @SerializedName("package_list")
     private EcoBackgroundCheckPackageData[] packageList;
-    /**
-     * 附加调查项列表
-     * <p> 示例值：
-     */
+     /**
+      * 附加调查项列表
+      * <p> 示例值：
+      */
     @SerializedName("additional_item_list")
     private EcoBackgroundCheckPackageAdditionalItem[] additionalItemList;
-
-    // builder 开始
-    public EcoBackgroundCheckPackage() {
-    }
-
-    public EcoBackgroundCheckPackage(Builder builder) {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：ord_id
-         */
-        this.accountId = builder.accountId;
-        /**
-         * 背调套餐列表
-         * <p> 示例值：
-         */
-        this.packageList = builder.packageList;
-        /**
-         * 附加调查项列表
-         * <p> 示例值：
-         */
-        this.additionalItemList = builder.additionalItemList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAccountId() {
         return this.accountId;
     }
@@ -97,64 +66,90 @@ public class EcoBackgroundCheckPackage {
         this.additionalItemList = additionalItemList;
     }
 
+
+// builder 开始
+  public EcoBackgroundCheckPackage(){}
+
+  public EcoBackgroundCheckPackage(Builder builder){
+         /**
+          * 背调账号 ID，可在「账号绑定」事件中获取
+          * <p> 示例值：ord_id
+          */
+      this.accountId = builder.accountId;
+         /**
+          * 背调套餐列表
+          * <p> 示例值：
+          */
+      this.packageList = builder.packageList;
+         /**
+          * 附加调查项列表
+          * <p> 示例值：
+          */
+      this.additionalItemList = builder.additionalItemList;
+  }
+
     public static class Builder {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：ord_id
-         */
+     /**
+      * 背调账号 ID，可在「账号绑定」事件中获取
+      * <p> 示例值：ord_id
+      */
         private String accountId;
-        /**
-         * 背调套餐列表
-         * <p> 示例值：
-         */
+     /**
+      * 背调套餐列表
+      * <p> 示例值：
+      */
         private EcoBackgroundCheckPackageData[] packageList;
-        /**
-         * 附加调查项列表
-         * <p> 示例值：
-         */
+     /**
+      * 附加调查项列表
+      * <p> 示例值：
+      */
         private EcoBackgroundCheckPackageAdditionalItem[] additionalItemList;
 
         /**
          * 背调账号 ID，可在「账号绑定」事件中获取
          * <p> 示例值：ord_id
-         *
          * @param accountId
          * @return
          */
         public Builder accountId(String accountId) {
-            this.accountId = accountId;
-            return this;
+             this.accountId = accountId;
+             return this;
         }
 
+    
 
         /**
          * 背调套餐列表
          * <p> 示例值：
-         *
          * @param packageList
          * @return
          */
         public Builder packageList(EcoBackgroundCheckPackageData[] packageList) {
-            this.packageList = packageList;
-            return this;
+             this.packageList = packageList;
+             return this;
         }
 
+    
 
         /**
          * 附加调查项列表
          * <p> 示例值：
-         *
          * @param additionalItemList
          * @return
          */
         public Builder additionalItemList(EcoBackgroundCheckPackageAdditionalItem[] additionalItemList) {
-            this.additionalItemList = additionalItemList;
-            return this;
+             this.additionalItemList = additionalItemList;
+             return this;
         }
 
+    
+    
+    public EcoBackgroundCheckPackage build(){
+        return new EcoBackgroundCheckPackage(this);
+      }
+    }
 
-        public EcoBackgroundCheckPackage build() {
-            return new EcoBackgroundCheckPackage(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

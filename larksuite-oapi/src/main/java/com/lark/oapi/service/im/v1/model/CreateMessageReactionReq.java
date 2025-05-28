@@ -12,49 +12,25 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateMessageReactionReq {
-    /**
-     * 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_a8f2294b************a1a38afaac9d
-     */
+     /**
+      * 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_a8f2294b************a1a38afaac9d
+      */
     @Path
     @SerializedName("message_id")
     private String messageId;
-    @Body
-    private CreateMessageReactionReqBody body;
-
-    // builder 开始
-    public CreateMessageReactionReq() {
-    }
-
-    public CreateMessageReactionReq(Builder builder) {
-        /**
-         * 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_a8f2294b************a1a38afaac9d
-         */
-        this.messageId = builder.messageId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMessageId() {
         return this.messageId;
     }
@@ -62,6 +38,9 @@ public class CreateMessageReactionReq {
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
+
+    @Body
+    private CreateMessageReactionReqBody body;
 
     public CreateMessageReactionReqBody getCreateMessageReactionReqBody() {
         return this.body;
@@ -71,40 +50,54 @@ public class CreateMessageReactionReq {
         this.body = body;
     }
 
+// builder 开始
+  public CreateMessageReactionReq(){}
+
+  public CreateMessageReactionReq(Builder builder){
+     /**
+      * 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+      * <p> 示例值：om_a8f2294b************a1a38afaac9d
+      */
+       this.messageId = builder.messageId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String messageId; // 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-        private CreateMessageReactionReqBody body;
-
         /**
          * 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
          * <p> 示例值：om_a8f2294b************a1a38afaac9d
-         *
          * @param messageId
          * @return
          */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
+          public Builder messageId(String messageId) {
+               this.messageId = messageId;
+               return this;
+          }
 
+    
+        private CreateMessageReactionReqBody body;
+    
         public CreateMessageReactionReqBody getCreateMessageReactionReqBody() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder createMessageReactionReqBody(CreateMessageReactionReqBody body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public CreateMessageReactionReq build(){
+        return new CreateMessageReactionReq(this);
+      }
+    }
 
-        public CreateMessageReactionReq build() {
-            return new CreateMessageReactionReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

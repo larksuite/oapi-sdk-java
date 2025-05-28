@@ -17,16 +17,15 @@ package com.lark.oapi.service.payroll.v1.enums;
  * 记录的启停用状态
  */
 public enum DatasourceRecordActiveStatusEnum {
-    ACTIVE(1), // 已启用
-    IN_ACTIVE(2), // 已停用
-    ;
-    private Integer value;
-
+     ACTIVE(1), // 已启用
+     IN_ACTIVE(2), // 已停用
+  ;
+   private Integer value;
     DatasourceRecordActiveStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

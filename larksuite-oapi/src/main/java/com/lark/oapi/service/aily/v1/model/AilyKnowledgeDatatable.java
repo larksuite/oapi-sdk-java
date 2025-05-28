@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AilyKnowledgeDatatable {
-    /**
-     * 数据表ID
-     * <p> 示例值：object_x
-     */
+     /**
+      * 数据表ID
+      * <p> 示例值：object_x
+      */
     @SerializedName("api_name")
     private String apiName;
-    /**
-     * 数据表标题
-     * <p> 示例值：title
-     */
+     /**
+      * 数据表标题
+      * <p> 示例值：title
+      */
     @SerializedName("title")
     private String title;
-
-    // builder 开始
-    public AilyKnowledgeDatatable() {
-    }
-
-    public AilyKnowledgeDatatable(Builder builder) {
-        /**
-         * 数据表ID
-         * <p> 示例值：object_x
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 数据表标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApiName() {
         return this.apiName;
     }
@@ -79,46 +53,67 @@ public class AilyKnowledgeDatatable {
         this.title = title;
     }
 
+
+// builder 开始
+  public AilyKnowledgeDatatable(){}
+
+  public AilyKnowledgeDatatable(Builder builder){
+         /**
+          * 数据表ID
+          * <p> 示例值：object_x
+          */
+      this.apiName = builder.apiName;
+         /**
+          * 数据表标题
+          * <p> 示例值：title
+          */
+      this.title = builder.title;
+  }
+
     public static class Builder {
-        /**
-         * 数据表ID
-         * <p> 示例值：object_x
-         */
+     /**
+      * 数据表ID
+      * <p> 示例值：object_x
+      */
         private String apiName;
-        /**
-         * 数据表标题
-         * <p> 示例值：title
-         */
+     /**
+      * 数据表标题
+      * <p> 示例值：title
+      */
         private String title;
 
         /**
          * 数据表ID
          * <p> 示例值：object_x
-         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
+             this.apiName = apiName;
+             return this;
         }
 
+    
 
         /**
          * 数据表标题
          * <p> 示例值：title
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
+    
+    public AilyKnowledgeDatatable build(){
+        return new AilyKnowledgeDatatable(this);
+      }
+    }
 
-        public AilyKnowledgeDatatable build() {
-            return new AilyKnowledgeDatatable(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

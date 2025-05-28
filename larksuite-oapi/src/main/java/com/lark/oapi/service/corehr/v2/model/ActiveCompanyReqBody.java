@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ActiveCompanyReqBody {
-    /**
-     * 公司ID
-     * <p> 示例值：1616161616
-     */
+     /**
+      * 公司ID
+      * <p> 示例值：1616161616
+      */
     @SerializedName("company_id")
     private String companyId;
-    /**
-     * 生效时间
-     * <p> 示例值：2020-01-01
-     */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-01-01
+      */
     @SerializedName("effective_time")
     private String effectiveTime;
-    /**
-     * 启用停用状态
-     * <p> 示例值：true
-     */
+     /**
+      * 启用停用状态
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-    /**
-     * 操作原因
-     * <p> 示例值：业务操作
-     */
+     /**
+      * 操作原因
+      * <p> 示例值：业务操作
+      */
     @SerializedName("operation_reason")
     private String operationReason;
-
-    // builder 开始
-    public ActiveCompanyReqBody() {
-    }
-
-    public ActiveCompanyReqBody(Builder builder) {
-        /**
-         * 公司ID
-         * <p> 示例值：1616161616
-         */
-        this.companyId = builder.companyId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 操作原因
-         * <p> 示例值：业务操作
-         */
-        this.operationReason = builder.operationReason;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCompanyId() {
         return this.companyId;
     }
@@ -117,82 +81,113 @@ public class ActiveCompanyReqBody {
         this.operationReason = operationReason;
     }
 
+
+// builder 开始
+  public ActiveCompanyReqBody(){}
+
+  public ActiveCompanyReqBody(Builder builder){
+         /**
+          * 公司ID
+          * <p> 示例值：1616161616
+          */
+      this.companyId = builder.companyId;
+         /**
+          * 生效时间
+          * <p> 示例值：2020-01-01
+          */
+      this.effectiveTime = builder.effectiveTime;
+         /**
+          * 启用停用状态
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+         /**
+          * 操作原因
+          * <p> 示例值：业务操作
+          */
+      this.operationReason = builder.operationReason;
+  }
+
     public static class Builder {
-        /**
-         * 公司ID
-         * <p> 示例值：1616161616
-         */
+     /**
+      * 公司ID
+      * <p> 示例值：1616161616
+      */
         private String companyId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
+     /**
+      * 生效时间
+      * <p> 示例值：2020-01-01
+      */
         private String effectiveTime;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
+     /**
+      * 启用停用状态
+      * <p> 示例值：true
+      */
         private Boolean active;
-        /**
-         * 操作原因
-         * <p> 示例值：业务操作
-         */
+     /**
+      * 操作原因
+      * <p> 示例值：业务操作
+      */
         private String operationReason;
 
         /**
          * 公司ID
          * <p> 示例值：1616161616
-         *
          * @param companyId
          * @return
          */
         public Builder companyId(String companyId) {
-            this.companyId = companyId;
-            return this;
+             this.companyId = companyId;
+             return this;
         }
 
+    
 
         /**
          * 生效时间
          * <p> 示例值：2020-01-01
-         *
          * @param effectiveTime
          * @return
          */
         public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
+             this.effectiveTime = effectiveTime;
+             return this;
         }
 
+    
 
         /**
          * 启用停用状态
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
 
         /**
          * 操作原因
          * <p> 示例值：业务操作
-         *
          * @param operationReason
          * @return
          */
         public Builder operationReason(String operationReason) {
-            this.operationReason = operationReason;
-            return this;
+             this.operationReason = operationReason;
+             return this;
         }
 
+    
+    
+    public ActiveCompanyReqBody build(){
+        return new ActiveCompanyReqBody(this);
+      }
+    }
 
-        public ActiveCompanyReqBody build() {
-            return new ActiveCompanyReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

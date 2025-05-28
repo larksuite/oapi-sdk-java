@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.apaas.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class ApplicationObjectRecord {
         this.config = config;
     }
 
-
+    
     /**
      * ，记录批量创建
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_create&project=apaas&resource=application.object.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_create&project=apaas&resource=application.object.record&version=v1</a> ;
@@ -63,7 +58,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_create"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchCreateApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCreateApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_create"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_create"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchCreateApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCreateApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_create"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，记录批量删除
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=apaas&resource=application.object.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=apaas&resource=application.object.record&version=v1</a> ;
@@ -129,7 +123,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_delete"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_delete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_delete"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchDeleteApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -169,16 +163,15 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_delete"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，批量查询对象记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_query&project=apaas&resource=application.object.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_query&project=apaas&resource=application.object.record&version=v1</a> ;
@@ -195,7 +188,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchQueryApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchQueryApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -203,14 +196,14 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -227,7 +220,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchQueryApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchQueryApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -235,16 +228,15 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，记录批量更新
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_update&project=apaas&resource=application.object.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_update&project=apaas&resource=application.object.record&version=v1</a> ;
@@ -261,7 +253,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_update"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchUpdateApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -269,14 +261,14 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_update"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -293,7 +285,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_update"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         BatchUpdateApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -301,16 +293,15 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_update"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，创建记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=apaas&resource=application.object.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=apaas&resource=application.object.record&version=v1</a> ;
@@ -327,7 +318,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -335,14 +326,14 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -359,7 +350,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -367,16 +358,15 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，删除记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=apaas&resource=application.object.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=apaas&resource=application.object.record&version=v1</a> ;
@@ -393,7 +383,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -401,14 +391,14 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -425,7 +415,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -433,16 +423,15 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，更新记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=apaas&resource=application.object.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=apaas&resource=application.object.record&version=v1</a> ;
@@ -459,7 +448,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         PatchApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -467,14 +456,14 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -491,7 +480,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         PatchApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -499,16 +488,15 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，获取记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=apaas&resource=application.object.record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=apaas&resource=application.object.record&version=v1</a> ;
@@ -525,7 +513,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -533,14 +521,14 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -557,7 +545,7 @@ public class ApplicationObjectRecord {
                 , "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id/query"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         QueryApplicationObjectRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryApplicationObjectRecordResp.class);
         if (resp == null) {
@@ -565,13 +553,13 @@ public class ApplicationObjectRecord {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id/query"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

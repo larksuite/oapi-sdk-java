@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class FilterSchema {
-    /**
-     * 过滤字段的名字
-     * <p> 示例值：domain
-     */
+     /**
+      * 过滤字段的名字
+      * <p> 示例值：domain
+      */
     @SerializedName("field")
     private String field;
-    /**
-     * 过滤字段的类型
-     * <p> 示例值：list<string>
-     */
+     /**
+      * 过滤字段的类型
+      * <p> 示例值：list<string>
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 过滤字段的默认值
-     * <p> 示例值：-1
-     */
+     /**
+      * 过滤字段的默认值
+      * <p> 示例值：-1
+      */
     @SerializedName("default_val")
     private String defaultVal;
-    /**
-     * 用于构建dsl过滤的类型，默认是enum
-     * <p> 示例值：enum
-     */
+     /**
+      * 用于构建dsl过滤的类型，默认是enum
+      * <p> 示例值：enum
+      */
     @SerializedName("field_type")
     private String fieldType;
-
-    // builder 开始
-    public FilterSchema() {
-    }
-
-    public FilterSchema(Builder builder) {
-        /**
-         * 过滤字段的名字
-         * <p> 示例值：domain
-         */
-        this.field = builder.field;
-        /**
-         * 过滤字段的类型
-         * <p> 示例值：list<string>
-         */
-        this.type = builder.type;
-        /**
-         * 过滤字段的默认值
-         * <p> 示例值：-1
-         */
-        this.defaultVal = builder.defaultVal;
-        /**
-         * 用于构建dsl过滤的类型，默认是enum
-         * <p> 示例值：enum
-         */
-        this.fieldType = builder.fieldType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getField() {
         return this.field;
     }
@@ -117,106 +81,133 @@ public class FilterSchema {
         this.fieldType = fieldType;
     }
 
+
+// builder 开始
+  public FilterSchema(){}
+
+  public FilterSchema(Builder builder){
+         /**
+          * 过滤字段的名字
+          * <p> 示例值：domain
+          */
+      this.field = builder.field;
+         /**
+          * 过滤字段的类型
+          * <p> 示例值：list<string>
+          */
+      this.type = builder.type;
+         /**
+          * 过滤字段的默认值
+          * <p> 示例值：-1
+          */
+      this.defaultVal = builder.defaultVal;
+         /**
+          * 用于构建dsl过滤的类型，默认是enum
+          * <p> 示例值：enum
+          */
+      this.fieldType = builder.fieldType;
+  }
+
     public static class Builder {
-        /**
-         * 过滤字段的名字
-         * <p> 示例值：domain
-         */
+     /**
+      * 过滤字段的名字
+      * <p> 示例值：domain
+      */
         private String field;
-        /**
-         * 过滤字段的类型
-         * <p> 示例值：list<string>
-         */
+     /**
+      * 过滤字段的类型
+      * <p> 示例值：list<string>
+      */
         private String type;
-        /**
-         * 过滤字段的默认值
-         * <p> 示例值：-1
-         */
+     /**
+      * 过滤字段的默认值
+      * <p> 示例值：-1
+      */
         private String defaultVal;
-        /**
-         * 用于构建dsl过滤的类型，默认是enum
-         * <p> 示例值：enum
-         */
+     /**
+      * 用于构建dsl过滤的类型，默认是enum
+      * <p> 示例值：enum
+      */
         private String fieldType;
 
         /**
          * 过滤字段的名字
          * <p> 示例值：domain
-         *
          * @param field
          * @return
          */
         public Builder field(String field) {
-            this.field = field;
-            return this;
+             this.field = field;
+             return this;
         }
 
+    
 
         /**
          * 过滤字段的类型
          * <p> 示例值：list<string>
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 过滤字段的类型
          * <p> 示例值：list<string>
-         *
          * @param type {@link com.lark.oapi.service.search.v2.enums.FilterSchemaFilterTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.search.v2.enums.FilterSchemaFilterTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 过滤字段的默认值
          * <p> 示例值：-1
-         *
          * @param defaultVal
          * @return
          */
         public Builder defaultVal(String defaultVal) {
-            this.defaultVal = defaultVal;
-            return this;
+             this.defaultVal = defaultVal;
+             return this;
         }
 
+    
 
         /**
          * 用于构建dsl过滤的类型，默认是enum
          * <p> 示例值：enum
-         *
          * @param fieldType
          * @return
          */
         public Builder fieldType(String fieldType) {
-            this.fieldType = fieldType;
-            return this;
+             this.fieldType = fieldType;
+             return this;
         }
-
         /**
          * 用于构建dsl过滤的类型，默认是enum
          * <p> 示例值：enum
-         *
          * @param fieldType {@link com.lark.oapi.service.search.v2.enums.FilterSchemaFieldTypeEnum}
          * @return
          */
         public Builder fieldType(com.lark.oapi.service.search.v2.enums.FilterSchemaFieldTypeEnum fieldType) {
-            this.fieldType = fieldType.getValue();
-            return this;
+             this.fieldType = fieldType.getValue();
+             return this;
         }
 
+    
+    
+    public FilterSchema build(){
+        return new FilterSchema(this);
+      }
+    }
 
-        public FilterSchema build() {
-            return new FilterSchema(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

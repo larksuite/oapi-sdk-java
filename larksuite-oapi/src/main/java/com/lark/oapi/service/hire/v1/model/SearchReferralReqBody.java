@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchReferralReqBody {
-    /**
-     * 人才id
-     * <p> 示例值：6930815272790114324
-     */
+     /**
+      * 人才id
+      * <p> 示例值：6930815272790114324
+      */
     @SerializedName("talent_id")
     private String talentId;
-    /**
-     * 投递起始时间，若不填，默认为全部，但最多返回200条
-     * <p> 示例值：
-     */
+     /**
+      * 投递起始时间，若不填，默认为全部，但最多返回200条
+      * <p> 示例值：
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 投递终止时间，若不填，默认为全部，但最多返回200条
-     * <p> 示例值：
-     */
+     /**
+      * 投递终止时间，若不填，默认为全部，但最多返回200条
+      * <p> 示例值：
+      */
     @SerializedName("end_time")
     private String endTime;
-
-    // builder 开始
-    public SearchReferralReqBody() {
-    }
-
-    public SearchReferralReqBody(Builder builder) {
-        /**
-         * 人才id
-         * <p> 示例值：6930815272790114324
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 投递起始时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 投递终止时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         */
-        this.endTime = builder.endTime;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTalentId() {
         return this.talentId;
     }
@@ -97,64 +66,90 @@ public class SearchReferralReqBody {
         this.endTime = endTime;
     }
 
+
+// builder 开始
+  public SearchReferralReqBody(){}
+
+  public SearchReferralReqBody(Builder builder){
+         /**
+          * 人才id
+          * <p> 示例值：6930815272790114324
+          */
+      this.talentId = builder.talentId;
+         /**
+          * 投递起始时间，若不填，默认为全部，但最多返回200条
+          * <p> 示例值：
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 投递终止时间，若不填，默认为全部，但最多返回200条
+          * <p> 示例值：
+          */
+      this.endTime = builder.endTime;
+  }
+
     public static class Builder {
-        /**
-         * 人才id
-         * <p> 示例值：6930815272790114324
-         */
+     /**
+      * 人才id
+      * <p> 示例值：6930815272790114324
+      */
         private String talentId;
-        /**
-         * 投递起始时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         */
+     /**
+      * 投递起始时间，若不填，默认为全部，但最多返回200条
+      * <p> 示例值：
+      */
         private String startTime;
-        /**
-         * 投递终止时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         */
+     /**
+      * 投递终止时间，若不填，默认为全部，但最多返回200条
+      * <p> 示例值：
+      */
         private String endTime;
 
         /**
          * 人才id
          * <p> 示例值：6930815272790114324
-         *
          * @param talentId
          * @return
          */
         public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
+             this.talentId = talentId;
+             return this;
         }
 
+    
 
         /**
          * 投递起始时间，若不填，默认为全部，但最多返回200条
          * <p> 示例值：
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 投递终止时间，若不填，默认为全部，但最多返回200条
          * <p> 示例值：
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
+    
+    public SearchReferralReqBody build(){
+        return new SearchReferralReqBody(this);
+      }
+    }
 
-        public SearchReferralReqBody build() {
-            return new SearchReferralReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

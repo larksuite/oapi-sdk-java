@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DimensionEntity {
-    /**
-     * 维度key
-     * <p> 示例值：department
-     */
+     /**
+      * 维度key
+      * <p> 示例值：department
+      */
     @SerializedName("dimension_key")
     private String dimensionKey;
-    /**
-     * 维度值
-     * <p> 示例值：7322790168290739756
-     */
+     /**
+      * 维度值
+      * <p> 示例值：7322790168290739756
+      */
     @SerializedName("dimension_value")
     private String dimensionValue;
-
-    // builder 开始
-    public DimensionEntity() {
-    }
-
-    public DimensionEntity(Builder builder) {
-        /**
-         * 维度key
-         * <p> 示例值：department
-         */
-        this.dimensionKey = builder.dimensionKey;
-        /**
-         * 维度值
-         * <p> 示例值：7322790168290739756
-         */
-        this.dimensionValue = builder.dimensionValue;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDimensionKey() {
         return this.dimensionKey;
     }
@@ -79,46 +53,67 @@ public class DimensionEntity {
         this.dimensionValue = dimensionValue;
     }
 
+
+// builder 开始
+  public DimensionEntity(){}
+
+  public DimensionEntity(Builder builder){
+         /**
+          * 维度key
+          * <p> 示例值：department
+          */
+      this.dimensionKey = builder.dimensionKey;
+         /**
+          * 维度值
+          * <p> 示例值：7322790168290739756
+          */
+      this.dimensionValue = builder.dimensionValue;
+  }
+
     public static class Builder {
-        /**
-         * 维度key
-         * <p> 示例值：department
-         */
+     /**
+      * 维度key
+      * <p> 示例值：department
+      */
         private String dimensionKey;
-        /**
-         * 维度值
-         * <p> 示例值：7322790168290739756
-         */
+     /**
+      * 维度值
+      * <p> 示例值：7322790168290739756
+      */
         private String dimensionValue;
 
         /**
          * 维度key
          * <p> 示例值：department
-         *
          * @param dimensionKey
          * @return
          */
         public Builder dimensionKey(String dimensionKey) {
-            this.dimensionKey = dimensionKey;
-            return this;
+             this.dimensionKey = dimensionKey;
+             return this;
         }
 
+    
 
         /**
          * 维度值
          * <p> 示例值：7322790168290739756
-         *
          * @param dimensionValue
          * @return
          */
         public Builder dimensionValue(String dimensionValue) {
-            this.dimensionValue = dimensionValue;
-            return this;
+             this.dimensionValue = dimensionValue;
+             return this;
         }
 
+    
+    
+    public DimensionEntity build(){
+        return new DimensionEntity(this);
+      }
+    }
 
-        public DimensionEntity build() {
-            return new DimensionEntity(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

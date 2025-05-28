@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchAppTableRecordReqBody {
-    /**
-     * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
-     * <p> 示例值：viex
-     */
+     /**
+      * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
+      * <p> 示例值：viex
+      */
     @SerializedName("view_id")
     private String viewId;
-    /**
-     * 指定要返回的字段
-     * <p> 示例值：
-     */
+     /**
+      * 指定要返回的字段
+      * <p> 示例值：
+      */
     @SerializedName("field_names")
     private String[] fieldNames;
-    /**
-     * 排序条件
-     * <p> 示例值：
-     */
+     /**
+      * 排序条件
+      * <p> 示例值：
+      */
     @SerializedName("sort")
     private Sort[] sort;
-    /**
-     * 筛选条件
-     * <p> 示例值：
-     */
+     /**
+      * 筛选条件
+      * <p> 示例值：
+      */
     @SerializedName("filter")
     private FilterInfo filter;
-    /**
-     * 控制是否返回自动计算的字段, true 表示返回
-     * <p> 示例值：
-     */
+     /**
+      * 控制是否返回自动计算的字段, true 表示返回
+      * <p> 示例值：
+      */
     @SerializedName("automatic_fields")
     private Boolean automaticFields;
-
-    // builder 开始
-    public SearchAppTableRecordReqBody() {
-    }
-
-    public SearchAppTableRecordReqBody(Builder builder) {
-        /**
-         * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
-         * <p> 示例值：viex
-         */
-        this.viewId = builder.viewId;
-        /**
-         * 指定要返回的字段
-         * <p> 示例值：
-         */
-        this.fieldNames = builder.fieldNames;
-        /**
-         * 排序条件
-         * <p> 示例值：
-         */
-        this.sort = builder.sort;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * 控制是否返回自动计算的字段, true 表示返回
-         * <p> 示例值：
-         */
-        this.automaticFields = builder.automaticFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getViewId() {
         return this.viewId;
     }
@@ -136,100 +95,136 @@ public class SearchAppTableRecordReqBody {
         this.automaticFields = automaticFields;
     }
 
+
+// builder 开始
+  public SearchAppTableRecordReqBody(){}
+
+  public SearchAppTableRecordReqBody(Builder builder){
+         /**
+          * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
+          * <p> 示例值：viex
+          */
+      this.viewId = builder.viewId;
+         /**
+          * 指定要返回的字段
+          * <p> 示例值：
+          */
+      this.fieldNames = builder.fieldNames;
+         /**
+          * 排序条件
+          * <p> 示例值：
+          */
+      this.sort = builder.sort;
+         /**
+          * 筛选条件
+          * <p> 示例值：
+          */
+      this.filter = builder.filter;
+         /**
+          * 控制是否返回自动计算的字段, true 表示返回
+          * <p> 示例值：
+          */
+      this.automaticFields = builder.automaticFields;
+  }
+
     public static class Builder {
-        /**
-         * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
-         * <p> 示例值：viex
-         */
+     /**
+      * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
+      * <p> 示例值：viex
+      */
         private String viewId;
-        /**
-         * 指定要返回的字段
-         * <p> 示例值：
-         */
+     /**
+      * 指定要返回的字段
+      * <p> 示例值：
+      */
         private String[] fieldNames;
-        /**
-         * 排序条件
-         * <p> 示例值：
-         */
+     /**
+      * 排序条件
+      * <p> 示例值：
+      */
         private Sort[] sort;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
+     /**
+      * 筛选条件
+      * <p> 示例值：
+      */
         private FilterInfo filter;
-        /**
-         * 控制是否返回自动计算的字段, true 表示返回
-         * <p> 示例值：
-         */
+     /**
+      * 控制是否返回自动计算的字段, true 表示返回
+      * <p> 示例值：
+      */
         private Boolean automaticFields;
 
         /**
          * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
          * <p> 示例值：viex
-         *
          * @param viewId
          * @return
          */
         public Builder viewId(String viewId) {
-            this.viewId = viewId;
-            return this;
+             this.viewId = viewId;
+             return this;
         }
 
+    
 
         /**
          * 指定要返回的字段
          * <p> 示例值：
-         *
          * @param fieldNames
          * @return
          */
         public Builder fieldNames(String[] fieldNames) {
-            this.fieldNames = fieldNames;
-            return this;
+             this.fieldNames = fieldNames;
+             return this;
         }
 
+    
 
         /**
          * 排序条件
          * <p> 示例值：
-         *
          * @param sort
          * @return
          */
         public Builder sort(Sort[] sort) {
-            this.sort = sort;
-            return this;
+             this.sort = sort;
+             return this;
         }
 
+    
 
         /**
          * 筛选条件
          * <p> 示例值：
-         *
          * @param filter
          * @return
          */
         public Builder filter(FilterInfo filter) {
-            this.filter = filter;
-            return this;
+             this.filter = filter;
+             return this;
         }
 
+    
 
         /**
          * 控制是否返回自动计算的字段, true 表示返回
          * <p> 示例值：
-         *
          * @param automaticFields
          * @return
          */
         public Builder automaticFields(Boolean automaticFields) {
-            this.automaticFields = automaticFields;
-            return this;
+             this.automaticFields = automaticFields;
+             return this;
         }
 
+    
+    
+    public SearchAppTableRecordReqBody build(){
+        return new SearchAppTableRecordReqBody(this);
+      }
+    }
 
-        public SearchAppTableRecordReqBody build() {
-            return new SearchAppTableRecordReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

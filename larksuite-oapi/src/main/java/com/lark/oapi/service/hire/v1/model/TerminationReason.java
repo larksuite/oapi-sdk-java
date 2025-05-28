@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TerminationReason {
-    /**
-     * 终止原因 ID
-     * <p> 示例值：10002
-     */
+     /**
+      * 终止原因 ID
+      * <p> 示例值：10002
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 终止原因名称
-     * <p> 示例值：
-     */
+     /**
+      * 终止原因名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 内推渠道展示文案
-     * <p> 示例值：
-     */
+     /**
+      * 内推渠道展示文案
+      * <p> 示例值：
+      */
     @SerializedName("referral_name")
     private I18n referralName;
-    /**
-     * 终止原因类型
-     * <p> 示例值：22
-     */
+     /**
+      * 终止原因类型
+      * <p> 示例值：22
+      */
     @SerializedName("termination_type")
     private Integer terminationType;
-    /**
-     * 是否用于评估
-     * <p> 示例值：false
-     */
+     /**
+      * 是否用于评估
+      * <p> 示例值：false
+      */
     @SerializedName("is_used_as_evaluation")
     private Boolean isUsedAsEvaluation;
-    /**
-     * 状态
-     * <p> 示例值：1
-     */
+     /**
+      * 状态
+      * <p> 示例值：1
+      */
     @SerializedName("active_status")
     private Integer activeStatus;
-
-    // builder 开始
-    public TerminationReason() {
-    }
-
-    public TerminationReason(Builder builder) {
-        /**
-         * 终止原因 ID
-         * <p> 示例值：10002
-         */
-        this.id = builder.id;
-        /**
-         * 终止原因名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 内推渠道展示文案
-         * <p> 示例值：
-         */
-        this.referralName = builder.referralName;
-        /**
-         * 终止原因类型
-         * <p> 示例值：22
-         */
-        this.terminationType = builder.terminationType;
-        /**
-         * 是否用于评估
-         * <p> 示例值：false
-         */
-        this.isUsedAsEvaluation = builder.isUsedAsEvaluation;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -154,118 +108,159 @@ public class TerminationReason {
         this.activeStatus = activeStatus;
     }
 
+
+// builder 开始
+  public TerminationReason(){}
+
+  public TerminationReason(Builder builder){
+         /**
+          * 终止原因 ID
+          * <p> 示例值：10002
+          */
+      this.id = builder.id;
+         /**
+          * 终止原因名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 内推渠道展示文案
+          * <p> 示例值：
+          */
+      this.referralName = builder.referralName;
+         /**
+          * 终止原因类型
+          * <p> 示例值：22
+          */
+      this.terminationType = builder.terminationType;
+         /**
+          * 是否用于评估
+          * <p> 示例值：false
+          */
+      this.isUsedAsEvaluation = builder.isUsedAsEvaluation;
+         /**
+          * 状态
+          * <p> 示例值：1
+          */
+      this.activeStatus = builder.activeStatus;
+  }
+
     public static class Builder {
-        /**
-         * 终止原因 ID
-         * <p> 示例值：10002
-         */
+     /**
+      * 终止原因 ID
+      * <p> 示例值：10002
+      */
         private String id;
-        /**
-         * 终止原因名称
-         * <p> 示例值：
-         */
+     /**
+      * 终止原因名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 内推渠道展示文案
-         * <p> 示例值：
-         */
+     /**
+      * 内推渠道展示文案
+      * <p> 示例值：
+      */
         private I18n referralName;
-        /**
-         * 终止原因类型
-         * <p> 示例值：22
-         */
+     /**
+      * 终止原因类型
+      * <p> 示例值：22
+      */
         private Integer terminationType;
-        /**
-         * 是否用于评估
-         * <p> 示例值：false
-         */
+     /**
+      * 是否用于评估
+      * <p> 示例值：false
+      */
         private Boolean isUsedAsEvaluation;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
+     /**
+      * 状态
+      * <p> 示例值：1
+      */
         private Integer activeStatus;
 
         /**
          * 终止原因 ID
          * <p> 示例值：10002
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 终止原因名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 内推渠道展示文案
          * <p> 示例值：
-         *
          * @param referralName
          * @return
          */
         public Builder referralName(I18n referralName) {
-            this.referralName = referralName;
-            return this;
+             this.referralName = referralName;
+             return this;
         }
 
+    
 
         /**
          * 终止原因类型
          * <p> 示例值：22
-         *
          * @param terminationType
          * @return
          */
         public Builder terminationType(Integer terminationType) {
-            this.terminationType = terminationType;
-            return this;
+             this.terminationType = terminationType;
+             return this;
         }
 
+    
 
         /**
          * 是否用于评估
          * <p> 示例值：false
-         *
          * @param isUsedAsEvaluation
          * @return
          */
         public Builder isUsedAsEvaluation(Boolean isUsedAsEvaluation) {
-            this.isUsedAsEvaluation = isUsedAsEvaluation;
-            return this;
+             this.isUsedAsEvaluation = isUsedAsEvaluation;
+             return this;
         }
 
+    
 
         /**
          * 状态
          * <p> 示例值：1
-         *
          * @param activeStatus
          * @return
          */
         public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
+             this.activeStatus = activeStatus;
+             return this;
         }
 
+    
+    
+    public TerminationReason build(){
+        return new TerminationReason(this);
+      }
+    }
 
-        public TerminationReason build() {
-            return new TerminationReason(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

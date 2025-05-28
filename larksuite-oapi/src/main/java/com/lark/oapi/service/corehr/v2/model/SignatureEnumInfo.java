@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,59 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class SignatureEnumInfo {
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("label")
     private SignatureEnumInfoLabel label;
-    /**
-     * 主数据apiname
-     * <p> 示例值：status
-     */
+     /**
+      * 主数据apiname
+      * <p> 示例值：status
+      */
     @SerializedName("apiname")
     private String apiname;
-    /**
-     * 是否启用
-     * <p> 示例值：true
-     */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
     @SerializedName("active")
     private Boolean active;
-
-    // builder 开始
-    public SignatureEnumInfo() {
-    }
-
-    public SignatureEnumInfo(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 主数据apiname
-         * <p> 示例值：status
-         */
-        this.apiname = builder.apiname;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public SignatureEnumInfoLabel getLabel() {
         return this.label;
     }
@@ -97,62 +67,90 @@ public class SignatureEnumInfo {
         this.active = active;
     }
 
+
+// builder 开始
+  public SignatureEnumInfo(){}
+
+  public SignatureEnumInfo(Builder builder){
+         /**
+          * 
+          * <p> 示例值：
+          */
+      this.label = builder.label;
+         /**
+          * 主数据apiname
+          * <p> 示例值：status
+          */
+      this.apiname = builder.apiname;
+         /**
+          * 是否启用
+          * <p> 示例值：true
+          */
+      this.active = builder.active;
+  }
+
     public static class Builder {
-        /**
-         * <p> 示例值：
-         */
+     /**
+      * 
+      * <p> 示例值：
+      */
         private SignatureEnumInfoLabel label;
-        /**
-         * 主数据apiname
-         * <p> 示例值：status
-         */
+     /**
+      * 主数据apiname
+      * <p> 示例值：status
+      */
         private String apiname;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
+     /**
+      * 是否启用
+      * <p> 示例值：true
+      */
         private Boolean active;
 
         /**
+         * 
          * <p> 示例值：
-         *
          * @param label
          * @return
          */
         public Builder label(SignatureEnumInfoLabel label) {
-            this.label = label;
-            return this;
+             this.label = label;
+             return this;
         }
 
+    
 
         /**
          * 主数据apiname
          * <p> 示例值：status
-         *
          * @param apiname
          * @return
          */
         public Builder apiname(String apiname) {
-            this.apiname = apiname;
-            return this;
+             this.apiname = apiname;
+             return this;
         }
 
+    
 
         /**
          * 是否启用
          * <p> 示例值：true
-         *
          * @param active
          * @return
          */
         public Builder active(Boolean active) {
-            this.active = active;
-            return this;
+             this.active = active;
+             return this;
         }
 
+    
+    
+    public SignatureEnumInfo build(){
+        return new SignatureEnumInfo(this);
+      }
+    }
 
-        public SignatureEnumInfo build() {
-            return new SignatureEnumInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

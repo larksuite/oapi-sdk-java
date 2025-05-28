@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class IdConvertCardRespBody {
-    /**
-     * 消息 ID 对应的卡片 ID
-     * <p> 示例值：7355403067414003715
-     */
+     /**
+      * 消息 ID 对应的卡片 ID
+      * <p> 示例值：7355403067414003715
+      */
     @SerializedName("card_id")
     private String cardId;
-
     public String getCardId() {
         return this.cardId;
     }

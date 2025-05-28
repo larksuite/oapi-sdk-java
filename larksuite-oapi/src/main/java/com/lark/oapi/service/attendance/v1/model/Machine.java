@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Machine {
-    /**
-     * 考勤机序列号
-     * <p> 示例值：FS0701
-     */
+     /**
+      * 考勤机序列号
+      * <p> 示例值：FS0701
+      */
     @SerializedName("machine_sn")
     private String machineSn;
-    /**
-     * 考勤机名称
-     * <p> 示例值：创实 9 楼
-     */
+     /**
+      * 考勤机名称
+      * <p> 示例值：创实 9 楼
+      */
     @SerializedName("machine_name")
     private String machineName;
-
-    // builder 开始
-    public Machine() {
-    }
-
-    public Machine(Builder builder) {
-        /**
-         * 考勤机序列号
-         * <p> 示例值：FS0701
-         */
-        this.machineSn = builder.machineSn;
-        /**
-         * 考勤机名称
-         * <p> 示例值：创实 9 楼
-         */
-        this.machineName = builder.machineName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getMachineSn() {
         return this.machineSn;
     }
@@ -79,46 +53,67 @@ public class Machine {
         this.machineName = machineName;
     }
 
+
+// builder 开始
+  public Machine(){}
+
+  public Machine(Builder builder){
+         /**
+          * 考勤机序列号
+          * <p> 示例值：FS0701
+          */
+      this.machineSn = builder.machineSn;
+         /**
+          * 考勤机名称
+          * <p> 示例值：创实 9 楼
+          */
+      this.machineName = builder.machineName;
+  }
+
     public static class Builder {
-        /**
-         * 考勤机序列号
-         * <p> 示例值：FS0701
-         */
+     /**
+      * 考勤机序列号
+      * <p> 示例值：FS0701
+      */
         private String machineSn;
-        /**
-         * 考勤机名称
-         * <p> 示例值：创实 9 楼
-         */
+     /**
+      * 考勤机名称
+      * <p> 示例值：创实 9 楼
+      */
         private String machineName;
 
         /**
          * 考勤机序列号
          * <p> 示例值：FS0701
-         *
          * @param machineSn
          * @return
          */
         public Builder machineSn(String machineSn) {
-            this.machineSn = machineSn;
-            return this;
+             this.machineSn = machineSn;
+             return this;
         }
 
+    
 
         /**
          * 考勤机名称
          * <p> 示例值：创实 9 楼
-         *
          * @param machineName
          * @return
          */
         public Builder machineName(String machineName) {
-            this.machineName = machineName;
-            return this;
+             this.machineName = machineName;
+             return this;
         }
 
+    
+    
+    public Machine build(){
+        return new Machine(this);
+      }
+    }
 
-        public Machine build() {
-            return new Machine(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

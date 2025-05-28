@@ -26,46 +26,39 @@ import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFloatImage;
 public class SheetsService {
     private final V3 v3;
     private final Spreadsheet spreadsheet; // 表格
-    private final SpreadsheetSheet spreadsheetSheet; // 行列
+    private final SpreadsheetSheet spreadsheetSheet; // 工作表
     private final SpreadsheetSheetFilter spreadsheetSheetFilter; // 筛选
     private final SpreadsheetSheetFilterView spreadsheetSheetFilterView; // 筛选视图
     private final SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition; // 筛选条件
     private final SpreadsheetSheetFloatImage spreadsheetSheetFloatImage; // 浮动图片
 
     public SheetsService(Config config) {
-        this.v3 = new V3(config);
-        this.spreadsheet = new Spreadsheet(config);
-        this.spreadsheetSheet = new SpreadsheetSheet(config);
-        this.spreadsheetSheetFilter = new SpreadsheetSheetFilter(config);
-        this.spreadsheetSheetFilterView = new SpreadsheetSheetFilterView(config);
-        this.spreadsheetSheetFilterViewCondition = new SpreadsheetSheetFilterViewCondition(config);
-        this.spreadsheetSheetFloatImage = new SpreadsheetSheetFloatImage(config);
+    this.v3 = new V3(config);
+    this.spreadsheet = new Spreadsheet(config);
+    this.spreadsheetSheet = new SpreadsheetSheet(config);
+    this.spreadsheetSheetFilter = new SpreadsheetSheetFilter(config);
+    this.spreadsheetSheetFilterView = new SpreadsheetSheetFilterView(config);
+    this.spreadsheetSheetFilterViewCondition = new SpreadsheetSheetFilterViewCondition(config);
+    this.spreadsheetSheetFloatImage = new SpreadsheetSheetFloatImage(config);
     }
-
     public V3 v3() {
         return v3;
     }
-
     public Spreadsheet spreadsheet() {
         return spreadsheet;
     }
-
     public SpreadsheetSheet spreadsheetSheet() {
         return spreadsheetSheet;
     }
-
     public SpreadsheetSheetFilter spreadsheetSheetFilter() {
         return spreadsheetSheetFilter;
     }
-
     public SpreadsheetSheetFilterView spreadsheetSheetFilterView() {
         return spreadsheetSheetFilterView;
     }
-
     public SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition() {
         return spreadsheetSheetFilterViewCondition;
     }
-
     public SpreadsheetSheetFloatImage spreadsheetSheetFloatImage() {
         return spreadsheetSheetFloatImage;
     }

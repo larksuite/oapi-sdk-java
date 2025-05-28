@@ -17,16 +17,15 @@ package com.lark.oapi.service.mdm.v1.enums;
  * 状态
  */
 public enum LegalEntityStatusEnum {
-    VALID(1), // 有效
-    INVALID(0), // 无效
-    ;
-    private Integer value;
-
+     VALID(1), // 有效
+     INVALID(0), // 无效
+  ;
+   private Integer value;
     LegalEntityStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

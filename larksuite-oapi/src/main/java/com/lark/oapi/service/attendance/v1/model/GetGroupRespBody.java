@@ -12,454 +12,450 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetGroupRespBody {
-    /**
-     * 考勤组的Id， 需要从获取用户打卡结果信息的接口中获取groupId，修改考勤组时必填
-     * <p> 示例值：6919358128597097404
-     */
+     /**
+      * 考勤组的Id， 需要从获取用户打卡结果信息的接口中获取groupId，修改考勤组时必填
+      * <p> 示例值：6919358128597097404
+      */
     @SerializedName("group_id")
     private String groupId;
-    /**
-     * 考勤组名称
-     * <p> 示例值：开心考勤
-     */
+     /**
+      * 考勤组名称
+      * <p> 示例值：开心考勤
+      */
     @SerializedName("group_name")
     private String groupName;
-    /**
-     * 考勤组时区
-     * <p> 示例值：Asia/Shanghai
-     */
+     /**
+      * 考勤组时区
+      * <p> 示例值：Asia/Shanghai
+      */
     @SerializedName("time_zone")
     private String timeZone;
-    /**
-     * 参加考勤的部门id列表
-     * <p> 示例值：
-     */
+     /**
+      * 参加考勤的部门id列表
+      * <p> 示例值：
+      */
     @SerializedName("bind_dept_ids")
     private String[] bindDeptIds;
-    /**
-     * 无需考勤的部门id列表
-     * <p> 示例值：
-     */
+     /**
+      * 无需考勤的部门id列表
+      * <p> 示例值：
+      */
     @SerializedName("except_dept_ids")
     private String[] exceptDeptIds;
-    /**
-     * 参加考勤的人员id列表
-     * <p> 示例值：
-     */
+     /**
+      * 参加考勤的人员id列表
+      * <p> 示例值：
+      */
     @SerializedName("bind_user_ids")
     private String[] bindUserIds;
-    /**
-     * 参加考勤的人员id列表
-     * <p> 示例值：
-     */
+     /**
+      * 参加考勤的人员id列表
+      * <p> 示例值：
+      */
     @SerializedName("except_user_ids")
     private String[] exceptUserIds;
-    /**
-     * 考勤组主负责人id列表
-     * <p> 示例值：
-     */
+     /**
+      * 考勤组主负责人id列表
+      * <p> 示例值：
+      */
     @SerializedName("group_leader_ids")
     private String[] groupLeaderIds;
-    /**
-     * 考勤组子负责人id列表
-     * <p> 示例值：
-     */
+     /**
+      * 考勤组子负责人id列表
+      * <p> 示例值：
+      */
     @SerializedName("sub_group_leader_ids")
     private String[] subGroupLeaderIds;
-    /**
-     * 是否允许外勤打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否允许外勤打卡
+      * <p> 示例值：true
+      */
     @SerializedName("allow_out_punch")
     private Boolean allowOutPunch;
-    /**
-     * 外勤打卡需审批，先审批后打卡（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 外勤打卡需审批，先审批后打卡（需要允许外勤打卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("out_punch_need_approval")
     private Boolean outPunchNeedApproval;
-    /**
-     * 外勤打卡需审批，先打卡后审批（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 外勤打卡需审批，先打卡后审批（需要允许外勤打卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("out_punch_need_post_approval")
     private Boolean outPunchNeedPostApproval;
-    /**
-     * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("out_punch_need_remark")
     private Boolean outPunchNeedRemark;
-    /**
-     * 外勤打卡需拍照（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 外勤打卡需拍照（需要允许外勤打卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("out_punch_need_photo")
     private Boolean outPunchNeedPhoto;
-    /**
-     * 外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("out_punch_allowed_hide_addr")
     private Boolean outPunchAllowedHideAddr;
-    /**
-     * 外勤打卡允许微调地址（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 外勤打卡允许微调地址（需要允许外勤打卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("out_punch_allowed_adjust_addr")
     private Boolean outPunchAllowedAdjustAddr;
-    /**
-     * 微调范围，默认为 50 米
-     * <p> 示例值：50
-     */
+     /**
+      * 微调范围，默认为 50 米
+      * <p> 示例值：50
+      */
     @SerializedName("adjust_range")
     private Integer adjustRange;
-    /**
-     * 是否允许pc打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否允许pc打卡
+      * <p> 示例值：true
+      */
     @SerializedName("allow_pc_punch")
     private Boolean allowPcPunch;
-    /**
-     * 是否允许补卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否允许补卡
+      * <p> 示例值：true
+      */
     @SerializedName("allow_remedy")
     private Boolean allowRemedy;
-    /**
-     * 补卡次数是否限制（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 补卡次数是否限制（需要允许补卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("remedy_limit")
     private Boolean remedyLimit;
-    /**
-     * 补卡次数（需要允许补卡才能设置生效）
-     * <p> 示例值：3
-     */
+     /**
+      * 补卡次数（需要允许补卡才能设置生效）
+      * <p> 示例值：3
+      */
     @SerializedName("remedy_limit_count")
     private Integer remedyLimitCount;
-    /**
-     * 补卡时间是否限制（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 补卡时间是否限制（需要允许补卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("remedy_date_limit")
     private Boolean remedyDateLimit;
-    /**
-     * 补卡时间,几天内可以发起补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：3
-     */
+     /**
+      * 补卡时间,几天内可以发起补卡（需要允许补卡才能设置生效）
+      * <p> 示例值：3
+      */
     @SerializedName("remedy_date_num")
     private Integer remedyDateNum;
-    /**
-     * 允许缺卡补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 允许缺卡补卡（需要允许补卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("allow_remedy_type_lack")
     private Boolean allowRemedyTypeLack;
-    /**
-     * 允许迟到补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 允许迟到补卡（需要允许补卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("allow_remedy_type_late")
     private Boolean allowRemedyTypeLate;
-    /**
-     * 允许早退补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 允许早退补卡（需要允许补卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("allow_remedy_type_early")
     private Boolean allowRemedyTypeEarly;
-    /**
-     * 允许正常补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
+     /**
+      * 允许正常补卡（需要允许补卡才能设置生效）
+      * <p> 示例值：true
+      */
     @SerializedName("allow_remedy_type_normal")
     private Boolean allowRemedyTypeNormal;
-    /**
-     * 是否展示累计时长
-     * <p> 示例值：true
-     */
+     /**
+      * 是否展示累计时长
+      * <p> 示例值：true
+      */
     @SerializedName("show_cumulative_time")
     private Boolean showCumulativeTime;
-    /**
-     * 是否展示加班时长
-     * <p> 示例值：true
-     */
+     /**
+      * 是否展示加班时长
+      * <p> 示例值：true
+      */
     @SerializedName("show_over_time")
     private Boolean showOverTime;
-    /**
-     * 是否隐藏员工打卡详情
-     * <p> 示例值：true
-     */
+     /**
+      * 是否隐藏员工打卡详情
+      * <p> 示例值：true
+      */
     @SerializedName("hide_staff_punch_time")
     private Boolean hideStaffPunchTime;
-    /**
-     * 是否隐藏打卡规则
-     * <p> 示例值：false
-     */
+     /**
+      * 是否隐藏打卡规则
+      * <p> 示例值：false
+      */
     @SerializedName("hide_clock_in_rule")
     private Boolean hideClockInRule;
-    /**
-     * 是否开启人脸打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否开启人脸打卡
+      * <p> 示例值：true
+      */
     @SerializedName("face_punch")
     private Boolean facePunch;
-    /**
-     * 人脸打卡规则， 1：每次打卡均需人脸识别 2：疑似需要
-     * <p> 示例值：1
-     */
+     /**
+      * 人脸打卡规则， 1：每次打卡均需人脸识别 2：疑似需要
+      * <p> 示例值：1
+      */
     @SerializedName("face_punch_cfg")
     private Integer facePunchCfg;
-    /**
-     * 人脸打卡规则， false：开启活体验证 true：0动作验证，仅在 face_punch_cfg = 1 时有效
-     * <p> 示例值：false
-     */
+     /**
+      * 人脸打卡规则， false：开启活体验证 true：0动作验证，仅在 face_punch_cfg = 1 时有效
+      * <p> 示例值：false
+      */
     @SerializedName("face_live_need_action")
     private Boolean faceLiveNeedAction;
-    /**
-     * 脸识别失败时允许普通拍照打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 脸识别失败时允许普通拍照打卡
+      * <p> 示例值：true
+      */
     @SerializedName("face_downgrade")
     private Boolean faceDowngrade;
-    /**
-     * 是否允许替换基准图片
-     * <p> 示例值：true
-     */
+     /**
+      * 是否允许替换基准图片
+      * <p> 示例值：true
+      */
     @SerializedName("replace_basic_pic")
     private Boolean replaceBasicPic;
-    /**
-     * 防作弊打卡配置
-     * <p> 示例值：
-     */
+     /**
+      * 防作弊打卡配置
+      * <p> 示例值：
+      */
     @SerializedName("anti_cheat_punch_config")
     private AntiCheatConfig antiCheatPunchConfig;
-    /**
-     * 考勤机信息
-     * <p> 示例值：
-     */
+     /**
+      * 考勤机信息
+      * <p> 示例值：
+      */
     @SerializedName("machines")
     private Machine[] machines;
-    /**
-     * GPS打卡的地址范围
-     * <p> 示例值：300
-     */
+     /**
+      * GPS打卡的地址范围
+      * <p> 示例值：300
+      */
     @SerializedName("gps_range")
     private Integer gpsRange;
-    /**
-     * GPS打卡的地址信息
-     * <p> 示例值：
-     */
+     /**
+      * GPS打卡的地址信息
+      * <p> 示例值：
+      */
     @SerializedName("locations")
     private Location[] locations;
-    /**
-     * 考勤类型 0：固定考勤  2：排班考勤， 3：自由班次
-     * <p> 示例值：0
-     */
+     /**
+      * 考勤类型 0：固定考勤  2：排班考勤， 3：自由班次
+      * <p> 示例值：0
+      */
     @SerializedName("group_type")
     private Integer groupType;
-    /**
-     * 固定班次必需填
-     * <p> 示例值：
-     */
+     /**
+      * 固定班次必需填
+      * <p> 示例值：
+      */
     @SerializedName("punch_day_shift_ids")
     private String[] punchDayShiftIds;
-    /**
-     * <p> 示例值：
-     */
+     /**
+      * 
+      * <p> 示例值：
+      */
     @SerializedName("free_punch_cfg")
     private FreePunchCfg freePunchCfg;
-    /**
-     * 国家日历 id，（0：不根据国家日历休息, 1：中国，2：美国，3：日本，4：印度，5：新加坡），默认 1
-     * <p> 示例值：1
-     */
+     /**
+      * 国家日历 id，（0：不根据国家日历休息, 1：中国，2：美国，3：日本，4：印度，5：新加坡），默认 1
+      * <p> 示例值：1
+      */
     @SerializedName("calendar_id")
     private Integer calendarId;
-    /**
-     * 强制需要打卡的日期
-     * <p> 示例值：
-     */
+     /**
+      * 强制需要打卡的日期
+      * <p> 示例值：
+      */
     @SerializedName("need_punch_special_days")
     private PunchSpecialDateShift[] needPunchSpecialDays;
-    /**
-     * 强制不需要打卡的日期
-     * <p> 示例值：
-     */
+     /**
+      * 强制不需要打卡的日期
+      * <p> 示例值：
+      */
     @SerializedName("no_need_punch_special_days")
     private PunchSpecialDateShift[] noNeedPunchSpecialDays;
-    /**
-     * 自由班次下工作日不打卡是否记为缺卡
-     * <p> 示例值：false
-     */
+     /**
+      * 自由班次下工作日不打卡是否记为缺卡
+      * <p> 示例值：false
+      */
     @SerializedName("work_day_no_punch_as_lack")
     private Boolean workDayNoPunchAsLack;
-    /**
-     * 补卡周期类型
-     * <p> 示例值：0
-     */
+     /**
+      * 补卡周期类型
+      * <p> 示例值：0
+      */
     @SerializedName("remedy_period_type")
     private Integer remedyPeriodType;
-    /**
-     * 补卡自定义周期起始日期
-     * <p> 示例值：1
-     */
+     /**
+      * 补卡自定义周期起始日期
+      * <p> 示例值：1
+      */
     @SerializedName("remedy_period_custom_date")
     private Integer remedyPeriodCustomDate;
-    /**
-     * 打卡类型，位运算。1:GPS打卡；2:wifi打卡；4:考勤机打卡；8:IP打卡
-     * <p> 示例值：1
-     */
+     /**
+      * 打卡类型，位运算。1:GPS打卡；2:wifi打卡；4:考勤机打卡；8:IP打卡
+      * <p> 示例值：1
+      */
     @SerializedName("punch_type")
     private Integer punchType;
-    /**
-     * 生效时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     */
+     /**
+      * 生效时间，精确到秒的时间戳
+      * <p> 示例值：1611476284
+      */
     @SerializedName("effect_time")
     private String effectTime;
-    /**
-     * 固定班次生效时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     */
+     /**
+      * 固定班次生效时间，精确到秒的时间戳
+      * <p> 示例值：1611476284
+      */
     @SerializedName("fixshift_effect_time")
     private String fixshiftEffectTime;
-    /**
-     * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     */
+     /**
+      * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
+      * <p> 示例值：1611476284
+      */
     @SerializedName("member_effect_time")
     private String memberEffectTime;
-    /**
-     * 休息日打卡需审批
-     * <p> 示例值：true
-     */
+     /**
+      * 休息日打卡需审批
+      * <p> 示例值：true
+      */
     @SerializedName("rest_clockIn_need_approval")
     private Boolean restClockInNeedApproval;
-    /**
-     * 每次打卡均需拍照
-     * <p> 示例值：true
-     */
+     /**
+      * 每次打卡均需拍照
+      * <p> 示例值：true
+      */
     @SerializedName("clockIn_need_photo")
     private Boolean clockInNeedPhoto;
-    /**
-     * 人员异动打卡设置
-     * <p> 示例值：
-     */
+     /**
+      * 人员异动打卡设置
+      * <p> 示例值：
+      */
     @SerializedName("member_status_change")
     private MemberStatusChange memberStatusChange;
-    /**
-     * 请假离岗或返岗是否需打卡
-     * <p> 示例值：false
-     */
+     /**
+      * 请假离岗或返岗是否需打卡
+      * <p> 示例值：false
+      */
     @SerializedName("leave_need_punch")
     private Boolean leaveNeedPunch;
-    /**
-     * 请假离岗或返岗打卡规则
-     * <p> 示例值：
-     */
+     /**
+      * 请假离岗或返岗打卡规则
+      * <p> 示例值：
+      */
     @SerializedName("leave_need_punch_cfg")
     private LeaveNeedPunchCfg leaveNeedPunchCfg;
-    /**
-     * 外出期间是否需打卡
-     * <p> 示例值：0
-     */
+     /**
+      * 外出期间是否需打卡
+      * <p> 示例值：0
+      */
     @SerializedName("go_out_need_punch")
     private Integer goOutNeedPunch;
-    /**
-     * 外出期间打卡规则
-     * <p> 示例值：
-     */
+     /**
+      * 外出期间打卡规则
+      * <p> 示例值：
+      */
     @SerializedName("go_out_need_punch_cfg")
     private LeaveNeedPunchCfg goOutNeedPunchCfg;
-    /**
-     * 出差期间是否需打卡
-     * <p> 示例值：0
-     */
+     /**
+      * 出差期间是否需打卡
+      * <p> 示例值：0
+      */
     @SerializedName("travel_need_punch")
     private Integer travelNeedPunch;
-    /**
-     * 出差期间打卡规则
-     * <p> 示例值：
-     */
+     /**
+      * 出差期间打卡规则
+      * <p> 示例值：
+      */
     @SerializedName("travel_need_punch_cfg")
     private LeaveNeedPunchCfg travelNeedPunchCfg;
-    /**
-     * 需要打卡的人员配置（新）
-     * <p> 示例值：
-     */
+     /**
+      * 需要打卡的人员配置（新）
+      * <p> 示例值：
+      */
     @SerializedName("need_punch_members")
     private PunchMember[] needPunchMembers;
-    /**
-     * 无需打卡的人员配置（新）
-     * <p> 示例值：
-     */
+     /**
+      * 无需打卡的人员配置（新）
+      * <p> 示例值：
+      */
     @SerializedName("no_need_punch_members")
     private PunchMember[] noNeedPunchMembers;
-    /**
-     * 是否直接保存可以自动变更的冲突规则
-     * <p> 示例值：false
-     */
+     /**
+      * 是否直接保存可以自动变更的冲突规则
+      * <p> 示例值：false
+      */
     @SerializedName("save_auto_changes")
     private Boolean saveAutoChanges;
-    /**
-     * 人员异动开关（人员组织架构变更后是否允许自动调整到该考勤组）
-     * <p> 示例值：false
-     */
+     /**
+      * 人员异动开关（人员组织架构变更后是否允许自动调整到该考勤组）
+      * <p> 示例值：false
+      */
     @SerializedName("org_change_auto_adjust")
     private Boolean orgChangeAutoAdjust;
-    /**
-     * 默认出勤的部门id列表
-     * <p> 示例值：
-     */
+     /**
+      * 默认出勤的部门id列表
+      * <p> 示例值：
+      */
     @SerializedName("bind_default_dept_ids")
     private String[] bindDefaultDeptIds;
-    /**
-     * 默认出勤的用户ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 默认出勤的用户ID列表
+      * <p> 示例值：
+      */
     @SerializedName("bind_default_user_ids")
     private String[] bindDefaultUserIds;
-    /**
-     * 加班打卡规则
-     * <p> 示例值：
-     */
+     /**
+      * 加班打卡规则
+      * <p> 示例值：
+      */
     @SerializedName("overtime_clock_cfg")
     private OvertimeClockCfg overtimeClockCfg;
-    /**
-     * 节假日id，（如果考勤组使用了自定义节假日，请用此参数传入节假日id）
-     * <p> 示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252
-     */
+     /**
+      * 节假日id，（如果考勤组使用了自定义节假日，请用此参数传入节假日id）
+      * <p> 示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252
+      */
     @SerializedName("new_calendar_id")
     private String newCalendarId;
-    /**
-     * 定位不准时是否允许申请打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 定位不准时是否允许申请打卡
+      * <p> 示例值：true
+      */
     @SerializedName("allow_apply_punch")
     private Boolean allowApplyPunch;
-    /**
-     * 异常卡豁免配置
-     * <p> 示例值：
-     */
+     /**
+      * 异常卡豁免配置
+      * <p> 示例值：
+      */
     @SerializedName("clock_in_abnormal_settings")
     private ClockInAbnormalSettings clockInAbnormalSettings;
-
     public String getGroupId() {
         return this.groupId;
     }

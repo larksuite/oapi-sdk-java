@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class TasklistsTaskReq {
-    /**
-     * 要获取清单列表的任务的全局唯一ID
-     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-     */
+     /**
+      * 要获取清单列表的任务的全局唯一ID
+      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+      */
     @Path
     @SerializedName("task_guid")
     private String taskGuid;
-
-    // builder 开始
-    public TasklistsTaskReq() {
-    }
-
-    public TasklistsTaskReq(Builder builder) {
-        /**
-         * 要获取清单列表的任务的全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
-        this.taskGuid = builder.taskGuid;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTaskGuid() {
         return this.taskGuid;
     }
@@ -60,25 +39,39 @@ public class TasklistsTaskReq {
         this.taskGuid = taskGuid;
     }
 
+
+// builder 开始
+  public TasklistsTaskReq(){}
+
+  public TasklistsTaskReq(Builder builder){
+     /**
+      * 要获取清单列表的任务的全局唯一ID
+      * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+      */
+       this.taskGuid = builder.taskGuid;
+  }
+
     public static class Builder {
-
+    
         private String taskGuid; // 要获取清单列表的任务的全局唯一ID
-
         /**
          * 要获取清单列表的任务的全局唯一ID
          * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         *
          * @param taskGuid
          * @return
          */
-        public Builder taskGuid(String taskGuid) {
-            this.taskGuid = taskGuid;
-            return this;
-        }
+          public Builder taskGuid(String taskGuid) {
+               this.taskGuid = taskGuid;
+               return this;
+          }
 
+    
+    public TasklistsTaskReq build(){
+        return new TasklistsTaskReq(this);
+      }
+    }
 
-        public TasklistsTaskReq build() {
-            return new TasklistsTaskReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

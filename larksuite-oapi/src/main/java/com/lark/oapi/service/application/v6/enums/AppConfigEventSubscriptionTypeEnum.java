@@ -17,15 +17,14 @@ package com.lark.oapi.service.application.v6.enums;
  * 订阅方式
  */
 public enum AppConfigEventSubscriptionTypeEnum {
-    WEBHOOK("webhook"), // 将事件发送至开发者服务器
-    ;
-    private String value;
-
+     WEBHOOK("webhook"), // 将事件发送至开发者服务器
+  ;
+   private String value;
     AppConfigEventSubscriptionTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

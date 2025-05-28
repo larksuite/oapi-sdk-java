@@ -12,48 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateExternalOfferReq {
-    /**
-     * 外部Offer ID
-     * <p> 示例值：6960663240925956660
-     */
+     /**
+      * 外部Offer ID
+      * <p> 示例值：6960663240925956660
+      */
     @Path
     @SerializedName("external_offer_id")
     private String externalOfferId;
-    @Body
-    private ExternalOffer body;
-
-    // builder 开始
-    public UpdateExternalOfferReq() {
-    }
-
-    public UpdateExternalOfferReq(Builder builder) {
-        /**
-         * 外部Offer ID
-         * <p> 示例值：6960663240925956660
-         */
-        this.externalOfferId = builder.externalOfferId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getExternalOfferId() {
         return this.externalOfferId;
     }
@@ -61,6 +37,9 @@ public class UpdateExternalOfferReq {
     public void setExternalOfferId(String externalOfferId) {
         this.externalOfferId = externalOfferId;
     }
+
+    @Body
+    private ExternalOffer body;
 
     public ExternalOffer getExternalOffer() {
         return this.body;
@@ -70,40 +49,54 @@ public class UpdateExternalOfferReq {
         this.body = body;
     }
 
+// builder 开始
+  public UpdateExternalOfferReq(){}
+
+  public UpdateExternalOfferReq(Builder builder){
+     /**
+      * 外部Offer ID
+      * <p> 示例值：6960663240925956660
+      */
+       this.externalOfferId = builder.externalOfferId;
+        this.body = builder.body;
+  }
+
     public static class Builder {
-
+    
         private String externalOfferId; // 外部Offer ID
-        private ExternalOffer body;
-
         /**
          * 外部Offer ID
          * <p> 示例值：6960663240925956660
-         *
          * @param externalOfferId
          * @return
          */
-        public Builder externalOfferId(String externalOfferId) {
-            this.externalOfferId = externalOfferId;
-            return this;
-        }
+          public Builder externalOfferId(String externalOfferId) {
+               this.externalOfferId = externalOfferId;
+               return this;
+          }
 
+    
+        private ExternalOffer body;
+    
         public ExternalOffer getExternalOffer() {
             return this.body;
         }
 
         /**
          * body
-         *
          * @param body
          * @return
          */
         public Builder externalOffer(ExternalOffer body) {
-            this.body = body;
-            return this;
+             this.body = body;
+             return this;
         }
+    public UpdateExternalOfferReq build(){
+        return new UpdateExternalOfferReq(this);
+      }
+    }
 
-        public UpdateExternalOfferReq build() {
-            return new UpdateExternalOfferReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

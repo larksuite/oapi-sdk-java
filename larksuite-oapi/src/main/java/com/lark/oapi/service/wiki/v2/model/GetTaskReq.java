@@ -12,58 +12,25 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetTaskReq {
-    /**
-     * 任务类型
-     * <p> 示例值：move
-     */
+     /**
+      * 任务类型
+      * <p> 示例值：move
+      */
     @Query
     @SerializedName("task_type")
     private String taskType;
-    /**
-     * 任务id
-     * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-     */
-    @Path
-    @SerializedName("task_id")
-    private String taskId;
-
-    // builder 开始
-    public GetTaskReq() {
-    }
-
-    public GetTaskReq(Builder builder) {
-        /**
-         * 任务类型
-         * <p> 示例值：move
-         */
-        this.taskType = builder.taskType;
-        /**
-         * 任务id
-         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-         */
-        this.taskId = builder.taskId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getTaskType() {
         return this.taskType;
     }
@@ -72,6 +39,13 @@ public class GetTaskReq {
         this.taskType = taskType;
     }
 
+     /**
+      * 任务id
+      * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+      */
+    @Path
+    @SerializedName("task_id")
+    private String taskId;
     public String getTaskId() {
         return this.taskId;
     }
@@ -80,49 +54,68 @@ public class GetTaskReq {
         this.taskId = taskId;
     }
 
+
+// builder 开始
+  public GetTaskReq(){}
+
+  public GetTaskReq(Builder builder){
+         /**
+          * 任务类型
+          * <p> 示例值：move
+          */
+       this.taskType = builder.taskType;
+     /**
+      * 任务id
+      * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+      */
+       this.taskId = builder.taskId;
+  }
+
     public static class Builder {
         private String taskType; // 任务类型
-        private String taskId; // 任务id
-
+    
         /**
          * 任务类型
          * <p> 示例值：move
-         *
          * @param taskType
          * @return
          */
-        public Builder taskType(String taskType) {
-            this.taskType = taskType;
-            return this;
-        }
+           public Builder taskType(String taskType) {
+                this.taskType = taskType;
+                return this;
+           }
 
         /**
          * 任务类型
          * <p> 示例值：move
-         *
          * @param taskType {@link com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum}
          * @return
          */
-        public Builder taskType(com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum taskType) {
-            this.taskType = taskType.getValue();
-            return this;
-        }
+          public Builder taskType(com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum taskType) {
+               this.taskType = taskType.getValue();
+               return this;
+          }
 
+    
+        private String taskId; // 任务id
         /**
          * 任务id
          * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-         *
          * @param taskId
          * @return
          */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
 
+    
+    public GetTaskReq build(){
+        return new GetTaskReq(this);
+      }
+    }
 
-        public GetTaskReq build() {
-            return new GetTaskReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

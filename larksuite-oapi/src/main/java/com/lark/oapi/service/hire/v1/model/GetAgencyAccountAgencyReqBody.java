@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetAgencyAccountAgencyReqBody {
-    /**
-     * 猎头供应商 ID
-     * <p> 示例值：7398623155442682156
-     */
+     /**
+      * 猎头供应商 ID
+      * <p> 示例值：7398623155442682156
+      */
     @SerializedName("supplier_id")
     private String supplierId;
-    /**
-     * 猎头状态
-     * <p> 示例值：1
-     */
+     /**
+      * 猎头状态
+      * <p> 示例值：1
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * 角色
-     * <p> 示例值：1
-     */
+     /**
+      * 角色
+      * <p> 示例值：1
+      */
     @SerializedName("role")
     private Integer role;
-
-    // builder 开始
-    public GetAgencyAccountAgencyReqBody() {
-    }
-
-    public GetAgencyAccountAgencyReqBody(Builder builder) {
-        /**
-         * 猎头供应商 ID
-         * <p> 示例值：7398623155442682156
-         */
-        this.supplierId = builder.supplierId;
-        /**
-         * 猎头状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 角色
-         * <p> 示例值：1
-         */
-        this.role = builder.role;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSupplierId() {
         return this.supplierId;
     }
@@ -97,64 +66,90 @@ public class GetAgencyAccountAgencyReqBody {
         this.role = role;
     }
 
+
+// builder 开始
+  public GetAgencyAccountAgencyReqBody(){}
+
+  public GetAgencyAccountAgencyReqBody(Builder builder){
+         /**
+          * 猎头供应商 ID
+          * <p> 示例值：7398623155442682156
+          */
+      this.supplierId = builder.supplierId;
+         /**
+          * 猎头状态
+          * <p> 示例值：1
+          */
+      this.status = builder.status;
+         /**
+          * 角色
+          * <p> 示例值：1
+          */
+      this.role = builder.role;
+  }
+
     public static class Builder {
-        /**
-         * 猎头供应商 ID
-         * <p> 示例值：7398623155442682156
-         */
+     /**
+      * 猎头供应商 ID
+      * <p> 示例值：7398623155442682156
+      */
         private String supplierId;
-        /**
-         * 猎头状态
-         * <p> 示例值：1
-         */
+     /**
+      * 猎头状态
+      * <p> 示例值：1
+      */
         private Integer status;
-        /**
-         * 角色
-         * <p> 示例值：1
-         */
+     /**
+      * 角色
+      * <p> 示例值：1
+      */
         private Integer role;
 
         /**
          * 猎头供应商 ID
          * <p> 示例值：7398623155442682156
-         *
          * @param supplierId
          * @return
          */
         public Builder supplierId(String supplierId) {
-            this.supplierId = supplierId;
-            return this;
+             this.supplierId = supplierId;
+             return this;
         }
 
+    
 
         /**
          * 猎头状态
          * <p> 示例值：1
-         *
          * @param status
          * @return
          */
         public Builder status(Integer status) {
-            this.status = status;
-            return this;
+             this.status = status;
+             return this;
         }
 
+    
 
         /**
          * 角色
          * <p> 示例值：1
-         *
          * @param role
          * @return
          */
         public Builder role(Integer role) {
-            this.role = role;
-            return this;
+             this.role = role;
+             return this;
         }
 
+    
+    
+    public GetAgencyAccountAgencyReqBody build(){
+        return new GetAgencyAccountAgencyReqBody(this);
+      }
+    }
 
-        public GetAgencyAccountAgencyReqBody build() {
-            return new GetAgencyAccountAgencyReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

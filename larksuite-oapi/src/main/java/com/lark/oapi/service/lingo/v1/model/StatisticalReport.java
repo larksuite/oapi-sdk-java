@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class StatisticalReport {
-    /**
-     * 请求时间区间
-     * <p> 示例值：请求时间区间
-     */
+     /**
+      * 请求时间区间
+      * <p> 示例值：请求时间区间
+      */
     @SerializedName("date_interval")
     private Integer dateInterval;
-    /**
-     * 词汇量相关数据
-     * <p> 示例值：
-     */
+     /**
+      * 词汇量相关数据
+      * <p> 示例值：
+      */
     @SerializedName("word_info")
     private WordInfo wordInfo;
-    /**
-     * 纠错相关数据
-     * <p> 示例值：
-     */
+     /**
+      * 纠错相关数据
+      * <p> 示例值：
+      */
     @SerializedName("correct_info")
     private CorrectInfo correctInfo;
-    /**
-     * 天维度的时间戳，用于确认数据最近一次更新时间
-     * <p> 示例值：“20221101”
-     */
+     /**
+      * 天维度的时间戳，用于确认数据最近一次更新时间
+      * <p> 示例值：“20221101”
+      */
     @SerializedName("update_date")
     private String updateDate;
-
-    // builder 开始
-    public StatisticalReport() {
-    }
-
-    public StatisticalReport(Builder builder) {
-        /**
-         * 请求时间区间
-         * <p> 示例值：请求时间区间
-         */
-        this.dateInterval = builder.dateInterval;
-        /**
-         * 词汇量相关数据
-         * <p> 示例值：
-         */
-        this.wordInfo = builder.wordInfo;
-        /**
-         * 纠错相关数据
-         * <p> 示例值：
-         */
-        this.correctInfo = builder.correctInfo;
-        /**
-         * 天维度的时间戳，用于确认数据最近一次更新时间
-         * <p> 示例值：“20221101”
-         */
-        this.updateDate = builder.updateDate;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getDateInterval() {
         return this.dateInterval;
     }
@@ -117,94 +81,123 @@ public class StatisticalReport {
         this.updateDate = updateDate;
     }
 
+
+// builder 开始
+  public StatisticalReport(){}
+
+  public StatisticalReport(Builder builder){
+         /**
+          * 请求时间区间
+          * <p> 示例值：请求时间区间
+          */
+      this.dateInterval = builder.dateInterval;
+         /**
+          * 词汇量相关数据
+          * <p> 示例值：
+          */
+      this.wordInfo = builder.wordInfo;
+         /**
+          * 纠错相关数据
+          * <p> 示例值：
+          */
+      this.correctInfo = builder.correctInfo;
+         /**
+          * 天维度的时间戳，用于确认数据最近一次更新时间
+          * <p> 示例值：“20221101”
+          */
+      this.updateDate = builder.updateDate;
+  }
+
     public static class Builder {
-        /**
-         * 请求时间区间
-         * <p> 示例值：请求时间区间
-         */
+     /**
+      * 请求时间区间
+      * <p> 示例值：请求时间区间
+      */
         private Integer dateInterval;
-        /**
-         * 词汇量相关数据
-         * <p> 示例值：
-         */
+     /**
+      * 词汇量相关数据
+      * <p> 示例值：
+      */
         private WordInfo wordInfo;
-        /**
-         * 纠错相关数据
-         * <p> 示例值：
-         */
+     /**
+      * 纠错相关数据
+      * <p> 示例值：
+      */
         private CorrectInfo correctInfo;
-        /**
-         * 天维度的时间戳，用于确认数据最近一次更新时间
-         * <p> 示例值：“20221101”
-         */
+     /**
+      * 天维度的时间戳，用于确认数据最近一次更新时间
+      * <p> 示例值：“20221101”
+      */
         private String updateDate;
 
         /**
          * 请求时间区间
          * <p> 示例值：请求时间区间
-         *
          * @param dateInterval
          * @return
          */
         public Builder dateInterval(Integer dateInterval) {
-            this.dateInterval = dateInterval;
-            return this;
+             this.dateInterval = dateInterval;
+             return this;
         }
-
         /**
          * 请求时间区间
          * <p> 示例值：请求时间区间
-         *
          * @param dateInterval {@link com.lark.oapi.service.lingo.v1.enums.StatisticalReportDateIntervalEnum}
          * @return
          */
         public Builder dateInterval(com.lark.oapi.service.lingo.v1.enums.StatisticalReportDateIntervalEnum dateInterval) {
-            this.dateInterval = dateInterval.getValue();
-            return this;
+             this.dateInterval = dateInterval.getValue();
+             return this;
         }
 
+    
 
         /**
          * 词汇量相关数据
          * <p> 示例值：
-         *
          * @param wordInfo
          * @return
          */
         public Builder wordInfo(WordInfo wordInfo) {
-            this.wordInfo = wordInfo;
-            return this;
+             this.wordInfo = wordInfo;
+             return this;
         }
 
+    
 
         /**
          * 纠错相关数据
          * <p> 示例值：
-         *
          * @param correctInfo
          * @return
          */
         public Builder correctInfo(CorrectInfo correctInfo) {
-            this.correctInfo = correctInfo;
-            return this;
+             this.correctInfo = correctInfo;
+             return this;
         }
 
+    
 
         /**
          * 天维度的时间戳，用于确认数据最近一次更新时间
          * <p> 示例值：“20221101”
-         *
          * @param updateDate
          * @return
          */
         public Builder updateDate(String updateDate) {
-            this.updateDate = updateDate;
-            return this;
+             this.updateDate = updateDate;
+             return this;
         }
 
+    
+    
+    public StatisticalReport build(){
+        return new StatisticalReport(this);
+      }
+    }
 
-        public StatisticalReport build() {
-            return new StatisticalReport(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

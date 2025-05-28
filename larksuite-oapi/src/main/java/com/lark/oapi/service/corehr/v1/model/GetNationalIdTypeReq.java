@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetNationalIdTypeReq {
-    /**
-     * 证件类型 ID
-     * <p> 示例值：121515
-     */
+     /**
+      * 证件类型 ID
+      * <p> 示例值：121515
+      */
     @Path
     @SerializedName("national_id_type_id")
     private String nationalIdTypeId;
-
-    // builder 开始
-    public GetNationalIdTypeReq() {
-    }
-
-    public GetNationalIdTypeReq(Builder builder) {
-        /**
-         * 证件类型 ID
-         * <p> 示例值：121515
-         */
-        this.nationalIdTypeId = builder.nationalIdTypeId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getNationalIdTypeId() {
         return this.nationalIdTypeId;
     }
@@ -60,25 +39,39 @@ public class GetNationalIdTypeReq {
         this.nationalIdTypeId = nationalIdTypeId;
     }
 
+
+// builder 开始
+  public GetNationalIdTypeReq(){}
+
+  public GetNationalIdTypeReq(Builder builder){
+     /**
+      * 证件类型 ID
+      * <p> 示例值：121515
+      */
+       this.nationalIdTypeId = builder.nationalIdTypeId;
+  }
+
     public static class Builder {
-
+    
         private String nationalIdTypeId; // 证件类型 ID
-
         /**
          * 证件类型 ID
          * <p> 示例值：121515
-         *
          * @param nationalIdTypeId
          * @return
          */
-        public Builder nationalIdTypeId(String nationalIdTypeId) {
-            this.nationalIdTypeId = nationalIdTypeId;
-            return this;
-        }
+          public Builder nationalIdTypeId(String nationalIdTypeId) {
+               this.nationalIdTypeId = nationalIdTypeId;
+               return this;
+          }
 
+    
+    public GetNationalIdTypeReq build(){
+        return new GetNationalIdTypeReq(this);
+      }
+    }
 
-        public GetNationalIdTypeReq build() {
-            return new GetNationalIdTypeReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

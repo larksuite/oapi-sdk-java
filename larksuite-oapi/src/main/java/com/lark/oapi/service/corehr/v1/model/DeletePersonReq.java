@@ -12,46 +12,25 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeletePersonReq {
-    /**
-     * 需要删除的Person ID
-     * <p> 示例值：654637829201
-     */
+     /**
+      * 需要删除的Person ID
+      * <p> 示例值：654637829201
+      */
     @Path
     @SerializedName("person_id")
     private String personId;
-
-    // builder 开始
-    public DeletePersonReq() {
-    }
-
-    public DeletePersonReq(Builder builder) {
-        /**
-         * 需要删除的Person ID
-         * <p> 示例值：654637829201
-         */
-        this.personId = builder.personId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPersonId() {
         return this.personId;
     }
@@ -60,25 +39,39 @@ public class DeletePersonReq {
         this.personId = personId;
     }
 
+
+// builder 开始
+  public DeletePersonReq(){}
+
+  public DeletePersonReq(Builder builder){
+     /**
+      * 需要删除的Person ID
+      * <p> 示例值：654637829201
+      */
+       this.personId = builder.personId;
+  }
+
     public static class Builder {
-
+    
         private String personId; // 需要删除的Person ID
-
         /**
          * 需要删除的Person ID
          * <p> 示例值：654637829201
-         *
          * @param personId
          * @return
          */
-        public Builder personId(String personId) {
-            this.personId = personId;
-            return this;
-        }
+          public Builder personId(String personId) {
+               this.personId = personId;
+               return this;
+          }
 
+    
+    public DeletePersonReq build(){
+        return new DeletePersonReq(this);
+      }
+    }
 
-        public DeletePersonReq build() {
-            return new DeletePersonReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

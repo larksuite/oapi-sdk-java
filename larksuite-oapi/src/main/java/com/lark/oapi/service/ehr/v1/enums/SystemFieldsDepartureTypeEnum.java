@@ -17,17 +17,16 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 离职类型
  */
 public enum SystemFieldsDepartureTypeEnum {
-    VOLUNTARY(1), // 主动
-    INVOLUNTARY(2), // 被动
-    OTHER(3), // 其他
-    ;
-    private Integer value;
-
+     VOLUNTARY(1), // 主动
+     INVOLUNTARY(2), // 被动
+     OTHER(3), // 其他
+  ;
+   private Integer value;
     SystemFieldsDepartureTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

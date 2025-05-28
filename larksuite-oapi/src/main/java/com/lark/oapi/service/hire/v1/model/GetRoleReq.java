@@ -12,45 +12,24 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetRoleReq {
-    /**
-     * 角色ID
-     * <p> 示例值：
-     */
+     /**
+      * 角色ID
+      * <p> 示例值：
+      */
     @Path
     @SerializedName("role_id")
     private String roleId;
-
-    // builder 开始
-    public GetRoleReq() {
-    }
-
-    public GetRoleReq(Builder builder) {
-        /**
-         * 角色ID
-         * <p> 示例值：
-         */
-        this.roleId = builder.roleId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getRoleId() {
         return this.roleId;
     }
@@ -59,25 +38,39 @@ public class GetRoleReq {
         this.roleId = roleId;
     }
 
+
+// builder 开始
+  public GetRoleReq(){}
+
+  public GetRoleReq(Builder builder){
+     /**
+      * 角色ID
+      * <p> 示例值：
+      */
+       this.roleId = builder.roleId;
+  }
+
     public static class Builder {
-
+    
         private String roleId; // 角色ID
-
         /**
          * 角色ID
          * <p> 示例值：
-         *
          * @param roleId
          * @return
          */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
+          public Builder roleId(String roleId) {
+               this.roleId = roleId;
+               return this;
+          }
 
+    
+    public GetRoleReq build(){
+        return new GetRoleReq(this);
+      }
+    }
 
-        public GetRoleReq build() {
-            return new GetRoleReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

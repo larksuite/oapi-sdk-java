@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class MyAiVcRoomScenarioContext {
-    /**
-     * 会话选择的插件列表
-     * <p> 示例值：
-     */
+     /**
+      * 会话选择的插件列表
+      * <p> 示例值：
+      */
     @SerializedName("plugins")
     private MyAiPluginContext[] plugins;
-    /**
-     * 透传数据
-     * <p> 示例值：
-     */
+     /**
+      * 透传数据
+      * <p> 示例值：
+      */
     @SerializedName("extra")
     private MyAiVcRoomExtra extra;
-
-    // builder 开始
-    public MyAiVcRoomScenarioContext() {
-    }
-
-    public MyAiVcRoomScenarioContext(Builder builder) {
-        /**
-         * 会话选择的插件列表
-         * <p> 示例值：
-         */
-        this.plugins = builder.plugins;
-        /**
-         * 透传数据
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public MyAiPluginContext[] getPlugins() {
         return this.plugins;
     }
@@ -79,46 +53,67 @@ public class MyAiVcRoomScenarioContext {
         this.extra = extra;
     }
 
+
+// builder 开始
+  public MyAiVcRoomScenarioContext(){}
+
+  public MyAiVcRoomScenarioContext(Builder builder){
+         /**
+          * 会话选择的插件列表
+          * <p> 示例值：
+          */
+      this.plugins = builder.plugins;
+         /**
+          * 透传数据
+          * <p> 示例值：
+          */
+      this.extra = builder.extra;
+  }
+
     public static class Builder {
-        /**
-         * 会话选择的插件列表
-         * <p> 示例值：
-         */
+     /**
+      * 会话选择的插件列表
+      * <p> 示例值：
+      */
         private MyAiPluginContext[] plugins;
-        /**
-         * 透传数据
-         * <p> 示例值：
-         */
+     /**
+      * 透传数据
+      * <p> 示例值：
+      */
         private MyAiVcRoomExtra extra;
 
         /**
          * 会话选择的插件列表
          * <p> 示例值：
-         *
          * @param plugins
          * @return
          */
         public Builder plugins(MyAiPluginContext[] plugins) {
-            this.plugins = plugins;
-            return this;
+             this.plugins = plugins;
+             return this;
         }
 
+    
 
         /**
          * 透传数据
          * <p> 示例值：
-         *
          * @param extra
          * @return
          */
         public Builder extra(MyAiVcRoomExtra extra) {
-            this.extra = extra;
-            return this;
+             this.extra = extra;
+             return this;
         }
 
+    
+    
+    public MyAiVcRoomScenarioContext build(){
+        return new MyAiVcRoomScenarioContext(this);
+      }
+    }
 
-        public MyAiVcRoomScenarioContext build() {
-            return new MyAiVcRoomScenarioContext(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

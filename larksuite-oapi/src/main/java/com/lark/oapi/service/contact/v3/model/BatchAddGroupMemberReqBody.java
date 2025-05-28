@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchAddGroupMemberReqBody {
-    /**
-     * 待添加成员
-     * <p> 示例值：
-     */
+     /**
+      * 待添加成员
+      * <p> 示例值：
+      */
     @SerializedName("members")
     private Memberlist[] members;
-
-    // builder 开始
-    public BatchAddGroupMemberReqBody() {
-    }
-
-    public BatchAddGroupMemberReqBody(Builder builder) {
-        /**
-         * 待添加成员
-         * <p> 示例值：
-         */
-        this.members = builder.members;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Memberlist[] getMembers() {
         return this.members;
     }
@@ -60,28 +39,44 @@ public class BatchAddGroupMemberReqBody {
         this.members = members;
     }
 
+
+// builder 开始
+  public BatchAddGroupMemberReqBody(){}
+
+  public BatchAddGroupMemberReqBody(Builder builder){
+         /**
+          * 待添加成员
+          * <p> 示例值：
+          */
+      this.members = builder.members;
+  }
+
     public static class Builder {
-        /**
-         * 待添加成员
-         * <p> 示例值：
-         */
+     /**
+      * 待添加成员
+      * <p> 示例值：
+      */
         private Memberlist[] members;
 
         /**
          * 待添加成员
          * <p> 示例值：
-         *
          * @param members
          * @return
          */
         public Builder members(Memberlist[] members) {
-            this.members = members;
-            return this;
+             this.members = members;
+             return this;
         }
 
+    
+    
+    public BatchAddGroupMemberReqBody build(){
+        return new BatchAddGroupMemberReqBody(this);
+      }
+    }
 
-        public BatchAddGroupMemberReqBody build() {
-            return new BatchAddGroupMemberReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

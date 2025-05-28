@@ -12,100 +12,54 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ObjectAttribute {
-    /**
-     * 字段名称
-     * <p> 示例值：
-     */
+     /**
+      * 字段名称
+      * <p> 示例值：
+      */
     @SerializedName("title")
     private I18n title;
-    /**
-     * 字段描述
-     * <p> 示例值：
-     */
+     /**
+      * 字段描述
+      * <p> 示例值：
+      */
     @SerializedName("description")
     private I18n description;
-    /**
-     * 字段类型
-     * <p> 示例值：1
-     */
+     /**
+      * 字段类型
+      * <p> 示例值：1
+      */
     @SerializedName("data_type")
     private Integer dataType;
-    /**
-     * 字段标签
-     * <p> 示例值：1
-     */
+     /**
+      * 字段标签
+      * <p> 示例值：1
+      */
     @SerializedName("tags")
     private Integer[] tags;
-    /**
-     * 是否为居民数据
-     * <p> 示例值：true
-     */
+     /**
+      * 是否为居民数据
+      * <p> 示例值：true
+      */
     @SerializedName("is_fcf_data")
     private Boolean isFcfData;
-    /**
-     * 是否为多元化数据
-     * <p> 示例值：true
-     */
+     /**
+      * 是否为多元化数据
+      * <p> 示例值：true
+      */
     @SerializedName("is_di_data")
     private Boolean isDiData;
-
-    // builder 开始
-    public ObjectAttribute() {
-    }
-
-    public ObjectAttribute(Builder builder) {
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        this.title = builder.title;
-        /**
-         * 字段描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.dataType = builder.dataType;
-        /**
-         * 字段标签
-         * <p> 示例值：1
-         */
-        this.tags = builder.tags;
-        /**
-         * 是否为居民数据
-         * <p> 示例值：true
-         */
-        this.isFcfData = builder.isFcfData;
-        /**
-         * 是否为多元化数据
-         * <p> 示例值：true
-         */
-        this.isDiData = builder.isDiData;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public I18n getTitle() {
         return this.title;
     }
@@ -154,118 +108,159 @@ public class ObjectAttribute {
         this.isDiData = isDiData;
     }
 
+
+// builder 开始
+  public ObjectAttribute(){}
+
+  public ObjectAttribute(Builder builder){
+         /**
+          * 字段名称
+          * <p> 示例值：
+          */
+      this.title = builder.title;
+         /**
+          * 字段描述
+          * <p> 示例值：
+          */
+      this.description = builder.description;
+         /**
+          * 字段类型
+          * <p> 示例值：1
+          */
+      this.dataType = builder.dataType;
+         /**
+          * 字段标签
+          * <p> 示例值：1
+          */
+      this.tags = builder.tags;
+         /**
+          * 是否为居民数据
+          * <p> 示例值：true
+          */
+      this.isFcfData = builder.isFcfData;
+         /**
+          * 是否为多元化数据
+          * <p> 示例值：true
+          */
+      this.isDiData = builder.isDiData;
+  }
+
     public static class Builder {
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
+     /**
+      * 字段名称
+      * <p> 示例值：
+      */
         private I18n title;
-        /**
-         * 字段描述
-         * <p> 示例值：
-         */
+     /**
+      * 字段描述
+      * <p> 示例值：
+      */
         private I18n description;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
+     /**
+      * 字段类型
+      * <p> 示例值：1
+      */
         private Integer dataType;
-        /**
-         * 字段标签
-         * <p> 示例值：1
-         */
+     /**
+      * 字段标签
+      * <p> 示例值：1
+      */
         private Integer[] tags;
-        /**
-         * 是否为居民数据
-         * <p> 示例值：true
-         */
+     /**
+      * 是否为居民数据
+      * <p> 示例值：true
+      */
         private Boolean isFcfData;
-        /**
-         * 是否为多元化数据
-         * <p> 示例值：true
-         */
+     /**
+      * 是否为多元化数据
+      * <p> 示例值：true
+      */
         private Boolean isDiData;
 
         /**
          * 字段名称
          * <p> 示例值：
-         *
          * @param title
          * @return
          */
         public Builder title(I18n title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
 
         /**
          * 字段描述
          * <p> 示例值：
-         *
          * @param description
          * @return
          */
         public Builder description(I18n description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 字段类型
          * <p> 示例值：1
-         *
          * @param dataType
          * @return
          */
         public Builder dataType(Integer dataType) {
-            this.dataType = dataType;
-            return this;
+             this.dataType = dataType;
+             return this;
         }
 
+    
 
         /**
          * 字段标签
          * <p> 示例值：1
-         *
          * @param tags
          * @return
          */
         public Builder tags(Integer[] tags) {
-            this.tags = tags;
-            return this;
+             this.tags = tags;
+             return this;
         }
 
+    
 
         /**
          * 是否为居民数据
          * <p> 示例值：true
-         *
          * @param isFcfData
          * @return
          */
         public Builder isFcfData(Boolean isFcfData) {
-            this.isFcfData = isFcfData;
-            return this;
+             this.isFcfData = isFcfData;
+             return this;
         }
 
+    
 
         /**
          * 是否为多元化数据
          * <p> 示例值：true
-         *
          * @param isDiData
          * @return
          */
         public Builder isDiData(Boolean isDiData) {
-            this.isDiData = isDiData;
-            return this;
+             this.isDiData = isDiData;
+             return this;
         }
 
+    
+    
+    public ObjectAttribute build(){
+        return new ObjectAttribute(this);
+      }
+    }
 
-        public ObjectAttribute build() {
-            return new ObjectAttribute(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

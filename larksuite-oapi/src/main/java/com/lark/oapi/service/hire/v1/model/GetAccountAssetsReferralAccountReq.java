@@ -12,57 +12,31 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class GetAccountAssetsReferralAccountReq {
-    /**
-     * 账户 ID
-     * <p> 示例值：6942778198054125570
-     */
+     /**
+      * 账户 ID
+      * <p> 示例值：6942778198054125570
+      */
     @Query
     @SerializedName("referral_account_id")
     private String referralAccountId;
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
+     /**
+      * 此次调用中使用的用户ID的类型
+      * <p> 示例值：
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-
-    // builder 开始
-    public GetAccountAssetsReferralAccountReq() {
-    }
-
-    public GetAccountAssetsReferralAccountReq(Builder builder) {
-        /**
-         * 账户 ID
-         * <p> 示例值：6942778198054125570
-         */
-        this.referralAccountId = builder.referralAccountId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getReferralAccountId() {
         return this.referralAccountId;
     }
@@ -79,38 +53,57 @@ public class GetAccountAssetsReferralAccountReq {
         this.userIdType = userIdType;
     }
 
+
+// builder 开始
+  public GetAccountAssetsReferralAccountReq(){}
+
+  public GetAccountAssetsReferralAccountReq(Builder builder){
+         /**
+          * 账户 ID
+          * <p> 示例值：6942778198054125570
+          */
+       this.referralAccountId = builder.referralAccountId;
+         /**
+          * 此次调用中使用的用户ID的类型
+          * <p> 示例值：
+          */
+       this.userIdType = builder.userIdType;
+  }
+
     public static class Builder {
         private String referralAccountId; // 账户 ID
         private String userIdType; // 此次调用中使用的用户ID的类型
-
+    
         /**
          * 账户 ID
          * <p> 示例值：6942778198054125570
-         *
          * @param referralAccountId
          * @return
          */
-        public Builder referralAccountId(String referralAccountId) {
-            this.referralAccountId = referralAccountId;
-            return this;
-        }
+           public Builder referralAccountId(String referralAccountId) {
+                this.referralAccountId = referralAccountId;
+                return this;
+           }
 
-
+    
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
+    
+    public GetAccountAssetsReferralAccountReq build(){
+        return new GetAccountAssetsReferralAccountReq(this);
+      }
+    }
 
-        public GetAccountAssetsReferralAccountReq build() {
-            return new GetAccountAssetsReferralAccountReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

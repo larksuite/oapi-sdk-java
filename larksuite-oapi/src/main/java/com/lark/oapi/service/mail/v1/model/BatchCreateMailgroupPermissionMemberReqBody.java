@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchCreateMailgroupPermissionMemberReqBody {
-    /**
-     * 本次添加的邮件组权限成员列表
-     * <p> 示例值：
-     */
+     /**
+      * 本次添加的邮件组权限成员列表
+      * <p> 示例值：
+      */
     @SerializedName("items")
     private MailgroupPermissionMember[] items;
-
-    // builder 开始
-    public BatchCreateMailgroupPermissionMemberReqBody() {
-    }
-
-    public BatchCreateMailgroupPermissionMemberReqBody(Builder builder) {
-        /**
-         * 本次添加的邮件组权限成员列表
-         * <p> 示例值：
-         */
-        this.items = builder.items;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public MailgroupPermissionMember[] getItems() {
         return this.items;
     }
@@ -60,28 +39,44 @@ public class BatchCreateMailgroupPermissionMemberReqBody {
         this.items = items;
     }
 
+
+// builder 开始
+  public BatchCreateMailgroupPermissionMemberReqBody(){}
+
+  public BatchCreateMailgroupPermissionMemberReqBody(Builder builder){
+         /**
+          * 本次添加的邮件组权限成员列表
+          * <p> 示例值：
+          */
+      this.items = builder.items;
+  }
+
     public static class Builder {
-        /**
-         * 本次添加的邮件组权限成员列表
-         * <p> 示例值：
-         */
+     /**
+      * 本次添加的邮件组权限成员列表
+      * <p> 示例值：
+      */
         private MailgroupPermissionMember[] items;
 
         /**
          * 本次添加的邮件组权限成员列表
          * <p> 示例值：
-         *
          * @param items
          * @return
          */
         public Builder items(MailgroupPermissionMember[] items) {
-            this.items = items;
-            return this;
+             this.items = items;
+             return this;
         }
 
+    
+    
+    public BatchCreateMailgroupPermissionMemberReqBody build(){
+        return new BatchCreateMailgroupPermissionMemberReqBody(this);
+      }
+    }
 
-        public BatchCreateMailgroupPermissionMemberReqBody build() {
-            return new BatchCreateMailgroupPermissionMemberReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -17,61 +17,52 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.task.v2.resource.*;
 
 public class V2 {
-    private final Attachment attachment; // attachment
-    private final Comment comment; // comment
-    private final CustomField customField; // custom_field
-    private final CustomFieldOption customFieldOption; // custom_field.option
-    private final Section section; // section
-    private final Task task; // task
-    private final TaskSubtask taskSubtask; // task.subtask
-    private final Tasklist tasklist; // tasklist
-    private final TasklistActivitySubscription tasklistActivitySubscription; // tasklist.activity_subscription
+	private final Attachment attachment; // attachment
+	private final Comment comment; // comment
+	private final CustomField customField; // custom_field
+	private final CustomFieldOption customFieldOption; // custom_field.option
+	private final Section section; // section
+	private final Task task; // task
+	private final TaskSubtask taskSubtask; // task.subtask
+	private final Tasklist tasklist; // tasklist
+	private final TasklistActivitySubscription tasklistActivitySubscription; // tasklist.activity_subscription
 
-    public V2(Config config) {
-        this.attachment = new Attachment(config);
-        this.comment = new Comment(config);
-        this.customField = new CustomField(config);
-        this.customFieldOption = new CustomFieldOption(config);
-        this.section = new Section(config);
-        this.task = new Task(config);
-        this.taskSubtask = new TaskSubtask(config);
-        this.tasklist = new Tasklist(config);
-        this.tasklistActivitySubscription = new TasklistActivitySubscription(config);
-    }
-
-    public Attachment attachment() {
-        return attachment;
-    }
-
-    public Comment comment() {
-        return comment;
-    }
-
-    public CustomField customField() {
-        return customField;
-    }
-
-    public CustomFieldOption customFieldOption() {
-        return customFieldOption;
-    }
-
-    public Section section() {
-        return section;
-    }
-
-    public Task task() {
-        return task;
-    }
-
-    public TaskSubtask taskSubtask() {
-        return taskSubtask;
-    }
-
-    public Tasklist tasklist() {
-        return tasklist;
-    }
-
-    public TasklistActivitySubscription tasklistActivitySubscription() {
-        return tasklistActivitySubscription;
-    }
+	public V2(Config config) {
+		this.attachment = new Attachment(config);
+		this.comment = new Comment(config);
+		this.customField = new CustomField(config);
+		this.customFieldOption = new CustomFieldOption(config);
+		this.section = new Section(config);
+		this.task = new Task(config);
+		this.taskSubtask = new TaskSubtask(config);
+		this.tasklist = new Tasklist(config);
+		this.tasklistActivitySubscription = new TasklistActivitySubscription(config);
+	}
+	public Attachment attachment() {
+		return attachment;
+	}
+	public Comment comment() {
+		return comment;
+	}
+	public CustomField customField() {
+		return customField;
+	}
+	public CustomFieldOption customFieldOption() {
+		return customFieldOption;
+	}
+	public Section section() {
+		return section;
+	}
+	public Task task() {
+		return task;
+	}
+	public TaskSubtask taskSubtask() {
+		return taskSubtask;
+	}
+	public Tasklist tasklist() {
+		return tasklist;
+	}
+	public TasklistActivitySubscription tasklistActivitySubscription() {
+		return tasklistActivitySubscription;
+	}
 }

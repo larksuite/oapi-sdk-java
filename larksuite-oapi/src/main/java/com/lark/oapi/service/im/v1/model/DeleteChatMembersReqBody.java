@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DeleteChatMembersReqBody {
-    /**
-     * 成员列表;;**注意**：;- 成员列表不可为空;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应
-     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-     */
+     /**
+      * 成员列表;;**注意**：;- 成员列表不可为空;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应
+      * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+      */
     @SerializedName("id_list")
     private String[] idList;
-
-    // builder 开始
-    public DeleteChatMembersReqBody() {
-    }
-
-    public DeleteChatMembersReqBody(Builder builder) {
-        /**
-         * 成员列表;;**注意**：;- 成员列表不可为空;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应
-         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-         */
-        this.idList = builder.idList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getIdList() {
         return this.idList;
     }
@@ -60,28 +39,44 @@ public class DeleteChatMembersReqBody {
         this.idList = idList;
     }
 
+
+// builder 开始
+  public DeleteChatMembersReqBody(){}
+
+  public DeleteChatMembersReqBody(Builder builder){
+         /**
+          * 成员列表;;**注意**：;- 成员列表不可为空;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应
+          * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+          */
+      this.idList = builder.idList;
+  }
+
     public static class Builder {
-        /**
-         * 成员列表;;**注意**：;- 成员列表不可为空;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应
-         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-         */
+     /**
+      * 成员列表;;**注意**：;- 成员列表不可为空;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应
+      * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+      */
         private String[] idList;
 
         /**
          * 成员列表;;**注意**：;- 成员列表不可为空;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应
          * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-         *
          * @param idList
          * @return
          */
         public Builder idList(String[] idList) {
-            this.idList = idList;
-            return this;
+             this.idList = idList;
+             return this;
         }
 
+    
+    
+    public DeleteChatMembersReqBody build(){
+        return new DeleteChatMembersReqBody(this);
+      }
+    }
 
-        public DeleteChatMembersReqBody build() {
-            return new DeleteChatMembersReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

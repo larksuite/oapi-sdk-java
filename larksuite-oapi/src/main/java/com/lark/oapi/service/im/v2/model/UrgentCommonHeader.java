@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UrgentCommonHeader {
-    /**
-     * botid，不对外展示
-     * <p> 示例值：0
-     */
+     /**
+      * botid，不对外展示
+      * <p> 示例值：0
+      */
     @SerializedName("bot_id")
     private String botId;
-
-    // builder 开始
-    public UrgentCommonHeader() {
-    }
-
-    public UrgentCommonHeader(Builder builder) {
-        /**
-         * botid，不对外展示
-         * <p> 示例值：0
-         */
-        this.botId = builder.botId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBotId() {
         return this.botId;
     }
@@ -60,28 +39,44 @@ public class UrgentCommonHeader {
         this.botId = botId;
     }
 
+
+// builder 开始
+  public UrgentCommonHeader(){}
+
+  public UrgentCommonHeader(Builder builder){
+         /**
+          * botid，不对外展示
+          * <p> 示例值：0
+          */
+      this.botId = builder.botId;
+  }
+
     public static class Builder {
-        /**
-         * botid，不对外展示
-         * <p> 示例值：0
-         */
+     /**
+      * botid，不对外展示
+      * <p> 示例值：0
+      */
         private String botId;
 
         /**
          * botid，不对外展示
          * <p> 示例值：0
-         *
          * @param botId
          * @return
          */
         public Builder botId(String botId) {
-            this.botId = botId;
-            return this;
+             this.botId = botId;
+             return this;
         }
 
+    
+    
+    public UrgentCommonHeader build(){
+        return new UrgentCommonHeader(this);
+      }
+    }
 
-        public UrgentCommonHeader build() {
-            return new UrgentCommonHeader(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

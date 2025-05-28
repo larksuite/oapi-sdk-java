@@ -47,99 +47,81 @@ public class HelpdeskService {
     private final TicketCustomizedField ticketCustomizedField; // 工单自定义字段
 
     public HelpdeskService(Config config) {
-        this.v1 = new V1(config);
-        this.agent = new Agent(config);
-        this.agentSchedules = new AgentSchedules(config);
-        this.agentSchedule = new AgentSchedule(config);
-        this.agentSkill = new AgentSkill(config);
-        this.agentSkillRule = new AgentSkillRule(config);
-        this.botMessage = new BotMessage(config);
-        this.category = new Category(config);
-        this.event = new Event(config);
-        this.faq = new Faq(config);
-        this.notification = new Notification(config);
-        this.ticket = new Ticket(config);
-        this.ticketMessage = new TicketMessage(config);
-        this.ticketCustomizedField = new TicketCustomizedField(config);
+    this.v1 = new V1(config);
+    this.agent = new Agent(config);
+    this.agentSchedules = new AgentSchedules(config);
+    this.agentSchedule = new AgentSchedule(config);
+    this.agentSkill = new AgentSkill(config);
+    this.agentSkillRule = new AgentSkillRule(config);
+    this.botMessage = new BotMessage(config);
+    this.category = new Category(config);
+    this.event = new Event(config);
+    this.faq = new Faq(config);
+    this.notification = new Notification(config);
+    this.ticket = new Ticket(config);
+    this.ticketMessage = new TicketMessage(config);
+    this.ticketCustomizedField = new TicketCustomizedField(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public Agent agent() {
         return agent;
     }
-
     public AgentSchedules agentSchedules() {
         return agentSchedules;
     }
-
     public AgentSchedule agentSchedule() {
         return agentSchedule;
     }
-
     public AgentSkill agentSkill() {
         return agentSkill;
     }
-
     public AgentSkillRule agentSkillRule() {
         return agentSkillRule;
     }
-
     public BotMessage botMessage() {
         return botMessage;
     }
-
     public Category category() {
         return category;
     }
-
     public Event event() {
         return event;
     }
-
     public Faq faq() {
         return faq;
     }
-
     public Notification notification() {
         return notification;
     }
-
     public Ticket ticket() {
         return ticket;
     }
-
     public TicketMessage ticketMessage() {
         return ticketMessage;
     }
-
     public TicketCustomizedField ticketCustomizedField() {
         return ticketCustomizedField;
     }
-
     public abstract static class P2NotificationApproveV1Handler implements IEventHandler<P2NotificationApproveV1> {
         @Override
         public P2NotificationApproveV1 getEvent() {
             return new P2NotificationApproveV1();
         }
     }
-
     public abstract static class P2TicketCreatedV1Handler implements IEventHandler<P2TicketCreatedV1> {
         @Override
         public P2TicketCreatedV1 getEvent() {
             return new P2TicketCreatedV1();
         }
     }
-
     public abstract static class P2TicketUpdatedV1Handler implements IEventHandler<P2TicketUpdatedV1> {
         @Override
         public P2TicketUpdatedV1 getEvent() {
             return new P2TicketUpdatedV1();
         }
     }
-
     public abstract static class P2TicketMessageCreatedV1Handler implements IEventHandler<P2TicketMessageCreatedV1> {
         @Override
         public P2TicketMessageCreatedV1 getEvent() {

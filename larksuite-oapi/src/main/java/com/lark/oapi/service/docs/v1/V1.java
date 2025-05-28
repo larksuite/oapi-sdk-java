@@ -17,13 +17,12 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.docs.v1.resource.*;
 
 public class V1 {
-    private final Content content; // content
+	private final Content content; // content
 
-    public V1(Config config) {
-        this.content = new Content(config);
-    }
-
-    public Content content() {
-        return content;
-    }
+	public V1(Config config) {
+		this.content = new Content(config);
+	}
+	public Content content() {
+		return content;
+	}
 }

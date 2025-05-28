@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchProtectedRangeEditors {
-    /**
-     * 修改类型
-     * <p> 示例值：AddEditors
-     */
+     /**
+      * 修改类型
+      * <p> 示例值：AddEditors
+      */
     @SerializedName("type")
     private String type;
-    /**
-     * 增加可编辑人员
-     * <p> 示例值：
-     */
+     /**
+      * 增加可编辑人员
+      * <p> 示例值：
+      */
     @SerializedName("add_editors")
     private ProtectedRangeEditors addEditors;
-    /**
-     * 删除可编辑人员
-     * <p> 示例值：
-     */
+     /**
+      * 删除可编辑人员
+      * <p> 示例值：
+      */
     @SerializedName("remove_editors")
     private ProtectedRangeEditors removeEditors;
-
-    // builder 开始
-    public PatchProtectedRangeEditors() {
-    }
-
-    public PatchProtectedRangeEditors(Builder builder) {
-        /**
-         * 修改类型
-         * <p> 示例值：AddEditors
-         */
-        this.type = builder.type;
-        /**
-         * 增加可编辑人员
-         * <p> 示例值：
-         */
-        this.addEditors = builder.addEditors;
-        /**
-         * 删除可编辑人员
-         * <p> 示例值：
-         */
-        this.removeEditors = builder.removeEditors;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getType() {
         return this.type;
     }
@@ -98,76 +67,100 @@ public class PatchProtectedRangeEditors {
         this.removeEditors = removeEditors;
     }
 
+
+// builder 开始
+  public PatchProtectedRangeEditors(){}
+
+  public PatchProtectedRangeEditors(Builder builder){
+         /**
+          * 修改类型
+          * <p> 示例值：AddEditors
+          */
+      this.type = builder.type;
+         /**
+          * 增加可编辑人员
+          * <p> 示例值：
+          */
+      this.addEditors = builder.addEditors;
+         /**
+          * 删除可编辑人员
+          * <p> 示例值：
+          */
+      this.removeEditors = builder.removeEditors;
+  }
+
     public static class Builder {
-        /**
-         * 修改类型
-         * <p> 示例值：AddEditors
-         */
+     /**
+      * 修改类型
+      * <p> 示例值：AddEditors
+      */
         private String type;
-        /**
-         * 增加可编辑人员
-         * <p> 示例值：
-         */
+     /**
+      * 增加可编辑人员
+      * <p> 示例值：
+      */
         private ProtectedRangeEditors addEditors;
-        /**
-         * 删除可编辑人员
-         * <p> 示例值：
-         */
+     /**
+      * 删除可编辑人员
+      * <p> 示例值：
+      */
         private ProtectedRangeEditors removeEditors;
 
         /**
          * 修改类型
          * <p> 示例值：AddEditors
-         *
          * @param type
          * @return
          */
         public Builder type(String type) {
-            this.type = type;
-            return this;
+             this.type = type;
+             return this;
         }
-
         /**
          * 修改类型
          * <p> 示例值：AddEditors
-         *
          * @param type {@link com.lark.oapi.service.sheets.v3.enums.PatchProtectedRangeEditorsPatchProtectedRangeTypeEnum}
          * @return
          */
         public Builder type(com.lark.oapi.service.sheets.v3.enums.PatchProtectedRangeEditorsPatchProtectedRangeTypeEnum type) {
-            this.type = type.getValue();
-            return this;
+             this.type = type.getValue();
+             return this;
         }
 
+    
 
         /**
          * 增加可编辑人员
          * <p> 示例值：
-         *
          * @param addEditors
          * @return
          */
         public Builder addEditors(ProtectedRangeEditors addEditors) {
-            this.addEditors = addEditors;
-            return this;
+             this.addEditors = addEditors;
+             return this;
         }
 
+    
 
         /**
          * 删除可编辑人员
          * <p> 示例值：
-         *
          * @param removeEditors
          * @return
          */
         public Builder removeEditors(ProtectedRangeEditors removeEditors) {
-            this.removeEditors = removeEditors;
-            return this;
+             this.removeEditors = removeEditors;
+             return this;
         }
 
+    
+    
+    public PatchProtectedRangeEditors build(){
+        return new PatchProtectedRangeEditors(this);
+      }
+    }
 
-        public PatchProtectedRangeEditors build() {
-            return new PatchProtectedRangeEditors(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

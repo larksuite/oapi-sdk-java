@@ -12,83 +12,78 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class P2JobChangeUpdatedV1Data {
-    /**
-     * 雇员ID
-     * <p> 示例值：7072306364927985196
-     */
+     /**
+      * 雇员ID
+      * <p> 示例值：7072306364927985196
+      */
     @SerializedName("employment_id")
     private String employmentId;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
+     /**
+      * 用户 ID
+      * <p> 示例值：
+      */
     @SerializedName("target_user_id")
     private UserId targetUserId;
-    /**
-     * 异动记录 id
-     * <p> 示例值：7044427347159746085
-     */
+     /**
+      * 异动记录 id
+      * <p> 示例值：7044427347159746085
+      */
     @SerializedName("job_change_id")
     private String jobChangeId;
-    /**
-     * 异动属性/方式
-     * <p> 示例值：1
-     */
+     /**
+      * 异动属性/方式
+      * <p> 示例值：1
+      */
     @SerializedName("transfer_mode")
     private Integer transferMode;
-    /**
-     * 异动类型唯一标识
-     * <p> 示例值：internal_transfer
-     */
+     /**
+      * 异动类型唯一标识
+      * <p> 示例值：internal_transfer
+      */
     @SerializedName("transfer_type_unique_identifier")
     private String transferTypeUniqueIdentifier;
-    /**
-     * 异动原因唯一标识
-     * <p> 示例值：internal_transfer
-     */
+     /**
+      * 异动原因唯一标识
+      * <p> 示例值：internal_transfer
+      */
     @SerializedName("transfer_reason_unique_identifier")
     private String transferReasonUniqueIdentifier;
-    /**
-     * 异动发起后的审批流程 id，如果是直接异动，则无需要审批流程id
-     * <p> 示例值：7090409013925398060
-     */
+     /**
+      * 异动发起后的审批流程 id，如果是直接异动，则无需要审批流程id
+      * <p> 示例值：7090409013925398060
+      */
     @SerializedName("process_id")
     private String processId;
-    /**
-     * 异动生效日期
-     * <p> 示例值：2022-04-03
-     */
+     /**
+      * 异动生效日期
+      * <p> 示例值：2022-04-03
+      */
     @SerializedName("effective_date")
     private String effectiveDate;
-    /**
-     * 异动状态
-     * <p> 示例值：1
-     */
+     /**
+      * 异动状态
+      * <p> 示例值：1
+      */
     @SerializedName("status")
     private Integer status;
-    /**
-     * 异动记录标识符
-     * <p> 示例值：transfer_3627531
-     */
+     /**
+      * 异动记录标识符
+      * <p> 示例值：transfer_3627531
+      */
     @SerializedName("transfer_key")
     private String transferKey;
-
     public String getEmploymentId() {
         return this.employmentId;
     }

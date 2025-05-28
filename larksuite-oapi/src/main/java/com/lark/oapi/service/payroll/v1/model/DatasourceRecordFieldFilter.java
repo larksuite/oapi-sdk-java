@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.payroll.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DatasourceRecordFieldFilter {
-    /**
-     * 字段编码
-     * <p> 示例值：test__c
-     */
+     /**
+      * 查询条件的字段编码
+      * <p> 示例值：test__c
+      */
     @SerializedName("field_code")
     private String fieldCode;
-    /**
-     * 字段值列表，只需要其中1个相等就行
-     * <p> 示例值：
-     */
+     /**
+      * 条件值列表
+      * <p> 示例值：
+      */
     @SerializedName("field_values")
     private String[] fieldValues;
-
-    // builder 开始
-    public DatasourceRecordFieldFilter() {
-    }
-
-    public DatasourceRecordFieldFilter(Builder builder) {
-        /**
-         * 字段编码
-         * <p> 示例值：test__c
-         */
-        this.fieldCode = builder.fieldCode;
-        /**
-         * 字段值列表，只需要其中1个相等就行
-         * <p> 示例值：
-         */
-        this.fieldValues = builder.fieldValues;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
+     /**
+      * 查询操作符
+      * <p> 示例值：1
+      */
+    @SerializedName("operator")
+    private Integer operator;
     public String getFieldCode() {
         return this.fieldCode;
     }
@@ -79,46 +59,108 @@ public class DatasourceRecordFieldFilter {
         this.fieldValues = fieldValues;
     }
 
+    public Integer getOperator() {
+        return this.operator;
+    }
+
+    public void setOperator(Integer operator) {
+        this.operator = operator;
+    }
+
+
+// builder 开始
+  public DatasourceRecordFieldFilter(){}
+
+  public DatasourceRecordFieldFilter(Builder builder){
+         /**
+          * 查询条件的字段编码
+          * <p> 示例值：test__c
+          */
+      this.fieldCode = builder.fieldCode;
+         /**
+          * 条件值列表
+          * <p> 示例值：
+          */
+      this.fieldValues = builder.fieldValues;
+         /**
+          * 查询操作符
+          * <p> 示例值：1
+          */
+      this.operator = builder.operator;
+  }
+
     public static class Builder {
-        /**
-         * 字段编码
-         * <p> 示例值：test__c
-         */
+     /**
+      * 查询条件的字段编码
+      * <p> 示例值：test__c
+      */
         private String fieldCode;
-        /**
-         * 字段值列表，只需要其中1个相等就行
-         * <p> 示例值：
-         */
+     /**
+      * 条件值列表
+      * <p> 示例值：
+      */
         private String[] fieldValues;
+     /**
+      * 查询操作符
+      * <p> 示例值：1
+      */
+        private Integer operator;
 
         /**
-         * 字段编码
+         * 查询条件的字段编码
          * <p> 示例值：test__c
-         *
          * @param fieldCode
          * @return
          */
         public Builder fieldCode(String fieldCode) {
-            this.fieldCode = fieldCode;
-            return this;
+             this.fieldCode = fieldCode;
+             return this;
         }
 
+    
 
         /**
-         * 字段值列表，只需要其中1个相等就行
+         * 条件值列表
          * <p> 示例值：
-         *
          * @param fieldValues
          * @return
          */
         public Builder fieldValues(String[] fieldValues) {
-            this.fieldValues = fieldValues;
-            return this;
+             this.fieldValues = fieldValues;
+             return this;
         }
 
+    
 
-        public DatasourceRecordFieldFilter build() {
-            return new DatasourceRecordFieldFilter(this);
+        /**
+         * 查询操作符
+         * <p> 示例值：1
+         * @param operator
+         * @return
+         */
+        public Builder operator(Integer operator) {
+             this.operator = operator;
+             return this;
         }
+        /**
+         * 查询操作符
+         * <p> 示例值：1
+         * @param operator {@link com.lark.oapi.service.payroll.v1.enums.DatasourceRecordFieldFilterOperatorEnum}
+         * @return
+         */
+        public Builder operator(com.lark.oapi.service.payroll.v1.enums.DatasourceRecordFieldFilterOperatorEnum operator) {
+             this.operator = operator.getValue();
+             return this;
+        }
+
+    
+    
+    public DatasourceRecordFieldFilter build(){
+        return new DatasourceRecordFieldFilter(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,106 +12,60 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ListSectionReq {
-    /**
-     * 分页大小
-     * <p> 示例值：50
-     */
+     /**
+      * 分页大小
+      * <p> 示例值：50
+      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-     */
+     /**
+      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+      * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
+      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
-    /**
-     * 自定义分组所属的资源类型。支持"my_tasks"(我负责的）和"tasklist"（清单）。当使用"tasklist"时，需要用resource_id提供清单GUID。
-     * <p> 示例值：tasklist
-     */
+     /**
+      * 自定义分组所属的资源类型。支持"my_tasks"(我负责的）和"tasklist"（清单）。当使用"tasklist"时，需要用resource_id提供清单GUID。
+      * <p> 示例值：tasklist
+      */
     @Query
     @SerializedName("resource_type")
     private String resourceType;
-    /**
-     * 如`resource_type`为"tasklist"，这里需要填写要列取自定义分组的清单的GUID。
-     * <p> 示例值：caef228f-2342-23c1-c36d-91186414dc64
-     */
+     /**
+      * 如`resource_type`为"tasklist"，这里需要填写要列取自定义分组的清单的GUID。
+      * <p> 示例值：caef228f-2342-23c1-c36d-91186414dc64
+      */
     @Query
     @SerializedName("resource_id")
     private String resourceId;
-    /**
-     * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
-     */
+     /**
+      * 表示user的ID的类型，支持open_id, user_id, union_id
+      * <p> 示例值：open_id
+      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    /**
-     * 更新时间戳过滤(ms)
-     * <p> 示例值：1
-     */
+     /**
+      * 更新时间戳过滤(ms)
+      * <p> 示例值：1
+      */
     @Query
     @SerializedName("update_msec")
     private String updateMsec;
-
-    // builder 开始
-    public ListSectionReq() {
-    }
-
-    public ListSectionReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 自定义分组所属的资源类型。支持"my_tasks"(我负责的）和"tasklist"（清单）。当使用"tasklist"时，需要用resource_id提供清单GUID。
-         * <p> 示例值：tasklist
-         */
-        this.resourceType = builder.resourceType;
-        /**
-         * 如`resource_type`为"tasklist"，这里需要填写要列取自定义分组的清单的GUID。
-         * <p> 示例值：caef228f-2342-23c1-c36d-91186414dc64
-         */
-        this.resourceId = builder.resourceId;
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 更新时间戳过滤(ms)
-         * <p> 示例值：1
-         */
-        this.updateMsec = builder.updateMsec;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -160,6 +114,43 @@ public class ListSectionReq {
         this.updateMsec = updateMsec;
     }
 
+
+// builder 开始
+  public ListSectionReq(){}
+
+  public ListSectionReq(Builder builder){
+         /**
+          * 分页大小
+          * <p> 示例值：50
+          */
+       this.pageSize = builder.pageSize;
+         /**
+          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+          * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
+          */
+       this.pageToken = builder.pageToken;
+         /**
+          * 自定义分组所属的资源类型。支持"my_tasks"(我负责的）和"tasklist"（清单）。当使用"tasklist"时，需要用resource_id提供清单GUID。
+          * <p> 示例值：tasklist
+          */
+       this.resourceType = builder.resourceType;
+         /**
+          * 如`resource_type`为"tasklist"，这里需要填写要列取自定义分组的清单的GUID。
+          * <p> 示例值：caef228f-2342-23c1-c36d-91186414dc64
+          */
+       this.resourceId = builder.resourceId;
+         /**
+          * 表示user的ID的类型，支持open_id, user_id, union_id
+          * <p> 示例值：open_id
+          */
+       this.userIdType = builder.userIdType;
+         /**
+          * 更新时间戳过滤(ms)
+          * <p> 示例值：1
+          */
+       this.updateMsec = builder.updateMsec;
+  }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
@@ -167,87 +158,85 @@ public class ListSectionReq {
         private String resourceId; // 如`resource_type`为"tasklist"，这里需要填写要列取自定义分组的清单的GUID。
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
         private String updateMsec; // 更新时间戳过滤(ms)
-
+    
         /**
          * 分页大小
          * <p> 示例值：50
-         *
          * @param pageSize
          * @return
          */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
 
-
+    
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         *
          * @param pageToken
          * @return
          */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
 
-
+    
         /**
          * 自定义分组所属的资源类型。支持"my_tasks"(我负责的）和"tasklist"（清单）。当使用"tasklist"时，需要用resource_id提供清单GUID。
          * <p> 示例值：tasklist
-         *
          * @param resourceType
          * @return
          */
-        public Builder resourceType(String resourceType) {
-            this.resourceType = resourceType;
-            return this;
-        }
+           public Builder resourceType(String resourceType) {
+                this.resourceType = resourceType;
+                return this;
+           }
 
-
+    
         /**
          * 如`resource_type`为"tasklist"，这里需要填写要列取自定义分组的清单的GUID。
          * <p> 示例值：caef228f-2342-23c1-c36d-91186414dc64
-         *
          * @param resourceId
          * @return
          */
-        public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
-        }
+           public Builder resourceId(String resourceId) {
+                this.resourceId = resourceId;
+                return this;
+           }
 
-
+    
         /**
          * 表示user的ID的类型，支持open_id, user_id, union_id
          * <p> 示例值：open_id
-         *
          * @param userIdType
          * @return
          */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
 
-
+    
         /**
          * 更新时间戳过滤(ms)
          * <p> 示例值：1
-         *
          * @param updateMsec
          * @return
          */
-        public Builder updateMsec(String updateMsec) {
-            this.updateMsec = updateMsec;
-            return this;
-        }
+           public Builder updateMsec(String updateMsec) {
+                this.updateMsec = updateMsec;
+                return this;
+           }
 
+    
+    public ListSectionReq build(){
+        return new ListSectionReq(this);
+      }
+    }
 
-        public ListSectionReq build() {
-            return new ListSectionReq(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

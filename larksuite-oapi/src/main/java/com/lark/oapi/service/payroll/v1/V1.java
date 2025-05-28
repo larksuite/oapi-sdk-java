@@ -17,61 +17,52 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.payroll.v1.resource.*;
 
 public class V1 {
-    private final AcctItem acctItem; // acct_item
-    private final CostAllocationPlan costAllocationPlan; // cost_allocation_plan
-    private final CostAllocationReport costAllocationReport; // cost_allocation_report
-    private final Datasource datasource; // datasource
-    private final DatasourceRecord datasourceRecord; // datasource_record
-    private final Paygroup paygroup; // paygroup
-    private final PaymentActivity paymentActivity; // payment_activity
-    private final PaymentActivityDetail paymentActivityDetail; // payment_activity_detail
-    private final PaymentDetail paymentDetail; // payment_detail
+	private final AcctItem acctItem; // acct_item
+	private final CostAllocationPlan costAllocationPlan; // cost_allocation_plan
+	private final CostAllocationReport costAllocationReport; // cost_allocation_report
+	private final Datasource datasource; // datasource
+	private final DatasourceRecord datasourceRecord; // datasource_record
+	private final Paygroup paygroup; // paygroup
+	private final PaymentActivity paymentActivity; // payment_activity
+	private final PaymentActivityDetail paymentActivityDetail; // payment_activity_detail
+	private final PaymentDetail paymentDetail; // payment_detail
 
-    public V1(Config config) {
-        this.acctItem = new AcctItem(config);
-        this.costAllocationPlan = new CostAllocationPlan(config);
-        this.costAllocationReport = new CostAllocationReport(config);
-        this.datasource = new Datasource(config);
-        this.datasourceRecord = new DatasourceRecord(config);
-        this.paygroup = new Paygroup(config);
-        this.paymentActivity = new PaymentActivity(config);
-        this.paymentActivityDetail = new PaymentActivityDetail(config);
-        this.paymentDetail = new PaymentDetail(config);
-    }
-
-    public AcctItem acctItem() {
-        return acctItem;
-    }
-
-    public CostAllocationPlan costAllocationPlan() {
-        return costAllocationPlan;
-    }
-
-    public CostAllocationReport costAllocationReport() {
-        return costAllocationReport;
-    }
-
-    public Datasource datasource() {
-        return datasource;
-    }
-
-    public DatasourceRecord datasourceRecord() {
-        return datasourceRecord;
-    }
-
-    public Paygroup paygroup() {
-        return paygroup;
-    }
-
-    public PaymentActivity paymentActivity() {
-        return paymentActivity;
-    }
-
-    public PaymentActivityDetail paymentActivityDetail() {
-        return paymentActivityDetail;
-    }
-
-    public PaymentDetail paymentDetail() {
-        return paymentDetail;
-    }
+	public V1(Config config) {
+		this.acctItem = new AcctItem(config);
+		this.costAllocationPlan = new CostAllocationPlan(config);
+		this.costAllocationReport = new CostAllocationReport(config);
+		this.datasource = new Datasource(config);
+		this.datasourceRecord = new DatasourceRecord(config);
+		this.paygroup = new Paygroup(config);
+		this.paymentActivity = new PaymentActivity(config);
+		this.paymentActivityDetail = new PaymentActivityDetail(config);
+		this.paymentDetail = new PaymentDetail(config);
+	}
+	public AcctItem acctItem() {
+		return acctItem;
+	}
+	public CostAllocationPlan costAllocationPlan() {
+		return costAllocationPlan;
+	}
+	public CostAllocationReport costAllocationReport() {
+		return costAllocationReport;
+	}
+	public Datasource datasource() {
+		return datasource;
+	}
+	public DatasourceRecord datasourceRecord() {
+		return datasourceRecord;
+	}
+	public Paygroup paygroup() {
+		return paygroup;
+	}
+	public PaymentActivity paymentActivity() {
+		return paymentActivity;
+	}
+	public PaymentActivityDetail paymentActivityDetail() {
+		return paymentActivityDetail;
+	}
+	public PaymentDetail paymentDetail() {
+		return paymentDetail;
+	}
 }

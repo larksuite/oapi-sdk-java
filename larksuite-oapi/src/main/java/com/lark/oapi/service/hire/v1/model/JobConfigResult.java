@@ -12,188 +12,102 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class JobConfigResult {
-    /**
-     * Offer 申请表
-     * <p> 示例值：
-     */
+     /**
+      * Offer 申请表
+      * <p> 示例值：
+      */
     @SerializedName("offer_apply_schema")
     private IdNameObject offerApplySchema;
-    /**
-     * Offer 审批流
-     * <p> 示例值：
-     */
+     /**
+      * Offer 审批流
+      * <p> 示例值：
+      */
     @SerializedName("offer_process_conf")
     private IdNameObject offerProcessConf;
-    /**
-     * 建议评估人列表
-     * <p> 示例值：
-     */
+     /**
+      * 建议评估人列表
+      * <p> 示例值：
+      */
     @SerializedName("recommended_evaluator_list")
     private IdNameObject[] recommendedEvaluatorList;
-    /**
-     * 面试评价表
-     * <p> 示例值：
-     */
+     /**
+      * 面试评价表
+      * <p> 示例值：
+      */
     @SerializedName("assessment_template")
     private IdNameObject assessmentTemplate;
-    /**
-     * 职位 ID
-     * <p> 示例值：6960663240925956574
-     */
+     /**
+      * 职位 ID
+      * <p> 示例值：6960663240925956574
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 建议面试官列表
-     * <p> 示例值：
-     */
+     /**
+      * 建议面试官列表
+      * <p> 示例值：
+      */
     @SerializedName("interview_round_list")
     private JobConfigInterviewRound[] interviewRoundList;
-    /**
-     * 招聘需求
-     * <p> 示例值：
-     */
+     /**
+      * 招聘需求
+      * <p> 示例值：
+      */
     @SerializedName("job_requirement_list")
     private IdNameObject[] jobRequirementList;
-    /**
-     * 面试登记表
-     * <p> 示例值：
-     */
+     /**
+      * 面试登记表
+      * <p> 示例值：
+      */
     @SerializedName("interview_registration")
     private RegistrationInfo interviewRegistration;
-    /**
-     * 入职登记表
-     * <p> 示例值：
-     */
+     /**
+      * 入职登记表
+      * <p> 示例值：
+      */
     @SerializedName("onboard_registration")
     private RegistrationInfo onboardRegistration;
-    /**
-     * 面试轮次类型列表
-     * <p> 示例值：
-     */
+     /**
+      * 面试轮次类型列表
+      * <p> 示例值：
+      */
     @SerializedName("interview_round_type_list")
     private JobConfigRoundTypeResult[] interviewRoundTypeList;
-    /**
-     * 关联职位列表
-     * <p> 示例值：
-     */
+     /**
+      * 关联职位列表
+      * <p> 示例值：
+      */
     @SerializedName("related_job_list")
     private IdNameObject[] relatedJobList;
-    /**
-     * 职位属性，1是实体职位，2是虚拟职位
-     * <p> 示例值：1
-     */
+     /**
+      * 职位属性，1是实体职位，2是虚拟职位
+      * <p> 示例值：1
+      */
     @SerializedName("job_attribute")
     private Integer jobAttribute;
-    /**
-     * 面试官安排面试配置
-     * <p> 示例值：
-     */
+     /**
+      * 面试官安排面试配置
+      * <p> 示例值：
+      */
     @SerializedName("interview_appointment_config")
     private InterviewAppointmentConfig interviewAppointmentConfig;
-    /**
-     * 官网申请表
-     * <p> 示例值：
-     */
+     /**
+      * 官网申请表
+      * <p> 示例值：
+      */
     @SerializedName("portal_website_apply_form_schema_info")
     private RegistrationInfo portalWebsiteApplyFormSchemaInfo;
-
-    // builder 开始
-    public JobConfigResult() {
-    }
-
-    public JobConfigResult(Builder builder) {
-        /**
-         * Offer 申请表
-         * <p> 示例值：
-         */
-        this.offerApplySchema = builder.offerApplySchema;
-        /**
-         * Offer 审批流
-         * <p> 示例值：
-         */
-        this.offerProcessConf = builder.offerProcessConf;
-        /**
-         * 建议评估人列表
-         * <p> 示例值：
-         */
-        this.recommendedEvaluatorList = builder.recommendedEvaluatorList;
-        /**
-         * 面试评价表
-         * <p> 示例值：
-         */
-        this.assessmentTemplate = builder.assessmentTemplate;
-        /**
-         * 职位 ID
-         * <p> 示例值：6960663240925956574
-         */
-        this.id = builder.id;
-        /**
-         * 建议面试官列表
-         * <p> 示例值：
-         */
-        this.interviewRoundList = builder.interviewRoundList;
-        /**
-         * 招聘需求
-         * <p> 示例值：
-         */
-        this.jobRequirementList = builder.jobRequirementList;
-        /**
-         * 面试登记表
-         * <p> 示例值：
-         */
-        this.interviewRegistration = builder.interviewRegistration;
-        /**
-         * 入职登记表
-         * <p> 示例值：
-         */
-        this.onboardRegistration = builder.onboardRegistration;
-        /**
-         * 面试轮次类型列表
-         * <p> 示例值：
-         */
-        this.interviewRoundTypeList = builder.interviewRoundTypeList;
-        /**
-         * 关联职位列表
-         * <p> 示例值：
-         */
-        this.relatedJobList = builder.relatedJobList;
-        /**
-         * 职位属性，1是实体职位，2是虚拟职位
-         * <p> 示例值：1
-         */
-        this.jobAttribute = builder.jobAttribute;
-        /**
-         * 面试官安排面试配置
-         * <p> 示例值：
-         */
-        this.interviewAppointmentConfig = builder.interviewAppointmentConfig;
-        /**
-         * 官网申请表
-         * <p> 示例值：
-         */
-        this.portalWebsiteApplyFormSchemaInfo = builder.portalWebsiteApplyFormSchemaInfo;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public IdNameObject getOfferApplySchema() {
         return this.offerApplySchema;
     }
@@ -306,262 +220,343 @@ public class JobConfigResult {
         this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
     }
 
+
+// builder 开始
+  public JobConfigResult(){}
+
+  public JobConfigResult(Builder builder){
+         /**
+          * Offer 申请表
+          * <p> 示例值：
+          */
+      this.offerApplySchema = builder.offerApplySchema;
+         /**
+          * Offer 审批流
+          * <p> 示例值：
+          */
+      this.offerProcessConf = builder.offerProcessConf;
+         /**
+          * 建议评估人列表
+          * <p> 示例值：
+          */
+      this.recommendedEvaluatorList = builder.recommendedEvaluatorList;
+         /**
+          * 面试评价表
+          * <p> 示例值：
+          */
+      this.assessmentTemplate = builder.assessmentTemplate;
+         /**
+          * 职位 ID
+          * <p> 示例值：6960663240925956574
+          */
+      this.id = builder.id;
+         /**
+          * 建议面试官列表
+          * <p> 示例值：
+          */
+      this.interviewRoundList = builder.interviewRoundList;
+         /**
+          * 招聘需求
+          * <p> 示例值：
+          */
+      this.jobRequirementList = builder.jobRequirementList;
+         /**
+          * 面试登记表
+          * <p> 示例值：
+          */
+      this.interviewRegistration = builder.interviewRegistration;
+         /**
+          * 入职登记表
+          * <p> 示例值：
+          */
+      this.onboardRegistration = builder.onboardRegistration;
+         /**
+          * 面试轮次类型列表
+          * <p> 示例值：
+          */
+      this.interviewRoundTypeList = builder.interviewRoundTypeList;
+         /**
+          * 关联职位列表
+          * <p> 示例值：
+          */
+      this.relatedJobList = builder.relatedJobList;
+         /**
+          * 职位属性，1是实体职位，2是虚拟职位
+          * <p> 示例值：1
+          */
+      this.jobAttribute = builder.jobAttribute;
+         /**
+          * 面试官安排面试配置
+          * <p> 示例值：
+          */
+      this.interviewAppointmentConfig = builder.interviewAppointmentConfig;
+         /**
+          * 官网申请表
+          * <p> 示例值：
+          */
+      this.portalWebsiteApplyFormSchemaInfo = builder.portalWebsiteApplyFormSchemaInfo;
+  }
+
     public static class Builder {
-        /**
-         * Offer 申请表
-         * <p> 示例值：
-         */
+     /**
+      * Offer 申请表
+      * <p> 示例值：
+      */
         private IdNameObject offerApplySchema;
-        /**
-         * Offer 审批流
-         * <p> 示例值：
-         */
+     /**
+      * Offer 审批流
+      * <p> 示例值：
+      */
         private IdNameObject offerProcessConf;
-        /**
-         * 建议评估人列表
-         * <p> 示例值：
-         */
+     /**
+      * 建议评估人列表
+      * <p> 示例值：
+      */
         private IdNameObject[] recommendedEvaluatorList;
-        /**
-         * 面试评价表
-         * <p> 示例值：
-         */
+     /**
+      * 面试评价表
+      * <p> 示例值：
+      */
         private IdNameObject assessmentTemplate;
-        /**
-         * 职位 ID
-         * <p> 示例值：6960663240925956574
-         */
+     /**
+      * 职位 ID
+      * <p> 示例值：6960663240925956574
+      */
         private String id;
-        /**
-         * 建议面试官列表
-         * <p> 示例值：
-         */
+     /**
+      * 建议面试官列表
+      * <p> 示例值：
+      */
         private JobConfigInterviewRound[] interviewRoundList;
-        /**
-         * 招聘需求
-         * <p> 示例值：
-         */
+     /**
+      * 招聘需求
+      * <p> 示例值：
+      */
         private IdNameObject[] jobRequirementList;
-        /**
-         * 面试登记表
-         * <p> 示例值：
-         */
+     /**
+      * 面试登记表
+      * <p> 示例值：
+      */
         private RegistrationInfo interviewRegistration;
-        /**
-         * 入职登记表
-         * <p> 示例值：
-         */
+     /**
+      * 入职登记表
+      * <p> 示例值：
+      */
         private RegistrationInfo onboardRegistration;
-        /**
-         * 面试轮次类型列表
-         * <p> 示例值：
-         */
+     /**
+      * 面试轮次类型列表
+      * <p> 示例值：
+      */
         private JobConfigRoundTypeResult[] interviewRoundTypeList;
-        /**
-         * 关联职位列表
-         * <p> 示例值：
-         */
+     /**
+      * 关联职位列表
+      * <p> 示例值：
+      */
         private IdNameObject[] relatedJobList;
-        /**
-         * 职位属性，1是实体职位，2是虚拟职位
-         * <p> 示例值：1
-         */
+     /**
+      * 职位属性，1是实体职位，2是虚拟职位
+      * <p> 示例值：1
+      */
         private Integer jobAttribute;
-        /**
-         * 面试官安排面试配置
-         * <p> 示例值：
-         */
+     /**
+      * 面试官安排面试配置
+      * <p> 示例值：
+      */
         private InterviewAppointmentConfig interviewAppointmentConfig;
-        /**
-         * 官网申请表
-         * <p> 示例值：
-         */
+     /**
+      * 官网申请表
+      * <p> 示例值：
+      */
         private RegistrationInfo portalWebsiteApplyFormSchemaInfo;
 
         /**
          * Offer 申请表
          * <p> 示例值：
-         *
          * @param offerApplySchema
          * @return
          */
         public Builder offerApplySchema(IdNameObject offerApplySchema) {
-            this.offerApplySchema = offerApplySchema;
-            return this;
+             this.offerApplySchema = offerApplySchema;
+             return this;
         }
 
+    
 
         /**
          * Offer 审批流
          * <p> 示例值：
-         *
          * @param offerProcessConf
          * @return
          */
         public Builder offerProcessConf(IdNameObject offerProcessConf) {
-            this.offerProcessConf = offerProcessConf;
-            return this;
+             this.offerProcessConf = offerProcessConf;
+             return this;
         }
 
+    
 
         /**
          * 建议评估人列表
          * <p> 示例值：
-         *
          * @param recommendedEvaluatorList
          * @return
          */
         public Builder recommendedEvaluatorList(IdNameObject[] recommendedEvaluatorList) {
-            this.recommendedEvaluatorList = recommendedEvaluatorList;
-            return this;
+             this.recommendedEvaluatorList = recommendedEvaluatorList;
+             return this;
         }
 
+    
 
         /**
          * 面试评价表
          * <p> 示例值：
-         *
          * @param assessmentTemplate
          * @return
          */
         public Builder assessmentTemplate(IdNameObject assessmentTemplate) {
-            this.assessmentTemplate = assessmentTemplate;
-            return this;
+             this.assessmentTemplate = assessmentTemplate;
+             return this;
         }
 
+    
 
         /**
          * 职位 ID
          * <p> 示例值：6960663240925956574
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 建议面试官列表
          * <p> 示例值：
-         *
          * @param interviewRoundList
          * @return
          */
         public Builder interviewRoundList(JobConfigInterviewRound[] interviewRoundList) {
-            this.interviewRoundList = interviewRoundList;
-            return this;
+             this.interviewRoundList = interviewRoundList;
+             return this;
         }
 
+    
 
         /**
          * 招聘需求
          * <p> 示例值：
-         *
          * @param jobRequirementList
          * @return
          */
         public Builder jobRequirementList(IdNameObject[] jobRequirementList) {
-            this.jobRequirementList = jobRequirementList;
-            return this;
+             this.jobRequirementList = jobRequirementList;
+             return this;
         }
 
+    
 
         /**
          * 面试登记表
          * <p> 示例值：
-         *
          * @param interviewRegistration
          * @return
          */
         public Builder interviewRegistration(RegistrationInfo interviewRegistration) {
-            this.interviewRegistration = interviewRegistration;
-            return this;
+             this.interviewRegistration = interviewRegistration;
+             return this;
         }
 
+    
 
         /**
          * 入职登记表
          * <p> 示例值：
-         *
          * @param onboardRegistration
          * @return
          */
         public Builder onboardRegistration(RegistrationInfo onboardRegistration) {
-            this.onboardRegistration = onboardRegistration;
-            return this;
+             this.onboardRegistration = onboardRegistration;
+             return this;
         }
 
+    
 
         /**
          * 面试轮次类型列表
          * <p> 示例值：
-         *
          * @param interviewRoundTypeList
          * @return
          */
         public Builder interviewRoundTypeList(JobConfigRoundTypeResult[] interviewRoundTypeList) {
-            this.interviewRoundTypeList = interviewRoundTypeList;
-            return this;
+             this.interviewRoundTypeList = interviewRoundTypeList;
+             return this;
         }
 
+    
 
         /**
          * 关联职位列表
          * <p> 示例值：
-         *
          * @param relatedJobList
          * @return
          */
         public Builder relatedJobList(IdNameObject[] relatedJobList) {
-            this.relatedJobList = relatedJobList;
-            return this;
+             this.relatedJobList = relatedJobList;
+             return this;
         }
 
+    
 
         /**
          * 职位属性，1是实体职位，2是虚拟职位
          * <p> 示例值：1
-         *
          * @param jobAttribute
          * @return
          */
         public Builder jobAttribute(Integer jobAttribute) {
-            this.jobAttribute = jobAttribute;
-            return this;
+             this.jobAttribute = jobAttribute;
+             return this;
         }
 
+    
 
         /**
          * 面试官安排面试配置
          * <p> 示例值：
-         *
          * @param interviewAppointmentConfig
          * @return
          */
         public Builder interviewAppointmentConfig(InterviewAppointmentConfig interviewAppointmentConfig) {
-            this.interviewAppointmentConfig = interviewAppointmentConfig;
-            return this;
+             this.interviewAppointmentConfig = interviewAppointmentConfig;
+             return this;
         }
 
+    
 
         /**
          * 官网申请表
          * <p> 示例值：
-         *
          * @param portalWebsiteApplyFormSchemaInfo
          * @return
          */
         public Builder portalWebsiteApplyFormSchemaInfo(RegistrationInfo portalWebsiteApplyFormSchemaInfo) {
-            this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
-            return this;
+             this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
+             return this;
         }
 
+    
+    
+    public JobConfigResult build(){
+        return new JobConfigResult(this);
+      }
+    }
 
-        public JobConfigResult build() {
-            return new JobConfigResult(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

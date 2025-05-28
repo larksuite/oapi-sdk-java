@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchGetEmployeesBpReqBody {
-    /**
-     * 员工雇佣 ID
-     * <p> 示例值：
-     */
+     /**
+      * 员工雇佣 ID
+      * <p> 示例值：
+      */
     @SerializedName("employment_ids")
     private String[] employmentIds;
-    /**
-     * 是否获取全部 BP，true 为获取员工所在部门及来自上级部门的全部 HRBP 和属地 BP，false 为仅获取员工的直属 HRBP 和属地 BP（当员工所在部门、属地无 BP 时，会上钻找到最近的 BP），默认为 false
-     * <p> 示例值：true
-     */
+     /**
+      * 是否获取全部 BP，true 为获取员工所在部门及来自上级部门的全部 HRBP 和属地 BP，false 为仅获取员工的直属 HRBP 和属地 BP（当员工所在部门、属地无 BP 时，会上钻找到最近的 BP），默认为 false
+      * <p> 示例值：true
+      */
     @SerializedName("get_all")
     private Boolean getAll;
-
-    // builder 开始
-    public BatchGetEmployeesBpReqBody() {
-    }
-
-    public BatchGetEmployeesBpReqBody(Builder builder) {
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：
-         */
-        this.employmentIds = builder.employmentIds;
-        /**
-         * 是否获取全部 BP，true 为获取员工所在部门及来自上级部门的全部 HRBP 和属地 BP，false 为仅获取员工的直属 HRBP 和属地 BP（当员工所在部门、属地无 BP 时，会上钻找到最近的 BP），默认为 false
-         * <p> 示例值：true
-         */
-        this.getAll = builder.getAll;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String[] getEmploymentIds() {
         return this.employmentIds;
     }
@@ -79,46 +53,67 @@ public class BatchGetEmployeesBpReqBody {
         this.getAll = getAll;
     }
 
+
+// builder 开始
+  public BatchGetEmployeesBpReqBody(){}
+
+  public BatchGetEmployeesBpReqBody(Builder builder){
+         /**
+          * 员工雇佣 ID
+          * <p> 示例值：
+          */
+      this.employmentIds = builder.employmentIds;
+         /**
+          * 是否获取全部 BP，true 为获取员工所在部门及来自上级部门的全部 HRBP 和属地 BP，false 为仅获取员工的直属 HRBP 和属地 BP（当员工所在部门、属地无 BP 时，会上钻找到最近的 BP），默认为 false
+          * <p> 示例值：true
+          */
+      this.getAll = builder.getAll;
+  }
+
     public static class Builder {
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：
-         */
+     /**
+      * 员工雇佣 ID
+      * <p> 示例值：
+      */
         private String[] employmentIds;
-        /**
-         * 是否获取全部 BP，true 为获取员工所在部门及来自上级部门的全部 HRBP 和属地 BP，false 为仅获取员工的直属 HRBP 和属地 BP（当员工所在部门、属地无 BP 时，会上钻找到最近的 BP），默认为 false
-         * <p> 示例值：true
-         */
+     /**
+      * 是否获取全部 BP，true 为获取员工所在部门及来自上级部门的全部 HRBP 和属地 BP，false 为仅获取员工的直属 HRBP 和属地 BP（当员工所在部门、属地无 BP 时，会上钻找到最近的 BP），默认为 false
+      * <p> 示例值：true
+      */
         private Boolean getAll;
 
         /**
          * 员工雇佣 ID
          * <p> 示例值：
-         *
          * @param employmentIds
          * @return
          */
         public Builder employmentIds(String[] employmentIds) {
-            this.employmentIds = employmentIds;
-            return this;
+             this.employmentIds = employmentIds;
+             return this;
         }
 
+    
 
         /**
          * 是否获取全部 BP，true 为获取员工所在部门及来自上级部门的全部 HRBP 和属地 BP，false 为仅获取员工的直属 HRBP 和属地 BP（当员工所在部门、属地无 BP 时，会上钻找到最近的 BP），默认为 false
          * <p> 示例值：true
-         *
          * @param getAll
          * @return
          */
         public Builder getAll(Boolean getAll) {
-            this.getAll = getAll;
-            return this;
+             this.getAll = getAll;
+             return this;
         }
 
+    
+    
+    public BatchGetEmployeesBpReqBody build(){
+        return new BatchGetEmployeesBpReqBody(this);
+      }
+    }
 
-        public BatchGetEmployeesBpReqBody build() {
-            return new BatchGetEmployeesBpReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.lingo.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class DocImage {
-    /**
-     * 图片key
-     * <p> 示例值：v2_xxxxxxxxxxxx
-     */
+     /**
+      * 图片key
+      * <p> 示例值：v2_xxxxxxxxxxxx
+      */
     @SerializedName("image_key")
     private String imageKey;
-
-    // builder 开始
-    public DocImage() {
-    }
-
-    public DocImage(Builder builder) {
-        /**
-         * 图片key
-         * <p> 示例值：v2_xxxxxxxxxxxx
-         */
-        this.imageKey = builder.imageKey;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getImageKey() {
         return this.imageKey;
     }
@@ -60,28 +39,44 @@ public class DocImage {
         this.imageKey = imageKey;
     }
 
+
+// builder 开始
+  public DocImage(){}
+
+  public DocImage(Builder builder){
+         /**
+          * 图片key
+          * <p> 示例值：v2_xxxxxxxxxxxx
+          */
+      this.imageKey = builder.imageKey;
+  }
+
     public static class Builder {
-        /**
-         * 图片key
-         * <p> 示例值：v2_xxxxxxxxxxxx
-         */
+     /**
+      * 图片key
+      * <p> 示例值：v2_xxxxxxxxxxxx
+      */
         private String imageKey;
 
         /**
          * 图片key
          * <p> 示例值：v2_xxxxxxxxxxxx
-         *
          * @param imageKey
          * @return
          */
         public Builder imageKey(String imageKey) {
-            this.imageKey = imageKey;
-            return this;
+             this.imageKey = imageKey;
+             return this;
         }
 
+    
+    
+    public DocImage build(){
+        return new DocImage(this);
+      }
+    }
 
-        public DocImage build() {
-            return new DocImage(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.apaas.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Role {
-    /**
-     * 唯一 ID，系统自动生成
-     * <p> 示例值：package_test__rolePermission_aade7fgwajsgi
-     */
+     /**
+      * 唯一 ID，系统自动生成
+      * <p> 示例值：package_test__rolePermission_aade7fgwajsgi
+      */
     @SerializedName("api_id")
     private String apiId;
-    /**
-     * API名称，用户自定义
-     * <p> 示例值：adminRole
-     */
+     /**
+      * API名称，用户自定义
+      * <p> 示例值：adminRole
+      */
     @SerializedName("api_name")
     private String apiName;
-
-    // builder 开始
-    public Role() {
-    }
-
-    public Role(Builder builder) {
-        /**
-         * 唯一 ID，系统自动生成
-         * <p> 示例值：package_test__rolePermission_aade7fgwajsgi
-         */
-        this.apiId = builder.apiId;
-        /**
-         * API名称，用户自定义
-         * <p> 示例值：adminRole
-         */
-        this.apiName = builder.apiName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getApiId() {
         return this.apiId;
     }
@@ -79,46 +53,67 @@ public class Role {
         this.apiName = apiName;
     }
 
+
+// builder 开始
+  public Role(){}
+
+  public Role(Builder builder){
+         /**
+          * 唯一 ID，系统自动生成
+          * <p> 示例值：package_test__rolePermission_aade7fgwajsgi
+          */
+      this.apiId = builder.apiId;
+         /**
+          * API名称，用户自定义
+          * <p> 示例值：adminRole
+          */
+      this.apiName = builder.apiName;
+  }
+
     public static class Builder {
-        /**
-         * 唯一 ID，系统自动生成
-         * <p> 示例值：package_test__rolePermission_aade7fgwajsgi
-         */
+     /**
+      * 唯一 ID，系统自动生成
+      * <p> 示例值：package_test__rolePermission_aade7fgwajsgi
+      */
         private String apiId;
-        /**
-         * API名称，用户自定义
-         * <p> 示例值：adminRole
-         */
+     /**
+      * API名称，用户自定义
+      * <p> 示例值：adminRole
+      */
         private String apiName;
 
         /**
          * 唯一 ID，系统自动生成
          * <p> 示例值：package_test__rolePermission_aade7fgwajsgi
-         *
          * @param apiId
          * @return
          */
         public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
+             this.apiId = apiId;
+             return this;
         }
 
+    
 
         /**
          * API名称，用户自定义
          * <p> 示例值：adminRole
-         *
          * @param apiName
          * @return
          */
         public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
+             this.apiName = apiName;
+             return this;
         }
 
+    
+    
+    public Role build(){
+        return new Role(this);
+      }
+    }
 
-        public Role build() {
-            return new Role(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

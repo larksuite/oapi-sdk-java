@@ -57,99 +57,80 @@ public class DocumentAiService {
     private final VehicleLicense vehicleLicense; // vehicle_license
 
     public DocumentAiService(Config config) {
-        this.v1 = new V1(config);
-        this.bankCard = new BankCard(config);
-        this.businessCard = new BusinessCard(config);
-        this.businessLicense = new BusinessLicense(config);
-        this.chinesePassport = new ChinesePassport(config);
-        this.contract = new Contract(config);
-        this.drivingLicense = new DrivingLicense(config);
-        this.foodManageLicense = new FoodManageLicense(config);
-        this.foodProduceLicense = new FoodProduceLicense(config);
-        this.healthCertificate = new HealthCertificate(config);
-        this.hkmMainlandTravelPermit = new HkmMainlandTravelPermit(config);
-        this.idCard = new IdCard(config);
-        this.resume = new Resume(config);
-        this.taxiInvoice = new TaxiInvoice(config);
-        this.trainInvoice = new TrainInvoice(config);
-        this.twMainlandTravelPermit = new TwMainlandTravelPermit(config);
-        this.vatInvoice = new VatInvoice(config);
-        this.vehicleInvoice = new VehicleInvoice(config);
-        this.vehicleLicense = new VehicleLicense(config);
+    this.v1 = new V1(config);
+    this.bankCard = new BankCard(config);
+    this.businessCard = new BusinessCard(config);
+    this.businessLicense = new BusinessLicense(config);
+    this.chinesePassport = new ChinesePassport(config);
+    this.contract = new Contract(config);
+    this.drivingLicense = new DrivingLicense(config);
+    this.foodManageLicense = new FoodManageLicense(config);
+    this.foodProduceLicense = new FoodProduceLicense(config);
+    this.healthCertificate = new HealthCertificate(config);
+    this.hkmMainlandTravelPermit = new HkmMainlandTravelPermit(config);
+    this.idCard = new IdCard(config);
+    this.resume = new Resume(config);
+    this.taxiInvoice = new TaxiInvoice(config);
+    this.trainInvoice = new TrainInvoice(config);
+    this.twMainlandTravelPermit = new TwMainlandTravelPermit(config);
+    this.vatInvoice = new VatInvoice(config);
+    this.vehicleInvoice = new VehicleInvoice(config);
+    this.vehicleLicense = new VehicleLicense(config);
     }
-
     public V1 v1() {
         return v1;
     }
-
     public BankCard bankCard() {
         return bankCard;
     }
-
     public BusinessCard businessCard() {
         return businessCard;
     }
-
     public BusinessLicense businessLicense() {
         return businessLicense;
     }
-
     public ChinesePassport chinesePassport() {
         return chinesePassport;
     }
-
     public Contract contract() {
         return contract;
     }
-
     public DrivingLicense drivingLicense() {
         return drivingLicense;
     }
-
     public FoodManageLicense foodManageLicense() {
         return foodManageLicense;
     }
-
     public FoodProduceLicense foodProduceLicense() {
         return foodProduceLicense;
     }
-
     public HealthCertificate healthCertificate() {
         return healthCertificate;
     }
-
     public HkmMainlandTravelPermit hkmMainlandTravelPermit() {
         return hkmMainlandTravelPermit;
     }
-
     public IdCard idCard() {
         return idCard;
     }
-
     public Resume resume() {
         return resume;
     }
-
     public TaxiInvoice taxiInvoice() {
         return taxiInvoice;
     }
-
     public TrainInvoice trainInvoice() {
         return trainInvoice;
     }
-
     public TwMainlandTravelPermit twMainlandTravelPermit() {
         return twMainlandTravelPermit;
     }
-
     public VatInvoice vatInvoice() {
         return vatInvoice;
     }
-
     public VehicleInvoice vehicleInvoice() {
         return vehicleInvoice;
     }
-
     public VehicleLicense vehicleLicense() {
         return vehicleLicense;
     }

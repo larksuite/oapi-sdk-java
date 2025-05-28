@@ -12,78 +12,48 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OfferStatusOfferReqBody {
-    /**
-     * offer状态
-     * <p> 示例值：
-     */
+     /**
+      * offer状态
+      * <p> 示例值：
+      */
     @SerializedName("offer_status")
     private Integer offerStatus;
-    /**
-     * offer 失效时间，当反馈状态是「offer已发出」时为必填项
-     * <p> 示例值：2023-01-01
-     */
+     /**
+      * offer 失效时间，当反馈状态是「offer已发出」时为必填项
+      * <p> 示例值：2023-01-01
+      */
     @SerializedName("expiration_date")
     private String expirationDate;
-    /**
-     * 终止原因列表，当反馈状态是「候选人已拒绝」时为必填项；最多传入50个
-     * <p> 示例值：
-     */
+     /**
+      * 终止原因列表，当反馈状态是「候选人已拒绝」时为必填项，或者当反馈状态是「Offer 已失效」且开启租户「撤销 Offer 时选择撤销类型」开关时为必填项；最多传入50个
+      * <p> 示例值：
+      */
     @SerializedName("termination_reason_id_list")
     private String[] terminationReasonIdList;
-    /**
-     * 终止备注
-     * <p> 示例值：不符合期望
-     */
+     /**
+      * 终止备注
+      * <p> 示例值：不符合期望
+      */
     @SerializedName("termination_reason_note")
     private String terminationReasonNote;
-
-    // builder 开始
-    public OfferStatusOfferReqBody() {
-    }
-
-    public OfferStatusOfferReqBody(Builder builder) {
-        /**
-         * offer状态
-         * <p> 示例值：
-         */
-        this.offerStatus = builder.offerStatus;
-        /**
-         * offer 失效时间，当反馈状态是「offer已发出」时为必填项
-         * <p> 示例值：2023-01-01
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 终止原因列表，当反馈状态是「候选人已拒绝」时为必填项；最多传入50个
-         * <p> 示例值：
-         */
-        this.terminationReasonIdList = builder.terminationReasonIdList;
-        /**
-         * 终止备注
-         * <p> 示例值：不符合期望
-         */
-        this.terminationReasonNote = builder.terminationReasonNote;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
+     /**
+      * 撤销Offer时终止原因的类型，当反馈状态是「Offer 已失效」且开启租户「撤销 Offer 时选择撤销类型」开关时为必填项
+      * <p> 示例值：1
+      */
+    @SerializedName("cancel_offer_termination_type")
+    private Integer cancelOfferTerminationType;
     public Integer getOfferStatus() {
         return this.offerStatus;
     }
@@ -116,82 +86,144 @@ public class OfferStatusOfferReqBody {
         this.terminationReasonNote = terminationReasonNote;
     }
 
+    public Integer getCancelOfferTerminationType() {
+        return this.cancelOfferTerminationType;
+    }
+
+    public void setCancelOfferTerminationType(Integer cancelOfferTerminationType) {
+        this.cancelOfferTerminationType = cancelOfferTerminationType;
+    }
+
+
+// builder 开始
+  public OfferStatusOfferReqBody(){}
+
+  public OfferStatusOfferReqBody(Builder builder){
+         /**
+          * offer状态
+          * <p> 示例值：
+          */
+      this.offerStatus = builder.offerStatus;
+         /**
+          * offer 失效时间，当反馈状态是「offer已发出」时为必填项
+          * <p> 示例值：2023-01-01
+          */
+      this.expirationDate = builder.expirationDate;
+         /**
+          * 终止原因列表，当反馈状态是「候选人已拒绝」时为必填项，或者当反馈状态是「Offer 已失效」且开启租户「撤销 Offer 时选择撤销类型」开关时为必填项；最多传入50个
+          * <p> 示例值：
+          */
+      this.terminationReasonIdList = builder.terminationReasonIdList;
+         /**
+          * 终止备注
+          * <p> 示例值：不符合期望
+          */
+      this.terminationReasonNote = builder.terminationReasonNote;
+         /**
+          * 撤销Offer时终止原因的类型，当反馈状态是「Offer 已失效」且开启租户「撤销 Offer 时选择撤销类型」开关时为必填项
+          * <p> 示例值：1
+          */
+      this.cancelOfferTerminationType = builder.cancelOfferTerminationType;
+  }
+
     public static class Builder {
-        /**
-         * offer状态
-         * <p> 示例值：
-         */
+     /**
+      * offer状态
+      * <p> 示例值：
+      */
         private Integer offerStatus;
-        /**
-         * offer 失效时间，当反馈状态是「offer已发出」时为必填项
-         * <p> 示例值：2023-01-01
-         */
+     /**
+      * offer 失效时间，当反馈状态是「offer已发出」时为必填项
+      * <p> 示例值：2023-01-01
+      */
         private String expirationDate;
-        /**
-         * 终止原因列表，当反馈状态是「候选人已拒绝」时为必填项；最多传入50个
-         * <p> 示例值：
-         */
+     /**
+      * 终止原因列表，当反馈状态是「候选人已拒绝」时为必填项，或者当反馈状态是「Offer 已失效」且开启租户「撤销 Offer 时选择撤销类型」开关时为必填项；最多传入50个
+      * <p> 示例值：
+      */
         private String[] terminationReasonIdList;
-        /**
-         * 终止备注
-         * <p> 示例值：不符合期望
-         */
+     /**
+      * 终止备注
+      * <p> 示例值：不符合期望
+      */
         private String terminationReasonNote;
+     /**
+      * 撤销Offer时终止原因的类型，当反馈状态是「Offer 已失效」且开启租户「撤销 Offer 时选择撤销类型」开关时为必填项
+      * <p> 示例值：1
+      */
+        private Integer cancelOfferTerminationType;
 
         /**
          * offer状态
          * <p> 示例值：
-         *
          * @param offerStatus
          * @return
          */
         public Builder offerStatus(Integer offerStatus) {
-            this.offerStatus = offerStatus;
-            return this;
+             this.offerStatus = offerStatus;
+             return this;
         }
 
+    
 
         /**
          * offer 失效时间，当反馈状态是「offer已发出」时为必填项
          * <p> 示例值：2023-01-01
-         *
          * @param expirationDate
          * @return
          */
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
+             this.expirationDate = expirationDate;
+             return this;
         }
 
+    
 
         /**
-         * 终止原因列表，当反馈状态是「候选人已拒绝」时为必填项；最多传入50个
+         * 终止原因列表，当反馈状态是「候选人已拒绝」时为必填项，或者当反馈状态是「Offer 已失效」且开启租户「撤销 Offer 时选择撤销类型」开关时为必填项；最多传入50个
          * <p> 示例值：
-         *
          * @param terminationReasonIdList
          * @return
          */
         public Builder terminationReasonIdList(String[] terminationReasonIdList) {
-            this.terminationReasonIdList = terminationReasonIdList;
-            return this;
+             this.terminationReasonIdList = terminationReasonIdList;
+             return this;
         }
 
+    
 
         /**
          * 终止备注
          * <p> 示例值：不符合期望
-         *
          * @param terminationReasonNote
          * @return
          */
         public Builder terminationReasonNote(String terminationReasonNote) {
-            this.terminationReasonNote = terminationReasonNote;
-            return this;
+             this.terminationReasonNote = terminationReasonNote;
+             return this;
         }
 
+    
 
-        public OfferStatusOfferReqBody build() {
-            return new OfferStatusOfferReqBody(this);
+        /**
+         * 撤销Offer时终止原因的类型，当反馈状态是「Offer 已失效」且开启租户「撤销 Offer 时选择撤销类型」开关时为必填项
+         * <p> 示例值：1
+         * @param cancelOfferTerminationType
+         * @return
+         */
+        public Builder cancelOfferTerminationType(Integer cancelOfferTerminationType) {
+             this.cancelOfferTerminationType = cancelOfferTerminationType;
+             return this;
         }
+
+    
+    
+    public OfferStatusOfferReqBody build(){
+        return new OfferStatusOfferReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

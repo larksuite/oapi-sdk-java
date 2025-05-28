@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.aily.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,71 +19,36 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RecordResult {
-    /**
-     * 是否成功
-     * <p> 示例值：
-     */
+     /**
+      * 是否成功
+      * <p> 示例值：
+      */
     @SerializedName("success")
     private Boolean success;
-    /**
-     * 记录失败的唯一键对应值
-     * <p> 示例值：name
-     */
+     /**
+      * 记录失败的唯一键对应值
+      * <p> 示例值：name
+      */
     @SerializedName("primary_key_value")
     private String primaryKeyValue;
-    /**
-     * 记录失败的第一条报错
-     * <p> 示例值：
-     */
+     /**
+      * 记录失败的第一条报错
+      * <p> 示例值：
+      */
     @SerializedName("errors")
     private RecordError[] errors;
-    /**
-     * 记录的内部 id
-     * <p> 示例值：543276126389
-     */
+     /**
+      * 记录的内部 id
+      * <p> 示例值：543276126389
+      */
     @SerializedName("_id")
     private String id;
-
-    // builder 开始
-    public RecordResult() {
-    }
-
-    public RecordResult(Builder builder) {
-        /**
-         * 是否成功
-         * <p> 示例值：
-         */
-        this.success = builder.success;
-        /**
-         * 记录失败的唯一键对应值
-         * <p> 示例值：name
-         */
-        this.primaryKeyValue = builder.primaryKeyValue;
-        /**
-         * 记录失败的第一条报错
-         * <p> 示例值：
-         */
-        this.errors = builder.errors;
-        /**
-         * 记录的内部 id
-         * <p> 示例值：543276126389
-         */
-        this.id = builder.id;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Boolean getSuccess() {
         return this.success;
     }
@@ -117,82 +81,113 @@ public class RecordResult {
         this.id = id;
     }
 
+
+// builder 开始
+  public RecordResult(){}
+
+  public RecordResult(Builder builder){
+         /**
+          * 是否成功
+          * <p> 示例值：
+          */
+      this.success = builder.success;
+         /**
+          * 记录失败的唯一键对应值
+          * <p> 示例值：name
+          */
+      this.primaryKeyValue = builder.primaryKeyValue;
+         /**
+          * 记录失败的第一条报错
+          * <p> 示例值：
+          */
+      this.errors = builder.errors;
+         /**
+          * 记录的内部 id
+          * <p> 示例值：543276126389
+          */
+      this.id = builder.id;
+  }
+
     public static class Builder {
-        /**
-         * 是否成功
-         * <p> 示例值：
-         */
+     /**
+      * 是否成功
+      * <p> 示例值：
+      */
         private Boolean success;
-        /**
-         * 记录失败的唯一键对应值
-         * <p> 示例值：name
-         */
+     /**
+      * 记录失败的唯一键对应值
+      * <p> 示例值：name
+      */
         private String primaryKeyValue;
-        /**
-         * 记录失败的第一条报错
-         * <p> 示例值：
-         */
+     /**
+      * 记录失败的第一条报错
+      * <p> 示例值：
+      */
         private RecordError[] errors;
-        /**
-         * 记录的内部 id
-         * <p> 示例值：543276126389
-         */
+     /**
+      * 记录的内部 id
+      * <p> 示例值：543276126389
+      */
         private String id;
 
         /**
          * 是否成功
          * <p> 示例值：
-         *
          * @param success
          * @return
          */
         public Builder success(Boolean success) {
-            this.success = success;
-            return this;
+             this.success = success;
+             return this;
         }
 
+    
 
         /**
          * 记录失败的唯一键对应值
          * <p> 示例值：name
-         *
          * @param primaryKeyValue
          * @return
          */
         public Builder primaryKeyValue(String primaryKeyValue) {
-            this.primaryKeyValue = primaryKeyValue;
-            return this;
+             this.primaryKeyValue = primaryKeyValue;
+             return this;
         }
 
+    
 
         /**
          * 记录失败的第一条报错
          * <p> 示例值：
-         *
          * @param errors
          * @return
          */
         public Builder errors(RecordError[] errors) {
-            this.errors = errors;
-            return this;
+             this.errors = errors;
+             return this;
         }
 
+    
 
         /**
          * 记录的内部 id
          * <p> 示例值：543276126389
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
+    
+    public RecordResult build(){
+        return new RecordResult(this);
+      }
+    }
 
-        public RecordResult build() {
-            return new RecordResult(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

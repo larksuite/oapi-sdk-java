@@ -17,22 +17,21 @@ package com.lark.oapi.service.report.v1.enums;
  * 字段类型
  */
 public enum FormFieldFieldTypeEnum {
-    TEXT("text"), // 文本
-    NUMBER("number"), // 数字
-    DROPDOWN("dropdown"), // 单选
-    IMAGE("image"), // 图片
-    ATTACHMENT("attachement"), // 附件
-    MULTISELECT("multiSelect"), // 多选
-    ADDRESS("address"), // 地址
-    DATETIME("datetime"), // 时间
-    ;
-    private String value;
-
+     TEXT("text"), // 文本
+     NUMBER("number"), // 数字
+     DROPDOWN("dropdown"), // 单选
+     IMAGE("image"), // 图片
+     ATTACHMENT("attachement"), // 附件
+     MULTISELECT("multiSelect"), // 多选
+     ADDRESS("address"), // 地址
+     DATETIME("datetime"), // 时间
+  ;
+   private String value;
     FormFieldFieldTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

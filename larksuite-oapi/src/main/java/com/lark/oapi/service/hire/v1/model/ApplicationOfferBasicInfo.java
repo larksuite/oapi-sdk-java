@@ -12,298 +12,162 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ApplicationOfferBasicInfo {
-    /**
-     * Offer 类型
-     * <p> 示例值：1
-     */
+     /**
+      * Offer 类型
+      * <p> 示例值：1
+      */
     @SerializedName("offer_type")
     private Integer offerType;
-    /**
-     * 备注
-     * <p> 示例值：10
-     */
+     /**
+      * 备注
+      * <p> 示例值：10
+      */
     @SerializedName("remark")
     private String remark;
-    /**
-     * Offer 过期时间
-     * <p> 示例值：1653383498000
-     */
+     /**
+      * Offer 过期时间
+      * <p> 示例值：1653383498000
+      */
     @SerializedName("expire_time")
     private Long expireTime;
-    /**
-     * Offer 负责人 ID
-     * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-     */
+     /**
+      * Offer 负责人 ID
+      * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
+      */
     @SerializedName("owner_user_id")
     private String ownerUserId;
-    /**
-     * Offer 创建人 ID
-     * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-     */
+     /**
+      * Offer 创建人 ID
+      * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
+      */
     @SerializedName("creator_user_id")
     private String creatorUserId;
-    /**
-     * Offer 人员类型
-     * <p> 示例值：
-     */
+     /**
+      * Offer 人员类型
+      * <p> 示例值：
+      */
     @SerializedName("employee_type")
     private BaseBilingualWithId employeeType;
-    /**
-     * 创建时间
-     * <p> 示例值：1628512038000
-     */
+     /**
+      * 创建时间
+      * <p> 示例值：1628512038000
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 直属上级 ID
-     * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-     */
+     /**
+      * 直属上级 ID
+      * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
+      */
     @SerializedName("leader_user_id")
     private String leaderUserId;
-    /**
-     * 入职日期
-     * <p> 示例值：2021-05-20
-     */
+     /**
+      * 入职日期
+      * <p> 示例值：2021-05-20
+      */
     @SerializedName("onboard_date")
     private String onboardDate;
-    /**
-     * 入职部门
-     * <p> 示例值：od-6b394871807047c7023ebfc1ff37cd3a
-     */
+     /**
+      * 入职部门
+      * <p> 示例值：od-6b394871807047c7023ebfc1ff37cd3a
+      */
     @SerializedName("department_id")
     private String departmentId;
-    /**
-     * 试用期, 比如试用期6个月
-     * <p> 示例值：1
-     */
+     /**
+      * 试用期, 比如试用期6个月
+      * <p> 示例值：1
+      */
     @SerializedName("probation_month")
     private Long probationMonth;
-    /**
-     * 合同期, 比如3年
-     * <p> 示例值：3
-     */
+     /**
+      * 合同期, 比如3年
+      * <p> 示例值：3
+      */
     @SerializedName("contract_year")
     private Long contractYear;
-    /**
-     * 合同期（年/月）
-     * <p> 示例值：
-     */
+     /**
+      * 合同期（年/月）
+      * <p> 示例值：
+      */
     @SerializedName("contract_period")
     private ContractPeriodInfo contractPeriod;
-    /**
-     * 雇员类型
-     * <p> 示例值：
-     */
+     /**
+      * 雇员类型
+      * <p> 示例值：
+      */
     @SerializedName("recruitment_type")
     private BaseBilingualWithId recruitmentType;
-    /**
-     * 序列
-     * <p> 示例值：
-     */
+     /**
+      * 序列
+      * <p> 示例值：
+      */
     @SerializedName("sequence")
     private BaseBilingualWithId sequence;
-    /**
-     * 级别
-     * <p> 示例值：
-     */
+     /**
+      * 级别
+      * <p> 示例值：
+      */
     @SerializedName("level")
     private BaseBilingualWithId level;
-    /**
-     * 入职地点
-     * <p> 示例值：
-     */
+     /**
+      * 入职地点
+      * <p> 示例值：
+      */
     @SerializedName("onboard_address")
     private BaseAddress onboardAddress;
-    /**
-     * 工作地点
-     * <p> 示例值：
-     */
+     /**
+      * 工作地点
+      * <p> 示例值：
+      */
     @SerializedName("work_address")
     private BaseAddress workAddress;
-    /**
-     * 自定义字段信息
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段信息
+      * <p> 示例值：
+      */
     @SerializedName("customize_info_list")
     private ApplicationOfferCustomValue[] customizeInfoList;
-    /**
-     * 人事侧的办公地点与地址（目前仅字节可用)
-     * <p> 示例值：
-     */
+     /**
+      * 人事侧的办公地点与地址（目前仅字节可用)
+      * <p> 示例值：
+      */
     @SerializedName("work_location_address_info")
     private MasterLocationAddressInfo workLocationAddressInfo;
-    /**
-     * 岗位 ID
-     * <p> 示例值：123
-     */
+     /**
+      * 岗位 ID
+      * <p> 示例值：123
+      */
     @SerializedName("position_id")
     private String positionId;
-    /**
-     * 入职职位
-     * <p> 示例值：123
-     */
+     /**
+      * 入职职位
+      * <p> 示例值：123
+      */
     @SerializedName("job_offered")
     private String jobOffered;
-    /**
-     * 职等 ID
-     * <p> 示例值：123
-     */
+     /**
+      * 职等 ID
+      * <p> 示例值：123
+      */
     @SerializedName("job_grade_id")
     private String jobGradeId;
-    /**
-     * Offer 附件 ID 列表
-     * <p> 示例值：
-     */
+     /**
+      * Offer 附件 ID 列表
+      * <p> 示例值：
+      */
     @SerializedName("common_attachment_id_list")
     private String[] commonAttachmentIdList;
-
-    // builder 开始
-    public ApplicationOfferBasicInfo() {
-    }
-
-    public ApplicationOfferBasicInfo(Builder builder) {
-        /**
-         * Offer 类型
-         * <p> 示例值：1
-         */
-        this.offerType = builder.offerType;
-        /**
-         * 备注
-         * <p> 示例值：10
-         */
-        this.remark = builder.remark;
-        /**
-         * Offer 过期时间
-         * <p> 示例值：1653383498000
-         */
-        this.expireTime = builder.expireTime;
-        /**
-         * Offer 负责人 ID
-         * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-         */
-        this.ownerUserId = builder.ownerUserId;
-        /**
-         * Offer 创建人 ID
-         * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-         */
-        this.creatorUserId = builder.creatorUserId;
-        /**
-         * Offer 人员类型
-         * <p> 示例值：
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 创建时间
-         * <p> 示例值：1628512038000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 直属上级 ID
-         * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-         */
-        this.leaderUserId = builder.leaderUserId;
-        /**
-         * 入职日期
-         * <p> 示例值：2021-05-20
-         */
-        this.onboardDate = builder.onboardDate;
-        /**
-         * 入职部门
-         * <p> 示例值：od-6b394871807047c7023ebfc1ff37cd3a
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 试用期, 比如试用期6个月
-         * <p> 示例值：1
-         */
-        this.probationMonth = builder.probationMonth;
-        /**
-         * 合同期, 比如3年
-         * <p> 示例值：3
-         */
-        this.contractYear = builder.contractYear;
-        /**
-         * 合同期（年/月）
-         * <p> 示例值：
-         */
-        this.contractPeriod = builder.contractPeriod;
-        /**
-         * 雇员类型
-         * <p> 示例值：
-         */
-        this.recruitmentType = builder.recruitmentType;
-        /**
-         * 序列
-         * <p> 示例值：
-         */
-        this.sequence = builder.sequence;
-        /**
-         * 级别
-         * <p> 示例值：
-         */
-        this.level = builder.level;
-        /**
-         * 入职地点
-         * <p> 示例值：
-         */
-        this.onboardAddress = builder.onboardAddress;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
-        this.workAddress = builder.workAddress;
-        /**
-         * 自定义字段信息
-         * <p> 示例值：
-         */
-        this.customizeInfoList = builder.customizeInfoList;
-        /**
-         * 人事侧的办公地点与地址（目前仅字节可用)
-         * <p> 示例值：
-         */
-        this.workLocationAddressInfo = builder.workLocationAddressInfo;
-        /**
-         * 岗位 ID
-         * <p> 示例值：123
-         */
-        this.positionId = builder.positionId;
-        /**
-         * 入职职位
-         * <p> 示例值：123
-         */
-        this.jobOffered = builder.jobOffered;
-        /**
-         * 职等 ID
-         * <p> 示例值：123
-         */
-        this.jobGradeId = builder.jobGradeId;
-        /**
-         * Offer 附件 ID 列表
-         * <p> 示例值：
-         */
-        this.commonAttachmentIdList = builder.commonAttachmentIdList;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public Integer getOfferType() {
         return this.offerType;
     }
@@ -496,442 +360,573 @@ public class ApplicationOfferBasicInfo {
         this.commonAttachmentIdList = commonAttachmentIdList;
     }
 
+
+// builder 开始
+  public ApplicationOfferBasicInfo(){}
+
+  public ApplicationOfferBasicInfo(Builder builder){
+         /**
+          * Offer 类型
+          * <p> 示例值：1
+          */
+      this.offerType = builder.offerType;
+         /**
+          * 备注
+          * <p> 示例值：10
+          */
+      this.remark = builder.remark;
+         /**
+          * Offer 过期时间
+          * <p> 示例值：1653383498000
+          */
+      this.expireTime = builder.expireTime;
+         /**
+          * Offer 负责人 ID
+          * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
+          */
+      this.ownerUserId = builder.ownerUserId;
+         /**
+          * Offer 创建人 ID
+          * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
+          */
+      this.creatorUserId = builder.creatorUserId;
+         /**
+          * Offer 人员类型
+          * <p> 示例值：
+          */
+      this.employeeType = builder.employeeType;
+         /**
+          * 创建时间
+          * <p> 示例值：1628512038000
+          */
+      this.createTime = builder.createTime;
+         /**
+          * 直属上级 ID
+          * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
+          */
+      this.leaderUserId = builder.leaderUserId;
+         /**
+          * 入职日期
+          * <p> 示例值：2021-05-20
+          */
+      this.onboardDate = builder.onboardDate;
+         /**
+          * 入职部门
+          * <p> 示例值：od-6b394871807047c7023ebfc1ff37cd3a
+          */
+      this.departmentId = builder.departmentId;
+         /**
+          * 试用期, 比如试用期6个月
+          * <p> 示例值：1
+          */
+      this.probationMonth = builder.probationMonth;
+         /**
+          * 合同期, 比如3年
+          * <p> 示例值：3
+          */
+      this.contractYear = builder.contractYear;
+         /**
+          * 合同期（年/月）
+          * <p> 示例值：
+          */
+      this.contractPeriod = builder.contractPeriod;
+         /**
+          * 雇员类型
+          * <p> 示例值：
+          */
+      this.recruitmentType = builder.recruitmentType;
+         /**
+          * 序列
+          * <p> 示例值：
+          */
+      this.sequence = builder.sequence;
+         /**
+          * 级别
+          * <p> 示例值：
+          */
+      this.level = builder.level;
+         /**
+          * 入职地点
+          * <p> 示例值：
+          */
+      this.onboardAddress = builder.onboardAddress;
+         /**
+          * 工作地点
+          * <p> 示例值：
+          */
+      this.workAddress = builder.workAddress;
+         /**
+          * 自定义字段信息
+          * <p> 示例值：
+          */
+      this.customizeInfoList = builder.customizeInfoList;
+         /**
+          * 人事侧的办公地点与地址（目前仅字节可用)
+          * <p> 示例值：
+          */
+      this.workLocationAddressInfo = builder.workLocationAddressInfo;
+         /**
+          * 岗位 ID
+          * <p> 示例值：123
+          */
+      this.positionId = builder.positionId;
+         /**
+          * 入职职位
+          * <p> 示例值：123
+          */
+      this.jobOffered = builder.jobOffered;
+         /**
+          * 职等 ID
+          * <p> 示例值：123
+          */
+      this.jobGradeId = builder.jobGradeId;
+         /**
+          * Offer 附件 ID 列表
+          * <p> 示例值：
+          */
+      this.commonAttachmentIdList = builder.commonAttachmentIdList;
+  }
+
     public static class Builder {
-        /**
-         * Offer 类型
-         * <p> 示例值：1
-         */
+     /**
+      * Offer 类型
+      * <p> 示例值：1
+      */
         private Integer offerType;
-        /**
-         * 备注
-         * <p> 示例值：10
-         */
+     /**
+      * 备注
+      * <p> 示例值：10
+      */
         private String remark;
-        /**
-         * Offer 过期时间
-         * <p> 示例值：1653383498000
-         */
+     /**
+      * Offer 过期时间
+      * <p> 示例值：1653383498000
+      */
         private Long expireTime;
-        /**
-         * Offer 负责人 ID
-         * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-         */
+     /**
+      * Offer 负责人 ID
+      * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
+      */
         private String ownerUserId;
-        /**
-         * Offer 创建人 ID
-         * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-         */
+     /**
+      * Offer 创建人 ID
+      * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
+      */
         private String creatorUserId;
-        /**
-         * Offer 人员类型
-         * <p> 示例值：
-         */
+     /**
+      * Offer 人员类型
+      * <p> 示例值：
+      */
         private BaseBilingualWithId employeeType;
-        /**
-         * 创建时间
-         * <p> 示例值：1628512038000
-         */
+     /**
+      * 创建时间
+      * <p> 示例值：1628512038000
+      */
         private String createTime;
-        /**
-         * 直属上级 ID
-         * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-         */
+     /**
+      * 直属上级 ID
+      * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
+      */
         private String leaderUserId;
-        /**
-         * 入职日期
-         * <p> 示例值：2021-05-20
-         */
+     /**
+      * 入职日期
+      * <p> 示例值：2021-05-20
+      */
         private String onboardDate;
-        /**
-         * 入职部门
-         * <p> 示例值：od-6b394871807047c7023ebfc1ff37cd3a
-         */
+     /**
+      * 入职部门
+      * <p> 示例值：od-6b394871807047c7023ebfc1ff37cd3a
+      */
         private String departmentId;
-        /**
-         * 试用期, 比如试用期6个月
-         * <p> 示例值：1
-         */
+     /**
+      * 试用期, 比如试用期6个月
+      * <p> 示例值：1
+      */
         private Long probationMonth;
-        /**
-         * 合同期, 比如3年
-         * <p> 示例值：3
-         */
+     /**
+      * 合同期, 比如3年
+      * <p> 示例值：3
+      */
         private Long contractYear;
-        /**
-         * 合同期（年/月）
-         * <p> 示例值：
-         */
+     /**
+      * 合同期（年/月）
+      * <p> 示例值：
+      */
         private ContractPeriodInfo contractPeriod;
-        /**
-         * 雇员类型
-         * <p> 示例值：
-         */
+     /**
+      * 雇员类型
+      * <p> 示例值：
+      */
         private BaseBilingualWithId recruitmentType;
-        /**
-         * 序列
-         * <p> 示例值：
-         */
+     /**
+      * 序列
+      * <p> 示例值：
+      */
         private BaseBilingualWithId sequence;
-        /**
-         * 级别
-         * <p> 示例值：
-         */
+     /**
+      * 级别
+      * <p> 示例值：
+      */
         private BaseBilingualWithId level;
-        /**
-         * 入职地点
-         * <p> 示例值：
-         */
+     /**
+      * 入职地点
+      * <p> 示例值：
+      */
         private BaseAddress onboardAddress;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
+     /**
+      * 工作地点
+      * <p> 示例值：
+      */
         private BaseAddress workAddress;
-        /**
-         * 自定义字段信息
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段信息
+      * <p> 示例值：
+      */
         private ApplicationOfferCustomValue[] customizeInfoList;
-        /**
-         * 人事侧的办公地点与地址（目前仅字节可用)
-         * <p> 示例值：
-         */
+     /**
+      * 人事侧的办公地点与地址（目前仅字节可用)
+      * <p> 示例值：
+      */
         private MasterLocationAddressInfo workLocationAddressInfo;
-        /**
-         * 岗位 ID
-         * <p> 示例值：123
-         */
+     /**
+      * 岗位 ID
+      * <p> 示例值：123
+      */
         private String positionId;
-        /**
-         * 入职职位
-         * <p> 示例值：123
-         */
+     /**
+      * 入职职位
+      * <p> 示例值：123
+      */
         private String jobOffered;
-        /**
-         * 职等 ID
-         * <p> 示例值：123
-         */
+     /**
+      * 职等 ID
+      * <p> 示例值：123
+      */
         private String jobGradeId;
-        /**
-         * Offer 附件 ID 列表
-         * <p> 示例值：
-         */
+     /**
+      * Offer 附件 ID 列表
+      * <p> 示例值：
+      */
         private String[] commonAttachmentIdList;
 
         /**
          * Offer 类型
          * <p> 示例值：1
-         *
          * @param offerType
          * @return
          */
         public Builder offerType(Integer offerType) {
-            this.offerType = offerType;
-            return this;
+             this.offerType = offerType;
+             return this;
         }
 
+    
 
         /**
          * 备注
          * <p> 示例值：10
-         *
          * @param remark
          * @return
          */
         public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
+             this.remark = remark;
+             return this;
         }
 
+    
 
         /**
          * Offer 过期时间
          * <p> 示例值：1653383498000
-         *
          * @param expireTime
          * @return
          */
         public Builder expireTime(Long expireTime) {
-            this.expireTime = expireTime;
-            return this;
+             this.expireTime = expireTime;
+             return this;
         }
 
+    
 
         /**
          * Offer 负责人 ID
          * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-         *
          * @param ownerUserId
          * @return
          */
         public Builder ownerUserId(String ownerUserId) {
-            this.ownerUserId = ownerUserId;
-            return this;
+             this.ownerUserId = ownerUserId;
+             return this;
         }
 
+    
 
         /**
          * Offer 创建人 ID
          * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-         *
          * @param creatorUserId
          * @return
          */
         public Builder creatorUserId(String creatorUserId) {
-            this.creatorUserId = creatorUserId;
-            return this;
+             this.creatorUserId = creatorUserId;
+             return this;
         }
 
+    
 
         /**
          * Offer 人员类型
          * <p> 示例值：
-         *
          * @param employeeType
          * @return
          */
         public Builder employeeType(BaseBilingualWithId employeeType) {
-            this.employeeType = employeeType;
-            return this;
+             this.employeeType = employeeType;
+             return this;
         }
 
+    
 
         /**
          * 创建时间
          * <p> 示例值：1628512038000
-         *
          * @param createTime
          * @return
          */
         public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+             this.createTime = createTime;
+             return this;
         }
 
+    
 
         /**
          * 直属上级 ID
          * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
-         *
          * @param leaderUserId
          * @return
          */
         public Builder leaderUserId(String leaderUserId) {
-            this.leaderUserId = leaderUserId;
-            return this;
+             this.leaderUserId = leaderUserId;
+             return this;
         }
 
+    
 
         /**
          * 入职日期
          * <p> 示例值：2021-05-20
-         *
          * @param onboardDate
          * @return
          */
         public Builder onboardDate(String onboardDate) {
-            this.onboardDate = onboardDate;
-            return this;
+             this.onboardDate = onboardDate;
+             return this;
         }
 
+    
 
         /**
          * 入职部门
          * <p> 示例值：od-6b394871807047c7023ebfc1ff37cd3a
-         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
+             this.departmentId = departmentId;
+             return this;
         }
 
+    
 
         /**
          * 试用期, 比如试用期6个月
          * <p> 示例值：1
-         *
          * @param probationMonth
          * @return
          */
         public Builder probationMonth(Long probationMonth) {
-            this.probationMonth = probationMonth;
-            return this;
+             this.probationMonth = probationMonth;
+             return this;
         }
 
+    
 
         /**
          * 合同期, 比如3年
          * <p> 示例值：3
-         *
          * @param contractYear
          * @return
          */
         public Builder contractYear(Long contractYear) {
-            this.contractYear = contractYear;
-            return this;
+             this.contractYear = contractYear;
+             return this;
         }
 
+    
 
         /**
          * 合同期（年/月）
          * <p> 示例值：
-         *
          * @param contractPeriod
          * @return
          */
         public Builder contractPeriod(ContractPeriodInfo contractPeriod) {
-            this.contractPeriod = contractPeriod;
-            return this;
+             this.contractPeriod = contractPeriod;
+             return this;
         }
 
+    
 
         /**
          * 雇员类型
          * <p> 示例值：
-         *
          * @param recruitmentType
          * @return
          */
         public Builder recruitmentType(BaseBilingualWithId recruitmentType) {
-            this.recruitmentType = recruitmentType;
-            return this;
+             this.recruitmentType = recruitmentType;
+             return this;
         }
 
+    
 
         /**
          * 序列
          * <p> 示例值：
-         *
          * @param sequence
          * @return
          */
         public Builder sequence(BaseBilingualWithId sequence) {
-            this.sequence = sequence;
-            return this;
+             this.sequence = sequence;
+             return this;
         }
 
+    
 
         /**
          * 级别
          * <p> 示例值：
-         *
          * @param level
          * @return
          */
         public Builder level(BaseBilingualWithId level) {
-            this.level = level;
-            return this;
+             this.level = level;
+             return this;
         }
 
+    
 
         /**
          * 入职地点
          * <p> 示例值：
-         *
          * @param onboardAddress
          * @return
          */
         public Builder onboardAddress(BaseAddress onboardAddress) {
-            this.onboardAddress = onboardAddress;
-            return this;
+             this.onboardAddress = onboardAddress;
+             return this;
         }
 
+    
 
         /**
          * 工作地点
          * <p> 示例值：
-         *
          * @param workAddress
          * @return
          */
         public Builder workAddress(BaseAddress workAddress) {
-            this.workAddress = workAddress;
-            return this;
+             this.workAddress = workAddress;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段信息
          * <p> 示例值：
-         *
          * @param customizeInfoList
          * @return
          */
         public Builder customizeInfoList(ApplicationOfferCustomValue[] customizeInfoList) {
-            this.customizeInfoList = customizeInfoList;
-            return this;
+             this.customizeInfoList = customizeInfoList;
+             return this;
         }
 
+    
 
         /**
          * 人事侧的办公地点与地址（目前仅字节可用)
          * <p> 示例值：
-         *
          * @param workLocationAddressInfo
          * @return
          */
         public Builder workLocationAddressInfo(MasterLocationAddressInfo workLocationAddressInfo) {
-            this.workLocationAddressInfo = workLocationAddressInfo;
-            return this;
+             this.workLocationAddressInfo = workLocationAddressInfo;
+             return this;
         }
 
+    
 
         /**
          * 岗位 ID
          * <p> 示例值：123
-         *
          * @param positionId
          * @return
          */
         public Builder positionId(String positionId) {
-            this.positionId = positionId;
-            return this;
+             this.positionId = positionId;
+             return this;
         }
 
+    
 
         /**
          * 入职职位
          * <p> 示例值：123
-         *
          * @param jobOffered
          * @return
          */
         public Builder jobOffered(String jobOffered) {
-            this.jobOffered = jobOffered;
-            return this;
+             this.jobOffered = jobOffered;
+             return this;
         }
 
+    
 
         /**
          * 职等 ID
          * <p> 示例值：123
-         *
          * @param jobGradeId
          * @return
          */
         public Builder jobGradeId(String jobGradeId) {
-            this.jobGradeId = jobGradeId;
-            return this;
+             this.jobGradeId = jobGradeId;
+             return this;
         }
 
+    
 
         /**
          * Offer 附件 ID 列表
          * <p> 示例值：
-         *
          * @param commonAttachmentIdList
          * @return
          */
         public Builder commonAttachmentIdList(String[] commonAttachmentIdList) {
-            this.commonAttachmentIdList = commonAttachmentIdList;
-            return this;
+             this.commonAttachmentIdList = commonAttachmentIdList;
+             return this;
         }
 
+    
+    
+    public ApplicationOfferBasicInfo build(){
+        return new ApplicationOfferBasicInfo(this);
+      }
+    }
 
-        public ApplicationOfferBasicInfo build() {
-            return new ApplicationOfferBasicInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

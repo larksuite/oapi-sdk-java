@@ -12,29 +12,24 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateImageRespBody {
-    /**
-     * 图片的key
-     * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
-     */
+     /**
+      * 图片的key
+      * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+      */
     @SerializedName("image_key")
     private String imageKey;
-
     public String getImageKey() {
         return this.imageKey;
     }

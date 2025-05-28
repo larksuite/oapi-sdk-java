@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class RemoveDependenciesTaskReqBody {
-    /**
-     * 要移除的依赖
-     * <p> 示例值：
-     */
+     /**
+      * 要移除的依赖
+      * <p> 示例值：
+      */
     @SerializedName("dependencies")
     private TaskDependency[] dependencies;
-
-    // builder 开始
-    public RemoveDependenciesTaskReqBody() {
-    }
-
-    public RemoveDependenciesTaskReqBody(Builder builder) {
-        /**
-         * 要移除的依赖
-         * <p> 示例值：
-         */
-        this.dependencies = builder.dependencies;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public TaskDependency[] getDependencies() {
         return this.dependencies;
     }
@@ -60,28 +39,44 @@ public class RemoveDependenciesTaskReqBody {
         this.dependencies = dependencies;
     }
 
+
+// builder 开始
+  public RemoveDependenciesTaskReqBody(){}
+
+  public RemoveDependenciesTaskReqBody(Builder builder){
+         /**
+          * 要移除的依赖
+          * <p> 示例值：
+          */
+      this.dependencies = builder.dependencies;
+  }
+
     public static class Builder {
-        /**
-         * 要移除的依赖
-         * <p> 示例值：
-         */
+     /**
+      * 要移除的依赖
+      * <p> 示例值：
+      */
         private TaskDependency[] dependencies;
 
         /**
          * 要移除的依赖
          * <p> 示例值：
-         *
          * @param dependencies
          * @return
          */
         public Builder dependencies(TaskDependency[] dependencies) {
-            this.dependencies = dependencies;
-            return this;
+             this.dependencies = dependencies;
+             return this;
         }
 
+    
+    
+    public RemoveDependenciesTaskReqBody build(){
+        return new RemoveDependenciesTaskReqBody(this);
+      }
+    }
 
-        public RemoveDependenciesTaskReqBody build() {
-            return new RemoveDependenciesTaskReqBody(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

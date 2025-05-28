@@ -17,16 +17,15 @@ package com.lark.oapi.service.application.v6.enums;
  * 权限的身份类型，形如 user(用户身份)、tenant(应用身份)
  */
 public enum ScopeScopeTypeEnum {
-    TENANT("tenant"), // 应用身份
-    USER("user"), // 用户身份
-    ;
-    private String value;
-
+     TENANT("tenant"), // 应用身份
+     USER("user"), // 用户身份
+  ;
+   private String value;
     ScopeScopeTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

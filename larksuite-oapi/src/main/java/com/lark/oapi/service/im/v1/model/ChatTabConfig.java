@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ChatTabConfig {
-    /**
-     * 群Tab图标
-     * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
-     */
+     /**
+      * 群Tab图标
+      * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
+      */
     @SerializedName("icon_key")
     private String iconKey;
-    /**
-     * 群tab是否App内嵌打开
-     * <p> 示例值：false
-     */
+     /**
+      * 群tab是否App内嵌打开
+      * <p> 示例值：false
+      */
     @SerializedName("is_built_in")
     private Boolean isBuiltIn;
-
-    // builder 开始
-    public ChatTabConfig() {
-    }
-
-    public ChatTabConfig(Builder builder) {
-        /**
-         * 群Tab图标
-         * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
-         */
-        this.iconKey = builder.iconKey;
-        /**
-         * 群tab是否App内嵌打开
-         * <p> 示例值：false
-         */
-        this.isBuiltIn = builder.isBuiltIn;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getIconKey() {
         return this.iconKey;
     }
@@ -79,46 +53,67 @@ public class ChatTabConfig {
         this.isBuiltIn = isBuiltIn;
     }
 
+
+// builder 开始
+  public ChatTabConfig(){}
+
+  public ChatTabConfig(Builder builder){
+         /**
+          * 群Tab图标
+          * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
+          */
+      this.iconKey = builder.iconKey;
+         /**
+          * 群tab是否App内嵌打开
+          * <p> 示例值：false
+          */
+      this.isBuiltIn = builder.isBuiltIn;
+  }
+
     public static class Builder {
-        /**
-         * 群Tab图标
-         * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
-         */
+     /**
+      * 群Tab图标
+      * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
+      */
         private String iconKey;
-        /**
-         * 群tab是否App内嵌打开
-         * <p> 示例值：false
-         */
+     /**
+      * 群tab是否App内嵌打开
+      * <p> 示例值：false
+      */
         private Boolean isBuiltIn;
 
         /**
          * 群Tab图标
          * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
-         *
          * @param iconKey
          * @return
          */
         public Builder iconKey(String iconKey) {
-            this.iconKey = iconKey;
-            return this;
+             this.iconKey = iconKey;
+             return this;
         }
 
+    
 
         /**
          * 群tab是否App内嵌打开
          * <p> 示例值：false
-         *
          * @param isBuiltIn
          * @return
          */
         public Builder isBuiltIn(Boolean isBuiltIn) {
-            this.isBuiltIn = isBuiltIn;
-            return this;
+             this.isBuiltIn = isBuiltIn;
+             return this;
         }
 
+    
+    
+    public ChatTabConfig build(){
+        return new ChatTabConfig(this);
+      }
+    }
 
-        public ChatTabConfig build() {
-            return new ChatTabConfig(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

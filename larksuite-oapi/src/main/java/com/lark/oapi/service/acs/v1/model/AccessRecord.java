@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,115 +19,60 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AccessRecord {
-    /**
-     * 门禁记录 ID
-     * <p> 示例值：6939433228970082591
-     */
+     /**
+      * 门禁记录 ID
+      * <p> 示例值：6939433228970082591
+      */
     @SerializedName("access_record_id")
     private String accessRecordId;
-    /**
-     * 门禁记录所属用户 ID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     */
+     /**
+      * 门禁记录所属用户 ID
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
     @SerializedName("user_id")
     private String userId;
-    /**
-     * 门禁设备 ID
-     * <p> 示例值：6939433228970082593
-     */
+     /**
+      * 门禁设备 ID
+      * <p> 示例值：6939433228970082593
+      */
     @SerializedName("device_id")
     private String deviceId;
-    /**
-     * 是否是打卡
-     * <p> 示例值：true
-     */
+     /**
+      * 是否是打卡
+      * <p> 示例值：true
+      */
     @SerializedName("is_clock_in")
     private Boolean isClockIn;
-    /**
-     * 访问时间，单位秒
-     * <p> 示例值：1624520221
-     */
+     /**
+      * 访问时间，单位秒
+      * <p> 示例值：1624520221
+      */
     @SerializedName("access_time")
     private String accessTime;
-    /**
-     * 识别方式
-     * <p> 示例值：FA
-     */
+     /**
+      * 识别方式
+      * <p> 示例值：FA
+      */
     @SerializedName("access_type")
     private String accessType;
-    /**
-     * 识别相关数据，根据 access_type 不同，取值不同
-     * <p> 示例值：{\"has_access_photo\":true}
-     */
+     /**
+      * 识别相关数据，根据 access_type 不同，取值不同
+      * <p> 示例值：{\"has_access_photo\":true}
+      */
     @SerializedName("access_data")
     private String accessData;
-    /**
-     * 是否开门
-     * <p> 示例值：true
-     */
+     /**
+      * 是否开门
+      * <p> 示例值：true
+      */
     @SerializedName("is_door_open")
     private Boolean isDoorOpen;
-
-    // builder 开始
-    public AccessRecord() {
-    }
-
-    public AccessRecord(Builder builder) {
-        /**
-         * 门禁记录 ID
-         * <p> 示例值：6939433228970082591
-         */
-        this.accessRecordId = builder.accessRecordId;
-        /**
-         * 门禁记录所属用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.userId = builder.userId;
-        /**
-         * 门禁设备 ID
-         * <p> 示例值：6939433228970082593
-         */
-        this.deviceId = builder.deviceId;
-        /**
-         * 是否是打卡
-         * <p> 示例值：true
-         */
-        this.isClockIn = builder.isClockIn;
-        /**
-         * 访问时间，单位秒
-         * <p> 示例值：1624520221
-         */
-        this.accessTime = builder.accessTime;
-        /**
-         * 识别方式
-         * <p> 示例值：FA
-         */
-        this.accessType = builder.accessType;
-        /**
-         * 识别相关数据，根据 access_type 不同，取值不同
-         * <p> 示例值：{\"has_access_photo\":true}
-         */
-        this.accessData = builder.accessData;
-        /**
-         * 是否开门
-         * <p> 示例值：true
-         */
-        this.isDoorOpen = builder.isDoorOpen;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAccessRecordId() {
         return this.accessRecordId;
     }
@@ -193,166 +137,215 @@ public class AccessRecord {
         this.isDoorOpen = isDoorOpen;
     }
 
+
+// builder 开始
+  public AccessRecord(){}
+
+  public AccessRecord(Builder builder){
+         /**
+          * 门禁记录 ID
+          * <p> 示例值：6939433228970082591
+          */
+      this.accessRecordId = builder.accessRecordId;
+         /**
+          * 门禁记录所属用户 ID
+          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+          */
+      this.userId = builder.userId;
+         /**
+          * 门禁设备 ID
+          * <p> 示例值：6939433228970082593
+          */
+      this.deviceId = builder.deviceId;
+         /**
+          * 是否是打卡
+          * <p> 示例值：true
+          */
+      this.isClockIn = builder.isClockIn;
+         /**
+          * 访问时间，单位秒
+          * <p> 示例值：1624520221
+          */
+      this.accessTime = builder.accessTime;
+         /**
+          * 识别方式
+          * <p> 示例值：FA
+          */
+      this.accessType = builder.accessType;
+         /**
+          * 识别相关数据，根据 access_type 不同，取值不同
+          * <p> 示例值：{\"has_access_photo\":true}
+          */
+      this.accessData = builder.accessData;
+         /**
+          * 是否开门
+          * <p> 示例值：true
+          */
+      this.isDoorOpen = builder.isDoorOpen;
+  }
+
     public static class Builder {
-        /**
-         * 门禁记录 ID
-         * <p> 示例值：6939433228970082591
-         */
+     /**
+      * 门禁记录 ID
+      * <p> 示例值：6939433228970082591
+      */
         private String accessRecordId;
-        /**
-         * 门禁记录所属用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
+     /**
+      * 门禁记录所属用户 ID
+      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+      */
         private String userId;
-        /**
-         * 门禁设备 ID
-         * <p> 示例值：6939433228970082593
-         */
+     /**
+      * 门禁设备 ID
+      * <p> 示例值：6939433228970082593
+      */
         private String deviceId;
-        /**
-         * 是否是打卡
-         * <p> 示例值：true
-         */
+     /**
+      * 是否是打卡
+      * <p> 示例值：true
+      */
         private Boolean isClockIn;
-        /**
-         * 访问时间，单位秒
-         * <p> 示例值：1624520221
-         */
+     /**
+      * 访问时间，单位秒
+      * <p> 示例值：1624520221
+      */
         private String accessTime;
-        /**
-         * 识别方式
-         * <p> 示例值：FA
-         */
+     /**
+      * 识别方式
+      * <p> 示例值：FA
+      */
         private String accessType;
-        /**
-         * 识别相关数据，根据 access_type 不同，取值不同
-         * <p> 示例值：{\"has_access_photo\":true}
-         */
+     /**
+      * 识别相关数据，根据 access_type 不同，取值不同
+      * <p> 示例值：{\"has_access_photo\":true}
+      */
         private String accessData;
-        /**
-         * 是否开门
-         * <p> 示例值：true
-         */
+     /**
+      * 是否开门
+      * <p> 示例值：true
+      */
         private Boolean isDoorOpen;
 
         /**
          * 门禁记录 ID
          * <p> 示例值：6939433228970082591
-         *
          * @param accessRecordId
          * @return
          */
         public Builder accessRecordId(String accessRecordId) {
-            this.accessRecordId = accessRecordId;
-            return this;
+             this.accessRecordId = accessRecordId;
+             return this;
         }
 
+    
 
         /**
          * 门禁记录所属用户 ID
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
 
         /**
          * 门禁设备 ID
          * <p> 示例值：6939433228970082593
-         *
          * @param deviceId
          * @return
          */
         public Builder deviceId(String deviceId) {
-            this.deviceId = deviceId;
-            return this;
+             this.deviceId = deviceId;
+             return this;
         }
 
+    
 
         /**
          * 是否是打卡
          * <p> 示例值：true
-         *
          * @param isClockIn
          * @return
          */
         public Builder isClockIn(Boolean isClockIn) {
-            this.isClockIn = isClockIn;
-            return this;
+             this.isClockIn = isClockIn;
+             return this;
         }
 
+    
 
         /**
          * 访问时间，单位秒
          * <p> 示例值：1624520221
-         *
          * @param accessTime
          * @return
          */
         public Builder accessTime(String accessTime) {
-            this.accessTime = accessTime;
-            return this;
+             this.accessTime = accessTime;
+             return this;
         }
 
+    
 
         /**
          * 识别方式
          * <p> 示例值：FA
-         *
          * @param accessType
          * @return
          */
         public Builder accessType(String accessType) {
-            this.accessType = accessType;
-            return this;
+             this.accessType = accessType;
+             return this;
         }
-
         /**
          * 识别方式
          * <p> 示例值：FA
-         *
          * @param accessType {@link com.lark.oapi.service.acs.v1.enums.AccessRecordAccessTypeEnum}
          * @return
          */
         public Builder accessType(com.lark.oapi.service.acs.v1.enums.AccessRecordAccessTypeEnum accessType) {
-            this.accessType = accessType.getValue();
-            return this;
+             this.accessType = accessType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 识别相关数据，根据 access_type 不同，取值不同
          * <p> 示例值：{\"has_access_photo\":true}
-         *
          * @param accessData
          * @return
          */
         public Builder accessData(String accessData) {
-            this.accessData = accessData;
-            return this;
+             this.accessData = accessData;
+             return this;
         }
 
+    
 
         /**
          * 是否开门
          * <p> 示例值：true
-         *
          * @param isDoorOpen
          * @return
          */
         public Builder isDoorOpen(Boolean isDoorOpen) {
-            this.isDoorOpen = isDoorOpen;
-            return this;
+             this.isDoorOpen = isDoorOpen;
+             return this;
         }
 
+    
+    
+    public AccessRecord build(){
+        return new AccessRecord(this);
+      }
+    }
 
-        public AccessRecord build() {
-            return new AccessRecord(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

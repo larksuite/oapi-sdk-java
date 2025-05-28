@@ -17,85 +17,72 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.apaas.v1.resource.*;
 
 public class V1 {
-    private final ApplicationAuditLog applicationAuditLog; // application.audit_log
-    private final ApplicationEnvironmentVariable applicationEnvironmentVariable; // application.environment_variable
-    private final ApplicationFlow applicationFlow; // application.flow
-    private final ApplicationFunction applicationFunction; // application.function
-    private final ApplicationObject applicationObject; // application.object
-    private final ApplicationObjectRecord applicationObjectRecord; // application.object.record
-    private final ApplicationRecordPermissionMember applicationRecordPermissionMember; // application.record_permission.member
-    private final ApplicationRoleMember applicationRoleMember; // application.role.member
-    private final ApprovalInstance approvalInstance; // approval_instance
-    private final ApprovalTask approvalTask; // approval_task
-    private final SeatActivity seatActivity; // seat_activity
-    private final SeatAssignment seatAssignment; // seat_assignment
-    private final UserTask userTask; // user_task
+	private final ApplicationAuditLog applicationAuditLog; // application.audit_log
+	private final ApplicationEnvironmentVariable applicationEnvironmentVariable; // application.environment_variable
+	private final ApplicationFlow applicationFlow; // application.flow
+	private final ApplicationFunction applicationFunction; // application.function
+	private final ApplicationObject applicationObject; // application.object
+	private final ApplicationObjectRecord applicationObjectRecord; // application.object.record
+	private final ApplicationRecordPermissionMember applicationRecordPermissionMember; // application.record_permission.member
+	private final ApplicationRoleMember applicationRoleMember; // application.role.member
+	private final ApprovalInstance approvalInstance; // approval_instance
+	private final ApprovalTask approvalTask; // approval_task
+	private final SeatActivity seatActivity; // seat_activity
+	private final SeatAssignment seatAssignment; // seat_assignment
+	private final UserTask userTask; // user_task
 
-    public V1(Config config) {
-        this.applicationAuditLog = new ApplicationAuditLog(config);
-        this.applicationEnvironmentVariable = new ApplicationEnvironmentVariable(config);
-        this.applicationFlow = new ApplicationFlow(config);
-        this.applicationFunction = new ApplicationFunction(config);
-        this.applicationObject = new ApplicationObject(config);
-        this.applicationObjectRecord = new ApplicationObjectRecord(config);
-        this.applicationRecordPermissionMember = new ApplicationRecordPermissionMember(config);
-        this.applicationRoleMember = new ApplicationRoleMember(config);
-        this.approvalInstance = new ApprovalInstance(config);
-        this.approvalTask = new ApprovalTask(config);
-        this.seatActivity = new SeatActivity(config);
-        this.seatAssignment = new SeatAssignment(config);
-        this.userTask = new UserTask(config);
-    }
-
-    public ApplicationAuditLog applicationAuditLog() {
-        return applicationAuditLog;
-    }
-
-    public ApplicationEnvironmentVariable applicationEnvironmentVariable() {
-        return applicationEnvironmentVariable;
-    }
-
-    public ApplicationFlow applicationFlow() {
-        return applicationFlow;
-    }
-
-    public ApplicationFunction applicationFunction() {
-        return applicationFunction;
-    }
-
-    public ApplicationObject applicationObject() {
-        return applicationObject;
-    }
-
-    public ApplicationObjectRecord applicationObjectRecord() {
-        return applicationObjectRecord;
-    }
-
-    public ApplicationRecordPermissionMember applicationRecordPermissionMember() {
-        return applicationRecordPermissionMember;
-    }
-
-    public ApplicationRoleMember applicationRoleMember() {
-        return applicationRoleMember;
-    }
-
-    public ApprovalInstance approvalInstance() {
-        return approvalInstance;
-    }
-
-    public ApprovalTask approvalTask() {
-        return approvalTask;
-    }
-
-    public SeatActivity seatActivity() {
-        return seatActivity;
-    }
-
-    public SeatAssignment seatAssignment() {
-        return seatAssignment;
-    }
-
-    public UserTask userTask() {
-        return userTask;
-    }
+	public V1(Config config) {
+		this.applicationAuditLog = new ApplicationAuditLog(config);
+		this.applicationEnvironmentVariable = new ApplicationEnvironmentVariable(config);
+		this.applicationFlow = new ApplicationFlow(config);
+		this.applicationFunction = new ApplicationFunction(config);
+		this.applicationObject = new ApplicationObject(config);
+		this.applicationObjectRecord = new ApplicationObjectRecord(config);
+		this.applicationRecordPermissionMember = new ApplicationRecordPermissionMember(config);
+		this.applicationRoleMember = new ApplicationRoleMember(config);
+		this.approvalInstance = new ApprovalInstance(config);
+		this.approvalTask = new ApprovalTask(config);
+		this.seatActivity = new SeatActivity(config);
+		this.seatAssignment = new SeatAssignment(config);
+		this.userTask = new UserTask(config);
+	}
+	public ApplicationAuditLog applicationAuditLog() {
+		return applicationAuditLog;
+	}
+	public ApplicationEnvironmentVariable applicationEnvironmentVariable() {
+		return applicationEnvironmentVariable;
+	}
+	public ApplicationFlow applicationFlow() {
+		return applicationFlow;
+	}
+	public ApplicationFunction applicationFunction() {
+		return applicationFunction;
+	}
+	public ApplicationObject applicationObject() {
+		return applicationObject;
+	}
+	public ApplicationObjectRecord applicationObjectRecord() {
+		return applicationObjectRecord;
+	}
+	public ApplicationRecordPermissionMember applicationRecordPermissionMember() {
+		return applicationRecordPermissionMember;
+	}
+	public ApplicationRoleMember applicationRoleMember() {
+		return applicationRoleMember;
+	}
+	public ApprovalInstance approvalInstance() {
+		return approvalInstance;
+	}
+	public ApprovalTask approvalTask() {
+		return approvalTask;
+	}
+	public SeatActivity seatActivity() {
+		return seatActivity;
+	}
+	public SeatAssignment seatAssignment() {
+		return seatAssignment;
+	}
+	public UserTask userTask() {
+		return userTask;
+	}
 }

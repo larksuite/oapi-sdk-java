@@ -17,16 +17,15 @@ package com.lark.oapi.service.application.v6.enums;
  * 不传入代表全部返回。传入则按照这种应用状态返回。 付费类型 可选值： 0：免费 1：付费
  */
 public enum ListApplicationPaymentTypeEnum {
-    FREE(0), // 免费
-    PAID(1), // 付费
-    ;
-    private Integer value;
-
+     FREE(0), // 免费
+     PAID(1), // 付费
+  ;
+   private Integer value;
     ListApplicationPaymentTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

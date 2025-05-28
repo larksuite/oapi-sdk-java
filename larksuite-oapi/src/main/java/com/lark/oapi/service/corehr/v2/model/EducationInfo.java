@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,93 +19,48 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class EducationInfo {
-    /**
-     * 学校名称
-     * <p> 示例值：长安大学
-     */
+     /**
+      * 学校名称
+      * <p> 示例值：长安大学
+      */
     @SerializedName("school_name")
     private String schoolName;
-    /**
-     * 学历
-     * <p> 示例值：phd
-     */
+     /**
+      * 学历
+      * <p> 示例值：phd
+      */
     @SerializedName("education")
     private String education;
-    /**
-     * 开始时间
-     * <p> 示例值：2017-04-01
-     */
+     /**
+      * 开始时间
+      * <p> 示例值：2017-04-01
+      */
     @SerializedName("start_time")
     private String startTime;
-    /**
-     * 结束时间
-     * <p> 示例值：2018-04-01
-     */
+     /**
+      * 结束时间
+      * <p> 示例值：2018-04-01
+      */
     @SerializedName("end_time")
     private String endTime;
-    /**
-     * 专业
-     * <p> 示例值：医学影像技术
-     */
+     /**
+      * 专业
+      * <p> 示例值：医学影像技术
+      */
     @SerializedName("field_of_study")
     private String fieldOfStudy;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-
-    // builder 开始
-    public EducationInfo() {
-    }
-
-    public EducationInfo(Builder builder) {
-        /**
-         * 学校名称
-         * <p> 示例值：长安大学
-         */
-        this.schoolName = builder.schoolName;
-        /**
-         * 学历
-         * <p> 示例值：phd
-         */
-        this.education = builder.education;
-        /**
-         * 开始时间
-         * <p> 示例值：2017-04-01
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：2018-04-01
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 专业
-         * <p> 示例值：医学影像技术
-         */
-        this.fieldOfStudy = builder.fieldOfStudy;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSchoolName() {
         return this.schoolName;
     }
@@ -155,118 +109,159 @@ public class EducationInfo {
         this.customFields = customFields;
     }
 
+
+// builder 开始
+  public EducationInfo(){}
+
+  public EducationInfo(Builder builder){
+         /**
+          * 学校名称
+          * <p> 示例值：长安大学
+          */
+      this.schoolName = builder.schoolName;
+         /**
+          * 学历
+          * <p> 示例值：phd
+          */
+      this.education = builder.education;
+         /**
+          * 开始时间
+          * <p> 示例值：2017-04-01
+          */
+      this.startTime = builder.startTime;
+         /**
+          * 结束时间
+          * <p> 示例值：2018-04-01
+          */
+      this.endTime = builder.endTime;
+         /**
+          * 专业
+          * <p> 示例值：医学影像技术
+          */
+      this.fieldOfStudy = builder.fieldOfStudy;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+  }
+
     public static class Builder {
-        /**
-         * 学校名称
-         * <p> 示例值：长安大学
-         */
+     /**
+      * 学校名称
+      * <p> 示例值：长安大学
+      */
         private String schoolName;
-        /**
-         * 学历
-         * <p> 示例值：phd
-         */
+     /**
+      * 学历
+      * <p> 示例值：phd
+      */
         private String education;
-        /**
-         * 开始时间
-         * <p> 示例值：2017-04-01
-         */
+     /**
+      * 开始时间
+      * <p> 示例值：2017-04-01
+      */
         private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：2018-04-01
-         */
+     /**
+      * 结束时间
+      * <p> 示例值：2018-04-01
+      */
         private String endTime;
-        /**
-         * 专业
-         * <p> 示例值：医学影像技术
-         */
+     /**
+      * 专业
+      * <p> 示例值：医学影像技术
+      */
         private String fieldOfStudy;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ObjectFieldData[] customFields;
 
         /**
          * 学校名称
          * <p> 示例值：长安大学
-         *
          * @param schoolName
          * @return
          */
         public Builder schoolName(String schoolName) {
-            this.schoolName = schoolName;
-            return this;
+             this.schoolName = schoolName;
+             return this;
         }
 
+    
 
         /**
          * 学历
          * <p> 示例值：phd
-         *
          * @param education
          * @return
          */
         public Builder education(String education) {
-            this.education = education;
-            return this;
+             this.education = education;
+             return this;
         }
 
+    
 
         /**
          * 开始时间
          * <p> 示例值：2017-04-01
-         *
          * @param startTime
          * @return
          */
         public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
+             this.startTime = startTime;
+             return this;
         }
 
+    
 
         /**
          * 结束时间
          * <p> 示例值：2018-04-01
-         *
          * @param endTime
          * @return
          */
         public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
+             this.endTime = endTime;
+             return this;
         }
 
+    
 
         /**
          * 专业
          * <p> 示例值：医学影像技术
-         *
          * @param fieldOfStudy
          * @return
          */
         public Builder fieldOfStudy(String fieldOfStudy) {
-            this.fieldOfStudy = fieldOfStudy;
-            return this;
+             this.fieldOfStudy = fieldOfStudy;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
+    
+    public EducationInfo build(){
+        return new EducationInfo(this);
+      }
+    }
 
-        public EducationInfo build() {
-            return new EducationInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

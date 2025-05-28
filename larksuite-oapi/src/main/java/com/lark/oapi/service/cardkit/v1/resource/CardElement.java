@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.cardkit.v1.resource;
-
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.response.RawResponse;
@@ -21,16 +20,12 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.nio.charset.StandardCharsets;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.request.RequestOptions;
-
 import java.io.ByteArrayOutputStream;
-
 import com.lark.oapi.service.cardkit.v1.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -46,7 +41,7 @@ public class CardElement {
         this.config = config;
     }
 
-
+    
     /**
      * ，以传入的文本内容覆盖已有卡片组件内容，卡片将自动识别其中的增量变更内容，并以“打字机”效果输出。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=content&project=cardkit&resource=card.element&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=content&project=cardkit&resource=card.element&version=v1</a> ;
@@ -63,7 +58,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id/content"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ContentCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ContentCardElementResp.class);
         if (resp == null) {
@@ -71,14 +66,14 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id/content"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -95,7 +90,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id/content"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         ContentCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ContentCardElementResp.class);
         if (resp == null) {
@@ -103,16 +98,15 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id/content"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，在卡片内指定位置添加组件
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=cardkit&resource=card.element&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=cardkit&resource=card.element&version=v1</a> ;
@@ -129,7 +123,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCardElementResp.class);
         if (resp == null) {
@@ -137,14 +131,14 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -161,7 +155,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         CreateCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCardElementResp.class);
         if (resp == null) {
@@ -169,16 +163,15 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，删除卡片内的指定组件
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=cardkit&resource=card.element&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=cardkit&resource=card.element&version=v1</a> ;
@@ -195,7 +188,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCardElementResp.class);
         if (resp == null) {
@@ -203,14 +196,14 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -227,7 +220,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         DeleteCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCardElementResp.class);
         if (resp == null) {
@@ -235,16 +228,15 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，以传入的配置覆盖指定组件的已有配置
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=cardkit&resource=card.element&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=cardkit&resource=card.element&version=v1</a> ;
@@ -261,7 +253,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         PatchCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCardElementResp.class);
         if (resp == null) {
@@ -269,14 +261,14 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -293,7 +285,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         PatchCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCardElementResp.class);
         if (resp == null) {
@@ -301,16 +293,15 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
-
     /**
      * ，以新组件全量替换更新指定组件
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=cardkit&resource=card.element&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=cardkit&resource=card.element&version=v1</a> ;
@@ -327,7 +318,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UpdateCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateCardElementResp.class);
         if (resp == null) {
@@ -335,14 +326,14 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+       resp.setRawResponse(httpResponse);
+       resp.setRequest(req);
+       
+       return resp;
     }
 
     /**
@@ -359,7 +350,7 @@ public class CardElement {
                 , "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
-
+        
         // 反序列化
         UpdateCardElementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateCardElementResp.class);
         if (resp == null) {
@@ -367,13 +358,13 @@ public class CardElement {
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+                    StandardCharsets.UTF_8)));
             throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+       }
 
         resp.setRawResponse(httpResponse);
         resp.setRequest(req);
-
+        
         return resp;
     }
 }

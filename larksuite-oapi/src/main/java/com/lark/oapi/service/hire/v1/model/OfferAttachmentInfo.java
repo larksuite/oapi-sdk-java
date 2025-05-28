@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OfferAttachmentInfo {
-    /**
-     * Offer 附件 ID
-     * <p> 示例值：7018398769038182700
-     */
+     /**
+      * Offer 附件 ID
+      * <p> 示例值：7018398769038182700
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * Offer 附件名称
-     * <p> 示例值：获奖证书「全套」
-     */
+     /**
+      * Offer 附件名称
+      * <p> 示例值：获奖证书「全套」
+      */
     @SerializedName("name")
     private String name;
-    /**
-     * Offer 附件大小
-     * <p> 示例值：4096
-     */
+     /**
+      * Offer 附件大小
+      * <p> 示例值：4096
+      */
     @SerializedName("size")
     private Long size;
-    /**
-     * 通用附件ID
-     * <p> 示例值：7118398769038182701
-     */
+     /**
+      * 通用附件ID
+      * <p> 示例值：7118398769038182701
+      */
     @SerializedName("common_attachment_id")
     private String commonAttachmentId;
-
-    // builder 开始
-    public OfferAttachmentInfo() {
-    }
-
-    public OfferAttachmentInfo(Builder builder) {
-        /**
-         * Offer 附件 ID
-         * <p> 示例值：7018398769038182700
-         */
-        this.id = builder.id;
-        /**
-         * Offer 附件名称
-         * <p> 示例值：获奖证书「全套」
-         */
-        this.name = builder.name;
-        /**
-         * Offer 附件大小
-         * <p> 示例值：4096
-         */
-        this.size = builder.size;
-        /**
-         * 通用附件ID
-         * <p> 示例值：7118398769038182701
-         */
-        this.commonAttachmentId = builder.commonAttachmentId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -116,82 +80,113 @@ public class OfferAttachmentInfo {
         this.commonAttachmentId = commonAttachmentId;
     }
 
+
+// builder 开始
+  public OfferAttachmentInfo(){}
+
+  public OfferAttachmentInfo(Builder builder){
+         /**
+          * Offer 附件 ID
+          * <p> 示例值：7018398769038182700
+          */
+      this.id = builder.id;
+         /**
+          * Offer 附件名称
+          * <p> 示例值：获奖证书「全套」
+          */
+      this.name = builder.name;
+         /**
+          * Offer 附件大小
+          * <p> 示例值：4096
+          */
+      this.size = builder.size;
+         /**
+          * 通用附件ID
+          * <p> 示例值：7118398769038182701
+          */
+      this.commonAttachmentId = builder.commonAttachmentId;
+  }
+
     public static class Builder {
-        /**
-         * Offer 附件 ID
-         * <p> 示例值：7018398769038182700
-         */
+     /**
+      * Offer 附件 ID
+      * <p> 示例值：7018398769038182700
+      */
         private String id;
-        /**
-         * Offer 附件名称
-         * <p> 示例值：获奖证书「全套」
-         */
+     /**
+      * Offer 附件名称
+      * <p> 示例值：获奖证书「全套」
+      */
         private String name;
-        /**
-         * Offer 附件大小
-         * <p> 示例值：4096
-         */
+     /**
+      * Offer 附件大小
+      * <p> 示例值：4096
+      */
         private Long size;
-        /**
-         * 通用附件ID
-         * <p> 示例值：7118398769038182701
-         */
+     /**
+      * 通用附件ID
+      * <p> 示例值：7118398769038182701
+      */
         private String commonAttachmentId;
 
         /**
          * Offer 附件 ID
          * <p> 示例值：7018398769038182700
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * Offer 附件名称
          * <p> 示例值：获奖证书「全套」
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * Offer 附件大小
          * <p> 示例值：4096
-         *
          * @param size
          * @return
          */
         public Builder size(Long size) {
-            this.size = size;
-            return this;
+             this.size = size;
+             return this;
         }
 
+    
 
         /**
          * 通用附件ID
          * <p> 示例值：7118398769038182701
-         *
          * @param commonAttachmentId
          * @return
          */
         public Builder commonAttachmentId(String commonAttachmentId) {
-            this.commonAttachmentId = commonAttachmentId;
-            return this;
+             this.commonAttachmentId = commonAttachmentId;
+             return this;
         }
 
+    
+    
+    public OfferAttachmentInfo build(){
+        return new OfferAttachmentInfo(this);
+      }
+    }
 
-        public OfferAttachmentInfo build() {
-            return new OfferAttachmentInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

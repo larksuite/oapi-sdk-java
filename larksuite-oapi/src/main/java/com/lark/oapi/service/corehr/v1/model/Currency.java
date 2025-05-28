@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Currency {
-    /**
-     * 货币id
-     * <p> 示例值：1
-     */
+     /**
+      * 货币id
+      * <p> 示例值：1
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-     * <p> 示例值：12
-     */
+     /**
+      * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
+      * <p> 示例值：12
+      */
     @SerializedName("country_region_id")
     private String countryRegionId;
-    /**
-     * 货币名称
-     * <p> 示例值：
-     */
+     /**
+      * 货币名称
+      * <p> 示例值：
+      */
     @SerializedName("currency_name")
     private I18n[] currencyName;
-    /**
-     * 数字代码
-     * <p> 示例值：12
-     */
+     /**
+      * 数字代码
+      * <p> 示例值：12
+      */
     @SerializedName("numeric_code")
     private Integer numericCode;
-    /**
-     * 三位字母代码
-     * <p> 示例值：12
-     */
+     /**
+      * 三位字母代码
+      * <p> 示例值：12
+      */
     @SerializedName("currency_alpha_3_code")
     private String currencyAlpha3Code;
-
-    // builder 开始
-    public Currency() {
-    }
-
-    public Currency(Builder builder) {
-        /**
-         * 货币id
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 货币名称
-         * <p> 示例值：
-         */
-        this.currencyName = builder.currencyName;
-        /**
-         * 数字代码
-         * <p> 示例值：12
-         */
-        this.numericCode = builder.numericCode;
-        /**
-         * 三位字母代码
-         * <p> 示例值：12
-         */
-        this.currencyAlpha3Code = builder.currencyAlpha3Code;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -136,100 +95,136 @@ public class Currency {
         this.currencyAlpha3Code = currencyAlpha3Code;
     }
 
+
+// builder 开始
+  public Currency(){}
+
+  public Currency(Builder builder){
+         /**
+          * 货币id
+          * <p> 示例值：1
+          */
+      this.id = builder.id;
+         /**
+          * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
+          * <p> 示例值：12
+          */
+      this.countryRegionId = builder.countryRegionId;
+         /**
+          * 货币名称
+          * <p> 示例值：
+          */
+      this.currencyName = builder.currencyName;
+         /**
+          * 数字代码
+          * <p> 示例值：12
+          */
+      this.numericCode = builder.numericCode;
+         /**
+          * 三位字母代码
+          * <p> 示例值：12
+          */
+      this.currencyAlpha3Code = builder.currencyAlpha3Code;
+  }
+
     public static class Builder {
-        /**
-         * 货币id
-         * <p> 示例值：1
-         */
+     /**
+      * 货币id
+      * <p> 示例值：1
+      */
         private String id;
-        /**
-         * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
+     /**
+      * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
+      * <p> 示例值：12
+      */
         private String countryRegionId;
-        /**
-         * 货币名称
-         * <p> 示例值：
-         */
+     /**
+      * 货币名称
+      * <p> 示例值：
+      */
         private I18n[] currencyName;
-        /**
-         * 数字代码
-         * <p> 示例值：12
-         */
+     /**
+      * 数字代码
+      * <p> 示例值：12
+      */
         private Integer numericCode;
-        /**
-         * 三位字母代码
-         * <p> 示例值：12
-         */
+     /**
+      * 三位字母代码
+      * <p> 示例值：12
+      */
         private String currencyAlpha3Code;
 
         /**
          * 货币id
          * <p> 示例值：1
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
          * <p> 示例值：12
-         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
+             this.countryRegionId = countryRegionId;
+             return this;
         }
 
+    
 
         /**
          * 货币名称
          * <p> 示例值：
-         *
          * @param currencyName
          * @return
          */
         public Builder currencyName(I18n[] currencyName) {
-            this.currencyName = currencyName;
-            return this;
+             this.currencyName = currencyName;
+             return this;
         }
 
+    
 
         /**
          * 数字代码
          * <p> 示例值：12
-         *
          * @param numericCode
          * @return
          */
         public Builder numericCode(Integer numericCode) {
-            this.numericCode = numericCode;
-            return this;
+             this.numericCode = numericCode;
+             return this;
         }
 
+    
 
         /**
          * 三位字母代码
          * <p> 示例值：12
-         *
          * @param currencyAlpha3Code
          * @return
          */
         public Builder currencyAlpha3Code(String currencyAlpha3Code) {
-            this.currencyAlpha3Code = currencyAlpha3Code;
-            return this;
+             this.currencyAlpha3Code = currencyAlpha3Code;
+             return this;
         }
 
+    
+    
+    public Currency build(){
+        return new Currency(this);
+      }
+    }
 
-        public Currency build() {
-            return new Currency(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

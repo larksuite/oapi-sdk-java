@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class Href {
-    /**
-     * 链接对应的地址
-     * <p> 示例值：https://www.example.com
-     */
+     /**
+      * 链接对应的地址
+      * <p> 示例值：https://www.example.com
+      */
     @SerializedName("url")
     private String url;
-    /**
-     * 链接对应的标题
-     * <p> 示例值：反馈一个问题，需要协助排查
-     */
+     /**
+      * 链接对应的标题
+      * <p> 示例值：反馈一个问题，需要协助排查
+      */
     @SerializedName("title")
     private String title;
-
-    // builder 开始
-    public Href() {
-    }
-
-    public Href(Builder builder) {
-        /**
-         * 链接对应的地址
-         * <p> 示例值：https://www.example.com
-         */
-        this.url = builder.url;
-        /**
-         * 链接对应的标题
-         * <p> 示例值：反馈一个问题，需要协助排查
-         */
-        this.title = builder.title;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUrl() {
         return this.url;
     }
@@ -79,46 +53,67 @@ public class Href {
         this.title = title;
     }
 
+
+// builder 开始
+  public Href(){}
+
+  public Href(Builder builder){
+         /**
+          * 链接对应的地址
+          * <p> 示例值：https://www.example.com
+          */
+      this.url = builder.url;
+         /**
+          * 链接对应的标题
+          * <p> 示例值：反馈一个问题，需要协助排查
+          */
+      this.title = builder.title;
+  }
+
     public static class Builder {
-        /**
-         * 链接对应的地址
-         * <p> 示例值：https://www.example.com
-         */
+     /**
+      * 链接对应的地址
+      * <p> 示例值：https://www.example.com
+      */
         private String url;
-        /**
-         * 链接对应的标题
-         * <p> 示例值：反馈一个问题，需要协助排查
-         */
+     /**
+      * 链接对应的标题
+      * <p> 示例值：反馈一个问题，需要协助排查
+      */
         private String title;
 
         /**
          * 链接对应的地址
          * <p> 示例值：https://www.example.com
-         *
          * @param url
          * @return
          */
         public Builder url(String url) {
-            this.url = url;
-            return this;
+             this.url = url;
+             return this;
         }
 
+    
 
         /**
          * 链接对应的标题
          * <p> 示例值：反馈一个问题，需要协助排查
-         *
          * @param title
          * @return
          */
         public Builder title(String title) {
-            this.title = title;
-            return this;
+             this.title = title;
+             return this;
         }
 
+    
+    
+    public Href build(){
+        return new Href(this);
+      }
+    }
 
-        public Href build() {
-            return new Href(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

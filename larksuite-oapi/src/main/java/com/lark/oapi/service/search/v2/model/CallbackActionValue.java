@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,82 +19,42 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CallbackActionValue {
-    /**
-     * strategy_info
-     * <p> 示例值：""
-     */
+     /**
+      * strategy_info
+      * <p> 示例值：""
+      */
     @SerializedName("strategy_info")
     private String strategyInfo;
-    /**
-     * agent_id
-     * <p> 示例值：""
-     */
+     /**
+      * agent_id
+      * <p> 示例值：""
+      */
     @SerializedName("agent_id")
     private String agentId;
-    /**
-     * agent_type
-     * <p> 示例值：1
-     */
+     /**
+      * agent_type
+      * <p> 示例值：1
+      */
     @SerializedName("agent_type")
     private Integer agentType;
-    /**
-     * response_type
-     * <p> 示例值：1
-     */
+     /**
+      * response_type
+      * <p> 示例值：1
+      */
     @SerializedName("response_type")
     private Integer responseType;
-    /**
-     * 当前会话的 id，需要透传到下一次请求中
-     * <p> 示例值：“”
-     */
+     /**
+      * 当前会话的 id，需要透传到下一次请求中
+      * <p> 示例值：“”
+      */
     @SerializedName("session_id")
     private String sessionId;
-
-    // builder 开始
-    public CallbackActionValue() {
-    }
-
-    public CallbackActionValue(Builder builder) {
-        /**
-         * strategy_info
-         * <p> 示例值：""
-         */
-        this.strategyInfo = builder.strategyInfo;
-        /**
-         * agent_id
-         * <p> 示例值：""
-         */
-        this.agentId = builder.agentId;
-        /**
-         * agent_type
-         * <p> 示例值：1
-         */
-        this.agentType = builder.agentType;
-        /**
-         * response_type
-         * <p> 示例值：1
-         */
-        this.responseType = builder.responseType;
-        /**
-         * 当前会话的 id，需要透传到下一次请求中
-         * <p> 示例值：“”
-         */
-        this.sessionId = builder.sessionId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getStrategyInfo() {
         return this.strategyInfo;
     }
@@ -136,124 +95,156 @@ public class CallbackActionValue {
         this.sessionId = sessionId;
     }
 
+
+// builder 开始
+  public CallbackActionValue(){}
+
+  public CallbackActionValue(Builder builder){
+         /**
+          * strategy_info
+          * <p> 示例值：""
+          */
+      this.strategyInfo = builder.strategyInfo;
+         /**
+          * agent_id
+          * <p> 示例值：""
+          */
+      this.agentId = builder.agentId;
+         /**
+          * agent_type
+          * <p> 示例值：1
+          */
+      this.agentType = builder.agentType;
+         /**
+          * response_type
+          * <p> 示例值：1
+          */
+      this.responseType = builder.responseType;
+         /**
+          * 当前会话的 id，需要透传到下一次请求中
+          * <p> 示例值：“”
+          */
+      this.sessionId = builder.sessionId;
+  }
+
     public static class Builder {
-        /**
-         * strategy_info
-         * <p> 示例值：""
-         */
+     /**
+      * strategy_info
+      * <p> 示例值：""
+      */
         private String strategyInfo;
-        /**
-         * agent_id
-         * <p> 示例值：""
-         */
+     /**
+      * agent_id
+      * <p> 示例值：""
+      */
         private String agentId;
-        /**
-         * agent_type
-         * <p> 示例值：1
-         */
+     /**
+      * agent_type
+      * <p> 示例值：1
+      */
         private Integer agentType;
-        /**
-         * response_type
-         * <p> 示例值：1
-         */
+     /**
+      * response_type
+      * <p> 示例值：1
+      */
         private Integer responseType;
-        /**
-         * 当前会话的 id，需要透传到下一次请求中
-         * <p> 示例值：“”
-         */
+     /**
+      * 当前会话的 id，需要透传到下一次请求中
+      * <p> 示例值：“”
+      */
         private String sessionId;
 
         /**
          * strategy_info
          * <p> 示例值：""
-         *
          * @param strategyInfo
          * @return
          */
         public Builder strategyInfo(String strategyInfo) {
-            this.strategyInfo = strategyInfo;
-            return this;
+             this.strategyInfo = strategyInfo;
+             return this;
         }
 
+    
 
         /**
          * agent_id
          * <p> 示例值：""
-         *
          * @param agentId
          * @return
          */
         public Builder agentId(String agentId) {
-            this.agentId = agentId;
-            return this;
+             this.agentId = agentId;
+             return this;
         }
 
+    
 
         /**
          * agent_type
          * <p> 示例值：1
-         *
          * @param agentType
          * @return
          */
         public Builder agentType(Integer agentType) {
-            this.agentType = agentType;
-            return this;
+             this.agentType = agentType;
+             return this;
         }
-
         /**
          * agent_type
          * <p> 示例值：1
-         *
          * @param agentType {@link com.lark.oapi.service.search.v2.enums.CallbackActionValueAgentTypeEnum}
          * @return
          */
         public Builder agentType(com.lark.oapi.service.search.v2.enums.CallbackActionValueAgentTypeEnum agentType) {
-            this.agentType = agentType.getValue();
-            return this;
+             this.agentType = agentType.getValue();
+             return this;
         }
 
+    
 
         /**
          * response_type
          * <p> 示例值：1
-         *
          * @param responseType
          * @return
          */
         public Builder responseType(Integer responseType) {
-            this.responseType = responseType;
-            return this;
+             this.responseType = responseType;
+             return this;
         }
-
         /**
          * response_type
          * <p> 示例值：1
-         *
          * @param responseType {@link com.lark.oapi.service.search.v2.enums.CallbackActionValueResponseTypeEnum}
          * @return
          */
         public Builder responseType(com.lark.oapi.service.search.v2.enums.CallbackActionValueResponseTypeEnum responseType) {
-            this.responseType = responseType.getValue();
-            return this;
+             this.responseType = responseType.getValue();
+             return this;
         }
 
+    
 
         /**
          * 当前会话的 id，需要透传到下一次请求中
          * <p> 示例值：“”
-         *
          * @param sessionId
          * @return
          */
         public Builder sessionId(String sessionId) {
-            this.sessionId = sessionId;
-            return this;
+             this.sessionId = sessionId;
+             return this;
         }
 
+    
+    
+    public CallbackActionValue build(){
+        return new CallbackActionValue(this);
+      }
+    }
 
-        public CallbackActionValue build() {
-            return new CallbackActionValue(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

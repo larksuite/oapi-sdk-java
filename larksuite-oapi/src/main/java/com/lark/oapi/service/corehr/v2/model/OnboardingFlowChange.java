@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class OnboardingFlowChange {
-    /**
-     * 入职流程状态变更
-     * <p> 示例值：in_progress
-     */
+     /**
+      * 入职流程状态变更
+      * <p> 示例值：in_progress
+      */
     @SerializedName("after_status")
     private String afterStatus;
-
-    // builder 开始
-    public OnboardingFlowChange() {
-    }
-
-    public OnboardingFlowChange(Builder builder) {
-        /**
-         * 入职流程状态变更
-         * <p> 示例值：in_progress
-         */
-        this.afterStatus = builder.afterStatus;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getAfterStatus() {
         return this.afterStatus;
     }
@@ -60,40 +39,54 @@ public class OnboardingFlowChange {
         this.afterStatus = afterStatus;
     }
 
+
+// builder 开始
+  public OnboardingFlowChange(){}
+
+  public OnboardingFlowChange(Builder builder){
+         /**
+          * 入职流程状态变更
+          * <p> 示例值：in_progress
+          */
+      this.afterStatus = builder.afterStatus;
+  }
+
     public static class Builder {
-        /**
-         * 入职流程状态变更
-         * <p> 示例值：in_progress
-         */
+     /**
+      * 入职流程状态变更
+      * <p> 示例值：in_progress
+      */
         private String afterStatus;
 
         /**
          * 入职流程状态变更
          * <p> 示例值：in_progress
-         *
          * @param afterStatus
          * @return
          */
         public Builder afterStatus(String afterStatus) {
-            this.afterStatus = afterStatus;
-            return this;
+             this.afterStatus = afterStatus;
+             return this;
         }
-
         /**
          * 入职流程状态变更
          * <p> 示例值：in_progress
-         *
          * @param afterStatus {@link com.lark.oapi.service.corehr.v2.enums.OnboardingFlowChangeAfterStatusEnum}
          * @return
          */
         public Builder afterStatus(com.lark.oapi.service.corehr.v2.enums.OnboardingFlowChangeAfterStatusEnum afterStatus) {
-            this.afterStatus = afterStatus.getValue();
-            return this;
+             this.afterStatus = afterStatus.getValue();
+             return this;
         }
 
+    
+    
+    public OnboardingFlowChange build(){
+        return new OnboardingFlowChange(this);
+      }
+    }
 
-        public OnboardingFlowChange build() {
-            return new OnboardingFlowChange(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

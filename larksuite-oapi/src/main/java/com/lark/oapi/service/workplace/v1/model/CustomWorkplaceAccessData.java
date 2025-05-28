@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.workplace.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CustomWorkplaceAccessData {
-    /**
-     * 定制工作台ID
-     * <p> 示例值：tpl_645b003aaa40001435b2ddw
-     */
+     /**
+      * 定制工作台ID
+      * <p> 示例值：tpl_645b003aaa40001435b2ddw
+      */
     @SerializedName("custom_workplace_id")
     private String customWorkplaceId;
-    /**
-     * 访问数据
-     * <p> 示例值：
-     */
+     /**
+      * 访问数据
+      * <p> 示例值：
+      */
     @SerializedName("access_data")
     private AccessData accessData;
-    /**
-     * 时间,精确到天,格式yyyy-MM-dd
-     * <p> 示例值：2023-03-12
-     */
+     /**
+      * 时间,精确到天,格式yyyy-MM-dd
+      * <p> 示例值：2023-03-12
+      */
     @SerializedName("date")
     private String date;
-    /**
-     * 定制工作台多语言名字。
-     * <p> 示例值：
-     */
+     /**
+      * 定制工作台多语言名字。
+      * <p> 示例值：
+      */
     @SerializedName("custom_workplace_name")
     private I18nName[] customWorkplaceName;
-
-    // builder 开始
-    public CustomWorkplaceAccessData() {
-    }
-
-    public CustomWorkplaceAccessData(Builder builder) {
-        /**
-         * 定制工作台ID
-         * <p> 示例值：tpl_645b003aaa40001435b2ddw
-         */
-        this.customWorkplaceId = builder.customWorkplaceId;
-        /**
-         * 访问数据
-         * <p> 示例值：
-         */
-        this.accessData = builder.accessData;
-        /**
-         * 时间,精确到天,格式yyyy-MM-dd
-         * <p> 示例值：2023-03-12
-         */
-        this.date = builder.date;
-        /**
-         * 定制工作台多语言名字。
-         * <p> 示例值：
-         */
-        this.customWorkplaceName = builder.customWorkplaceName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getCustomWorkplaceId() {
         return this.customWorkplaceId;
     }
@@ -116,82 +80,113 @@ public class CustomWorkplaceAccessData {
         this.customWorkplaceName = customWorkplaceName;
     }
 
+
+// builder 开始
+  public CustomWorkplaceAccessData(){}
+
+  public CustomWorkplaceAccessData(Builder builder){
+         /**
+          * 定制工作台ID
+          * <p> 示例值：tpl_645b003aaa40001435b2ddw
+          */
+      this.customWorkplaceId = builder.customWorkplaceId;
+         /**
+          * 访问数据
+          * <p> 示例值：
+          */
+      this.accessData = builder.accessData;
+         /**
+          * 时间,精确到天,格式yyyy-MM-dd
+          * <p> 示例值：2023-03-12
+          */
+      this.date = builder.date;
+         /**
+          * 定制工作台多语言名字。
+          * <p> 示例值：
+          */
+      this.customWorkplaceName = builder.customWorkplaceName;
+  }
+
     public static class Builder {
-        /**
-         * 定制工作台ID
-         * <p> 示例值：tpl_645b003aaa40001435b2ddw
-         */
+     /**
+      * 定制工作台ID
+      * <p> 示例值：tpl_645b003aaa40001435b2ddw
+      */
         private String customWorkplaceId;
-        /**
-         * 访问数据
-         * <p> 示例值：
-         */
+     /**
+      * 访问数据
+      * <p> 示例值：
+      */
         private AccessData accessData;
-        /**
-         * 时间,精确到天,格式yyyy-MM-dd
-         * <p> 示例值：2023-03-12
-         */
+     /**
+      * 时间,精确到天,格式yyyy-MM-dd
+      * <p> 示例值：2023-03-12
+      */
         private String date;
-        /**
-         * 定制工作台多语言名字。
-         * <p> 示例值：
-         */
+     /**
+      * 定制工作台多语言名字。
+      * <p> 示例值：
+      */
         private I18nName[] customWorkplaceName;
 
         /**
          * 定制工作台ID
          * <p> 示例值：tpl_645b003aaa40001435b2ddw
-         *
          * @param customWorkplaceId
          * @return
          */
         public Builder customWorkplaceId(String customWorkplaceId) {
-            this.customWorkplaceId = customWorkplaceId;
-            return this;
+             this.customWorkplaceId = customWorkplaceId;
+             return this;
         }
 
+    
 
         /**
          * 访问数据
          * <p> 示例值：
-         *
          * @param accessData
          * @return
          */
         public Builder accessData(AccessData accessData) {
-            this.accessData = accessData;
-            return this;
+             this.accessData = accessData;
+             return this;
         }
 
+    
 
         /**
          * 时间,精确到天,格式yyyy-MM-dd
          * <p> 示例值：2023-03-12
-         *
          * @param date
          * @return
          */
         public Builder date(String date) {
-            this.date = date;
-            return this;
+             this.date = date;
+             return this;
         }
 
+    
 
         /**
          * 定制工作台多语言名字。
          * <p> 示例值：
-         *
          * @param customWorkplaceName
          * @return
          */
         public Builder customWorkplaceName(I18nName[] customWorkplaceName) {
-            this.customWorkplaceName = customWorkplaceName;
-            return this;
+             this.customWorkplaceName = customWorkplaceName;
+             return this;
         }
 
+    
+    
+    public CustomWorkplaceAccessData build(){
+        return new CustomWorkplaceAccessData(this);
+      }
+    }
 
-        public CustomWorkplaceAccessData build() {
-            return new CustomWorkplaceAccessData(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

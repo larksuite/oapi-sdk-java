@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,38 +19,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ChatMembers {
-    /**
-     * user_id
-     * <p> 示例值：
-     */
+     /**
+      * user_id
+      * <p> 示例值：
+      */
     @SerializedName("user_id")
     private String userId;
-
-    // builder 开始
-    public ChatMembers() {
-    }
-
-    public ChatMembers(Builder builder) {
-        /**
-         * user_id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getUserId() {
         return this.userId;
     }
@@ -60,28 +39,44 @@ public class ChatMembers {
         this.userId = userId;
     }
 
+
+// builder 开始
+  public ChatMembers(){}
+
+  public ChatMembers(Builder builder){
+         /**
+          * user_id
+          * <p> 示例值：
+          */
+      this.userId = builder.userId;
+  }
+
     public static class Builder {
-        /**
-         * user_id
-         * <p> 示例值：
-         */
+     /**
+      * user_id
+      * <p> 示例值：
+      */
         private String userId;
 
         /**
          * user_id
          * <p> 示例值：
-         *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
+             this.userId = userId;
+             return this;
         }
 
+    
+    
+    public ChatMembers build(){
+        return new ChatMembers(this);
+      }
+    }
 
-        public ChatMembers build() {
-            return new ChatMembers(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

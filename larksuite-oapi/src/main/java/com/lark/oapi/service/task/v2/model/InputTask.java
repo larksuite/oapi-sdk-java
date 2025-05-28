@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.task.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,225 +19,120 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class InputTask {
-    /**
-     * 任务标题
-     * <p> 示例值：针对全年销售进行一次复盘
-     */
+     /**
+      * 任务标题
+      * <p> 示例值：针对全年销售进行一次复盘
+      */
     @SerializedName("summary")
     private String summary;
-    /**
-     * 任务描述
-     * <p> 示例值：需要事先阅读复盘总结文档
-     */
+     /**
+      * 任务描述
+      * <p> 示例值：需要事先阅读复盘总结文档
+      */
     @SerializedName("description")
     private String description;
-    /**
-     * 任务截止时间戳(ms)，截止时间戳和截止日期选择一个填写。
-     * <p> 示例值：1675742789470
-     */
+     /**
+      * 任务截止时间戳(ms)，截止时间戳和截止日期选择一个填写。
+      * <p> 示例值：1675742789470
+      */
     @SerializedName("due")
     private Due due;
-    /**
-     * 任务关联的第三方平台来源信息
-     * <p> 示例值：
-     */
+     /**
+      * 任务关联的第三方平台来源信息
+      * <p> 示例值：
+      */
     @SerializedName("origin")
     private Origin origin;
-    /**
-     * 调用者可以传入的任意附带到任务上的数据。在获取任务详情时会原样返回。
-     * <p> 示例值：dGVzdA==
-     */
+     /**
+      * 调用者可以传入的任意附带到任务上的数据。在获取任务详情时会原样返回。
+      * <p> 示例值：dGVzdA==
+      */
     @SerializedName("extra")
     private String extra;
-    /**
-     * 任务的完成时刻时间戳(ms)
-     * <p> 示例值：1675742789470
-     */
+     /**
+      * 任务的完成时刻时间戳(ms)
+      * <p> 示例值：1675742789470
+      */
     @SerializedName("completed_at")
     private String completedAt;
-    /**
-     * 负责人ID列表
-     * <p> 示例值：
-     */
+     /**
+      * 负责人ID列表
+      * <p> 示例值：
+      */
     @SerializedName("members")
     private Member[] members;
-    /**
-     * 如果设置，则该任务为“重复任务”。该字段表示了重复任务的重复规则。
-     * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
-     */
+     /**
+      * 如果设置，则该任务为“重复任务”。该字段表示了重复任务的重复规则。
+      * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
+      */
     @SerializedName("repeat_rule")
     private String repeatRule;
-    /**
-     * 如果设置，则将任务设计为“自定义完成”。用户在任务中心点击“完成”时，不会直接完成任务，而是跳转到第三方配置好的地址或者现实自定义提示。
-     * <p> 示例值：
-     */
+     /**
+      * 如果设置，则将任务设计为“自定义完成”。用户在任务中心点击“完成”时，不会直接完成任务，而是跳转到第三方配置好的地址或者现实自定义提示。
+      * <p> 示例值：
+      */
     @SerializedName("custom_complete")
     private CustomComplete customComplete;
-    /**
-     * 任务所在清单的信息
-     * <p> 示例值：
-     */
+     /**
+      * 任务所在清单的信息
+      * <p> 示例值：
+      */
     @SerializedName("tasklists")
     private TaskInTasklistInfo[] tasklists;
-    /**
-     * 幂等token，如果填写则触发幂等行为。
-     * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
-     */
+     /**
+      * 幂等token，如果填写则触发幂等行为。
+      * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
+      */
     @SerializedName("client_token")
     private String clientToken;
-    /**
-     * 任务的开始时间(ms)
-     * <p> 示例值：
-     */
+     /**
+      * 任务的开始时间(ms)
+      * <p> 示例值：
+      */
     @SerializedName("start")
     private Start start;
-    /**
-     * 任务提醒
-     * <p> 示例值：
-     */
+     /**
+      * 任务提醒
+      * <p> 示例值：
+      */
     @SerializedName("reminders")
     private Reminder[] reminders;
-    /**
-     * 任务的完成模式。1 - 会签任务；2 - 或签任务
-     * <p> 示例值：2
-     */
+     /**
+      * 任务的完成模式。1 - 会签任务；2 - 或签任务
+      * <p> 示例值：2
+      */
     @SerializedName("mode")
     private Integer mode;
-    /**
-     * 是否是里程碑任务
-     * <p> 示例值：false
-     */
+     /**
+      * 是否是里程碑任务
+      * <p> 示例值：false
+      */
     @SerializedName("is_milestone")
     private Boolean isMilestone;
-    /**
-     * 自定义字段值
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段值
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private InputCustomFieldValue[] customFields;
-    /**
-     * 任务的新版云文档来源
-     * <p> 示例值：
-     */
+     /**
+      * 任务的新版云文档来源
+      * <p> 示例值：
+      */
     @SerializedName("docx_source")
     private DocxSource docxSource;
-    /**
-     * 正数协议每日提醒
-     * <p> 示例值：
-     */
+     /**
+      * 正数协议每日提醒
+      * <p> 示例值：
+      */
     @SerializedName("positive_reminders")
     private Reminder[] positiveReminders;
-
-    // builder 开始
-    public InputTask() {
-    }
-
-    public InputTask(Builder builder) {
-        /**
-         * 任务标题
-         * <p> 示例值：针对全年销售进行一次复盘
-         */
-        this.summary = builder.summary;
-        /**
-         * 任务描述
-         * <p> 示例值：需要事先阅读复盘总结文档
-         */
-        this.description = builder.description;
-        /**
-         * 任务截止时间戳(ms)，截止时间戳和截止日期选择一个填写。
-         * <p> 示例值：1675742789470
-         */
-        this.due = builder.due;
-        /**
-         * 任务关联的第三方平台来源信息
-         * <p> 示例值：
-         */
-        this.origin = builder.origin;
-        /**
-         * 调用者可以传入的任意附带到任务上的数据。在获取任务详情时会原样返回。
-         * <p> 示例值：dGVzdA==
-         */
-        this.extra = builder.extra;
-        /**
-         * 任务的完成时刻时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        this.completedAt = builder.completedAt;
-        /**
-         * 负责人ID列表
-         * <p> 示例值：
-         */
-        this.members = builder.members;
-        /**
-         * 如果设置，则该任务为“重复任务”。该字段表示了重复任务的重复规则。
-         * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
-         */
-        this.repeatRule = builder.repeatRule;
-        /**
-         * 如果设置，则将任务设计为“自定义完成”。用户在任务中心点击“完成”时，不会直接完成任务，而是跳转到第三方配置好的地址或者现实自定义提示。
-         * <p> 示例值：
-         */
-        this.customComplete = builder.customComplete;
-        /**
-         * 任务所在清单的信息
-         * <p> 示例值：
-         */
-        this.tasklists = builder.tasklists;
-        /**
-         * 幂等token，如果填写则触发幂等行为。
-         * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 任务的开始时间(ms)
-         * <p> 示例值：
-         */
-        this.start = builder.start;
-        /**
-         * 任务提醒
-         * <p> 示例值：
-         */
-        this.reminders = builder.reminders;
-        /**
-         * 任务的完成模式。1 - 会签任务；2 - 或签任务
-         * <p> 示例值：2
-         */
-        this.mode = builder.mode;
-        /**
-         * 是否是里程碑任务
-         * <p> 示例值：false
-         */
-        this.isMilestone = builder.isMilestone;
-        /**
-         * 自定义字段值
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 任务的新版云文档来源
-         * <p> 示例值：
-         */
-        this.docxSource = builder.docxSource;
-        /**
-         * 正数协议每日提醒
-         * <p> 示例值：
-         */
-        this.positiveReminders = builder.positiveReminders;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getSummary() {
         return this.summary;
     }
@@ -383,334 +277,435 @@ public class InputTask {
         this.positiveReminders = positiveReminders;
     }
 
+
+// builder 开始
+  public InputTask(){}
+
+  public InputTask(Builder builder){
+         /**
+          * 任务标题
+          * <p> 示例值：针对全年销售进行一次复盘
+          */
+      this.summary = builder.summary;
+         /**
+          * 任务描述
+          * <p> 示例值：需要事先阅读复盘总结文档
+          */
+      this.description = builder.description;
+         /**
+          * 任务截止时间戳(ms)，截止时间戳和截止日期选择一个填写。
+          * <p> 示例值：1675742789470
+          */
+      this.due = builder.due;
+         /**
+          * 任务关联的第三方平台来源信息
+          * <p> 示例值：
+          */
+      this.origin = builder.origin;
+         /**
+          * 调用者可以传入的任意附带到任务上的数据。在获取任务详情时会原样返回。
+          * <p> 示例值：dGVzdA==
+          */
+      this.extra = builder.extra;
+         /**
+          * 任务的完成时刻时间戳(ms)
+          * <p> 示例值：1675742789470
+          */
+      this.completedAt = builder.completedAt;
+         /**
+          * 负责人ID列表
+          * <p> 示例值：
+          */
+      this.members = builder.members;
+         /**
+          * 如果设置，则该任务为“重复任务”。该字段表示了重复任务的重复规则。
+          * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
+          */
+      this.repeatRule = builder.repeatRule;
+         /**
+          * 如果设置，则将任务设计为“自定义完成”。用户在任务中心点击“完成”时，不会直接完成任务，而是跳转到第三方配置好的地址或者现实自定义提示。
+          * <p> 示例值：
+          */
+      this.customComplete = builder.customComplete;
+         /**
+          * 任务所在清单的信息
+          * <p> 示例值：
+          */
+      this.tasklists = builder.tasklists;
+         /**
+          * 幂等token，如果填写则触发幂等行为。
+          * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
+          */
+      this.clientToken = builder.clientToken;
+         /**
+          * 任务的开始时间(ms)
+          * <p> 示例值：
+          */
+      this.start = builder.start;
+         /**
+          * 任务提醒
+          * <p> 示例值：
+          */
+      this.reminders = builder.reminders;
+         /**
+          * 任务的完成模式。1 - 会签任务；2 - 或签任务
+          * <p> 示例值：2
+          */
+      this.mode = builder.mode;
+         /**
+          * 是否是里程碑任务
+          * <p> 示例值：false
+          */
+      this.isMilestone = builder.isMilestone;
+         /**
+          * 自定义字段值
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 任务的新版云文档来源
+          * <p> 示例值：
+          */
+      this.docxSource = builder.docxSource;
+         /**
+          * 正数协议每日提醒
+          * <p> 示例值：
+          */
+      this.positiveReminders = builder.positiveReminders;
+  }
+
     public static class Builder {
-        /**
-         * 任务标题
-         * <p> 示例值：针对全年销售进行一次复盘
-         */
+     /**
+      * 任务标题
+      * <p> 示例值：针对全年销售进行一次复盘
+      */
         private String summary;
-        /**
-         * 任务描述
-         * <p> 示例值：需要事先阅读复盘总结文档
-         */
+     /**
+      * 任务描述
+      * <p> 示例值：需要事先阅读复盘总结文档
+      */
         private String description;
-        /**
-         * 任务截止时间戳(ms)，截止时间戳和截止日期选择一个填写。
-         * <p> 示例值：1675742789470
-         */
+     /**
+      * 任务截止时间戳(ms)，截止时间戳和截止日期选择一个填写。
+      * <p> 示例值：1675742789470
+      */
         private Due due;
-        /**
-         * 任务关联的第三方平台来源信息
-         * <p> 示例值：
-         */
+     /**
+      * 任务关联的第三方平台来源信息
+      * <p> 示例值：
+      */
         private Origin origin;
-        /**
-         * 调用者可以传入的任意附带到任务上的数据。在获取任务详情时会原样返回。
-         * <p> 示例值：dGVzdA==
-         */
+     /**
+      * 调用者可以传入的任意附带到任务上的数据。在获取任务详情时会原样返回。
+      * <p> 示例值：dGVzdA==
+      */
         private String extra;
-        /**
-         * 任务的完成时刻时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
+     /**
+      * 任务的完成时刻时间戳(ms)
+      * <p> 示例值：1675742789470
+      */
         private String completedAt;
-        /**
-         * 负责人ID列表
-         * <p> 示例值：
-         */
+     /**
+      * 负责人ID列表
+      * <p> 示例值：
+      */
         private Member[] members;
-        /**
-         * 如果设置，则该任务为“重复任务”。该字段表示了重复任务的重复规则。
-         * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
-         */
+     /**
+      * 如果设置，则该任务为“重复任务”。该字段表示了重复任务的重复规则。
+      * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
+      */
         private String repeatRule;
-        /**
-         * 如果设置，则将任务设计为“自定义完成”。用户在任务中心点击“完成”时，不会直接完成任务，而是跳转到第三方配置好的地址或者现实自定义提示。
-         * <p> 示例值：
-         */
+     /**
+      * 如果设置，则将任务设计为“自定义完成”。用户在任务中心点击“完成”时，不会直接完成任务，而是跳转到第三方配置好的地址或者现实自定义提示。
+      * <p> 示例值：
+      */
         private CustomComplete customComplete;
-        /**
-         * 任务所在清单的信息
-         * <p> 示例值：
-         */
+     /**
+      * 任务所在清单的信息
+      * <p> 示例值：
+      */
         private TaskInTasklistInfo[] tasklists;
-        /**
-         * 幂等token，如果填写则触发幂等行为。
-         * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
-         */
+     /**
+      * 幂等token，如果填写则触发幂等行为。
+      * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
+      */
         private String clientToken;
-        /**
-         * 任务的开始时间(ms)
-         * <p> 示例值：
-         */
+     /**
+      * 任务的开始时间(ms)
+      * <p> 示例值：
+      */
         private Start start;
-        /**
-         * 任务提醒
-         * <p> 示例值：
-         */
+     /**
+      * 任务提醒
+      * <p> 示例值：
+      */
         private Reminder[] reminders;
-        /**
-         * 任务的完成模式。1 - 会签任务；2 - 或签任务
-         * <p> 示例值：2
-         */
+     /**
+      * 任务的完成模式。1 - 会签任务；2 - 或签任务
+      * <p> 示例值：2
+      */
         private Integer mode;
-        /**
-         * 是否是里程碑任务
-         * <p> 示例值：false
-         */
+     /**
+      * 是否是里程碑任务
+      * <p> 示例值：false
+      */
         private Boolean isMilestone;
-        /**
-         * 自定义字段值
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段值
+      * <p> 示例值：
+      */
         private InputCustomFieldValue[] customFields;
-        /**
-         * 任务的新版云文档来源
-         * <p> 示例值：
-         */
+     /**
+      * 任务的新版云文档来源
+      * <p> 示例值：
+      */
         private DocxSource docxSource;
-        /**
-         * 正数协议每日提醒
-         * <p> 示例值：
-         */
+     /**
+      * 正数协议每日提醒
+      * <p> 示例值：
+      */
         private Reminder[] positiveReminders;
 
         /**
          * 任务标题
          * <p> 示例值：针对全年销售进行一次复盘
-         *
          * @param summary
          * @return
          */
         public Builder summary(String summary) {
-            this.summary = summary;
-            return this;
+             this.summary = summary;
+             return this;
         }
 
+    
 
         /**
          * 任务描述
          * <p> 示例值：需要事先阅读复盘总结文档
-         *
          * @param description
          * @return
          */
         public Builder description(String description) {
-            this.description = description;
-            return this;
+             this.description = description;
+             return this;
         }
 
+    
 
         /**
          * 任务截止时间戳(ms)，截止时间戳和截止日期选择一个填写。
          * <p> 示例值：1675742789470
-         *
          * @param due
          * @return
          */
         public Builder due(Due due) {
-            this.due = due;
-            return this;
+             this.due = due;
+             return this;
         }
 
+    
 
         /**
          * 任务关联的第三方平台来源信息
          * <p> 示例值：
-         *
          * @param origin
          * @return
          */
         public Builder origin(Origin origin) {
-            this.origin = origin;
-            return this;
+             this.origin = origin;
+             return this;
         }
 
+    
 
         /**
          * 调用者可以传入的任意附带到任务上的数据。在获取任务详情时会原样返回。
          * <p> 示例值：dGVzdA==
-         *
          * @param extra
          * @return
          */
         public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
+             this.extra = extra;
+             return this;
         }
 
+    
 
         /**
          * 任务的完成时刻时间戳(ms)
          * <p> 示例值：1675742789470
-         *
          * @param completedAt
          * @return
          */
         public Builder completedAt(String completedAt) {
-            this.completedAt = completedAt;
-            return this;
+             this.completedAt = completedAt;
+             return this;
         }
 
+    
 
         /**
          * 负责人ID列表
          * <p> 示例值：
-         *
          * @param members
          * @return
          */
         public Builder members(Member[] members) {
-            this.members = members;
-            return this;
+             this.members = members;
+             return this;
         }
 
+    
 
         /**
          * 如果设置，则该任务为“重复任务”。该字段表示了重复任务的重复规则。
          * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
-         *
          * @param repeatRule
          * @return
          */
         public Builder repeatRule(String repeatRule) {
-            this.repeatRule = repeatRule;
-            return this;
+             this.repeatRule = repeatRule;
+             return this;
         }
 
+    
 
         /**
          * 如果设置，则将任务设计为“自定义完成”。用户在任务中心点击“完成”时，不会直接完成任务，而是跳转到第三方配置好的地址或者现实自定义提示。
          * <p> 示例值：
-         *
          * @param customComplete
          * @return
          */
         public Builder customComplete(CustomComplete customComplete) {
-            this.customComplete = customComplete;
-            return this;
+             this.customComplete = customComplete;
+             return this;
         }
 
+    
 
         /**
          * 任务所在清单的信息
          * <p> 示例值：
-         *
          * @param tasklists
          * @return
          */
         public Builder tasklists(TaskInTasklistInfo[] tasklists) {
-            this.tasklists = tasklists;
-            return this;
+             this.tasklists = tasklists;
+             return this;
         }
 
+    
 
         /**
          * 幂等token，如果填写则触发幂等行为。
          * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
-         *
          * @param clientToken
          * @return
          */
         public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
+             this.clientToken = clientToken;
+             return this;
         }
 
+    
 
         /**
          * 任务的开始时间(ms)
          * <p> 示例值：
-         *
          * @param start
          * @return
          */
         public Builder start(Start start) {
-            this.start = start;
-            return this;
+             this.start = start;
+             return this;
         }
 
+    
 
         /**
          * 任务提醒
          * <p> 示例值：
-         *
          * @param reminders
          * @return
          */
         public Builder reminders(Reminder[] reminders) {
-            this.reminders = reminders;
-            return this;
+             this.reminders = reminders;
+             return this;
         }
 
+    
 
         /**
          * 任务的完成模式。1 - 会签任务；2 - 或签任务
          * <p> 示例值：2
-         *
          * @param mode
          * @return
          */
         public Builder mode(Integer mode) {
-            this.mode = mode;
-            return this;
+             this.mode = mode;
+             return this;
         }
 
+    
 
         /**
          * 是否是里程碑任务
          * <p> 示例值：false
-         *
          * @param isMilestone
          * @return
          */
         public Builder isMilestone(Boolean isMilestone) {
-            this.isMilestone = isMilestone;
-            return this;
+             this.isMilestone = isMilestone;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段值
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(InputCustomFieldValue[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 任务的新版云文档来源
          * <p> 示例值：
-         *
          * @param docxSource
          * @return
          */
         public Builder docxSource(DocxSource docxSource) {
-            this.docxSource = docxSource;
-            return this;
+             this.docxSource = docxSource;
+             return this;
         }
 
+    
 
         /**
          * 正数协议每日提醒
          * <p> 示例值：
-         *
          * @param positiveReminders
          * @return
          */
         public Builder positiveReminders(Reminder[] positiveReminders) {
-            this.positiveReminders = positiveReminders;
-            return this;
+             this.positiveReminders = positiveReminders;
+             return this;
         }
 
+    
+    
+    public InputTask build(){
+        return new InputTask(this);
+      }
+    }
 
-        public InputTask build() {
-            return new InputTask(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

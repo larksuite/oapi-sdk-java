@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v2.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class LocationTimeline {
-    /**
-     * 地点版本信息
-     * <p> 示例值：
-     */
+     /**
+      * 地点版本信息
+      * <p> 示例值：
+      */
     @SerializedName("location_version_data")
     private LocationVersionData[] locationVersionData;
-    /**
-     * 地址信息
-     * <p> 示例值：
-     */
+     /**
+      * 地址信息
+      * <p> 示例值：
+      */
     @SerializedName("address")
     private Address[] address;
-
-    // builder 开始
-    public LocationTimeline() {
-    }
-
-    public LocationTimeline(Builder builder) {
-        /**
-         * 地点版本信息
-         * <p> 示例值：
-         */
-        this.locationVersionData = builder.locationVersionData;
-        /**
-         * 地址信息
-         * <p> 示例值：
-         */
-        this.address = builder.address;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public LocationVersionData[] getLocationVersionData() {
         return this.locationVersionData;
     }
@@ -79,46 +53,67 @@ public class LocationTimeline {
         this.address = address;
     }
 
+
+// builder 开始
+  public LocationTimeline(){}
+
+  public LocationTimeline(Builder builder){
+         /**
+          * 地点版本信息
+          * <p> 示例值：
+          */
+      this.locationVersionData = builder.locationVersionData;
+         /**
+          * 地址信息
+          * <p> 示例值：
+          */
+      this.address = builder.address;
+  }
+
     public static class Builder {
-        /**
-         * 地点版本信息
-         * <p> 示例值：
-         */
+     /**
+      * 地点版本信息
+      * <p> 示例值：
+      */
         private LocationVersionData[] locationVersionData;
-        /**
-         * 地址信息
-         * <p> 示例值：
-         */
+     /**
+      * 地址信息
+      * <p> 示例值：
+      */
         private Address[] address;
 
         /**
          * 地点版本信息
          * <p> 示例值：
-         *
          * @param locationVersionData
          * @return
          */
         public Builder locationVersionData(LocationVersionData[] locationVersionData) {
-            this.locationVersionData = locationVersionData;
-            return this;
+             this.locationVersionData = locationVersionData;
+             return this;
         }
 
+    
 
         /**
          * 地址信息
          * <p> 示例值：
-         *
          * @param address
          * @return
          */
         public Builder address(Address[] address) {
-            this.address = address;
-            return this;
+             this.address = address;
+             return this;
         }
 
+    
+    
+    public LocationTimeline build(){
+        return new LocationTimeline(this);
+      }
+    }
 
-        public LocationTimeline build() {
-            return new LocationTimeline(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

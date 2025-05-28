@@ -17,18 +17,17 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 加班单位
  */
 public enum OvertimeDetailOvertimeUnitEnum {
-    OVERTIMEUNITUNKOWN(0), // 未知
-    OVERTIMEUNITDAY(1), // 天
-    OVERTIMEUNITHOUR(3), // 小时
-    OVERTIMEUNITMINUTE(5), // 分钟
-    ;
-    private Integer value;
-
+     OVERTIMEUNITUNKOWN(0), // 未知
+     OVERTIMEUNITDAY(1), // 天
+     OVERTIMEUNITHOUR(3), // 小时
+     OVERTIMEUNITMINUTE(5), // 分钟
+  ;
+   private Integer value;
     OvertimeDetailOvertimeUnitEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

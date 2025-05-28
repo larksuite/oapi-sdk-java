@@ -17,17 +17,16 @@ package com.lark.oapi.service.performance.v2.enums;
  * 项目模式
  */
 public enum ActivityModeEnum {
-    METRIC_DEVELOPMENT("metric_development"), // 指标制定
-    PERFORMANCE_REVIEW("performance_review"), // 绩效评估
-    METRIC_DEVELOPMENT_AND_PERFORMANCE_REVIEW("metric_development_and_performance_review"), // 指标制定及绩效评估
-    ;
-    private String value;
-
+     METRIC_DEVELOPMENT("metric_development"), // 指标制定
+     PERFORMANCE_REVIEW("performance_review"), // 绩效评估
+     METRIC_DEVELOPMENT_AND_PERFORMANCE_REVIEW("metric_development_and_performance_review"), // 指标制定及绩效评估
+  ;
+   private String value;
     ActivityModeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

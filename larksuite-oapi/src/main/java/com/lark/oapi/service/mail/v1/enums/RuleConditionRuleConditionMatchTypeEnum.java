@@ -17,16 +17,15 @@ package com.lark.oapi.service.mail.v1.enums;
  * 匹配类型
  */
 public enum RuleConditionRuleConditionMatchTypeEnum {
-    MATCHALL(1), // 满足所有条件
-    MATCHANY(2), // 满足任意条件
-    ;
-    private Integer value;
-
+     MATCHALL(1), // 满足所有条件
+     MATCHANY(2), // 满足任意条件
+  ;
+   private Integer value;
     RuleConditionRuleConditionMatchTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

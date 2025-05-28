@@ -12,67 +12,36 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class WebsiteDeliveryCertificate {
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
-    /**
-     * 描述
-     * <p> 示例值：全国普通话级别认证
-     */
+     /**
+      * 描述
+      * <p> 示例值：全国普通话级别认证
+      */
     @SerializedName("desc")
     private String desc;
-    /**
-     * 证书名称
-     * <p> 示例值：普通话证书
-     */
+     /**
+      * 证书名称
+      * <p> 示例值：普通话证书
+      */
     @SerializedName("name")
     private String name;
-
-    // builder 开始
-    public WebsiteDeliveryCertificate() {
-    }
-
-    public WebsiteDeliveryCertificate(Builder builder) {
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
-        /**
-         * 描述
-         * <p> 示例值：全国普通话级别认证
-         */
-        this.desc = builder.desc;
-        /**
-         * 证书名称
-         * <p> 示例值：普通话证书
-         */
-        this.name = builder.name;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public WebsiteDeliveryCustomizedData[] getCustomizedData() {
         return this.customizedData;
     }
@@ -97,64 +66,90 @@ public class WebsiteDeliveryCertificate {
         this.name = name;
     }
 
+
+// builder 开始
+  public WebsiteDeliveryCertificate(){}
+
+  public WebsiteDeliveryCertificate(Builder builder){
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customizedData = builder.customizedData;
+         /**
+          * 描述
+          * <p> 示例值：全国普通话级别认证
+          */
+      this.desc = builder.desc;
+         /**
+          * 证书名称
+          * <p> 示例值：普通话证书
+          */
+      this.name = builder.name;
+  }
+
     public static class Builder {
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private WebsiteDeliveryCustomizedData[] customizedData;
-        /**
-         * 描述
-         * <p> 示例值：全国普通话级别认证
-         */
+     /**
+      * 描述
+      * <p> 示例值：全国普通话级别认证
+      */
         private String desc;
-        /**
-         * 证书名称
-         * <p> 示例值：普通话证书
-         */
+     /**
+      * 证书名称
+      * <p> 示例值：普通话证书
+      */
         private String name;
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customizedData
          * @return
          */
         public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
+             this.customizedData = customizedData;
+             return this;
         }
 
+    
 
         /**
          * 描述
          * <p> 示例值：全国普通话级别认证
-         *
          * @param desc
          * @return
          */
         public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
+             this.desc = desc;
+             return this;
         }
 
+    
 
         /**
          * 证书名称
          * <p> 示例值：普通话证书
-         *
          * @param name
          * @return
          */
         public Builder name(String name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
+    
+    public WebsiteDeliveryCertificate build(){
+        return new WebsiteDeliveryCertificate(this);
+      }
+    }
 
-        public WebsiteDeliveryCertificate build() {
-            return new WebsiteDeliveryCertificate(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

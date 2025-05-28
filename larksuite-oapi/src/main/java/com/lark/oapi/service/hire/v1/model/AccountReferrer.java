@@ -12,78 +12,42 @@
  */
 
 package com.lark.oapi.service.hire.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class AccountReferrer {
-    /**
-     * 内推人 ID
-     * <p> 示例值：7413952589321914668
-     */
+     /**
+      * 内推人 ID
+      * <p> 示例值：7413952589321914668
+      */
     @SerializedName("id")
     private String id;
-    /**
-     * 内推人名称
-     * <p> 示例值：
-     */
+     /**
+      * 内推人名称
+      * <p> 示例值：
+      */
     @SerializedName("name")
     private I18n name;
-    /**
-     * 用户邮箱
-     * <p> 示例值：27188272xxxx1.com
-     */
+     /**
+      * 用户邮箱
+      * <p> 示例值：27188272xxxx1.com
+      */
     @SerializedName("email")
     private String email;
-    /**
-     * 用户手机
-     * <p> 示例值：1879087xxx8
-     */
+     /**
+      * 用户手机
+      * <p> 示例值：1879087xxx8
+      */
     @SerializedName("mobile")
     private String mobile;
-
-    // builder 开始
-    public AccountReferrer() {
-    }
-
-    public AccountReferrer(Builder builder) {
-        /**
-         * 内推人 ID
-         * <p> 示例值：7413952589321914668
-         */
-        this.id = builder.id;
-        /**
-         * 内推人名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 用户邮箱
-         * <p> 示例值：27188272xxxx1.com
-         */
-        this.email = builder.email;
-        /**
-         * 用户手机
-         * <p> 示例值：1879087xxx8
-         */
-        this.mobile = builder.mobile;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getId() {
         return this.id;
     }
@@ -116,82 +80,113 @@ public class AccountReferrer {
         this.mobile = mobile;
     }
 
+
+// builder 开始
+  public AccountReferrer(){}
+
+  public AccountReferrer(Builder builder){
+         /**
+          * 内推人 ID
+          * <p> 示例值：7413952589321914668
+          */
+      this.id = builder.id;
+         /**
+          * 内推人名称
+          * <p> 示例值：
+          */
+      this.name = builder.name;
+         /**
+          * 用户邮箱
+          * <p> 示例值：27188272xxxx1.com
+          */
+      this.email = builder.email;
+         /**
+          * 用户手机
+          * <p> 示例值：1879087xxx8
+          */
+      this.mobile = builder.mobile;
+  }
+
     public static class Builder {
-        /**
-         * 内推人 ID
-         * <p> 示例值：7413952589321914668
-         */
+     /**
+      * 内推人 ID
+      * <p> 示例值：7413952589321914668
+      */
         private String id;
-        /**
-         * 内推人名称
-         * <p> 示例值：
-         */
+     /**
+      * 内推人名称
+      * <p> 示例值：
+      */
         private I18n name;
-        /**
-         * 用户邮箱
-         * <p> 示例值：27188272xxxx1.com
-         */
+     /**
+      * 用户邮箱
+      * <p> 示例值：27188272xxxx1.com
+      */
         private String email;
-        /**
-         * 用户手机
-         * <p> 示例值：1879087xxx8
-         */
+     /**
+      * 用户手机
+      * <p> 示例值：1879087xxx8
+      */
         private String mobile;
 
         /**
          * 内推人 ID
          * <p> 示例值：7413952589321914668
-         *
          * @param id
          * @return
          */
         public Builder id(String id) {
-            this.id = id;
-            return this;
+             this.id = id;
+             return this;
         }
 
+    
 
         /**
          * 内推人名称
          * <p> 示例值：
-         *
          * @param name
          * @return
          */
         public Builder name(I18n name) {
-            this.name = name;
-            return this;
+             this.name = name;
+             return this;
         }
 
+    
 
         /**
          * 用户邮箱
          * <p> 示例值：27188272xxxx1.com
-         *
          * @param email
          * @return
          */
         public Builder email(String email) {
-            this.email = email;
-            return this;
+             this.email = email;
+             return this;
         }
 
+    
 
         /**
          * 用户手机
          * <p> 示例值：1879087xxx8
-         *
          * @param mobile
          * @return
          */
         public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
+             this.mobile = mobile;
+             return this;
         }
 
+    
+    
+    public AccountReferrer build(){
+        return new AccountReferrer(this);
+      }
+    }
 
-        public AccountReferrer build() {
-            return new AccountReferrer(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.corehr.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,192 +19,102 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class BankAccount {
-    /**
-     * 银行名称，如果已经填入银行枚举，该字段可为空。如果要填写数据不在系统提供的枚举范围内，该字段存储自定义银行名称
-     * <p> 示例值：中国农业银行
-     */
+     /**
+      * 银行名称，如果已经填入银行枚举，该字段可为空。如果要填写数据不在系统提供的枚举范围内，该字段存储自定义银行名称
+      * <p> 示例值：中国农业银行
+      */
     @SerializedName("bank_name")
     private String bankName;
-    /**
-     * 银行账号
-     * <p> 示例值：6231200000001223
-     */
+     /**
+      * 银行账号
+      * <p> 示例值：6231200000001223
+      */
     @SerializedName("bank_account_number")
     private String bankAccountNumber;
-    /**
-     * 开户人姓名
-     * <p> 示例值：孟十五
-     */
+     /**
+      * 开户人姓名
+      * <p> 示例值：孟十五
+      */
     @SerializedName("account_holder")
     private String accountHolder;
-    /**
-     * 银行枚举，常见的银行枚举如：bank-5（交通银行）、bank-6（中国银行）、bank-7（中国建设银行）、bank-8（中国农业银行）、bank-9（中国工商银行）、bank-10（中国邮政储蓄银行）、bank-11（中国光大银行）、bank-12（中国民生银行）、bank-13（招商银行）、bank-14（中信银行）、bank-15（华夏银行）
-     * <p> 示例值：
-     */
+     /**
+      * 银行枚举，常见的银行枚举如：bank-5（交通银行）、bank-6（中国银行）、bank-7（中国建设银行）、bank-8（中国农业银行）、bank-9（中国工商银行）、bank-10（中国邮政储蓄银行）、bank-11（中国光大银行）、bank-12（中国民生银行）、bank-13（招商银行）、bank-14（中信银行）、bank-15（华夏银行）
+      * <p> 示例值：
+      */
     @SerializedName("bank")
     private Enum bank;
-    /**
-     * 银行识别码
-     * <p> 示例值：1234
-     */
+     /**
+      * 银行识别码
+      * <p> 示例值：1234
+      */
     @SerializedName("bank_identification_code")
     private String bankIdentificationCode;
-    /**
-     * 支行名称
-     * <p> 示例值：中国农业银行支行
-     */
+     /**
+      * 支行名称
+      * <p> 示例值：中国农业银行支行
+      */
     @SerializedName("branch_name")
     private String branchName;
-    /**
-     * 银行 ID
-     * <p> 示例值：8
-     */
+     /**
+      * 银行 ID
+      * <p> 示例值：8
+      */
     @SerializedName("bank_id")
     private String bankId;
-    /**
-     * 支行 ID
-     * <p> 示例值：12
-     */
+     /**
+      * 支行 ID
+      * <p> 示例值：12
+      */
     @SerializedName("branch_id")
     private String branchId;
-    /**
-     * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
-     * <p> 示例值：MDBH00000001
-     */
+     /**
+      * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+      * <p> 示例值：MDBH00000001
+      */
     @SerializedName("bank_id_v2")
     private String bankIdV2;
-    /**
-     * 支行 ID，详细信息可通过【查询支行信息】接口查询获得
-     * <p> 示例值：MDBK00000017
-     */
+     /**
+      * 支行 ID，详细信息可通过【查询支行信息】接口查询获得
+      * <p> 示例值：MDBK00000017
+      */
     @SerializedName("branch_id_v2")
     private String branchIdV2;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-    /**
-     * 国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-     * <p> 示例值：12
-     */
+     /**
+      * 国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
+      * <p> 示例值：12
+      */
     @SerializedName("country_region_id")
     private String countryRegionId;
-    /**
-     * 银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（bank_account_usage）枚举定义部分获得
-     * <p> 示例值：
-     */
+     /**
+      * 银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（bank_account_usage）枚举定义部分获得
+      * <p> 示例值：
+      */
     @SerializedName("bank_account_usage")
     private Enum[] bankAccountUsage;
-    /**
-     * 银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡类型（bank_account_type）枚举定义部分获得
-     * <p> 示例值：
-     */
+     /**
+      * 银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡类型（bank_account_type）枚举定义部分获得
+      * <p> 示例值：
+      */
     @SerializedName("bank_account_type")
     private Enum bankAccountType;
-    /**
-     * 货币id
-     * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
-     */
+     /**
+      * 货币id
+      * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
+      */
     @SerializedName("currency_id")
     private String currencyId;
-
-    // builder 开始
-    public BankAccount() {
-    }
-
-    public BankAccount(Builder builder) {
-        /**
-         * 银行名称，如果已经填入银行枚举，该字段可为空。如果要填写数据不在系统提供的枚举范围内，该字段存储自定义银行名称
-         * <p> 示例值：中国农业银行
-         */
-        this.bankName = builder.bankName;
-        /**
-         * 银行账号
-         * <p> 示例值：6231200000001223
-         */
-        this.bankAccountNumber = builder.bankAccountNumber;
-        /**
-         * 开户人姓名
-         * <p> 示例值：孟十五
-         */
-        this.accountHolder = builder.accountHolder;
-        /**
-         * 银行枚举，常见的银行枚举如：bank-5（交通银行）、bank-6（中国银行）、bank-7（中国建设银行）、bank-8（中国农业银行）、bank-9（中国工商银行）、bank-10（中国邮政储蓄银行）、bank-11（中国光大银行）、bank-12（中国民生银行）、bank-13（招商银行）、bank-14（中信银行）、bank-15（华夏银行）
-         * <p> 示例值：
-         */
-        this.bank = builder.bank;
-        /**
-         * 银行识别码
-         * <p> 示例值：1234
-         */
-        this.bankIdentificationCode = builder.bankIdentificationCode;
-        /**
-         * 支行名称
-         * <p> 示例值：中国农业银行支行
-         */
-        this.branchName = builder.branchName;
-        /**
-         * 银行 ID
-         * <p> 示例值：8
-         */
-        this.bankId = builder.bankId;
-        /**
-         * 支行 ID
-         * <p> 示例值：12
-         */
-        this.branchId = builder.branchId;
-        /**
-         * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
-         * <p> 示例值：MDBH00000001
-         */
-        this.bankIdV2 = builder.bankIdV2;
-        /**
-         * 支行 ID，详细信息可通过【查询支行信息】接口查询获得
-         * <p> 示例值：MDBK00000017
-         */
-        this.branchIdV2 = builder.branchIdV2;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（bank_account_usage）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.bankAccountUsage = builder.bankAccountUsage;
-        /**
-         * 银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡类型（bank_account_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.bankAccountType = builder.bankAccountType;
-        /**
-         * 货币id
-         * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
-         */
-        this.currencyId = builder.currencyId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getBankName() {
         return this.bankName;
     }
@@ -326,280 +235,366 @@ public class BankAccount {
         this.currencyId = currencyId;
     }
 
+
+// builder 开始
+  public BankAccount(){}
+
+  public BankAccount(Builder builder){
+         /**
+          * 银行名称，如果已经填入银行枚举，该字段可为空。如果要填写数据不在系统提供的枚举范围内，该字段存储自定义银行名称
+          * <p> 示例值：中国农业银行
+          */
+      this.bankName = builder.bankName;
+         /**
+          * 银行账号
+          * <p> 示例值：6231200000001223
+          */
+      this.bankAccountNumber = builder.bankAccountNumber;
+         /**
+          * 开户人姓名
+          * <p> 示例值：孟十五
+          */
+      this.accountHolder = builder.accountHolder;
+         /**
+          * 银行枚举，常见的银行枚举如：bank-5（交通银行）、bank-6（中国银行）、bank-7（中国建设银行）、bank-8（中国农业银行）、bank-9（中国工商银行）、bank-10（中国邮政储蓄银行）、bank-11（中国光大银行）、bank-12（中国民生银行）、bank-13（招商银行）、bank-14（中信银行）、bank-15（华夏银行）
+          * <p> 示例值：
+          */
+      this.bank = builder.bank;
+         /**
+          * 银行识别码
+          * <p> 示例值：1234
+          */
+      this.bankIdentificationCode = builder.bankIdentificationCode;
+         /**
+          * 支行名称
+          * <p> 示例值：中国农业银行支行
+          */
+      this.branchName = builder.branchName;
+         /**
+          * 银行 ID
+          * <p> 示例值：8
+          */
+      this.bankId = builder.bankId;
+         /**
+          * 支行 ID
+          * <p> 示例值：12
+          */
+      this.branchId = builder.branchId;
+         /**
+          * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+          * <p> 示例值：MDBH00000001
+          */
+      this.bankIdV2 = builder.bankIdV2;
+         /**
+          * 支行 ID，详细信息可通过【查询支行信息】接口查询获得
+          * <p> 示例值：MDBK00000017
+          */
+      this.branchIdV2 = builder.branchIdV2;
+         /**
+          * 自定义字段
+          * <p> 示例值：
+          */
+      this.customFields = builder.customFields;
+         /**
+          * 国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
+          * <p> 示例值：12
+          */
+      this.countryRegionId = builder.countryRegionId;
+         /**
+          * 银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（bank_account_usage）枚举定义部分获得
+          * <p> 示例值：
+          */
+      this.bankAccountUsage = builder.bankAccountUsage;
+         /**
+          * 银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡类型（bank_account_type）枚举定义部分获得
+          * <p> 示例值：
+          */
+      this.bankAccountType = builder.bankAccountType;
+         /**
+          * 货币id
+          * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
+          */
+      this.currencyId = builder.currencyId;
+  }
+
     public static class Builder {
-        /**
-         * 银行名称，如果已经填入银行枚举，该字段可为空。如果要填写数据不在系统提供的枚举范围内，该字段存储自定义银行名称
-         * <p> 示例值：中国农业银行
-         */
+     /**
+      * 银行名称，如果已经填入银行枚举，该字段可为空。如果要填写数据不在系统提供的枚举范围内，该字段存储自定义银行名称
+      * <p> 示例值：中国农业银行
+      */
         private String bankName;
-        /**
-         * 银行账号
-         * <p> 示例值：6231200000001223
-         */
+     /**
+      * 银行账号
+      * <p> 示例值：6231200000001223
+      */
         private String bankAccountNumber;
-        /**
-         * 开户人姓名
-         * <p> 示例值：孟十五
-         */
+     /**
+      * 开户人姓名
+      * <p> 示例值：孟十五
+      */
         private String accountHolder;
-        /**
-         * 银行枚举，常见的银行枚举如：bank-5（交通银行）、bank-6（中国银行）、bank-7（中国建设银行）、bank-8（中国农业银行）、bank-9（中国工商银行）、bank-10（中国邮政储蓄银行）、bank-11（中国光大银行）、bank-12（中国民生银行）、bank-13（招商银行）、bank-14（中信银行）、bank-15（华夏银行）
-         * <p> 示例值：
-         */
+     /**
+      * 银行枚举，常见的银行枚举如：bank-5（交通银行）、bank-6（中国银行）、bank-7（中国建设银行）、bank-8（中国农业银行）、bank-9（中国工商银行）、bank-10（中国邮政储蓄银行）、bank-11（中国光大银行）、bank-12（中国民生银行）、bank-13（招商银行）、bank-14（中信银行）、bank-15（华夏银行）
+      * <p> 示例值：
+      */
         private Enum bank;
-        /**
-         * 银行识别码
-         * <p> 示例值：1234
-         */
+     /**
+      * 银行识别码
+      * <p> 示例值：1234
+      */
         private String bankIdentificationCode;
-        /**
-         * 支行名称
-         * <p> 示例值：中国农业银行支行
-         */
+     /**
+      * 支行名称
+      * <p> 示例值：中国农业银行支行
+      */
         private String branchName;
-        /**
-         * 银行 ID
-         * <p> 示例值：8
-         */
+     /**
+      * 银行 ID
+      * <p> 示例值：8
+      */
         private String bankId;
-        /**
-         * 支行 ID
-         * <p> 示例值：12
-         */
+     /**
+      * 支行 ID
+      * <p> 示例值：12
+      */
         private String branchId;
-        /**
-         * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
-         * <p> 示例值：MDBH00000001
-         */
+     /**
+      * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+      * <p> 示例值：MDBH00000001
+      */
         private String bankIdV2;
-        /**
-         * 支行 ID，详细信息可通过【查询支行信息】接口查询获得
-         * <p> 示例值：MDBK00000017
-         */
+     /**
+      * 支行 ID，详细信息可通过【查询支行信息】接口查询获得
+      * <p> 示例值：MDBK00000017
+      */
         private String branchIdV2;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
+     /**
+      * 自定义字段
+      * <p> 示例值：
+      */
         private ObjectFieldData[] customFields;
-        /**
-         * 国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
+     /**
+      * 国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
+      * <p> 示例值：12
+      */
         private String countryRegionId;
-        /**
-         * 银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（bank_account_usage）枚举定义部分获得
-         * <p> 示例值：
-         */
+     /**
+      * 银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（bank_account_usage）枚举定义部分获得
+      * <p> 示例值：
+      */
         private Enum[] bankAccountUsage;
-        /**
-         * 银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡类型（bank_account_type）枚举定义部分获得
-         * <p> 示例值：
-         */
+     /**
+      * 银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡类型（bank_account_type）枚举定义部分获得
+      * <p> 示例值：
+      */
         private Enum bankAccountType;
-        /**
-         * 货币id
-         * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
-         */
+     /**
+      * 货币id
+      * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
+      */
         private String currencyId;
 
         /**
          * 银行名称，如果已经填入银行枚举，该字段可为空。如果要填写数据不在系统提供的枚举范围内，该字段存储自定义银行名称
          * <p> 示例值：中国农业银行
-         *
          * @param bankName
          * @return
          */
         public Builder bankName(String bankName) {
-            this.bankName = bankName;
-            return this;
+             this.bankName = bankName;
+             return this;
         }
 
+    
 
         /**
          * 银行账号
          * <p> 示例值：6231200000001223
-         *
          * @param bankAccountNumber
          * @return
          */
         public Builder bankAccountNumber(String bankAccountNumber) {
-            this.bankAccountNumber = bankAccountNumber;
-            return this;
+             this.bankAccountNumber = bankAccountNumber;
+             return this;
         }
 
+    
 
         /**
          * 开户人姓名
          * <p> 示例值：孟十五
-         *
          * @param accountHolder
          * @return
          */
         public Builder accountHolder(String accountHolder) {
-            this.accountHolder = accountHolder;
-            return this;
+             this.accountHolder = accountHolder;
+             return this;
         }
 
+    
 
         /**
          * 银行枚举，常见的银行枚举如：bank-5（交通银行）、bank-6（中国银行）、bank-7（中国建设银行）、bank-8（中国农业银行）、bank-9（中国工商银行）、bank-10（中国邮政储蓄银行）、bank-11（中国光大银行）、bank-12（中国民生银行）、bank-13（招商银行）、bank-14（中信银行）、bank-15（华夏银行）
          * <p> 示例值：
-         *
          * @param bank
          * @return
          */
         public Builder bank(Enum bank) {
-            this.bank = bank;
-            return this;
+             this.bank = bank;
+             return this;
         }
 
+    
 
         /**
          * 银行识别码
          * <p> 示例值：1234
-         *
          * @param bankIdentificationCode
          * @return
          */
         public Builder bankIdentificationCode(String bankIdentificationCode) {
-            this.bankIdentificationCode = bankIdentificationCode;
-            return this;
+             this.bankIdentificationCode = bankIdentificationCode;
+             return this;
         }
 
+    
 
         /**
          * 支行名称
          * <p> 示例值：中国农业银行支行
-         *
          * @param branchName
          * @return
          */
         public Builder branchName(String branchName) {
-            this.branchName = branchName;
-            return this;
+             this.branchName = branchName;
+             return this;
         }
 
+    
 
         /**
          * 银行 ID
          * <p> 示例值：8
-         *
          * @param bankId
          * @return
          */
         public Builder bankId(String bankId) {
-            this.bankId = bankId;
-            return this;
+             this.bankId = bankId;
+             return this;
         }
 
+    
 
         /**
          * 支行 ID
          * <p> 示例值：12
-         *
          * @param branchId
          * @return
          */
         public Builder branchId(String branchId) {
-            this.branchId = branchId;
-            return this;
+             this.branchId = branchId;
+             return this;
         }
 
+    
 
         /**
          * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
          * <p> 示例值：MDBH00000001
-         *
          * @param bankIdV2
          * @return
          */
         public Builder bankIdV2(String bankIdV2) {
-            this.bankIdV2 = bankIdV2;
-            return this;
+             this.bankIdV2 = bankIdV2;
+             return this;
         }
 
+    
 
         /**
          * 支行 ID，详细信息可通过【查询支行信息】接口查询获得
          * <p> 示例值：MDBK00000017
-         *
          * @param branchIdV2
          * @return
          */
         public Builder branchIdV2(String branchIdV2) {
-            this.branchIdV2 = branchIdV2;
-            return this;
+             this.branchIdV2 = branchIdV2;
+             return this;
         }
 
+    
 
         /**
          * 自定义字段
          * <p> 示例值：
-         *
          * @param customFields
          * @return
          */
         public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
+             this.customFields = customFields;
+             return this;
         }
 
+    
 
         /**
          * 国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
          * <p> 示例值：12
-         *
          * @param countryRegionId
          * @return
          */
         public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
+             this.countryRegionId = countryRegionId;
+             return this;
         }
 
+    
 
         /**
          * 银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（bank_account_usage）枚举定义部分获得
          * <p> 示例值：
-         *
          * @param bankAccountUsage
          * @return
          */
         public Builder bankAccountUsage(Enum[] bankAccountUsage) {
-            this.bankAccountUsage = bankAccountUsage;
-            return this;
+             this.bankAccountUsage = bankAccountUsage;
+             return this;
         }
 
+    
 
         /**
          * 银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡类型（bank_account_type）枚举定义部分获得
          * <p> 示例值：
-         *
          * @param bankAccountType
          * @return
          */
         public Builder bankAccountType(Enum bankAccountType) {
-            this.bankAccountType = bankAccountType;
-            return this;
+             this.bankAccountType = bankAccountType;
+             return this;
         }
 
+    
 
         /**
          * 货币id
          * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
-         *
          * @param currencyId
          * @return
          */
         public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
+             this.currencyId = currencyId;
+             return this;
         }
 
+    
+    
+    public BankAccount build(){
+        return new BankAccount(this);
+      }
+    }
 
-        public BankAccount build() {
-            return new BankAccount(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

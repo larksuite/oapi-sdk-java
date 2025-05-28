@@ -12,107 +12,102 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateMessageRespBody {
-    /**
-     * 消息id open_message_id
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
+     /**
+      * 消息id open_message_id
+      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+      */
     @SerializedName("message_id")
     private String messageId;
-    /**
-     * 根消息id open_message_id
-     * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-     */
+     /**
+      * 根消息id open_message_id
+      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
+      */
     @SerializedName("root_id")
     private String rootId;
-    /**
-     * 父消息的id open_message_id
-     * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
-     */
+     /**
+      * 父消息的id open_message_id
+      * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
+      */
     @SerializedName("parent_id")
     private String parentId;
-    /**
-     * 消息所属的话题 ID
-     * <p> 示例值：omt_d4be107c616a
-     */
+     /**
+      * 消息所属的话题 ID
+      * <p> 示例值：omt_d4be107c616a
+      */
     @SerializedName("thread_id")
     private String threadId;
-    /**
-     * 消息类型 text post card image等等
-     * <p> 示例值：card
-     */
+     /**
+      * 消息类型 text post card image等等
+      * <p> 示例值：card
+      */
     @SerializedName("msg_type")
     private String msgType;
-    /**
-     * 消息生成的时间戳(毫秒)
-     * <p> 示例值：1609296809
-     */
+     /**
+      * 消息生成的时间戳(毫秒)
+      * <p> 示例值：1609296809
+      */
     @SerializedName("create_time")
     private String createTime;
-    /**
-     * 消息更新的时间戳
-     * <p> 示例值：1609336806
-     */
+     /**
+      * 消息更新的时间戳
+      * <p> 示例值：1609336806
+      */
     @SerializedName("update_time")
     private String updateTime;
-    /**
-     * 消息是否被撤回
-     * <p> 示例值：false
-     */
+     /**
+      * 消息是否被撤回
+      * <p> 示例值：false
+      */
     @SerializedName("deleted")
     private Boolean deleted;
-    /**
-     * 消息是否被更新
-     * <p> 示例值：false
-     */
+     /**
+      * 消息是否被更新
+      * <p> 示例值：false
+      */
     @SerializedName("updated")
     private Boolean updated;
-    /**
-     * 所属的群
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
-     */
+     /**
+      * 所属的群
+      * <p> 示例值：oc_5ad11d72b830411d72b836c20
+      */
     @SerializedName("chat_id")
     private String chatId;
-    /**
-     * 发送者，可以是用户或应用
-     * <p> 示例值：object
-     */
+     /**
+      * 发送者，可以是用户或应用
+      * <p> 示例值：object
+      */
     @SerializedName("sender")
     private Sender sender;
-    /**
-     * 消息内容,json结构
-     * <p> 示例值：json结构
-     */
+     /**
+      * 消息内容,json结构
+      * <p> 示例值：json结构
+      */
     @SerializedName("body")
     private MessageBody body;
-    /**
-     * 被艾特的人或应用的id
-     * <p> 示例值：
-     */
+     /**
+      * 被艾特的人或应用的id
+      * <p> 示例值：
+      */
     @SerializedName("mentions")
     private Mention[] mentions;
-    /**
-     * 合并消息的上一层级消息id open_message_id
-     * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
-     */
+     /**
+      * 合并消息的上一层级消息id open_message_id
+      * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
+      */
     @SerializedName("upper_message_id")
     private String upperMessageId;
-
     public String getMessageId() {
         return this.messageId;
     }

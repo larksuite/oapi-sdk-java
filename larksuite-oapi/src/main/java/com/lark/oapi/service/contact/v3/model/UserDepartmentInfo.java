@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,60 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class UserDepartmentInfo {
-    /**
-     * 对应的部门ID
-     * <p> 示例值：
-     */
+     /**
+      * 对应的部门ID
+      * <p> 示例值：
+      */
     @SerializedName("department_id")
     private String departmentId;
-    /**
-     * 用户在部门内的排序
-     * <p> 示例值：
-     */
+     /**
+      * 用户在部门内的排序
+      * <p> 示例值：
+      */
     @SerializedName("user_order")
     private Integer userOrder;
-    /**
-     * 用户的部门间的排序
-     * <p> 示例值：
-     */
+     /**
+      * 用户的部门间的排序
+      * <p> 示例值：
+      */
     @SerializedName("department_order")
     private Integer departmentOrder;
-
-    // builder 开始
-    public UserDepartmentInfo() {
-    }
-
-    public UserDepartmentInfo(Builder builder) {
-        /**
-         * 对应的部门ID
-         * <p> 示例值：
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 用户在部门内的排序
-         * <p> 示例值：
-         */
-        this.userOrder = builder.userOrder;
-        /**
-         * 用户的部门间的排序
-         * <p> 示例值：
-         */
-        this.departmentOrder = builder.departmentOrder;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getDepartmentId() {
         return this.departmentId;
     }
@@ -98,64 +67,90 @@ public class UserDepartmentInfo {
         this.departmentOrder = departmentOrder;
     }
 
+
+// builder 开始
+  public UserDepartmentInfo(){}
+
+  public UserDepartmentInfo(Builder builder){
+         /**
+          * 对应的部门ID
+          * <p> 示例值：
+          */
+      this.departmentId = builder.departmentId;
+         /**
+          * 用户在部门内的排序
+          * <p> 示例值：
+          */
+      this.userOrder = builder.userOrder;
+         /**
+          * 用户的部门间的排序
+          * <p> 示例值：
+          */
+      this.departmentOrder = builder.departmentOrder;
+  }
+
     public static class Builder {
-        /**
-         * 对应的部门ID
-         * <p> 示例值：
-         */
+     /**
+      * 对应的部门ID
+      * <p> 示例值：
+      */
         private String departmentId;
-        /**
-         * 用户在部门内的排序
-         * <p> 示例值：
-         */
+     /**
+      * 用户在部门内的排序
+      * <p> 示例值：
+      */
         private Integer userOrder;
-        /**
-         * 用户的部门间的排序
-         * <p> 示例值：
-         */
+     /**
+      * 用户的部门间的排序
+      * <p> 示例值：
+      */
         private Integer departmentOrder;
 
         /**
          * 对应的部门ID
          * <p> 示例值：
-         *
          * @param departmentId
          * @return
          */
         public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
+             this.departmentId = departmentId;
+             return this;
         }
 
+    
 
         /**
          * 用户在部门内的排序
          * <p> 示例值：
-         *
          * @param userOrder
          * @return
          */
         public Builder userOrder(Integer userOrder) {
-            this.userOrder = userOrder;
-            return this;
+             this.userOrder = userOrder;
+             return this;
         }
 
+    
 
         /**
          * 用户的部门间的排序
          * <p> 示例值：
-         *
          * @param departmentOrder
          * @return
          */
         public Builder departmentOrder(Integer departmentOrder) {
-            this.departmentOrder = departmentOrder;
-            return this;
+             this.departmentOrder = departmentOrder;
+             return this;
         }
 
+    
+    
+    public UserDepartmentInfo build(){
+        return new UserDepartmentInfo(this);
+      }
+    }
 
-        public UserDepartmentInfo build() {
-            return new UserDepartmentInfo(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }

@@ -12,7 +12,6 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
 import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
@@ -20,49 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
-
 public class ExternalInstanceLink {
-    /**
-     * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
-     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
-     */
+     /**
+      * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
+      * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
+      */
     @SerializedName("pc_link")
     private String pcLink;
-    /**
-     * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
-     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
-     */
+     /**
+      * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
+      * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
+      */
     @SerializedName("mobile_link")
     private String mobileLink;
-
-    // builder 开始
-    public ExternalInstanceLink() {
-    }
-
-    public ExternalInstanceLink(Builder builder) {
-        /**
-         * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
-         */
-        this.pcLink = builder.pcLink;
-        /**
-         * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
-         */
-        this.mobileLink = builder.mobileLink;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public String getPcLink() {
         return this.pcLink;
     }
@@ -79,46 +53,67 @@ public class ExternalInstanceLink {
         this.mobileLink = mobileLink;
     }
 
+
+// builder 开始
+  public ExternalInstanceLink(){}
+
+  public ExternalInstanceLink(Builder builder){
+         /**
+          * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
+          * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
+          */
+      this.pcLink = builder.pcLink;
+         /**
+          * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
+          * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
+          */
+      this.mobileLink = builder.mobileLink;
+  }
+
     public static class Builder {
-        /**
-         * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
-         */
+     /**
+      * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
+      * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
+      */
         private String pcLink;
-        /**
-         * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
-         */
+     /**
+      * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
+      * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
+      */
         private String mobileLink;
 
         /**
          * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
          * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
-         *
          * @param pcLink
          * @return
          */
         public Builder pcLink(String pcLink) {
-            this.pcLink = pcLink;
-            return this;
+             this.pcLink = pcLink;
+             return this;
         }
 
+    
 
         /**
          * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
          * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
-         *
          * @param mobileLink
          * @return
          */
         public Builder mobileLink(String mobileLink) {
-            this.mobileLink = mobileLink;
-            return this;
+             this.mobileLink = mobileLink;
+             return this;
         }
 
+    
+    
+    public ExternalInstanceLink build(){
+        return new ExternalInstanceLink(this);
+      }
+    }
 
-        public ExternalInstanceLink build() {
-            return new ExternalInstanceLink(this);
-        }
+    public static Builder newBuilder() {
+        return new Builder();
     }
 }
